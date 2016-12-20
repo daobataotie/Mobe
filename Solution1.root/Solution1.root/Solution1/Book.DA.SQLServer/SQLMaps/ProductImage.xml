@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProductImage" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<statements>
+		<select id="hasrowsof" resultClass="bool" parameterClass="Map">
+			select case when exists(
+			SELECT
+			*
+			FROM
+			[dbo].[productImage]
+			WHERE
+			[ImageId] = #ImageId# and productId=#pid#
+			) then 1 else 0 end
+		</select>
+		<select id="hasrows" resultClass="bool" parameterClass="string">
+			select case when exists(
+			SELECT
+			*
+			FROM
+			[dbo].[productImage]
+			where productId=#pid#
+			) then 1 else 0 end
+		</select>
+		<select id="getfirst" resultMap="ProductImageResult"  parameterClass="string">
+			<![CDATA[
+			select top 1 *
+			from dbo.productImage 
+			where productId=#value#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="getlast" resultMap="ProductImageResult"  parameterClass="string">
+			select top 1 *
+			from dbo.productImage 	
+			where productId=#value#
+			order by InsertTime desc
+		</select>
+		<select id="getprev" resultMap="ProductImageResult" parameterClass="ProductImage">
+			<![CDATA[
+			select top 1 *
+			from dbo.productImage
+			where InsertTime < #InsertTime# and productId=#ProductId#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="getnext" resultMap="ProductImageResult" parameterClass="ProductImage">
+			<![CDATA[
+			select top 1 *
+			from dbo.productImage
+			where InsertTime > #InsertTime# and productId=#ProductId#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="hasrowsbefore" resultClass="bool" parameterClass="ProductImage">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.productImage
+				where InsertTime < #InsertTime# and productId=#ProductId#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+
+		<select id="hasrowsafter" resultClass="bool" parameterClass="ProductImage">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.productImage
+				where InsertTime > #InsertTime# and productId=#ProductId#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<!-- delete -->
+		<delete id="mydelete" parameterClass="Map">
+			DELETE FROM [dbo].[productImage]
+			WHERE
+			[ImageId] = #ImageId# and where productId=#ProductId#
+		</delete>
+
+    <select id="selectByproductId" resultMap="ProductImageResult" parameterClass="Map">
+      select * from productImage where productId=#value#
+    </select>
+	</statements>
+</sqlMap>

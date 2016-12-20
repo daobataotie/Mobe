@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCPGOnlineCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byPCPGOnlineCheckId" resultMap="PCPGOnlineCheckDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM PCPGOnlineCheckDetail WHERE PCPGOnlineCheckDetail.PCPGOnlineCheckId = #value# ORDER BY PCPGOnlineCheckDetail.PCPGOnlineCheckDetailDate
+      ]]>
+    </select>
+    <delete id="DeleteByPCPGOnlineCheckId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM PCPGOnlineCheckDetail WHERE PCPGOnlineCheckDetail.PCPGOnlineCheckId = #value#
+      ]]>
+    </delete>
+    <select id="SelectByFromInvoiceId" parameterClass="string" resultMap="PCPGOnlineCheckDetailResult">
+      <![CDATA[
+      SELECT * FROM PCPGOnlineCheckDetail 
+      WHERE PCPGOnlineCheckDetail.PCPGOnlineCheckId = #value# ORDER BY PCPGOnlineCheckDetail.PCPGOnlineCheckDetailDate
+      ]]>
+    </select>
+    <select id="GetTimerListString" parameterClass="string" resultMap="PCPGOnlineCheckDetailResult">
+      <![CDATA[
+      SELECT * FROM PCPGOnlineCheckDetail WHERE PCPGOnlineCheckId = #value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

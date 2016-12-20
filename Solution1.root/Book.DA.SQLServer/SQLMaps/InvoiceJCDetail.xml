@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceJCDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="InvoiceJCDetailResult1" class="InvoiceJCDetail">
+      <result property="InvoiceJCDetailId" column="InvoiceJCDetailId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="InvoiceJCDetailQuantity" column="InvoiceJCDetailQuantity" />
+      <result property="InvoiceJCDetailNote" column="InvoiceJCDetailNote" />
+      <result property="InvoiceYiHuaiRuQuantity" column="InvoiceYiHuaiRuQuantity" />
+      <result property="InvoiceWeiHuaiRuQuantity" column="InvoiceWeiHuaiRuQuantity" />
+      <result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceJC.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="InvoiceHRDetailQuantity" column="InvoiceHRDetailQuantity" />
+      <result property="InvoiceHRDetailNote" column="InvoiceHRDetailNote" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="select_by_invoiceid" parameterClass="string" resultMap="InvoiceJCDetailResult">
+      <![CDATA[
+            select * 
+            from invoiceJCdetail
+            where invoiceid=#value#
+            ]]>
+    </select>
+    <delete id="delete_by_invoiceid" parameterClass="string">
+      delete
+      from InvoiceJCDetail
+      where invoiceid=#value#
+    </delete>
+    <select id ="select_by_companyid_insert" parameterClass="string" resultMap="InvoiceJCDetailResult">
+      select * from invoicejcdetail where invoiceid in (select invoiceid from invoicejc where CustomerId = #value#)
+    </select>
+
+    <select id ="select_by_companyid_update" parameterClass="Map" resultMap="InvoiceJCDetailResult1">
+      <![CDATA[
+      SELECT     InvoiceJCDetail.InvoiceJCDetailId, InvoiceJCDetail.ProductId, InvoiceJCDetail.InvoiceId, InvoiceJCDetail.InvoiceJCDetailQuantity, 
+                      InvoiceJCDetail.InvoiceJCDetailNote, InvoiceJCDetail.InvoiceYiHuaiRuQuantity, InvoiceJCDetail.InvoiceWeiHuaiRuQuantity, 
+                      InvoiceJCDetail.InvoiceProductUnit, InvoiceHRDetail.InvoiceHRDetailQuantity, InvoiceHRDetail.InvoiceHRDetailNote
+FROM         (InvoiceJCDetail INNER JOIN
+                      InvoiceHRDetail ON InvoiceJCDetail.InvoiceJCDetailId = InvoiceHRDetail.InvoiceJCDetailId) INNER JOIN
+                      InvoiceHR ON InvoiceHRDetail.InvoiceId = InvoiceHR.InvoiceId
+WHERE     (InvoiceHR.InvoiceId = #invoiceid#) AND (InvoiceHR.CustomerId = #companyid#)
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcInvoiceCOBillDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectByAcInvoiceCOBill" resultMap="AcInvoiceCOBillDetailResult" parameterClass="string" >
+      select * from AcInvoiceCOBillDetail where AcInvoiceCOBillId=#value#
+    </select>
+
+    <delete id="delete_detail_AcinvoiceCoBilID" parameterClass="string">
+      DELETE FROM [dbo].[AcInvoiceCOBillDetail]
+      WHERE
+      [AcInvoiceCOBillId] = #AcInvoiceCOBillId#
+    </delete>
+  </statements>
+</sqlMap>

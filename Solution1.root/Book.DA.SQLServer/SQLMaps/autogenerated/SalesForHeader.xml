@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="SalesForHeader" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="SalesForHeader" type="Book.Model.SalesForHeader, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="SalesForHeaderResult" class="SalesForHeader">
+			<result property="SalesForHeaderId" column="SalesForHeaderId" />
+			<result property="Employee0Id" column="Employee0Id" />
+			<result property="Employee1Id" column="Employee1Id" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="SalesForName" column="SalesForName" />
+			<result property="StartDate" column="StartDate" />
+			<result property="EndDate" column="EndDate" />
+			<result property="SalesForDate" column="SalesForDate" />
+			<result property="State" column="State" />
+			<result property="Id" column="Id" />
+		<result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[SalesForHeader]
+				WHERE
+				[SalesForHeaderId] = #SalesForHeaderId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[SalesForHeader]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="SalesForHeaderResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.SalesForHeader 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="SalesForHeaderResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.SalesForHeader 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="SalesForHeaderResult" parameterClass="SalesForHeader">
+			<![CDATA[
+			select top 1 *
+			from dbo.SalesForHeader
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="SalesForHeaderResult" parameterClass="SalesForHeader">
+			<![CDATA[
+			select top 1 *
+			from dbo.SalesForHeader
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="SalesForHeader">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.SalesForHeader
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="SalesForHeader">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.SalesForHeader
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="SalesForHeaderResult" parameterClass="SalesForHeader">
+			SELECT
+				[SalesForHeaderId],
+				[Employee0Id],
+				[Employee1Id],
+				[InsertTime],
+				[UpdateTime],
+				[SalesForName],
+				[StartDate],
+				[EndDate],
+				[SalesForDate],
+				[State],
+				[Id]
+			FROM
+				[dbo].[SalesForHeader]
+			WHERE
+				[SalesForHeaderId] = #SalesForHeaderId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[SalesForHeader]
+			WHERE
+				[SalesForHeaderId] = #SalesForHeaderId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="SalesForHeaderResult" >
+			SELECT *
+			FROM 
+				[dbo].[SalesForHeader]
+			ORDER BY SalesForHeaderId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[SalesForHeader]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="SalesForHeaderResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[SalesForHeader]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="SalesForHeader">
+			INSERT INTO [dbo].[SalesForHeader] 
+			(
+				[SalesForHeaderId],
+				[Employee0Id],
+				[Employee1Id],
+				[InsertTime],
+				[UpdateTime],
+				[SalesForName],
+				[StartDate],
+				[EndDate],
+				[SalesForDate],
+				[State],
+				[Id]
+			) 
+			VALUES 
+			(
+				#SalesForHeaderId#,
+				#Employee0Id#,
+				#Employee1Id#,
+				#InsertTime#,
+				#UpdateTime#,
+				#SalesForName#,
+				#StartDate#,
+				#EndDate#,
+				#SalesForDate#,
+				#State#,
+				#Id#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="SalesForHeader">
+			UPDATE [SalesForHeader] SET
+				[Employee0Id] = #Employee0Id#,
+				[Employee1Id] = #Employee1Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[SalesForName] = #SalesForName#,
+				[StartDate] = #StartDate#,
+				[EndDate] = #EndDate#,
+				[SalesForDate] = #SalesForDate#,
+				[State] = #State#,
+				[Id] = #Id#
+			WHERE
+				[SalesForHeaderId] = #SalesForHeaderId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.SalesForHeader
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="SalesForHeaderResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[SalesForHeader]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.SalesForHeader
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

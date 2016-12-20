@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCEarPressCheck" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByDateRage" resultMap="PCEarPressCheckResult" parameterClass="Map">
+      <![CDATA[
+      select * from PCEarPressCheck where PCEarPressCheckDate between #StartDate# and #EndDate# and IsReport=#IsReport#
+      ]]>
+    </select>
+
+    <select id="mhas_rows" resultClass="bool" parameterClass="string">
+      <![CDATA[
+      select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCEarPressCheck]
+ 				WHERE ISReport=	#value#				
+				) then 1 else 0 end
+      ]]>
+    </select>
+    
+    <select id="mget_first" resultMap="PCEarPressCheckResult" parameterClass ="string">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCEarPressCheck
+			WHERE ISReport=	#value#	
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="mget_last" resultMap="PCEarPressCheckResult" parameterClass ="string">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCEarPressCheck
+			WHERE ISReport=	#value#				
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="mget_prev" resultMap="PCEarPressCheckResult" parameterClass="PCEarPressCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCEarPressCheck
+			where InsertTime < #InsertTime#	
+      and ISReport=	#ISReport#	      			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="mget_next" resultMap="PCEarPressCheckResult" parameterClass="PCEarPressCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCEarPressCheck
+			where InsertTime > #InsertTime#	
+      and ISReport=	#ISReport#          			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="mhas_rows_before" resultClass="bool" parameterClass="PCEarPressCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCEarPressCheck
+				where InsertTime < #InsertTime#
+        and ISReport=	#ISReport#        			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="mhas_rows_after" resultClass="bool" parameterClass="PCEarPressCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCEarPressCheck
+				where InsertTime > #InsertTime#
+        and ISReport=	#ISReport#
+        ) then 1 else 0 end
+			]]>
+    </select>
+  </statements>
+</sqlMap>

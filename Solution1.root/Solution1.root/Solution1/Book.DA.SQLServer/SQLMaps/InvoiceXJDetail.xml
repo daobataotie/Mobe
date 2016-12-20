@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceXJDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<statements>
+		<select id="select_by_invoiceid" parameterClass="string" resultMap="InvoiceXJDetailResult">
+			<![CDATA[
+            select * 
+            from dbo.invoicexjdetail
+            where invoiceid=#value#
+            ]]>
+		</select>
+    
+    <!--查詢產品类型为 公司产品的订单-->
+    <select id="select_by_productType" parameterClass="string" resultMap="InvoiceXJDetailResult">
+      <![CDATA[
+            select * 
+            from dbo.invoicexjdetail
+            where [ProductId] is not null and [PrimaryKeyId] is  null
+            ]]>
+    </select>
+    <delete id="delete_by_invoiceid" parameterClass="string">
+      delete
+      from dbo.invoicexjdetail
+      where invoiceid=#value#
+    </delete>
+  </statements>
+</sqlMap>

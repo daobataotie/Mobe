@@ -1,0 +1,129 @@
+
+----------------------------------------------------
+項目說明:
+Book.BL:            業務層
+Book.DA:            接口層   
+Book.DA.SQLServer:  數據層工廠
+Book.Model:         實體層  
+Book.UI:            UI層
+Tool.DBManager:     創建數據庫
+Tool.CSManager:     創建數據庫連接字符串  
+文件夹
+-----------------------------------------------------
+Analyse: 分析
+General: 一般的 登陆窗体
+Help: 帮助
+*******************************************單據
+Invoices: 单据
+  BS:報損單       BY:報溢單      CF:拆分单        CJ:采购报价单   CO:采购订单     
+  CG:采购进货单   CT:采购退货单  FK:付款单        FT:资金流转单   HC:借入还出单    
+  HR:借出还入单   HZ:获赠单      JC:借出單        JR:借入单       PI:产品还入单    
+  PO:产品借出单   PT:调拨单      QI:其他收入单    QK:请款单       QO:其他支出单    
+  SK:收款单       ZS:赠送单      ZZ:组装单        XJ:客户报价单   XO:销售订单 
+  XS:销售出货单   XT:销售退货单
+  
+
+Query: 查询
+******************************************* 設置
+Settings: 设置
+Settings|Basic: 基础数据设置
+Settings|BasicData|Accounts:           资金账户设置
+Settings|BasicData|Companies:          往来单位
+Settings|BasicData|Depots:             库房
+Settings|BasicData|Employees:          员工
+Settings|BasicData|ProductCatagories:  商品种类
+Settings|BasicData|AcademicBackGround: 學歷
+Settings|BasicData|AreaCategory:       地區設置
+Settings|BasicData|Products:           商品設置
+Settings|BasicData|Bank:               銀行設置
+Settings|BasicData|Company:            公司設置
+Settings|BasicData|CompanyLevels:      客戶級別
+Settings|BasicData|CustomerCategory:   客戶分類
+Settings|BasicData|CustomInspectionRule自定义抽检规则
+Settings|BasicData|Customs:            客戶 
+Settings|BasicData|Department:         部門
+Settings|BasicData|Duty:               職務
+Settings|BasicData|FreightedCompany:   貨運公司
+Settings|BasicData|IncomingKinds:      收入類型
+Settings|BasicData|OutgoingKinds:      支出类型
+Settings|BasicData|PackageType:        包裝類別
+Settings|BasicData|PayMethods:         付款方式
+Settings|BasicData|ProcessCategory:    加工種類
+Settings|BasicData|ProductCategories:  產品類別
+Settings|BasicData|ProductUnit:        產品單位
+Settings|BasicData|QualityTestPlan:    质检方案
+Settings|BasicData|Supplier:           供應商
+Settings|BasicData|SupplierCategory:   供應商類別
+Settings|BasicData|TradeCategory:      行业设置
+Settings|BasicData|UnitGroup:          單位組
+
+
+Settings|Miscellaneous: 其它设置
+Settings|Options: 系统选项
+Settings|PeriodBeginning: 期初
+Settings|Privileges: 权限
+Settings|ProduceManager|ManProcedureProcess:  物料加工生產序號
+Settings|ProduceManager|MaterialType:         物料類別
+Settings|ProduceManager|Techonlogy:           生产流程
+Settings|ProduceManager|ManProcedureProcess:  物料加工生產序號
+Settings|ProduceManager|WorkHouse:            工作中心
+Settings|ProduceManager|Workhouselog:         工作中心日誌
+Settings|ProduceManager|BomEdit.cs:           物料清單
+
+******************************************* 工作流
+Workflow:工作流
+Workflow|currentwork                   待我審批與我的工作
+Workflow|Tablem                        表單維護
+Workflow|workflowmanage                流程定義
+Workflow|workflowmanage|ProcessEdit    過程
+******************************************* 生產管理
+produceManager:生產管理
+
+produceManager|createProduce           選擇銷售訂單
+produceManager|MPSheader               生產計劃單
+produceManager|MRSHeader               物料需求計劃單
+produceManager|ProduceInDepot          生產入庫單
+produceManager|ProduceMaterial         生產領料單
+produceManager|ProduceMaterialExit     生產退料單
+produceManager|PronoteHeader           生產通知
+produceManager|ProduceOtherCompact     生產外包合同
+produceManager|ProduceOtherMaterial    生產外包領料
+produceManager|ProduceOtherExitMaterial生產外包退料
+produceManager|ProduceOtherInDepot     生產外包入庫
+******************************************* 人力資源
+Hr人力資源
+Hr|Attendance|AnnualHoliday            年假維護
+Hr|Attendance|Atten                    考勤記錄
+Hr|Attendance|ClockData                打卡記錄
+Hr|Attendance|Flextime                 排班管理
+Hr|Attendance|OverTime                 加班
+Hr|Attendance|Leave                    員工休假
+Hr|Attendance|LendRecord               借出記錄
+Hr|Attendance|Meals                    餐費管理
+Hr|Attendance|SpecificFee              班別管理
+Hr|Attendance|TempCard                 臨時卡維護
+Hr|Parameter |HrParameterForm          人事參數維護
+Hr|Salary|Salaryset|CalculationForm    薪資計算
+Hr|Salary|Salaryset|CalculationListForm底薪列表
+Hr|Salary|Salaryset|EditForm           薪資設定
+Hr|Salary|Salaryset|LunchDetailForm    查詢月餐費列表
+Hr|Salary|Salaryset|OverTimeForm       查詢月加班列表
+Hr|Salary|Salaryset|WordBonusList      隨機獎金列表
+Hr|Salary|Salaryset|CalculationForm
+Tools: 工具
+
+窗体
+-----------------------------------------------------
+General|ChangeMyPasswordForm: 更改我的密码
+General|ChooseBookForm: 选择账套
+General|ConnectionConfigForm: 连接配置
+General|LoginForm: 登录
+General|SpalshForm:闪屏
+
+Help|AboutForm: 关于
+Invoices|ChooseCompanyForm: 选择往来单位
+Invoices|ChooseProductForm: 选择商品
+Invoice|EditForm: 单据编辑
+
+Settings|BasicData|Accounts|EditForm: 账户信息编辑
+

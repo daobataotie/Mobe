@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="MRSHeader" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="MRSHeader" type="Book.Model.MRSHeader, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="MRSHeaderResult" class="MRSHeader">
+      <result property="MRSHeaderId" column="MRSHeaderId" />
+      <result property="MPSheaderId" column="MPSheaderId" />
+      <result property="Employee1Id" column="Employee1Id" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="Id" column="Id" />
+      <result property="MRSHeadername" column="MRSHeadername" />
+      <result property="MRSstartdate" column="MRSstartdate" />
+      <result property="MRSenddate" column="MRSenddate" />
+      <result property="MRSstate" column="MRSstate" />
+      <result property="MRSheaderDesc" column="MRSheaderDesc" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="SourceType" column="SourceType" />
+      <result property="IsbuiltInvoiceCO" column="IsbuiltInvoiceCO" />
+      <result property="InvoiceStatus" column="InvoiceStatus" />
+      <result property="InvoiceFlag" column="InvoiceFlag" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[MRSHeader]
+				WHERE
+				[MRSHeaderId] = #MRSHeaderId#
+                       	                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[MRSHeader] 				
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="MRSHeaderResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.MRSHeader
+			where invoicestatus<>2 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="MRSHeaderResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.MRSHeader
+			where invoicestatus<>2			
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="MRSHeaderResult" parameterClass="MRSHeader">
+      <![CDATA[
+			select top 1 *
+			from dbo.MRSHeader
+			where InsertTime < #InsertTime#	
+             and invoicestatus<>2 			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="MRSHeaderResult" parameterClass="MRSHeader">
+      <![CDATA[
+			select top 1 *
+			from dbo.MRSHeader
+			where InsertTime > #InsertTime#	
+                 and invoicestatus<>2			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="MRSHeader">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.MRSHeader
+				where InsertTime < #InsertTime#
+                 and invoicestatus<>2			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="MRSHeader">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.MRSHeader
+				where InsertTime > #InsertTime#
+                 and invoicestatus<>2 			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="MRSHeaderResult" parameterClass="MRSHeader">
+      <![CDATA[SELECT
+				[MRSHeaderId],
+				[MPSheaderId],
+				[Employee1Id],
+				[Employee0Id],
+				[InsertTime],
+				[UpdateTime],
+				[Id],
+				[MRSHeadername],
+				[MRSstartdate],
+				[MRSenddate],
+				[MRSstate],
+				[MRSheaderDesc],
+				[CustomerId],
+				[SourceType],
+				[IsbuiltInvoiceCO],
+				[InvoiceStatus],
+				[InvoiceFlag],
+				[AuditState],
+				[AuditEmpId]
+			FROM
+				[dbo].[MRSHeader]
+			WHERE
+				[MRSHeaderId] = #MRSHeaderId#
+                 and invoicestatus<>2 			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[MRSHeader]
+			WHERE            
+				[MRSHeaderId] = #MRSHeaderId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="MRSHeaderResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[MRSHeader]
+                 where  invoicestatus<>2 			                   
+			ORDER BY Id ASC			
+			
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[MRSHeader]
+                 where invoicestatus<>2 			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="MRSHeaderResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[MRSHeader]
+                     where  invoicestatus<>2 			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="MRSHeader">
+      <![CDATA[ INSERT INTO [dbo].[MRSHeader] 
+			(
+				[MRSHeaderId],
+				[MPSheaderId],
+				[Employee1Id],
+				[Employee0Id],
+				[InsertTime],
+				[UpdateTime],
+				[Id],
+				[MRSHeadername],
+				[MRSstartdate],
+				[MRSenddate],
+				[MRSstate],
+				[MRSheaderDesc],
+				[CustomerId],
+				[SourceType],
+				[IsbuiltInvoiceCO],
+				[InvoiceStatus],
+				[InvoiceFlag],
+				[AuditState],
+				[AuditEmpId]
+			) 
+			VALUES 
+			(
+				#MRSHeaderId#,
+				#MPSheaderId#,
+				#Employee1Id#,
+				#Employee0Id#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#,
+				#MRSHeadername#,
+				#MRSstartdate#,
+				#MRSenddate#,
+				#MRSstate#,
+				#MRSheaderDesc#,
+				#CustomerId#,
+				#SourceType#,
+				#IsbuiltInvoiceCO#,
+				#InvoiceStatus#,
+				#InvoiceFlag#,
+				#AuditState#,
+				#AuditEmpId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="MRSHeader">
+      <![CDATA[ 	UPDATE [MRSHeader] SET
+				[MPSheaderId] = #MPSheaderId#,
+				[Employee1Id] = #Employee1Id#,
+				[Employee0Id] = #Employee0Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#,
+				[MRSHeadername] = #MRSHeadername#,
+				[MRSstartdate] = #MRSstartdate#,
+				[MRSenddate] = #MRSenddate#,
+				[MRSstate] = #MRSstate#,
+				[MRSheaderDesc] = #MRSheaderDesc#,
+				[CustomerId] = #CustomerId#,
+				[SourceType] = #SourceType#,
+				[IsbuiltInvoiceCO] = #IsbuiltInvoiceCO#,
+				[InvoiceStatus] = #InvoiceStatus#,
+				[InvoiceFlag] = #InvoiceFlag#,
+				[AuditState] = #AuditState#,
+				[AuditEmpId] = #AuditEmpId#
+			WHERE
+				[MRSHeaderId] = #MRSHeaderId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[MRSHeader]
+				where  MRSHeaderId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+    <select id="exists" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.MRSHeader
+				where Id = #value#
+                and invoicestatus<>2 			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="get_by_id" resultMap="MRSHeaderResult" parameterClass="string">
+      <![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[MRSHeader]
+                     where invoicestatus<>2 			          
+         
+			WHERE
+				Id = #value#
+			]]>
+    </select>
+
+    <select id="existsexcept" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from dbo.MRSHeader
+				where Id = #newId# and Id <> #oldId#
+                     and invoicestatus<>2 			          
+         
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+
+  </statements>
+</sqlMap>
+

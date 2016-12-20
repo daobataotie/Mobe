@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="TempCard" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="TempCard" type="Book.Model.TempCard, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="TempCardResult" class="TempCard">
+			<result property="TempCardId" column="TempCardId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="DutyDate" column="DutyDate" />
+			<result property="CardNo" column="CardNo" />
+		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[TempCard]
+				WHERE
+				[TempCardId] = #TempCardId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[TempCard]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="TempCardResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.TempCard 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="TempCardResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.TempCard 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="TempCardResult" parameterClass="TempCard">
+			<![CDATA[
+			select top 1 *
+			from dbo.TempCard
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="TempCardResult" parameterClass="TempCard">
+			<![CDATA[
+			select top 1 *
+			from dbo.TempCard
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="TempCard">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.TempCard
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="TempCard">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.TempCard
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="TempCardResult" parameterClass="TempCard">
+			SELECT
+				[TempCardId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[DutyDate],
+				[CardNo]
+			FROM
+				[dbo].[TempCard]
+			WHERE
+				[TempCardId] = #TempCardId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[TempCard]
+			WHERE
+				[TempCardId] = #TempCardId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="TempCardResult" >
+			SELECT *
+			FROM 
+				[dbo].[TempCard]
+			ORDER BY TempCardId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[TempCard]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="TempCardResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[TempCard]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="TempCard">
+			INSERT INTO [dbo].[TempCard] 
+			(
+				[TempCardId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[DutyDate],
+				[CardNo]
+			) 
+			VALUES 
+			(
+				#TempCardId#,
+				#EmployeeId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#DutyDate#,
+				#CardNo#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="TempCard">
+			UPDATE [TempCard] SET
+				[EmployeeId] = #EmployeeId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[DutyDate] = #DutyDate#,
+				[CardNo] = #CardNo#
+			WHERE
+				[TempCardId] = #TempCardId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ANSIPCImpactCheck" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="ANSIPCImpactCheck" type="Book.Model.ANSIPCImpactCheck, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="ANSIPCImpactCheckResult" class="ANSIPCImpactCheck">
+      <result property="ANSIPCImpactCheckID" column="ANSIPCImpactCheckID" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="ANSIPCImpactCheckDate" column="ANSIPCImpactCheckDate" />
+      <result property="InvoiceCusXOId" column="InvoiceCusXOId" />
+      <result property="PronoteHeaderId" column="PronoteHeaderId" />
+      <result property="Spead" column="Spead" />
+      <result property="ANSIPCImpactCheckDesc" column="ANSIPCImpactCheckDesc" />
+      <result property="CheckStandard" column="CheckStandard" />
+      <result property="InvoiceXOQuantity" column="InvoiceXOQuantity" />
+      <result property="PowerImpact" column="PowerImpact" />
+      <result property="ZhuiQiuKG" column="ZhuiQiuKG" />
+      <result property="PrintDesc1" column="PrintDesc1" />
+      <result property="ANSIPCImpactCheckCount" column="ANSIPCImpactCheckCount" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="IsYuanZhuiZhuiLuo" column="IsYuanZhuiZhuiLuo" />
+      <result property="IsGaoSuChongJi" column="IsGaoSuChongJi" />
+      <result property="IsNaiRanXing" column="IsNaiRanXing" />
+      <result property="ForANSIOrJIS" column="ForANSIOrJIS"/>
+      <result property="UnitId" column="UnitId"/>
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property ="Unit" column="UnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ANSIPCImpactCheck]
+				WHERE
+				[ANSIPCImpactCheckID] = #ANSIPCImpactCheckID#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ANSIPCImpactCheck]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="ANSIPCImpactCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.ANSIPCImpactCheck
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="ANSIPCImpactCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.ANSIPCImpactCheck
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="ANSIPCImpactCheckResult" parameterClass="ANSIPCImpactCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.ANSIPCImpactCheck
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="ANSIPCImpactCheckResult" parameterClass="ANSIPCImpactCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.ANSIPCImpactCheck
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="ANSIPCImpactCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ANSIPCImpactCheck
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="ANSIPCImpactCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ANSIPCImpactCheck
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="ANSIPCImpactCheckResult" parameterClass="ANSIPCImpactCheck">
+      <![CDATA[SELECT
+				[ANSIPCImpactCheckID],
+				[EmployeeId],
+				[ProductId],
+				[InsertTime],
+				[UpdateTime],
+				[ANSIPCImpactCheckDate],
+				[InvoiceCusXOId],
+				[PronoteHeaderId],
+				[Spead],
+				[ANSIPCImpactCheckDesc],
+				[CheckStandard],
+				[InvoiceXOQuantity],
+				[PowerImpact],
+				[ZhuiQiuKG],
+				[PrintDesc1],
+				[ANSIPCImpactCheckCount],
+				[InvoiceId],
+				[IsYuanZhuiZhuiLuo],
+				[IsGaoSuChongJi],
+				[IsNaiRanXing],
+        [ForANSIOrJIS],
+        [UnitId],
+        [AuditState],
+        [AuditEmpId]
+        
+			FROM
+				[dbo].[ANSIPCImpactCheck]
+			WHERE
+				[ANSIPCImpactCheckID] = #ANSIPCImpactCheckID#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[ANSIPCImpactCheck]
+			WHERE            
+				[ANSIPCImpactCheckID] = #ANSIPCImpactCheckID#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="ANSIPCImpactCheckResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[ANSIPCImpactCheck]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[ANSIPCImpactCheck]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="ANSIPCImpactCheckResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ANSIPCImpactCheck]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="ANSIPCImpactCheck">
+      <![CDATA[ INSERT INTO [dbo].[ANSIPCImpactCheck] 
+			(
+				[ANSIPCImpactCheckID],
+				[EmployeeId],
+				[ProductId],
+				[InsertTime],
+				[UpdateTime],
+				[ANSIPCImpactCheckDate],
+				[InvoiceCusXOId],
+				[PronoteHeaderId],
+				[Spead],
+				[ANSIPCImpactCheckDesc],
+				[CheckStandard],
+				[InvoiceXOQuantity],
+				[PowerImpact],
+				[ZhuiQiuKG],
+				[PrintDesc1],
+				[ANSIPCImpactCheckCount],
+				[InvoiceId],
+				[IsYuanZhuiZhuiLuo],
+				[IsGaoSuChongJi],
+				[IsNaiRanXing],
+        [ForANSIOrJIS],
+        [UnitId],
+        [AuditState],
+        [AuditEmpId]
+			) 
+			VALUES 
+			(
+				#ANSIPCImpactCheckID#,
+				#EmployeeId#,
+				#ProductId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#ANSIPCImpactCheckDate#,
+				#InvoiceCusXOId#,
+				#PronoteHeaderId#,
+				#Spead#,
+				#ANSIPCImpactCheckDesc#,
+				#CheckStandard#,
+				#InvoiceXOQuantity#,
+				#PowerImpact#,
+				#ZhuiQiuKG#,
+				#PrintDesc1#,
+				#ANSIPCImpactCheckCount#,
+				#InvoiceId#,
+				#IsYuanZhuiZhuiLuo#,
+				#IsGaoSuChongJi#,
+				#IsNaiRanXing#,
+        #ForANSIOrJIS#,
+        #UnitId#,
+        #AuditState#,
+        #AuditEmpId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="ANSIPCImpactCheck">
+      <![CDATA[ 	UPDATE [ANSIPCImpactCheck] SET
+				[EmployeeId] = #EmployeeId#,
+				[ProductId] = #ProductId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[ANSIPCImpactCheckDate] = #ANSIPCImpactCheckDate#,
+				[InvoiceCusXOId] = #InvoiceCusXOId#,
+				[PronoteHeaderId] = #PronoteHeaderId#,
+				[Spead] = #Spead#,
+				[ANSIPCImpactCheckDesc] = #ANSIPCImpactCheckDesc#,
+				[CheckStandard] = #CheckStandard#,
+				[InvoiceXOQuantity] = #InvoiceXOQuantity#,
+				[PowerImpact] = #PowerImpact#,
+				[ZhuiQiuKG] = #ZhuiQiuKG#,
+				[PrintDesc1] = #PrintDesc1#,
+				[ANSIPCImpactCheckCount] = #ANSIPCImpactCheckCount#,
+				[InvoiceId] = #InvoiceId#,
+				[IsYuanZhuiZhuiLuo] = #IsYuanZhuiZhuiLuo#,
+				[IsGaoSuChongJi] = #IsGaoSuChongJi#,
+				[IsNaiRanXing] = #IsNaiRanXing#,
+        [ForANSIOrJIS]=#ForANSIOrJIS#,
+        [UnitId]=#UnitId#,
+        [AuditState]=#AuditState#,      
+        [AuditEmpId]=#AuditEmpId#
+			WHERE
+				[ANSIPCImpactCheckID] = #ANSIPCImpactCheckID#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ANSIPCImpactCheck]
+				where  ANSIPCImpactCheckID = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

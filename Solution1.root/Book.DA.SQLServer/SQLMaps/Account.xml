@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Account" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <statements>
+        <update id="increment" parameterClass="map">
+            update dbo.account
+            set accountbalance1 = accountbalance1 + #Money#
+            where accountid = #AccountId#
+        </update>
+        <update  id="decrement"  parameterClass="map" >
+                update dbo.account
+            set accountbalance1 = accountbalance1 - #Money#
+            where accountid = #AccountId:Varchar#
+			  
+        </update> 
+		
+        
+    </statements>
+    
+</sqlMap>

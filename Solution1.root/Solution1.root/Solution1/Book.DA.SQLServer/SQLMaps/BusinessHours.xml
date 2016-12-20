@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="BusinessHours" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="IsExistsBusinessName" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      select case when EXISTS(select * FROM BusinessHours WHERE BusinessHoursId<>#id# AND BusinessHoursName=#name#) then 1 else 0 END
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

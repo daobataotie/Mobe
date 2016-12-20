@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCDoubleImpactCheck" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByDateRage" resultMap="PCDoubleImpactCheckResult" parameterClass="Map">
+      <![CDATA[
+      SELECT 
+      * 
+      FROM PCDoubleImpactCheck 
+      WHERE PCDoubleImpactCheckDate BETWEEN #startdate# AND #enddate# 
+      AND PCDoubleImpactCheck.PCDoubleImpactCheckType = #pcFlag# $sql$
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

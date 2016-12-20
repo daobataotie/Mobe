@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="StockCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_by_StockCheckId" resultMap="StockCheckDetailResult" parameterClass="string">
+      SELECT * FROM StockCheckDetail WHERE StockCheckId=#value#
+    </select>
+    <delete id="Delete_by_StockCheckId" parameterClass="string">
+      DELETE FROM StockCheckDetail WHERE StockCheckId=#value#
+    </delete>
+
+    <delete id="DeleteByProductIdandPositionId" parameterClass="string">
+      SELECT * FROM StockCheckDetail WHERE ProductId=#productId# AND DepotPositionId=#positionId#
+    </delete>
+
+    <select id ="Select_by_ProductidAndDepotId" resultMap="StockCheckDetailResult" parameterClass="Map">
+      SELECT * FROM StockCheckDetail WHERE ProductId=#pid#
+    </select>
+
+    <select id="Select_by_Rangedate" resultMap="StockCheckDetailResult" parameterClass="Map">
+      SELECT * FROM StockCheckDetail WHERE StockCheckId IN (SELECT StockCheckId FROM StockCheck WHERE StockCheck.StockCheckDate BETWEEN #startDate# AND #endDate#)
+    </select>
+
+    <select id="GetNumsByProductIdAndDepositionId" resultClass="double" parameterClass="Map">
+      SELECT isnull(sum(StockCheckQuantity),0) FROM StockCheckDetail WHERE DepotPositionId=#depositionId# AND ProductId=#productid#
+    </select>
+      
+    <select id="SelectByProductIdAndPositionIdAndStockCheckId" resultMap="StockCheckDetailResult" parameterClass="Map">
+      SELECT * FROM StockCheckDetail WHERE ProductId=#productId# AND DepotPositionId=#depositionId# and StockCheckId=#stockcheckId#
+    </select>
+
+    <select id="SelectByProductId" resultMap="StockCheckDetailResult" parameterClass="string">
+      SELECT * FROM StockCheckDetail WHERE ProductId=#value#
+    </select>
+    
+    <!--<select id="Select_by_RangedateDiff" resultMap="StockCheckDetailResult" parameterClass="Map">
+      SELECT * FROM StockCheckDetail WHERE StockCheckId IN (SELECT StockCheckId FROM StockCheck WHERE StockCheck.StockCheckDate BETWEEN #startDate# AND #endDate#) and
+    </select>
+    -->
+
+    <select id="SelectRangeDataDiffCheck" resultMap="StockCheckDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT *,ISNULL( StockCheckBookQuantity,0)-isnull(StockCheckQuantity ,0) AS chayi FROM StockCheckDetail WHERE StockCheckId IN
+      (SELECT StockCheckId FROM StockCheck WHERE StockCheckDate BETWEEN #startDate# AND #endDate#)
+      AND ISNULL( StockCheckBookQuantity,0)<>isnull(StockCheckQuantity ,0)
+      ]]>
+    </select>
+
+  </statements>
+</sqlMap>

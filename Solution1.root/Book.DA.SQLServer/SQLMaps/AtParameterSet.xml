@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AtParameterSet" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <select id="SelectByAtCurrentlyYear" resultMap="AtParameterSetResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM AtParameterSet WHERE AtCurrentlyYear = #value#
+      ]]>
+    </select>
+
+    <delete id="UpdateIsThisYear" parameterClass="string">
+      <![CDATA[
+      UPDATE AtParameterSet
+      SET IsThisYear = 0
+      WHERE AtParameterSet.AtParameterSetId <> #value#
+      ]]>
+    </delete>
+
+
+
+  </statements>
+</sqlMap>

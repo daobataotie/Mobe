@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="CustomerProductStock" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="CustomerProductStock" type="Book.Model.CustomerProductStock, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="CustomerProductStockResult" class="CustomerProductStock">
+			<result property="StockId" column="StockId" />
+			<result property="DepotPositionId" column="DepotPositionId" />
+			<result property="PrimaryKeyId" column="PrimaryKeyId" />
+			<result property="Quantity" column="Quantity" />
+			<result property="PrimaryKey" column="PrimaryKeyId" lazyLoad="false" select="CustomerProducts.select_by_primary_key" />
+			<result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerProductStock]
+				WHERE
+				[StockId] = #StockId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerProductStock]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="CustomerProductStockResult" parameterClass="CustomerProductStock">
+			SELECT
+				[StockId],
+				[DepotPositionId],
+				[PrimaryKeyId],
+				[Quantity]
+			FROM
+				[dbo].[CustomerProductStock]
+			WHERE
+				[StockId] = #StockId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[CustomerProductStock]
+			WHERE
+				[StockId] = #StockId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="CustomerProductStockResult" >
+			SELECT *
+			FROM 
+				[dbo].[CustomerProductStock]
+			ORDER BY StockId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[CustomerProductStock]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="CustomerProductStockResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[CustomerProductStock]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="CustomerProductStock">
+			INSERT INTO [dbo].[CustomerProductStock] 
+			(
+				[StockId],
+				[DepotPositionId],
+				[PrimaryKeyId],
+				[Quantity]
+			) 
+			VALUES 
+			(
+				#StockId#,
+				#DepotPositionId#,
+				#PrimaryKeyId#,
+				#Quantity#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="CustomerProductStock">
+			UPDATE [CustomerProductStock] SET
+				[DepotPositionId] = #DepotPositionId#,
+				[PrimaryKeyId] = #PrimaryKeyId#,
+				[Quantity] = #Quantity#
+			WHERE
+				[StockId] = #StockId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

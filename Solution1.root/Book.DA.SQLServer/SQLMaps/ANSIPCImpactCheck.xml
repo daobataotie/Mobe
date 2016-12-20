@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ANSIPCImpactCheck" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <select id="SelectByDateRange" resultMap="ANSIPCImpactCheckResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ANSIPCImpactCheck WHERE ANSIPCImpactCheckDate BETWEEN #StartDate# AND #EndDate# $sql$
+      ]]>
+    </select>
+
+    <select id="HasRowsByForANSIOrJIS" resultClass="bool" parameterClass="string">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ANSIPCImpactCheck]
+				WHERE
+				ForANSIOrJIS=#value#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+
+    <select id="GetFirstByForANSIOrJIS" resultMap="ANSIPCImpactCheckResult" parameterClass="string">
+      <![CDATA[
+			select top 1 *
+			from dbo.ANSIPCImpactCheck
+			where ForANSIOrJIS=#value#	
+			order by InsertTime 
+			]]>
+    </select>
+
+    <select id="GetLastByForANSIOrJIS" resultMap="ANSIPCImpactCheckResult" parameterClass="string">
+      <![CDATA[
+			select top 1 *
+			from dbo.ANSIPCImpactCheck
+			where ForANSIOrJIS=#value#			
+            order by InsertTime desc
+			]]>
+    </select>
+
+    <select id="GetPrevByForANSIOrJIS" resultMap="ANSIPCImpactCheckResult" parameterClass="ANSIPCImpactCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.ANSIPCImpactCheck
+			where InsertTime < #InsertTime#	
+      and ForANSIOrJIS=#ForANSIOrJIS#      			          
+            order by InsertTime desc
+			]]>
+    </select>
+
+    <select id="GetNextByForANSIOrJIS" resultMap="ANSIPCImpactCheckResult" parameterClass="ANSIPCImpactCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.ANSIPCImpactCheck
+			where InsertTime > #InsertTime#	
+      and ForANSIOrJIS=#ForANSIOrJIS#           			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="HasRowsBeforeByForANSIOrJIS" resultClass="bool" parameterClass="ANSIPCImpactCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ANSIPCImpactCheck
+				where InsertTime < #InsertTime#
+        and ForANSIOrJIS=#ForANSIOrJIS#         			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="HasRowsAfterByForANSIOrJIS" resultClass="bool" parameterClass="ANSIPCImpactCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ANSIPCImpactCheck
+				where InsertTime > #InsertTime#
+        and ForANSIOrJIS=#ForANSIOrJIS#        			          
+         ) then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>

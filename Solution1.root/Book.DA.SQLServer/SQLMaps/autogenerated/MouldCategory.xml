@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="MouldCategory" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="MouldCategory" type="Book.Model.MouldCategory, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="MouldCategoryResult" class="MouldCategory">
+			<result property="Id" column="Id" />
+			<result property="MouldCategoryId" column="MouldCategoryId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="MouldCategoryName" column="MouldCategoryName" />
+			<result property="MouldCategoryDescription" column="MouldCategoryDescription" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[MouldCategory]
+				WHERE
+				[MouldCategoryId] = #MouldCategoryId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[MouldCategory]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="MouldCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.MouldCategory 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="MouldCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.MouldCategory 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="MouldCategoryResult" parameterClass="MouldCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.MouldCategory
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="MouldCategoryResult" parameterClass="MouldCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.MouldCategory
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="MouldCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.MouldCategory
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="MouldCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.MouldCategory
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="MouldCategoryResult" parameterClass="MouldCategory">
+			SELECT
+				[Id],
+				[MouldCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[MouldCategoryName],
+				[MouldCategoryDescription]
+			FROM
+				[dbo].[MouldCategory]
+			WHERE
+				[MouldCategoryId] = #MouldCategoryId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[MouldCategory]
+			WHERE
+				[MouldCategoryId] = #MouldCategoryId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="MouldCategoryResult" >
+			SELECT *
+			FROM 
+				[dbo].[MouldCategory]
+			ORDER BY MouldCategoryId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[MouldCategory]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="MouldCategoryResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[MouldCategory]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="MouldCategory">
+			INSERT INTO [dbo].[MouldCategory] 
+			(
+				[Id],
+				[MouldCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[MouldCategoryName],
+				[MouldCategoryDescription]
+			) 
+			VALUES 
+			(
+				#Id#,
+				#MouldCategoryId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#MouldCategoryName#,
+				#MouldCategoryDescription#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="MouldCategory">
+			UPDATE [MouldCategory] SET
+				[Id] = #Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[MouldCategoryName] = #MouldCategoryName#,
+				[MouldCategoryDescription] = #MouldCategoryDescription#
+			WHERE
+				[MouldCategoryId] = #MouldCategoryId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.MouldCategory
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="MouldCategoryResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[MouldCategory]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.MouldCategory
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

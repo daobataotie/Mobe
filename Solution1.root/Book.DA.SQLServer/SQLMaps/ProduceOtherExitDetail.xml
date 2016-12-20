@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProduceOtherExitDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byProduceOtherExitMaterialId" resultMap="ProduceOtherExitDetailResult" parameterClass="string">
+      select * from ProduceOtherExitDetail where ProduceOtherExitMaterialId=#value#
+    </select>
+    <select id="SelectByHouseDates" resultMap="ProduceOtherExitDetailResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceOtherExitDetail where ProduceOtherExitMaterialId in
+      (select ProduceOtherExitMaterialId from ProduceOtherExitMaterial where (WorkHouseId=#houseid#
+      or #houseid# is null)
+      and  ProduceOtherExitMaterialDate between #startDate# and #enddate#)
+      ]]>
+    </select>
+    <select id ="selectByProductAndMaterialId" resultMap="ProduceOtherExitDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ProduceOtherExitDetail WHERE ProduceOtherExitMaterialId=#ProduceOtherExitMaterialId# 
+AND ProductId IN (SELECT ProductId FROM Product WHERE (Id>=#productId1# OR #productId1# IS NULL) AND (Id<=#productId2# OR #productId2# IS NULL))
+      ]]>
+    </select>
+	  <delete id="delete_byheader" parameterClass="string">
+		  delete from ProduceOtherExitDetail  WHERE ProduceOtherExitMaterialId=#value#
+	  </delete>
+  </statements>
+</sqlMap>

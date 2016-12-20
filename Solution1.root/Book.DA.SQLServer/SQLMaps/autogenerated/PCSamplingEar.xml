@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCSamplingEar" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCSamplingEar" type="Book.Model.PCSamplingEar, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCSamplingEarResult" class="PCSamplingEar">
+      <result property="PCSamplingEarId" column="PCSamplingEarId" />
+      <result property="PCSamplingEarDate" column="PCSamplingEarDate" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="InvoiceCusId" column="InvoiceCusId" />
+      <result property="PronoteHeaderId" column="PronoteHeaderId" />
+      <result property="Model" column="Model" />
+      <result property="Note" column="Note" />
+      <result property="Employee1Id" column="Employee1Id"/>
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_by_primary_key" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_by_primary_key" />
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_by_primary_key"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCSamplingEar]
+				WHERE
+				[PCSamplingEarId] = #PCSamplingEarId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCSamplingEar]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="PCSamplingEarResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCSamplingEar
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="PCSamplingEarResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCSamplingEar
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="PCSamplingEarResult" parameterClass="PCSamplingEar">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCSamplingEar
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="PCSamplingEarResult" parameterClass="PCSamplingEar">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCSamplingEar
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="PCSamplingEar">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCSamplingEar
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="PCSamplingEar">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCSamplingEar
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCSamplingEarResult" parameterClass="PCSamplingEar">
+      <![CDATA[SELECT
+				[PCSamplingEarId],
+				[PCSamplingEarDate],
+				[InsertTime],
+				[UpdateTime],
+				[CustomerId],
+				[EmployeeId],
+				[InvoiceCusId],
+				[PronoteHeaderId],
+				[Model],
+				[Note],
+        [Employee1Id]
+			FROM
+				[dbo].[PCSamplingEar]
+			WHERE
+				[PCSamplingEarId] = #PCSamplingEarId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCSamplingEar]
+			WHERE            
+				[PCSamplingEarId] = #PCSamplingEarId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCSamplingEarResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCSamplingEar]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCSamplingEar]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCSamplingEarResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCSamplingEar]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCSamplingEar">
+      <![CDATA[ INSERT INTO [dbo].[PCSamplingEar] 
+			(
+				[PCSamplingEarId],
+				[PCSamplingEarDate],
+				[InsertTime],
+				[UpdateTime],
+				[CustomerId],
+				[EmployeeId],
+				[InvoiceCusId],
+				[PronoteHeaderId],
+				[Model],
+				[Note],
+        [Employee1Id]
+			) 
+			VALUES 
+			(
+				#PCSamplingEarId#,
+				#PCSamplingEarDate#,
+				#InsertTime#,
+				#UpdateTime#,
+				#CustomerId#,
+				#EmployeeId#,
+				#InvoiceCusId#,
+				#PronoteHeaderId#,
+				#Model#,
+				#Note#,
+        #Employee1Id#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCSamplingEar">
+      <![CDATA[ 	UPDATE [PCSamplingEar] SET
+				[PCSamplingEarDate] = #PCSamplingEarDate#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[CustomerId] = #CustomerId#,
+				[EmployeeId] = #EmployeeId#,
+				[InvoiceCusId] = #InvoiceCusId#,
+				[PronoteHeaderId] = #PronoteHeaderId#,
+				[Model] = #Model#,
+				[Note] = #Note#,
+        [Employee1Id]=#Employee1Id#
+			WHERE
+				[PCSamplingEarId] = #PCSamplingEarId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCSamplingEar]
+				where  PCSamplingEarId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>

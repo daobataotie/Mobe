@@ -1,0 +1,1195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&gt;&gt;layoutControlItem7.Name" xml:space="preserve">
+    <value>layoutControlItem7</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dateEditEffectDate.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridControl1.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="gridColumn6.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="spinEditExchangeFloat.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;radioGroupConvertModel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="layoutControlItem8.Text" xml:space="preserve">
+    <value>小数位数</value>
+  </data>
+  <data name="layoutControlGroup1.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlGroup1</value>
+  </data>
+  <assembly alias="DevExpress.Data.v10.2" name="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridControl1.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;dateEditEffectDate.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="spinEditExchangeFloat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 21</value>
+  </data>
+  <data name="gridColumn6.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem11.Name" xml:space="preserve">
+    <value>layoutControlItem11</value>
+  </data>
+  <data name="layoutControlItem10.CustomizationFormText" xml:space="preserve">
+    <value>最大误差</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="spinEditExchangeRate.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="radioGroupExchangeRateModel.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>EditForm</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v10.2" name="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="dateEditEffectDate.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="radioGroupExchangeRateModel.Properties.Items1" xml:space="preserve">
+    <value>固定汇率</value>
+  </data>
+  <data name="radioGroupExchangeRateModel.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radioGroupExchangeRateModel.Properties.Items3" xml:space="preserve">
+    <value>浮动汇率</value>
+  </data>
+  <data name="spinEditMaxError.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spinEditMaxError.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;dateEditEffectDate.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="dateEditEffectDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 12</value>
+  </data>
+  <data name="&gt;&gt;gridColumn6.Name" xml:space="preserve">
+    <value>gridColumn6</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="dateEditEffectDate.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
+    <value>Combo</value>
+  </data>
+  <data name="radioGroupConvertModel.Properties.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="dateEditEffectDate.Properties.Mask.EditMask" xml:space="preserve">
+    <value>d</value>
+  </data>
+  <data name="spinEditMaxError.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;bar1.Name" xml:space="preserve">
+    <value>bar1</value>
+  </data>
+  <data name="layoutControlItem12.CustomizationFormText" xml:space="preserve">
+    <value>折算方式</value>
+  </data>
+  <data name="&gt;&gt;spinEditMaxError.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioGroupConvertModel.Properties.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="layoutControlItem7.CustomizationFormText" xml:space="preserve">
+    <value>汇率类型</value>
+  </data>
+  <data name="gridColumn4.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn2.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem10.Name" xml:space="preserve">
+    <value>layoutControlItem10</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;newChooseContorlAtCurrencyCategoryId.Type" xml:space="preserve">
+    <value>Book.UI.Invoices.NewChooseContorl, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>货币汇率资料</value>
+  </data>
+  <data name="&gt;&gt;barButtonItemFirst.Name" xml:space="preserve">
+    <value>barButtonItemFirst</value>
+  </data>
+  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;spinEditMaxError.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;spinEditAdjustExchangeRate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;bindingSource1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem7.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="layoutControlItem6.Text" xml:space="preserve">
+    <value>生效日期</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditMaxError.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioGroupExchangeRateModel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>383, 40</value>
+  </data>
+  <data name="radioGroupExchangeRateModel.Properties.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 14</value>
+  </data>
+  <data name="&gt;&gt;spinEditAdjustExchangeRate.Name" xml:space="preserve">
+    <value>spinEditAdjustExchangeRate</value>
+  </data>
+  <data name="layoutControlItem2.Text" xml:space="preserve">
+    <value>layoutControlItem2</value>
+  </data>
+  <data name="layoutControlItem11.CustomizationFormText" xml:space="preserve">
+    <value>调整汇率</value>
+  </data>
+  <data name="&gt;&gt;barButtonItemFirst.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="spinEditMaxError.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="spinEditMaxError.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 21</value>
+  </data>
+  <data name="spinEditExchangeFloat.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="spinEditMaxError.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;spinEditExchangeRate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="spinEditMaxError.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="&gt;&gt;gridView1.Name" xml:space="preserve">
+    <value>gridView1</value>
+  </data>
+  <data name="layoutControlItem2.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem2</value>
+  </data>
+  <data name="layoutControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>688, 354</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v10.2">
+    <value>None</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;gridColumn1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="spinEditExchangeFloat.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spinEditExchangeFloat.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v10.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMC4yLCBWZXJzaW9uPTEwLjIu
+        NC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
+        eXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
+        a2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAChEZXZFeHByZXNzLlV0aWxzLkltYWdlQ29sbGVjdGlvblN0
+        cmVhbWVyAgAAAAlJbWFnZVNpemUERGF0YQQHE1N5c3RlbS5EcmF3aW5nLlNpemUDAAAAAgIAAAAF/P//
+        /xNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAwAAABgAAAAYAAAACQUAAAAP
+        BQAAAIYyAAACuAQAAIlQTkcNChoKAAAADUlIRFIAAAAYAAAAGAgGAAAA4Hc9+AAAAAFzUkdCAK7OHOkA
+        AAAEZ0FNQQAAsY8L/GEFAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwA
+        AAQ2SURBVEhLlZXLbxtVFMbPH8DD6gqpXXTDPjt24B0bFv0DQOqSBQo7FqwqWFfdIUKpUgmoEAiFlub9
+        cJx3mncaO44TJ/UjHqeJ60yc2LHn8fGdmcTJ2CGoI32y5t57ft+5Z869FuEDIOQ4TidVcl0Xb6ORoou2
+        GRe35/04ZVAPlKls7+HEhxzsfhuwbdsY3z2CDLqQOQey4jQSI+uJMhsGXPy5ZdvrnNAM/ld5s4J0Oo1U
+        KoX2xAFklQZLF3HkzSuzYWBZTke9bh1Ylo3rtGXa+GTUwa1IHTMZA9lsFu3rRcgyDRacRixZhjLPy3OD
+        0FUO4jqZponvF47w3qQNWXfwNH+IXC6H9jgNFmnAMl2OVybLdEMsy/q0Vqvj9PRqDWQsbO3uwzAMlMtl
+        hNOseeySQYwG8zSYdQIMZSpb6vX6t9VqDc0qmDV8NcFsnwCfJSzoR9Utt6UIe0mDXX8Hd1+WIC84Nu22
+        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
+</value>
+  </data>
+  <data name="&gt;&gt;gridColumn3.Name" xml:space="preserve">
+    <value>gridColumn3</value>
+  </data>
+  <data name="layoutControlItem10.Text" xml:space="preserve">
+    <value>最大误差</value>
+  </data>
+  <data name="layoutControl1.Text" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spinEditMaxError.Properties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dateEditEffectDate.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;layoutControlItem12.Name" xml:space="preserve">
+    <value>layoutControlItem12</value>
+  </data>
+  <data name="&gt;&gt;gridControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="spinEditMaxError.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 12</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="spinEditMaxError.Properties.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;layoutControlItem11.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn4.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="spinEditExchangeFloat.Properties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;gridControl1.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="spinEditExchangeFloat.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="&gt;&gt;spinEditExchangeRate.Name" xml:space="preserve">
+    <value>spinEditExchangeRate</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 21</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="spinEditExchangeFloat.Properties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioGroupExchangeRateModel.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem1.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;radioGroupConvertModel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="newChooseContorlAtCurrencyCategoryId.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;radioGroupExchangeRateModel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem10.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="layoutControlItem1.CustomizationFormText" xml:space="preserve">
+    <value>币别</value>
+  </data>
+  <data name="&gt;&gt;spinEditAdjustExchangeRate.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;dateEditEffectDate.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;radioGroupExchangeRateModel.Name" xml:space="preserve">
+    <value>radioGroupExchangeRateModel</value>
+  </data>
+  <data name="&gt;&gt;radioGroupConvertModel.Name" xml:space="preserve">
+    <value>radioGroupConvertModel</value>
+  </data>
+  <data name="&gt;&gt;barManager1.Name" xml:space="preserve">
+    <value>barManager1</value>
+  </data>
+  <data name="layoutControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 47</value>
+  </data>
+  <data name="&gt;&gt;gridColumn1.Name" xml:space="preserve">
+    <value>gridColumn1</value>
+  </data>
+  <data name="radioGroupConvertModel.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;gridColumn6.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="spinEditExchangeFloat.Properties.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;newChooseContorlAtCurrencyCategoryId.Name" xml:space="preserve">
+    <value>newChooseContorlAtCurrencyCategoryId</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem5.Name" xml:space="preserve">
+    <value>layoutControlItem5</value>
+  </data>
+  <data name="gridColumn2.Caption" xml:space="preserve">
+    <value>小数位数</value>
+  </data>
+  <data name="layoutControlGroup1.Text" xml:space="preserve">
+    <value>layoutControlGroup1</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn3.Caption" xml:space="preserve">
+    <value>最大误差</value>
+  </data>
+  <data name="&gt;&gt;layoutControlGroup1.Name" xml:space="preserve">
+    <value>layoutControlGroup1</value>
+  </data>
+  <data name="&gt;&gt;layoutControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;imageCollection1.Name" xml:space="preserve">
+    <value>imageCollection1</value>
+  </data>
+  <data name="radioGroupConvertModel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 62</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="&gt;&gt;gridColumn3.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;spinEditExchangeFloat.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dateEditEffectDate.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;newChooseContorlAtCurrencyCategoryId.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v10.2">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;layoutControlGroup1.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridColumn4.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="radioGroupExchangeRateModel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 62</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="gridColumn5.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="gridColumn2.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;spinEditExchangeRate.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="radioGroupExchangeRateModel.Properties.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;layoutControlItem12.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn5.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;imageCollection1.Type" xml:space="preserve">
+    <value>DevExpress.Utils.ImageCollection, DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="spinEditExchangeFloat.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem8.Name" xml:space="preserve">
+    <value>layoutControlItem8</value>
+  </data>
+  <data name="layoutControlItem6.CustomizationFormText" xml:space="preserve">
+    <value>生效日期</value>
+  </data>
+  <data name="layoutControlItem5.CustomizationFormText" xml:space="preserve">
+    <value>记账汇率</value>
+  </data>
+  <data name="radioGroupConvertModel.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem5.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="radioGroupConvertModel.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;gridColumn5.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;spinEditMaxError.Name" xml:space="preserve">
+    <value>spinEditMaxError</value>
+  </data>
+  <data name="&gt;&gt;barButtonItemPrint.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem1.Name" xml:space="preserve">
+    <value>layoutControlItem1</value>
+  </data>
+  <data name="newChooseContorlAtCurrencyCategoryId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 12</value>
+  </data>
+  <data name="layoutControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;barButtonItemPrint.Name" xml:space="preserve">
+    <value>barButtonItemPrint</value>
+  </data>
+  <data name="&gt;&gt;bar1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Bar, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="newChooseContorlAtCurrencyCategoryId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 21</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gridControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 106</value>
+  </data>
+  <data name="&gt;&gt;gridColumn4.Name" xml:space="preserve">
+    <value>gridColumn4</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditMaxError.Properties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>519, 37</value>
+  </data>
+  <data name="&gt;&gt;gridColumn2.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>币别</value>
+  </data>
+  <data name="layoutControlItem7.Text" xml:space="preserve">
+    <value>汇率类型</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="spinEditExchangeFloat.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="spinEditExchangeFloat.Properties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spinEditMaxError.Properties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateEditEffectDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 21</value>
+  </data>
+  <data name="&gt;&gt;layoutControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControl, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="dateEditEffectDate.Properties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;spinEditExchangeFloat.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;radioGroupExchangeRateModel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>Book.UI.Settings.BasicData.BaseEditForm, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.BackgroundImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="gridColumn4.Caption" xml:space="preserve">
+    <value>汇率</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="radioGroupExchangeRateModel.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridColumn5.Caption" xml:space="preserve">
+    <value>生效日期</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="&gt;&gt;spinEditMaxError.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;gridColumn5.Name" xml:space="preserve">
+    <value>gridColumn5</value>
+  </data>
+  <data name="&gt;&gt;layoutControl1.Name" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;spinEditExchangeRate.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="spinEditExchangeFloat.Properties.AccessibleName" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="spinEditExchangeRate.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dateEditEffectDate.Properties.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;layoutControlItem2.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.Mask.EditMask" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="gridColumn3.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditMaxError.Properties.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="spinEditExchangeFloat.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;bindingSource1.Name" xml:space="preserve">
+    <value>bindingSource1</value>
+  </data>
+  <data name="spinEditMaxError.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="spinEditExchangeRate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 21</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="gridControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>664, 236</value>
+  </data>
+  <data name="radioGroupConvertModel.Properties.Items1" xml:space="preserve">
+    <value>外币*汇率=本位币</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem6.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="layoutControlItem5.Text" xml:space="preserve">
+    <value>记账汇率</value>
+  </data>
+  <data name="&gt;&gt;gridColumn2.Name" xml:space="preserve">
+    <value>gridColumn2</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditMaxError.Properties.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="radioGroupConvertModel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 40</value>
+  </data>
+  <data name="spinEditExchangeFloat.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="layoutControlItem1.Text" xml:space="preserve">
+    <value>币别</value>
+  </data>
+  <data name="layoutControlItem11.Text" xml:space="preserve">
+    <value>调整汇率</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="radioGroupConvertModel.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem8.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridView1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn3.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;dateEditEffectDate.Name" xml:space="preserve">
+    <value>dateEditEffectDate</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>688, 401</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem6.Name" xml:space="preserve">
+    <value>layoutControlItem6</value>
+  </data>
+  <data name="&gt;&gt;radioGroupExchangeRateModel.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="layoutControlItem12.Text" xml:space="preserve">
+    <value>折算方式</value>
+  </data>
+  <data name="&gt;&gt;gridControl1.Name" xml:space="preserve">
+    <value>gridControl1</value>
+  </data>
+  <data name="spinEditMaxError.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;barManager1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarManager, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;radioGroupConvertModel.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="spinEditExchangeRate.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="spinEditExchangeFloat.Properties.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="spinEditExchangeRate.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem2.Name" xml:space="preserve">
+    <value>layoutControlItem2</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="&gt;&gt;spinEditAdjustExchangeRate.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="dateEditEffectDate.Properties.VistaTimeProperties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="radioGroupConvertModel.Properties.Items3" xml:space="preserve">
+    <value>外币/汇率=本位币</value>
+  </data>
+  <data name="spinEditMaxError.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="layoutControlItem8.CustomizationFormText" xml:space="preserve">
+    <value>小数位数</value>
+  </data>
+  <data name="spinEditExchangeFloat.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.AccessibleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="spinEditAdjustExchangeRate.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="gridColumn6.Caption" xml:space="preserve">
+    <value>调整汇率</value>
+  </data>
+  <data name="spinEditExchangeRate.Properties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;spinEditExchangeFloat.Name" xml:space="preserve">
+    <value>spinEditExchangeFloat</value>
+  </data>
+  <data name="&gt;&gt;spinEditExchangeFloat.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridControl1.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="spinEditExchangeRate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 37</value>
+  </data>
+  <data name="&gt;&gt;newChooseContorlAtCurrencyCategoryId.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="spinEditExchangeFloat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 37</value>
+  </data>
+  <metadata name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>zh-CHT</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>287, 17</value>
+  </metadata>
+  <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>167, 17</value>
+  </metadata>
+</root>

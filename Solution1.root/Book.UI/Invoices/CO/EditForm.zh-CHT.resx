@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="barButtonItem2.Caption" xml:space="preserve">
+    <value>銷售訂單</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="newChooseContorlAtCurrencyCate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>735, 38</value>
+  </data>
+  <data name="newChooseContorlAtCurrencyCate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 21</value>
+  </data>
+  <data name="txtSupplierLotNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>735, 64</value>
+  </data>
+  <data name="txtSupplierLotNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 21</value>
+  </data>
+  <data name="newChooseCustomer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>376, 38</value>
+  </data>
+  <data name="newChooseCustomer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 21</value>
+  </data>
+  <data name="textEditInvoiceXOId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="buttonEditCompany.Location" type="System.Drawing.Point, System.Drawing">
+    <value>376, 64</value>
+  </data>
+  <data name="buttonEditCompany.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 21</value>
+  </data>
+  <data name="buttonEditEmployee.Location" type="System.Drawing.Point, System.Drawing">
+    <value>735, 12</value>
+  </data>
+  <data name="buttonEditEmployee.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 21</value>
+  </data>
+  <data name="dateEditInvoiceYjrq.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 12</value>
+  </data>
+  <data name="dateEditInvoiceYjrq.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
+  </data>
+  <data name="textEditCustomerXOInvoiceId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 21</value>
+  </data>
+  <data name="simpleButtonAppend.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 22</value>
+  </data>
+  <data name="dateEditInvoiceDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 22</value>
+  </data>
+  <data name="simpleButtonRemove.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 276</value>
+  </data>
+  <data name="simpleButtonRemove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 22</value>
+  </data>
+  <data name="textEditAuditState.Location" type="System.Drawing.Point, System.Drawing">
+    <value>673, 62</value>
+  </data>
+  <data name="textEditAuditState.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 21</value>
+  </data>
+  <data name="EmpAudit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>409, 62</value>
+  </data>
+  <data name="EmpAudit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 21</value>
+  </data>
+  <data name="calcEditInvoiceHeji.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="calcEditInvoiceHeji.Location" type="System.Drawing.Point, System.Drawing">
+    <value>673, 37</value>
+  </data>
+  <data name="calcEditInvoiceHeji.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 21</value>
+  </data>
+  <data name="calcEditInvoiceTotal.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="calcEditInvoiceTotal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>408, 37</value>
+  </data>
+  <data name="calcEditInvoiceTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 21</value>
+  </data>
+  <data name="spinEditInvoiceTaxRate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>408, 12</value>
+  </data>
+  <data name="spinEditInvoiceTaxRate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 21</value>
+  </data>
+  <data name="calcEditInvoiceTax.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="calcEditInvoiceTax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>673, 12</value>
+  </data>
+  <data name="calcEditInvoiceTax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 21</value>
+  </data>
+  <data name="textEditNote.Size" type="System.Drawing.Size, System.Drawing">
+    <value>328, 54</value>
+  </data>
+  <data name="layoutControlItem11.Text" xml:space="preserve">
+    <value>備註:</value>
+  </data>
+  <data name="layoutControlItem16.CustomizationFormText" xml:space="preserve">
+    <value>合計:</value>
+  </data>
+  <data name="layoutControlItem16.Text" xml:space="preserve">
+    <value>合計:</value>
+  </data>
+  <data name="layoutControlItem50.Text" xml:space="preserve">
+    <value>審核人：</value>
+  </data>
+  <data name="layoutControlItem49.Text" xml:space="preserve">
+    <value>審核狀態：</value>
+  </data>
+  <data name="layoutControlItem15.CustomizationFormText" xml:space="preserve">
+    <value>總計:</value>
+  </data>
+  <data name="layoutControlItem15.Text" xml:space="preserve">
+    <value>總計:</value>
+  </data>
+  <data name="layoutControlItem14.CustomizationFormText" xml:space="preserve">
+    <value>稅額:</value>
+  </data>
+  <data name="layoutControlItem14.Text" xml:space="preserve">
+    <value>稅率:</value>
+  </data>
+  <data name="layoutControlItem45.Text" xml:space="preserve">
+    <value>稅額:</value>
+  </data>
+  <data name="layoutControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>885, 95</value>
+  </data>
+  <data name="xtraTabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>885, 95</value>
+  </data>
+  <data name="xtraTabPage1.Text" xml:space="preserve">
+    <value>交易明細</value>
+  </data>
+  <data name="xtraTabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>891, 123</value>
+  </data>
+  <data name="textEditInvoiceCphm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>68, 12</value>
+  </data>
+  <data name="textEditInvoiceCphm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 21</value>
+  </data>
+  <data name="dateEditFPDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>380, 37</value>
+  </data>
+  <data name="dateEditFPDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 21</value>
+  </data>
+  <data name="spinEditInvoiceFpje.Location" type="System.Drawing.Point, System.Drawing">
+    <value>68, 62</value>
+  </data>
+  <data name="spinEditInvoiceFpje.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 21</value>
+  </data>
+  <data name="textEditInvoiceFpbh.Location" type="System.Drawing.Point, System.Drawing">
+    <value>68, 37</value>
+  </data>
+  <data name="textEditInvoiceFpbh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 21</value>
+  </data>
+  <data name="comboBoxEditInvoiceKslb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>380, 12</value>
+  </data>
+  <data name="comboBoxEditInvoiceKslb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 21</value>
+  </data>
+  <data name="comboBoxEditInvoiceFpls.Location" type="System.Drawing.Point, System.Drawing">
+    <value>703, 37</value>
+  </data>
+  <data name="comboBoxEditInvoiceFpls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 21</value>
+  </data>
+  <data name="comboBoxEditInvoiceKlfs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>703, 12</value>
+  </data>
+  <data name="comboBoxEditInvoiceKlfs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 21</value>
+  </data>
+  <data name="layoutControlItem36.Text" xml:space="preserve">
+    <value>課稅類別:</value>
+  </data>
+  <data name="layoutControlItem35.Text" xml:space="preserve">
+    <value>開立方式:</value>
+  </data>
+  <data name="layoutControlItem39.Text" xml:space="preserve">
+    <value>發票金額:</value>
+  </data>
+  <data name="layoutControlItem12.CustomizationFormText" xml:space="preserve">
+    <value>傳票編號:</value>
+  </data>
+  <data name="layoutControlItem12.Text" xml:space="preserve">
+    <value>傳票編號:</value>
+  </data>
+  <data name="layoutControlItem38.Text" xml:space="preserve">
+    <value>發票編號:</value>
+  </data>
+  <data name="layoutControlItem34.Text" xml:space="preserve">
+    <value>發票日期:</value>
+  </data>
+  <data name="layoutControlItem37.Text" xml:space="preserve">
+    <value>發票聯式:</value>
+  </data>
+  <data name="layoutControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>885, 95</value>
+  </data>
+  <data name="xtraTabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>885, 95</value>
+  </data>
+  <data name="xtraTabPage2.Text" xml:space="preserve">
+    <value>發票資料</value>
+  </data>
+  <data name="spinEditInvoiceOwed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>498, 49</value>
+  </data>
+  <data name="spinEditInvoiceOwed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 21</value>
+  </data>
+  <data name="spinEditYifu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>713, 24</value>
+  </data>
+  <data name="spinEditInvoiceZKE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>498, 24</value>
+  </data>
+  <data name="spinEditInvoiceZKE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 21</value>
+  </data>
+  <data name="layoutControlItem42.Text" xml:space="preserve">
+    <value>未付金額:</value>
+  </data>
+  <data name="layoutControlItem40.Text" xml:space="preserve">
+    <value>折讓金額:</value>
+  </data>
+  <data name="layoutControlItem41.Text" xml:space="preserve">
+    <value>已付金額:</value>
+  </data>
+  <data name="layoutControl8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>885, 95</value>
+  </data>
+  <data name="xtraTabPage3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>885, 95</value>
+  </data>
+  <data name="xtraTabPage3.Text" xml:space="preserve">
+    <value>賬款資料</value>
+  </data>
+  <data name="buttonEditEmployee2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>688, 39</value>
+  </data>
+  <data name="buttonEditEmployee1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>427, 39</value>
+  </data>
+  <data name="buttonEditEmployee1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 21</value>
+  </data>
+  <data name="layoutControlItem43.CustomizationFormText" xml:space="preserve">
+    <value>制單人員:</value>
+  </data>
+  <data name="layoutControlItem43.Text" xml:space="preserve">
+    <value>制單人員:</value>
+  </data>
+  <data name="layoutControlItem44.CustomizationFormText" xml:space="preserve">
+    <value>審核人員:</value>
+  </data>
+  <data name="layoutControlItem44.Text" xml:space="preserve">
+    <value>審核人員:</value>
+  </data>
+  <data name="layoutControl7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>885, 95</value>
+  </data>
+  <data name="xtraTabPage4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>885, 95</value>
+  </data>
+  <data name="xtraTabPage4.Text" xml:space="preserve">
+    <value>相關資料</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridColumn8.Caption" xml:space="preserve">
+    <value>序號</value>
+  </data>
+  <data name="colProductId.Caption" xml:space="preserve">
+    <value>商品編號</value>
+  </data>
+  <data name="gridColumn3.Caption" xml:space="preserve">
+    <value>編號</value>
+  </data>
+  <data name="gridColumn4.Caption" xml:space="preserve">
+    <value>名稱</value>
+  </data>
+  <data name="colProduct.Caption" xml:space="preserve">
+    <value>商品名稱</value>
+  </data>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>單位</value>
+  </data>
+  <data name="colInvoiceCODetailQuantity.Caption" xml:space="preserve">
+    <value>數量</value>
+  </data>
+  <data name="colInvoiceCODetailPrice.Caption" xml:space="preserve">
+    <value>單價</value>
+  </data>
+  <data name="colInvoiceCODetailMoney.Caption" xml:space="preserve">
+    <value>金額</value>
+  </data>
+  <data name="gridColumnStocksQuantity.Caption" xml:space="preserve">
+    <value>庫存</value>
+  </data>
+  <data name="gridColumn6.Caption" xml:space="preserve">
+    <value>淨重</value>
+  </data>
+  <data name="gridColumn7.Caption" xml:space="preserve">
+    <value>體積</value>
+  </data>
+  <data name="gridColumn9.Caption" xml:space="preserve">
+    <value>已進貨數量</value>
+  </data>
+  <data name="gridColumn10.Caption" xml:space="preserve">
+    <value>下個生產站</value>
+  </data>
+  <data name="gridControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>891, 183</value>
+  </data>
+  <data name="textEditInvoiceId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>494, 12</value>
+  </data>
+  <data name="textEditInvoiceId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 22</value>
+  </data>
+  <data name="layoutControlItem1.CustomizationFormText" xml:space="preserve">
+    <value>單據編號:</value>
+  </data>
+  <data name="layoutControlItem1.Text" xml:space="preserve">
+    <value>單據編號:</value>
+  </data>
+  <data name="layoutControlItem2.CustomizationFormText" xml:space="preserve">
+    <value>備註:</value>
+  </data>
+  <data name="layoutControlItem2.Text" xml:space="preserve">
+    <value>備註:</value>
+  </data>
+  <data name="layoutControlItem7.CustomizationFormText" xml:space="preserve">
+    <value>商品明細:</value>
+  </data>
+  <data name="layoutControlItem7.Text" xml:space="preserve">
+    <value>商品明細:</value>
+  </data>
+  <data name="layoutControlItem3.CustomizationFormText" xml:space="preserve">
+    <value>業務員:</value>
+  </data>
+  <data name="layoutControlItem3.Text" xml:space="preserve">
+    <value>業務員:</value>
+  </data>
+  <data name="layoutControlItem51.Text" xml:space="preserve">
+    <value>批號：</value>
+  </data>
+  <data name="layoutControlItem6.CustomizationFormText" xml:space="preserve">
+    <value>預交日期:</value>
+  </data>
+  <data name="layoutControlItem6.Text" xml:space="preserve">
+    <value>預交日期:</value>
+  </data>
+  <data name="layoutControlItem4.CustomizationFormText" xml:space="preserve">
+    <value>供應商:</value>
+  </data>
+  <data name="layoutControlItem4.Text" xml:space="preserve">
+    <value>供應商:</value>
+  </data>
+  <data name="layoutControlItem10.Text" xml:space="preserve">
+    <value>銷售訂單編號:</value>
+  </data>
+  <data name="layoutControlItem46.Text" xml:space="preserve">
+    <value>客戶訂單編號:</value>
+  </data>
+  <data name="layoutControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>915, 437</value>
+  </data>
+  <data name="barButtonItem1.Caption" xml:space="preserve">
+    <value>進庫單</value>
+  </data>
+  <data name="layoutControlItem26.CustomizationFormText" xml:space="preserve">
+    <value>课税类别:</value>
+  </data>
+  <data name="layoutControlItem26.Text" xml:space="preserve">
+    <value>課稅類別:</value>
+  </data>
+  <data name="layoutControlItem28.CustomizationFormText" xml:space="preserve">
+    <value>发票日期:</value>
+  </data>
+  <data name="layoutControlItem28.Text" xml:space="preserve">
+    <value>發票日期:</value>
+  </data>
+  <data name="layoutControlItem30.CustomizationFormText" xml:space="preserve">
+    <value>发票编号:</value>
+  </data>
+  <data name="layoutControlItem30.Text" xml:space="preserve">
+    <value>發票編號:</value>
+  </data>
+  <data name="layoutControlItem27.CustomizationFormText" xml:space="preserve">
+    <value>开立方式:</value>
+  </data>
+  <data name="layoutControlItem27.Text" xml:space="preserve">
+    <value>開立方式:</value>
+  </data>
+  <data name="layoutControlItem29.CustomizationFormText" xml:space="preserve">
+    <value>发票联式:</value>
+  </data>
+  <data name="layoutControlItem29.Text" xml:space="preserve">
+    <value>發票聯式:</value>
+  </data>
+  <data name="layoutControlItem31.CustomizationFormText" xml:space="preserve">
+    <value>发票金额:</value>
+  </data>
+  <data name="layoutControlItem31.Text" xml:space="preserve">
+    <value>發票金額:</value>
+  </data>
+  <data name="layoutControlItem13.CustomizationFormText" xml:space="preserve">
+    <value>课税类别:</value>
+  </data>
+  <data name="layoutControlItem13.Text" xml:space="preserve">
+    <value>課稅類別:</value>
+  </data>
+  <data name="layoutControlItem17.CustomizationFormText" xml:space="preserve">
+    <value>发票日期:</value>
+  </data>
+  <data name="layoutControlItem17.Text" xml:space="preserve">
+    <value>發票日期:</value>
+  </data>
+  <data name="layoutControlItem18.CustomizationFormText" xml:space="preserve">
+    <value>发票编号:</value>
+  </data>
+  <data name="layoutControlItem18.Text" xml:space="preserve">
+    <value>發票編號:</value>
+  </data>
+  <data name="layoutControlItem19.CustomizationFormText" xml:space="preserve">
+    <value>开立方式:</value>
+  </data>
+  <data name="layoutControlItem19.Text" xml:space="preserve">
+    <value>開立方式:</value>
+  </data>
+  <data name="layoutControlItem20.CustomizationFormText" xml:space="preserve">
+    <value>发票联式:</value>
+  </data>
+  <data name="layoutControlItem20.Text" xml:space="preserve">
+    <value>發票聯式:</value>
+  </data>
+  <data name="layoutControlItem21.CustomizationFormText" xml:space="preserve">
+    <value>发票金额:</value>
+  </data>
+  <data name="layoutControlItem21.Text" xml:space="preserve">
+    <value>發票金額:</value>
+  </data>
+  <data name="layoutControlItem22.CustomizationFormText" xml:space="preserve">
+    <value>课税类别:</value>
+  </data>
+  <data name="layoutControlItem22.Text" xml:space="preserve">
+    <value>課稅類別:</value>
+  </data>
+  <data name="layoutControlItem23.CustomizationFormText" xml:space="preserve">
+    <value>发票日期:</value>
+  </data>
+  <data name="layoutControlItem23.Text" xml:space="preserve">
+    <value>發票日期:</value>
+  </data>
+  <data name="layoutControlItem24.CustomizationFormText" xml:space="preserve">
+    <value>发票编号:</value>
+  </data>
+  <data name="layoutControlItem24.Text" xml:space="preserve">
+    <value>發票編號:</value>
+  </data>
+  <data name="layoutControlItem25.CustomizationFormText" xml:space="preserve">
+    <value>开立方式:</value>
+  </data>
+  <data name="layoutControlItem25.Text" xml:space="preserve">
+    <value>開立方式:</value>
+  </data>
+  <data name="layoutControlItem32.CustomizationFormText" xml:space="preserve">
+    <value>发票联式:</value>
+  </data>
+  <data name="layoutControlItem32.Text" xml:space="preserve">
+    <value>發票聯式:</value>
+  </data>
+  <data name="layoutControlItem33.CustomizationFormText" xml:space="preserve">
+    <value>发票金额:</value>
+  </data>
+  <data name="layoutControlItem33.Text" xml:space="preserve">
+    <value>發票金額:</value>
+  </data>
+  <data name="barBtnUpdatePrice.Caption" xml:space="preserve">
+    <value>單價校對</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>915, 484</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>單據輸入 - 採購訂單</value>
+  </data>
+</root>

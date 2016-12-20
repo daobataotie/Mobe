@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceCFDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="InvoiceCFDetail" type="Book.Model.InvoiceCFDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="InvoiceCFDetailResult" class="InvoiceCFDetail">
+			<result property="InvoiceCFDetailId" column="InvoiceCFDetailId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="DepotPositionOutId" column="DepotPositionOutId" />
+			<result property="DepotPositionInId" column="DepotPositionInId" />
+			<result property="InvoiceId" column="InvoiceId" />
+			<result property="InvoiceCFDetailQuantity" column="InvoiceCFDetailQuantity" />
+			<result property="InvoiceCFDetailKind" column="InvoiceCFDetailKind" />
+			<result property="InvoiceCFDetailNote" column="InvoiceCFDetailNote" />
+			<result property="InvoiceCFDetailPrice" column="InvoiceCFDetailPrice" />
+			<result property="InvoiceCFDetailZongji" column="InvoiceCFDetailZongji" />
+			<result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+			<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+			<result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceCF.select_by_primary_key" />
+			<result property="DepotPositionOut" column="DepotPositionOutId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+			<result property="DepotPositionIn" column="DepotPositionInId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceCFDetail]
+				WHERE
+				[InvoiceCFDetailId] = #InvoiceCFDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceCFDetail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="InvoiceCFDetailResult" parameterClass="InvoiceCFDetail">
+			SELECT
+				[InvoiceCFDetailId],
+				[ProductId],
+				[DepotPositionOutId],
+				[DepotPositionInId],
+				[InvoiceId],
+				[InvoiceCFDetailQuantity],
+				[InvoiceCFDetailKind],
+				[InvoiceCFDetailNote],
+				[InvoiceCFDetailPrice],
+				[InvoiceCFDetailZongji],
+				[InvoiceProductUnit]
+			FROM
+				[dbo].[InvoiceCFDetail]
+			WHERE
+				[InvoiceCFDetailId] = #InvoiceCFDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[InvoiceCFDetail]
+			WHERE
+				[InvoiceCFDetailId] = #InvoiceCFDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="InvoiceCFDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[InvoiceCFDetail]
+			ORDER BY InvoiceCFDetailId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[InvoiceCFDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="InvoiceCFDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoiceCFDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="InvoiceCFDetail">
+			INSERT INTO [dbo].[InvoiceCFDetail] 
+			(
+				[InvoiceCFDetailId],
+				[ProductId],
+				[DepotPositionOutId],
+				[DepotPositionInId],
+				[InvoiceId],
+				[InvoiceCFDetailQuantity],
+				[InvoiceCFDetailKind],
+				[InvoiceCFDetailNote],
+				[InvoiceCFDetailPrice],
+				[InvoiceCFDetailZongji],
+				[InvoiceProductUnit]
+			) 
+			VALUES 
+			(
+				#InvoiceCFDetailId#,
+				#ProductId#,
+				#DepotPositionOutId#,
+				#DepotPositionInId#,
+				#InvoiceId#,
+				#InvoiceCFDetailQuantity#,
+				#InvoiceCFDetailKind#,
+				#InvoiceCFDetailNote#,
+				#InvoiceCFDetailPrice#,
+				#InvoiceCFDetailZongji#,
+				#InvoiceProductUnit#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="InvoiceCFDetail">
+			UPDATE [InvoiceCFDetail] SET
+				[ProductId] = #ProductId#,
+				[DepotPositionOutId] = #DepotPositionOutId#,
+				[DepotPositionInId] = #DepotPositionInId#,
+				[InvoiceId] = #InvoiceId#,
+				[InvoiceCFDetailQuantity] = #InvoiceCFDetailQuantity#,
+				[InvoiceCFDetailKind] = #InvoiceCFDetailKind#,
+				[InvoiceCFDetailNote] = #InvoiceCFDetailNote#,
+				[InvoiceCFDetailPrice] = #InvoiceCFDetailPrice#,
+				[InvoiceCFDetailZongji] = #InvoiceCFDetailZongji#,
+				[InvoiceProductUnit] = #InvoiceProductUnit#
+			WHERE
+				[InvoiceCFDetailId] = #InvoiceCFDetailId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

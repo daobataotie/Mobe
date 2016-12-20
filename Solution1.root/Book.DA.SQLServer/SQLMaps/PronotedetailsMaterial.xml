@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PronotedetailsMaterial" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="getByHeader" resultMap="PronotedetailsMaterialResult" parameterClass="string">
+      SELECT * FROM dbo.PronotedetailsMaterial WHERE PronoteHeaderID=#value# order by Inumber
+    </select>
+    <select id="GetByHeadIdAndDetailId"  resultMap="PronotedetailsMaterialResult" parameterClass="Map">
+      SELECT * FROM PronotedetailsMaterial WHERE PronoteHeaderID=#headid# AND PronotedetailsID=#detailid#
+    </select>
+    <select id="selectByHeaderIdAndPid" resultMap="PronotedetailsMaterialResult" parameterClass="Map">
+      <![CDATA[
+      select * from PronotedetailsMaterial where PronoteHeaderID=#PronoteHeaderID# and 
+productId in(select productId from product where (ProductName>=#StartpId# or #StartpId# is null) and (ProductName<=#EndpId# or #EndpId# is null))
+      ]]>
+    </select>
+    <delete id="DeleteByHeaderId" parameterClass="string">
+      <![CDATA[
+      delete from PronotedetailsMaterial where PronoteHeaderID=#value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProductImage" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ProductImage" type="Book.Model.ProductImage, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ProductImageResult" class="ProductImage">
+			<result property="ImageId" column="ImageId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="Description" column="Description" />
+			<result property="Images" column="Images" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="SuffixalName" column="SuffixalName" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductImage]
+				WHERE
+				[ImageId] = #ImageId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductImage]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="ProductImageResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductImage 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="ProductImageResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductImage 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="ProductImageResult" parameterClass="ProductImage">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductImage
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="ProductImageResult" parameterClass="ProductImage">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductImage
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="ProductImage">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductImage
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="ProductImage">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductImage
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ProductImageResult" parameterClass="ProductImage">
+			SELECT
+				[ImageId],
+				[ProductId],
+				[Description],
+				[Images],
+				[InsertTime],
+				[UpdateTime],
+				[SuffixalName]
+			FROM
+				[dbo].[ProductImage]
+			WHERE
+				[ImageId] = #ImageId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[ProductImage]
+			WHERE
+				[ImageId] = #ImageId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ProductImageResult" >
+			SELECT *
+			FROM 
+				[dbo].[ProductImage]
+			
+  ORDER BY InsertTime DESC  
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[ProductImage]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ProductImageResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProductImage]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ProductImage">
+			INSERT INTO [dbo].[ProductImage] 
+			(
+				[ImageId],
+				[ProductId],
+				[Description],
+				[Images],
+				[InsertTime],
+				[UpdateTime],
+				[SuffixalName]
+			) 
+			VALUES 
+			(
+				#ImageId#,
+				#ProductId#,
+				#Description#,
+				#Images#,
+				#InsertTime#,
+				#UpdateTime#,
+				#SuffixalName#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ProductImage">
+			UPDATE [ProductImage] SET
+				[ProductId] = #ProductId#,
+				[Description] = #Description#,
+				[Images] = #Images#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[SuffixalName] = #SuffixalName#
+			WHERE
+				[ImageId] = #ImageId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProductImage]
+				where  ImageId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

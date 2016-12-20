@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Setting" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Setting" type="Book.Model.Setting, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="SettingResult" class="Setting">
+			<result property="SettingId" column="SettingId" />
+			<result property="SettingCurrentValue" column="SettingCurrentValue" />
+			<result property="SettingDefaultValue" column="SettingDefaultValue" />
+			<result property="SettingDescription" column="SettingDescription" />
+			<result property="SettingTags" column="SettingTags" />
+			<result property="SettingName" column="SettingName" />
+			<result property="PictrueLogo" column="PictrueLogo" />
+			<result property="IdNO" column="IdNO" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Setting]
+				WHERE
+				[SettingId] = #SettingId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Setting]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="SettingResult" parameterClass="Setting">
+			<![CDATA[SELECT
+				[SettingId],
+				[SettingCurrentValue],
+				[SettingDefaultValue],
+				[SettingDescription],
+				[SettingTags],
+				[SettingName],
+				[PictrueLogo],
+				[IdNO]
+			FROM
+				[dbo].[Setting]
+			WHERE
+				[SettingId] = #SettingId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[Setting]
+			WHERE            
+				[SettingId] = #SettingId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="SettingResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[Setting]
+                			                   
+
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[Setting]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="SettingResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Setting]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Setting">
+			 <![CDATA[ INSERT INTO [dbo].[Setting] 
+			(
+				[SettingId],
+				[SettingCurrentValue],
+				[SettingDefaultValue],
+				[SettingDescription],
+				[SettingTags],
+				[SettingName],
+				[PictrueLogo],
+				[IdNO]
+			) 
+			VALUES 
+			(
+				#SettingId#,
+				#SettingCurrentValue#,
+				#SettingDefaultValue#,
+				#SettingDescription#,
+				#SettingTags#,
+				#SettingName#,
+				#PictrueLogo#,
+				#IdNO#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Setting">
+		 <![CDATA[ 	UPDATE [Setting] SET
+				[SettingCurrentValue] = #SettingCurrentValue#,
+				[SettingDefaultValue] = #SettingDefaultValue#,
+				[SettingDescription] = #SettingDescription#,
+				[SettingTags] = #SettingTags#,
+				[SettingName] = #SettingName#,
+				[PictrueLogo] = #PictrueLogo#,
+				[IdNO] = #IdNO#
+			WHERE
+				[SettingId] = #SettingId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[Setting]
+				where  SettingId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

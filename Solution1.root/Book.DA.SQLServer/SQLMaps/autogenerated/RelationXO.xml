@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="RelationXO" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="RelationXO" type="Book.Model.RelationXO, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="RelationXOResult" class="RelationXO">
+      <result property="RelationXOId" column="RelationXOId" />
+      <result property="InvoiceCusId" column="InvoiceCusId" />
+      <result property="InvoiceXOId" column="InvoiceXOId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="EmployeeId" column="EmployeeId"/>
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[RelationXO]
+				WHERE
+				[RelationXOId] = #RelationXOId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[RelationXO]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="RelationXOResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.RelationXO
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="RelationXOResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.RelationXO
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="RelationXOResult" parameterClass="RelationXO">
+      <![CDATA[
+			select top 1 *
+			from dbo.RelationXO
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="RelationXOResult" parameterClass="RelationXO">
+      <![CDATA[
+			select top 1 *
+			from dbo.RelationXO
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="RelationXO">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.RelationXO
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="RelationXO">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.RelationXO
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="RelationXOResult" parameterClass="RelationXO">
+      <![CDATA[SELECT
+				[RelationXOId],
+				[InvoiceCusId],
+				[InvoiceXOId],
+				[InsertTime],
+				[UpdateTime],
+        [EmployeeId]
+			FROM
+				[dbo].[RelationXO]
+			WHERE
+				[RelationXOId] = #RelationXOId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[RelationXO]
+			WHERE            
+				[RelationXOId] = #RelationXOId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="RelationXOResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[RelationXO]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[RelationXO]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="RelationXOResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[RelationXO]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="RelationXO">
+      <![CDATA[ INSERT INTO [dbo].[RelationXO] 
+			(
+				[RelationXOId],
+				[InvoiceCusId],
+				[InvoiceXOId],
+				[InsertTime],
+				[UpdateTime],
+        [EmployeeId]
+			) 
+			VALUES 
+			(
+				#RelationXOId#,
+				#InvoiceCusId#,
+				#InvoiceXOId#,
+				#InsertTime#,
+				#UpdateTime#,
+        #EmployeeId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="RelationXO">
+      <![CDATA[ 	UPDATE [RelationXO] SET
+				[InvoiceCusId] = #InvoiceCusId#,
+				[InvoiceXOId] = #InvoiceXOId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+        [EmployeeId]=#EmployeeId#
+			WHERE
+				[RelationXOId] = #RelationXOId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[RelationXO]
+				where  RelationXOId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>

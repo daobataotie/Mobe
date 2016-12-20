@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="BomComponentInfo" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="BomComponentInfo" type="Book.Model.BomComponentInfo, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="BomComponentInfoResult" class="BomComponentInfo">
+			<result property="PriamryKeyId" column="PriamryKeyId" />
+			<result property="BomId" column="BomId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="ProcessId" column="ProcessId" />
+			<result property="BasicUseQuantity" column="BasicUseQuantity" />
+			<result property="FoundationQuantity" column="FoundationQuantity" />
+			<result property="SubLoseRate" column="SubLoseRate" />
+			<result property="IsFixedUseQuantity" column="IsFixedUseQuantity" />
+			<result property="ProvideType" column="ProvideType" />
+			<result property="UseQuantity" column="UseQuantity" />
+			<result property="EffectsDate" column="EffectsDate" />
+			<result property="ExpiringDate" column="ExpiringDate" />
+			<result property="offset" column="offset" />
+			<result property="PlanProportion" column="PlanProportion" />
+			<result property="OutProduct" column="OutProduct" />
+			<result property="ProductType" column="ProductType" />
+			<result property="Cost" column="Cost" />
+			<result property="IsSelect" column="IsSelect" />
+			<result property="SelectRule" column="SelectRule" />
+			<result property="Remarks" column="Remarks" />
+			<result property="InsteadOfFlag" column="InsteadOfFlag" />
+			<result property="Unit" column="Unit" />
+			<result property="IndexOfBom" column="IndexOfBom" />
+		<result property="Bom" column="BomId" lazyLoad="false" select="BomParentPartInfo.select_by_primary_key" />		<result property="Process" column="ProcessId" lazyLoad="false" select="WorkProcess.select_by_primary_key" />		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[BomComponentInfo]
+				WHERE
+				[PriamryKeyId] = #PriamryKeyId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[BomComponentInfo]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="BomComponentInfoResult" parameterClass="BomComponentInfo">
+			SELECT
+				[PriamryKeyId],
+				[BomId],
+				[ProductId],
+				[ProcessId],
+				[BasicUseQuantity],
+				[FoundationQuantity],
+				[SubLoseRate],
+				[IsFixedUseQuantity],
+				[ProvideType],
+				[UseQuantity],
+				[EffectsDate],
+				[ExpiringDate],
+				[offset],
+				[PlanProportion],
+				[OutProduct],
+				[ProductType],
+				[Cost],
+				[IsSelect],
+				[SelectRule],
+				[Remarks],
+				[InsteadOfFlag],
+				[Unit],
+				[IndexOfBom]
+			FROM
+				[dbo].[BomComponentInfo]
+			WHERE
+				[PriamryKeyId] = #PriamryKeyId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[BomComponentInfo]
+			WHERE
+				[PriamryKeyId] = #PriamryKeyId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="BomComponentInfoResult" >
+			SELECT *
+			FROM 
+				[dbo].[BomComponentInfo]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[BomComponentInfo]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="BomComponentInfoResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[BomComponentInfo]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="BomComponentInfo">
+			INSERT INTO [dbo].[BomComponentInfo] 
+			(
+				[PriamryKeyId],
+				[BomId],
+				[ProductId],
+				[ProcessId],
+				[BasicUseQuantity],
+				[FoundationQuantity],
+				[SubLoseRate],
+				[IsFixedUseQuantity],
+				[ProvideType],
+				[UseQuantity],
+				[EffectsDate],
+				[ExpiringDate],
+				[offset],
+				[PlanProportion],
+				[OutProduct],
+				[ProductType],
+				[Cost],
+				[IsSelect],
+				[SelectRule],
+				[Remarks],
+				[InsteadOfFlag],
+				[Unit],
+				[IndexOfBom]
+			) 
+			VALUES 
+			(
+				#PriamryKeyId#,
+				#BomId#,
+				#ProductId#,
+				#ProcessId#,
+				#BasicUseQuantity#,
+				#FoundationQuantity#,
+				#SubLoseRate#,
+				#IsFixedUseQuantity#,
+				#ProvideType#,
+				#UseQuantity#,
+				#EffectsDate#,
+				#ExpiringDate#,
+				#offset#,
+				#PlanProportion#,
+				#OutProduct#,
+				#ProductType#,
+				#Cost#,
+				#IsSelect#,
+				#SelectRule#,
+				#Remarks#,
+				#InsteadOfFlag#,
+				#Unit#,
+				#IndexOfBom#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="BomComponentInfo">
+			UPDATE [BomComponentInfo] SET
+				[BomId] = #BomId#,
+				[ProductId] = #ProductId#,
+				[ProcessId] = #ProcessId#,
+				[BasicUseQuantity] = #BasicUseQuantity#,
+				[FoundationQuantity] = #FoundationQuantity#,
+				[SubLoseRate] = #SubLoseRate#,
+				[IsFixedUseQuantity] = #IsFixedUseQuantity#,
+				[ProvideType] = #ProvideType#,
+				[UseQuantity] = #UseQuantity#,
+				[EffectsDate] = #EffectsDate#,
+				[ExpiringDate] = #ExpiringDate#,
+				[offset] = #offset#,
+				[PlanProportion] = #PlanProportion#,
+				[OutProduct] = #OutProduct#,
+				[ProductType] = #ProductType#,
+				[Cost] = #Cost#,
+				[IsSelect] = #IsSelect#,
+				[SelectRule] = #SelectRule#,
+				[Remarks] = #Remarks#,
+				[InsteadOfFlag] = #InsteadOfFlag#,
+				[Unit] = #Unit#,
+				[IndexOfBom] = #IndexOfBom#
+			WHERE
+				[PriamryKeyId] = #PriamryKeyId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[BomComponentInfo]
+				where  PriamryKeyId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

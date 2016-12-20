@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceXSDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoiceXSDetail" type="Book.Model.InvoiceXSDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoiceXSDetailResult" class="InvoiceXSDetail">
+      <result property="InvoiceXSDetailId" column="InvoiceXSDetailId" />
+      <result property="InvoiceXODetailId" column="InvoiceXODetailId" />
+      <result property="DepotPositionId" column="DepotPositionId" />
+      <result property="PrimaryKeyId" column="PrimaryKeyId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="IsZs" column="IsZs" />
+      <result property="InvoiceXSDetailQuantity" column="InvoiceXSDetailQuantity" />
+      <result property="InvoiceXSDetailNote" column="InvoiceXSDetailNote" />
+      <result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+      <result property="ProductId" column="ProductId" />
+      <result property="IsCustomerProduct" column="IsCustomerProduct" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="Inumber" column="Inumber" />
+      <result property="InvoiceXOId" column="InvoiceXOId" />
+      <result property="Donatetowards" column="Donatetowards" />
+      <result property="InvoiceAllowance" column="InvoiceAllowance" />
+      <result property="InvoiceXSDetailPrice" column="InvoiceXSDetailPrice" />
+      <result property="InvoiceXSDetailMoney" column="InvoiceXSDetailMoney" />
+      <result property="InvoiceXSDetailTaxPrice" column="InvoiceXSDetailTaxPrice" />
+      <result property="InvoiceXSDetailTaxMoney" column="InvoiceXSDetailTaxMoney" />
+      <result property="InvoiceXSDetailFPQuantity" column="InvoiceXSDetailFPQuantity" />
+      <result property="InvoiceXSDetailTax" column="InvoiceXSDetailTax" />
+      <result property="HandbookId" column="HandbookId"/>
+      <result property="HandbookProductId" column="HandbookProductId"/>
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="PrimaryKey" column="PrimaryKeyId" lazyLoad="false" select="CustomerProducts.select_by_primary_key" />
+      <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceXS.select_by_primary_key" />
+      <result property="InvoiceXODetail" column="InvoiceXODetailId"  select="InvoiceXODetail.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceXSDetail]
+				WHERE
+				[InvoiceXSDetailId] = #InvoiceXSDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceXSDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="InvoiceXSDetailResult" parameterClass="InvoiceXSDetail">
+      <![CDATA[SELECT
+				[InvoiceXSDetailId],
+				[InvoiceXODetailId],
+				[DepotPositionId],
+				[PrimaryKeyId],
+				[InvoiceId],
+				[IsZs],
+				[InvoiceXSDetailQuantity],
+				[InvoiceXSDetailNote],
+				[InvoiceProductUnit],
+				[ProductId],
+				[IsCustomerProduct],
+				[CustomerId],
+				[Inumber],
+				[InvoiceXOId],
+				[Donatetowards],
+				[InvoiceAllowance],
+				[InvoiceXSDetailPrice],
+				[InvoiceXSDetailMoney],
+				[InvoiceXSDetailTaxPrice],
+				[InvoiceXSDetailTaxMoney],
+				[InvoiceXSDetailFPQuantity],
+				[InvoiceXSDetailTax],
+        [HandbookId],
+        [HandbookProductId]
+			FROM
+				[dbo].[InvoiceXSDetail]
+			WHERE
+				[InvoiceXSDetailId] = #InvoiceXSDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[
+                DELETE FROM [dbo].[InvoiceXSDetail]
+			WHERE            
+				[InvoiceXSDetailId] = #InvoiceXSDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="InvoiceXSDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[InvoiceXSDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[InvoiceXSDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="InvoiceXSDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoiceXSDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="InvoiceXSDetail">
+      <![CDATA[ INSERT INTO [dbo].[InvoiceXSDetail] 
+			(
+				[InvoiceXSDetailId],
+				[InvoiceXODetailId],
+				[DepotPositionId],
+				[PrimaryKeyId],
+				[InvoiceId],
+				[IsZs],
+				[InvoiceXSDetailQuantity],
+				[InvoiceXSDetailNote],
+				[InvoiceProductUnit],
+				[ProductId],
+				[IsCustomerProduct],
+				[CustomerId],
+				[Inumber],
+				[InvoiceXOId],
+				[Donatetowards],
+				[InvoiceAllowance],
+				[InvoiceXSDetailPrice],
+				[InvoiceXSDetailMoney],
+				[InvoiceXSDetailTaxPrice],
+				[InvoiceXSDetailTaxMoney],
+				[InvoiceXSDetailFPQuantity],
+				[InvoiceXSDetailTax],
+        [HandbookId],
+        [HandbookProductId]
+			) 
+			VALUES 
+			(
+				#InvoiceXSDetailId#,
+				#InvoiceXODetailId#,
+				#DepotPositionId#,
+				#PrimaryKeyId#,
+				#InvoiceId#,
+				#IsZs#,
+				#InvoiceXSDetailQuantity#,
+				#InvoiceXSDetailNote#,
+				#InvoiceProductUnit#,
+				#ProductId#,
+				#IsCustomerProduct#,
+				#CustomerId#,
+				#Inumber#,
+				#InvoiceXOId#,
+				#Donatetowards#,
+				#InvoiceAllowance#,
+				#InvoiceXSDetailPrice#,
+				#InvoiceXSDetailMoney#,
+				#InvoiceXSDetailTaxPrice#,
+				#InvoiceXSDetailTaxMoney#,
+				#InvoiceXSDetailFPQuantity#,
+				#InvoiceXSDetailTax#,
+        #HandbookId#,
+        #HandbookProductId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="InvoiceXSDetail">
+      <![CDATA[ 	UPDATE [InvoiceXSDetail] SET
+				[InvoiceXODetailId] = #InvoiceXODetailId#,
+				[DepotPositionId] = #DepotPositionId#,
+				[PrimaryKeyId] = #PrimaryKeyId#,
+				[InvoiceId] = #InvoiceId#,
+				[IsZs] = #IsZs#,
+				[InvoiceXSDetailQuantity] = #InvoiceXSDetailQuantity#,
+				[InvoiceXSDetailNote] = #InvoiceXSDetailNote#,
+				[InvoiceProductUnit] = #InvoiceProductUnit#,
+				[ProductId] = #ProductId#,
+				[IsCustomerProduct] = #IsCustomerProduct#,
+				[CustomerId] = #CustomerId#,
+				[Inumber] = #Inumber#,
+				[InvoiceXOId] = #InvoiceXOId#,
+				[Donatetowards] = #Donatetowards#,
+				[InvoiceAllowance] = #InvoiceAllowance#,
+				[InvoiceXSDetailPrice] = #InvoiceXSDetailPrice#,
+				[InvoiceXSDetailMoney] = #InvoiceXSDetailMoney#,
+				[InvoiceXSDetailTaxPrice] = #InvoiceXSDetailTaxPrice#,
+				[InvoiceXSDetailTaxMoney] = #InvoiceXSDetailTaxMoney#,
+				[InvoiceXSDetailFPQuantity] = #InvoiceXSDetailFPQuantity#,
+				[InvoiceXSDetailTax] = #InvoiceXSDetailTax#,
+        [HandbookId]=#HandbookId#,
+        [HandbookProductId]=#HandbookProductId#
+			WHERE
+				[InvoiceXSDetailId] = #InvoiceXSDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceXSDetail]
+				where  InvoiceXSDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

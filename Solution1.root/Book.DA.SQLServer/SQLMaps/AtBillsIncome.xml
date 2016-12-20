@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AtBillsIncome" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_AtBillsIncomeBillsOften" resultMap="AtBillsIncomeResult" parameterClass="Map">
+		SELECT * FROM AtBillsIncome WHERE BillsOften = #BillsOften# and   IncomeCategory=0
+	</select>
+    <select id="select_byDdate" resultMap="AtBillsIncomeResult" parameterClass="Map">
+      <![CDATA[
+     select * from AtBillsIncome  where (TheOpenDate  between #startdate# and #enddate#)or(#startdate# is null and #enddate# is null) 
+    ]]>
+    </select>
+    <select id="select_byDdateAndBank" resultMap="AtBillsIncomeResult" parameterClass="Map">
+      <![CDATA[
+     select * from AtBillsIncome where
+     (CollectionAccount  between #startCollectionAccount# and #endCollectionAccount#) or (#startCollectionAccount# is null and #endCollectionAccount# is null) and (Maturity  between #startdate# and #enddate# )or(#startdate# is null and #enddate# is null) 
+    ]]>
+    </select>
+    <select id="select_byDdate2" resultMap="AtBillsIncomeResult" parameterClass="Map">
+      <![CDATA[
+     select * from AtBillsIncome  where (TheJpy  between #startdate# and #enddate#) or (#startdate# is null and #enddate# is null) and BillsOften = #BillsOften#
+    ]]>
+    </select>
+     <select id="select_DuiXianByDate" resultMap="AtBillsIncomeResult" parameterClass="Map">
+      <![CDATA[
+     select * from AtBillsIncome  where TheOpenDate  between #startdate# and #enddate#  and Maturity  between #daoQiDate1# and #daoQiDate2# and IncomeCategory=#IncomeCategory# and BillsOften=#BillsOften#
+    ]]>
+    </select>
+
+  </statements>
+
+</sqlMap>

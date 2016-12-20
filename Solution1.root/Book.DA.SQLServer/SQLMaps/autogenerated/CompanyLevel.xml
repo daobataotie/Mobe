@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="CompanyLevel" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="CompanyLevel" type="Book.Model.CompanyLevel, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="CompanyLevelResult" class="CompanyLevel">
+			<result property="CompanyLevelId" column="CompanyLevelId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="CompanyLevelName" column="CompanyLevelName" />
+			<result property="CompanyLevelProfitMargin" column="CompanyLevelProfitMargin" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CompanyLevel]
+				WHERE
+				[CompanyLevelId] = #CompanyLevelId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CompanyLevel]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="CompanyLevelResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.CompanyLevel 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="CompanyLevelResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.CompanyLevel 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="CompanyLevelResult" parameterClass="CompanyLevel">
+			<![CDATA[
+			select top 1 *
+			from dbo.CompanyLevel
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="CompanyLevelResult" parameterClass="CompanyLevel">
+			<![CDATA[
+			select top 1 *
+			from dbo.CompanyLevel
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="CompanyLevel">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CompanyLevel
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="CompanyLevel">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CompanyLevel
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="CompanyLevelResult" parameterClass="CompanyLevel">
+			SELECT
+				[CompanyLevelId],
+				[InsertTime],
+				[UpdateTime],
+				[CompanyLevelName],
+				[CompanyLevelProfitMargin]
+			FROM
+				[dbo].[CompanyLevel]
+			WHERE
+				[CompanyLevelId] = #CompanyLevelId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[CompanyLevel]
+			WHERE
+				[CompanyLevelId] = #CompanyLevelId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="CompanyLevelResult" >
+			SELECT *
+			FROM 
+				[dbo].[CompanyLevel]
+			ORDER BY CompanyLevelId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[CompanyLevel]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="CompanyLevelResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[CompanyLevel]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="CompanyLevel">
+			INSERT INTO [dbo].[CompanyLevel] 
+			(
+				[CompanyLevelId],
+				[InsertTime],
+				[UpdateTime],
+				[CompanyLevelName],
+				[CompanyLevelProfitMargin]
+			) 
+			VALUES 
+			(
+				#CompanyLevelId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#CompanyLevelName#,
+				#CompanyLevelProfitMargin#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="CompanyLevel">
+			UPDATE [CompanyLevel] SET
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[CompanyLevelName] = #CompanyLevelName#,
+				[CompanyLevelProfitMargin] = #CompanyLevelProfitMargin#
+			WHERE
+				[CompanyLevelId] = #CompanyLevelId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

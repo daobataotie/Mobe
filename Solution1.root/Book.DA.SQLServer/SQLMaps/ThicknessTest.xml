@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ThicknessTest" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="mGetFirst" resultMap="ThicknessTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM ThicknessTest
+      WHERE PCPGOnlineCheckDetailId = #value#
+      ORDER BY InsertTime ASC
+			]]>
+    </select>
+
+    <select id="mGetLast" resultMap="ThicknessTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM ThicknessTest
+      WHERE PCPGOnlineCheckDetailId = #value#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="mGetPrev" resultMap="ThicknessTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM ThicknessTest
+      WHERE InsertTime < #InsertDate#
+      AND PCPGOnlineCheckDetailId = #PCPGOnlineCheckDetailId#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="mGetNext" resultMap="ThicknessTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM ThicknessTest
+      WHERE InsertTime > #InsertDate#
+      AND PCPGOnlineCheckDetailId = #PCPGOnlineCheckDetailId#
+      ORDER BY InsertTime ASC
+      ]]>
+    </select>
+
+    <select id="mHasRows" resultClass="bool" parameterClass="string">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM ThicknessTest WHERE PCPGOnlineCheckDetailId = #value#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="mHasRowsBefore" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM ThicknessTest WHERE InsertTime < #InsertTime# AND PCPGOnlineCheckDetailId = #PCPGOnlineCheckDetailId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="mHasRowsAfter" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM ThicknessTest WHERE InsertTime > #InsertTime# AND PCPGOnlineCheckDetailId = #PCPGOnlineCheckDetailId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="mSelect" resultMap="ThicknessTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM ThicknessTest WHERE PCPGOnlineCheckDetailId = #value#
+      ]]>
+    </select>
+
+    <select id="SelectByDateRage" resultMap="ThicknessTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ThicknessTest WHERE ThicknessTestDate BETWEEN #startdate# AND #enddate# 
+      AND PCPGOnlineCheckDetailId = #PCPGOnlineCheckDetailId#
+      ]]>
+    </select>
+    
+    <select id="ExistsManualId" parameterClass="Map" resultClass="bool">
+      <![CDATA[
+      select case when exists(
+				select *
+				from [dbo].[ThicknessTest]
+				where  manualId = #ManualId#
+        and ThicknessTestId <> #ThicknessTestId#
+				)
+				then 1 else 0 end
+      ]]>
+    </select>
+
+    <select id="DeleteByPCPGOnlineCheckDetailId" parameterClass="String">
+      <![CDATA[
+      DELETE FROM ThicknessTest WHERE PCPGOnlineCheckDetailId=#value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

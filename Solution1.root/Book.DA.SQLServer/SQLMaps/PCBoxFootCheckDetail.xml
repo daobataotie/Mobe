@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCBoxFootCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByPCBoxFootCheckId" resultMap="PCBoxFootCheckDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM PCBoxFootCheckDetail WHERE PCBoxFootCheckId=#value# order by CheckDate
+      ]]>
+    </select>
+
+    <delete id="DeleteByPCBoxFootCheckId"  parameterClass="string">
+      <![CDATA[
+      DELETE FROM PCBoxFootCheckDetail WHERE PCBoxFootCheckId=#value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

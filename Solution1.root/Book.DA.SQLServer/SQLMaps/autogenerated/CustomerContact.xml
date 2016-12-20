@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="CustomerContact" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="CustomerContact" type="Book.Model.CustomerContact, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="CustomerContactResult" class="CustomerContact">
+			<result property="CustomerContactId" column="CustomerContactId" />
+			<result property="CustomerId" column="CustomerId" />
+			<result property="CustomerContactName" column="CustomerContactName" />
+			<result property="CustomerContactPhone" column="CustomerContactPhone" />
+			<result property="CustomerContactMobile" column="CustomerContactMobile" />
+			<result property="CustomerContactEmail" column="CustomerContactEmail" />
+			<result property="CustomerContactRemark" column="CustomerContactRemark" />
+			<result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerContact]
+				WHERE
+				[CustomerContactId] = #CustomerContactId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerContact]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="CustomerContactResult" parameterClass="CustomerContact">
+			SELECT
+				[CustomerContactId],
+				[CustomerId],
+				[CustomerContactName],
+				[CustomerContactPhone],
+				[CustomerContactMobile],
+				[CustomerContactEmail],
+				[CustomerContactRemark]
+			FROM
+				[dbo].[CustomerContact]
+			WHERE
+				[CustomerContactId] = #CustomerContactId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[CustomerContact]
+			WHERE
+				[CustomerContactId] = #CustomerContactId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="CustomerContactResult" >
+			SELECT *
+			FROM 
+				[dbo].[CustomerContact]
+			ORDER BY CustomerContactId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[CustomerContact]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="CustomerContactResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[CustomerContact]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="CustomerContact">
+			INSERT INTO [dbo].[CustomerContact] 
+			(
+				[CustomerContactId],
+				[CustomerId],
+				[CustomerContactName],
+				[CustomerContactPhone],
+				[CustomerContactMobile],
+				[CustomerContactEmail],
+				[CustomerContactRemark]
+			) 
+			VALUES 
+			(
+				#CustomerContactId#,
+				#CustomerId#,
+				#CustomerContactName#,
+				#CustomerContactPhone#,
+				#CustomerContactMobile#,
+				#CustomerContactEmail#,
+				#CustomerContactRemark#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="CustomerContact">
+			UPDATE [CustomerContact] SET
+				[CustomerId] = #CustomerId#,
+				[CustomerContactName] = #CustomerContactName#,
+				[CustomerContactPhone] = #CustomerContactPhone#,
+				[CustomerContactMobile] = #CustomerContactMobile#,
+				[CustomerContactEmail] = #CustomerContactEmail#,
+				[CustomerContactRemark] = #CustomerContactRemark#
+			WHERE
+				[CustomerContactId] = #CustomerContactId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

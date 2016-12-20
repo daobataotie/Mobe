@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Leave" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Leave" type="Book.Model.Leave, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="LeaveResult" class="Leave">
+			<result property="LeaveId" column="LeaveId" />
+			<result property="LeaveTypeId" column="LeaveTypeId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="LeaveDate" column="LeaveDate" />
+			<result property="LeaveRange" column="LeaveRange" />
+			<result property="LeaveText" column="LeaveText" />
+		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="LeaveType" column="LeaveTypeId" lazyLoad="false" select="LeaveType.select_by_primary_key" />        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Leave]
+				WHERE
+				[LeaveId] = #LeaveId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Leave]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="LeaveResult" parameterClass="Leave">
+			<![CDATA[SELECT
+				[LeaveId],
+				[LeaveTypeId],
+				[EmployeeId],
+				[LeaveDate],
+				[LeaveRange],
+				[LeaveText]
+			FROM
+				[dbo].[Leave]
+			WHERE
+				[LeaveId] = #LeaveId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[Leave]
+			WHERE            
+				[LeaveId] = #LeaveId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="LeaveResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[Leave]
+                			                   
+
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[Leave]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="LeaveResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Leave]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Leave">
+			 <![CDATA[ INSERT INTO [dbo].[Leave] 
+			(
+				[LeaveId],
+				[LeaveTypeId],
+				[EmployeeId],
+				[LeaveDate],
+				[LeaveRange],
+				[LeaveText]
+			) 
+			VALUES 
+			(
+				#LeaveId#,
+				#LeaveTypeId#,
+				#EmployeeId#,
+				#LeaveDate#,
+				#LeaveRange#,
+				#LeaveText#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Leave">
+		 <![CDATA[ 	UPDATE [Leave] SET
+				[LeaveTypeId] = #LeaveTypeId#,
+				[EmployeeId] = #EmployeeId#,
+				[LeaveDate] = #LeaveDate#,
+				[LeaveRange] = #LeaveRange#,
+				[LeaveText] = #LeaveText#
+			WHERE
+				[LeaveId] = #LeaveId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[Leave]
+				where  LeaveId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

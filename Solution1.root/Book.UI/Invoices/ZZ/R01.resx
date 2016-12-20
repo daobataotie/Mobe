@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="Detail.Name" xml:space="preserve">
+    <value>Detail</value>
+  </metadata>
+  <metadata name="xrSubreport1.Name" xml:space="preserve">
+    <value>xrSubreport1</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xrSubreport1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrSubreport1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 64</value>
+  </data>
+  <metadata name="xrSubreport2.Name" xml:space="preserve">
+    <value>xrSubreport2</value>
+  </metadata>
+  <data name="xrSubreport2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 64</value>
+  </data>
+  <data name="xrSubreport2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 64</value>
+  </data>
+  <metadata name="PageHeader.Name" xml:space="preserve">
+    <value>PageHeader</value>
+  </metadata>
+  <metadata name="xrLabelCompanyInfoName.Name" xml:space="preserve">
+    <value>xrLabelCompanyInfoName</value>
+  </metadata>
+  <data name="xrLabelCompanyInfoName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 26.25pt, style=Bold</value>
+  </data>
+  <data name="xrLabelCompanyInfoName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrLabelCompanyInfoName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1989, 127</value>
+  </data>
+  <metadata name="xrLabel33.Name" xml:space="preserve">
+    <value>xrLabel33</value>
+  </metadata>
+  <data name="xrLabel33.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 8.75pt, style=Bold</value>
+  </data>
+  <data name="xrLabel33.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1312, 127</value>
+  </data>
+  <data name="xrLabel33.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrLabel33.Text" xml:space="preserve">
+    <value>FAX:</value>
+  </data>
+  <metadata name="xrLabel15.Name" xml:space="preserve">
+    <value>xrLabel15</value>
+  </metadata>
+  <data name="xrLabel15.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 8.75pt, style=Bold</value>
+  </data>
+  <data name="xrLabel15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 127</value>
+  </data>
+  <data name="xrLabel15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrLabel15.Text" xml:space="preserve">
+    <value>公司地址:</value>
+  </data>
+  <metadata name="xrLabelCompanyInfoAddress.Name" xml:space="preserve">
+    <value>xrLabelCompanyInfoAddress</value>
+  </metadata>
+  <data name="xrLabelCompanyInfoAddress.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 8.75pt, style=Bold</value>
+  </data>
+  <data name="xrLabelCompanyInfoAddress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>233, 127</value>
+  </data>
+  <data name="xrLabelCompanyInfoAddress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>424, 50</value>
+  </data>
+  <metadata name="xrLabel30.Name" xml:space="preserve">
+    <value>xrLabel30</value>
+  </metadata>
+  <data name="xrLabel30.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 8.75pt, style=Bold</value>
+  </data>
+  <data name="xrLabel30.Location" type="System.Drawing.Point, System.Drawing">
+    <value>677, 127</value>
+  </data>
+  <data name="xrLabel30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrLabel30.Text" xml:space="preserve">
+    <value>电话:</value>
+  </data>
+  <metadata name="xrLabelCompanyInfoTelphone.Name" xml:space="preserve">
+    <value>xrLabelCompanyInfoTelphone</value>
+  </metadata>
+  <data name="xrLabelCompanyInfoTelphone.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 8.75pt, style=Bold</value>
+  </data>
+  <data name="xrLabelCompanyInfoTelphone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>910, 127</value>
+  </data>
+  <data name="xrLabelCompanyInfoTelphone.Size" type="System.Drawing.Size, System.Drawing">
+    <value>381, 50</value>
+  </data>
+  <metadata name="xrLabelCompanyInfoFAX.Name" xml:space="preserve">
+    <value>xrLabelCompanyInfoFAX</value>
+  </metadata>
+  <data name="xrLabelCompanyInfoFAX.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 8.75pt, style=Bold</value>
+  </data>
+  <data name="xrLabelCompanyInfoFAX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1545, 127</value>
+  </data>
+  <data name="xrLabelCompanyInfoFAX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>444, 50</value>
+  </data>
+  <metadata name="xrLabelInvoiceId.Name" xml:space="preserve">
+    <value>xrLabelInvoiceId</value>
+  </metadata>
+  <data name="xrLabelInvoiceId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>720, 190</value>
+  </data>
+  <data name="xrLabelInvoiceId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>297, 50</value>
+  </data>
+  <metadata name="xrLabel18.Name" xml:space="preserve">
+    <value>xrLabel18</value>
+  </metadata>
+  <data name="xrLabel18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>508, 190</value>
+  </data>
+  <data name="xrLabel18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 50</value>
+  </data>
+  <data name="xrLabel18.Text" xml:space="preserve">
+    <value>单据编号:</value>
+  </data>
+  <metadata name="xrLabelInvoiceDate.Name" xml:space="preserve">
+    <value>xrLabelInvoiceDate</value>
+  </metadata>
+  <data name="xrLabelInvoiceDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>212, 190</value>
+  </data>
+  <data name="xrLabelInvoiceDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 50</value>
+  </data>
+  <metadata name="xrLabel7.Name" xml:space="preserve">
+    <value>xrLabel7</value>
+  </metadata>
+  <data name="xrLabel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 190</value>
+  </data>
+  <data name="xrLabel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 50</value>
+  </data>
+  <data name="xrLabel7.Text" xml:space="preserve">
+    <value>组装日期:</value>
+  </data>
+  <metadata name="PageFooter.Name" xml:space="preserve">
+    <value>PageFooter</value>
+  </metadata>
+  <metadata name="xrLine1.Name" xml:space="preserve">
+    <value>xrLine1</value>
+  </metadata>
+  <data name="xrLine1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrLine1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1990, 5</value>
+  </data>
+  <metadata name="xrLabel25.Name" xml:space="preserve">
+    <value>xrLabel25</value>
+  </metadata>
+  <data name="xrLabel25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 192</value>
+  </data>
+  <data name="xrLabel25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 50</value>
+  </data>
+  <data name="xrLabel25.Text" xml:space="preserve">
+    <value>审核人:</value>
+  </data>
+  <metadata name="xrLabel27.Name" xml:space="preserve">
+    <value>xrLabel27</value>
+  </metadata>
+  <data name="xrLabel27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 192</value>
+  </data>
+  <data name="xrLabel27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 50</value>
+  </data>
+  <data name="xrLabel27.Text" xml:space="preserve">
+    <value>业务:</value>
+  </data>
+  <metadata name="xrLabel29.Name" xml:space="preserve">
+    <value>xrLabel29</value>
+  </metadata>
+  <data name="xrLabel29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>995, 192</value>
+  </data>
+  <data name="xrLabel29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 50</value>
+  </data>
+  <data name="xrLabel29.Text" xml:space="preserve">
+    <value>会计:</value>
+  </data>
+  <metadata name="xrLabel31.Name" xml:space="preserve">
+    <value>xrLabel31</value>
+  </metadata>
+  <data name="xrLabel31.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1503, 192</value>
+  </data>
+  <data name="xrLabel31.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 50</value>
+  </data>
+  <data name="xrLabel31.Text" xml:space="preserve">
+    <value>签收:</value>
+  </data>
+  <metadata name="xrLabelNote.Name" xml:space="preserve">
+    <value>xrLabelNote</value>
+  </metadata>
+  <data name="xrLabelNote.BorderColor" type="System.Drawing.Color, System.Drawing">
+    <value>Black</value>
+  </data>
+  <data name="xrLabelNote.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 21</value>
+  </data>
+  <data name="xrLabelNote.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1355, 169</value>
+  </data>
+  <metadata name="xrLabel40.Name" xml:space="preserve">
+    <value>xrLabel40</value>
+  </metadata>
+  <data name="xrLabel40.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 21</value>
+  </data>
+  <data name="xrLabel40.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 50</value>
+  </data>
+  <data name="xrLabel40.Text" xml:space="preserve">
+    <value>备注:</value>
+  </data>
+  <metadata name="xrPageInfo1.Name" xml:space="preserve">
+    <value>xrPageInfo1</value>
+  </metadata>
+  <data name="xrPageInfo1.Format" xml:space="preserve">
+    <value>第{0}页</value>
+  </data>
+  <data name="xrPageInfo1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1863, 233</value>
+  </data>
+  <data name="xrPageInfo1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 50</value>
+  </data>
+  <metadata name="ReportFooter.Name" xml:space="preserve">
+    <value>ReportFooter</value>
+  </metadata>
+  <metadata name="xrLabel8.Name" xml:space="preserve">
+    <value>xrLabel8</value>
+  </metadata>
+  <data name="xrLabel8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrLabel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>465, 50</value>
+  </data>
+  <data name="xrLabel8.Text" xml:space="preserve">
+    <value>…………以下空白…………</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Name" xml:space="preserve">
+    <value>R01</value>
+  </metadata>
+</root>

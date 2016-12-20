@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceXJDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoiceXJDetail" type="Book.Model.InvoiceXJDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoiceXJDetailResult" class="InvoiceXJDetail">
+      <result property="InvoiceXJDetailId" column="InvoiceXJDetailId" />
+      <result property="PrimaryKeyId" column="PrimaryKeyId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="InvoiceXJDetailPrice" column="InvoiceXJDetailPrice" />
+      <result property="InvoiceXJDetailQuantity" column="InvoiceXJDetailQuantity" />
+      <result property="InvoiceXJDetailMoney" column="InvoiceXJDetailMoney" />
+      <result property="InvoiceXJDetailNote" column="InvoiceXJDetailNote" />
+      <result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+      <result property="ProductId" column="ProductId" />
+      <result property="IsCustomerProduct" column="IsCustomerProduct" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="InvoiceAllowance" column="InvoiceAllowance" />
+      <result property="Islargess" column="Islargess" />
+      <result property="Inumber" column="Inumber" />
+      <result property="ProductName" column="ProductName" />
+      <result property="ParentId" column="ParentId" />
+      <result property="InvoiceXJDetailQuote" column="InvoiceXJDetailQuote" />
+      <result property="InvoiceXJDetailMoney2" column="InvoiceXJDetailMoney2" />
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="PrimaryKey" column="PrimaryKeyId" lazyLoad="false" select="CustomerProducts.select_by_primary_key" />
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceXJ.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceXJDetail]
+      WHERE
+      [InvoiceXJDetailId] = #InvoiceXJDetailId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceXJDetail]
+
+      ) then 1 else 0 end
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="InvoiceXJDetailResult" parameterClass="InvoiceXJDetail">
+      SELECT
+      [InvoiceXJDetailId],
+      [PrimaryKeyId],
+      [InvoiceId],
+      [InvoiceXJDetailPrice],
+      [InvoiceXJDetailQuantity],
+      [InvoiceXJDetailMoney],
+      [InvoiceXJDetailNote],
+      [InvoiceProductUnit],
+      [ProductId],
+      [IsCustomerProduct],
+      [CustomerId],
+      [InvoiceAllowance],
+      [Islargess],
+      [Inumber],
+      [ProductName],
+      [ParentId],
+      [InvoiceXJDetailQuote],
+      [InvoiceXJDetailMoney2]
+      FROM
+      [dbo].[InvoiceXJDetail]
+      WHERE
+      [InvoiceXJDetailId] = #InvoiceXJDetailId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[InvoiceXJDetail]
+      WHERE
+      [InvoiceXJDetailId] = #InvoiceXJDetailId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="InvoiceXJDetailResult" >
+      SELECT *
+      FROM
+      [dbo].[InvoiceXJDetail]
+
+
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[InvoiceXJDetail]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="InvoiceXJDetailResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[InvoiceXJDetail]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="InvoiceXJDetail">
+      INSERT INTO [dbo].[InvoiceXJDetail]
+      (
+      [InvoiceXJDetailId],
+      [PrimaryKeyId],
+      [InvoiceId],
+      [InvoiceXJDetailPrice],
+      [InvoiceXJDetailQuantity],
+      [InvoiceXJDetailMoney],
+      [InvoiceXJDetailNote],
+      [InvoiceProductUnit],
+      [ProductId],
+      [IsCustomerProduct],
+      [CustomerId],
+      [InvoiceAllowance],
+      [Islargess],
+      [Inumber],
+      [ProductName],
+      [ParentId],
+      [InvoiceXJDetailQuote],
+      [InvoiceXJDetailMoney2]
+      )
+      VALUES
+      (
+      #InvoiceXJDetailId#,
+      #PrimaryKeyId#,
+      #InvoiceId#,
+      #InvoiceXJDetailPrice#,
+      #InvoiceXJDetailQuantity#,
+      #InvoiceXJDetailMoney#,
+      #InvoiceXJDetailNote#,
+      #InvoiceProductUnit#,
+      #ProductId#,
+      #IsCustomerProduct#,
+      #CustomerId#,
+      #InvoiceAllowance#,
+      #Islargess#,
+      #Inumber#,
+      #ProductName#,
+      #ParentId#,
+      #InvoiceXJDetailQuote#,
+      #InvoiceXJDetailMoney2#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="InvoiceXJDetail">
+      UPDATE [InvoiceXJDetail] SET
+      [PrimaryKeyId] = #PrimaryKeyId#,
+      [InvoiceId] = #InvoiceId#,
+      [InvoiceXJDetailPrice] = #InvoiceXJDetailPrice#,
+      [InvoiceXJDetailQuantity] = #InvoiceXJDetailQuantity#,
+      [InvoiceXJDetailMoney] = #InvoiceXJDetailMoney#,
+      [InvoiceXJDetailNote] = #InvoiceXJDetailNote#,
+      [InvoiceProductUnit] = #InvoiceProductUnit#,
+      [ProductId] = #ProductId#,
+      [IsCustomerProduct] = #IsCustomerProduct#,
+      [CustomerId] = #CustomerId#,
+      [InvoiceAllowance] = #InvoiceAllowance#,
+      [Islargess] = #Islargess#,
+      [Inumber] = #Inumber#,
+      [ProductName] = #ProductName#,
+      [ParentId] = #ParentId#,
+      [InvoiceXJDetailQuote] = #InvoiceXJDetailQuote#,
+      [InvoiceXJDetailMoney2] = #InvoiceXJDetailMoney2#
+      WHERE
+      [InvoiceXJDetailId] = #InvoiceXJDetailId#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceXJDetail]
+				where  InvoiceXJDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

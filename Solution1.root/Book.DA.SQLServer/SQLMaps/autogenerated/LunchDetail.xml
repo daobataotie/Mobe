@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="LunchDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="LunchDetail" type="Book.Model.LunchDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="LunchDetailResult" class="LunchDetail">
+			<result property="LunchDetailId" column="LunchDetailId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="Employee0Id" column="Employee0Id" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="MarkDate" column="MarkDate" />
+			<result property="LunchFee" column="LunchFee" />
+			<result property="ShouldPay" column="ShouldPay" />
+		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[LunchDetail]
+				WHERE
+				[LunchDetailId] = #LunchDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[LunchDetail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="LunchDetailResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.LunchDetail 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="LunchDetailResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.LunchDetail 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="LunchDetailResult" parameterClass="LunchDetail">
+			<![CDATA[
+			select top 1 *
+			from dbo.LunchDetail
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="LunchDetailResult" parameterClass="LunchDetail">
+			<![CDATA[
+			select top 1 *
+			from dbo.LunchDetail
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="LunchDetail">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.LunchDetail
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="LunchDetail">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.LunchDetail
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="LunchDetailResult" parameterClass="LunchDetail">
+			SELECT
+				[LunchDetailId],
+				[EmployeeId],
+				[Employee0Id],
+				[InsertTime],
+				[UpdateTime],
+				[MarkDate],
+				[LunchFee],
+				[ShouldPay]
+			FROM
+				[dbo].[LunchDetail]
+			WHERE
+				[LunchDetailId] = #LunchDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[LunchDetail]
+			WHERE
+				[LunchDetailId] = #LunchDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="LunchDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[LunchDetail]
+			ORDER BY LunchDetailId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[LunchDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="LunchDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[LunchDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="LunchDetail">
+			INSERT INTO [dbo].[LunchDetail] 
+			(
+				[LunchDetailId],
+				[EmployeeId],
+				[Employee0Id],
+				[InsertTime],
+				[UpdateTime],
+				[MarkDate],
+				[LunchFee],
+				[ShouldPay]
+			) 
+			VALUES 
+			(
+				#LunchDetailId#,
+				#EmployeeId#,
+				#Employee0Id#,
+				#InsertTime#,
+				#UpdateTime#,
+				#MarkDate#,
+				#LunchFee#,
+				#ShouldPay#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="LunchDetail">
+			UPDATE [LunchDetail] SET
+				[EmployeeId] = #EmployeeId#,
+				[Employee0Id] = #Employee0Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[MarkDate] = #MarkDate#,
+				[LunchFee] = #LunchFee#,
+				[ShouldPay] = #ShouldPay#
+			WHERE
+				[LunchDetailId] = #LunchDetailId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

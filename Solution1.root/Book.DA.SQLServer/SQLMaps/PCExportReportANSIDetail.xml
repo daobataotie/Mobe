@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCExportReportANSIDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="PCExportReportANSIDetailResultA" class="PCExportReportANSIDetail">
+      <result property="pMSJY" column="pMSJY"/>
+      <result property="qQXD" column="qQXD"/>
+      <result property="pQXD" column="pQXD"/>
+      <result property="qLJPHDS" column="qLJPHDS"/>
+      <result property="pLJPHDS" column="pLJPHDS"/>
+      <result property="qKJGTSL" column="qKJGTSL"/>
+      <result property="pKJGTSL" column="pKJGTSL"/>
+      <result property="qZWXTSL" column="qZWXTSL"/>
+      <result property="pZWXTSL" column="pZWXTSL"/>
+      <result property="qQMDS" column="qQMDS"/>
+      <result property="pQMDS" column="pQMDS"/>
+      <result property="qSGDS" column="qSGDS"/>
+      <result property="pSGDS" column="pSGDS"/>
+      <result property="qGSCJCS" column="qGSCJCS"/>
+      <result property="pGSCJCS" column="pGSCJCS"/>
+      <result property="qYZZLZJCS" column="qYZZLZJCS"/>
+      <result property="pYZZLZJCS" column="pYZZLZJCS"/>
+      <result property="qJPCTSC" column="qJPCTSC"/>
+      <result property="pJPCTSC" column="pJPCTSC"/>
+      <result property="qWDCS" column="qWDCS"/>
+      <result property="pWDCS" column="pWDCS"/>
+      <result property="qNRXCS" column="qNRXCS"/>
+      <result property="pNRXCS" column="pNRXCS"/>
+    </resultMap>
+    <resultMap id="PCExportReportANSIDetailResultB" class="PCExportReportANSIDetail">
+      <result property="qCSAQXD" column="qCSAQXD"/>
+      <result property="pCSAQXD" column="pCSAQXD"/>
+      <result property="qCSAWDCS" column="qCSAWDCS"/>
+      <result property="pCSAWDCS" column="pCSAWDCS"/>
+      <result property="qCSAKJGTSL" column="qCSAKJGTSL"/>
+      <result property="pCSAKJGTSL" column="pCSAKJGTSL"/>
+      <result property="qCSAGX" column="qCSAGX"/>
+      <result property="pCSAGX" column="pCSAGX"/>
+      <result property="qCSAPGPCL" column="qCSAPGPCL"/>
+      <result property="pCSAPGPCL" column="pCSAPGPCL"/>
+      <result property="qCSAGSCJCS" column="qCSAGSCJCS"/>
+      <result property="pCSAGSCJCS" column="pCSAGSCJCS"/>
+    </resultMap>
+    <resultMap id="PCExportReportANSIDetailResultC" class="PCExportReportANSIDetail">
+      <result property="qCEENCONSTRUCTION" column="qCEENCONSTRUCTION"/>
+      <result property="pCEENCONSTRUCTION" column="pCEENCONSTRUCTION"/>
+      <result property="qCEENQMDS" column="qCEENQMDS"/>
+      <result property="pCEENQMDS" column="pCEENQMDS"/>
+      <result property="qCEENSGDS" column="qCEENSGDS"/>
+      <result property="pCEENSGDS" column="pCEENSGDS"/>
+      <result property="qCEENLJDS" column="qCEENLJDS"/>
+      <result property="pCEENLJDS" column="pCEENLJDS"/>
+      <result property="qCEENZB" column="qCEENZB"/>
+      <result property="pCEENZB" column="pCEENZB"/>
+      <result property="qCEENTSL" column="qCEENTSL"/>
+      <result property="pCEENTSL" column="pCEENTSL"/>
+      <result property="qCEENBMPZ" column="qCEENBMPZ"/>
+      <result property="pCEENBMPZ" column="pCEENBMPZ"/>
+      <result property="qCEENZSCJ" column="qCEENZSCJ"/>
+      <result property="pCEENZSCJ" column="pCEENZSCJ"/>
+      <result property="qCEENGSCJ" column="qCEENGSCJ"/>
+      <result property="pCEENGSCJ" column="pCEENGSCJ"/>
+      <result property="qCEENJH" column="qCEENJH"/>
+      <result property="pCEENJH" column="pCEENJH"/>
+      <result property="qCEENZX" column="qCEENZX"/>
+      <result property="pCEENZX" column="pCEENZX"/>
+      <result property="qCEENUVCF" column="qCEENUVCF"/>
+      <result property="pCEENUVCF" column="pCEENUVCF"/>
+    </resultMap>
+    <resultMap id="PCExportReportANSIDetailResultD" class="PCExportReportANSIDetail">
+      <!--<result property="qASNL" column="qASNL"/>
+      <result property="pASNL" column="pASNL"/>-->
+      <result property="qASCCSL" column="qASCCSL"/>
+      <result property="pASCCSL" column="pASCCSL"/>
+      <!--<result property="qASWGCS" column="qASWGCS"/>
+      <result property="pASWGCS" column="pASWGCS"/>
+      <result property="qASJRWDX" column="qASJRWDX"/>
+      <result property="pASJRWDX" column="pASJRWDX"/>
+      <result property="qASZB" column="qASZB"/>
+      <result property="pASZB" column="pASZB"/>
+      <result property="qASQMDSZSD" column="qASQMDSZSD"/>
+      <result property="pASQMDSZSD" column="pASQMDSZSD"/>
+      <result property="qASWD" column="qASWD"/>
+      <result property="pASWD" column="pASWD"/>
+      <result property="qASZSCJSL" column="qASZSCJSL"/>
+      <result property="pASZSCJSL" column="pASZSCJSL"/>
+      <result property="qASGSCJSL" column="qASGSCJSL"/>
+      <result property="pASGSCJSL" column="pASGSCJSL"/>
+      <result property="qASTGCJSL" column="qASTGCJSL"/>
+      <result property="pASTGCJSL" column="pASTGCJSL"/>
+      <result property="qASCTCS" column="qASCTCS"/>
+      <result property="pASCTCS" column="pASCTCS"/>
+      <result property="qASNRX" column="qASNRX"/>
+      <result property="pASNRX" column="pASNRX"/>
+      <result property="qASNSX" column="qASNSX"/>
+      <result property="pASNSX" column="pASNSX"/>
+      <result property="qASJH" column="qASJH"/>
+      <result property="pASJH" column="pASJH"/>-->
+    </resultMap>
+    <resultMap id="PCExportReportANSIDetailResultE" class="PCExportReportANSIDetail">
+      <result property="qJISJPWG" column="qJISJPWG"/>
+      <result property="pJISJPWG" column="pJISJPWG"/>
+      <result property="qJISJPLJD" column="qJISJPLJD"/>
+      <result property="pJISJPLJD" column="pJISJPLJD"/>
+      <result property="qJISJPQGD" column="qJISJPQGD"/>
+      <result property="pJISJPQGD" column="pJISJPQGD"/>
+      <result property="qJISJPSGD" column="qJISJPSGD"/>
+      <result property="pJISJPSGD" column="pJISJPSGD"/>
+      <result property="qJISJPTGL" column="qJISJPTGL"/>
+      <result property="pJISJPTGL" column="pJISJPTGL"/>
+      <result property="qJISJPNCCX" column="qJISJPNCCX"/>
+      <result property="pJISJPNCCX" column="pJISJPNCCX"/>
+      <result property="qJISJPBMNMHDK" column="qJISJPBMNMHDK"/>
+      <result property="pJISJPBMNMHDK" column="pJISJPBMNMHDK"/>
+      <result property="qJISJPNREX" column="qJISJPNREX"/>
+      <result property="pJISJPNREX" column="pJISJPNREX"/>
+      <result property="qJISJPNSX" column="qJISJPNSX"/>
+      <result property="pJISJPNSX" column="pJISJPNSX"/>
+      <result property="qJISJPNRAX" column="qJISJPNRAX"/>
+      <result property="pJISJPNRAX" column="pJISJPNRAX"/>
+      <result property="qJISWCPWG" column="qJISWCPWG"/>
+      <result property="pJISWCPWG" column="pJISWCPWG"/>
+      <result property="qJISWCPNCCX" column="qJISWCPNCCX"/>
+      <result property="pJISWCPNCCX" column="pJISWCPNCCX"/>
+      <result property="qJISWCPJMXDYSY" column="qJISWCPJMXDYSY"/>
+      <result property="pJISWCPJMXDYSY" column="pJISWCPJMXDYSY"/>
+      <result property="qJISWCPJMXDESY" column="qJISWCPJMXDESY"/>
+      <result property="pJISWCPJMXDESY" column="pJISWCPJMXDESY"/>
+      <result property="qJISWCPTDQD" column="qJISWCPTDQD"/>
+      <result property="pJISWCPTDQD" column="pJISWCPTDQD"/>
+      <result property="qJISWCPNXDX" column="qJISWCPNXDX"/>
+      <result property="pJISWCPNXDX" column="pJISWCPNXDX"/>
+      <result property="qJISWCPGZ" column="qJISWCPGZ"/>
+      <result property="pJISWCPGZ" column="pJISWCPGZ"/>
+      <result property="qJISWCPCL" column="qJISWCPCL"/>
+      <result property="pJISWCPCL" column="pJISWCPCL"/>
+      <result property="qJISWCPJHBS" column="qJISWCPJHBS"/>
+      <result property="pJISWCPJHBS" column="pJISWCPJHBS"/>
+      <result property="pJISWCPBZSJH" column="qJISWCPBZSJH"/>
+      <result property="qJISWCPBZSJH" column="pJISWCPBZSJH"/>
+      <result property="qJISWCPSYSC" column="qJISWCPSYSC"/>
+      <result property="pJISWCPSYSC" column="pJISWCPSYSC"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="mGetFirst" resultMap="PCExportReportANSIDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM PCExportReportANSIDetail
+      WHERE FromPC = #value#
+      ORDER BY InsertTime ASC
+			]]>
+    </select>
+
+    <select id="mGetLast" resultMap="PCExportReportANSIDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM PCExportReportANSIDetail
+      WHERE FromPC = #value#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="mGetPrev" resultMap="PCExportReportANSIDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM PCExportReportANSIDetail
+      WHERE InsertTime < #InsertDate#
+      AND FromPC = #FromPC#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="mGetNext" resultMap="PCExportReportANSIDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM PCExportReportANSIDetail
+      WHERE InsertTime > #InsertDate#
+      AND FromPC = #FromPC#
+      ORDER BY InsertTime ASC
+      ]]>
+    </select>
+
+    <select id="mHasRows" resultClass="bool" parameterClass="string">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM PCExportReportANSIDetail WHERE FromPC = #value#)
+      THEN 1 ELSE 0 END 
+      ]]>
+    </select>
+
+    <select id="mHasRowsBefore" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM PCExportReportANSIDetail WHERE InsertTime < #InsertTime# AND FromPC = #FromPC#)
+      THEN 1 ELSE 0 END
+      
+      ]]>
+    </select>
+
+    <select id="mHasRowsAfter" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM PCExportReportANSIDetail WHERE InsertTime > #InsertTime# AND FromPC = #FromPC#)
+      THEN 1 ELSE 0 END
+      
+      ]]>
+    </select>
+
+    <select id="mSelect" resultMap="PCExportReportANSIDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM PCExportReportANSIDetail WHERE FromPC = #value#
+      ]]>
+    </select>
+
+    <select id="SelectByDateRage" resultMap="PCExportReportANSIDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM PCExportReportANSIDetail WHERE CheckDate BETWEEN #startdate# AND #enddate#
+      AND FromPC = #FromPC#
+      ]]>
+    </select>
+
+    <delete id="DeleteByFromPC" parameterClass="string">
+      <![CDATA[
+      DELETE FROM PCExportReportANSIDetail WHERE FromPC = #value#
+      ]]>
+    </delete>
+
+    <select id="SelectForExpANSIDetailsSUM" resultMap="PCExportReportANSIDetailResultA" parameterClass="Map">
+      <![CDATA[
+SELECT TOP 1
+	(SELECT SUM(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'MSJY' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pMSJY,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'QXD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qQXD,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'QXD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pQXD,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'LJDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qLJPHDS,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'LJDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pLJPHDS,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'KJGTSL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qKJGTSL,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'KJGTSL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pKJGTSL,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'ZWXTSL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qZWXTSL,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'ZWXTSL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pZWXTSL,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'QMDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qQMDS,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'QMDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pQMDS,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'SGDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qSGDS,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'SGDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pSGDS,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'GSCJCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qGSCJCS,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'GSCJCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pGSCJCS,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'YZZLZJCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qYZZLZJCS,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'YZZLZJCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pYZZLZJCS,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JPCTCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJPCTSC,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JPCTCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJPCTSC,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'WDCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qWDCS,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'WDCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pWDCS,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'NRXCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qNRXCS,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'NRXCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pNRXCS
+FROM PCExportReportANSIDetail
+      ]]>
+    </select>
+    <select id="SelectHasCheckSUM" resultClass="int" parameterClass="Map">
+      <![CDATA[
+      SELECT isnull(SUM (PassSum),0) FROM PCExportReportANSIDetail
+      WHERE InvoiceCusXOId=#InvoiceCusXOId# AND ProductId=#ProductId# AND FromPC=#FromPC#
+      ]]>
+    </select>
+    <select id="SelectForExpCSADetailsSUM" resultMap="PCExportReportANSIDetailResultB" parameterClass="Map">
+      <![CDATA[
+SELECT TOP 1
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAQXD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCSAQXD,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAQXD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCSAQXD,
+      (SELECT sum(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAGX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCSAGX,
+      (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAGX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCSAGX,
+      (SELECT sum(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAPGPCL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCSAPGPCL,
+      (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAPGPCL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCSAPGPCL,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAWDCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCSAWDCS,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAWDCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCSAWDCS,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAKJGTSL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCSAKJGTSL,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAKJGTSL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCSAKJGTSL,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAGSCJCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCSAGSCJCS,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CSAGSCJCS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCSAGSCJCS
+FROM PCExportReportANSIDetail      
+      ]]>
+    </select>
+    <select id="SelectForExpCEENDetailsSUM" resultMap="PCExportReportANSIDetailResultC" parameterClass="Map">
+      <![CDATA[
+SELECT TOP 1
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENCONSTRUCTION' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENCONSTRUCTION,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENCONSTRUCTION' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENCONSTRUCTION,
+      (SELECT sum(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENQMDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENQMDS,
+      (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENQMDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENQMDS,
+      (SELECT sum(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENSGDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENSGDS,
+      (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENSGDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENSGDS,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENLJDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENLJDS,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENLJDS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENLJDS,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENZB' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENZB,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENZB' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENZB,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENTSL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENTSL,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENTSL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENTSL,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENBMPZ' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENBMPZ,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENBMPZ' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENBMPZ,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENZSCJ' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENZSCJ,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENZSCJ' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENZSCJ,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENGSCJ' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENGSCJ,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENGSCJ' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENGSCJ,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENJH' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENJH,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENJH' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENJH,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENZX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENZX,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENZX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENZX,
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENUVCF' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qCEENUVCF,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'CEENUVCF' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pCEENUVCF
+FROM PCExportReportANSIDetail      
+      ]]>
+    </select>
+    <select id="SelectForExpASDetailsSUM" resultMap="PCExportReportANSIDetailResultD" parameterClass="Map">
+      <![CDATA[
+SELECT TOP 1   
+      (SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'ASCCSL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qASCCSL,
+	    (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'ASCCSL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pASCCSL
+FROM PCExportReportANSIDetail       
+      ]]>
+    </select>
+    <select id="SelectForExpJISDetailsSUM" resultMap="PCExportReportANSIDetailResultE" parameterClass="Map">
+      <![CDATA[
+SELECT TOP 1
+	(SELECT SUM(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPWG' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISJPWG,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPWG' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISJPWG,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPLJD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISJPLJD,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPLJD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISJPLJD,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPQGD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISJPQGD,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPQGD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISJPQGD,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPSGD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISJPSGD,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPSGD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISJPSGD,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPTGL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISJPTGL,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPTGL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISJPTGL,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPNCCX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISJPNCCX,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPNCCX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISJPNCCX,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPBMNMHDK' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISJPBMNMHDK,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPBMNMHDK' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISJPBMNMHDK,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPNREX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISJPNREX,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPNREX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISJPNREX,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPNSX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISJPNSX,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPNSX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISJPNSX,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPNRAX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISJPNRAX,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISJPNRAX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISJPNRAX,
+	(SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPWG' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISWCPWG,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPWG' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISWCPWG,
+  (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPNCCX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISWCPNCCX,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPNCCX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISWCPNCCX,
+  (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPJMXDYSY' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISWCPJMXDYSY,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPJMXDYSY' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISWCPJMXDYSY,
+  (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPJMXDESY' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISWCPJMXDESY,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPJMXDESY' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISWCPJMXDESY,
+  (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPTDQD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISWCPTDQD,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPTDQD' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISWCPTDQD,
+  (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPNXDX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISWCPNXDX,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPNXDX' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISWCPNXDX,
+  (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPGZ' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISWCPGZ,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPGZ' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISWCPGZ,
+  (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPCL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISWCPCL,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPCL' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISWCPCL,
+  (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPJHBS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISWCPJHBS,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPJHBS' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISWCPJHBS,
+  (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPBZSJH' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISWCPBZSJH,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPBZSJH' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISWCPBZSJH,
+  (SELECT sum(PassSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPSYSC' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS pJISWCPSYSC,
+	(SELECT SUM(HasCheckSum) FROM PCExportReportANSIDetail WHERE FromPC = 'JISWCPSYSC' AND InvoiceCusXOId = #InvoiceCusXOId# AND ProductId = #ProductId#) AS qJISWCPSYSC
+FROM PCExportReportANSIDetail
+      ]]>
+    </select>
+    <select id="SelectByCusXoIdAndProId" resultMap="PCExportReportANSIDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM PCExportReportANSIDetail WHERE InvoiceCusXOId = #InvoiceCusXoId# AND ProductId = #ProductId#
+      ]]>
+    </select>
+
+    <select id="SelectByCondition" resultMap="PCExportReportANSIDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM PCExportReportANSIDetail
+      WHERE 1 = 1
+      AND CheckDate BETWEEN #startdate# AND #enddate#
+      AND (InvoiceCusXOId = #CusInvoiceXOId# OR #CusInvoiceXOId# IS NULL )
+      AND (ProductId = #productId# OR #productId# IS NULL)
+      AND (FromPC = #pcExpType# OR #pcExpType# IS NULL)
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Customer" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="CustomerResultSimple" class="Customer">
+      <!--<result property="Id" column="Id" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="CustomerFullName" column="CustomerFullName" />
+      <result property="CustomerDescription" column="CustomerDescription" />
+      <result property="CustomerShortName" column="CustomerShortName" />
+      <result property="CustomerReceivable" column="CustomerReceivable"/>
+      <result property="CustomerAddress" column="CustomerAddress"/>
+      <result property="CustomerPhone" column="CustomerPhone"/>
+      <result property="CustomerFax" column="CustomerFax"/>
+      <result property="CheckedStandard" column="CheckedStandard" />-->
+      <result property="Id" column="Id" />
+      <result property="EmployeeChangeId" column="EmployeeChangeId" />
+      <result property="EmployeeCreatorId" column="EmployeeCreatorId" />
+      <result property="EmployeesBusinessId" column="EmployeesBusinessId" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="CustomerCategoryId" column="CustomerCategoryId" />
+      <result property="AreaCategoryId" column="AreaCategoryId" />
+      <result property="TradeCategoryId" column="TradeCategoryId" />
+      <result property="CompanyLevelId" column="CompanyLevelId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="CustomerFullName" column="CustomerFullName" />
+      <result property="CustomerDescription" column="CustomerDescription" />
+      <result property="CustomerShortName" column="CustomerShortName" />
+      <result property="CustomerReceivable" column="CustomerReceivable" />
+      <result property="CustomerPayDate" column="CustomerPayDate" />
+      <result property="CustomerAddress" column="CustomerAddress" />
+      <result property="CustomerPhone" column="CustomerPhone" />
+      <result property="CustomerFax" column="CustomerFax" />
+      <result property="CustomerEMail" column="CustomerEMail" />
+      <result property="CustomerManager" column="CustomerManager" />
+      <result property="CustomerNumber" column="CustomerNumber" />
+      <result property="CustomerPhone1" column="CustomerPhone1" />
+      <result property="CustomerMobile" column="CustomerMobile" />
+      <result property="LastTransactionDate" column="LastTransactionDate" />
+      <result property="CustomerJinChuAddress" column="CustomerJinChuAddress" />
+      <result property="CustomerWebSiteAddress" column="CustomerWebSiteAddress" />
+      <result property="LastTransactionMoney" column="LastTransactionMoney" />
+      <result property="LastReceiveDate" column="LastReceiveDate" />
+      <result property="LastReceiveMoney" column="LastReceiveMoney" />
+      <result property="customerCheck" column="customerCheck" />
+      <result property="CheckedStandard" column="CheckedStandard" />
+      <result property="AdvanceCollectionBalance" column="AdvanceCollectionBalance" />
+      <result property="CustomerContact" column="CustomerContact" />
+      <result property="Marks1" column="Marks1"/>
+      <result property="Marks2" column="Marks2"/>
+      <result property="Marks3" column="Marks3"/>
+      <result property="AreaCategory" column="AreaCategoryId" lazyLoad="false" select="AreaCategory.select_by_primary_key" />
+      <result property="CompanyLevel" column="CompanyLevelId" lazyLoad="false" select="CompanyLevel.select_by_primary_key" />
+      <result property="CustomerCategory" column="CustomerCategoryId" lazyLoad="false" select="CustomerCategory.select_by_primary_key" />
+      <result property="TradeCategory" column="TradeCategoryId" lazyLoad="false" select="TradeCategory.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="select_SimpleCustomer" resultMap="CustomerResultSimple" parameterClass="Customer">
+      <!--<![CDATA[SELECT
+				[Id],
+				[CustomerId],
+				[CustomerFullName],
+				[CustomerDescription],
+				[CustomerShortName],
+        [CustomerReceivable],
+        [CustomerAddress],
+        [CustomerPhone],
+        [CustomerFax],
+				[CheckedStandard]
+			FROM
+				[dbo].[Customer]
+			WHERE
+				[CustomerId] = #CustomerId#                			          
+         		]]>-->
+      <![CDATA[SELECT
+				[Id],
+				[EmployeeChangeId],
+				[EmployeeCreatorId],
+				[EmployeesBusinessId],
+				[CustomerId],
+				[CustomerCategoryId],
+				[AreaCategoryId],
+				[TradeCategoryId],
+				[CompanyLevelId],
+				[InsertTime],
+				[UpdateTime],
+				[CustomerFullName],
+				[CustomerDescription],
+				[CustomerShortName],
+				[CustomerReceivable],
+				[CustomerPayDate],
+				[CustomerAddress],
+				[CustomerPhone],
+				[CustomerFax],
+				[CustomerEMail],
+				[CustomerManager],
+				[CustomerNumber],
+				[CustomerPhone1],
+				[CustomerMobile],
+				[LastTransactionDate],
+				[CustomerJinChuAddress],
+				[CustomerWebSiteAddress],
+				[LastTransactionMoney],
+				[LastReceiveDate],
+				[LastReceiveMoney],
+				[customerCheck],
+				[CheckedStandard],
+				[AdvanceCollectionBalance],
+				[CustomerContact],
+        [Marks1],
+        [Marks2],
+        [Marks3]
+			FROM
+				[dbo].[Customer]
+			WHERE
+				[CustomerId] = #CustomerId#
+                			          
+         		]]>
+    </select>
+
+    <select id="select_byXSDate" parameterClass="Map"  resultMap="CustomerResult">
+      <![CDATA[      
+      select * from customer where (id between #customerStart# and #customerEnd# )  and 
+        customerid in (select customerid from invoiceXS
+where invoicedate between #dateStart# and #dateEnd#)
+     ]]>
+    </select>
+    <select id="select_customerInXS" resultMap="CustomerResult">
+      SELECT * FROM Customer WHERE CustomerId IN( SELECT 	CustomerId	FROM InvoiceXS GROUP BY CustomerId)
+    </select>
+    <select id="IsExistFullName" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+               select case when exists(select * from Customer where CustomerId<>#id# and CustomerFullName=#fullname#) then 1 else 0 end
+      ]]>
+    </select>
+    <select id="IsExistShortName" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+               select case when exists(select * from Customer where CustomerId<>#id# and CustomerShortName=#shortname#) then 1 else 0 end
+      ]]>
+    </select>
+  </statements>
+
+</sqlMap>

@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="HrSpecificHoliday" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="HrSpecificHoliday" type="Book.Model.HrSpecificHoliday, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="HrSpecificHolidayResult" class="HrSpecificHoliday">
+			<result property="HrSpecificHolidayId" column="HrSpecificHolidayId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="HolidayDate" column="HolidayDate" />
+			<result property="Name" column="Name" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[HrSpecificHoliday]
+				WHERE
+				[HrSpecificHolidayId] = #HrSpecificHolidayId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[HrSpecificHoliday]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="HrSpecificHolidayResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.HrSpecificHoliday 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="HrSpecificHolidayResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.HrSpecificHoliday 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="HrSpecificHolidayResult" parameterClass="HrSpecificHoliday">
+			<![CDATA[
+			select top 1 *
+			from dbo.HrSpecificHoliday
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="HrSpecificHolidayResult" parameterClass="HrSpecificHoliday">
+			<![CDATA[
+			select top 1 *
+			from dbo.HrSpecificHoliday
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="HrSpecificHoliday">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.HrSpecificHoliday
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="HrSpecificHoliday">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.HrSpecificHoliday
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="HrSpecificHolidayResult" parameterClass="HrSpecificHoliday">
+			SELECT
+				[HrSpecificHolidayId],
+				[InsertTime],
+				[UpdateTime],
+				[HolidayDate],
+				[Name]
+			FROM
+				[dbo].[HrSpecificHoliday]
+			WHERE
+				[HrSpecificHolidayId] = #HrSpecificHolidayId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[HrSpecificHoliday]
+			WHERE
+				[HrSpecificHolidayId] = #HrSpecificHolidayId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="HrSpecificHolidayResult" >
+			SELECT *
+			FROM 
+				[dbo].[HrSpecificHoliday]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[HrSpecificHoliday]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="HrSpecificHolidayResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[HrSpecificHoliday]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="HrSpecificHoliday">
+			INSERT INTO [dbo].[HrSpecificHoliday] 
+			(
+				[HrSpecificHolidayId],
+				[InsertTime],
+				[UpdateTime],
+				[HolidayDate],
+				[Name]
+			) 
+			VALUES 
+			(
+				#HrSpecificHolidayId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#HolidayDate#,
+				#Name#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="HrSpecificHoliday">
+			UPDATE [HrSpecificHoliday] SET
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[HolidayDate] = #HolidayDate#,
+				[Name] = #Name#
+			WHERE
+				[HrSpecificHolidayId] = #HrSpecificHolidayId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[HrSpecificHoliday]
+				where  HrSpecificHolidayId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

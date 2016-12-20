@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PronoteHeader" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<resultMaps>
+		<resultMap id="PronoteHeaderResult2" class="PronoteHeader">
+			<result property="PronoteHeaderID" column="PronoteHeaderID" />
+			<result property="Employee0Id" column="Employee0Id" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="PronoteDate" column="PronoteDate" />
+			<result property="Pronotedesc" column="Pronotedesc" />
+			<result property="Checkeds" column="Checkeds" />
+			<result property="WorkHouseId" column="WorkHouseId" />
+			<result property="MRSHeaderId" column="MRSHeaderId" />
+			<result property="DetailsSum" column="DetailsSum" />
+			<result property="InDepotQuantity" column="InDepotQuantity" />
+			<result property="ProductId" column="ProductId" />
+			<result property="ProductUnit" column="ProductUnit" />
+			<result property="Employee1Id" column="Employee1Id" />
+			<result property="Employee2Id" column="Employee2Id" />
+			<result property="IsBuildMaterial" column="IsBuildMaterial" />
+			<result property="InvoiceXOId" column="InvoiceXOId" />
+			<result property="InvoiceStatus" column="InvoiceStatus" />
+			<result property="MRSdetailsId" column="MRSdetailsId" />
+			<result property="IsClose" column="IsClose" />
+			<result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+			<result property="Employee2" column="Employee2Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+			<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct_ZCMai" />
+			<result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+			<result property="WorkHouse" column="WorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
+		</resultMap>
+
+    <resultMap id="PronoteHeaderResultXO" class="PronoteHeader">
+      <result property="PronoteHeaderID" column="PronoteHeaderID" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="PronoteDate" column="PronoteDate" />
+      <result property="Pronotedesc" column="Pronotedesc" />
+      <result property="Checkeds" column="Checkeds" />
+      <result property="WorkHouseId" column="WorkHouseId" />
+      <result property="MRSHeaderId" column="MRSHeaderId" />
+      <result property="DetailsSum" column="DetailsSum" />
+      <result property="InDepotQuantity" column="InDepotQuantity" />
+      <result property="ProductId" column="ProductId" />
+      <result property="ProductUnit" column="ProductUnit" />
+      <result property="Employee1Id" column="Employee1Id" />
+      <result property="Employee2Id" column="Employee2Id" />
+      <result property="IsBuildMaterial" column="IsBuildMaterial" />
+      <result property="InvoiceXOId" column="InvoiceXOId" />
+      <result property="InvoiceStatus" column="InvoiceStatus" />
+      <result property="MRSdetailsId" column="MRSdetailsId" />
+      <result property="InvoiceXODetailQuantity" column="InvoiceXODetailQuantity" />
+      <result property="InvoiceCusId" column="InvoiceCusId" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="IsClose" column="IsClose" />
+      <result property="JieAnDate" column="JieAnDate" />
+      <result property="HandbookId" column="HandbookId"/>
+      <result property="HandbookProductId" column="HandbookProductId"/>
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee2" column="Employee2Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct_ZCMai" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="WorkHouse" column="WorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
+      <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo"/>
+    </resultMap>
+	</resultMaps>
+  <statements>
+    <select id="select_GetByDate" resultMap="PronoteHeaderResult2" parameterClass="string">
+      SELECT * FROM PronoteHeader WHERE PronoteDate between #startdate# and #enddate# order by PronoteHeaderID desc
+    </select>
+    <select id="select_byCustomerANDdate" resultMap="PronoteHeaderResult" parameterClass="Map">
+      <![CDATA[
+     select * from PronoteHeader  where  InvoiceXOId in
+     (select InvoiceXOId from  InvoiceXO where  
+     (CustomerId in(select  CustomerId from customer where 
+     (id>=#startcustomerid# or #startcustomerid# is null) and (id<= #endcustomerid# or #endcustomerid# is null)) ))
+      and   PronoteDate  between #startdate# and #enddate#
+	  and  ((InvoiceXOId in(select InvoiceId from InvoiceXO where CustomerInvoiceXOId=#cusxoid# ))  or (#cusxoid# is null))
+	  order by PronoteHeaderId desc
+    ]]>
+    </select>
+	  <select id="select_bymrsheader" resultMap="PronoteHeaderResult" parameterClass="string">
+		  SELECT * FROM PronoteHeader WHERE MRSHeaderId = #value# order by PronoteHeaderID desc
+	  </select>
+	  <update id="update_PronoteHeaderIsClse" parameterClass="Map" >
+		  <![CDATA[
+		  UPDATE pronoteHeader SET InDepotQuantity=(isnull( InDepotQuantity,0)+ isnull( #inDepotSum#,0)),
+		  IsClose=(CASE WHEN isnull(InDepotQuantity,0)+isnull(#inDepotSum#,0)>= DetailsSum THEN 1 ELSE 0 end )
+		  WHERE PronoteHeaderID=#pronoteHeaderid#
+		  ]]>
+	  </update>
+	  <update id="update_HeaderIsClse"  parameterClass="Map"  >
+		  <![CDATA[
+		   UPDATE pronoteHeader SET IsClose=#isclose#,JieAnDate=getdate()  where pronoteHeaderid=#pronoteHeaderid#
+		  ]]>
+	  </update>
+    <update id="update_HeaderIsClseByXOId"  parameterClass="Map"  >
+      <![CDATA[
+		   UPDATE pronoteHeader SET IsClose=#isclose#,JieAnDate=getdate()  where InvoiceXOId=#InvoiceXOId#
+		  ]]>
+    </update>
+
+    <select id="selectwithXO" resultMap="PronoteHeaderResultXO" parameterClass="PronoteHeader">
+      <![CDATA[
+      SELECT
+				[PronoteHeaderID],
+				[Employee0Id],
+				[InsertTime],
+				[UpdateTime],
+				[PronoteDate],
+				[Pronotedesc],
+				[Checkeds],
+				[WorkHouseId],
+				[MRSHeaderId],
+				[DetailsSum],
+				[InDepotQuantity],
+				[ProductId],
+				[ProductUnit],
+				[Employee1Id],
+				[Employee2Id],
+				[IsBuildMaterial],
+				[InvoiceXOId],
+				[InvoiceStatus],
+				[MRSdetailsId],
+				[InvoiceXODetailQuantity],
+				[InvoiceCusId],
+				[AuditState],
+				[AuditEmpId],
+				[IsClose],
+        [JieAnDate],
+        [HandbookId],
+        [HandbookProductId]
+			FROM
+				[dbo].[PronoteHeader]
+			WHERE
+			  [PronoteHeaderID] = #PronoteHeaderID#
+        and invoicestatus<>2
+         		]]>
+    </select>
+  </statements>
+</sqlMap>

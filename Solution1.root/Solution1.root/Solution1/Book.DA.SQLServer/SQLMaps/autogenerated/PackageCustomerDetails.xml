@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PackageCustomerDetails" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="PackageCustomerDetails" type="Book.Model.PackageCustomerDetails, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="PackageCustomerDetailsResult" class="PackageCustomerDetails">
+			<result property="PackageCustomerDetailsId" column="PackageCustomerDetailsId" />
+			<result property="PackageTypeId" column="PackageTypeId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="PrimaryKeyId" column="PrimaryKeyId" />
+			<result property="Quantity" column="Quantity" />
+			<result property="ConsumeRate" column="ConsumeRate" />
+			<result property="EffectsDate" column="EffectsDate" />
+			<result property="ExpiringDate" column="ExpiringDate" />
+			<result property="Description" column="Description" />
+      <!--手填-->
+          <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PackageCustomerDetails]
+				WHERE
+				[PackageCustomerDetailsId] = #PackageCustomerDetailsId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PackageCustomerDetails]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="PackageCustomerDetailsResult" parameterClass="PackageCustomerDetails">
+			SELECT
+				[PackageCustomerDetailsId],
+				[PackageTypeId],
+				[ProductId],
+				[PrimaryKeyId],
+				[Quantity],
+				[ConsumeRate],
+				[EffectsDate],
+				[ExpiringDate],
+				[Description]
+			FROM
+				[dbo].[PackageCustomerDetails]
+			WHERE
+				[PackageCustomerDetailsId] = #PackageCustomerDetailsId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[PackageCustomerDetails]
+			WHERE
+				[PackageCustomerDetailsId] = #PackageCustomerDetailsId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="PackageCustomerDetailsResult" >
+			SELECT *
+			FROM 
+				[dbo].[PackageCustomerDetails]
+			ORDER BY PackageCustomerDetailsId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[PackageCustomerDetails]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="PackageCustomerDetailsResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PackageCustomerDetails]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="PackageCustomerDetails">
+			INSERT INTO [dbo].[PackageCustomerDetails] 
+			(
+				[PackageCustomerDetailsId],
+				[PackageTypeId],
+				[ProductId],
+				[PrimaryKeyId],
+				[Quantity],
+				[ConsumeRate],
+				[EffectsDate],
+				[ExpiringDate],
+				[Description]
+			) 
+			VALUES 
+			(
+				#PackageCustomerDetailsId#,
+				#PackageTypeId#,
+				#ProductId#,
+				#PrimaryKeyId#,
+				#Quantity#,
+				#ConsumeRate#,
+				#EffectsDate#,
+				#ExpiringDate#,
+				#Description#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="PackageCustomerDetails">
+			UPDATE [PackageCustomerDetails] SET
+				[PackageTypeId] = #PackageTypeId#,
+				[ProductId] = #ProductId#,
+				[PrimaryKeyId] = #PrimaryKeyId#,
+				[Quantity] = #Quantity#,
+				[ConsumeRate] = #ConsumeRate#,
+				[EffectsDate] = #EffectsDate#,
+				[ExpiringDate] = #ExpiringDate#,
+				[Description] = #Description#
+			WHERE
+				[PackageCustomerDetailsId] = #PackageCustomerDetailsId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

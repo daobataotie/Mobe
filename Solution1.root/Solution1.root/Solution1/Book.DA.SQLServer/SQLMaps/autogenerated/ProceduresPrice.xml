@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProceduresPrice" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ProceduresPrice" type="Book.Model.ProceduresPrice, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ProceduresPriceResult" class="ProceduresPrice">
+			<result property="ProceduresPriceId" column="ProceduresPriceId" />
+			<result property="BomId" column="BomId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="SupplierId" column="SupplierId" />
+			<result property="ProceduresId" column="ProceduresId" />
+			<result property="Description" column="Description" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="ProductUnit" column="ProductUnit" />
+			<result property="PriceUnit" column="PriceUnit" />
+			<result property="ConversionRate" column="ConversionRate" />
+			<result property="ChargePrice" column="ChargePrice" />
+			<result property="TaxRate" column="TaxRate" />
+			<result property="ObsolescenceDoMode" column="ObsolescenceDoMode" />
+			<result property="WasteDoMode" column="WasteDoMode" />
+			<result property="NotReasonLossDoMode" column="NotReasonLossDoMode" />
+			<result property="ObsolescencePrice" column="ObsolescencePrice" />
+			<result property="WastePrice" column="WastePrice" />
+			<result property="NotReasonLossPrice" column="NotReasonLossPrice" />
+			<result property="StartDate" column="StartDate" />
+			<result property="EndDate" column="EndDate" />
+			<result property="PriceTag" column="PriceTag" />
+		<result property="Bom" column="BomId" lazyLoad="false" select="BomParentPartInfo.select_by_primary_key" />		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_by_primary_key" />		<result property="Procedures" column="ProceduresId" lazyLoad="false" select="Procedures.select_by_primary_key" />		<result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProceduresPrice]
+				WHERE
+				[ProceduresPriceId] = #ProceduresPriceId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProceduresPrice]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="ProceduresPriceResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProceduresPrice 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="ProceduresPriceResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProceduresPrice 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="ProceduresPriceResult" parameterClass="ProceduresPrice">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProceduresPrice
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="ProceduresPriceResult" parameterClass="ProceduresPrice">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProceduresPrice
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="ProceduresPrice">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProceduresPrice
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="ProceduresPrice">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProceduresPrice
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ProceduresPriceResult" parameterClass="ProceduresPrice">
+			SELECT
+				[ProceduresPriceId],
+				[BomId],
+				[EmployeeId],
+				[SupplierId],
+				[ProceduresId],
+				[Description],
+				[InsertTime],
+				[UpdateTime],
+				[ProductUnit],
+				[PriceUnit],
+				[ConversionRate],
+				[ChargePrice],
+				[TaxRate],
+				[ObsolescenceDoMode],
+				[WasteDoMode],
+				[NotReasonLossDoMode],
+				[ObsolescencePrice],
+				[WastePrice],
+				[NotReasonLossPrice],
+				[StartDate],
+				[EndDate],
+				[PriceTag]
+			FROM
+				[dbo].[ProceduresPrice]
+			WHERE
+				[ProceduresPriceId] = #ProceduresPriceId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[ProceduresPrice]
+			WHERE
+				[ProceduresPriceId] = #ProceduresPriceId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ProceduresPriceResult" >
+			SELECT *
+			FROM 
+				[dbo].[ProceduresPrice]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[ProceduresPrice]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ProceduresPriceResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProceduresPrice]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ProceduresPrice">
+			INSERT INTO [dbo].[ProceduresPrice] 
+			(
+				[ProceduresPriceId],
+				[BomId],
+				[EmployeeId],
+				[SupplierId],
+				[ProceduresId],
+				[Description],
+				[InsertTime],
+				[UpdateTime],
+				[ProductUnit],
+				[PriceUnit],
+				[ConversionRate],
+				[ChargePrice],
+				[TaxRate],
+				[ObsolescenceDoMode],
+				[WasteDoMode],
+				[NotReasonLossDoMode],
+				[ObsolescencePrice],
+				[WastePrice],
+				[NotReasonLossPrice],
+				[StartDate],
+				[EndDate],
+				[PriceTag]
+			) 
+			VALUES 
+			(
+				#ProceduresPriceId#,
+				#BomId#,
+				#EmployeeId#,
+				#SupplierId#,
+				#ProceduresId#,
+				#Description#,
+				#InsertTime#,
+				#UpdateTime#,
+				#ProductUnit#,
+				#PriceUnit#,
+				#ConversionRate#,
+				#ChargePrice#,
+				#TaxRate#,
+				#ObsolescenceDoMode#,
+				#WasteDoMode#,
+				#NotReasonLossDoMode#,
+				#ObsolescencePrice#,
+				#WastePrice#,
+				#NotReasonLossPrice#,
+				#StartDate#,
+				#EndDate#,
+				#PriceTag#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ProceduresPrice">
+			UPDATE [ProceduresPrice] SET
+				[BomId] = #BomId#,
+				[EmployeeId] = #EmployeeId#,
+				[SupplierId] = #SupplierId#,
+				[ProceduresId] = #ProceduresId#,
+				[Description] = #Description#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[ProductUnit] = #ProductUnit#,
+				[PriceUnit] = #PriceUnit#,
+				[ConversionRate] = #ConversionRate#,
+				[ChargePrice] = #ChargePrice#,
+				[TaxRate] = #TaxRate#,
+				[ObsolescenceDoMode] = #ObsolescenceDoMode#,
+				[WasteDoMode] = #WasteDoMode#,
+				[NotReasonLossDoMode] = #NotReasonLossDoMode#,
+				[ObsolescencePrice] = #ObsolescencePrice#,
+				[WastePrice] = #WastePrice#,
+				[NotReasonLossPrice] = #NotReasonLossPrice#,
+				[StartDate] = #StartDate#,
+				[EndDate] = #EndDate#,
+				[PriceTag] = #PriceTag#
+			WHERE
+				[ProceduresPriceId] = #ProceduresPriceId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProceduresPrice]
+				where  ProceduresPriceId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceJCDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="InvoiceJCDetail" type="Book.Model.InvoiceJCDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="InvoiceJCDetailResult" class="InvoiceJCDetail">
+			<result property="InvoiceJCDetailId" column="InvoiceJCDetailId" />
+			<result property="DepotPositionId" column="DepotPositionId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="InvoiceId" column="InvoiceId" />
+			<result property="InvoiceJCDetailQuantity" column="InvoiceJCDetailQuantity" />
+			<result property="InvoiceJCDetailNote" column="InvoiceJCDetailNote" />
+			<result property="InvoiceYiHuaiRuQuantity" column="InvoiceYiHuaiRuQuantity" />
+			<result property="InvoiceWeiHuaiRuQuantity" column="InvoiceWeiHuaiRuQuantity" />
+			<result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+			<result property="IsChecked" column="IsChecked" />
+		<result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />		<result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceJC.select_by_primary_key" />		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceJCDetail]
+				WHERE
+				[InvoiceJCDetailId] = #InvoiceJCDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceJCDetail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="InvoiceJCDetailResult" parameterClass="InvoiceJCDetail">
+			SELECT
+				[InvoiceJCDetailId],
+				[DepotPositionId],
+				[ProductId],
+				[InvoiceId],
+				[InvoiceJCDetailQuantity],
+				[InvoiceJCDetailNote],
+				[InvoiceYiHuaiRuQuantity],
+				[InvoiceWeiHuaiRuQuantity],
+				[InvoiceProductUnit],
+				[IsChecked]
+			FROM
+				[dbo].[InvoiceJCDetail]
+			WHERE
+				[InvoiceJCDetailId] = #InvoiceJCDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[InvoiceJCDetail]
+			WHERE
+				[InvoiceJCDetailId] = #InvoiceJCDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="InvoiceJCDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[InvoiceJCDetail]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[InvoiceJCDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="InvoiceJCDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoiceJCDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="InvoiceJCDetail">
+			INSERT INTO [dbo].[InvoiceJCDetail] 
+			(
+				[InvoiceJCDetailId],
+				[DepotPositionId],
+				[ProductId],
+				[InvoiceId],
+				[InvoiceJCDetailQuantity],
+				[InvoiceJCDetailNote],
+				[InvoiceYiHuaiRuQuantity],
+				[InvoiceWeiHuaiRuQuantity],
+				[InvoiceProductUnit],
+				[IsChecked]
+			) 
+			VALUES 
+			(
+				#InvoiceJCDetailId#,
+				#DepotPositionId#,
+				#ProductId#,
+				#InvoiceId#,
+				#InvoiceJCDetailQuantity#,
+				#InvoiceJCDetailNote#,
+				#InvoiceYiHuaiRuQuantity#,
+				#InvoiceWeiHuaiRuQuantity#,
+				#InvoiceProductUnit#,
+				#IsChecked#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="InvoiceJCDetail">
+			UPDATE [InvoiceJCDetail] SET
+				[DepotPositionId] = #DepotPositionId#,
+				[ProductId] = #ProductId#,
+				[InvoiceId] = #InvoiceId#,
+				[InvoiceJCDetailQuantity] = #InvoiceJCDetailQuantity#,
+				[InvoiceJCDetailNote] = #InvoiceJCDetailNote#,
+				[InvoiceYiHuaiRuQuantity] = #InvoiceYiHuaiRuQuantity#,
+				[InvoiceWeiHuaiRuQuantity] = #InvoiceWeiHuaiRuQuantity#,
+				[InvoiceProductUnit] = #InvoiceProductUnit#,
+				[IsChecked] = #IsChecked#
+			WHERE
+				[InvoiceJCDetailId] = #InvoiceJCDetailId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceJCDetail]
+				where  InvoiceJCDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

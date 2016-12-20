@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceCO" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="InvoiceCO" type="Book.Model.InvoiceCO, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="InvoiceCOResult" class="InvoiceCO">
+			<result property="InvoiceId" column="InvoiceId" />
+			<result property="SupplierId" column="SupplierId" />
+			<result property="Employee0Id" column="Employee0Id" />
+			<result property="Employee1Id" column="Employee1Id" />
+			<result property="Employee2Id" column="Employee2Id" />
+			<result property="Employee3Id" column="Employee3Id" />
+			<result property="InvoiceLRTime" column="InvoiceLRTime" />
+			<result property="InvoiceGZTime" column="InvoiceGZTime" />
+			<result property="InvoiceZFTime" column="InvoiceZFTime" />
+			<result property="InvoiceZFCause" column="InvoiceZFCause" />
+			<result property="InvoiceDate" column="InvoiceDate" />
+			<result property="InvoiceAbstract" column="InvoiceAbstract" />
+			<result property="InvoiceNote" column="InvoiceNote" />
+			<result property="InvoiceStatus" column="InvoiceStatus" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="InvoiceTotal" column="InvoiceTotal" />
+			<result property="InvoiceYjrq" column="InvoiceYjrq" />
+			<result property="InvoiceTaxrate" column="InvoiceTaxrate" />
+			<result property="InvoiceTax" column="InvoiceTax" />
+			<result property="InvoiceHeji" column="InvoiceHeji" />
+			<result property="InvoiceDiscount" column="InvoiceDiscount" />
+			<result property="InvoicePayable" column="InvoicePayable" />
+			<result property="InvoicePayDate" column="InvoicePayDate" />
+			<result property="InvoiceCPBH" column="InvoiceCPBH" />
+			<result property="InvoiceKSLB" column="InvoiceKSLB" />
+			<result property="InvoiceKLFS" column="InvoiceKLFS" />
+			<result property="InvoiceFPBH" column="InvoiceFPBH" />
+			<result property="InvoiceKPLS" column="InvoiceKPLS" />
+			<result property="InvoiceFPJE" column="InvoiceFPJE" />
+			<result property="TaxCaluType" column="TaxCaluType" />
+			<result property="InvoiceFlag" column="InvoiceFlag" />
+			<result property="InvoiceFPDate" column="InvoiceFPDate" />
+			<result property="InvoiceXOId" column="InvoiceXOId" />
+			<result property="MRSHeaderId" column="MRSHeaderId" />
+			<result property="InvoiceCustomXOId" column="InvoiceCustomXOId" />
+		<result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />		<result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_by_primary_key" />		<result property="Employee3" column="Employee3Id" lazyLoad="false" select="Employee.select_by_primary_key" />		<result property="Employee2" column="Employee2Id" lazyLoad="false" select="Employee.select_by_primary_key" />		<result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceCO]
+				WHERE
+				[InvoiceId] = #InvoiceId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceCO]
+ 				where invoicestatus=1				
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="InvoiceCOResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.InvoiceCO
+			where invoicestatus=1
+			order by InvoiceDate,inserttime
+			]]>
+		</select>
+		<select id="get_last" resultMap="InvoiceCOResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.InvoiceCO
+			where invoicestatus=1
+			order by InvoiceDate desc,inserttime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="InvoiceCOResult" parameterClass="InvoiceCO">
+			<![CDATA[
+			select top 1 *
+			from dbo.InvoiceCO
+			where InvoiceDate < #InvoiceDate#
+			order by InvoiceDate desc, inserttime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="InvoiceCOResult" parameterClass="InvoiceCO">
+			<![CDATA[
+			select top 1 *
+			from dbo.InvoiceCO
+			where InvoiceDate > #InvoiceDate#
+			order by InvoiceDate,inserttime
+			]]>
+		</select>
+		
+		<select id="has_rows_before" resultClass="bool" parameterClass="InvoiceCO">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.InvoiceCO
+				where InvoiceDate < #InvoiceDate#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="InvoiceCO">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.InvoiceCO
+				where InvoiceDate > #InvoiceDate#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="InvoiceCOResult" parameterClass="InvoiceCO">
+			SELECT
+				[InvoiceId],
+				[SupplierId],
+				[Employee0Id],
+				[Employee1Id],
+				[Employee2Id],
+				[Employee3Id],
+				[InvoiceLRTime],
+				[InvoiceGZTime],
+				[InvoiceZFTime],
+				[InvoiceZFCause],
+				[InvoiceDate],
+				[InvoiceAbstract],
+				[InvoiceNote],
+				[InvoiceStatus],
+				[InsertTime],
+				[UpdateTime],
+				[InvoiceTotal],
+				[InvoiceYjrq],
+				[InvoiceTaxrate],
+				[InvoiceTax],
+				[InvoiceHeji],
+				[InvoiceDiscount],
+				[InvoicePayable],
+				[InvoicePayDate],
+				[InvoiceCPBH],
+				[InvoiceKSLB],
+				[InvoiceKLFS],
+				[InvoiceFPBH],
+				[InvoiceKPLS],
+				[InvoiceFPJE],
+				[TaxCaluType],
+				[InvoiceFlag],
+				[InvoiceFPDate],
+				[InvoiceXOId],
+				[MRSHeaderId],
+				[InvoiceCustomXOId]
+			FROM
+				[dbo].[InvoiceCO]
+			WHERE
+				[InvoiceId] = #InvoiceId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[InvoiceCO]
+			WHERE
+				[InvoiceId] = #InvoiceId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="InvoiceCOResult" >
+			SELECT *
+			FROM 
+				[dbo].[InvoiceCO]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[InvoiceCO]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="InvoiceCOResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoiceCO]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="InvoiceCO">
+			INSERT INTO [dbo].[InvoiceCO] 
+			(
+				[InvoiceId],
+				[SupplierId],
+				[Employee0Id],
+				[Employee1Id],
+				[Employee2Id],
+				[Employee3Id],
+				[InvoiceLRTime],
+				[InvoiceGZTime],
+				[InvoiceZFTime],
+				[InvoiceZFCause],
+				[InvoiceDate],
+				[InvoiceAbstract],
+				[InvoiceNote],
+				[InvoiceStatus],
+				[InsertTime],
+				[UpdateTime],
+				[InvoiceTotal],
+				[InvoiceYjrq],
+				[InvoiceTaxrate],
+				[InvoiceTax],
+				[InvoiceHeji],
+				[InvoiceDiscount],
+				[InvoicePayable],
+				[InvoicePayDate],
+				[InvoiceCPBH],
+				[InvoiceKSLB],
+				[InvoiceKLFS],
+				[InvoiceFPBH],
+				[InvoiceKPLS],
+				[InvoiceFPJE],
+				[TaxCaluType],
+				[InvoiceFlag],
+				[InvoiceFPDate],
+				[InvoiceXOId],
+				[MRSHeaderId],
+				[InvoiceCustomXOId]
+			) 
+			VALUES 
+			(
+				#InvoiceId#,
+				#SupplierId#,
+				#Employee0Id#,
+				#Employee1Id#,
+				#Employee2Id#,
+				#Employee3Id#,
+				#InvoiceLRTime#,
+				#InvoiceGZTime#,
+				#InvoiceZFTime#,
+				#InvoiceZFCause#,
+				#InvoiceDate#,
+				#InvoiceAbstract#,
+				#InvoiceNote#,
+				#InvoiceStatus#,
+				#InsertTime#,
+				#UpdateTime#,
+				#InvoiceTotal#,
+				#InvoiceYjrq#,
+				#InvoiceTaxrate#,
+				#InvoiceTax#,
+				#InvoiceHeji#,
+				#InvoiceDiscount#,
+				#InvoicePayable#,
+				#InvoicePayDate#,
+				#InvoiceCPBH#,
+				#InvoiceKSLB#,
+				#InvoiceKLFS#,
+				#InvoiceFPBH#,
+				#InvoiceKPLS#,
+				#InvoiceFPJE#,
+				#TaxCaluType#,
+				#InvoiceFlag#,
+				#InvoiceFPDate#,
+				#InvoiceXOId#,
+				#MRSHeaderId#,
+				#InvoiceCustomXOId#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="InvoiceCO">
+			UPDATE [InvoiceCO] SET
+				[SupplierId] = #SupplierId#,
+				[Employee0Id] = #Employee0Id#,
+				[Employee1Id] = #Employee1Id#,
+				[Employee2Id] = #Employee2Id#,
+				[Employee3Id] = #Employee3Id#,
+				[InvoiceLRTime] = #InvoiceLRTime#,
+				[InvoiceGZTime] = #InvoiceGZTime#,
+				[InvoiceZFTime] = #InvoiceZFTime#,
+				[InvoiceZFCause] = #InvoiceZFCause#,
+				[InvoiceDate] = #InvoiceDate#,
+				[InvoiceAbstract] = #InvoiceAbstract#,
+				[InvoiceNote] = #InvoiceNote#,
+				[InvoiceStatus] = #InvoiceStatus#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[InvoiceTotal] = #InvoiceTotal#,
+				[InvoiceYjrq] = #InvoiceYjrq#,
+				[InvoiceTaxrate] = #InvoiceTaxrate#,
+				[InvoiceTax] = #InvoiceTax#,
+				[InvoiceHeji] = #InvoiceHeji#,
+				[InvoiceDiscount] = #InvoiceDiscount#,
+				[InvoicePayable] = #InvoicePayable#,
+				[InvoicePayDate] = #InvoicePayDate#,
+				[InvoiceCPBH] = #InvoiceCPBH#,
+				[InvoiceKSLB] = #InvoiceKSLB#,
+				[InvoiceKLFS] = #InvoiceKLFS#,
+				[InvoiceFPBH] = #InvoiceFPBH#,
+				[InvoiceKPLS] = #InvoiceKPLS#,
+				[InvoiceFPJE] = #InvoiceFPJE#,
+				[TaxCaluType] = #TaxCaluType#,
+				[InvoiceFlag] = #InvoiceFlag#,
+				[InvoiceFPDate] = #InvoiceFPDate#,
+				[InvoiceXOId] = #InvoiceXOId#,
+				[MRSHeaderId] = #MRSHeaderId#,
+				[InvoiceCustomXOId] = #InvoiceCustomXOId#
+			WHERE
+				[InvoiceId] = #InvoiceId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceCO]
+				where  InvoiceId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

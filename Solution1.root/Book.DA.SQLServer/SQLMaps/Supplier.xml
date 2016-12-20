@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Supplier" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <statements>
+    <!-- <update id="newupdate" parameterClass="Map">
+      UPDATE [Supplier] SET
+      [SupplierId] = #newId#,
+      [PayMethodId] = #supplier.PayMethodId#,
+      [SupplierCategoryId] = #supplier.SupplierCategoryId#,
+      [TradeCategoryId] = #supplier.TradeCategoryId#,
+      [AreaCategoryId] = #supplier.AreaCategoryId#,
+      [InsertTime] = #supplier.InsertTime#,
+      [UpdateTime] = #supplier.UpdateTime#,
+      [SupplierFullName] = #supplier.SupplierFullName#,
+      [SupplierShortName] = #supplier.SupplierShortName#,
+      [SupplierManager] = #supplier.SupplierManager#,
+      [SupplierNumber] = #supplier.SupplierNumber#,
+      [SupplierPhone1] = #supplier.SupplierPhone1#,
+      [SupplierPhone2] = #supplier.SupplierPhone2#,
+      [SupplierMobile] = #supplier.SupplierMobile#,
+      [SupplierFax] = #supplier.SupplierFax#,
+      [PostCode] = #supplier.PostCode#,
+      [NetAddress] = #supplier.NetAddress#,
+      [Email] = #supplier.Email#,
+      [CompanyAddress] = #supplier.CompanyAddress#,
+      [FactoryAddress] = #supplier.FactoryAddress#,
+      [PayAddress] = #supplier.PayAddress#,
+      [LastTransactionDate] = #supplier.LastTransactionDate#,
+      [LastTransactionMoney] = #supplier.LastTransactionMoney#,
+      [LastPayDate] = #supplier.LastPayDate#,
+      [LastPayMoney] = #supplier.LastPayMoney#,
+      [PayableOwe] = #supplier.PayableOwe#,
+      [PayDay] = #supplier.PayDay#,
+      [AdvancePatment] = #supplier.AdvancePatment#,
+      [AbcCategory] = #supplier.AbcCategory#,
+      [Remark] = #supplier.Remark#,
+      [EmployeeBusinessId] = #supplier.EmployeeBusinessId#,
+      [EmployeeCreatorId] = #supplier.EmployeeCreatorId#,
+      [EmployeeChangeId] = #supplier.EmployeeChangeId#
+      WHERE
+      [SupplierId] = #supplier.SupplierId#
+    </update>
+  </statements>-->
+
+
+   <!--<select id="select_byQujianDate" parameterClass="Map"  resultMap="SupplierResult">
+     <![CDATA[      
+      select * from Supplier where (id between #SupplierStart# and #SupplierEnd# )  and 
+        supplierid in (select supplierid from invoiceCG
+where invoicedate between #dateStart# and #dateEnd#)
+     ]]>
+   </select>-->
+    <select id="select_bySupplierCategoryId"  resultMap="SupplierResult">
+    select * from Supplier where SupplierCategoryId=#value#
+   </select>
+ </statements>
+ 
+</sqlMap>

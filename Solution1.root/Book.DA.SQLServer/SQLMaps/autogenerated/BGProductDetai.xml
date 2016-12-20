@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BGProductDetai" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="BGProductDetai" type="Book.Model.BGProductDetai, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="BGProductDetaiResult" class="BGProductDetai">
+      <result property="BGProductDetailId" column="BGProductDetailId" />
+      <result property="BGProductId" column="BGProductId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="Id" column="Id" />
+      <result property="FuJiaBianMa" column="FuJiaBianMa" />
+      <result property="ShenBaoDanWei" column="ShenBaoDanWei" />
+      <result property="FaDingDanWei1" column="FaDingDanWei1" />
+      <result property="FaDingDanWei2" column="FaDingDanWei2" />
+      <result property="ChuLiBiaoZhi" column="ChuLiBiaoZhi" />
+      <result property="LiaoJianHuoHao" column="LiaoJianHuoHao" />
+      <result property="PingZhengXuHao" column="PingZhengXuHao" />
+      <result property="ZhuLiaoBiaoZhi" column="ZhuLiaoBiaoZhi" />
+      <result property="Desc" column="Desc" />
+      <result property="ProType" column="ProType" />
+      <result property="Column1" column="Column1" />
+      <result property="BGProduct" column="BGProductId" lazyLoad="false" select="BGProduct.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[BGProductDetai]
+				WHERE
+				[BGProductDetailId] = #BGProductDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[BGProductDetai]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="BGProductDetaiResult" parameterClass="BGProductDetai">
+      <![CDATA[SELECT
+				[BGProductDetailId],
+				[BGProductId],
+				[ProductId],
+				[Id],
+				[FuJiaBianMa],
+				[ShenBaoDanWei],
+				[FaDingDanWei1],
+				[FaDingDanWei2],
+				[ChuLiBiaoZhi],
+				[LiaoJianHuoHao],
+				[PingZhengXuHao],
+				[ZhuLiaoBiaoZhi],
+				[Desc],
+				[ProType],
+				[Column1]
+			FROM
+				[dbo].[BGProductDetai]
+			WHERE
+				[BGProductDetailId] = #BGProductDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[BGProductDetai]
+			WHERE            
+				[BGProductDetailId] = #BGProductDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="BGProductDetaiResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[BGProductDetai]
+                			                   
+			ORDER BY Id ASC			
+			
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[BGProductDetai]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="BGProductDetaiResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[BGProductDetai]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="BGProductDetai">
+      <![CDATA[ INSERT INTO [dbo].[BGProductDetai] 
+			(
+				[BGProductDetailId],
+				[BGProductId],
+				[ProductId],
+				[Id],
+				[FuJiaBianMa],
+				[ShenBaoDanWei],
+				[FaDingDanWei1],
+				[FaDingDanWei2],
+				[ChuLiBiaoZhi],
+				[LiaoJianHuoHao],
+				[PingZhengXuHao],
+				[ZhuLiaoBiaoZhi],
+				[Desc],
+				[ProType],
+				[Column1]
+			) 
+			VALUES 
+			(
+				#BGProductDetailId#,
+				#BGProductId#,
+				#ProductId#,
+				#Id#,
+				#FuJiaBianMa#,
+				#ShenBaoDanWei#,
+				#FaDingDanWei1#,
+				#FaDingDanWei2#,
+				#ChuLiBiaoZhi#,
+				#LiaoJianHuoHao#,
+				#PingZhengXuHao#,
+				#ZhuLiaoBiaoZhi#,
+				#Desc#,
+				#ProType#,
+				#Column1#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="BGProductDetai">
+      <![CDATA[ 	UPDATE [BGProductDetai] SET
+				[BGProductId] = #BGProductId#,
+				[ProductId] = #ProductId#,
+				[Id] = #Id#,
+				[FuJiaBianMa] = #FuJiaBianMa#,
+				[ShenBaoDanWei] = #ShenBaoDanWei#,
+				[FaDingDanWei1] = #FaDingDanWei1#,
+				[FaDingDanWei2] = #FaDingDanWei2#,
+				[ChuLiBiaoZhi] = #ChuLiBiaoZhi#,
+				[LiaoJianHuoHao] = #LiaoJianHuoHao#,
+				[PingZhengXuHao] = #PingZhengXuHao#,
+				[ZhuLiaoBiaoZhi] = #ZhuLiaoBiaoZhi#,
+				[Desc] = #Desc#,
+				[ProType] = #ProType#,
+				[Column1] = #Column1#
+			WHERE
+				[BGProductDetailId] = #BGProductDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[BGProductDetai]
+				where  BGProductDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+    <select id="exists" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.BGProductDetai
+				where Id = #value#
+               			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="get_by_id" resultMap="BGProductDetaiResult" parameterClass="string">
+      <![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[BGProductDetai]
+                    			          
+         
+			WHERE
+				Id = #value#
+			]]>
+    </select>
+
+    <select id="existsexcept" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from dbo.BGProductDetai
+				where Id = #newId# and Id <> #oldId#
+                    			          
+         
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+
+  </statements>
+</sqlMap>
+

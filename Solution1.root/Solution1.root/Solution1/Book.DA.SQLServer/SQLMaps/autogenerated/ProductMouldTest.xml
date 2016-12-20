@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProductMouldTest" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ProductMouldTest" type="Book.Model.ProductMouldTest, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ProductMouldTestResult" class="ProductMouldTest">
+			<result property="ProductMouldTestId" column="ProductMouldTestId" />
+			<result property="MouldId" column="MouldId" />
+			<result property="AreaCategoryId" column="AreaCategoryId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="Employee0Id" column="Employee0Id" />
+			<result property="SupplierId" column="SupplierId" />
+			<result property="Id" column="Id" />
+			<result property="InFactoryDate" column="InFactoryDate" />
+			<result property="OutFactoryDate" column="OutFactoryDate" />
+			<result property="TestCause" column="TestCause" />
+			<result property="ProductMouldTestDate" column="ProductMouldTestDate" />
+			<result property="PronoteMachineId" column="PronoteMachineId" />
+		<result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />		<result property="AreaCategory" column="AreaCategoryId" lazyLoad="false" select="AreaCategory.select_by_primary_key" />		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_by_primary_key" />		<result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_by_primary_key" />		<result property="Mould" column="MouldId" lazyLoad="false" select="ProductMould.select_by_primary_key" />		<result property="PronoteMachine" column="PronoteMachineId" lazyLoad="false" select="PronoteMachine.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductMouldTest]
+				WHERE
+				[ProductMouldTestId] = #ProductMouldTestId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductMouldTest]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ProductMouldTestResult" parameterClass="ProductMouldTest">
+			SELECT
+				[ProductMouldTestId],
+				[MouldId],
+				[AreaCategoryId],
+				[EmployeeId],
+				[Employee0Id],
+				[SupplierId],
+				[Id],
+				[InFactoryDate],
+				[OutFactoryDate],
+				[TestCause],
+				[ProductMouldTestDate],
+				[PronoteMachineId]
+			FROM
+				[dbo].[ProductMouldTest]
+			WHERE
+				[ProductMouldTestId] = #ProductMouldTestId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[ProductMouldTest]
+			WHERE
+				[ProductMouldTestId] = #ProductMouldTestId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ProductMouldTestResult" >
+			SELECT *
+			FROM 
+				[dbo].[ProductMouldTest]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[ProductMouldTest]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ProductMouldTestResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProductMouldTest]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ProductMouldTest">
+			INSERT INTO [dbo].[ProductMouldTest] 
+			(
+				[ProductMouldTestId],
+				[MouldId],
+				[AreaCategoryId],
+				[EmployeeId],
+				[Employee0Id],
+				[SupplierId],
+				[Id],
+				[InFactoryDate],
+				[OutFactoryDate],
+				[TestCause],
+				[ProductMouldTestDate],
+				[PronoteMachineId]
+			) 
+			VALUES 
+			(
+				#ProductMouldTestId#,
+				#MouldId#,
+				#AreaCategoryId#,
+				#EmployeeId#,
+				#Employee0Id#,
+				#SupplierId#,
+				#Id#,
+				#InFactoryDate#,
+				#OutFactoryDate#,
+				#TestCause#,
+				#ProductMouldTestDate#,
+				#PronoteMachineId#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ProductMouldTest">
+			UPDATE [ProductMouldTest] SET
+				[MouldId] = #MouldId#,
+				[AreaCategoryId] = #AreaCategoryId#,
+				[EmployeeId] = #EmployeeId#,
+				[Employee0Id] = #Employee0Id#,
+				[SupplierId] = #SupplierId#,
+				[Id] = #Id#,
+				[InFactoryDate] = #InFactoryDate#,
+				[OutFactoryDate] = #OutFactoryDate#,
+				[TestCause] = #TestCause#,
+				[ProductMouldTestDate] = #ProductMouldTestDate#,
+				[PronoteMachineId] = #PronoteMachineId#
+			WHERE
+				[ProductMouldTestId] = #ProductMouldTestId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProductMouldTest]
+				where  ProductMouldTestId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductMouldTest
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="ProductMouldTestResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[ProductMouldTest]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.ProductMouldTest
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

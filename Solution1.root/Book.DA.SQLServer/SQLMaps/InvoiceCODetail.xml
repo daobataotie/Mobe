@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceCODetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_by_invoiceid" resultMap="InvoiceCODetailResult" parameterClass="string">
+      SELECT *
+      FROM
+      [dbo].[InvoiceCODetail]
+      WHERE invoiceid = #value# order by Inumber
+    </select>
+    <delete id="delete_by_invoiceid" parameterClass="string">
+      delete
+      from dbo.InvoiceCODetail
+      where invoiceid=#value#
+    </delete>
+    <select id="SelectByDateRangeAndPid" resultMap="InvoiceCODetailResult" parameterClass="Map">
+      select * from invoicecodetail where productid=#pid# and invoiceid in(select invoiceId from invoiceco where invoicedate between #startdate# and #enddate#) order by invoiceid
+    </select>
+    <select id="SelectByHeaderProRang" parameterClass="string" resultMap="InvoiceCODetailResult">
+      <![CDATA[
+      select * from invoicecodetail $value$
+      ]]>
+    </select>
+
+    <update id="UpdateProofUnitPrice" parameterClass="Map">
+      <![CDATA[
+      UPDATE InvoiceCODetail
+      SET InvoiceCODetail.InvoiceCODetailPrice = #InvoiceCODetailPrice#,InvoiceCODetail.InvoiceCODetailMoney = #InvoiceCODetailMoney#
+      WHERE InvoiceCODetail.InvoiceCODetailId = #InvoiceCODetailId#
+      ]]>
+    </update>
+
+    <update id="UpdateProofUnitPriceHeader" parameterClass="Map">
+      <![CDATA[
+      UPDATE InvoiceCO
+      SET InvoiceTax = #InvoiceTax#
+      AND InvoiceTotal = #InvoiceTotal#
+      AND InvoiceHeji = #InvoiceHeji#
+      WHERE InvoiceId = #InvoiceId#
+      ]]>
+    </update>
+
+    <select id="SelectByConditionCO" parameterClass="string" resultMap="InvoiceCODetailResult">
+      <![CDATA[
+      SELECT * FROM InvoiceCODetail WHERE 1=1 $value$
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

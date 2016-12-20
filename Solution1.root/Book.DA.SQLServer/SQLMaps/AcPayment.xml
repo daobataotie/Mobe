@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcPayment" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectForDateRange" resultMap="AcPaymentResult" parameterClass="Map">
+      <![CDATA[   
+        SELECT * FROM AcPayment WHERE AcPayment.AcPaymentDate BETWEEN #StartDate# AND #EndDate#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

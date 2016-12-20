@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="StockEditorDetal" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="StockEditorDetal" type="Book.Model.StockEditorDetal, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="StockEditorDetalResult" class="StockEditorDetal">
+			<result property="StockEditorDetalId" column="StockEditorDetalId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="DepotPositionId" column="DepotPositionId" />
+			<result property="StockEditorId" column="StockEditorId" />
+			<result property="StockEditorQuantity" column="StockEditorQuantity" />
+			<result property="ProductUnitName" column="ProductUnitName" />
+			<result property="Directions" column="Directions" />
+			<result property="StockQuantity" column="StockQuantity" />
+		<result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />		<result property="StockEditor" column="StockEditorId" lazyLoad="false" select="StockEditor.select_by_primary_key" />		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[StockEditorDetal]
+				WHERE
+				[StockEditorDetalId] = #StockEditorDetalId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[StockEditorDetal]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="StockEditorDetalResult" parameterClass="StockEditorDetal">
+			SELECT
+				[StockEditorDetalId],
+				[ProductId],
+				[DepotPositionId],
+				[StockEditorId],
+				[StockEditorQuantity],
+				[ProductUnitName],
+				[Directions],
+				[StockQuantity]
+			FROM
+				[dbo].[StockEditorDetal]
+			WHERE
+				[StockEditorDetalId] = #StockEditorDetalId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[StockEditorDetal]
+			WHERE
+				[StockEditorDetalId] = #StockEditorDetalId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="StockEditorDetalResult" >
+			SELECT *
+			FROM 
+				[dbo].[StockEditorDetal]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[StockEditorDetal]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="StockEditorDetalResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[StockEditorDetal]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="StockEditorDetal">
+			INSERT INTO [dbo].[StockEditorDetal] 
+			(
+				[StockEditorDetalId],
+				[ProductId],
+				[DepotPositionId],
+				[StockEditorId],
+				[StockEditorQuantity],
+				[ProductUnitName],
+				[Directions],
+				[StockQuantity]
+			) 
+			VALUES 
+			(
+				#StockEditorDetalId#,
+				#ProductId#,
+				#DepotPositionId#,
+				#StockEditorId#,
+				#StockEditorQuantity#,
+				#ProductUnitName#,
+				#Directions#,
+				#StockQuantity#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="StockEditorDetal">
+			UPDATE [StockEditorDetal] SET
+				[ProductId] = #ProductId#,
+				[DepotPositionId] = #DepotPositionId#,
+				[StockEditorId] = #StockEditorId#,
+				[StockEditorQuantity] = #StockEditorQuantity#,
+				[ProductUnitName] = #ProductUnitName#,
+				[Directions] = #Directions#,
+				[StockQuantity] = #StockQuantity#
+			WHERE
+				[StockEditorDetalId] = #StockEditorDetalId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[StockEditorDetal]
+				where  StockEditorDetalId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

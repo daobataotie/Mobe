@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AtProperty" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_AtPropertyByObject" resultMap="AtPropertyResult" parameterClass="Map">
+      SELECT * FROM AtProperty WHERE RespectiveSubject = #RespectiveSubject#
+    </select>
+    <select id="select_byDdate" resultMap="AtPropertyResult" parameterClass="Map">
+      <![CDATA[
+     select * from AtProperty  where (DepreciationDate  between #startdate# and #enddate#)or(#startdate# is null and #enddate# is null) 
+    ]]>
+    </select>
+    <select id="select_byPropertyId" resultMap="AtPropertyResult" parameterClass="Map">
+      <![CDATA[
+     select * from AtProperty  where (PropertyId  between #startPropertyId# and #endPropertyId#)or(#startPropertyId# is null and #endPropertyId# is null) 
+    ]]>
+    </select>
+  </statements>
+
+</sqlMap>

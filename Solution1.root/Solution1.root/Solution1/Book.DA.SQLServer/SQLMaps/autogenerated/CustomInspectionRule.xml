@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="CustomInspectionRule" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="CustomInspectionRule" type="Book.Model.CustomInspectionRule, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="CustomInspectionRuleResult" class="CustomInspectionRule">
+			<result property="Id" column="Id" />
+			<result property="CustomInspectionRuleId" column="CustomInspectionRuleId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="CustomInspectionRuleName" column="CustomInspectionRuleName" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomInspectionRule]
+				WHERE
+				[CustomInspectionRuleId] = #CustomInspectionRuleId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomInspectionRule]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="CustomInspectionRuleResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.CustomInspectionRule 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="CustomInspectionRuleResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.CustomInspectionRule 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="CustomInspectionRuleResult" parameterClass="CustomInspectionRule">
+			<![CDATA[
+			select top 1 *
+			from dbo.CustomInspectionRule
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="CustomInspectionRuleResult" parameterClass="CustomInspectionRule">
+			<![CDATA[
+			select top 1 *
+			from dbo.CustomInspectionRule
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="CustomInspectionRule">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomInspectionRule
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="CustomInspectionRule">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomInspectionRule
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="CustomInspectionRuleResult" parameterClass="CustomInspectionRule">
+			SELECT
+				[Id],
+				[CustomInspectionRuleId],
+				[InsertTime],
+				[UpdateTime],
+				[CustomInspectionRuleName]
+			FROM
+				[dbo].[CustomInspectionRule]
+			WHERE
+				[CustomInspectionRuleId] = #CustomInspectionRuleId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[CustomInspectionRule]
+			WHERE
+				[CustomInspectionRuleId] = #CustomInspectionRuleId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="CustomInspectionRuleResult" >
+			SELECT *
+			FROM 
+				[dbo].[CustomInspectionRule]
+			ORDER BY CustomInspectionRuleId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[CustomInspectionRule]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="CustomInspectionRuleResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[CustomInspectionRule]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="CustomInspectionRule">
+			INSERT INTO [dbo].[CustomInspectionRule] 
+			(
+				[Id],
+				[CustomInspectionRuleId],
+				[InsertTime],
+				[UpdateTime],
+				[CustomInspectionRuleName]
+			) 
+			VALUES 
+			(
+				#Id#,
+				#CustomInspectionRuleId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#CustomInspectionRuleName#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="CustomInspectionRule">
+			UPDATE [CustomInspectionRule] SET
+				[Id] = #Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[CustomInspectionRuleName] = #CustomInspectionRuleName#
+			WHERE
+				[CustomInspectionRuleId] = #CustomInspectionRuleId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomInspectionRule
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="CustomInspectionRuleResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[CustomInspectionRule]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.CustomInspectionRule
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

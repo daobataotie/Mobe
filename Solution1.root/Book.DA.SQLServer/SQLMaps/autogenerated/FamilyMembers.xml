@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="FamilyMembers" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="FamilyMembers" type="Book.Model.FamilyMembers, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="FamilyMembersResult" class="FamilyMembers">
+			<result property="FamilyMembersId" column="FamilyMembersId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="FamilyMembersName" column="FamilyMembersName" />
+			<result property="PersonId" column="PersonId" />
+			<result property="Relation" column="Relation" />
+			<result property="Birthday" column="Birthday" />
+			<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[FamilyMembers]
+				WHERE
+				[FamilyMembersId] = #FamilyMembersId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[FamilyMembers]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="FamilyMembersResult" parameterClass="FamilyMembers">
+			SELECT
+				[FamilyMembersId],
+				[EmployeeId],
+				[FamilyMembersName],
+				[PersonId],
+				[Relation],
+				[Birthday]
+			FROM
+				[dbo].[FamilyMembers]
+			WHERE
+				[FamilyMembersId] = #FamilyMembersId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[FamilyMembers]
+			WHERE
+				[FamilyMembersId] = #FamilyMembersId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="FamilyMembersResult" >
+			SELECT *
+			FROM 
+				[dbo].[FamilyMembers]
+			ORDER BY FamilyMembersId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[FamilyMembers]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="FamilyMembersResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[FamilyMembers]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="FamilyMembers">
+			INSERT INTO [dbo].[FamilyMembers] 
+			(
+				[FamilyMembersId],
+				[EmployeeId],
+				[FamilyMembersName],
+				[PersonId],
+				[Relation],
+				[Birthday]
+			) 
+			VALUES 
+			(
+				#FamilyMembersId#,
+				#EmployeeId#,
+				#FamilyMembersName#,
+				#PersonId#,
+				#Relation#,
+				#Birthday#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="FamilyMembers">
+			UPDATE [FamilyMembers] SET
+				[EmployeeId] = #EmployeeId#,
+				[FamilyMembersName] = #FamilyMembersName#,
+				[PersonId] = #PersonId#,
+				[Relation] = #Relation#,
+				[Birthday] = #Birthday#
+			WHERE
+				[FamilyMembersId] = #FamilyMembersId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

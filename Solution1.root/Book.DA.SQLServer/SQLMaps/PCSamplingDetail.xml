@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PCSamplingDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByPCMaterialCheckId" parameterClass="string" resultMap="PCSamplingDetailResult">
+      <![CDATA[
+      select * from PCSamplingDetail where PCSamplingId=#value# order by PCSamplingDetailDate
+      ]]>
+    </select>
+
+    <delete id="DeleteByPCMaterialCheckId" parameterClass="string">
+      <![CDATA[
+      delete from PCSamplingDetail where PCSamplingId=#value#
+      ]]>
+    </delete>
+
+    <select id="SelectByCondition" parameterClass="Map" resultMap="PCSamplingDetailResult">
+      <![CDATA[
+      select pcd.* from PCSamplingDetail pcd left join PCSampling pc on pcd.PCSamplingId=pc.PCSamplingId left join Product p on pcd.ProductId=p.ProductId where 1=1 $sql$
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

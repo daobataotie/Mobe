@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProductMouldTest" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="IsExistId" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+               select case when exists(select * from ProductMouldTest where ProductMouldTestId<>#tid# and Id=#id#) then 1 else 0 end
+      ]]>
+    </select>
+    <select id="SelectByDateRage" parameterClass="Map" resultMap="ProductMouldTestResult">
+      <![CDATA[
+                select * from ProductMouldTest
+                where  ProductMouldTestDate 
+                between #startdate# and #enddate#
+      ]]>
+    </select>
+
+    <select id="SelectByMouldId" resultMap="ProductMouldTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM ProductMouldTest WHERE MouldId=#value#
+      ]]>
+    </select>
+
+    <!--<delete id="DeleteByMouldId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM ProductMouldTest WHERE MouldId=#value#
+      ]]>
+    </delete>-->
+
+    <select id="SelectOrderByMouldId" resultMap="ProductMouldTestResult">
+      <![CDATA[
+      SELECT * FROM ProductMouldTest ORDER BY MouldId,InsertTime
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="CustomerMarks" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByCustomerId" resultMap="CustomerMarksResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM customermarks WHERE customerid=#value# order by Id
+      ]]>
+    </select>
+
+    <delete id="DeleteByCustomerId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM customermarks WHERE customerid=#value#
+      ]]>
+    </delete>
+
+    <select id="SelectByInvoicePackingId" resultMap="CustomerMarksResult" parameterClass="string">
+       <![CDATA[
+       SELECT * FROM CustomerMarks WHERE InvoicePackingId=#value#
+       ]]>
+    </select>
+
+    <delete id="DeleteByInvoicePackingId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM customermarks WHERE InvoicePackingId=#value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

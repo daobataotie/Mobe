@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="LoanDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<statements>
+		 
+		<select id="SelectLoanInfoBy_EmployeeID" parameterClass="string" resultMap="LoanDetailResult">
+			<![CDATA[
+			select * from LoanDetail where EmployeeId=#EmployeeId#
+			]]>
+		</select>
+		<select id="SelectLoanInfoBy_DateOrEmployee" parameterClass="Map"  resultMap="LoanDetailResult">
+			<![CDATA[
+			select * from LoanDetail where (EmployeeId=#EmployeeID# or #EmployeeID# is  null ) and IdentifyDate between #startDate# and #endDate#
+			]]>
+		</select>
+
+    <select id="select_byempiddate" parameterClass="Map" resultMap="LoanDetailResult" >
+      SELECT *
+      FROM
+      [dbo].[LoanDetail]
+      where [EmployeeId]=#empid# and  (IdentifyDate between #startdate# and #enddate#)
+      order by IdentifyDate asc
+
+    </select>
+	</statements>
+</sqlMap>

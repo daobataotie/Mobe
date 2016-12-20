@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PCClarityCheckDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="PCClarityCheckDetail" type="Book.Model.PCClarityCheckDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="PCClarityCheckDetailResult" class="PCClarityCheckDetail">
+			<result property="PCClarityCheckDetailId" column="PCClarityCheckDetailId" />
+			<result property="PCClarityCheckId" column="PCClarityCheckId" />
+			<result property="CheckDate" column="CheckDate" />
+			<result property="Left1" column="Left1" />
+			<result property="Left2" column="Left2" />
+			<result property="Right1" column="Right1" />
+			<result property="Right2" column="Right2" />
+			<result property="AstigmatismL" column="AstigmatismL" />
+			<result property="AstigmatismR" column="AstigmatismR" />
+			<result property="SphericaSurfaceL" column="SphericaSurfaceL" />
+			<result property="SphericaSurfaceR" column="SphericaSurfaceR" />
+			<result property="ClarityL" column="ClarityL" />
+			<result property="ClarityR" column="ClarityR" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="NoteIsPass" column="NoteIsPass" />
+      <result property="BusinessHoursId" column="BusinessHoursId"/>
+          <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key"/>
+		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="PCClarityCheck" column="PCClarityCheckId" lazyLoad="false" select="PCClarityCheck.select_by_primary_key" />        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCClarityCheckDetail]
+				WHERE
+				[PCClarityCheckDetailId] = #PCClarityCheckDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCClarityCheckDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="PCClarityCheckDetailResult" parameterClass="PCClarityCheckDetail">
+			<![CDATA[SELECT
+				[PCClarityCheckDetailId],
+				[PCClarityCheckId],
+				[CheckDate],
+				[Left1],
+				[Left2],
+				[Right1],
+				[Right2],
+				[AstigmatismL],
+				[AstigmatismR],
+				[SphericaSurfaceL],
+				[SphericaSurfaceR],
+				[ClarityL],
+				[ClarityR],
+				[EmployeeId],
+				[NoteIsPass],
+        [BusinessHoursId]
+			FROM
+				[dbo].[PCClarityCheckDetail]
+			WHERE
+				[PCClarityCheckDetailId] = #PCClarityCheckDetailId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[PCClarityCheckDetail]
+			WHERE            
+				[PCClarityCheckDetailId] = #PCClarityCheckDetailId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="PCClarityCheckDetailResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[PCClarityCheckDetail]
+                			                   
+
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[PCClarityCheckDetail]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="PCClarityCheckDetailResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCClarityCheckDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="PCClarityCheckDetail">
+			 <![CDATA[ INSERT INTO [dbo].[PCClarityCheckDetail] 
+			(
+				[PCClarityCheckDetailId],
+				[PCClarityCheckId],
+				[CheckDate],
+				[Left1],
+				[Left2],
+				[Right1],
+				[Right2],
+				[AstigmatismL],
+				[AstigmatismR],
+				[SphericaSurfaceL],
+				[SphericaSurfaceR],
+				[ClarityL],
+				[ClarityR],
+				[EmployeeId],
+				[NoteIsPass],
+        [BusinessHoursId]
+			) 
+			VALUES 
+			(
+				#PCClarityCheckDetailId#,
+				#PCClarityCheckId#,
+				#CheckDate#,
+				#Left1#,
+				#Left2#,
+				#Right1#,
+				#Right2#,
+				#AstigmatismL#,
+				#AstigmatismR#,
+				#SphericaSurfaceL#,
+				#SphericaSurfaceR#,
+				#ClarityL#,
+				#ClarityR#,
+				#EmployeeId#,
+				#NoteIsPass#,
+        #BusinessHoursId#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="PCClarityCheckDetail">
+		 <![CDATA[ 	UPDATE [PCClarityCheckDetail] SET
+				[PCClarityCheckId] = #PCClarityCheckId#,
+				[CheckDate] = #CheckDate#,
+				[Left1] = #Left1#,
+				[Left2] = #Left2#,
+				[Right1] = #Right1#,
+				[Right2] = #Right2#,
+				[AstigmatismL] = #AstigmatismL#,
+				[AstigmatismR] = #AstigmatismR#,
+				[SphericaSurfaceL] = #SphericaSurfaceL#,
+				[SphericaSurfaceR] = #SphericaSurfaceR#,
+				[ClarityL] = #ClarityL#,
+				[ClarityR] = #ClarityR#,
+				[EmployeeId] = #EmployeeId#,
+				[NoteIsPass] = #NoteIsPass#,
+        [BusinessHoursId]=#BusinessHoursId#
+			WHERE
+				[PCClarityCheckDetailId] = #PCClarityCheckDetailId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCClarityCheckDetail]
+				where  PCClarityCheckDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

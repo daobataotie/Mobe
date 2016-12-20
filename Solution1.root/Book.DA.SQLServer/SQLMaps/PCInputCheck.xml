@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PCInputCheck" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByCondition" resultMap="PCInputCheckResult" parameterClass="Map">
+      <![CDATA[
+      select * from PCInputCheck where PCInputCheckDate between #startdate# and #enddate# $sql$
+      ]]>
+    </select>
+
+    <select id="SelectByInvoiceCusId" resultMap="PCInputCheckResult" parameterClass="String">
+      <![CDATA[
+      select * from PCInputCheck where PCInputCheckId in (select rd.PCInputCheckId from RelationXODetail rd left join RelationXO r on rd.RelationXOId=r.RelationXOId left join InvoiceXO x on x.InvoiceId=r.InvoiceXOId where x.CustomerInvoiceXOId=#value#)
+      ]]>
+    </select>
+
+    <select id="ExistsLotNumberInsert" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      select case when exists ( select * from PCInputCheck where LotNumber=#LotNumber# and ProductId =#ProductId#) then 1 else 0 end
+      ]]>
+    </select>
+
+    <select id="ExistsLotNumberUpdate" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      select case when exists ( select * from PCInputCheck where LotNumber=#LotNumber# and PCInputCheckId<>#PCInputCheckId# and ProductId =#ProductId#) then 1 else 0 end
+      ]]>
+    </select>
+
+    <update id="UpdateIsClosed" parameterClass="Map">
+      <![CDATA[
+      update PCInputCheck set IsClosed=#IsClosed#  where PCInputCheckId=#PCInputCheckId#
+      ]]>
+    </update>
+  </statements>
+</sqlMap>

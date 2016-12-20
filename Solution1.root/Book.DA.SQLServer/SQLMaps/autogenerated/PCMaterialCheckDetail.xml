@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PCMaterialCheckDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="PCMaterialCheckDetail" type="Book.Model.PCMaterialCheckDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="PCMaterialCheckDetailResult" class="PCMaterialCheckDetail">
+			<result property="PCMaterialCheckDetailId" column="PCMaterialCheckDetailId" />
+			<result property="PCMaterialCheckId" column="PCMaterialCheckId" />
+			<result property="CheckDate" column="CheckDate" />
+			<result property="ProductId" column="ProductId" />
+			<result property="Waiguan" column="Waiguan" />
+			<result property="Zhengcemai" column="Zhengcemai" />
+			<result property="Guige" column="Guige" />
+			<result property="Chouyangshu" column="Chouyangshu" />
+			<result property="Zhandu" column="Zhandu" />
+			<result property="Duise" column="Duise" />
+			<result property="Tiaoma" column="Tiaoma" />
+			<result property="Zhiliang" column="Zhiliang" />
+			<result property="Shiyongxingneng" column="Shiyongxingneng" />
+			<result property="Toushilv" column="Toushilv" />
+			<result property="WaiguanFuzhuodu" column="WaiguanFuzhuodu" />
+			<result property="Neirong" column="Neirong" />
+			<result property="Mushijianyan" column="Mushijianyan" />
+			<result property="DuiseWaiguan" column="DuiseWaiguan" />
+			<result property="Ruliaojianyan" column="Ruliaojianyan" />
+		<result property="PCMaterialCheck" column="PCMaterialCheckId" lazyLoad="false" select="PCMaterialCheck.select_by_primary_key" />		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCMaterialCheckDetail]
+				WHERE
+				[PCMaterialCheckDetailId] = #PCMaterialCheckDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCMaterialCheckDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="PCMaterialCheckDetailResult" parameterClass="PCMaterialCheckDetail">
+			<![CDATA[SELECT
+				[PCMaterialCheckDetailId],
+				[PCMaterialCheckId],
+				[CheckDate],
+				[ProductId],
+				[Waiguan],
+				[Zhengcemai],
+				[Guige],
+				[Chouyangshu],
+				[Zhandu],
+				[Duise],
+				[Tiaoma],
+				[Zhiliang],
+				[Shiyongxingneng],
+				[Toushilv],
+				[WaiguanFuzhuodu],
+				[Neirong],
+				[Mushijianyan],
+				[DuiseWaiguan],
+				[Ruliaojianyan]
+			FROM
+				[dbo].[PCMaterialCheckDetail]
+			WHERE
+				[PCMaterialCheckDetailId] = #PCMaterialCheckDetailId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[PCMaterialCheckDetail]
+			WHERE            
+				[PCMaterialCheckDetailId] = #PCMaterialCheckDetailId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="PCMaterialCheckDetailResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[PCMaterialCheckDetail]
+                			                   
+
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[PCMaterialCheckDetail]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="PCMaterialCheckDetailResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCMaterialCheckDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="PCMaterialCheckDetail">
+			 <![CDATA[ INSERT INTO [dbo].[PCMaterialCheckDetail] 
+			(
+				[PCMaterialCheckDetailId],
+				[PCMaterialCheckId],
+				[CheckDate],
+				[ProductId],
+				[Waiguan],
+				[Zhengcemai],
+				[Guige],
+				[Chouyangshu],
+				[Zhandu],
+				[Duise],
+				[Tiaoma],
+				[Zhiliang],
+				[Shiyongxingneng],
+				[Toushilv],
+				[WaiguanFuzhuodu],
+				[Neirong],
+				[Mushijianyan],
+				[DuiseWaiguan],
+				[Ruliaojianyan]
+			) 
+			VALUES 
+			(
+				#PCMaterialCheckDetailId#,
+				#PCMaterialCheckId#,
+				#CheckDate#,
+				#ProductId#,
+				#Waiguan#,
+				#Zhengcemai#,
+				#Guige#,
+				#Chouyangshu#,
+				#Zhandu#,
+				#Duise#,
+				#Tiaoma#,
+				#Zhiliang#,
+				#Shiyongxingneng#,
+				#Toushilv#,
+				#WaiguanFuzhuodu#,
+				#Neirong#,
+				#Mushijianyan#,
+				#DuiseWaiguan#,
+				#Ruliaojianyan#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="PCMaterialCheckDetail">
+		 <![CDATA[ 	UPDATE [PCMaterialCheckDetail] SET
+				[PCMaterialCheckId] = #PCMaterialCheckId#,
+				[CheckDate] = #CheckDate#,
+				[ProductId] = #ProductId#,
+				[Waiguan] = #Waiguan#,
+				[Zhengcemai] = #Zhengcemai#,
+				[Guige] = #Guige#,
+				[Chouyangshu] = #Chouyangshu#,
+				[Zhandu] = #Zhandu#,
+				[Duise] = #Duise#,
+				[Tiaoma] = #Tiaoma#,
+				[Zhiliang] = #Zhiliang#,
+				[Shiyongxingneng] = #Shiyongxingneng#,
+				[Toushilv] = #Toushilv#,
+				[WaiguanFuzhuodu] = #WaiguanFuzhuodu#,
+				[Neirong] = #Neirong#,
+				[Mushijianyan] = #Mushijianyan#,
+				[DuiseWaiguan] = #DuiseWaiguan#,
+				[Ruliaojianyan] = #Ruliaojianyan#
+			WHERE
+				[PCMaterialCheckDetailId] = #PCMaterialCheckDetailId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCMaterialCheckDetail]
+				where  PCMaterialCheckDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>

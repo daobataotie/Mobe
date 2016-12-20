@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DepotInDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="DepotInDetailResult2" class="DepotInDetail">
+      <result property="DepotPositionId" column="DepotPositionId" />
+      <result property="DepotInId" column="DepotInId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="ProductUnit" column="ProductUnit" />
+      <result property="DepotInQuantity" column="DepotInQuantity" />
+      <result property ="Date" column="Date"/>
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key5" />
+      <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="GetDetailByDepotInId" resultMap="DepotInDetailResult"  parameterClass="string">
+      SELECT * FROM DepotInDetail WHERE DepotInId=#value#
+    </select>
+    <delete id="delete_byheader"   parameterClass="string">
+      delete FROM DepotInDetail WHERE DepotInId=#value#
+    </delete>
+
+    <select id ="SelectByCondition" resultMap="DepotInDetailResult2" parameterClass="Map">
+      <![CDATA[
+      SELECT d.DepotPositionId,d.DepotInId,d.ProductId,d.ProductUnit,d.DepotInQuantity,di.DepotInDate as Date FROM DepotInDetail d LEFT JOIN DepotIn di ON di.DepotInId = d.DepotInId WHERE di.DepotInId IN (SELECT DepotInId FROM DepotIn WHERE DepotIn.DepotInDate BETWEEN #StartDate# AND #EndDate# $sql$)
+      ]]>
+    </select>
+
+  </statements>
+</sqlMap>

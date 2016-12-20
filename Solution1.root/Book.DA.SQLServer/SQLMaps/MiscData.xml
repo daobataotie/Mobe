@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="MiscData" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Stock1" type="Book.Model.Stock, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="StockResult" class="Stock1">
+      <result property="StockId" column="StockId" />
+      <result property="ProductId" column="ProductId" />      
+      <result property="StockQuantity0" column="StockQuantity0" />
+      <result property="StockQuantity1" column="StockQuantity1" />
+      <result property="StockQuantityD" column="StockQuantityD" />
+      <result property="StockQuantityU" column="StockQuantityU" />      
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="StockDiffQuantity" column="DiffQuantity"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="select_query04" parameterClass="Map">
+      <![CDATA[
+  select a.*,b.* from 
+(select invoiceid,CompanyId,employee0id,employee1id,
+            employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime,
+             InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'ct' as Kind,InvoiceHeJi,
+            InvoiceYHE,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,
+            InvoiceOwed,InvoiceZongJi-InvoiceOwed received from dbo.invoicect union all
+            select invoiceid,CompanyId,employee0id,employee1id,employee2id,employee3id,
+            InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,
+            InvoiceAbstract,InvoiceNote,InvoiceStatus,'xs' as Kind,InvoiceHeJi,InvoiceYHE,
+            InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed,
+            InvoiceZongJi-InvoiceOwed received from dbo.invoicexs) a inner join company b on a.companyid = b.companyid where InvoiceZongJi > 0 and invoiceowed>0 and InvoiceStatus = 1 
+            and (a.CompanyId= #companyid# or #companyid# is null)
+            and (a.InvoicePayTimeLimit between #datetime# and getdate()or #datetime# is null)
+	]]>
+    </select>
+    <select id="select_query02">
+      <![CDATA[
+			SELECT 
+				dbo.Product.ProductName, 
+				SUM(dbo.Stock.StockQuantity1) Quantity1,
+				dbo.Product.ProductStandardCost 
+			FROM 
+				dbo.Stock INNER JOIN dbo.Product	
+			ON  
+				dbo.Stock.ProductId = dbo.Product.ProductId 
+			GROUP BY 
+				dbo.Product.ProductName,dbo.Product.ProductStandardCost
+			]]>
+    </select>
+
+    <select id="select_query05" parameterClass="Map">
+      <![CDATA[
+			SELECT Product.ProductId, Product.ProductName, 
+				  Product.ProductSpecification, Product.ProductModel, 
+				  Product.productbaseunit, 
+				  SUM(InvoiceXSDetail.InvoiceXSDetailQuantity) Quantity, 
+				  SUM(InvoiceXSDetail.InvoiceXSDetailMoney0) DetailMoney0, 
+				  SUM(InvoiceXSDetail.InvoiceXSDetailMoney0) 
+				  / SUM(InvoiceXSDetail.InvoiceXSDetailQuantity) AvgPrice, 
+				  SUM(InvoiceXSDetail.InvoiceXSDetailMoney1) DetailMoney1
+			FROM Product INNER JOIN
+				  InvoiceXSDetail ON 
+				  Product.ProductId = InvoiceXSDetail.ProductId INNER JOIN
+				  InvoiceXS ON InvoiceXSDetail.InvoiceId = InvoiceXS.InvoiceId
+			WHERE (InvoiceXS.InvoiceStatus = #status#) AND (InvoiceXS.Employee0Id = #empId# OR
+				  #empId# IS NULL) AND (InvoiceXS.CompanyId = #companyId# OR
+				  #companyId# IS NULL) AND (InvoiceXS.DepotId = #depotId# OR
+				  #depotId# IS NULL) AND (InvoiceXS.InvoiceDate BETWEEN #startTime# AND #endTime#)
+			GROUP BY Product.ProductId, Product.ProductName, 
+				  Product.ProductSpecification, Product.ProductModel, Product.productbaseunit
+			]]>
+    </select>
+    <!--
+		<select id="select_query06" parameterClass="Map">
+			<![CDATA[
+			SELECT dbo.Product.ProductId AS 商品编号, dbo.Product.ProductName AS 商品名称, 
+				  dbo.Product.ProductSpecification AS 规格, dbo.Product.ProductModel AS 型号, 
+				  dbo.Product.productbaseunit AS 生产单位, 
+				  SUM(dbo.InvoiceXSDetail.InvoiceXSDetailQuantity) AS 销售数量, 
+				  SUM(dbo.InvoiceXSDetail.InvoiceXSDetailMoney0) AS 应收总额, 
+				  SUM(dbo.InvoiceXSDetail.InvoiceXSDetailMoney0) 
+				  / SUM(dbo.InvoiceXSDetail.InvoiceXSDetailQuantity) AS 平均售价, 
+				  SUM(dbo.InvoiceXSDetail.InvoiceXSDetailMoney1) AS 总额
+			FROM dbo.Product INNER JOIN
+				  dbo.InvoiceXSDetail ON 
+				  dbo.Product.ProductId = dbo.InvoiceXSDetail.ProductId INNER JOIN
+				  dbo.InvoiceXS ON dbo.InvoiceXSDetail.InvoiceId = dbo.InvoiceXS.InvoiceId
+			WHERE (dbo.InvoiceXS.InvoiceStatus = #status#) AND (dbo.InvoiceXS.Employee0Id = #empId# OR
+				  #empId# IS NULL) AND (dbo.InvoiceXS.CompanyId = #companyId# OR
+				  #companyId# IS NULL) AND (dbo.InvoiceXS.DepotId = #depotId# OR
+				  #depotId# IS NULL) AND (dbo.InvoiceXS.InvoiceDate BETWEEN #startTime# AND #endTime#)
+			GROUP BY dbo.Product.ProductId, dbo.Product.ProductName, 
+				  dbo.Product.ProductSpecification, dbo.Product.ProductModel, dbo.Product.productbaseunit
+			]]>
+			
+		</select>
+		-->
+    <select id="select_query07" parameterClass="Map">
+      <![CDATA[
+			SELECT Product.ProductId, Product.ProductName, 
+				  Product.ProductSpecification, Product.ProductModel, 
+				  Product.productbaseunit, 
+				  SUM(InvoiceXTDetail.InvoiceXTDetailQuantity) Quantity, 
+				  SUM(InvoiceXTDetail.InvoiceXTDetailMoney0) DetailMoney0, 
+				  SUM(InvoiceXTDetail.InvoiceXTDetailMoney0) 
+				  / SUM(InvoiceXTDetail.InvoiceXTDetailQuantity) AvgPrice, 
+				  SUM(InvoiceXTDetail.InvoiceXTDetailMoney1) DetailMoney1
+			FROM Product INNER JOIN
+				  InvoiceXTDetail ON 
+				  Product.ProductId = InvoiceXTDetail.ProductId INNER JOIN
+				  InvoiceXT ON InvoiceXTDetail.InvoiceId = InvoiceXT.InvoiceId
+			WHERE (InvoiceXT.InvoiceStatus = #status#) AND (InvoiceXT.Employee0Id = #empId# OR
+				  #empId# IS NULL) AND (InvoiceXT.CompanyId = #companyId# OR
+				  #companyId# IS NULL) AND (InvoiceXT.DepotId = #depotId# OR
+				  #depotId# IS NULL) AND (InvoiceXT.InvoiceDate BETWEEN #startTime# AND #endTime#)
+			GROUP BY Product.ProductId, Product.ProductName, 
+				  Product.ProductSpecification, Product.ProductModel, Product.productbaseunit
+			]]>
+    </select>
+
+    <select id="select_query08" parameterClass="Map">
+      <![CDATA[
+			SELECT dbo.Product.ProductId, dbo.Product.ProductName, 
+				  dbo.Product.ProductSpecification, dbo.Product.ProductModel, 
+				  dbo.Product.productbaseunit, 
+				  SUM(dbo.InvoiceCGDetail.InvoiceCGDetailQuantity) Quantity, 
+				  SUM(dbo.InvoiceCGDetail.InvoiceCGDetailMoney0) DetailMoney0, 
+				  SUM(dbo.InvoiceCGDetail.InvoiceCGDetailMoney0) 
+				  / SUM(dbo.InvoiceCGDetail.InvoiceCGDetailQuantity) AvgPrice, 
+				  SUM(dbo.InvoiceCGDetail.InvoiceCGDetailMoney1) DetailMoney1
+			FROM dbo.Product INNER JOIN
+				  dbo.InvoiceCGDetail ON 
+				  dbo.Product.ProductId = dbo.InvoiceCGDetail.ProductId INNER JOIN
+				  dbo.InvoiceCG ON dbo.InvoiceCGDetail.InvoiceId = dbo.InvoiceCG.InvoiceId
+			WHERE (dbo.InvoiceCG.InvoiceStatus = #status#) AND (dbo.InvoiceCG.Employee0Id = #empId# OR
+				  #empId# IS NULL) AND (dbo.InvoiceCG.CompanyId = #companyId# OR
+				  #companyId# IS NULL) AND (dbo.InvoiceCG.DepotId = #depotId# OR
+				  #depotId# IS NULL) AND (dbo.InvoiceCG.InvoiceDate BETWEEN #startTime# AND #endTime#)
+			GROUP BY dbo.Product.ProductId, dbo.Product.ProductName, 
+				  dbo.Product.ProductSpecification, dbo.Product.ProductModel, dbo.Product.productbaseunit
+			]]>
+    </select>
+
+    <select id="select_query09" parameterClass="Map">
+      <![CDATA[
+			SELECT dbo.Product.ProductId, dbo.Product.ProductName, 
+				  dbo.Product.ProductSpecification, dbo.Product.ProductModel, 
+				  dbo.Product.productbaseunit, 
+				  SUM(dbo.InvoiceCTDetail.InvoiceCTDetailQuantity) Quantity, 
+				  SUM(dbo.InvoiceCTDetail.InvoiceCTDetailMoney0) DetailMoney0, 
+				  SUM(dbo.InvoiceCTDetail.InvoiceCTDetailMoney0) 
+				  / SUM(dbo.InvoiceCTDetail.InvoiceCTDetailQuantity) AvgPrice, 
+				  SUM(dbo.InvoiceCTDetail.InvoiceCTDetailMoney1) DetailMoney1
+			FROM dbo.Product INNER JOIN
+				  dbo.InvoiceCTDetail ON 
+				  dbo.Product.ProductId = dbo.InvoiceCTDetail.ProductId INNER JOIN
+				  dbo.InvoiceCT ON dbo.InvoiceCTDetail.InvoiceId = dbo.InvoiceCT.InvoiceId
+			WHERE (dbo.InvoiceCT.InvoiceStatus = #status#) AND (dbo.InvoiceCT.Employee0Id = #empId# OR
+				  #empId# IS NULL) AND (dbo.InvoiceCT.CompanyId = #companyId# OR
+				  #companyId# IS NULL) AND (dbo.InvoiceCT.DepotId = #depotId# OR
+				  #depotId# IS NULL) AND (dbo.InvoiceCT.InvoiceDate BETWEEN #startTime# AND #endTime#)
+			GROUP BY dbo.Product.ProductId, dbo.Product.ProductName, 
+				  dbo.Product.ProductSpecification, dbo.Product.ProductModel, dbo.Product.productbaseunit
+			]]>
+    </select>
+    <select id="select_query10" parameterClass="Map">
+      <![CDATA[
+			SELECT dbo.Product.ProductId, dbo.Product.ProductName, 
+      dbo.Product.ProductSpecification, dbo.Product.ProductModel, 
+      dbo.Product.productbaseunit, 
+      SUM(dbo.InvoiceZSDetail.InvoiceZSDetailQuantity) Quantity, 
+      SUM(dbo.InvoiceZSDetail.InvoiceZSDetailMoney ) DetailMoney
+FROM dbo.InvoiceZSDetail INNER JOIN
+      dbo.Product ON dbo.InvoiceZSDetail.ProductId = dbo.Product.ProductId INNER JOIN
+      dbo.InvoiceZS ON dbo.InvoiceZSDetail.InvoiceId = dbo.InvoiceZS.InvoiceId
+WHERE (dbo.InvoiceZS.InvoiceStatus = #status#) AND (dbo.InvoiceZS.Employee0Id = #empId# OR 
+	#empId# IS NULL) AND (dbo.InvoiceZS.CompanyId = #companyId# OR 
+	#companyId# IS NULL) AND (dbo.InvoiceZS.DepotId = #depotId# OR 
+	#depotId# IS NULL) AND (dbo.InvoiceZS.InvoiceDate BETWEEN #startTime# AND #endTime#)
+GROUP BY dbo.Product.ProductId, dbo.Product.ProductName, 
+      dbo.Product.ProductSpecification, dbo.Product.ProductModel, dbo.Product.productbaseunit
+			]]>
+    </select>
+    <select id="select_query11" parameterClass="Map">
+      <![CDATA[
+			SELECT dbo.Product.ProductId, dbo.Product.ProductName,
+			dbo.Product.ProductSpecification, dbo.Product.ProductModel,
+			dbo.Product.productbaseunit,
+			SUM(dbo.InvoiceHZDetail.InvoiceHZDetailQuantity) Quantity,
+			SUM(dbo.InvoiceHZDetail.InvoiceHZDetailMoney) DetailMoney
+			FROM dbo.InvoiceHZDetail INNER JOIN
+			dbo.Product ON dbo.InvoiceHZDetail.ProductId = dbo.Product.ProductId INNER JOIN
+			dbo.InvoiceHZ ON dbo.InvoiceHZDetail.InvoiceId = dbo.InvoiceHZ.InvoiceId
+			WHERE (dbo.InvoiceHZ.InvoiceStatus = #status#) AND (dbo.InvoiceHZ.Employee0Id = #empId# OR
+			#empId# IS NULL) AND (dbo.InvoiceHZ.CompanyId = #companyId# OR
+			#companyId# IS NULL) AND (dbo.InvoiceHZ.DepotId = #depotId# OR
+			#depotId# IS NULL) AND (dbo.InvoiceHZ.InvoiceDate BETWEEN #startTime# AND #endTime#)
+			GROUP BY dbo.Product.ProductId, dbo.Product.ProductName,
+			dbo.Product.ProductSpecification, dbo.Product.ProductModel, dbo.Product.productbaseunit
+			]]>
+    </select>
+    <select id="select_query13" parameterClass="Map">
+      <![CDATA[
+				SELECT
+					dbo.InvoiceCODetail.ProductId, dbo.Product.ProductName, dbo.Product.productbaseunit, SUM(dbo.InvoiceCODetail.InvoiceCODetailQuantity) Quantity, SUM(dbo.InvoiceCODetail.InvoiceCODetailMoney) DetailMoney
+				FROM
+					dbo.Product INNER JOIN dbo.InvoiceCODetail ON 
+					dbo.Product.ProductId = dbo.InvoiceCODetail.ProductId INNER JOIN dbo.InvoiceCO ON 
+					dbo.InvoiceCODetail.InvoiceId = dbo.InvoiceCO.InvoiceId 
+				WHERE
+					(dbo.InvoiceCO.InvoiceStatus = #status#) AND 
+					(dbo.InvoiceCO.InvoiceDate BETWEEN #startTime# AND #endTime#) AND 
+					(dbo.InvoiceCO.CompanyId = #companyId# OR #companyId# is null) AND 
+					(dbo.InvoiceCO.Employee0Id = #empId# OR #empId# is null)
+				GROUP BY 
+					dbo.InvoiceCODetail.ProductId, dbo.Product.ProductName, dbo.Product.productbaseunit
+			]]>
+    </select>
+    <select id="select_query14">
+      <![CDATA[
+			SELECT
+				dbo.Depot.DepotName, dbo.Product.ProductName, SUM(dbo.Stock.StockQuantity1) Quantity
+			FROM
+				dbo.Stock INNER JOIN dbo.Product ON dbo.Stock.ProductId = dbo.Product.ProductId 
+			INNER JOIN 
+				dbo.Depot ON dbo.Stock.DepotId = dbo.Depot.DepotId
+			GROUP BY 
+				dbo.Depot.DepotName, dbo.Product.ProductName
+			]]>
+    </select>
+    <select id="Q15" parameterClass="int">
+      <![CDATA[
+            select *
+            from dbo.company
+            where companypaydate = #value# and companyr1 > 0
+            ]]>
+    </select>
+    <select id ="Stock" parameterClass="Map" resultMap="StockResult">
+      <![CDATA[
+      SELECT [StockId]
+      ,[ProductId]
+      ,[DepotId]
+      ,[StockQuantity0]
+      ,[StockQuantity1]
+      ,[StockQuantityD]
+      ,[StockQuantityU]
+      ,[StockQuantityD]-[StockQuantity1] AS DiffQuantity
+      FROM [Stock]
+      WHERE ([StockQuantity1] < [StockQuantityD]) 
+      AND ([ProductId] BETWEEN #startId# And #endId#)
+      ]]>
+    </select>
+    <select id="product" parameterClass="Map">
+      <![CDATA[
+      select *, isnull((InvoiceXSDetailQuantity+InvoiceXTDetailQuantity),0) as InvoiceDetailQuantity, isnull((InvoiceXSDetailMoney1+InvoiceXTDetailMoney1),0) as InvoiceDetailMoney from 
+      (
+      select 
+      ProductId,ProductName,ProductBaseUnit,ProductSpecification
+      , (select isnull(sum(invoicexsdetailquantity),0) from invoicexsdetail where productid = product.productid and invoiceid in (select invoiceid from invoicexs where invoiceDate between #startDate# and #endDate#)) as InvoiceXSDetailQuantity
+      , (select isnull(-sum(invoicextdetailquantity),0) from invoicextdetail where productid = product.productid and invoiceid in (select invoiceid from invoicext where invoiceDate between #startDate# and #endDate#)) as InvoiceXTDetailQuantity
+      , (select isnull(sum(InvoiceXSDetailMoney1),0) from invoicexsdetail where productid = product.productid and invoiceid in (select invoiceid from invoicexs where invoicedate between #startDate# and #endDate#)) as InvoiceXSDetailMoney1
+      , (select isnull(-sum(InvoiceXTDetailMoney1),0) from invoicextdetail where productid = product.productid and invoiceId in (select Invoiceid from invoicext where invoicedate between #startDate# and #endDate#)) as InvoiceXTDetailMoney1
+      from product 
+      where product.productid between #psid# and #peid#
+      ) a
+      order by invoicexsdetailquantity desc
+      ]]>
+    </select>
+
+    <select id ="employee" parameterClass="Map">
+      <![CDATA[
+      select 
+      EmployeeId
+      ,EmployeeName
+      ,isnull((select sum(InvoiceHeJi) from InvoiceXS where Employee0Id = Employee.EmployeeId and InvoiceDate between #startDate# and #endDate#),0) as InvoiceXSMoney
+      ,isnull((select sum(InvoiceZRE) from InvoiceXS where Employee0Id = Employee.EmployeeId and InvoiceDate between #startDate# and #endDate#),0) as InvoiceXSZRE
+      ,isnull((select sum(InvoiceZongJi) from InvoiceXT where Employee0Id = Employee.EmployeeId and InvoiceDate between #startDate# and #endDate#),0) as InvoiceXTMoney
+      ,isnull((select sum(InvoiceZongJi) from InvoiceXS where Employee0Id = Employee.EmployeeId and InvoiceDate between #startDate# and #endDate#),0) as InvoiceZongJi
+      from Employee 
+      where EmployeeId between #esid# and #eeid#
+      order by InvoiceXSMoney
+      ]]>
+    </select>
+    <select id ="ZL">
+      <![CDATA[
+      select CompanyId
+      ,CompanyName1
+      ,CompanyR0
+      ,isnull((select sum(InvoiceOwed) from invoicexs where CompanyId = Company.CompanyId and datediff(d,InvoiceDate,#value#) between 1 and 30),0) thirtyDays
+      ,isnull((select sum(InvoiceOwed) from invoicexs where CompanyId = Company.CompanyId and datediff(d,InvoiceDate,#value#) between 31 and 60),0) sixtyDays
+      ,isnull((select sum(InvoiceOwed) from invoicexs where CompanyId = Company.CompanyId and datediff(d,InvoiceDate,#value#) between 61 and 90),0) nintyDays
+      ,isnull((select sum(InvoiceOwed) from invoicexs where CompanyId = Company.CompanyId and datediff(d,InvoiceDate,#value#) between 91 and 120),0) tenTwelveDays
+      ,isnull((select sum(InvoiceOwed) from invoicexs where CompanyId = Company.CompanyId and datediff(d,InvoiceDate,#value#) between 121 and 150),0) tenFifteenDays
+      ,isnull((select sum(InvoiceOwed) from invoicexs where CompanyId = Company.CompanyId and datediff(d,InvoiceDate,#value#) >150),0) greatTenFifteenDays
+      ,isnull((select sum(InvoiceOwed) from invoicexs where CompanyId = Company.CompanyId),0) allMoney
+      From Company
+      ]]>
+    </select>
+    <select id ="LR" parameterClass="Map">
+      <![CDATA[
+      select 
+      *
+      ,(select ProductName from Product where t.productId = Product.ProductId) as ProductName
+      ,(select productbaseunit from Product where t.productId = Product.ProductId) as productbaseunit
+      ,(select ProductSpecification from Product where t.productId = Product.ProductId) as ProductSpecification
+      ,[InvoiceXSDetailQuantity]*([InvoiceXSDetailPrice]-InvoiceXSDetailCostPrice) as MaoLi
+      ,[InvoiceXSDetailQuantity]*([InvoiceXSDetailPrice]-InvoiceXSDetailCostPrice)/[InvoiceXSDetailMoney1] as MaoLiLV
+       from 
+      (SELECT [InvoiceXSDetailId]
+      ,[ProductId]
+      ,[InvoiceId]
+      ,[InvoiceXSDetailQuantity]
+      ,[InvoiceXSDetailPrice]
+      ,[InvoiceXSDetailMoney0]      
+      ,[InvoiceXSDetailZS]
+      ,[InvoiceXSDetailMoney1]
+      ,InvoiceXSDetailCostPrice
+      ,InvoiceXSDetailCostMoney
+      ,(select Invoicedate from InvoiceXs where invoiceid = [InvoiceXsDetail].invoiceid) as InvoiceDate
+        FROM [InvoiceXSDetail]
+      where InvoiceId in (select InvoiceId from invoicexs where InvoiceDate between #startDate# and #endDate#)
+      union
+      SELECT [InvoiceXTDetailId]
+            ,[ProductId]
+            ,[InvoiceId]
+            ,-[InvoiceXTDetailQuantity]
+            ,[InvoiceXTDetailPrice]
+            ,-[InvoiceXTDetailMoney0]     
+            ,[InvoiceXTDetailZS]
+            ,-[InvoiceXTDetailMoney1]
+      ,InvoiceXTDetailCostPrice
+      ,-InvoiceXTDetailCostMoney
+      ,(select Invoicedate from InvoiceXt where invoiceid = [InvoiceXTDetail].invoiceid) as InvoiceDate
+        FROM [InvoiceXTDetail] 
+      where InvoiceId in (select InvoiceId from invoicext where InvoiceDate between #startDate# and #endDate#)
+      ) t 
+      where ([InvoiceXSDetailZS] <> 1)and ([ProductId] between #psid# and #peid#)
+      ]]>
+    </select>
+    <select id ="ChongXiaoYingShou" parameterClass="Map">
+      <![CDATA[
+      select *
+      from
+      (select 
+      [XR1Id],
+				[InvoiceXSId],
+				[InvoiceSKId],
+				isnull([XR1Money],0) as [XR1Money]
+      ,(Select InvoiceDate from Invoicesk where invoiceId = xr1.InvoiceskId) InvoiceDate
+      ,(Select CompanyId from Invoicesk where invoiceId = xr1.InvoiceskId) CompanyId
+       from xr1 ) t
+      where CompanyId = #companyId# and (InvoiceDate between #startDate# and #endDate#)
+      ]]>
+    </select>
+
+    <select id ="ChongXiaoYingFu" parameterClass="Map">
+      <![CDATA[
+      select *
+      from
+      (select 
+      [XP1Id],
+				[InvoiceCGId],
+				[InvoiceFKId],
+				isnull([XP1Money],0) as [XP1Money]
+      ,(Select InvoiceDate from Invoicefk where invoiceId = xp1.InvoicefkId) InvoiceDate
+      ,(Select CompanyId from Invoicefk where invoiceId = xp1.InvoicefkId) CompanyId
+       from xp1 ) t
+      where CompanyId = #companyId# and (InvoiceDate between #startDate# and #endDate#)
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

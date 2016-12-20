@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceHCDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoiceHCDetail" type="Book.Model.InvoiceHCDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoiceHCDetailResult" class="InvoiceHCDetail">
+      <result property="InvoiceHCDetailId" column="InvoiceHCDetailId" />
+      <result property="InvoiceJRDetailId" column="InvoiceJRDetailId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="InvoiceHCDetailQuantity" column="InvoiceHCDetailQuantity" />
+      <result property="InvoiceHCDetailNote" column="InvoiceHCDetailNote" />
+      <result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+      <result property="DepotPositionId" column="DepotPositionId" />
+      <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceHC.select_by_primary_key" />
+      <result property="InvoiceJRDetail" column="InvoiceJRDetailId" lazyLoad="false" select="InvoiceJRDetail.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceHCDetail]
+      WHERE
+      [InvoiceHCDetailId] = #InvoiceHCDetailId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceHCDetail]
+
+      ) then 1 else 0 end
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="InvoiceHCDetailResult" parameterClass="InvoiceHCDetail">
+      SELECT
+      [InvoiceHCDetailId],
+      [InvoiceJRDetailId],
+      [ProductId],
+      [InvoiceId],
+      [InvoiceHCDetailQuantity],
+      [InvoiceHCDetailNote],
+      [InvoiceProductUnit],
+      [DepotPositionId]
+      FROM
+      [dbo].[InvoiceHCDetail]
+      WHERE
+      [InvoiceHCDetailId] = #InvoiceHCDetailId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[InvoiceHCDetail]
+      WHERE
+      [InvoiceHCDetailId] = #InvoiceHCDetailId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="InvoiceHCDetailResult" >
+      SELECT *
+      FROM
+      [dbo].[InvoiceHCDetail]
+
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[InvoiceHCDetail]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="InvoiceHCDetailResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[InvoiceHCDetail]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="InvoiceHCDetail">
+      INSERT INTO [dbo].[InvoiceHCDetail]
+      (
+      [InvoiceHCDetailId],
+      [InvoiceJRDetailId],
+      [ProductId],
+      [InvoiceId],
+      [InvoiceHCDetailQuantity],
+      [InvoiceHCDetailNote],
+      [InvoiceProductUnit],
+      [DepotPositionId]
+      )
+      VALUES
+      (
+      #InvoiceHCDetailId#,
+      #InvoiceJRDetailId#,
+      #ProductId#,
+      #InvoiceId#,
+      #InvoiceHCDetailQuantity#,
+      #InvoiceHCDetailNote#,
+      #InvoiceProductUnit#,
+      #DepotPositionId#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="InvoiceHCDetail">
+      UPDATE [InvoiceHCDetail] SET
+      [InvoiceJRDetailId] = #InvoiceJRDetailId#,
+      [ProductId] = #ProductId#,
+      [InvoiceId] = #InvoiceId#,
+      [InvoiceHCDetailQuantity] = #InvoiceHCDetailQuantity#,
+      [InvoiceHCDetailNote] = #InvoiceHCDetailNote#,
+      [InvoiceProductUnit] = #InvoiceProductUnit#,
+      [DepotPositionId] = #DepotPositionId#
+      WHERE
+      [InvoiceHCDetailId] = #InvoiceHCDetailId#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceHCDetail]
+				where  InvoiceHCDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

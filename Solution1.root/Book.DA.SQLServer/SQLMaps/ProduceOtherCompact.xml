@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProduceOtherCompact" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+
+    <select id="selectIsInDepot" resultMap="ProduceOtherCompactResult">
+      <![CDATA[
+      SELECT * FROM ProduceOtherCompact WHERE ProduceOtherCompactId IN( SELECT ProduceOtherCompactId FROM ProduceOtherCompactDetail WHERE OtherCompactCount-isnull(InDepotCount,0)>0)
+      ]]>
+    </select>
+
+    <select id="selectIsInDepotMaterial"  resultMap="ProduceOtherCompactResult">
+      SELECT * FROM ProduceOtherCompact WHERE ProduceOtherCompactId IN (SELECT ProduceOtherCompactId FROM ProduceOtherCompactMaterial WHERE ProduceQuantity-isnull(AlreadyOutQuantity,0)>0)
+    </select>
+
+    <select id="selectByMRSHeaderId" resultMap="ProduceOtherCompactResult" parameterClass="string">
+      select * from dbo.ProduceOtherCompact where MRSHeaderId=#value#
+    </select>
+
+    <select id="Select_ThreeMaths" resultMap="ProduceOtherCompactResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM ProduceOtherCompact WHERE (InvoiceMaterialFlag<>2 or InvoiceMaterialFlag is null) and ProduceOtherCompactDate>=DateAdd(Month,-3,getdate()) order by ProduceOtherCompactId desc
+       		]]>
+    </select>
+
+    <select id="select_GetToDate" resultMap="ProduceOtherCompactResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM ProduceOtherCompact p left join InvoiceXO xo on p.InvoiceXOId=xo.InvoiceId WHERE (p.InvoiceMaterialFlag<>2 or InvoiceMaterialFlag is null) and p.ProduceOtherCompactDate between #startdate# and #enddate#  and (p. ProduceOtherCompactId in(select ProduceOtherCompactId  from ProduceOtherCompactMaterial where productid=#sendProductId#) or #sendProductId# is null )  AND (p.CustomerId = #customerid# OR #customerid# IS NULL) AND (p.SupplierId = #supplierid# OR #supplierid# IS NULL) AND (p.ProduceOtherCompactId =#ProduceOtherCompactId# OR #ProduceOtherCompactId# IS NULL) AND (xo.CustomerInvoiceXOId Like '%$CustomerInvoiceXOId$%' or #CustomerInvoiceXOId# is null) order by ProduceOtherCompactId desc
+      ]]>
+    </select>
+
+    <select id="selectByConditionRang" resultMap="ProduceOtherCompactResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM ProduceOtherCompact p left join InvoiceXO xo on p.InvoiceXOId=xo.InvoiceId WHERE (p.InvoiceMaterialFlag<>2 or InvoiceMaterialFlag is null) and p.ProduceOtherCompactDate between #startdate# and #enddate#  and ( p.ProduceOtherCompactId in(select ProduceOtherCompactId  from ProduceOtherCompactMaterial where productid=#sendProductId#) or #sendProductId# is null ) AND (p.CustomerId = #customerid# OR #customerid# IS NULL) AND (p.SupplierId = #supplierid# OR #supplierid# IS NULL) AND (p.ProduceOtherCompactId =#ProduceOtherCompactId# OR #ProduceOtherCompactId# IS NULL) AND (xo.CustomerInvoiceXOId like '%$CustomerInvoiceXOId$%' or #CustomerInvoiceXOId# is null) order by ProduceOtherCompactId desc
+      ]]>
+    </select>
+
+    <select  id="selectByCondition" resultMap="ProduceOtherCompactResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceOtherCompact p left join InvoiceXO xo on p.InvoiceXOId=xo.InvoiceId where (p.ProduceOtherCompactDate>=#StartDate# or #StartDate# is null) and (p.ProduceOtherCompactDate<=#EndDate# or #EndDate# is null) and p.ProduceOtherCompactId in(select ProduceOtherCompactId from ProduceOtherCompactDetail where productId in(select productId from product where (ProductName>=#StartpId# or #StartpId# is null) and  (ProductName<=#EndpId# or #EndpId# is null))) and p.SupplierId in (select SupplierId from Supplier where (Id >=#StartsId# or #StartsId# is null) and (Id<=#EndsId# or #EndsId# is null)) and (p.ProduceOtherCompactId>=#StartCompactId# or #StartCompactId# is null) and (p.ProduceOtherCompactId<=#EndCompactId# or #EndCompactId# is null) and (xo.CustomerInvoiceXOId Like '%$CustomerInvoiceXOId$%' or #CustomerInvoiceXOId# is null) and InvoiceStatus<>2 order by ProduceOtherCompactId desc
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

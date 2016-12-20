@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="RalationProductMould" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="RalationProductMould" type="Book.Model.RalationProductMould, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="RalationProductMouldResult" class="RalationProductMould">
+      <result property="PrimaryKeyId" column="PrimaryKeyId" />
+      <result property="MouldId" column="MouldId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="Mould" column="MouldId" lazyLoad="false" select="ProductMould.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[RalationProductMould]
+      WHERE
+      [PrimaryKeyId] = #PrimaryKeyId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[RalationProductMould]
+
+      ) then 1 else 0 end
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="RalationProductMouldResult" parameterClass="RalationProductMould">
+      SELECT
+      [PrimaryKeyId],
+      [MouldId],
+      [ProductId]
+      FROM
+      [dbo].[RalationProductMould]
+      WHERE
+      [PrimaryKeyId] = #PrimaryKeyId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[RalationProductMould]
+      WHERE
+      [PrimaryKeyId] = #PrimaryKeyId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="RalationProductMouldResult" >
+      SELECT *
+      FROM
+      [dbo].[RalationProductMould]
+      ORDER BY PrimaryKeyId ASC
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[RalationProductMould]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="RalationProductMouldResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[RalationProductMould]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="RalationProductMould">
+      INSERT INTO [dbo].[RalationProductMould]
+      (
+      [PrimaryKeyId],
+      [MouldId],
+      [ProductId]
+      )
+      VALUES
+      (
+      #PrimaryKeyId#,
+      #MouldId#,
+      #ProductId#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="RalationProductMould">
+      UPDATE [RalationProductMould] SET
+      [MouldId] = #MouldId#,
+      [ProductId] = #ProductId#
+      WHERE
+      [PrimaryKeyId] = #PrimaryKeyId#
+    </update>
+
+
+  </statements>
+</sqlMap>
+

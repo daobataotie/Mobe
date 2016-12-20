@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BomComponentInfo" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byParents" resultMap="BomComponentInfoResult" >
+      SELECT *
+      FROM
+      [BomComponentInfo]
+      WHERE
+      [BomId] = #value# order by IndexOfBom
+    </select>
+
+    <delete id="delete_byParents" parameterClass="string">
+      DELETE FROM [dbo].[BomComponentInfo]
+      WHERE
+      [BomId] = #value#
+    </delete>
+
+    <select id="selectnotcontentByBom" resultMap="BomComponentInfoResult" parameterClass="string">
+      SELECT *
+      FROM
+      BomComponentInfo
+      WHERE
+      BomId=#value# order by IndexOfBom
+    </select>
+
+    <select id="IsExistsIndexOfBom"  resultMap="BomComponentInfoResult" parameterClass="string">
+      SELECT * FROM BomComponentInfo where IndexOfBom=#value#
+    </select>
+
+    <select id="SelectLessInfoByHeaderId" resultMap="BomComponentInfoResult" parameterClass="string">
+      <![CDATA[
+      
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

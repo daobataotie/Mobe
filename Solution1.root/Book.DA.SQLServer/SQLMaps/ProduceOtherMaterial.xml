@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProduceOtherMaterial" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectByCondition" resultMap="ProduceOtherMaterialResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ProduceOtherMaterial WHERE ((ProduceOtherMaterialDate>=#startdate# OR #startdate# IS NULL) AND (ProduceOtherMaterialDate<=#enddate# OR #enddate# IS NULL))
+      AND (SupplierId IN (SELECT SupplierId FROM Supplier WHERE (Id>=#sid1# OR #sid1# IS NULL) AND (Id<=#sid2# OR #sid2# IS NULL)) OR SupplierId IS NULL)
+      AND ((ProduceOtherCompactId>=#cid1# OR #cid1# IS NULL) AND (ProduceOtherCompactId<=#cid2# OR #cid2# IS NULL)) and ProduceOtherMaterialId in(select ProduceOtherMaterialId from ProduceOtherMaterialdetail where productId in(select productId from product where (Id >=#startpId# or #startpId# is null) and (Id <=#endpId# or #endpId# is null))) and (ProduceOtherCompactId in (select ProduceOtherCompactId from ProduceOtherCompact where InvoiceXOId in (select InvoiceId from InvoiceXO where CustomerInvoiceXOId=#CustomerInvoiceXOId# or #CustomerInvoiceXOId# is null)) or #CustomerInvoiceXOId# is  null) order by ProduceOtherMaterialId desc
+      ]]>
+      
+    </select>
+    <select id="select_byState"  resultMap="ProduceOtherMaterialResult">
+      <![CDATA[
+      select * from ProduceOtherMaterial 
+				where DepotOutState<>2 or DepotOutState is null
+      ]]>
+    </select>
+    
+    <select id="SelectByDateRange" resultMap="ProduceOtherMaterialResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceOtherMaterial
+				where   produceotherMaterialdate between #startdate# and #enddate#  $sql$ 
+      ]]>
+    </select>
+
+    <select id="IsDepotOut" resultClass="bool" parameterClass="String">
+      <![CDATA[
+      select case when exists(select * from DepotOutDetail where ProduceOtherMaterialDetailId in (select ProduceOtherMaterialDetailId from ProduceOtherMaterialDetail where ProduceOtherMaterialId=#value#)) then 1 else 0 end
+      ]]>
+    </select>
+    
+  </statements>
+
+</sqlMap>

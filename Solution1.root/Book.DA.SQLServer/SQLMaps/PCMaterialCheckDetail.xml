@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PCMaterialCheckDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByPCMaterialCheckId" parameterClass="string" resultMap="PCMaterialCheckDetailResult">
+      <![CDATA[
+      select * from PCMaterialCheckDetail where PCMaterialCheckId=#value# order by CheckDate
+      ]]>
+    </select>
+
+    <delete id="DeleteByPCMaterialCheckId" parameterClass="String">
+      <![CDATA[
+      delete from PCMaterialCheckDetail where PCMaterialCheckId=#value#
+      ]]>
+    </delete>
+
+    <select id="SelectByCondition" resultMap="PCMaterialCheckDetailResult" parameterClass="Map">
+      <![CDATA[
+      select pcd.* from PCMaterialCheckDetail  pcd left join PCMaterialCheck pc on pcd.PCMaterialCheckId=pc.PCMaterialCheckId left join Product p on p.ProductId=pcd.ProductId where 1=1 $sql$
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

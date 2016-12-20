@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceXJPackageDetails" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByHeaderId" resultMap="InvoiceXJPackageDetailsResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM InvoiceXJPackageDetails WHERE InvoiceId = #value#
+      ]]>
+    </select>
+
+    <delete id="DeleteByHeader" parameterClass="string">
+      <![CDATA[
+      DELETE FROM InvoiceXJPackageDetails
+      WHERE InvoiceId = #value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

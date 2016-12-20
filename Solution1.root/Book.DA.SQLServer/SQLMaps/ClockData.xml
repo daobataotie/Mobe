@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ClockData" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="Select_Details_ByEmployeeId" parameterClass="string">
+      select Empclockdate,EmployeeId ,(select BusinessHoursId from Flextime as b where a.EmployeeId=EmployeeId and a.EmpclockDate=FlexDate ) as BusinessHoursId,(select (select FromHour from BusinessHours where b.BusinessHoursId=BusinessHoursId) as FromHour from Flextime as b where a.EmployeeId=EmployeeId and a.EmpclockDate=FlexDate) as FromHour ,(select (select FromMinute from BusinessHours where b.BusinessHoursId=BusinessHoursId) as Mytime  from Flextime as b where a.EmployeeId=EmployeeId and a.EmpclockDate=FlexDate ) as FromMiute,(select (select ToHour from BusinessHours where b.BusinessHoursId=BusinessHoursId) as Mytime  from Flextime as b where a.EmployeeId=EmployeeId and a.EmpclockDate=FlexDate ) as ToHour,(select (select ToMinute from BusinessHours where b.BusinessHoursId=BusinessHoursId) as Mytime  from Flextime as b where a.EmployeeId=EmployeeId and a.EmpclockDate=FlexDate ) as ToMinute    from  ClockData a where EmployeeId=#value#  and substring(convert(char,EmpclockDate,120),1,10)=#value#
+    </select>
+    <select id="select_byempid" parameterClass="string" resultMap="ClockDataResult" >
+      SELECT *
+      FROM
+      [dbo].[ClockData] where EmployeeId=#value#
+      ORDER BY EmpclockDate ASC
+    </select>
+    <!-- 查询员工班别最早上班打卡记录 -->
+    <select id="select_firsttime" parameterClass="Map" resultMap="ClockDataResult" >
+      SELECT  top 1 *
+      FROM
+      [dbo].[ClockData] where Clocktime
+      between  #starttime# and #endtime# and EmployeeId=#empid# and ClockType='上班'
+      ORDER BY Clocktime
+    </select>
+
+    <!-- 查询员工班别最晚下班打卡记录 -->
+    <select id="select_lasttime" parameterClass="Map" resultMap="ClockDataResult" >
+      SELECT  top 1 *
+      FROM
+      [dbo].[ClockData] where Clocktime
+      between  #starttime# and #endtime# and EmployeeId=#empid# and ClockType='下班'
+      ORDER BY Clocktime desc
+    </select>
+    <!--员工某段时间打卡记录-->
+    <select id="select_Clockbydateempid" parameterClass="Map" resultMap="ClockDataResult" >
+      SELECT  *
+      FROM
+      [dbo].[ClockData] where Empclockdate
+      between  #starttime# and #endtime# and EmployeeId=#empid#
+      order by Empclockdate desc
+    </select>
+    <!--某段时间打卡记录-->
+    <select id="select_Clockbydate" parameterClass="Map" resultMap="ClockDataResult" >
+      SELECT  *
+      FROM
+      [dbo].[ClockData] where Empclockdate
+      between  #starttime# and #endtime#
+      order by Empclockdate desc
+    </select>
+
+    <select  id="select_ClockTopTreeMonth" parameterClass="Map" resultMap="ClockDataResult">
+      select * from ClockData where Empclockdate >=dateadd(mm,-3, getdate()) order by Empclockdate desc
+    </select>
+
+    <select  id="select_DistinctFileName" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 FileNames FROM ClockData WHERE FileNames = #value# 
+      ]]>
+
+    </select>
+
+    <select  id="select_GetAnyInOut" parameterClass="Map" resultClass="DateTime">
+      <![CDATA[
+      SELECT TOP 1 ClockTime FROM ClockData
+      WHERE CardNo = #cardNo#
+      AND Clocktime > #MinDateTime#
+      AND Clocktime < #MaxDateTime#
+      ORDER BY Clocktime $ordertype$
+        ]]>
+    </select>
+
+    <select id="GetMakeSalaryList_DisEmpID" parameterClass="Map">
+      <![CDATA[
+      SELECT DISTINCT EmployeeId FROM HrDailyEmployeeAttendInfo 
+      WHERE YEAR(DutyDate) = #Year# 
+      AND MONTH(DutyDate) = #Month#
+        ]]>
+    </select>
+    <delete id="DeleteByFileName" parameterClass="string">
+      <![CDATA[
+       DELETE FROM ClockData
+       WHERE FileNames = #value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcInvoiceXOBillDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="AcInvoiceXOBillDetail" type="Book.Model.AcInvoiceXOBillDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="AcInvoiceXOBillDetailResult" class="AcInvoiceXOBillDetail">
+      <result property="AcInvoiceXOBillDetailId" column="AcInvoiceXOBillDetailId" />
+      <result property="AcInvoiceXOBillId" column="AcInvoiceXOBillId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="InvoiceAllowance" column="InvoiceAllowance" />
+      <result property="InvoiceXODetailPrice" column="InvoiceXODetailPrice" />
+      <result property="InvoiceXODetailMoney" column="InvoiceXODetailMoney" />
+      <result property="InvoiceXODetailTaxPrice" column="InvoiceXODetailTaxPrice" />
+      <result property="InvoiceXODetailTaxMoney" column="InvoiceXODetailTaxMoney" />
+      <result property="InvoiceXODetailTax" column="InvoiceXODetailTax" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceXODetaiInQuantity" column="InvoiceXODetaiInQuantity" />
+      <result property="InvoiceXODetailId" column="InvoiceXODetailId" />
+      <result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="AcInvoiceXOBill" column="AcInvoiceXOBillId" lazyLoad="false" select="AcInvoiceXOBill.select_by_primary_key" />
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceXS.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcInvoiceXOBillDetail]
+				WHERE
+				[AcInvoiceXOBillDetailId] = #AcInvoiceXOBillDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcInvoiceXOBillDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="AcInvoiceXOBillDetailResult" parameterClass="AcInvoiceXOBillDetail">
+      <![CDATA[SELECT
+				[AcInvoiceXOBillDetailId],
+				[AcInvoiceXOBillId],
+				[InvoiceId],
+				[InvoiceAllowance],
+				[InvoiceXODetailPrice],
+				[InvoiceXODetailMoney],
+				[InvoiceXODetailTaxPrice],
+				[InvoiceXODetailTaxMoney],
+				[InvoiceXODetailTax],
+				[ProductId],
+				[InvoiceXODetaiInQuantity],
+				[InvoiceXODetailId],
+				[InvoiceProductUnit]
+			FROM
+				[dbo].[AcInvoiceXOBillDetail]
+			WHERE
+				[AcInvoiceXOBillDetailId] = #AcInvoiceXOBillDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[AcInvoiceXOBillDetail]
+			WHERE            
+				[AcInvoiceXOBillDetailId] = #AcInvoiceXOBillDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="AcInvoiceXOBillDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[AcInvoiceXOBillDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[AcInvoiceXOBillDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="AcInvoiceXOBillDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AcInvoiceXOBillDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="AcInvoiceXOBillDetail">
+      <![CDATA[ INSERT INTO [dbo].[AcInvoiceXOBillDetail] 
+			(
+				[AcInvoiceXOBillDetailId],
+				[AcInvoiceXOBillId],
+				[InvoiceId],
+				[InvoiceAllowance],
+				[InvoiceXODetailPrice],
+				[InvoiceXODetailMoney],
+				[InvoiceXODetailTaxPrice],
+				[InvoiceXODetailTaxMoney],
+				[InvoiceXODetailTax],
+				[ProductId],
+				[InvoiceXODetaiInQuantity],
+				[InvoiceXODetailId],
+				[InvoiceProductUnit]
+			) 
+			VALUES 
+			(
+				#AcInvoiceXOBillDetailId#,
+				#AcInvoiceXOBillId#,
+				#InvoiceId#,
+				#InvoiceAllowance#,
+				#InvoiceXODetailPrice#,
+				#InvoiceXODetailMoney#,
+				#InvoiceXODetailTaxPrice#,
+				#InvoiceXODetailTaxMoney#,
+				#InvoiceXODetailTax#,
+				#ProductId#,
+				#InvoiceXODetaiInQuantity#,
+				#InvoiceXODetailId#,
+				#InvoiceProductUnit#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="AcInvoiceXOBillDetail">
+      <![CDATA[ 	UPDATE [AcInvoiceXOBillDetail] SET
+				[AcInvoiceXOBillId] = #AcInvoiceXOBillId#,
+				[InvoiceId] = #InvoiceId#,
+				[InvoiceAllowance] = #InvoiceAllowance#,
+				[InvoiceXODetailPrice] = #InvoiceXODetailPrice#,
+				[InvoiceXODetailMoney] = #InvoiceXODetailMoney#,
+				[InvoiceXODetailTaxPrice] = #InvoiceXODetailTaxPrice#,
+				[InvoiceXODetailTaxMoney] = #InvoiceXODetailTaxMoney#,
+				[InvoiceXODetailTax] = #InvoiceXODetailTax#,
+				[ProductId] = #ProductId#,
+				[InvoiceXODetaiInQuantity] = #InvoiceXODetaiInQuantity#,
+				[InvoiceXODetailId] = #InvoiceXODetailId#,
+				[InvoiceProductUnit] = #InvoiceProductUnit#
+			WHERE
+				[AcInvoiceXOBillDetailId] = #AcInvoiceXOBillDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcInvoiceXOBillDetail]
+				where  AcInvoiceXOBillDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCClarityCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByPCClarityCheckId" resultMap="PCClarityCheckDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM PCClarityCheckDetail WHERE PCClarityCheckId=#value#
+      ]]>
+    </select>
+
+    <delete id="DeleteByPCClarityCheckID" parameterClass="String">
+      <![CDATA[
+      DELETE FROM PCClarityCheckDetail WHERE PCClarityCheckId =#value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

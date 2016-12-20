@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="XP2" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<statements>
+		<update id="update_invoiceid_invoicefk" parameterClass="Map">
+			<![CDATA[
+			update xp2 set xp2money=#XPmoney# 
+			where 
+			invoiceXTid=#InvoiceId# and invoicefkid=#invoiceFKId#
+			]]>
+		</update>
+        <select id="select_by_invoicefkid" parameterClass="string" resultMap="XP2Result">
+            <![CDATA[
+            select *
+            from dbo.xp2
+            where invoicefkid=#value#
+            ]]>
+        </select>
+        <delete id="delete_by_invoicefkid" parameterClass="string">
+            <![CDATA[
+            delete
+            from dbo.xp2
+            where invoicefkid=#value#
+            ]]>
+        </delete>
+	</statements>
+</sqlMap>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProduceTransferDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byProduceTransferId" resultMap="ProduceTransferDetailResult" parameterClass="string">
+      select * from ProduceTransferDetail where ProduceTransferId=#value#
+    </select>
+
+  </statements>
+</sqlMap>

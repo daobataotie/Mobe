@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PricingWay" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="PricingWay" type="Book.Model.PricingWay, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="PricingWayResult" class="PricingWay">
+			<result property="PricingWayID" column="PricingWayID" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Priceingwayname" column="Priceingwayname" />
+			<result property="Priceingwaybewrite" column="Priceingwaybewrite" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PricingWay]
+				WHERE
+				[PricingWayID] = #PricingWayID#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PricingWay]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="PricingWayResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.PricingWay 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="PricingWayResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.PricingWay 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="PricingWayResult" parameterClass="PricingWay">
+			<![CDATA[
+			select top 1 *
+			from dbo.PricingWay
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="PricingWayResult" parameterClass="PricingWay">
+			<![CDATA[
+			select top 1 *
+			from dbo.PricingWay
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="PricingWay">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PricingWay
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="PricingWay">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PricingWay
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="PricingWayResult" parameterClass="PricingWay">
+			SELECT
+				[PricingWayID],
+				[InsertTime],
+				[UpdateTime],
+				[Priceingwayname],
+				[Priceingwaybewrite]
+			FROM
+				[dbo].[PricingWay]
+			WHERE
+				[PricingWayID] = #PricingWayID#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[PricingWay]
+			WHERE
+				[PricingWayID] = #PricingWayID#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="PricingWayResult" >
+			SELECT *
+			FROM 
+				[dbo].[PricingWay]
+			ORDER BY PricingWayID ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[PricingWay]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="PricingWayResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PricingWay]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="PricingWay">
+			INSERT INTO [dbo].[PricingWay] 
+			(
+				[PricingWayID],
+				[InsertTime],
+				[UpdateTime],
+				[Priceingwayname],
+				[Priceingwaybewrite]
+			) 
+			VALUES 
+			(
+				#PricingWayID#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Priceingwayname#,
+				#Priceingwaybewrite#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="PricingWay">
+			UPDATE [PricingWay] SET
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Priceingwayname] = #Priceingwayname#,
+				[Priceingwaybewrite] = #Priceingwaybewrite#
+			WHERE
+				[PricingWayID] = #PricingWayID#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

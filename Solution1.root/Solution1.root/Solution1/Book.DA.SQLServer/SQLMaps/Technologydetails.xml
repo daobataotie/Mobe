@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Technologydetails" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byTechnologydetails" resultMap="TechnologydetailsResult" parameterClass="string">
+		select * from Technologydetails where ProceduresId =#value# order by TechnologydetailsNo
+	</select>
+    <select id="select_byTechnologyId" resultMap="TechnologydetailsResult" parameterClass="string">
+      select * from Technologydetails where TechonlogyHeaderid =#value# order by TechnologydetailsNo
+    </select>
+    <select id="IsExists_TechnologydetailsNo" resultClass="bool" parameterClass="string">
+      <![CDATA[
+               select case when exists(select * from Technologydetails where TechnologydetailsNo=#value#) then 1 else 0 end
+      ]]>
+    </select>
+
+    <select  id="SelectByProceduresId" resultMap="TechnologydetailsResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * from dbo.Technologydetails WHERE  TechnologydetailsNo<=#no# AND TechonlogyHeaderid=#pid# order by TechnologydetailsNo
+      ]]>
+    </select>
+    <delete id="deleteByTechnology"  parameterClass="string">
+		delete  from Technologydetails where TechonlogyHeaderid=#value# 
+	</delete>
+  </statements>
+</sqlMap>

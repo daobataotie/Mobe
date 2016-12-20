@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceXODetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoiceXODetail" type="Book.Model.InvoiceXODetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoiceXODetailResult" class="InvoiceXODetail">
+      <result property="InvoiceXODetailId" column="InvoiceXODetailId" />
+      <result property="PrimaryKeyId" column="PrimaryKeyId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="InvoiceXODetailQuantity" column="InvoiceXODetailQuantity" />
+      <result property="InvoiceXODetailPrice" column="InvoiceXODetailPrice" />
+      <result property="InvoiceXODetailMoney" column="InvoiceXODetailMoney" />
+      <result property="InvoiceXODetailBeenQuantity" column="InvoiceXODetailBeenQuantity" />
+      <result property="TotalMoney" column="TotalMoney" />
+      <result property="InvoiceXODetailQuantity0" column="InvoiceXODetailQuantity0" />
+      <result property="DetailsFlag" column="DetailsFlag" />
+      <result property="InvoiceXODetailNote" column="InvoiceXODetailNote" />
+      <result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+      <result property="IsCustomerProduct" column="IsCustomerProduct" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceMPSQuantity" column="InvoiceMPSQuantity" />
+      <result property="Checkeds" column="Checkeds" />
+      <result property="InvoiceAllowance" column="InvoiceAllowance" />
+      <result property="Islargess" column="Islargess" />
+      <result property="DetailMPSState" column="DetailMPSState" />
+      <result property="Inumber" column="Inumber" />
+      <result property="IsConfirmed" column="IsConfirmed" />
+      <result property="InvoiceXTDetailQuantity" column="InvoiceXTDetailQuantity" />
+      <result property="Remark" column="Remark" />
+      <result property="HandbookId" column="HandbookId"/>
+      <result property="HandbookProductId" column="HandbookProductId"/>
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="PrimaryKey" column="PrimaryKeyId" lazyLoad="false" select="CustomerProducts.select_by_primary_key" />
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceXODetail]
+      WHERE
+      [InvoiceXODetailId] = #InvoiceXODetailId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceXODetail]
+
+      ) then 1 else 0 end
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="InvoiceXODetailResult" parameterClass="InvoiceXODetail">
+      SELECT
+      [InvoiceXODetailId],
+      [PrimaryKeyId],
+      [InvoiceId],
+      [InvoiceXODetailQuantity],
+      [InvoiceXODetailPrice],
+      [InvoiceXODetailMoney],
+      [InvoiceXODetailBeenQuantity],
+      [TotalMoney],
+      [InvoiceXODetailQuantity0],
+      [DetailsFlag],
+      [InvoiceXODetailNote],
+      [InvoiceProductUnit],
+      [IsCustomerProduct],
+      [CustomerId],
+      [ProductId],
+      [InvoiceMPSQuantity],
+      [Checkeds],
+      [InvoiceAllowance],
+      [Islargess],
+      [DetailMPSState],
+      [Inumber],
+      [IsConfirmed],
+      [InvoiceXTDetailQuantity],
+      [Remark],
+      [HandbookId],
+      [HandbookProductId]
+      FROM
+      [dbo].[InvoiceXODetail]
+      WHERE
+      [InvoiceXODetailId] = #InvoiceXODetailId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[InvoiceXODetail]
+      WHERE
+      [InvoiceXODetailId] = #InvoiceXODetailId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="InvoiceXODetailResult" >
+      SELECT *
+      FROM
+      [dbo].[InvoiceXODetail]
+
+
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[InvoiceXODetail]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="InvoiceXODetailResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[InvoiceXODetail]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="InvoiceXODetail">
+      INSERT INTO [dbo].[InvoiceXODetail]
+      (
+      [InvoiceXODetailId],
+      [PrimaryKeyId],
+      [InvoiceId],
+      [InvoiceXODetailQuantity],
+      [InvoiceXODetailPrice],
+      [InvoiceXODetailMoney],
+      [InvoiceXODetailBeenQuantity],
+      [TotalMoney],
+      [InvoiceXODetailQuantity0],
+      [DetailsFlag],
+      [InvoiceXODetailNote],
+      [InvoiceProductUnit],
+      [IsCustomerProduct],
+      [CustomerId],
+      [ProductId],
+      [InvoiceMPSQuantity],
+      [Checkeds],
+      [InvoiceAllowance],
+      [Islargess],
+      [DetailMPSState],
+      [Inumber],
+      [IsConfirmed],
+      [InvoiceXTDetailQuantity],
+      [Remark],
+      [HandbookId],
+      [HandbookProductId]
+      )
+      VALUES
+      (
+      #InvoiceXODetailId#,
+      #PrimaryKeyId#,
+      #InvoiceId#,
+      #InvoiceXODetailQuantity#,
+      #InvoiceXODetailPrice#,
+      #InvoiceXODetailMoney#,
+      #InvoiceXODetailBeenQuantity#,
+      #TotalMoney#,
+      #InvoiceXODetailQuantity0#,
+      #DetailsFlag#,
+      #InvoiceXODetailNote#,
+      #InvoiceProductUnit#,
+      #IsCustomerProduct#,
+      #CustomerId#,
+      #ProductId#,
+      #InvoiceMPSQuantity#,
+      #Checkeds#,
+      #InvoiceAllowance#,
+      #Islargess#,
+      #DetailMPSState#,
+      #Inumber#,
+      #IsConfirmed#,
+      #InvoiceXTDetailQuantity#,
+      #Remark#,
+      #HandbookId#,
+      #HandbookProductId#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="InvoiceXODetail">
+      UPDATE [InvoiceXODetail] SET
+      [PrimaryKeyId] = #PrimaryKeyId#,
+      [InvoiceId] = #InvoiceId#,
+      [InvoiceXODetailQuantity] = #InvoiceXODetailQuantity#,
+      [InvoiceXODetailPrice] = #InvoiceXODetailPrice#,
+      [InvoiceXODetailMoney] = #InvoiceXODetailMoney#,
+      [InvoiceXODetailBeenQuantity] = #InvoiceXODetailBeenQuantity#,
+      [TotalMoney] = #TotalMoney#,
+      [InvoiceXODetailQuantity0] = #InvoiceXODetailQuantity0#,
+      [DetailsFlag] = #DetailsFlag#,
+      [InvoiceXODetailNote] = #InvoiceXODetailNote#,
+      [InvoiceProductUnit] = #InvoiceProductUnit#,
+      [IsCustomerProduct] = #IsCustomerProduct#,
+      [CustomerId] = #CustomerId#,
+      [ProductId] = #ProductId#,
+      [InvoiceMPSQuantity] = #InvoiceMPSQuantity#,
+      [Checkeds] = #Checkeds#,
+      [InvoiceAllowance] = #InvoiceAllowance#,
+      [Islargess] = #Islargess#,
+      [DetailMPSState] = #DetailMPSState#,
+      [Inumber] = #Inumber#,
+      [IsConfirmed] = #IsConfirmed#,
+      [InvoiceXTDetailQuantity] = #InvoiceXTDetailQuantity#,
+      [Remark]=#Remark#,
+      [HandbookId]=#HandbookId#,
+      [HandbookProductId]=#HandbookProductId#
+      WHERE
+      [InvoiceXODetailId] = #InvoiceXODetailId#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceXODetail]
+				where  InvoiceXODetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

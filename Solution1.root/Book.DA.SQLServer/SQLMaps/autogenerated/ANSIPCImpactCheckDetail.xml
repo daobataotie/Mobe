@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ANSIPCImpactCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="ANSIPCImpactCheckDetail" type="Book.Model.ANSIPCImpactCheckDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="ANSIPCImpactCheckDetailResult" class="ANSIPCImpactCheckDetail">
+      <result property="ANSIPCImpactCheckDetailsID" column="ANSIPCImpactCheckDetailsID" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="ANSIPCImpactCheckID" column="ANSIPCImpactCheckID" />
+      <result property="attrBanBie" column="attrBanBie" />
+      <result property="attrDate" column="attrDate" />
+      <result property="attrHM500gL" column="attrHM500gL" />
+      <result property="attrHM500gR" column="attrHM500gR" />
+      <result property="attrZhuiQiu68gL" column="attrZhuiQiu68gL" />
+      <result property="attrZhuiQiu68gR" column="attrZhuiQiu68gR" />
+      <result property="attrChuanTou44_2gL" column="attrChuanTou44_2gL" />
+      <result property="attrChuanTou44_2gR" column="attrChuanTou44_2gR" />
+      <result property="attr_15L" column="attr_15L" />
+      <result property="attr_15R" column="attr_15R" />
+      <result property="attr0L" column="attr0L" />
+      <result property="attr0R" column="attr0R" />
+      <result property="attr15L" column="attr15L" />
+      <result property="attr15R" column="attr15R" />
+      <result property="attr30L" column="attr30L" />
+      <result property="attr30R" column="attr30R" />
+      <result property="attr45L" column="attr45L" />
+      <result property="attr45R" column="attr45R" />
+      <result property="attr60L" column="attr60L" />
+      <result property="attr60R" column="attr60R" />
+      <result property="attr75L" column="attr75L" />
+      <result property="attr75R" column="attr75R" />
+      <result property="attr90L" column="attr90L" />
+      <result property="attr90R" column="attr90R" />
+      <result property="attr90cUp10mmL" column="attr90cUp10mmL" />
+      <result property="attr90cUp10mmR" column="attr90cUp10mmR" />
+      <result property="attr90cDown10mmL" column="attr90cDown10mmL" />
+      <result property="attr90cDown10mmR" column="attr90cDown10mmR" />
+      <result property ="LeftRight" column="LeftRight"/>
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[ANSIPCImpactCheckDetail]
+      WHERE
+      [ANSIPCImpactCheckDetailsID] = #ANSIPCImpactCheckDetailsID#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[ANSIPCImpactCheckDetail]
+
+      ) then 1 else 0 end
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="ANSIPCImpactCheckDetailResult" parameterClass="ANSIPCImpactCheckDetail">
+      SELECT
+      [ANSIPCImpactCheckDetailsID],
+      [EmployeeId],
+      [ANSIPCImpactCheckID],
+      [attrBanBie],
+      [attrDate],
+      [attrHM500gL],
+      [attrHM500gR],
+      [attrZhuiQiu68gL],
+      [attrZhuiQiu68gR],
+      [attrChuanTou44_2gL],
+      [attrChuanTou44_2gR],
+      [attr_15L],
+      [attr_15R],
+      [attr0L],
+      [attr0R],
+      [attr15L],
+      [attr15R],
+      [attr30L],
+      [attr30R],
+      [attr45L],
+      [attr45R],
+      [attr60L],
+      [attr60R],
+      [attr75L],
+      [attr75R],
+      [attr90L],
+      [attr90R],
+      [attr90cUp10mmL],
+      [attr90cUp10mmR],
+      [attr90cDown10mmL],
+      [attr90cDown10mmR],
+      [LeftRight]
+      FROM
+      [dbo].[ANSIPCImpactCheckDetail]
+      WHERE
+      [ANSIPCImpactCheckDetailsID] = #ANSIPCImpactCheckDetailsID#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[ANSIPCImpactCheckDetail]
+      WHERE
+      [ANSIPCImpactCheckDetailsID] = #ANSIPCImpactCheckDetailsID#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="ANSIPCImpactCheckDetailResult" >
+      SELECT *
+      FROM
+      [dbo].[ANSIPCImpactCheckDetail]
+
+
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[ANSIPCImpactCheckDetail]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="ANSIPCImpactCheckDetailResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[ANSIPCImpactCheckDetail]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="ANSIPCImpactCheckDetail">
+      INSERT INTO [dbo].[ANSIPCImpactCheckDetail]
+      (
+      [ANSIPCImpactCheckDetailsID],
+      [EmployeeId],
+      [ANSIPCImpactCheckID],
+      [attrBanBie],
+      [attrDate],
+      [attrHM500gL],
+      [attrHM500gR],
+      [attrZhuiQiu68gL],
+      [attrZhuiQiu68gR],
+      [attrChuanTou44_2gL],
+      [attrChuanTou44_2gR],
+      [attr_15L],
+      [attr_15R],
+      [attr0L],
+      [attr0R],
+      [attr15L],
+      [attr15R],
+      [attr30L],
+      [attr30R],
+      [attr45L],
+      [attr45R],
+      [attr60L],
+      [attr60R],
+      [attr75L],
+      [attr75R],
+      [attr90L],
+      [attr90R],
+      [attr90cUp10mmL],
+      [attr90cUp10mmR],
+      [attr90cDown10mmL],
+      [attr90cDown10mmR],
+      [LeftRight]
+      )
+      VALUES
+      (
+      #ANSIPCImpactCheckDetailsID#,
+      #EmployeeId#,
+      #ANSIPCImpactCheckID#,
+      #attrBanBie#,
+      #attrDate#,
+      #attrHM500gL#,
+      #attrHM500gR#,
+      #attrZhuiQiu68gL#,
+      #attrZhuiQiu68gR#,
+      #attrChuanTou44_2gL#,
+      #attrChuanTou44_2gR#,
+      #attr_15L#,
+      #attr_15R#,
+      #attr0L#,
+      #attr0R#,
+      #attr15L#,
+      #attr15R#,
+      #attr30L#,
+      #attr30R#,
+      #attr45L#,
+      #attr45R#,
+      #attr60L#,
+      #attr60R#,
+      #attr75L#,
+      #attr75R#,
+      #attr90L#,
+      #attr90R#,
+      #attr90cUp10mmL#,
+      #attr90cUp10mmR#,
+      #attr90cDown10mmL#,
+      #attr90cDown10mmR#,
+      #LeftRight#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="ANSIPCImpactCheckDetail">
+      UPDATE [ANSIPCImpactCheckDetail] SET
+      [EmployeeId] = #EmployeeId#,
+      [ANSIPCImpactCheckID] = #ANSIPCImpactCheckID#,
+      [attrBanBie] = #attrBanBie#,
+      [attrDate] = #attrDate#,
+      [attrHM500gL] = #attrHM500gL#,
+      [attrHM500gR] = #attrHM500gR#,
+      [attrZhuiQiu68gL] = #attrZhuiQiu68gL#,
+      [attrZhuiQiu68gR] = #attrZhuiQiu68gR#,
+      [attrChuanTou44_2gL] = #attrChuanTou44_2gL#,
+      [attrChuanTou44_2gR] = #attrChuanTou44_2gR#,
+      [attr_15L] = #attr_15L#,
+      [attr_15R] = #attr_15R#,
+      [attr0L] = #attr0L#,
+      [attr0R] = #attr0R#,
+      [attr15L] = #attr15L#,
+      [attr15R] = #attr15R#,
+      [attr30L] = #attr30L#,
+      [attr30R] = #attr30R#,
+      [attr45L] = #attr45L#,
+      [attr45R] = #attr45R#,
+      [attr60L] = #attr60L#,
+      [attr60R] = #attr60R#,
+      [attr75L] = #attr75L#,
+      [attr75R] = #attr75R#,
+      [attr90L] = #attr90L#,
+      [attr90R] = #attr90R#,
+      [attr90cUp10mmL] = #attr90cUp10mmL#,
+      [attr90cUp10mmR] = #attr90cUp10mmR#,
+      [attr90cDown10mmL] = #attr90cDown10mmL#,
+      [attr90cDown10mmR] = #attr90cDown10mmR#,
+      [LeftRight] = #LeftRight#
+      WHERE
+      [ANSIPCImpactCheckDetailsID] = #ANSIPCImpactCheckDetailsID#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ANSIPCImpactCheckDetail]
+				where  ANSIPCImpactCheckDetailsID = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

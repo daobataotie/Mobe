@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProduceOtherMaterialDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byProduceOtherMaterialId" resultMap="ProduceOtherMaterialDetailResult" parameterClass="string">
+		select * from ProduceOtherMaterialDetail where ProduceOtherMaterialId=#value# order by Inumber
+	</select>
+    <select id="select_byProduceOtherMaterialIdOrderByCategoryId" resultMap="ProduceOtherMaterialDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT  b.* FROM Product a RIGHT JOIN ProduceOtherMaterialDetail  b
+      ON a.productid=b.productid  LEFT JOIN ProductCategory
+      c ON a.ProductCategoryId=c.ProductCategoryId where b.ProduceOtherMaterialId=#value#  ORDER BY c.Id
+	  
+        ]]>   
+    </select>
+    <select id="SelectByHouseDates" resultMap="ProduceOtherMaterialDetailResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceOtherMaterialDetail where ProduceOtherMaterialId in
+      (select ProduceOtherMaterialId from ProduceOtherMaterial where (WorkHouseId=#houseid#
+      or #houseid# is null)
+      and  ProduceOtherMaterialDate between #startDate# and #enddate#)
+      ]]>
+    </select>
+    <select id="selectByCondition" resultMap="ProduceOtherMaterialDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ProduceOtherMaterialDetail WHERE ProduceOtherMaterialId=#ProduceOtherMaterialId# 
+AND ProductId IN (SELECT ProductId FROM Product WHERE (Id>=#productId1# OR #productId1# IS NULL) AND (Id<=#productId2# OR #productId2# IS NULL))
+      ]]>
+    </select>
+    <select id="select_byState" parameterClass="Map" resultMap="ProduceOtherMaterialDetailResult">
+      <![CDATA[
+      select * from ProduceOtherMaterialDetail
+				where ProduceOtherMaterialId=#ProduceOtherMaterialId# and (DepotOutStateDetail<>2 or DepotOutStateDetail is null)
+      ]]>
+    </select>
+
+	  <select id="selectByPidHidPosId" parameterClass="Map" resultMap="ProduceOtherMaterialDetailResult">
+		  SELECT * FROM ProduceOtherMaterialDetail WHERE ProductId=#productId# AND ProduceOtherMaterialId=#ProduceOtherMaterialId# AND DepotPositionId=#depotPositionId#
+	  </select>
+
+    <select id="SelectForDistributioned" resultMap="ProduceOtherMaterialDetailResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceOtherMaterialDetail where ProductId=#productid# and ProduceOtherMaterialId in (select ProduceOtherMaterialId from ProduceOtherMaterial where InsertTime>#InsertTime#)
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

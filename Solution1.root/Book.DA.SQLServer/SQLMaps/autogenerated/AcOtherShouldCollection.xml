@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcOtherShouldCollection" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="AcOtherShouldCollection" type="Book.Model.AcOtherShouldCollection, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="AcOtherShouldCollectionResult" class="AcOtherShouldCollection">
+      <result property="AcOtherShouldCollectionId" column="AcOtherShouldCollectionId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="AtCurrencyCategoryId" column="AtCurrencyCategoryId" />
+      <result property="Employee1Id" column="Employee1Id" />
+      <result property="AcOtherShouldCollectionDate" column="AcOtherShouldCollectionDate" />
+      <result property="ObjectName" column="ObjectName" />
+      <result property="ExchangeRate" column="ExchangeRate" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="HeJi" column="HeJi" />
+      <result property="AcInvoiceState" column="AcInvoiceState" />
+      <result property="AuditingState" column="AuditingState" />
+      <result property="AdvancePayableDate" column="AdvancePayableDate" />
+      <result property="AcDesc" column="AcDesc" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="mHeXiaoJingE" column="mHeXiaoJingE" />
+      <result property="NoHeXiaoTotal" column="NoHeXiaoTotal" />
+      <result property="BillMoney" column="BillMoney" />
+      <result property="InvoiceTaxrate" column="InvoiceTaxrate" />
+      <result property="InvoiceTax" column="InvoiceTax" />
+      <result property="InvoiceHeji" column="InvoiceHeji" />
+      <result property="TaxCaluType" column="TaxCaluType" />
+      <result property="CompanyId" column="CompanyId" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="Company" column="CompanyId" lazyLoad="false" select="Company.select_by_primary_key" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="AtCurrencyCategory" column="AtCurrencyCategoryId" lazyLoad="false" select="AtCurrencyCategory.select_by_primary_key" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcOtherShouldCollection]
+				WHERE
+				[AcOtherShouldCollectionId] = #AcOtherShouldCollectionId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcOtherShouldCollection]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="AcOtherShouldCollectionResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcOtherShouldCollection
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="AcOtherShouldCollectionResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcOtherShouldCollection
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="AcOtherShouldCollectionResult" parameterClass="AcOtherShouldCollection">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcOtherShouldCollection
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="AcOtherShouldCollectionResult" parameterClass="AcOtherShouldCollection">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcOtherShouldCollection
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="AcOtherShouldCollection">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcOtherShouldCollection
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="AcOtherShouldCollection">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcOtherShouldCollection
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="AcOtherShouldCollectionResult" parameterClass="AcOtherShouldCollection">
+      <![CDATA[SELECT
+				[AcOtherShouldCollectionId],
+				[EmployeeId],
+				[Employee0Id],
+				[CustomerId],
+				[AtCurrencyCategoryId],
+				[Employee1Id],
+				[AcOtherShouldCollectionDate],
+				[ObjectName],
+				[ExchangeRate],
+				[InvoiceId],
+				[HeJi],
+				[AcInvoiceState],
+				[AuditingState],
+				[AdvancePayableDate],
+				[AcDesc],
+				[InsertTime],
+				[UpdateTime],
+				[mHeXiaoJingE],
+				[NoHeXiaoTotal],
+				[BillMoney],
+				[InvoiceTaxrate],
+				[InvoiceTax],
+				[InvoiceHeji],
+				[TaxCaluType],
+				[CompanyId],
+        [AuditState],
+        [AuditEmpId]
+        
+			FROM
+				[dbo].[AcOtherShouldCollection]
+			WHERE
+				[AcOtherShouldCollectionId] = #AcOtherShouldCollectionId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[AcOtherShouldCollection]
+			WHERE            
+				[AcOtherShouldCollectionId] = #AcOtherShouldCollectionId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="AcOtherShouldCollectionResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[AcOtherShouldCollection]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[AcOtherShouldCollection]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="AcOtherShouldCollectionResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AcOtherShouldCollection]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="AcOtherShouldCollection">
+      <![CDATA[ INSERT INTO [dbo].[AcOtherShouldCollection] 
+			(
+				[AcOtherShouldCollectionId],
+				[EmployeeId],
+				[Employee0Id],
+				[CustomerId],
+				[AtCurrencyCategoryId],
+				[Employee1Id],
+				[AcOtherShouldCollectionDate],
+				[ObjectName],
+				[ExchangeRate],
+				[InvoiceId],
+				[HeJi],
+				[AcInvoiceState],
+				[AuditingState],
+				[AdvancePayableDate],
+				[AcDesc],
+				[InsertTime],
+				[UpdateTime],
+				[mHeXiaoJingE],
+				[NoHeXiaoTotal],
+				[BillMoney],
+				[InvoiceTaxrate],
+				[InvoiceTax],
+				[InvoiceHeji],
+				[TaxCaluType],
+				[CompanyId],
+        [AuditState],
+        [AuditEmpId]
+			) 
+			VALUES 
+			(
+				#AcOtherShouldCollectionId#,
+				#EmployeeId#,
+				#Employee0Id#,
+				#CustomerId#,
+				#AtCurrencyCategoryId#,
+				#Employee1Id#,
+				#AcOtherShouldCollectionDate#,
+				#ObjectName#,
+				#ExchangeRate#,
+				#InvoiceId#,
+				#HeJi#,
+				#AcInvoiceState#,
+				#AuditingState#,
+				#AdvancePayableDate#,
+				#AcDesc#,
+				#InsertTime#,
+				#UpdateTime#,
+				#mHeXiaoJingE#,
+				#NoHeXiaoTotal#,
+				#BillMoney#,
+				#InvoiceTaxrate#,
+				#InvoiceTax#,
+				#InvoiceHeji#,
+				#TaxCaluType#,
+				#CompanyId#,
+        #AuditState#,
+        #AuditEmpId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="AcOtherShouldCollection">
+      <![CDATA[ 	UPDATE [AcOtherShouldCollection] SET
+				[EmployeeId] = #EmployeeId#,
+				[Employee0Id] = #Employee0Id#,
+				[CustomerId] = #CustomerId#,
+				[AtCurrencyCategoryId] = #AtCurrencyCategoryId#,
+				[Employee1Id] = #Employee1Id#,
+				[AcOtherShouldCollectionDate] = #AcOtherShouldCollectionDate#,
+				[ObjectName] = #ObjectName#,
+				[ExchangeRate] = #ExchangeRate#,
+				[InvoiceId] = #InvoiceId#,
+				[HeJi] = #HeJi#,
+				[AcInvoiceState] = #AcInvoiceState#,
+				[AuditingState] = #AuditingState#,
+				[AdvancePayableDate] = #AdvancePayableDate#,
+				[AcDesc] = #AcDesc#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[mHeXiaoJingE] = #mHeXiaoJingE#,
+				[NoHeXiaoTotal] = #NoHeXiaoTotal#,
+				[BillMoney] = #BillMoney#,
+				[InvoiceTaxrate] = #InvoiceTaxrate#,
+				[InvoiceTax] = #InvoiceTax#,
+				[InvoiceHeji] = #InvoiceHeji#,
+				[TaxCaluType] = #TaxCaluType#,
+				[CompanyId] = #CompanyId#,
+        [AuditState]=#AuditState#,        
+        [AuditEmpId]=#AuditEmpId#
+			WHERE
+				[AcOtherShouldCollectionId] = #AcOtherShouldCollectionId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcOtherShouldCollection]
+				where  AcOtherShouldCollectionId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

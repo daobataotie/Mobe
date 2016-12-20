@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceCFDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <!-- select by primary key -->
+    <select id="select_by_InvoiceId_InvoiceCFDetailKind" resultMap="InvoiceCFDetailResult" parameterClass="Map">
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceCFDetail]
+      WHERE
+      [InvoiceId] = #InvoiceId#
+      AND
+      [InvoiceCFDetailKind]=#InvoiceCFDetailKind#
+    </select>
+    <select id="select_by_invoiceid" resultMap="InvoiceCFDetailResult" parameterClass="string">
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceCFDetail]
+      WHERE
+      [InvoiceId] = #InvoiceId#
+    </select>
+    <delete id="delete_by_invoiceid" parameterClass="string">
+      delete
+      from dbo.InvoiceCFDetail
+      where invoiceid=#value#
+    </delete>
+  </statements>
+</sqlMap>

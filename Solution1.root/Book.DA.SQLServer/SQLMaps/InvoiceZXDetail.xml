@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceZXDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_by_InvoiceZXId" resultMap="InvoiceZXDetailResult" parameterClass="string">
+      <![CDATA[SELECT
+				[InvoiceZXDetailId],
+				[InvoiceZXId],
+				[ProductId],
+				[ProductNum],
+				[InvoiceZXDetailNote],
+				[InvoiceXODetailId],
+        [InvoiceXSDetailId],
+        [CustomerInvoiceXOId]
+			FROM
+				[dbo].[InvoiceZXDetail]
+			WHERE
+				[InvoiceZXId] = #InvoiceZXlId#
+                			          
+         		]]>
+    </select>
+
+    <delete id="delete_by_InvoiceZXId" parameterClass="string">
+      <![CDATA[  
+        DELETE FROM  InvoiceZXDetail
+        WHERE InvoiceZXId=#InvoiceZXlId#
+         		]]>
+    </delete>
+  </statements>
+</sqlMap>

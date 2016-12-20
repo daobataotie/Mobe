@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AtSummonDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="AtSummonDetailResult1" class="AtSummonDetail">
+      <result property="SubjectId" column="SubjectId" />
+      <result property="DebitMoney" column="DebitMoney" />
+      <result property="CreditMoney" column="CreditMoney" />
+      <result property="Subject" column="SubjectId" lazyLoad="false" select="AtAccountSubject.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+
+    <select id="getBySummonId" resultMap="AtSummonDetailResult" parameterClass="string">
+      <![CDATA[
+     SELECT * FROM dbo.AtSummonDetail WHERE SummonId=#value#
+      ]]>
+    </select>
+
+    <select id="getByLendAndSubjectId"  resultClass="int">
+      <![CDATA[
+     SELECT count(*) FROM dbo.AtSummonDetail WHERE Lending=#lending# and SubjectId=#subjectId#
+      ]]>
+    </select>
+
+    <select id="SelectAndSCtype" resultMap="AtSummonDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM AtSummonDetail WHERE SummonId IN (SELECT AtSummon.SummonId FROM AtSummon WHERE SummonDate BETWEEN #startDate# AND #endDate#)
+      AND SummonCatetory = #SumonCatetoryType#
+    ]]>
+    </select>
+
+    <select id="select_byDdateAndSubject" resultMap="AtSummonDetailResult" parameterClass="Map">
+      <![CDATA[
+     select * from AtSummonDetail  where SummonId in (select SummonId from  AtSummon  where  SummonDate  between #startdate# and #enddate# ) $sql$
+    ]]>
+    </select>
+
+    <delete id="DeleteByHeadId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM AtSummonDetail WHERE SummonId = #value#
+      ]]>
+    </delete>
+
+    <select id="SelectByDate" resultMap="AtSummonDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM AtSummonDetail WHERE SummonId in 
+      (select SummonId from  AtSummon  where  SummonDate  between  #startdate#  AND #enddate#) ORDER BY SummonId
+      ]]>
+    </select>
+
+    <select id="GET_ZFLZ_Yue" resultClass="double" parameterClass="Map">
+      <![CDATA[
+       SELECT isnull(sum(CASE WHEN d.Lending = '貸' then 0-d.Amoney 
+      WHEN d.Lending = '借' then d.Amoney end),0)
+      FROM AtSummonDetail d 
+      LEFT JOIN AtSummon h ON h.SummonId = d.SummonId
+      WHERE h.SummonDate < #startdate# 
+      and d.SubjectId = #subjectid#
+      ]]>
+    </select>
+
+    <select id="Select_ZFLZ_GroupSubject" resultMap="AtSummonDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT d.* FROM AtSummonDetail d
+      LEFT JOIN AtSummon h ON h.SummonId = d.SummonId
+      WHERE d.SubjectId = #subjectid#
+      AND h.SummonDate BETWEEN #startdate# AND #enddate#
+      ORDER BY h.SummonDate ASC
+      ]]>
+    </select>
+
+    <select id="Select_ZFLZ_XianJinGroupSubject" resultMap="AtSummonDetailResult" parameterClass="Map">
+      <![CDATA[
+      select * from (
+      SELECT d.*,h.SummonDate FROM AtSummonDetail d
+      LEFT JOIN AtSummon h ON h.SummonId = d.SummonId
+      WHERE d.SubjectId = #subjectid#
+      AND h.SummonDate BETWEEN #startdate# AND #enddate#
+      UNION
+      SELECT NULL AS [SummonDetailId],NULL AS [BillCode],h.SummonId AS [SummonId],h.SummonCategory AS [SummonCategory],
+      CASE h.SummonCategory WHEN '現金支出傳票' THEN '貸' WHEN '現金收入傳票' THEN '借' END AS [Lending],
+      null AS [SubjectId],
+      CASE h.SummonCategory WHEN '現金支出傳票' THEN h.TotalDebits WHEN '現金收入傳票' THEN h.CreditTotal END as [AMoney],
+      NULL AS [Summary],NULL AS [DepartmentId],NULL AS [ProjectId],NULL AS [OffsettingSummon],NULL AS [DebitMoney],NULL AS [CreditMoney],NULL AS [InsertTime],NULL AS [UpdateTime],NULL AS [Id],h.SummonDate
+      FROM AtSummonDetail d 
+      LEFT JOIN AtSummon h ON h.SummonId = d.SummonId
+      WHERE (h.SummonCategory = '現金支出傳票' OR h.SummonCategory = '現金收入傳票')
+      AND h.SummonDate BETWEEN #startdate# AND #enddate#
+      ) a order by a.SummonDate asc
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

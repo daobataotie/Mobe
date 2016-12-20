@@ -1,0 +1,732 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="barDockControlTop.Appearance.GradientMode" type="System.Drawing.Drawing2D.LinearGradientMode, System.Drawing">
+    <value>Horizontal</value>
+  </data>
+  <data name="barDockControlBottom.Appearance.GradientMode" type="System.Drawing.Drawing2D.LinearGradientMode, System.Drawing">
+    <value>Horizontal</value>
+  </data>
+  <data name="barDockControlBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 430</value>
+  </data>
+  <data name="barDockControlBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>452, 23</value>
+  </data>
+  <data name="barDockControlLeft.Appearance.GradientMode" type="System.Drawing.Drawing2D.LinearGradientMode, System.Drawing">
+    <value>Horizontal</value>
+  </data>
+  <data name="barDockControlLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 384</value>
+  </data>
+  <data name="barDockControlRight.Appearance.GradientMode" type="System.Drawing.Drawing2D.LinearGradientMode, System.Drawing">
+    <value>Horizontal</value>
+  </data>
+  <data name="barDockControlRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 384</value>
+  </data>
+  <assembly alias="DevExpress.Data.v10.2" name="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridControl1.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v10.2">
+    <value>Default</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridControl1.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v10.2" name="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridControl1.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v10.2">
+    <value>Center</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridControl1.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v10.2">
+    <value>None</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gridView1.GroupPanelText" xml:space="preserve">
+    <value>打卡資料列表</value>
+  </data>
+  <data name="gridControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>428, 334</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="StartDate.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="StartDate.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="StartDate.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="StartDate.Properties.Mask.EditMask" xml:space="preserve">
+    <value>d</value>
+  </data>
+  <data name="StartDate.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="StartDate.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="StartDate.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="StartDate.Properties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="StartDate.Properties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="StartDate.Properties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="StartDate.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StartDate.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.Mask.EditMask" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StartDate.Properties.VistaTimeProperties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="EndDate.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EndDate.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="EndDate.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="EndDate.Properties.Mask.EditMask" xml:space="preserve">
+    <value>d</value>
+  </data>
+  <data name="EndDate.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EndDate.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="EndDate.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="EndDate.Properties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EndDate.Properties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EndDate.Properties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="EndDate.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EndDate.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.Mask.EditMask" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EndDate.Properties.VistaTimeProperties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="layoutControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>452, 384</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>打卡記錄</value>
+  </data>
+  <data name="repositoryItemDateEdit1.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemDateEdit1.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit1.Mask.EditMask" xml:space="preserve">
+    <value>d</value>
+  </data>
+  <data name="repositoryItemDateEdit1.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit1.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="repositoryItemDateEdit1.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemDateEdit1.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit1.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit1.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.Mask.EditMask" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemDateEdit1.VistaTimeProperties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemTimeEdit1.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemTimeEdit1.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemTimeEdit1.Mask.EditMask" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="repositoryItemTimeEdit1.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemTimeEdit1.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="repositoryItemTimeEdit1.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemTimeEdit1.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemTimeEdit1.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemTimeEdit1.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit4.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemDateEdit4.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit4.Mask.EditMask" xml:space="preserve">
+    <value>d</value>
+  </data>
+  <data name="repositoryItemDateEdit4.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit4.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="repositoryItemDateEdit4.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemDateEdit4.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit4.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit4.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.Mask.EditMask" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemDateEdit4.VistaTimeProperties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit2.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemDateEdit2.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit2.Mask.EditMask" xml:space="preserve">
+    <value>d</value>
+  </data>
+  <data name="repositoryItemDateEdit2.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit2.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="repositoryItemDateEdit2.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemDateEdit2.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit2.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit2.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.Mask.EditMask" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemDateEdit2.VistaTimeProperties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit3.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemDateEdit3.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit3.Mask.EditMask" xml:space="preserve">
+    <value>d</value>
+  </data>
+  <data name="repositoryItemDateEdit3.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit3.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="repositoryItemDateEdit3.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemDateEdit3.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit3.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit3.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.Mask.EditMask" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemDateEdit3.VistaTimeProperties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v10.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMC4yLCBWZXJzaW9uPTEwLjIu
+        NC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
+        eXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
+        a2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAChEZXZFeHByZXNzLlV0aWxzLkltYWdlQ29sbGVjdGlvblN0
+        cmVhbWVyAgAAAAlJbWFnZVNpemUERGF0YQQHE1N5c3RlbS5EcmF3aW5nLlNpemUDAAAAAgIAAAAF/P//
+        /xNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAwAAABgAAAAYAAAACQUAAAAP
+        BQAAAEYYAAACCAQAAIlQTkcNChoKAAAADUlIRFIAAAAYAAAAGAgGAAAA4Hc9+AAAAAFzUkdCAK7OHOkA
+        AAAEZ0FNQQAAsY8L/GEFAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwA
+        AAAJcEhZcwAACvsAAAr7AcufHZAAAANxSURBVEhLtdVdaFNnHMfxRxDqOpiKIlg3UHYjeiWICOL1riZe
+        7XZe7Q125eUYE0Ec1iFYL9Sp7Ww7lDGLpZqc5uSkeTlJ2sQkTUzatGlrk+alSU5OY9pYzUl+e/6PKxu2
+        2aytgW8uDs/zeZ7nnITDDMNg9Xp9R73R6Gw0GjoPG0zn1hUyyWb864NazXC9elWr8bBJcc1wkc1qtdov
+        1eqywcMmZ5DNlpdfLpWfL+JdskdzyOpVGEYd/Px4/oZDNqtWqyhqC+suPJXHlzdCSGovYEoU0BVKorK4
+        hFLpH4tsVqksIZsrrquZVB7fdoVw6qpPLPDFgyBaLptxdiiKVFHHfF4THtmsXK4glcqtq/b+GI5fVHHk
+        kgvtzml0Reaw91cFLdcl/Dkxh8pCWXhkM10vY3om9db1uSdx4mcVR9tdONjhwCfXbTjvS6A7nsYP3jji
+        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
+</value>
+  </data>
+  <data name="gridColumn2.Caption" xml:space="preserve">
+    <value>員工編號</value>
+  </data>
+  <data name="gridColumn3.Caption" xml:space="preserve">
+    <value>員工名稱</value>
+  </data>
+  <data name="gridColumn4.Caption" xml:space="preserve">
+    <value>部門</value>
+  </data>
+</root>

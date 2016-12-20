@@ -1,0 +1,837 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xrLabelCommanyName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 12pt, style=Bold</value>
+  </data>
+  <data name="xrTableCell5.Text" xml:space="preserve">
+    <value>使用数量</value>
+  </data>
+  <data name="xrTableCell8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1453, 0</value>
+  </data>
+  <data name="xrLabelLossRate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="xrLabel3.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1228, 318</value>
+  </data>
+  <data name="xrTableoffset.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1457, 0</value>
+  </data>
+  <data name="xrLabel11.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 508</value>
+  </data>
+  <data name="xrTableCell1.Text" xml:space="preserve">
+    <value>子件编号</value>
+  </data>
+  <data name="BomXR.ExportOptions.Html.Title" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="xrLabelBomType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrTableCell3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 42</value>
+  </data>
+  <data name="xrLabel18.Text" xml:space="preserve">
+    <value>版 本 说  明:</value>
+  </data>
+  <data name="xrLabelParentsModel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrLabelEffectiveDate.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1482, 444</value>
+  </data>
+  <data name="xrTable1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 0</value>
+  </data>
+  <data name="xrLabel6.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrTableCell5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 42</value>
+  </data>
+  <data name="xrTableUserCount.Location" type="System.Drawing.Point, System.Drawing">
+    <value>900, 0</value>
+  </data>
+  <data name="xrLabel3.Text" xml:space="preserve">
+    <value>母  件 名 称:</value>
+  </data>
+  <data name="xrLabelEffectiveDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="xrLabelDefaultQuantity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 50</value>
+  </data>
+  <data name="xrLabel10.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>635, 508</value>
+  </data>
+  <data name="xrLabel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1228, 318</value>
+  </data>
+  <data name="xrLabelCommanyName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1016, 127</value>
+  </data>
+  <data name="xrTableCell6.Text" xml:space="preserve">
+    <value>生效日期</value>
+  </data>
+  <data name="xrTableUserCount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 50</value>
+  </data>
+  <data name="xrTableCell6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1070, 0</value>
+  </data>
+  <data name="xrLabel8BomVersion.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrTableRow1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9.75pt</value>
+  </data>
+  <data name="xrLabelBOMPartName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrTableCell9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1651, 0</value>
+  </data>
+  <data name="xrLabel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 635</value>
+  </data>
+  <data name="xrLabel10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9.5pt</value>
+  </data>
+  <data name="xrTableCell7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1245, 0</value>
+  </data>
+  <data name="xrTableCell5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>900, 0</value>
+  </data>
+  <data name="xrLabel1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 318</value>
+  </data>
+  <data name="xrLabel1.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrLabelDefaultQuantity.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrTableCell3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>535, 0</value>
+  </data>
+  <data name="xrLabelBOMPartName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="BomXR.ExportOptions.Mht.Title" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="xrLabelBOMPartName.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1482, 318</value>
+  </data>
+  <data name="xrLabel2.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>254, 64</value>
+  </data>
+  <data name="xrTableCell2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 0</value>
+  </data>
+  <data name="xrTable1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrLabelEffectiveDate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrLabel13.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9.5pt</value>
+  </data>
+  <data name="xrTableUnit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 50</value>
+  </data>
+  <data name="xrTableEffectsDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 50</value>
+  </data>
+  <data name="xrLabel6.Text" xml:space="preserve">
+    <value>母件损耗率:</value>
+  </data>
+  <data name="xrLabelDefaultQuantity.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>889, 508</value>
+  </data>
+  <data name="BomXR.ExportOptions.Html.CharacterSet" xml:space="preserve">
+    <value>utf-8</value>
+  </data>
+  <data name="xrLabel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1228, 381</value>
+  </data>
+  <data name="xrLabelBOMid.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9.5pt</value>
+  </data>
+  <data name="xrLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrLabelCommanyName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>423, 0</value>
+  </data>
+  <data name="xrLabelLossRate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1482, 381</value>
+  </data>
+  <data name="xrLabel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrTable2.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 0</value>
+  </data>
+  <data name="xrLabelParentsModel.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrLabelLossRate.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="xrLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>360, 64</value>
+  </data>
+  <data name="xrTableoffset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 50</value>
+  </data>
+  <data name="BomXR.ExportOptions.Pdf.DocumentOptions.Subject" xml:space="preserve">
+    <value />
+  </data>
+  <data name="xrTableExpiringDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 50</value>
+  </data>
+  <data name="xrLabelParentsModel.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>212, 381</value>
+  </data>
+  <data name="xrTableUnit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>728, 0</value>
+  </data>
+  <data name="xrTableGuiGe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 50</value>
+  </data>
+  <data name="xrLabel1.Text" xml:space="preserve">
+    <value>Bom编号:</value>
+  </data>
+  <data name="xrTableCell2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>320, 42</value>
+  </data>
+  <data name="xrTableCell1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrTableCell4.Text" xml:space="preserve">
+    <value>计量单位</value>
+  </data>
+  <data name="xrLabelCommanyName.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>423, 0</value>
+  </data>
+  <data name="xrLabelBomType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>212, 508</value>
+  </data>
+  <data name="xrLabel2.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>21, 614</value>
+  </data>
+  <data name="xrLabelBomType.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrTableRow2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9.75pt</value>
+  </data>
+  <data name="xrLabelDataName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 13pt, style=Bold</value>
+  </data>
+  <data name="xrLabelBOMid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>212, 318</value>
+  </data>
+  <data name="xrLabelParentsModel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>212, 381</value>
+  </data>
+  <data name="xrLabel8BomVersion.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>212, 444</value>
+  </data>
+  <data name="xrLabel10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrLabel14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9.5pt</value>
+  </data>
+  <data name="BomXR.ExportOptions.Pdf.DocumentOptions.Author" xml:space="preserve">
+    <value />
+  </data>
+  <data name="xrTableRow1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1884, 42</value>
+  </data>
+  <data name="xrLabelCommanyName.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>1016, 127</value>
+  </data>
+  <data name="xrLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 318</value>
+  </data>
+  <data name="xrLabel13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrLabel8BomVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>212, 444</value>
+  </data>
+  <data name="xrLabel3.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrLabelLossRate.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1482, 381</value>
+  </data>
+  <data name="xrLabelBomDescription.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrLabel10.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrTableCell3.Text" xml:space="preserve">
+    <value>规格</value>
+  </data>
+  <data name="xrLabelBOMid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrLabelBOMPartName.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="xrLabel12.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 381</value>
+  </data>
+  <data name="xrTable2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrLabel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrLabel13.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrLabel10.Text" xml:space="preserve">
+    <value>默认基础数量:</value>
+  </data>
+  <data name="xrLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrLabelBOMid.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrLabel18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1228, 508</value>
+  </data>
+  <data name="xrLabel6.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1228, 381</value>
+  </data>
+  <data name="xrLabelDefaultQuantity.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>318, 50</value>
+  </data>
+  <data name="xrLabel11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9.5pt</value>
+  </data>
+  <data name="xrLabel12.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9.5pt</value>
+  </data>
+  <data name="xrLabel14.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 444</value>
+  </data>
+  <data name="xrLabel13.Text" xml:space="preserve">
+    <value>版  本 日 期:</value>
+  </data>
+  <data name="xrTable1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1884, 42</value>
+  </data>
+  <data name="xrLabel12.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrLabelBomDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="xrLabel11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 508</value>
+  </data>
+  <data name="xrLabelBomType.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>212, 508</value>
+  </data>
+  <data name="xrTable1.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>1884, 42</value>
+  </data>
+  <data name="xrLabel14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrLabel6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9.5pt</value>
+  </data>
+  <data name="xrLabel13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1228, 444</value>
+  </data>
+  <data name="xrLabelEffectiveDate.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="xrLabel14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 444</value>
+  </data>
+  <data name="xrTableName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>214, 0</value>
+  </data>
+  <data name="xrTableCell9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 42</value>
+  </data>
+  <data name="xrTable2.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>1884, 50</value>
+  </data>
+  <data name="xrLabel2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 15pt, style=Bold</value>
+  </data>
+  <data name="xrTableCell6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 42</value>
+  </data>
+  <data name="xrLabel18.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9.5pt</value>
+  </data>
+  <data name="xrLabel12.Text" xml:space="preserve">
+    <value>规格型号:</value>
+  </data>
+  <data name="xrLabelBomDescription.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1482, 508</value>
+  </data>
+  <data name="xrTableCell1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 42</value>
+  </data>
+  <data name="xrLabelParentsModel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrTableCell4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>727, 0</value>
+  </data>
+  <data name="xrLabel14.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrTableRemarks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1652, 0</value>
+  </data>
+  <data name="xrTableRow2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1884, 50</value>
+  </data>
+  <data name="xrLabelDefaultQuantity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>889, 508</value>
+  </data>
+  <data name="BomXR.ExportOptions.Pdf.DocumentOptions.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="xrTable2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1884, 50</value>
+  </data>
+  <data name="xrLabelBOMid.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>212, 318</value>
+  </data>
+  <data name="xrTableCell7.Text" xml:space="preserve">
+    <value>失效日期</value>
+  </data>
+  <data name="xrLabelBomType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrTableEffectsDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1070, 0</value>
+  </data>
+  <data name="xrTableId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 50</value>
+  </data>
+  <data name="xrLabel14.Text" xml:space="preserve">
+    <value>版本代号:</value>
+  </data>
+  <data name="xrTableCell7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 42</value>
+  </data>
+  <data name="xrTableGuiGe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>535, 0</value>
+  </data>
+  <data name="xrLabel11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrLabelEffectiveDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1482, 444</value>
+  </data>
+  <data name="BomXR.ExportOptions.Xls.SheetName" xml:space="preserve">
+    <value>Sheet1</value>
+  </data>
+  <data name="xrLabelBomDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1482, 508</value>
+  </data>
+  <data name="xrLabelDataName.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>614, 148</value>
+  </data>
+  <data name="xrLabelBOMPartName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1482, 318</value>
+  </data>
+  <data name="xrLabel2.Text" xml:space="preserve">
+    <value>子件信息</value>
+  </data>
+  <data name="xrLabelBomDescription.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="xrTableId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrTableExpiringDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1250, 0</value>
+  </data>
+  <assembly alias="DevExpress.Data.v10.2" name="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="BomXR.ExportOptions.Csv.EncodingType" type="DevExpress.XtraPrinting.EncodingType, DevExpress.Data.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="BomXR.ExportOptions.Text.EncodingType" type="DevExpress.XtraPrinting.EncodingType, DevExpress.Data.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="xrLabelDataName.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>614, 85</value>
+  </data>
+  <data name="xrLabel11.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrTableCell8.Text" xml:space="preserve">
+    <value>偏置期</value>
+  </data>
+  <data name="xrLabel8BomVersion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrLabel18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrLabel10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>635, 508</value>
+  </data>
+  <data name="xrTableCell2.Text" xml:space="preserve">
+    <value>子件名称</value>
+  </data>
+  <data name="xrLabelDataName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>529, 127</value>
+  </data>
+  <data name="xrLabel3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9.5pt</value>
+  </data>
+  <data name="BomXR.ExportOptions.Pdf.DocumentOptions.Application" xml:space="preserve">
+    <value />
+  </data>
+  <data name="xrLabel12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 381</value>
+  </data>
+  <data name="xrLabel13.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1228, 444</value>
+  </data>
+  <data name="xrLabel18.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1228, 508</value>
+  </data>
+  <data name="xrLabel8BomVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="BomXR.ExportOptions.Pdf.DocumentOptions.Keywords" xml:space="preserve">
+    <value />
+  </data>
+  <data name="xrTableCell8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 42</value>
+  </data>
+  <data name="xrTableRemarks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 50</value>
+  </data>
+  <data name="BomXR.ExportOptions.Mht.CharacterSet" xml:space="preserve">
+    <value>utf-8</value>
+  </data>
+  <data name="xrLabel11.Text" xml:space="preserve">
+    <value>Bom类别:</value>
+  </data>
+  <data name="xrTableCell9.Text" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="xrLabel18.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrTableCell4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 42</value>
+  </data>
+  <data name="xrLabelDataName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>614, 85</value>
+  </data>
+  <data name="xrLabelLossRate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="xrTableName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>321, 50</value>
+  </data>
+  <metadata name="xrLabelBomDescription.Name" xml:space="preserve">
+    <value>xrLabelBomDescription</value>
+  </metadata>
+  <metadata name="xrLabelBomType.Name" xml:space="preserve">
+    <value>xrLabelBomType</value>
+  </metadata>
+  <metadata name="xrLabelParentsModel.Name" xml:space="preserve">
+    <value>xrLabelParentsModel</value>
+  </metadata>
+  <metadata name="xrLabelBOMid.Name" xml:space="preserve">
+    <value>xrLabelBOMid</value>
+  </metadata>
+  <metadata name="xrTableCell1.Name" xml:space="preserve">
+    <value>xrTableCell1</value>
+  </metadata>
+  <metadata name="xrLabelEffectiveDate.Name" xml:space="preserve">
+    <value>xrLabelEffectiveDate</value>
+  </metadata>
+  <metadata name="xrLabel14.Name" xml:space="preserve">
+    <value>xrLabel14</value>
+  </metadata>
+  <metadata name="xrTableId.Name" xml:space="preserve">
+    <value>xrTableId</value>
+  </metadata>
+  <metadata name="xrTableRemarks.Name" xml:space="preserve">
+    <value>xrTableRemarks</value>
+  </metadata>
+  <metadata name="xrTableExpiringDate.Name" xml:space="preserve">
+    <value>xrTableExpiringDate</value>
+  </metadata>
+  <metadata name="xrTableCell7.Name" xml:space="preserve">
+    <value>xrTableCell7</value>
+  </metadata>
+  <metadata name="xrLabelBOMPartName.Name" xml:space="preserve">
+    <value>xrLabelBOMPartName</value>
+  </metadata>
+  <metadata name="xrLabel11.Name" xml:space="preserve">
+    <value>xrLabel11</value>
+  </metadata>
+  <metadata name="xrTableoffset.Name" xml:space="preserve">
+    <value>xrTableoffset</value>
+  </metadata>
+  <metadata name="xrLabelDefaultQuantity.Name" xml:space="preserve">
+    <value>xrLabelDefaultQuantity</value>
+  </metadata>
+  <metadata name="xrTableCell8.Name" xml:space="preserve">
+    <value>xrTableCell8</value>
+  </metadata>
+  <metadata name="xrLabel10.Name" xml:space="preserve">
+    <value>xrLabel10</value>
+  </metadata>
+  <metadata name="xrLabel13.Name" xml:space="preserve">
+    <value>xrLabel13</value>
+  </metadata>
+  <metadata name="ReportFooter.Name" xml:space="preserve">
+    <value>ReportFooter</value>
+  </metadata>
+  <metadata name="ReportFooter.Expanded" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="xrTableUnit.Name" xml:space="preserve">
+    <value>xrTableUnit</value>
+  </metadata>
+  <metadata name="xrLabel3.Name" xml:space="preserve">
+    <value>xrLabel3</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="xrTable2.Name" xml:space="preserve">
+    <value>xrTable2</value>
+  </metadata>
+  <metadata name="xrTableUserCount.Name" xml:space="preserve">
+    <value>xrTableUserCount</value>
+  </metadata>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="PageFooter.Name" xml:space="preserve">
+    <value>PageFooter</value>
+  </metadata>
+  <metadata name="PageHeader.Name" xml:space="preserve">
+    <value>PageHeader</value>
+  </metadata>
+  <metadata name="xrTableName.Name" xml:space="preserve">
+    <value>xrTableName</value>
+  </metadata>
+  <metadata name="xrTableCell4.Name" xml:space="preserve">
+    <value>xrTableCell4</value>
+  </metadata>
+  <metadata name="xrTableRow1.Name" xml:space="preserve">
+    <value>xrTableRow1</value>
+  </metadata>
+  <metadata name="xrTable1.Name" xml:space="preserve">
+    <value>xrTable1</value>
+  </metadata>
+  <metadata name="xrTableCell2.Name" xml:space="preserve">
+    <value>xrTableCell2</value>
+  </metadata>
+  <metadata name="xrLabel2.Name" xml:space="preserve">
+    <value>xrLabel2</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>Chinese (Traditional)</value>
+  </metadata>
+  <metadata name="xrTableCell5.Name" xml:space="preserve">
+    <value>xrTableCell5</value>
+  </metadata>
+  <metadata name="xrLabel12.Name" xml:space="preserve">
+    <value>xrLabel12</value>
+  </metadata>
+  <metadata name="xrLabelDataName.Name" xml:space="preserve">
+    <value>xrLabelDataName</value>
+  </metadata>
+  <metadata name="xrTableRow2.Name" xml:space="preserve">
+    <value>xrTableRow2</value>
+  </metadata>
+  <metadata name="xrLabel18.Name" xml:space="preserve">
+    <value>xrLabel18</value>
+  </metadata>
+  <metadata name="bindingSource1.Name" xml:space="preserve">
+    <value>bindingSource1</value>
+  </metadata>
+  <metadata name="xrTableEffectsDate.Name" xml:space="preserve">
+    <value>xrTableEffectsDate</value>
+  </metadata>
+  <metadata name="xrLabel8BomVersion.Name" xml:space="preserve">
+    <value>xrLabel8BomVersion</value>
+  </metadata>
+  <metadata name="xrLabelLossRate.Name" xml:space="preserve">
+    <value>xrLabelLossRate</value>
+  </metadata>
+  <metadata name="xrLabelCommanyName.Name" xml:space="preserve">
+    <value>xrLabelCommanyName</value>
+  </metadata>
+  <metadata name="Detail.Name" xml:space="preserve">
+    <value>Detail</value>
+  </metadata>
+  <metadata name="xrLabel1.Name" xml:space="preserve">
+    <value>xrLabel1</value>
+  </metadata>
+  <metadata name="xrTableCell3.Name" xml:space="preserve">
+    <value>xrTableCell3</value>
+  </metadata>
+  <metadata name="xrLabel6.Name" xml:space="preserve">
+    <value>xrLabel6</value>
+  </metadata>
+  <metadata name="xrTableGuiGe.Name" xml:space="preserve">
+    <value>xrTableGuiGe</value>
+  </metadata>
+  <metadata name="xrTableCell9.Name" xml:space="preserve">
+    <value>xrTableCell9</value>
+  </metadata>
+  <metadata name="xrTableCell6.Name" xml:space="preserve">
+    <value>xrTableCell6</value>
+  </metadata>
+  <metadata name="$this.Name" xml:space="preserve">
+    <value>BomXR</value>
+  </metadata>
+  <metadata name="ReportHeader.Name" xml:space="preserve">
+    <value>ReportHeader</value>
+  </metadata>
+</root>

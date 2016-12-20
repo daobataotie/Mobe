@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="OutgoingKind" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="OutgoingKind" type="Book.Model.OutgoingKind, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="OutgoingKindResult" class="OutgoingKind">
+			<result property="OutgoingKindId" column="OutgoingKindId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="OutgoingKindName" column="OutgoingKindName" />
+			<result property="OutgoingKindDescription" column="OutgoingKindDescription" />
+			<result property="Id" column="Id" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[OutgoingKind]
+				WHERE
+				[OutgoingKindId] = #OutgoingKindId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[OutgoingKind]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="OutgoingKindResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.OutgoingKind 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="OutgoingKindResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.OutgoingKind 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="OutgoingKindResult" parameterClass="OutgoingKind">
+			<![CDATA[
+			select top 1 *
+			from dbo.OutgoingKind
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="OutgoingKindResult" parameterClass="OutgoingKind">
+			<![CDATA[
+			select top 1 *
+			from dbo.OutgoingKind
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="OutgoingKind">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.OutgoingKind
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="OutgoingKind">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.OutgoingKind
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="OutgoingKindResult" parameterClass="OutgoingKind">
+			SELECT
+				[OutgoingKindId],
+				[InsertTime],
+				[UpdateTime],
+				[OutgoingKindName],
+				[OutgoingKindDescription],
+				[Id]
+			FROM
+				[dbo].[OutgoingKind]
+			WHERE
+				[OutgoingKindId] = #OutgoingKindId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[OutgoingKind]
+			WHERE
+				[OutgoingKindId] = #OutgoingKindId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="OutgoingKindResult" >
+			SELECT *
+			FROM 
+				[dbo].[OutgoingKind]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[OutgoingKind]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="OutgoingKindResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[OutgoingKind]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="OutgoingKind">
+			INSERT INTO [dbo].[OutgoingKind] 
+			(
+				[OutgoingKindId],
+				[InsertTime],
+				[UpdateTime],
+				[OutgoingKindName],
+				[OutgoingKindDescription],
+				[Id]
+			) 
+			VALUES 
+			(
+				#OutgoingKindId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#OutgoingKindName#,
+				#OutgoingKindDescription#,
+				#Id#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="OutgoingKind">
+			UPDATE [OutgoingKind] SET
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[OutgoingKindName] = #OutgoingKindName#,
+				[OutgoingKindDescription] = #OutgoingKindDescription#,
+				[Id] = #Id#
+			WHERE
+				[OutgoingKindId] = #OutgoingKindId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[OutgoingKind]
+				where  OutgoingKindId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.OutgoingKind
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="OutgoingKindResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[OutgoingKind]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.OutgoingKind
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="SetDataFormat" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="SetDataFormat" type="Book.Model.SetDataFormat, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="SetDataFormatResult" class="SetDataFormat">
+			<result property="SetDataFormatId" column="SetDataFormatId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="CGSLZheng" column="CGSLZheng" />
+			<result property="CGSLXiao" column="CGSLXiao" />
+			<result property="CGDJZheng" column="CGDJZheng" />
+			<result property="CGDJXiao" column="CGDJXiao" />
+			<result property="CGJEZheng" column="CGJEZheng" />
+			<result property="CGJEXiao" column="CGJEXiao" />
+			<result property="CGZJZheng" column="CGZJZheng" />
+			<result property="CGZJXiao" column="CGZJXiao" />
+			<result property="XSSLZheng" column="XSSLZheng" />
+			<result property="XSSLXiao" column="XSSLXiao" />
+			<result property="XSDJZheng" column="XSDJZheng" />
+			<result property="XSDJXiao" column="XSDJXiao" />
+			<result property="XSJEZheng" column="XSJEZheng" />
+			<result property="XSJEXiao" column="XSJEXiao" />
+			<result property="XSZJZheng" column="XSZJZheng" />
+			<result property="XSZJXiao" column="XSZJXiao" />
+			<result property="KCSLZheng" column="KCSLZheng" />
+			<result property="KCSLXiao" column="KCSLXiao" />
+			<result property="KCDJZheng" column="KCDJZheng" />
+			<result property="KCDJXiao" column="KCDJXiao" />
+			<result property="KCJEZheng" column="KCJEZheng" />
+			<result property="KCJEXiao" column="KCJEXiao" />
+			<result property="KCZJZheng" column="KCZJZheng" />
+			<result property="KCZJXiao" column="KCZJXiao" />
+			<result property="KJJEZheng" column="KJJEZheng" />
+			<result property="KJJEXiao" column="KJJEXiao" />
+			<result property="KJZJZheng" column="KJZJZheng" />
+			<result property="KJZJXiao" column="KJZJXiao" />
+			<result property="attrHasQian" column="attrHasQian" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[SetDataFormat]
+				WHERE
+				[SetDataFormatId] = #SetDataFormatId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[SetDataFormat]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="get_first" resultMap="SetDataFormatResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.SetDataFormat
+			 
+			order by InsertTime 
+			]]>
+		</select>
+		<select id="get_last" resultMap="SetDataFormatResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.SetDataFormat
+						
+            order by InsertTime desc
+			]]>
+            
+		</select>
+		<select id="get_prev" resultMap="SetDataFormatResult" parameterClass="SetDataFormat">
+			<![CDATA[
+			select top 1 *
+			from dbo.SetDataFormat
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="SetDataFormatResult" parameterClass="SetDataFormat">
+			<![CDATA[
+			select top 1 *
+			from dbo.SetDataFormat
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+		</select>
+		
+		<select id="has_rows_before" resultClass="bool" parameterClass="SetDataFormat">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.SetDataFormat
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="SetDataFormat">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.SetDataFormat
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="SetDataFormatResult" parameterClass="SetDataFormat">
+			<![CDATA[SELECT
+				[SetDataFormatId],
+				[InsertTime],
+				[UpdateTime],
+				[CGSLZheng],
+				[CGSLXiao],
+				[CGDJZheng],
+				[CGDJXiao],
+				[CGJEZheng],
+				[CGJEXiao],
+				[CGZJZheng],
+				[CGZJXiao],
+				[XSSLZheng],
+				[XSSLXiao],
+				[XSDJZheng],
+				[XSDJXiao],
+				[XSJEZheng],
+				[XSJEXiao],
+				[XSZJZheng],
+				[XSZJXiao],
+				[KCSLZheng],
+				[KCSLXiao],
+				[KCDJZheng],
+				[KCDJXiao],
+				[KCJEZheng],
+				[KCJEXiao],
+				[KCZJZheng],
+				[KCZJXiao],
+				[KJJEZheng],
+				[KJJEXiao],
+				[KJZJZheng],
+				[KJZJXiao],
+				[attrHasQian]
+			FROM
+				[dbo].[SetDataFormat]
+			WHERE
+				[SetDataFormatId] = #SetDataFormatId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[SetDataFormat]
+			WHERE            
+				[SetDataFormatId] = #SetDataFormatId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="SetDataFormatResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[SetDataFormat]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[SetDataFormat]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="SetDataFormatResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[SetDataFormat]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="SetDataFormat">
+			 <![CDATA[ INSERT INTO [dbo].[SetDataFormat] 
+			(
+				[SetDataFormatId],
+				[InsertTime],
+				[UpdateTime],
+				[CGSLZheng],
+				[CGSLXiao],
+				[CGDJZheng],
+				[CGDJXiao],
+				[CGJEZheng],
+				[CGJEXiao],
+				[CGZJZheng],
+				[CGZJXiao],
+				[XSSLZheng],
+				[XSSLXiao],
+				[XSDJZheng],
+				[XSDJXiao],
+				[XSJEZheng],
+				[XSJEXiao],
+				[XSZJZheng],
+				[XSZJXiao],
+				[KCSLZheng],
+				[KCSLXiao],
+				[KCDJZheng],
+				[KCDJXiao],
+				[KCJEZheng],
+				[KCJEXiao],
+				[KCZJZheng],
+				[KCZJXiao],
+				[KJJEZheng],
+				[KJJEXiao],
+				[KJZJZheng],
+				[KJZJXiao],
+				[attrHasQian]
+			) 
+			VALUES 
+			(
+				#SetDataFormatId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#CGSLZheng#,
+				#CGSLXiao#,
+				#CGDJZheng#,
+				#CGDJXiao#,
+				#CGJEZheng#,
+				#CGJEXiao#,
+				#CGZJZheng#,
+				#CGZJXiao#,
+				#XSSLZheng#,
+				#XSSLXiao#,
+				#XSDJZheng#,
+				#XSDJXiao#,
+				#XSJEZheng#,
+				#XSJEXiao#,
+				#XSZJZheng#,
+				#XSZJXiao#,
+				#KCSLZheng#,
+				#KCSLXiao#,
+				#KCDJZheng#,
+				#KCDJXiao#,
+				#KCJEZheng#,
+				#KCJEXiao#,
+				#KCZJZheng#,
+				#KCZJXiao#,
+				#KJJEZheng#,
+				#KJJEXiao#,
+				#KJZJZheng#,
+				#KJZJXiao#,
+				#attrHasQian#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="SetDataFormat">
+		 <![CDATA[ 	UPDATE [SetDataFormat] SET
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[CGSLZheng] = #CGSLZheng#,
+				[CGSLXiao] = #CGSLXiao#,
+				[CGDJZheng] = #CGDJZheng#,
+				[CGDJXiao] = #CGDJXiao#,
+				[CGJEZheng] = #CGJEZheng#,
+				[CGJEXiao] = #CGJEXiao#,
+				[CGZJZheng] = #CGZJZheng#,
+				[CGZJXiao] = #CGZJXiao#,
+				[XSSLZheng] = #XSSLZheng#,
+				[XSSLXiao] = #XSSLXiao#,
+				[XSDJZheng] = #XSDJZheng#,
+				[XSDJXiao] = #XSDJXiao#,
+				[XSJEZheng] = #XSJEZheng#,
+				[XSJEXiao] = #XSJEXiao#,
+				[XSZJZheng] = #XSZJZheng#,
+				[XSZJXiao] = #XSZJXiao#,
+				[KCSLZheng] = #KCSLZheng#,
+				[KCSLXiao] = #KCSLXiao#,
+				[KCDJZheng] = #KCDJZheng#,
+				[KCDJXiao] = #KCDJXiao#,
+				[KCJEZheng] = #KCJEZheng#,
+				[KCJEXiao] = #KCJEXiao#,
+				[KCZJZheng] = #KCZJZheng#,
+				[KCZJXiao] = #KCZJXiao#,
+				[KJJEZheng] = #KJJEZheng#,
+				[KJJEXiao] = #KJJEXiao#,
+				[KJZJZheng] = #KJZJZheng#,
+				[KJZJXiao] = #KJZJXiao#,
+				[attrHasQian] = #attrHasQian#
+			WHERE
+				[SetDataFormatId] = #SetDataFormatId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[SetDataFormat]
+				where  SetDataFormatId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

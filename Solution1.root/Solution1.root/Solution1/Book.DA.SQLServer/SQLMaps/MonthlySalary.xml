@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="MonthlySalary" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="get_byempid" parameterClass="string" resultMap="MonthlySalaryResult">
+      SELECT *
+      FROM [dbo].[MonthlySalary]
+      WHERE [EmployeeId] = #value#
+    </select>  
+   <select id="get_byempidMonth" parameterClass="Map" resultMap="MonthlySalaryResult">
+     SELECT *
+     FROM [dbo].[MonthlySalary]
+     WHERE [EmployeeId] = #employeeid# and year(IdentifyDate)=#year# and month(IdentifyDate)=#month#
+   </select>    
+
+  </statements>
+
+  
+
+ 
+</sqlMap>

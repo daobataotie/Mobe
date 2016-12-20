@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AcOtherShouldCollectionDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AcOtherShouldCollectionDetail" type="Book.Model.AcOtherShouldCollectionDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="AcOtherShouldCollectionDetailResult" class="AcOtherShouldCollectionDetail">
+			<result property="AcOtherShouldCollectionDetailId" column="AcOtherShouldCollectionDetailId" />
+			<result property="AcOtherShouldCollectionId" column="AcOtherShouldCollectionId" />
+			<result property="LoanName" column="LoanName" />
+			<result property="AcMoney" column="AcMoney" />
+			<result property="DetailDesc" column="DetailDesc" />
+			<result property="SubjectId" column="SubjectId" />
+		<result property="Subject" column="SubjectId" lazyLoad="false" select="AtAccountSubject.select_by_primary_key" />		<result property="AcOtherShouldCollection" column="AcOtherShouldCollectionId" lazyLoad="false" select="AcOtherShouldCollection.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcOtherShouldCollectionDetail]
+				WHERE
+				[AcOtherShouldCollectionDetailId] = #AcOtherShouldCollectionDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcOtherShouldCollectionDetail]
+ 				where invoicestatus=1 or invoicestatus is null				
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AcOtherShouldCollectionDetailResult" parameterClass="AcOtherShouldCollectionDetail">
+			SELECT
+				[AcOtherShouldCollectionDetailId],
+				[AcOtherShouldCollectionId],
+				[LoanName],
+				[AcMoney],
+				[DetailDesc],
+				[SubjectId]
+			FROM
+				[dbo].[AcOtherShouldCollectionDetail]
+			WHERE
+				[AcOtherShouldCollectionDetailId] = #AcOtherShouldCollectionDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[AcOtherShouldCollectionDetail]
+			WHERE
+				[AcOtherShouldCollectionDetailId] = #AcOtherShouldCollectionDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AcOtherShouldCollectionDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[AcOtherShouldCollectionDetail]
+			
+
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[AcOtherShouldCollectionDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AcOtherShouldCollectionDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AcOtherShouldCollectionDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AcOtherShouldCollectionDetail">
+			INSERT INTO [dbo].[AcOtherShouldCollectionDetail] 
+			(
+				[AcOtherShouldCollectionDetailId],
+				[AcOtherShouldCollectionId],
+				[LoanName],
+				[AcMoney],
+				[DetailDesc],
+				[SubjectId]
+			) 
+			VALUES 
+			(
+				#AcOtherShouldCollectionDetailId#,
+				#AcOtherShouldCollectionId#,
+				#LoanName#,
+				#AcMoney#,
+				#DetailDesc#,
+				#SubjectId#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AcOtherShouldCollectionDetail">
+			UPDATE [AcOtherShouldCollectionDetail] SET
+				[AcOtherShouldCollectionId] = #AcOtherShouldCollectionId#,
+				[LoanName] = #LoanName#,
+				[AcMoney] = #AcMoney#,
+				[DetailDesc] = #DetailDesc#,
+				[SubjectId] = #SubjectId#
+			WHERE
+				[AcOtherShouldCollectionDetailId] = #AcOtherShouldCollectionDetailId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcOtherShouldCollectionDetail]
+				where  AcOtherShouldCollectionDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BGProductDepotOutDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByBGProductDepotOutId" resultMap="BGProductDepotOutDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM BGProductDepotOutDetail WHERE BGProductDepotOutDetail.BGProductDepotOutId=#value#
+      ]]>
+    </select>
+
+    <select id="SumQuantityByHandbook" resultClass="double" parameterClass="Map">
+      <![CDATA[
+      select isnull(sum(Quantity),0) from BGProductDepotOutDetail where BGHandbookId=#bGHandbookId# and BGHandbookProductId=#bGHandbookProductId#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProduceInDepot" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByDateRange" resultMap="ProduceInDepotResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ProduceInDepot WHERE ProduceInDepotDate BETWEEN #stardate# AND #enddate# 
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

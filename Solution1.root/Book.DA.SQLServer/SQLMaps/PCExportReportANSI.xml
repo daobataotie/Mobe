@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCExportReportANSI" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <resultMaps>
+    <resultMap id="PCExportReportANSISUMResult" class="PCExportReportANSI">
+      <result property="SUMIsYuanZhuiZhuiLuo" column="SUMIsYuanZhuiZhuiLuo"/>
+      <result property="SUMIsGaoSuChongJi" column="SUMIsGaoSuChongJi"/>
+      <result property="SUMIsNaiRanXing" column="SUMIsNaiRanXing"/>
+      <result property="SUMIsMuShiJianYan" column="SUMIsMuShiJianYan"/>
+      <result property="SUMIsFogPassing" column="SUMIsFogPassing"/>
+      <result property="SUMIsZiWaiXian" column="SUMIsZiWaiXian"/>
+      <result property="SUMIsKeJianGuang" column="SUMIsKeJianGuang"/>
+      <result property="SUMIsPenetrate" column="SUMIsPenetrate"/>
+      <result property="mCountANSI" column="mCountANSI"/>
+      <result property="mCountFog" column="mCountFog"/>
+      <result property="mCountOptics" column="mCountOptics"/>
+      <result property="mCountPenetrate" column="mCountPenetrate"/>
+    </resultMap>
+
+    <resultMap id="PCExportReportANSISUMResultA" class="PCExportReportANSI">
+      <result property="pMSJY" column="pMSJY"/>
+      <result property="qQXD" column="qQXD"/>
+      <result property="pQXD" column="pQXD"/>
+      <result property="qLJPHDS" column="qLJPHDS"/>
+      <result property="pLJPHDS" column="pLJPHDS"/>
+      <result property="qKJGTSL" column="qKJGTSL"/>
+      <result property="pKJGTSL" column="pKJGTSL"/>
+      <result property="qZWXTSL" column="qZWXTSL"/>
+      <result property="pZWXTSL" column="pZWXTSL"/>
+      <result property="qQMDS" column="qQMDS"/>
+      <result property="pQMDS" column="pQMDS"/>
+      <result property="qSGDS" column="qSGDS"/>
+      <result property="pSGDS" column="pSGDS"/>
+      <result property="qGSCJCS" column="qGSCJCS"/>
+      <result property="pGSCJCS" column="pGSCJCS"/>
+      <result property="qYZZLZJCS" column="qYZZLZJCS"/>
+      <result property="pYZZLZJCS" column="pYZZLZJCS"/>
+      <result property="qJPCTSC" column="qJPCTSC"/>
+      <result property="pJPCTSC" column="pJPCTSC"/>
+      <result property="qWDCS" column="qWDCS"/>
+      <result property="pWDCS" column="pWDCS"/>
+      <result property="qNRXCS" column="qNRXCS"/>
+      <result property="pNRXCS" column="pNRXCS"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="SelectForExpANSI" resultMap="PCExportReportANSISUMResult" parameterClass="Map">
+      <![CDATA[
+     SELECT TOP 1 
+       (SELECT count(*) FROM ANSIPCImpactCheck WHERE IsYuanZhuiZhuiLuo =1 AND InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS SUMIsYuanZhuiZhuiLuo,
+       (SELECT count(*) FROM ANSIPCImpactCheck WHERE IsGaoSuChongJi =1 AND InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS SUMIsGaoSuChongJi,
+       (SELECT count(*) FROM ANSIPCImpactCheck WHERE IsNaiRanXing =1 AND InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS SUMIsNaiRanXing,
+       (SELECT count(*) FROM PCFinishCheck WHERE IsMuShiJianYan = 1 AND InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS SUMIsMuShiJianYan,
+       (SELECT count(*) FROM PCFogCheck WHERE IsFogPassing = 1 AND InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS SUMIsFogPassing,
+	   (SELECT count(*) FROM PCOpticsCheck WHERE IsZiWaiXian = 1 AND InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS SUMIsZiWaiXian,
+	   (SELECT count(*) FROM PCOpticsCheck WHERE IsKeJianGuang = 1 AND InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS SUMIsKeJianGuang,
+	   (SELECT count(*) FROM PCPenetrateCheck WHERE IsPassing = 1 AND InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS SUMIsPenetrate,
+		 (SELECT count(*) FROM PCPenetrateCheck WHERE InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS mCountPenetrate,
+	     (SELECT COUNT(*) FROM ANSIPCImpactCheck WHERE InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS mCountANSI,
+	     (SELECT count(*) FROM PCFogCheck WHERE InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS mCountFog,
+       (SELECT count(*) FROM PCFogCheck WHERE InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS MCountOptics,
+       (SELECT count(*) FROM PCPGPCL WHERE InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS MCountPGPCL,
+	     (SELECT count(*) FROM PCOpticsCheck WHERE InvoiceCusXOId = #InvoiceCusXoid# AND ProductId = #productid#) AS MCountOptics
+     FROM ANSIPCImpactCheck
+      ]]>
+    </select>
+
+    <select id="SelectByDateRage" resultMap="PCExportReportANSIResult">
+      <![CDATA[
+      SELECT * FROM PCExportReportANSI WHERE (ExpType=#ExpType# OR #ExpType# IS NULL) AND ReportDate BETWEEN #startdate# AND #enddate# $sql$ ORDER BY ExportReportId DESC
+      ]]>
+    </select>
+
+    <select id="mget_last" resultMap="PCExportReportANSIResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM PCExportReportANSI WHERE ExpType=#ExpType# ORDER BY InsertTime desc   
+      ]]>
+    </select>
+    <select id="mget_first" resultMap="PCExportReportANSIResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM PCExportReportANSI WHERE ExpType=#ExpType# ORDER BY InsertTime
+      ]]>
+    </select>
+    <select id="mget_prev" resultMap="PCExportReportANSIResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM PCExportReportANSI WHERE InsertTime<#InsertTime# AND ExpType=#ExpType# ORDER BY InsertTime desc
+      ]]>
+    </select>
+    <select id="mget_next" resultMap="PCExportReportANSIResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM PCExportReportANSI WHERE InsertTime>#InsertTime# AND ExpType=#ExpType# ORDER BY InsertTime  
+      ]]>
+    </select>
+    <select id="mhas_rows" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS(SELECT * FROM PCExportReportANSI WHERE ExpType=#ExpType# ) THEN 1 ELSE 0 END 
+      ]]>
+    </select>
+    <select id="mhas_rows_before" resultClass="bool" parameterClass="Map" >
+      <![CDATA[
+			select case when exists(select * from PCExportReportANSI where InsertTime < #InsertTime# and ExpType=#ExpType#) then 1 else 0 end
+			]]>
+    </select>
+    <select id="mhas_rows_after" resultClass="bool" parameterClass="Map" >
+      <![CDATA[
+			select case when exists(select * from PCExportReportANSI where InsertTime > #InsertTime# and ExpType=#ExpType#) then 1 else 0 end
+			]]>
+    </select>
+    <select id="SelectByInvoiceCusId" resultMap="PCExportReportANSIResult" parameterClass="Map">
+      <![CDATA[
+      select *from PCExportReportANSI where ExpType=#JIS# and InvoiceCusXOId=#invoiceCusId#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

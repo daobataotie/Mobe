@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCPGOnlineCheck" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCPGOnlineCheck" type="Book.Model.PCPGOnlineCheck, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCPGOnlineCheckResult" class="PCPGOnlineCheck">
+      <result property="PCPGOnlineCheckId" column="PCPGOnlineCheckId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="PCPGOnlineCheckDate" column="PCPGOnlineCheckDate" />
+      <result property="PCPGOnlineCheckDesc" column="PCPGOnlineCheckDesc" />
+      <result property="PCPGOnlineCheckType" column="PCPGOnlineCheckType" />
+      <result property="InvoiceCusXOId" column="InvoiceCusXOId" />
+      <result property="FromPCId" column="FromPCId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceXOQuantity" column="InvoiceXOQuantity" />
+      <result property="WorkHouseId" column="WorkHouseId" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" /> 
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="WorkHouse" column="WorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCPGOnlineCheck]
+				WHERE
+				[PCPGOnlineCheckId] = #PCPGOnlineCheckId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCPGOnlineCheck]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="PCPGOnlineCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCPGOnlineCheck
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="PCPGOnlineCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCPGOnlineCheck
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="PCPGOnlineCheckResult" parameterClass="PCPGOnlineCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCPGOnlineCheck
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="PCPGOnlineCheckResult" parameterClass="PCPGOnlineCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCPGOnlineCheck
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="PCPGOnlineCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCPGOnlineCheck
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="PCPGOnlineCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCPGOnlineCheck
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCPGOnlineCheckResult" parameterClass="PCPGOnlineCheck">
+      <![CDATA[SELECT
+				[PCPGOnlineCheckId],
+				[EmployeeId],
+				[CustomerId],
+				[InsertTime],
+				[UpdateTime],
+				[PCPGOnlineCheckDate],
+				[PCPGOnlineCheckDesc],
+				[PCPGOnlineCheckType],
+				[InvoiceCusXOId],
+				[FromPCId],
+				[ProductId],
+				[InvoiceXOQuantity],
+				[WorkHouseId],
+        [AuditState],
+        [AuditEmpId]
+        
+			FROM
+				[dbo].[PCPGOnlineCheck]
+			WHERE
+				[PCPGOnlineCheckId] = #PCPGOnlineCheckId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCPGOnlineCheck]
+			WHERE            
+				[PCPGOnlineCheckId] = #PCPGOnlineCheckId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCPGOnlineCheckResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCPGOnlineCheck]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCPGOnlineCheck]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCPGOnlineCheckResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCPGOnlineCheck]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCPGOnlineCheck">
+      <![CDATA[ INSERT INTO [dbo].[PCPGOnlineCheck] 
+			(
+				[PCPGOnlineCheckId],
+				[EmployeeId],
+				[CustomerId],
+				[InsertTime],
+				[UpdateTime],
+				[PCPGOnlineCheckDate],
+				[PCPGOnlineCheckDesc],
+				[PCPGOnlineCheckType],
+				[InvoiceCusXOId],
+				[FromPCId],
+				[ProductId],
+				[InvoiceXOQuantity],
+				[WorkHouseId],
+        [AuditState],
+        [AuditEmpId]
+			) 
+			VALUES 
+			(
+				#PCPGOnlineCheckId#,
+				#EmployeeId#,
+				#CustomerId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#PCPGOnlineCheckDate#,
+				#PCPGOnlineCheckDesc#,
+				#PCPGOnlineCheckType#,
+				#InvoiceCusXOId#,
+				#FromPCId#,
+				#ProductId#,
+				#InvoiceXOQuantity#,
+				#WorkHouseId#,
+        #AuditState#,
+        #AuditEmpId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCPGOnlineCheck">
+      <![CDATA[ 	UPDATE [PCPGOnlineCheck] SET
+				[EmployeeId] = #EmployeeId#,
+				[CustomerId] = #CustomerId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[PCPGOnlineCheckDate] = #PCPGOnlineCheckDate#,
+				[PCPGOnlineCheckDesc] = #PCPGOnlineCheckDesc#,
+				[PCPGOnlineCheckType] = #PCPGOnlineCheckType#,
+				[InvoiceCusXOId] = #InvoiceCusXOId#,
+				[FromPCId] = #FromPCId#,
+				[ProductId] = #ProductId#,
+				[InvoiceXOQuantity] = #InvoiceXOQuantity#,
+				[WorkHouseId] = #WorkHouseId#,
+        [AuditState]=#AuditState#,        
+        [AuditEmpId]=#AuditEmpId#
+			WHERE
+				[PCPGOnlineCheckId] = #PCPGOnlineCheckId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCPGOnlineCheck]
+				where  PCPGOnlineCheckId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

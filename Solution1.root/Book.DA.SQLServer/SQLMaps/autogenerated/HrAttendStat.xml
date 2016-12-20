@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="HrAttendStat" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="HrAttendStat" type="Book.Model.HrAttendStat, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="HrAttendStatResult" class="HrAttendStat">
+			<result property="HrAttendStatId" column="HrAttendStatId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="HrAttendStatDate" column="HrAttendStatDate" />
+			<result property="LoanFee" column="LoanFee" />
+			<result property="LunchFee" column="LunchFee" />
+			<result property="OverTimeFee" column="OverTimeFee" />
+			<result property="OverTimeBonus" column="OverTimeBonus" />
+			<result property="GeneralOverTime" column="GeneralOverTime" />
+			<result property="HolidayOverTime" column="HolidayOverTime" />
+			<result property="LateCount" column="LateCount" />
+			<result property="TotalLateInMinute" column="TotalLateInMinute" />
+			<result property="SpecialBonus" column="SpecialBonus" />
+			<result property="DaysFactor" column="DaysFactor" />
+			<result property="MonthFactor" column="MonthFactor" />
+			<result property="DutyDateCount" column="DutyDateCount" />
+			<result property="LeaveDate" column="LeaveDate" />
+			<result property="PunishLeaveCount" column="PunishLeaveCount" />
+			<result property="LeaveCount" column="LeaveCount" />
+			<result property="AbsentCount" column="AbsentCount" />
+			<result property="TotalHoliday" column="TotalHoliday" />
+		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[HrAttendStat]
+				WHERE
+				[HrAttendStatId] = #HrAttendStatId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[HrAttendStat]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="HrAttendStatResult" parameterClass="HrAttendStat">
+			SELECT
+				[HrAttendStatId],
+				[EmployeeId],
+				[HrAttendStatDate],
+				[LoanFee],
+				[LunchFee],
+				[OverTimeFee],
+				[OverTimeBonus],
+				[GeneralOverTime],
+				[HolidayOverTime],
+				[LateCount],
+				[TotalLateInMinute],
+				[SpecialBonus],
+				[DaysFactor],
+				[MonthFactor],
+				[DutyDateCount],
+				[LeaveDate],
+				[PunishLeaveCount],
+				[LeaveCount],
+				[AbsentCount],
+				[TotalHoliday]
+			FROM
+				[dbo].[HrAttendStat]
+			WHERE
+				[HrAttendStatId] = #HrAttendStatId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[HrAttendStat]
+			WHERE
+				[HrAttendStatId] = #HrAttendStatId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="HrAttendStatResult" >
+			SELECT *
+			FROM 
+				[dbo].[HrAttendStat]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[HrAttendStat]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="HrAttendStatResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[HrAttendStat]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="HrAttendStat">
+			INSERT INTO [dbo].[HrAttendStat] 
+			(
+				[HrAttendStatId],
+				[EmployeeId],
+				[HrAttendStatDate],
+				[LoanFee],
+				[LunchFee],
+				[OverTimeFee],
+				[OverTimeBonus],
+				[GeneralOverTime],
+				[HolidayOverTime],
+				[LateCount],
+				[TotalLateInMinute],
+				[SpecialBonus],
+				[DaysFactor],
+				[MonthFactor],
+				[DutyDateCount],
+				[LeaveDate],
+				[PunishLeaveCount],
+				[LeaveCount],
+				[AbsentCount],
+				[TotalHoliday]
+			) 
+			VALUES 
+			(
+				#HrAttendStatId#,
+				#EmployeeId#,
+				#HrAttendStatDate#,
+				#LoanFee#,
+				#LunchFee#,
+				#OverTimeFee#,
+				#OverTimeBonus#,
+				#GeneralOverTime#,
+				#HolidayOverTime#,
+				#LateCount#,
+				#TotalLateInMinute#,
+				#SpecialBonus#,
+				#DaysFactor#,
+				#MonthFactor#,
+				#DutyDateCount#,
+				#LeaveDate#,
+				#PunishLeaveCount#,
+				#LeaveCount#,
+				#AbsentCount#,
+				#TotalHoliday#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="HrAttendStat">
+			UPDATE [HrAttendStat] SET
+				[EmployeeId] = #EmployeeId#,
+				[HrAttendStatDate] = #HrAttendStatDate#,
+				[LoanFee] = #LoanFee#,
+				[LunchFee] = #LunchFee#,
+				[OverTimeFee] = #OverTimeFee#,
+				[OverTimeBonus] = #OverTimeBonus#,
+				[GeneralOverTime] = #GeneralOverTime#,
+				[HolidayOverTime] = #HolidayOverTime#,
+				[LateCount] = #LateCount#,
+				[TotalLateInMinute] = #TotalLateInMinute#,
+				[SpecialBonus] = #SpecialBonus#,
+				[DaysFactor] = #DaysFactor#,
+				[MonthFactor] = #MonthFactor#,
+				[DutyDateCount] = #DutyDateCount#,
+				[LeaveDate] = #LeaveDate#,
+				[PunishLeaveCount] = #PunishLeaveCount#,
+				[LeaveCount] = #LeaveCount#,
+				[AbsentCount] = #AbsentCount#,
+				[TotalHoliday] = #TotalHoliday#
+			WHERE
+				[HrAttendStatId] = #HrAttendStatId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[HrAttendStat]
+				where  HrAttendStatId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

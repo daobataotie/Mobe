@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProductProcess" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ProductProcess" type="Book.Model.ProductProcess, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ProductProcessResult" class="ProductProcess">
+			<result property="ProceduresId" column="ProceduresId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="TechonlogyHeaderId" column="TechonlogyHeaderId" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="ProductProcessId" column="ProductProcessId" />
+			<result property="ProcessProductName" column="ProcessProductName" />
+			<result property="IndexNo" column="IndexNo" />
+		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />		<result property="TechonlogyHeader" column="TechonlogyHeaderId" lazyLoad="false" select="TechonlogyHeader.select_by_primary_key" />		<result property="Procedures" column="ProceduresId" lazyLoad="false" select="Procedures.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductProcess]
+				WHERE
+				[ProductProcessId] = #ProductProcessId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductProcess]
+ 				where invoicestatus=1 or invoicestatus is null				
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="ProductProcessResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductProcess 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="ProductProcessResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductProcess 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="ProductProcessResult" parameterClass="ProductProcess">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductProcess
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="ProductProcessResult" parameterClass="ProductProcess">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductProcess
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="ProductProcess">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductProcess
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="ProductProcess">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductProcess
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ProductProcessResult" parameterClass="ProductProcess">
+			SELECT
+				[ProceduresId],
+				[ProductId],
+				[InsertTime],
+				[TechonlogyHeaderId],
+				[UpdateTime],
+				[ProductProcessId],
+				[ProcessProductName],
+				[IndexNo]
+			FROM
+				[dbo].[ProductProcess]
+			WHERE
+				[ProductProcessId] = #ProductProcessId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[ProductProcess]
+			WHERE
+				[ProductProcessId] = #ProductProcessId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ProductProcessResult" >
+			SELECT *
+			FROM 
+				[dbo].[ProductProcess]
+			
+  ORDER BY InsertTime DESC  
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[ProductProcess]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ProductProcessResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProductProcess]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ProductProcess">
+			INSERT INTO [dbo].[ProductProcess] 
+			(
+				[ProceduresId],
+				[ProductId],
+				[InsertTime],
+				[TechonlogyHeaderId],
+				[UpdateTime],
+				[ProductProcessId],
+				[ProcessProductName],
+				[IndexNo]
+			) 
+			VALUES 
+			(
+				#ProceduresId#,
+				#ProductId#,
+				#InsertTime#,
+				#TechonlogyHeaderId#,
+				#UpdateTime#,
+				#ProductProcessId#,
+				#ProcessProductName#,
+				#IndexNo#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ProductProcess">
+			UPDATE [ProductProcess] SET
+				[ProceduresId] = #ProceduresId#,
+				[ProductId] = #ProductId#,
+				[InsertTime] = #InsertTime#,
+				[TechonlogyHeaderId] = #TechonlogyHeaderId#,
+				[UpdateTime] = #UpdateTime#,
+				[ProcessProductName] = #ProcessProductName#,
+				[IndexNo] = #IndexNo#
+			WHERE
+				[ProductProcessId] = #ProductProcessId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProductProcess]
+				where  ProductProcessId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProduceStatisticsDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<resultMaps>
+		<resultMap id="ProduceStatisticsDetailResult1" class="ProduceStatisticsDetail">
+			<result property="ProduceQuantity" column="ProduceQuantity" />
+			<result property="HeGeQuantity" column="HeGeQuantity" />
+			<result property="NoProduceQuantity1" column="NoProduceQuantity1" />
+		</resultMap>
+	</resultMaps>
+	<statements>
+		<select id="select_byProduceStatisticsId" resultMap="ProduceStatisticsDetailResult" parameterClass="string">
+			select * from ProduceStatisticsDetail where ProduceStatisticsId=#value#
+		</select>
+		<select id="select_byPronoteHeaderProcedures" resultMap="ProduceStatisticsDetailResult" parameterClass="Map">
+			select * from ProduceStatisticsDetail where PronoteHeaderID=#PronoteHeaderID# and ProceduresId=#ProceduresId#
+		</select>
+		<select id="select_byPronoteHeaderProceduresSum" resultMap="ProduceStatisticsDetailResult1" parameterClass="Map">
+			select  isnull(sum(ProduceQuantity),0) as ProduceQuantity,  isnull(sum(HeGeQuantity),0) as  HeGeQuantity, isnull(sum(ProduceQuantity),0) - isnull(sum(HeGeQuantity),0) as NoProduceQuantity1  from ProduceStatisticsDetail where PronoteHeaderID=#PronoteHeaderID# and ProceduresId=#ProceduresId#
+		</select>
+
+		<select id ="selectByDateRangeAndPronoteHeaderId" resultMap="ProduceStatisticsDetailResult" parameterClass="Map">
+			<![CDATA[
+			select * from ProduceStatisticsDetail where (DetailDate>=#startdate# or #startdate# is null) and (DetailDate<=#enddate# or #enddate# is null) and (PronoteHeaderID like '%$pronoteHeaderId$%' or #pronoteHeaderId# is null)
+			]]>
+		</select>
+
+	</statements>
+</sqlMap>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="HrAttendStat" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="Select_HrAttendStatByEmpidStatDate"  parameterClass="Map" resultMap="HrAttendStatResult">
+      SELECT * FROM HrAttendStat
+      WHERE EmployeeId=#employeeid# AND YEAR(HrAttendStatDate)=#year# AND Month(HrAttendStatDate)=#month#
+    </select>
+  </statements>
+</sqlMap>

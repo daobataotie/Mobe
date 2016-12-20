@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ConveyanceMethod" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="IsExistConveyanceMethod" resultClass="bool" prameterClass="Map">
+      <![CDATA[
+               select case when exists(select * from ConveyanceMethod where ConveyanceMethodId<>#id# and ConveyanceMethodName=#name#) then 1 else 0 end
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

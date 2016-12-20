@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Invoice00" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <alias>
+        <typeAlias alias="Invoice00" type="Book.Model.Invoice00"/>
+    </alias>
+    <resultMaps>
+        <resultMap id="Invoice00Result" class="Invoice00">
+            <result property="InvoiceId" column="InvoiceId" />
+            <result property="Employee0Id" column="Employee0Id" />
+            <result property="Employee1Id" column="Employee1Id" />
+            <result property="Employee2Id" column="Employee2Id" />
+            <result property="Employee3Id" column="Employee3Id" />
+            <result property="InvoiceLRTime" column="InvoiceLRTime" />
+            <result property="InvoiceGZTime" column="InvoiceGZTime" />
+            <result property="InvoiceZFTime" column="InvoiceZFTime" />
+            <result property="InvoiceZFCause" column="InvoiceZFCause" />
+            <result property="InvoiceDate" column="InvoiceDate" />
+            <result property="InvoiceAbstract" column="InvoiceAbstract" />
+            <result property="InvoiceNote" column="InvoiceNote" />
+            <result property="InvoiceStatus" column="InvoiceStatus" />
+            <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+            <result property="Employee2" column="Employee2Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+            <result property="Employee3" column="Employee3Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+            <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+            <result property="Kind" column="Kind"/>
+        </resultMap>
+    </resultMaps>
+    <statements>
+        <select id="select_all" resultMap="Invoice00Result">
+            <![CDATA[
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'bs' as Kind
+            from dbo.invoicebs
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'by' as Kind
+            from dbo.invoiceby
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'cf' as Kind
+            from dbo.invoicecf
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'cg' as Kind
+            from dbo.invoicecg
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'cj' as Kind
+            from dbo.invoicecj
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'co' as Kind
+            from dbo.invoiceco
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'ct' as Kind
+            from dbo.invoicect
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'fk' as Kind
+            from dbo.invoicefk
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'ft' as Kind
+            from dbo.invoiceft
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'pt' as Kind
+            from dbo.invoicept
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'qi' as Kind
+            from dbo.invoiceqi
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'qo' as Kind
+            from dbo.invoiceqo
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'sk' as Kind
+            from dbo.invoicesk
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'xj' as Kind
+            from dbo.invoicexj
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'xo' as Kind
+            from dbo.invoicexo
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'xs' as Kind
+            from dbo.invoicexs
+            union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'xt' as Kind
+            from dbo.invoicext
+            union all
+			select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'zs' as Kind
+            from dbo.invoicezs
+			union all
+			select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'hz' as Kind
+            from dbo.invoicehz
+			union all
+            select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'zz' as Kind
+            from dbo.invoicezz
+            ]]>
+        </select>
+    </statements>
+</sqlMap>

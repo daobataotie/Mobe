@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcbeginAccountPayable" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="AcbeginAccountPayable" type="Book.Model.AcbeginAccountPayable, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="AcbeginAccountPayableResult" class="AcbeginAccountPayable">
+      <result property="AcbeginAccountPayableId" column="AcbeginAccountPayableId" />
+      <result property="AtCurrencyCategoryId" column="AtCurrencyCategoryId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="AcbeginAccountPayableDate" column="AcbeginAccountPayableDate" />
+      <result property="AcbeginAccountPayableDesc" column="AcbeginAccountPayableDesc" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="AuditingState" column="AuditingState" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="AtCurrencyCategory" column="AtCurrencyCategoryId" lazyLoad="false" select="AtCurrencyCategory.select_by_primary_key" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[AcbeginAccountPayable]
+      WHERE
+      [AcbeginAccountPayableId] = #AcbeginAccountPayableId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[AcbeginAccountPayable]
+      ) then 1 else 0 end
+    </select>
+    <select id="get_first" resultMap="AcbeginAccountPayableResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcbeginAccountPayable 
+			order by InsertTime
+			]]>
+    </select>
+    <select id="get_last" resultMap="AcbeginAccountPayableResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcbeginAccountPayable 			
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_prev" resultMap="AcbeginAccountPayableResult" parameterClass="AcbeginAccountPayable">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcbeginAccountPayable
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="AcbeginAccountPayableResult" parameterClass="AcbeginAccountPayable">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcbeginAccountPayable
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+    </select>
+    <select id="has_rows_before" resultClass="bool" parameterClass="AcbeginAccountPayable">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcbeginAccountPayable
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="AcbeginAccountPayable">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcbeginAccountPayable
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="AcbeginAccountPayableResult" parameterClass="AcbeginAccountPayable">
+      SELECT
+      [AcbeginAccountPayableId],
+      [AtCurrencyCategoryId],
+      [EmployeeId],
+      [Employee0Id],
+      [AcbeginAccountPayableDate],
+      [AcbeginAccountPayableDesc],
+      [InsertTime],
+      [UpdateTime],
+      [AuditingState],
+      [AuditState],
+      [AuditEmpId]
+      
+      FROM
+      [dbo].[AcbeginAccountPayable]
+      WHERE
+      [AcbeginAccountPayableId] = #AcbeginAccountPayableId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[AcbeginAccountPayable]
+      WHERE
+      [AcbeginAccountPayableId] = #AcbeginAccountPayableId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="AcbeginAccountPayableResult" >
+      SELECT *
+      FROM
+      [dbo].[AcbeginAccountPayable]
+
+      ORDER BY InsertTime DESC
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[AcbeginAccountPayable]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="AcbeginAccountPayableResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[AcbeginAccountPayable]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="AcbeginAccountPayable">
+      INSERT INTO [dbo].[AcbeginAccountPayable]
+      (
+      [AcbeginAccountPayableId],
+      [AtCurrencyCategoryId],
+      [EmployeeId],
+      [Employee0Id],
+      [AcbeginAccountPayableDate],
+      [AcbeginAccountPayableDesc],
+      [InsertTime],
+      [UpdateTime],
+      [AuditingState],
+      [AuditState],
+      [AuditEmpId]
+      )
+      VALUES
+      (
+      #AcbeginAccountPayableId#,
+      #AtCurrencyCategoryId#,
+      #EmployeeId#,
+      #Employee0Id#,
+      #AcbeginAccountPayableDate#,
+      #AcbeginAccountPayableDesc#,
+      #InsertTime#,
+      #UpdateTime#,
+      #AuditingState#,
+      #AuditState#,
+      #AuditEmpId#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="AcbeginAccountPayable">
+      UPDATE [AcbeginAccountPayable] SET
+      [AtCurrencyCategoryId] = #AtCurrencyCategoryId#,
+      [EmployeeId] = #EmployeeId#,
+      [Employee0Id] = #Employee0Id#,
+      [AcbeginAccountPayableDate] = #AcbeginAccountPayableDate#,
+      [AcbeginAccountPayableDesc] = #AcbeginAccountPayableDesc#,
+      [InsertTime] = #InsertTime#,
+      [UpdateTime] = #UpdateTime#,
+      [AuditingState] = #AuditingState#,
+      [AuditState]=#AuditState#,
+      [AuditEmpId]=#AuditEmpId#
+      WHERE
+      [AcbeginAccountPayableId] = #AcbeginAccountPayableId#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcbeginAccountPayable]
+				where  AcbeginAccountPayableId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

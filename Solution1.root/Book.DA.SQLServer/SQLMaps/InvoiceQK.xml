@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceQK" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <statements>
+        <select id="select_by_time" parameterClass="map" resultMap="InvoiceQKResult">
+            <![CDATA[
+            select *
+            from dbo.invoiceqk
+			where invoicedate between #datetime1# and #datetime2#
+            ]]>
+        </select>
+      <select id="select_byStatus" resultMap="InvoiceQKResult">
+        <![CDATA[
+            select *
+            from invoiceqk
+			      where InvoiceStatus = #value#
+        ]]>
+      </select>
+    </statements>
+    
+</sqlMap>

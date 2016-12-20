@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="MPSdetails" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byMPSheaderId" resultMap="MPSdetailsResult" parameterClass="string">
+      select * from MPSdetails where MPSheaderId=#value#
+    </select>
+    <select id="select_byCustomerId" resultMap="MPSdetailsResult" parameterClass="string">
+      select * from MPSdetails where CustomerId=#value#
+    </select>
+    <select id="selectbydateProCustomer" resultMap="MPSdetailsResult" parameterClass="string">
+     <![CDATA[
+     select * from MPSdetails where
+      CustomerId in(select  CustomerId from customer where (id>=#customerStart# or #customerStart# is null) and (id<= #customerEnd# or #customerEnd# is null)) 
+        and ((MPSheaderId  >= #mpsheaderIdStart# or #mpsheaderIdStart# is null) and (MPSheaderId<=#mpsheaderIdEnd# or #mpsheaderIdEnd# is null))
+        and MPSheaderId in (select MPSheaderId from MPSheader where (MPSStartDate between #dateStart# and #dateEnd#) or (#dateStart# is null and #dateEnd# is null))
+        and (ProductId=#productId# or #productId# is null)     
+      ]]>
+    </select>
+        <select id="select_byInvoiceXOId" resultMap="MPSdetailsResult" parameterClass="string">
+      select * from MPSdetails where InvoiceXOId=#value#
+    </select>
+    <select id="select_byInvoiceXODetailId" resultClass="double" parameterClass="string">
+      select isnull(sum(MPSdetailssum),0) from MPSdetails  where InvoiceXODetailId=#value#
+    </select>
+    <select id="select_byMpsDetailId" resultClass="double" parameterClass="string">
+      select isnull(MPSHasSingleSum,0) from MPSdetails  where MPSdetailsId=#value#
+    </select>
+    <select id="select_byState" resultMap="MPSdetailsResult" parameterClass="string">
+      select * from MPSdetails  where MPSEndState=0
+    </select>
+
+    <select id="select_byCustomerANDdate" resultMap="MPSdetailsResult" parameterClass="Map">
+     <![CDATA[
+     select * from MPSdetails  where CustomerId in(select  CustomerId from customer where (id>=#customerstart# or #customerstart# is null) and (id<= #customerend# or #customerend# is null))
+     and mpsheaderid in (select mpsheaderid from mpsheader where   MPSStartDate  between #startdate# and #enddate# )  order by MPSheaderId desc 
+    ]]>
+      </select>
+    
+  </statements>
+</sqlMap>

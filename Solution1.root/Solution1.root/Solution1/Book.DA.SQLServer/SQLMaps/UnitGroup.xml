@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="UnitGroup" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="existsInsertName" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.UnitGroup
+				where UnitGroupName = #value#
+				) then 1 else 0 end
+			]]>
+    </select>
+    <select id="existsUpdateName" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.UnitGroup
+				where UnitGroupName  = #UnitGroupName# and UnitGroupId<>#UnitGroupId#
+				) then 1 else 0 end
+			]]>
+    </select>
+  </statements>
+</sqlMap>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProductMould" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectProductMouldByProductMouldTestId" prameterClass="string" resultMap="ProductMouldResult">
+      SELECT * FROM ProductMould WHERE MouldId IN( SELECT mouldid FROM ProductMouldTestDetail WHERE ProductMouldTestId=#value#)
+    </select>
+
+    <select id ="SelectByDateRage" resultMap="ProductMouldResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ProductMould WHERE (StartTime BETWEEN #StartDate# AND #EndDate# OR StartTime IS NULL) $sql$
+      ]]>
+    </select>
+
+    <select id ="SelectByMouldId" resultMap="ProductMouldResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM ProductMould WHERE MouldId=#value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

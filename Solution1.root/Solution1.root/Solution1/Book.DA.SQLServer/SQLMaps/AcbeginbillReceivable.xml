@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AcbeginbillReceivable" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectByDateRange" resultMap="AcbeginbillReceivableResult" parameterClass="Map">
+      select * from AcbeginbillReceivable where AcbeginbillReceivableDate between #startdate# and #enddate#
+    </select>
+  </statements>
+</sqlMap>

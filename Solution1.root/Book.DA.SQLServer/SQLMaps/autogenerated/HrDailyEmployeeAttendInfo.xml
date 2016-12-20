@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="HrDailyEmployeeAttendInfo" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="HrDailyEmployeeAttendInfo" type="Book.Model.HrDailyEmployeeAttendInfo, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="HrDailyEmployeeAttendInfoResult" class="HrDailyEmployeeAttendInfo">
+			<result property="HrDailyEmployeeAttendInfoId" column="HrDailyEmployeeAttendInfoId" />
+			<result property="ClockDataId" column="ClockDataId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="DutyDate" column="DutyDate" />
+			<result property="ShouldCheckIn" column="ShouldCheckIn" />
+			<result property="ShouldCheckOut" column="ShouldCheckOut" />
+			<result property="ActualCheckIn" column="ActualCheckIn" />
+			<result property="ActualCheckOut" column="ActualCheckOut" />
+			<result property="LateInMinute" column="LateInMinute" />
+			<result property="DayFactor" column="DayFactor" />
+			<result property="MonthFactor" column="MonthFactor" />
+			<result property="SpecialBonus" column="SpecialBonus" />
+			<result property="Note" column="Note" />
+			<result property="IsNormal" column="IsNormal" />
+			<result property="OverTimeON" column="OverTimeON" />
+			<result property="OverTimeOff" column="OverTimeOff" />
+		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="ClockData" column="ClockDataId" lazyLoad="false" select="ClockData.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[HrDailyEmployeeAttendInfo]
+				WHERE
+				[HrDailyEmployeeAttendInfoId] = #HrDailyEmployeeAttendInfoId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[HrDailyEmployeeAttendInfo]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="HrDailyEmployeeAttendInfoResult" parameterClass="HrDailyEmployeeAttendInfo">
+			SELECT
+				[HrDailyEmployeeAttendInfoId],
+				[ClockDataId],
+				[EmployeeId],
+				[DutyDate],
+				[ShouldCheckIn],
+				[ShouldCheckOut],
+				[ActualCheckIn],
+				[ActualCheckOut],
+				[LateInMinute],
+				[DayFactor],
+				[MonthFactor],
+				[SpecialBonus],
+				[Note],
+				[IsNormal],
+				[OverTimeON],
+				[OverTimeOff]
+			FROM
+				[dbo].[HrDailyEmployeeAttendInfo]
+			WHERE
+				[HrDailyEmployeeAttendInfoId] = #HrDailyEmployeeAttendInfoId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[HrDailyEmployeeAttendInfo]
+			WHERE
+				[HrDailyEmployeeAttendInfoId] = #HrDailyEmployeeAttendInfoId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="HrDailyEmployeeAttendInfoResult" >
+			SELECT *
+			FROM 
+				[dbo].[HrDailyEmployeeAttendInfo]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[HrDailyEmployeeAttendInfo]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="HrDailyEmployeeAttendInfoResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[HrDailyEmployeeAttendInfo]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="HrDailyEmployeeAttendInfo">
+			INSERT INTO [dbo].[HrDailyEmployeeAttendInfo] 
+			(
+				[HrDailyEmployeeAttendInfoId],
+				[ClockDataId],
+				[EmployeeId],
+				[DutyDate],
+				[ShouldCheckIn],
+				[ShouldCheckOut],
+				[ActualCheckIn],
+				[ActualCheckOut],
+				[LateInMinute],
+				[DayFactor],
+				[MonthFactor],
+				[SpecialBonus],
+				[Note],
+				[IsNormal],
+				[OverTimeON],
+				[OverTimeOff]
+			) 
+			VALUES 
+			(
+				#HrDailyEmployeeAttendInfoId#,
+				#ClockDataId#,
+				#EmployeeId#,
+				#DutyDate#,
+				#ShouldCheckIn#,
+				#ShouldCheckOut#,
+				#ActualCheckIn#,
+				#ActualCheckOut#,
+				#LateInMinute#,
+				#DayFactor#,
+				#MonthFactor#,
+				#SpecialBonus#,
+				#Note#,
+				#IsNormal#,
+				#OverTimeON#,
+				#OverTimeOff#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="HrDailyEmployeeAttendInfo">
+			UPDATE [HrDailyEmployeeAttendInfo] SET
+				[ClockDataId] = #ClockDataId#,
+				[EmployeeId] = #EmployeeId#,
+				[DutyDate] = #DutyDate#,
+				[ShouldCheckIn] = #ShouldCheckIn#,
+				[ShouldCheckOut] = #ShouldCheckOut#,
+				[ActualCheckIn] = #ActualCheckIn#,
+				[ActualCheckOut] = #ActualCheckOut#,
+				[LateInMinute] = #LateInMinute#,
+				[DayFactor] = #DayFactor#,
+				[MonthFactor] = #MonthFactor#,
+				[SpecialBonus] = #SpecialBonus#,
+				[Note] = #Note#,
+				[IsNormal] = #IsNormal#,
+				[OverTimeON] = #OverTimeON#,
+				[OverTimeOff] = #OverTimeOff#
+			WHERE
+				[HrDailyEmployeeAttendInfoId] = #HrDailyEmployeeAttendInfoId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[HrDailyEmployeeAttendInfo]
+				where  HrDailyEmployeeAttendInfoId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcOtherShouldCollection" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByDateRange" resultMap="AcOtherShouldCollectionResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM AcOtherShouldCollection
+      WHERE AcOtherShouldCollection.AcOtherShouldCollectionDate
+      BETWEEN #startdate# AND #enddate#
+      ]]>
+    </select>
+
+    <select id="SelectByDateRangeAndCustomer" resultMap="AcOtherShouldCollectionResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM AcOtherShouldCollection
+      WHERE AcOtherShouldCollection.AcOtherShouldCollectionDate
+      BETWEEN #startdate# AND #enddate#
+      AND (CustomerId = #customer# OR #customer# IS NULL)
+      ]]>
+    </select>
+
+    <select id="SelectByDateRangeAndCustomerCompany" resultMap="AcOtherShouldCollectionResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM AcOtherShouldCollection
+      WHERE AcOtherShouldCollection.AcOtherShouldCollectionDate
+      BETWEEN #startdate# AND #enddate#
+      AND (CustomerId = #customer# OR #customer# IS NULL)
+      AND (#company# IS NULL OR CompanyId = #company#)
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

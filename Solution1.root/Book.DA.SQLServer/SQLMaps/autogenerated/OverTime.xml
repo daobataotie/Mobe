@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="OverTime" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="OverTime" type="Book.Model.OverTime, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="OverTimeResult" class="OverTime">
+			<result property="OverTimeId" column="OverTimeId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="DueDate" column="DueDate" />
+			<result property="EoverTime" column="EoverTime" />
+			<result property="OverTimeFee" column="OverTimeFee" />
+			<result property="OverTimeBonus" column="OverTimeBonus" />
+			<result property="IsHoliday" column="IsHoliday" />
+			<result property="Note" column="Note" />
+		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[OverTime]
+				WHERE
+				[OverTimeId] = #OverTimeId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[OverTime]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="OverTimeResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.OverTime 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="OverTimeResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.OverTime 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="OverTimeResult" parameterClass="OverTime">
+			<![CDATA[
+			select top 1 *
+			from dbo.OverTime
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="OverTimeResult" parameterClass="OverTime">
+			<![CDATA[
+			select top 1 *
+			from dbo.OverTime
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="OverTime">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.OverTime
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="OverTime">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.OverTime
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="OverTimeResult" parameterClass="OverTime">
+			SELECT
+				[OverTimeId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[DueDate],
+				[EoverTime],
+				[OverTimeFee],
+				[OverTimeBonus],
+				[IsHoliday],
+				[Note]
+			FROM
+				[dbo].[OverTime]
+			WHERE
+				[OverTimeId] = #OverTimeId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[OverTime]
+			WHERE
+				[OverTimeId] = #OverTimeId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="OverTimeResult" >
+			SELECT *
+			FROM 
+				[dbo].[OverTime]
+			ORDER BY OverTimeId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[OverTime]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="OverTimeResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[OverTime]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="OverTime">
+			INSERT INTO [dbo].[OverTime] 
+			(
+				[OverTimeId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[DueDate],
+				[EoverTime],
+				[OverTimeFee],
+				[OverTimeBonus],
+				[IsHoliday],
+				[Note]
+			) 
+			VALUES 
+			(
+				#OverTimeId#,
+				#EmployeeId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#DueDate#,
+				#EoverTime#,
+				#OverTimeFee#,
+				#OverTimeBonus#,
+				#IsHoliday#,
+				#Note#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="OverTime">
+			UPDATE [OverTime] SET
+				[EmployeeId] = #EmployeeId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[DueDate] = #DueDate#,
+				[EoverTime] = #EoverTime#,
+				[OverTimeFee] = #OverTimeFee#,
+				[OverTimeBonus] = #OverTimeBonus#,
+				[IsHoliday] = #IsHoliday#,
+				[Note] = #Note#
+			WHERE
+				[OverTimeId] = #OverTimeId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

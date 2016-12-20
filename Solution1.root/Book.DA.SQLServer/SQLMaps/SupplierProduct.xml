@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SupplierProduct" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="mGetFirst" resultMap="SupplierProductResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM SupplierProduct
+      WHERE SupplierId = #SupplierId#
+      ORDER BY InsertTime ASC
+			]]>
+    </select>
+
+    <select id="mGetLast" resultMap="SupplierProductResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM SupplierProduct
+      WHERE SupplierId = #SupplierId#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="mGetPrev" resultMap="SupplierProductResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM SupplierProduct
+      WHERE InsertTime < #InsertDate#
+      AND SupplierId = #SupplierId#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="mGetNext" resultMap="SupplierProductResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM SupplierProduct
+      WHERE InsertTime > #InsertDate#
+      AND SupplierId = #SupplierId#
+      ORDER BY InsertTime ASC
+      ]]>
+    </select>
+
+    <select id="mHasRows" resultClass="bool" parameterClass="string">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM SupplierProduct WHERE SupplierId = #SupplierId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="mHasRowsBefore" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM SupplierProduct WHERE InsertTime < #InsertTime# AND SupplierId = #SupplierId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="mHasRowsAfter" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM SupplierProduct WHERE InsertTime > #InsertTime# AND SupplierId = #SupplierId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+    <select id="mSelect" resultMap="SupplierProductResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM SupplierProduct WHERE SupplierId = #value#
+      ]]>
+    </select>
+
+    <select id="GetPriceRangeForSupAndProduct" resultClass="string" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 SupplierProductPriceRange FROM SupplierProduct
+      WHERE SupplierId = #SupplierId#
+      AND ProductId = #ProductId#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

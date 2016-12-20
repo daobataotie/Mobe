@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BGHandbookIdSet" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectHasUsing" resultMap="BGHandbookIdSetResult">
+      <![CDATA[
+      SELECT * FROM BGHandbookIDSet WHERE IsUsing=1
+      ]]>
+    </select>
+    <select id="SelectBGHandbookId" resultClass="string">
+      <![CDATA[
+      SELECT Id FROM BGHandbook GROUP BY Id
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

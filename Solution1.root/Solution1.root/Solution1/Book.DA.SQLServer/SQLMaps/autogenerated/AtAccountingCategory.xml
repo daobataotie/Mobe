@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AtAccountingCategory" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AtAccountingCategory" type="Book.Model.AtAccountingCategory, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="AtAccountingCategoryResult" class="AtAccountingCategory">
+			<result property="AccountingCategoryId" column="AccountingCategoryId" />
+			<result property="AccountingCategoriesId" column="AccountingCategoriesId" />
+			<result property="AccountingCategoryName" column="AccountingCategoryName" />
+			<result property="EnglishName" column="EnglishName" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+		<result property="AccountingCategories" column="AccountingCategoriesId" lazyLoad="false" select="AtAccountingCategories.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtAccountingCategory]
+				WHERE
+				[AccountingCategoryId] = #AccountingCategoryId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtAccountingCategory]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="AtAccountingCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountingCategory 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="AtAccountingCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountingCategory 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="AtAccountingCategoryResult" parameterClass="AtAccountingCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountingCategory
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="AtAccountingCategoryResult" parameterClass="AtAccountingCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountingCategory
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="AtAccountingCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtAccountingCategory
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="AtAccountingCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtAccountingCategory
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AtAccountingCategoryResult" parameterClass="AtAccountingCategory">
+			SELECT
+				[AccountingCategoryId],
+				[AccountingCategoriesId],
+				[AccountingCategoryName],
+				[EnglishName],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			FROM
+				[dbo].[AtAccountingCategory]
+			WHERE
+				[AccountingCategoryId] = #AccountingCategoryId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[AtAccountingCategory]
+			WHERE
+				[AccountingCategoryId] = #AccountingCategoryId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AtAccountingCategoryResult" >
+			SELECT *
+			FROM 
+				[dbo].[AtAccountingCategory]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[AtAccountingCategory]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AtAccountingCategoryResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AtAccountingCategory]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AtAccountingCategory">
+			INSERT INTO [dbo].[AtAccountingCategory] 
+			(
+				[AccountingCategoryId],
+				[AccountingCategoriesId],
+				[AccountingCategoryName],
+				[EnglishName],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			) 
+			VALUES 
+			(
+				#AccountingCategoryId#,
+				#AccountingCategoriesId#,
+				#AccountingCategoryName#,
+				#EnglishName#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AtAccountingCategory">
+			UPDATE [AtAccountingCategory] SET
+				[AccountingCategoriesId] = #AccountingCategoriesId#,
+				[AccountingCategoryName] = #AccountingCategoryName#,
+				[EnglishName] = #EnglishName#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#
+			WHERE
+				[AccountingCategoryId] = #AccountingCategoryId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AtAccountingCategory]
+				where  AccountingCategoryId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtAccountingCategory
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="AtAccountingCategoryResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[AtAccountingCategory]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.AtAccountingCategory
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

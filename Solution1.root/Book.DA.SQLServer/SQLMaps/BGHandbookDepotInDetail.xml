@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BGHandbookDepotInDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByBGHandbookDepotInId" parameterClass="string" resultMap="BGHandbookDepotInDetailResult">
+      <![CDATA[
+      SELECT * FROM BGHandbookDepotInDetail WHERE BGHandbookDepotInId=#value#
+      ]]>
+    </select>
+
+    <delete id="DeleteByBGHandbookDepotInId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM BGHandbookDepotInDetail WHERE BGHandbookDepotInId=#value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

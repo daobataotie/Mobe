@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AcPaymentDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AcPaymentDetail" type="Book.Model.AcPaymentDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="AcPaymentDetailResult" class="AcPaymentDetail">
+			<result property="AcPaymentDetailId" column="AcPaymentDetailId" />
+			<result property="AcPaymentId" column="AcPaymentId" />
+			<result property="AcInvoiceType" column="AcInvoiceType" />
+			<result property="AcInvoiceId" column="AcInvoiceId" />
+			<result property="ShouldPaymentMoney" column="ShouldPaymentMoney" />
+			<result property="NoPaymentMoney" column="NoPaymentMoney" />
+			<result property="ThisChargeMoney" column="ThisChargeMoney" />
+			<result property="DetailCashAgio" column="DetailCashAgio" />
+			<result property="MayChargeMoney" column="MayChargeMoney" />
+			<result property="BillId" column="BillId" />
+			<result property="DomesticShouldPaymentMoney" column="DomesticShouldPaymentMoney" />
+			<result property="DomesticNoPaymentMoney" column="DomesticNoPaymentMoney" />
+			<result property="DomesticThisChargeMoney" column="DomesticThisChargeMoney" />
+			<result property="DomesticDetailCashAgio" column="DomesticDetailCashAgio" />
+			<result property="DomesticMayChargeMoney" column="DomesticMayChargeMoney" />
+		<result property="AcPayment" column="AcPaymentId" lazyLoad="false" select="AcPayment.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcPaymentDetail]
+				WHERE
+				[AcPaymentDetailId] = #AcPaymentDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcPaymentDetail]		
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AcPaymentDetailResult" parameterClass="AcPaymentDetail">
+			SELECT
+				[AcPaymentDetailId],
+				[AcPaymentId],
+				[AcInvoiceType],
+				[AcInvoiceId],
+				[ShouldPaymentMoney],
+				[NoPaymentMoney],
+				[ThisChargeMoney],
+				[DetailCashAgio],
+				[MayChargeMoney],
+				[BillId],
+				[DomesticShouldPaymentMoney],
+				[DomesticNoPaymentMoney],
+				[DomesticThisChargeMoney],
+				[DomesticDetailCashAgio],
+				[DomesticMayChargeMoney]
+			FROM
+				[dbo].[AcPaymentDetail]
+			WHERE
+				[AcPaymentDetailId] = #AcPaymentDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[AcPaymentDetail]
+			WHERE
+				[AcPaymentDetailId] = #AcPaymentDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AcPaymentDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[AcPaymentDetail]
+			
+
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[AcPaymentDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AcPaymentDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AcPaymentDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AcPaymentDetail">
+			INSERT INTO [dbo].[AcPaymentDetail] 
+			(
+				[AcPaymentDetailId],
+				[AcPaymentId],
+				[AcInvoiceType],
+				[AcInvoiceId],
+				[ShouldPaymentMoney],
+				[NoPaymentMoney],
+				[ThisChargeMoney],
+				[DetailCashAgio],
+				[MayChargeMoney],
+				[BillId],
+				[DomesticShouldPaymentMoney],
+				[DomesticNoPaymentMoney],
+				[DomesticThisChargeMoney],
+				[DomesticDetailCashAgio],
+				[DomesticMayChargeMoney]
+			) 
+			VALUES 
+			(
+				#AcPaymentDetailId#,
+				#AcPaymentId#,
+				#AcInvoiceType#,
+				#AcInvoiceId#,
+				#ShouldPaymentMoney#,
+				#NoPaymentMoney#,
+				#ThisChargeMoney#,
+				#DetailCashAgio#,
+				#MayChargeMoney#,
+				#BillId#,
+				#DomesticShouldPaymentMoney#,
+				#DomesticNoPaymentMoney#,
+				#DomesticThisChargeMoney#,
+				#DomesticDetailCashAgio#,
+				#DomesticMayChargeMoney#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AcPaymentDetail">
+			UPDATE [AcPaymentDetail] SET
+				[AcPaymentId] = #AcPaymentId#,
+				[AcInvoiceType] = #AcInvoiceType#,
+				[AcInvoiceId] = #AcInvoiceId#,
+				[ShouldPaymentMoney] = #ShouldPaymentMoney#,
+				[NoPaymentMoney] = #NoPaymentMoney#,
+				[ThisChargeMoney] = #ThisChargeMoney#,
+				[DetailCashAgio] = #DetailCashAgio#,
+				[MayChargeMoney] = #MayChargeMoney#,
+				[BillId] = #BillId#,
+				[DomesticShouldPaymentMoney] = #DomesticShouldPaymentMoney#,
+				[DomesticNoPaymentMoney] = #DomesticNoPaymentMoney#,
+				[DomesticThisChargeMoney] = #DomesticThisChargeMoney#,
+				[DomesticDetailCashAgio] = #DomesticDetailCashAgio#,
+				[DomesticMayChargeMoney] = #DomesticMayChargeMoney#
+			WHERE
+				[AcPaymentDetailId] = #AcPaymentDetailId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcPaymentDetail]
+				where  AcPaymentDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

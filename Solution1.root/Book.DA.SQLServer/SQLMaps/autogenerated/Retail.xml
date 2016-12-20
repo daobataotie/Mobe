@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Retail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Retail" type="Book.Model.Retail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="RetailResult" class="Retail">
+			<result property="RetailId" column="RetailId" />
+			<result property="AccountId" column="AccountId" />
+			<result property="DepotId" column="DepotId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="RetailTime" column="RetailTime" />
+			<result property="RetailTotal1" column="RetailTotal1" />
+			<result property="RetailYHE" column="RetailYHE" />
+			<result property="RetailZKE" column="RetailZKE" />
+			<result property="RetailZSE" column="RetailZSE" />
+			<result property="RetailTotal0" column="RetailTotal0" />
+			<result property="RetailAbstract" column="RetailAbstract" />
+			<result property="Account" column="AccountId" lazyLoad="false" select="Account.select_by_primary_key" />
+			<result property="Depot" column="DepotId" lazyLoad="false" select="Depot.select_by_primary_key" />
+			<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Retail]
+				WHERE
+				[RetailId] = #RetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Retail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="RetailResult" parameterClass="Retail">
+			SELECT
+				[RetailId],
+				[AccountId],
+				[DepotId],
+				[EmployeeId],
+				[RetailTime],
+				[RetailTotal1],
+				[RetailYHE],
+				[RetailZKE],
+				[RetailZSE],
+				[RetailTotal0],
+				[RetailAbstract]
+			FROM
+				[dbo].[Retail]
+			WHERE
+				[RetailId] = #RetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[Retail]
+			WHERE
+				[RetailId] = #RetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="RetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[Retail]
+			ORDER BY RetailId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[Retail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="RetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Retail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Retail">
+			INSERT INTO [dbo].[Retail] 
+			(
+				[RetailId],
+				[AccountId],
+				[DepotId],
+				[EmployeeId],
+				[RetailTime],
+				[RetailTotal1],
+				[RetailYHE],
+				[RetailZKE],
+				[RetailZSE],
+				[RetailTotal0],
+				[RetailAbstract]
+			) 
+			VALUES 
+			(
+				#RetailId#,
+				#AccountId#,
+				#DepotId#,
+				#EmployeeId#,
+				#RetailTime#,
+				#RetailTotal1#,
+				#RetailYHE#,
+				#RetailZKE#,
+				#RetailZSE#,
+				#RetailTotal0#,
+				#RetailAbstract#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Retail">
+			UPDATE [Retail] SET
+				[AccountId] = #AccountId#,
+				[DepotId] = #DepotId#,
+				[EmployeeId] = #EmployeeId#,
+				[RetailTime] = #RetailTime#,
+				[RetailTotal1] = #RetailTotal1#,
+				[RetailYHE] = #RetailYHE#,
+				[RetailZKE] = #RetailZKE#,
+				[RetailZSE] = #RetailZSE#,
+				[RetailTotal0] = #RetailTotal0#,
+				[RetailAbstract] = #RetailAbstract#
+			WHERE
+				[RetailId] = #RetailId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

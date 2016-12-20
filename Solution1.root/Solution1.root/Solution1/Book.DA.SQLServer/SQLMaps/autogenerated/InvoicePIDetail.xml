@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoicePIDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="InvoicePIDetail" type="Book.Model.InvoicePIDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="InvoicePIDetailResult" class="InvoicePIDetail">
+			<result property="InvoicePIDetailId" column="InvoicePIDetailId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="InvoicePODetailId" column="InvoicePODetailId" />
+			<result property="InvoiceId" column="InvoiceId" />
+			<result property="InvoicePIDetailQuantity" column="InvoicePIDetailQuantity" />
+			<result property="InvoicePIDetailNote" column="InvoicePIDetailNote" />
+			<result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+			<result property="PoDepotPositionId" column="PoDepotPositionId" />
+		<result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoicePI.select_by_primary_key" />		<result property="InvoicePODetail" column="InvoicePODetailId" lazyLoad="false" select="InvoicePODetail.select_by_primary_key" />		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />		<result property="PoDepotPosition" column="PoDepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoicePIDetail]
+				WHERE
+				[InvoicePIDetailId] = #InvoicePIDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoicePIDetail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="InvoicePIDetailResult" parameterClass="InvoicePIDetail">
+			SELECT
+				[InvoicePIDetailId],
+				[ProductId],
+				[InvoicePODetailId],
+				[InvoiceId],
+				[InvoicePIDetailQuantity],
+				[InvoicePIDetailNote],
+				[InvoiceProductUnit],
+				[PoDepotPositionId]
+			FROM
+				[dbo].[InvoicePIDetail]
+			WHERE
+				[InvoicePIDetailId] = #InvoicePIDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[InvoicePIDetail]
+			WHERE
+				[InvoicePIDetailId] = #InvoicePIDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="InvoicePIDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[InvoicePIDetail]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[InvoicePIDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="InvoicePIDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoicePIDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="InvoicePIDetail">
+			INSERT INTO [dbo].[InvoicePIDetail] 
+			(
+				[InvoicePIDetailId],
+				[ProductId],
+				[InvoicePODetailId],
+				[InvoiceId],
+				[InvoicePIDetailQuantity],
+				[InvoicePIDetailNote],
+				[InvoiceProductUnit],
+				[PoDepotPositionId]
+			) 
+			VALUES 
+			(
+				#InvoicePIDetailId#,
+				#ProductId#,
+				#InvoicePODetailId#,
+				#InvoiceId#,
+				#InvoicePIDetailQuantity#,
+				#InvoicePIDetailNote#,
+				#InvoiceProductUnit#,
+				#PoDepotPositionId#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="InvoicePIDetail">
+			UPDATE [InvoicePIDetail] SET
+				[ProductId] = #ProductId#,
+				[InvoicePODetailId] = #InvoicePODetailId#,
+				[InvoiceId] = #InvoiceId#,
+				[InvoicePIDetailQuantity] = #InvoicePIDetailQuantity#,
+				[InvoicePIDetailNote] = #InvoicePIDetailNote#,
+				[InvoiceProductUnit] = #InvoiceProductUnit#,
+				[PoDepotPositionId] = #PoDepotPositionId#
+			WHERE
+				[InvoicePIDetailId] = #InvoicePIDetailId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoicePIDetail]
+				where  InvoicePIDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

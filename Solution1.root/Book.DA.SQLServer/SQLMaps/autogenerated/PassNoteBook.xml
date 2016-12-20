@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PassNoteBook" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PassNoteBook" type="Book.Model.PassNoteBook, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PassNoteBookResult" class="PassNoteBook">
+      <result property="PassNoteBookId" column="PassNoteBookId" />
+      <result property="ImportAtCurrencyCategoryId" column="ImportAtCurrencyCategoryId" />
+      <result property="ExportAtCurrencyCategoryId" column="ExportAtCurrencyCategoryId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="CompanyInnerId" column="CompanyInnerId" />
+      <result property="NoteBookId" column="NoteBookId" />
+      <result property="BackType" column="BackType" />
+      <result property="JingYingDanWeiId" column="JingYingDanWeiId" />
+      <result property="JingYingDanWeiName" column="JingYingDanWeiName" />
+      <result property="NoteBookType" column="NoteBookType" />
+      <result property="JiaGongDanWeiId" column="JiaGongDanWeiId" />
+      <result property="JiaGongDanWeiName" column="JiaGongDanWeiName" />
+      <result property="ReceivingArea" column="ReceivingArea" />
+      <result property="ReportingUnitId" column="ReportingUnitId" />
+      <result property="ReportingUnitName" column="ReportingUnitName" />
+      <result property="ReportingDate" column="ReportingDate" />
+      <result property="ZhengMianXingZhi" column="ZhengMianXingZhi" />
+      <result property="AgreeNum" column="AgreeNum" />
+      <result property="EnteringDate" column="EnteringDate" />
+      <result property="ImportContract" column="ImportContract" />
+      <result property="ExportContract" column="ExportContract" />
+      <result property="ZhuGuanHaiGuan" column="ZhuGuanHaiGuan" />
+      <result property="BackImportTotalMoney" column="BackImportTotalMoney" />
+      <result property="BackExportTotalMoney" column="BackExportTotalMoney" />
+      <result property="ZhuGuanWaiJingMaoWei" column="ZhuGuanWaiJingMaoWei" />
+      <result property="XianZhiLeiMark" column="XianZhiLeiMark" />
+      <result property="ProcessType" column="ProcessType" />
+      <result property="BGProductId" column="BGProductId" />
+      <result property="DanSunReportingLink" column="DanSunReportingLink" />
+      <result property="EffectiveData" column="EffectiveData" />
+      <result property="TradeType" column="TradeType" />
+      <result property="ImportProductNum" column="ImportProductNum" />
+      <result property="ImportMoney" column="ImportMoney" />
+      <result property="ExportProductNum" column="ExportProductNum" />
+      <result property="ExportMoney" column="ExportMoney" />
+      <result property="ForeignCompany" column="ForeignCompany" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="ImportExportShoreId" column="ImportExportShoreId" />
+      <result property="NeiXiaoBiLi" column="NeiXiaoBiLi" />
+      <result property="ManageObject" column="ManageObject" />
+      <result property="TaiZhangBank" column="TaiZhangBank" />
+      <result property="Note" column="Note" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="ExportAtCurrencyCategory" column="ExportAtCurrencyCategoryId" lazyLoad="false" select="AtCurrencyCategory.select_by_primary_key" />
+      <result property="ImportAtCurrencyCategory" column="ImportAtCurrencyCategoryId" lazyLoad="false" select="AtCurrencyCategory.select_by_primary_key" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="ImportExportShore" column="ImportExportShoreId" lazyLoad="false" select="ImportExportShore.select_by_primary_key" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PassNoteBook]
+				WHERE
+				[PassNoteBookId] = #PassNoteBookId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PassNoteBook]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="PassNoteBookResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PassNoteBook
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="PassNoteBookResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PassNoteBook
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="PassNoteBookResult" parameterClass="PassNoteBook">
+      <![CDATA[
+			select top 1 *
+			from dbo.PassNoteBook
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="PassNoteBookResult" parameterClass="PassNoteBook">
+      <![CDATA[
+			select top 1 *
+			from dbo.PassNoteBook
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="PassNoteBook">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PassNoteBook
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="PassNoteBook">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PassNoteBook
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PassNoteBookResult" parameterClass="PassNoteBook">
+      <![CDATA[SELECT
+				[PassNoteBookId],
+				[ImportAtCurrencyCategoryId],
+				[ExportAtCurrencyCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[CompanyInnerId],
+				[NoteBookId],
+				[BackType],
+				[JingYingDanWeiId],
+				[JingYingDanWeiName],
+				[NoteBookType],
+				[JiaGongDanWeiId],
+				[JiaGongDanWeiName],
+				[ReceivingArea],
+				[ReportingUnitId],
+				[ReportingUnitName],
+				[ReportingDate],
+				[ZhengMianXingZhi],
+				[AgreeNum],
+				[EnteringDate],
+				[ImportContract],
+				[ExportContract],
+				[ZhuGuanHaiGuan],
+				[BackImportTotalMoney],
+				[BackExportTotalMoney],
+				[ZhuGuanWaiJingMaoWei],
+				[XianZhiLeiMark],
+				[ProcessType],
+				[BGProductId],
+				[DanSunReportingLink],
+				[EffectiveData],
+				[TradeType],
+				[ImportProductNum],
+				[ImportMoney],
+				[ExportProductNum],
+				[ExportMoney],
+				[ForeignCompany],
+				[EmployeeId],
+				[ImportExportShoreId],
+				[NeiXiaoBiLi],
+				[ManageObject],
+				[TaiZhangBank],
+				[Note],
+        [AuditState],
+        [AuditEmpId]          
+			FROM
+				[dbo].[PassNoteBook]
+			WHERE
+				[PassNoteBookId] = #PassNoteBookId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PassNoteBook]
+			WHERE            
+				[PassNoteBookId] = #PassNoteBookId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PassNoteBookResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PassNoteBook]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PassNoteBook]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PassNoteBookResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PassNoteBook]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PassNoteBook">
+      <![CDATA[ INSERT INTO [dbo].[PassNoteBook] 
+			(
+				[PassNoteBookId],
+				[ImportAtCurrencyCategoryId],
+				[ExportAtCurrencyCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[CompanyInnerId],
+				[NoteBookId],
+				[BackType],
+				[JingYingDanWeiId],
+				[JingYingDanWeiName],
+				[NoteBookType],
+				[JiaGongDanWeiId],
+				[JiaGongDanWeiName],
+				[ReceivingArea],
+				[ReportingUnitId],
+				[ReportingUnitName],
+				[ReportingDate],
+				[ZhengMianXingZhi],
+				[AgreeNum],
+				[EnteringDate],
+				[ImportContract],
+				[ExportContract],
+				[ZhuGuanHaiGuan],
+				[BackImportTotalMoney],
+				[BackExportTotalMoney],
+				[ZhuGuanWaiJingMaoWei],
+				[XianZhiLeiMark],
+				[ProcessType],
+				[BGProductId],
+				[DanSunReportingLink],
+				[EffectiveData],
+				[TradeType],
+				[ImportProductNum],
+				[ImportMoney],
+				[ExportProductNum],
+				[ExportMoney],
+				[ForeignCompany],
+				[EmployeeId],
+				[ImportExportShoreId],
+				[NeiXiaoBiLi],
+				[ManageObject],
+				[TaiZhangBank],
+				[Note],
+        [AuditState],
+        [AuditEmpId]
+			) 
+			VALUES 
+			(
+				#PassNoteBookId#,
+				#ImportAtCurrencyCategoryId#,
+				#ExportAtCurrencyCategoryId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#CompanyInnerId#,
+				#NoteBookId#,
+				#BackType#,
+				#JingYingDanWeiId#,
+				#JingYingDanWeiName#,
+				#NoteBookType#,
+				#JiaGongDanWeiId#,
+				#JiaGongDanWeiName#,
+				#ReceivingArea#,
+				#ReportingUnitId#,
+				#ReportingUnitName#,
+				#ReportingDate#,
+				#ZhengMianXingZhi#,
+				#AgreeNum#,
+				#EnteringDate#,
+				#ImportContract#,
+				#ExportContract#,
+				#ZhuGuanHaiGuan#,
+				#BackImportTotalMoney#,
+				#BackExportTotalMoney#,
+				#ZhuGuanWaiJingMaoWei#,
+				#XianZhiLeiMark#,
+				#ProcessType#,
+				#BGProductId#,
+				#DanSunReportingLink#,
+				#EffectiveData#,
+				#TradeType#,
+				#ImportProductNum#,
+				#ImportMoney#,
+				#ExportProductNum#,
+				#ExportMoney#,
+				#ForeignCompany#,
+				#EmployeeId#,
+				#ImportExportShoreId#,
+				#NeiXiaoBiLi#,
+				#ManageObject#,
+				#TaiZhangBank#,
+				#Note#,
+        #AuditState#,
+        #AuditEmpId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PassNoteBook">
+      <![CDATA[ 	UPDATE [PassNoteBook] SET
+				[ImportAtCurrencyCategoryId] = #ImportAtCurrencyCategoryId#,
+				[ExportAtCurrencyCategoryId] = #ExportAtCurrencyCategoryId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[CompanyInnerId] = #CompanyInnerId#,
+				[NoteBookId] = #NoteBookId#,
+				[BackType] = #BackType#,
+				[JingYingDanWeiId] = #JingYingDanWeiId#,
+				[JingYingDanWeiName] = #JingYingDanWeiName#,
+				[NoteBookType] = #NoteBookType#,
+				[JiaGongDanWeiId] = #JiaGongDanWeiId#,
+				[JiaGongDanWeiName] = #JiaGongDanWeiName#,
+				[ReceivingArea] = #ReceivingArea#,
+				[ReportingUnitId] = #ReportingUnitId#,
+				[ReportingUnitName] = #ReportingUnitName#,
+				[ReportingDate] = #ReportingDate#,
+				[ZhengMianXingZhi] = #ZhengMianXingZhi#,
+				[AgreeNum] = #AgreeNum#,
+				[EnteringDate] = #EnteringDate#,
+				[ImportContract] = #ImportContract#,
+				[ExportContract] = #ExportContract#,
+				[ZhuGuanHaiGuan] = #ZhuGuanHaiGuan#,
+				[BackImportTotalMoney] = #BackImportTotalMoney#,
+				[BackExportTotalMoney] = #BackExportTotalMoney#,
+				[ZhuGuanWaiJingMaoWei] = #ZhuGuanWaiJingMaoWei#,
+				[XianZhiLeiMark] = #XianZhiLeiMark#,
+				[ProcessType] = #ProcessType#,
+				[BGProductId] = #BGProductId#,
+				[DanSunReportingLink] = #DanSunReportingLink#,
+				[EffectiveData] = #EffectiveData#,
+				[TradeType] = #TradeType#,
+				[ImportProductNum] = #ImportProductNum#,
+				[ImportMoney] = #ImportMoney#,
+				[ExportProductNum] = #ExportProductNum#,
+				[ExportMoney] = #ExportMoney#,
+				[ForeignCompany] = #ForeignCompany#,
+				[EmployeeId] = #EmployeeId#,
+				[ImportExportShoreId] = #ImportExportShoreId#,
+				[NeiXiaoBiLi] = #NeiXiaoBiLi#,
+				[ManageObject] = #ManageObject#,
+				[TaiZhangBank] = #TaiZhangBank#,
+				[Note] = #Note#,
+        [AuditState]=#AuditState#,
+        [AuditEmpId]=#AuditEmpId#
+			WHERE
+				[PassNoteBookId] = #PassNoteBookId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PassNoteBook]
+				where  PassNoteBookId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

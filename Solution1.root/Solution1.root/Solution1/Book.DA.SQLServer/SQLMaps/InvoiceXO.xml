@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceXO" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byTime" parameterClass="Map" resultMap="InvoiceXOResult">
+      <![CDATA[
+				select * from InvoiceXO 
+				where invoicedate between #startTime# and #endTime#
+			]]>
+    </select>
+    <select id="select_byStatus" parameterClass="int" resultMap="InvoiceXOResult">
+      <![CDATA[
+      select * from invoiceXO
+				where invoicestatus = #value#
+      ]]>
+    </select>
+    <select id="select_byYJRQ" parameterClass="Map" resultMap="InvoiceXOResult">
+      <![CDATA[
+     select * from  InvoiceXO where invoiceyjrq<=#value# and InvoiceFlag<>2
+     ]]>
+    </select>
+    <select id="select_byYJRQCustomEmp" parameterClass="Map" resultMap="InvoiceXOResult">
+          <![CDATA[
+      select * from invoicexo
+      where
+      (CustomerId=#custormerId# or #custormerId# is null )
+      and  
+      ( Employee0Id = #roleIdEmp# or #roleIdEmp# is null)
+      and
+      ((InvoiceYjrq between #startDate# and #endDate#) or (#startDate# is null and #endDate# is null)) and InvoiceFlag<>2 ORDER BY InvoiceDate DESC 
+     ]]></select>
+    <select id="select_byCustomers" parameterClass="Map" resultMap="InvoiceXOResult">
+<![CDATA[
+      select * from invoicexo where InvoiceId  not in (select InvoiceXOId from MPSdetails) and InvoiceFlag<>2
+      and  CustomerId=#value#
+
+       ]]>		
+</select>
+	  <select id="selectFlagNot2" parameterClass="string" resultMap="InvoiceXOResult">
+		  <![CDATA[
+			select * from invoicexo where (InvoiceFlag<>2 or InvoiceFlag is null) and (InvoiceMPSState <>2 or InvoiceMPSState is null) order by InsertTime desc
+			 ]]>
+	  </select>
+
+  </statements>
+</sqlMap>

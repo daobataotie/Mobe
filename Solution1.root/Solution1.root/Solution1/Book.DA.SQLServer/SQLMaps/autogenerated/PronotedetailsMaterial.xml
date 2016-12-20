@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PronotedetailsMaterial" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="PronotedetailsMaterial" type="Book.Model.PronotedetailsMaterial, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="PronotedetailsMaterialResult" class="PronotedetailsMaterial">
+			<result property="PronotedetailsMaterialId" column="PronotedetailsMaterialId" />
+			<result property="PronoteHeaderID" column="PronoteHeaderID" />
+			<result property="MPSheaderId" column="MPSheaderId" />
+			<result property="PronotedetailsID" column="PronotedetailsID" />
+			<result property="ProductId" column="ProductId" />
+			<result property="PronoteQuantity" column="PronoteQuantity" />
+			<result property="AlreadyDrawQuantity" column="AlreadyDrawQuantity" />
+			<result property="MRSHeaderId" column="MRSHeaderId" />
+			<result property="MRSdetailsId" column="MRSdetailsId" />
+			<result property="ProductUnit" column="ProductUnit" />
+			<result property="Inumber" column="Inumber" />
+		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />		<result property="Pronotedetails" column="PronotedetailsID" lazyLoad="false" select="Pronotedetails.select_by_primary_key" />		<result property="PronoteHeader" column="PronoteHeaderID" lazyLoad="false" select="PronoteHeader.select_by_primary_key" />		<result property="MPSheader" column="MPSheaderId" lazyLoad="false" select="MPSheader.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PronotedetailsMaterial]
+				WHERE
+				[PronotedetailsMaterialId] = #PronotedetailsMaterialId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PronotedetailsMaterial]
+ 				where invoicestatus=1 or invoicestatus is null				
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="PronotedetailsMaterialResult" parameterClass="PronotedetailsMaterial">
+			SELECT
+				[PronotedetailsMaterialId],
+				[PronoteHeaderID],
+				[MPSheaderId],
+				[PronotedetailsID],
+				[ProductId],
+				[PronoteQuantity],
+				[AlreadyDrawQuantity],
+				[MRSHeaderId],
+				[MRSdetailsId],
+				[ProductUnit],
+				[Inumber]
+			FROM
+				[dbo].[PronotedetailsMaterial]
+			WHERE
+				[PronotedetailsMaterialId] = #PronotedetailsMaterialId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[PronotedetailsMaterial]
+			WHERE
+				[PronotedetailsMaterialId] = #PronotedetailsMaterialId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="PronotedetailsMaterialResult" >
+			SELECT *
+			FROM 
+				[dbo].[PronotedetailsMaterial]
+			
+
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[PronotedetailsMaterial]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="PronotedetailsMaterialResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PronotedetailsMaterial]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="PronotedetailsMaterial">
+			INSERT INTO [dbo].[PronotedetailsMaterial] 
+			(
+				[PronotedetailsMaterialId],
+				[PronoteHeaderID],
+				[MPSheaderId],
+				[PronotedetailsID],
+				[ProductId],
+				[PronoteQuantity],
+				[AlreadyDrawQuantity],
+				[MRSHeaderId],
+				[MRSdetailsId],
+				[ProductUnit],
+				[Inumber]
+			) 
+			VALUES 
+			(
+				#PronotedetailsMaterialId#,
+				#PronoteHeaderID#,
+				#MPSheaderId#,
+				#PronotedetailsID#,
+				#ProductId#,
+				#PronoteQuantity#,
+				#AlreadyDrawQuantity#,
+				#MRSHeaderId#,
+				#MRSdetailsId#,
+				#ProductUnit#,
+				#Inumber#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="PronotedetailsMaterial">
+			UPDATE [PronotedetailsMaterial] SET
+				[PronoteHeaderID] = #PronoteHeaderID#,
+				[MPSheaderId] = #MPSheaderId#,
+				[PronotedetailsID] = #PronotedetailsID#,
+				[ProductId] = #ProductId#,
+				[PronoteQuantity] = #PronoteQuantity#,
+				[AlreadyDrawQuantity] = #AlreadyDrawQuantity#,
+				[MRSHeaderId] = #MRSHeaderId#,
+				[MRSdetailsId] = #MRSdetailsId#,
+				[ProductUnit] = #ProductUnit#,
+				[Inumber] = #Inumber#
+			WHERE
+				[PronotedetailsMaterialId] = #PronotedetailsMaterialId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PronotedetailsMaterial]
+				where  PronotedetailsMaterialId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

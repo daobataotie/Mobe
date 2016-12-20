@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PCSamplingEarDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByPCMaterialCheckId" parameterClass="string" resultMap="PCSamplingEarDetailResult">
+      <![CDATA[
+      select * from PCSamplingEarDetail where PCSamplingEarId=#value# order by PCSamplingEarDetailDate
+      ]]>
+    </select>
+
+    <delete id="DeleteByPCMaterialCheckId" parameterClass="string">
+      <![CDATA[
+      delete from PCSamplingEarDetail where PCSamplingEarId=#value#
+      ]]>
+    </delete>
+
+    <select id="SelectByCondition" parameterClass="Map" resultMap="PCSamplingEarDetailResult">
+      <![CDATA[
+      select pcd.* from PCSamplingEarDetail pcd left join PCSamplingEar pc on pcd.PCSamplingEarId=pc.PCSamplingEarId left join Product p on pcd.ProductId=p.ProductId where 1=1 $sql$
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

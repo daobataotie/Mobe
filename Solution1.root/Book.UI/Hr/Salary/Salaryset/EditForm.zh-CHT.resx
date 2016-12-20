@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="barDockControlTop.Appearance.GradientMode" type="System.Drawing.Drawing2D.LinearGradientMode, System.Drawing">
+    <value>Horizontal</value>
+  </data>
+  <data name="barDockControlBottom.Appearance.GradientMode" type="System.Drawing.Drawing2D.LinearGradientMode, System.Drawing">
+    <value>Horizontal</value>
+  </data>
+  <data name="barDockControlLeft.Appearance.GradientMode" type="System.Drawing.Drawing2D.LinearGradientMode, System.Drawing">
+    <value>Horizontal</value>
+  </data>
+  <data name="barDockControlRight.Appearance.GradientMode" type="System.Drawing.Drawing2D.LinearGradientMode, System.Drawing">
+    <value>Horizontal</value>
+  </data>
+  <data name="simpleButton1.Text" xml:space="preserve">
+    <value>全部員工信息</value>
+  </data>
+  <assembly alias="DevExpress.Data.v10.2" name="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridControl1.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v10.2">
+    <value>Default</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridControl1.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v10.2" name="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridControl1.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v10.2">
+    <value>Center</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridControl1.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v10.2">
+    <value>None</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>員工編號</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridColumn1.Width" type="System.Int32, mscorlib">
+    <value>69</value>
+  </data>
+  <data name="gridColumn2.Caption" xml:space="preserve">
+    <value>員工名稱</value>
+  </data>
+  <data name="gridColumn2.Width" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="gridColumn3.Caption" xml:space="preserve">
+    <value>部門</value>
+  </data>
+  <data name="gridColumn3.Width" type="System.Int32, mscorlib">
+    <value>61</value>
+  </data>
+  <data name="gridColumn4.Caption" xml:space="preserve">
+    <value>職務</value>
+  </data>
+  <data name="gridColumn4.Width" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="gridColumnBusinessHours.Caption" xml:space="preserve">
+    <value>班別</value>
+  </data>
+  <data name="gridColumnBusinessHours.Width" type="System.Int32, mscorlib">
+    <value>59</value>
+  </data>
+  <data name="gridColumn6.Caption" xml:space="preserve">
+    <value>幹部</value>
+  </data>
+  <data name="gridColumn6.Width" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="gridColumn7.Width" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="gridColumn8.Width" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="gridColumn9.Caption" xml:space="preserve">
+    <value>責任津貼</value>
+  </data>
+  <data name="gridColumn9.Width" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="gridColumn10.Caption" xml:space="preserve">
+    <value>職務津貼</value>
+  </data>
+  <data name="gridColumn10.Width" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="gridColumn11.Caption" xml:space="preserve">
+    <value>餐費津貼</value>
+  </data>
+  <data name="gridColumn11.Width" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="gridColumn12.Caption" xml:space="preserve">
+    <value>保險費</value>
+  </data>
+  <data name="gridColumn12.Width" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="gridColumn13.Caption" xml:space="preserve">
+    <value>所得稅</value>
+  </data>
+  <data name="gridColumn13.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit1.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemCalcEdit1.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit1.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemCalcEdit1.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit1.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="repositoryItemCalcEdit1.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemCalcEdit1.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit1.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit1.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit2.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemCalcEdit2.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit2.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemCalcEdit2.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit2.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="repositoryItemCalcEdit2.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemCalcEdit2.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit2.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit2.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit3.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemCalcEdit3.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit3.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemCalcEdit3.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit3.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="repositoryItemCalcEdit3.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemCalcEdit3.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit3.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit3.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit4.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemCalcEdit4.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit4.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemCalcEdit4.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit4.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="repositoryItemCalcEdit4.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemCalcEdit4.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit4.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit4.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit5.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemCalcEdit5.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit5.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemCalcEdit5.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit5.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="repositoryItemCalcEdit5.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemCalcEdit5.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit5.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit5.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit6.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemCalcEdit6.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit6.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemCalcEdit6.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit6.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="repositoryItemCalcEdit6.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemCalcEdit6.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit6.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit6.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit7.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemCalcEdit7.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCalcEdit7.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemCalcEdit7.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit7.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="repositoryItemCalcEdit7.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemCalcEdit7.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit7.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemCalcEdit7.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lookUpEditName.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lookUpEditName.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lookUpEditName.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lookUpEditId.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lookUpEditId.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="lookUpEditId.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="layoutControlItem1.Text" xml:space="preserve">
+    <value>依員工編號搜尋:</value>
+  </data>
+  <data name="layoutControlItem2.Text" xml:space="preserve">
+    <value>依名稱搜尋:</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>人力資源-薪資管理-薪資設定</value>
+  </data>
+  <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v10.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMC4yLCBWZXJzaW9uPTEwLjIu
+        NC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
+        eXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
+        a2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAChEZXZFeHByZXNzLlV0aWxzLkltYWdlQ29sbGVjdGlvblN0
+        cmVhbWVyAgAAAAlJbWFnZVNpemUERGF0YQQHE1N5c3RlbS5EcmF3aW5nLlNpemUDAAAAAgIAAAAF/P//
+        /xNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAwAAABgAAAAYAAAACQUAAAAP
+        BQAAAOYJAAACIgUAAIlQTkcNChoKAAAADUlIRFIAAAAYAAAAGAgGAAAA4Hc9+AAAAAFzUkdCAK7OHOkA
+        AAAEZ0FNQQAAsY8L/GEFAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwA
+        AAAJcEhZcwAACwMAAAsDAUmOjNIAAASLSURBVEhLlZVrUxtVGMf3Izh+AN/5BYptB7RWkQIFClhKUaQt
+        9YLjFG2ntbwQfaEOU17oaKdOZzqjo3YQhEJTKCGEUATCJdBwDTShoSgJIQmXUCDZ7GYvf5+zJEAoKM3M
+        bzZ75uz/9+zuec5y7KcoyguKqv6qquoKgRhDKyrKbEC1C1gQtsb/hxXK+oFlauHsRycv06B+5+R7HuD9
+        IeC8FSh+qKLikYouf/yc3aCsapYZjdcERbKi2OmI7eg86jYBcHZAxXt9Cor7ZPw8JcMblOPmx6AsKx2L
+        ovEcJ8vKLUmSlwhsp3Jqd8Hpbhm57RLS9SI+7RSgmxIRCEnbr/WyzGi4/CINjEciEnZS6dhF0K+ggARv
+        P5BwnARH68M48FsQJ2rW4q5lmSybCdJEMQJBiGcqENLC4wSDKor6VRSYFU2Q0SLijYYwEn4PoswUjLue
+        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
+        A/wPAH+sRdiMWwkAAAAASUVORK5CYIIL
+</value>
+  </data>
+</root>

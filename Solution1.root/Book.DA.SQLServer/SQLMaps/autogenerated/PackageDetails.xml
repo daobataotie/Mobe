@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PackageDetails" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="PackageDetails" type="Book.Model.PackageDetails, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="PackageDetailsResult" class="PackageDetails">
+			<result property="PackageDetailsId" column="PackageDetailsId" />
+			<result property="PackageTypeId" column="PackageTypeId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="Quantity" column="Quantity" />
+			<result property="ConsumeRate" column="ConsumeRate" />
+			<result property="Description" column="Description" />
+			<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PackageDetails]
+				WHERE
+				[PackageDetailsId] = #PackageDetailsId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PackageDetails]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="PackageDetailsResult" parameterClass="PackageDetails">
+			SELECT
+				[PackageDetailsId],
+				[PackageTypeId],
+				[ProductId],
+				[Quantity],
+				[ConsumeRate],
+				[Description]
+			FROM
+				[dbo].[PackageDetails]
+			WHERE
+				[PackageDetailsId] = #PackageDetailsId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[PackageDetails]
+			WHERE
+				[PackageDetailsId] = #PackageDetailsId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="PackageDetailsResult" >
+			SELECT *
+			FROM 
+				[dbo].[PackageDetails]
+			ORDER BY PackageDetailsId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[PackageDetails]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="PackageDetailsResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PackageDetails]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="PackageDetails">
+			INSERT INTO [dbo].[PackageDetails] 
+			(
+				[PackageDetailsId],
+				[PackageTypeId],
+				[ProductId],
+				[Quantity],
+				[ConsumeRate],
+				[Description]
+			) 
+			VALUES 
+			(
+				#PackageDetailsId#,
+				#PackageTypeId#,
+				#ProductId#,
+				#Quantity#,
+				#ConsumeRate#,
+				#Description#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="PackageDetails">
+			UPDATE [PackageDetails] SET
+				[PackageTypeId] = #PackageTypeId#,
+				[ProductId] = #ProductId#,
+				[Quantity] = #Quantity#,
+				[ConsumeRate] = #ConsumeRate#,
+				[Description] = #Description#
+			WHERE
+				[PackageDetailsId] = #PackageDetailsId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

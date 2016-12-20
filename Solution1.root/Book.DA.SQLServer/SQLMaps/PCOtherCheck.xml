@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCOtherCheck" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByDateRange" resultMap="PCOtherCheckResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM PCOtherCheck WHERE PCOtherCheckDate BETWEEN #startdate# AND #enddate# ORDER BY PCOtherCheckId desc
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

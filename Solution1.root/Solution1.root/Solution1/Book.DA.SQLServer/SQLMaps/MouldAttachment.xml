@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="MouldAttachment" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <delete id="DeleteByMouldid" parameterClass="string">
+      DELETE FROM MouldAttachment WHERE MouldId= #value#
+    </delete>
+    <select id="selectByMouldId"  parameterClass="string" resultMap="MouldAttachmentResult">
+      SELECT * FROM MouldAttachment WHERE MouldId=#value#
+    </select>
+  </statements>
+</sqlMap>

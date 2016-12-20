@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Invoice01" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<alias>
+		<typeAlias alias="Invoice01" type="Book.Model.Invoice01"/>
+	</alias>
+	<resultMaps>
+		<resultMap id="Invoice01Result" class="Invoice01">
+			<result property="InvoiceId" column="InvoiceId" />						
+			<result property="Employee0Id" column="Employee0Id" />
+			<result property="Employee1Id" column="Employee1Id" />
+			<result property="Employee2Id" column="Employee2Id" />
+			<result property="Employee3Id" column="Employee3Id" />
+			<result property="InvoiceLRTime" column="InvoiceLRTime" />
+			<result property="InvoiceGZTime" column="InvoiceGZTime" />
+			<result property="InvoiceZFTime" column="InvoiceZFTime" />
+			<result property="InvoiceZFCause" column="InvoiceZFCause" />
+			<result property="InvoiceDate" column="InvoiceDate" />
+			<result property="InvoiceAbstract" column="InvoiceAbstract" />
+			<result property="InvoiceNote" column="InvoiceNote" />
+			<result property="InvoiceStatus" column="InvoiceStatus" />
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+			<result property="Employee2" column="Employee2Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+			<result property="Employee3" column="Employee3Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+			<result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+			<result property="Kind" column="Kind"/>
+			<result property="InvoiceTotal1" column="InvoiceHeji"/>
+			<result property="InvoiceZSE" column="InvoiceZSE"/>
+			<result property="InvoiceZRE" column="InvoiceZRE"/>
+			<result property="InvoiceTax" column="InvoiceTax"/>
+			<result property="InvoiceTotal0" column="InvoiceZongJi"/>
+			<result property="InvoicePayTimeLimit" column="InvoicePayTimeLimit"/>
+			<result property="InvoiceOwed" column="InvoiceOwed"/>			
+		</resultMap>
+		<resultMap id="Invoice01Result_update" class="Invoice01">
+			<result property="InvoiceId" column="InvoiceId" />			
+			<result property="Employee0Id" column="Employee0Id" />
+			<result property="Employee1Id" column="Employee1Id" />
+			<result property="Employee2Id" column="Employee2Id" />
+			<result property="Employee3Id" column="Employee3Id" />
+			<result property="InvoiceLRTime" column="InvoiceLRTime" />
+			<result property="InvoiceGZTime" column="InvoiceGZTime" />
+			<result property="InvoiceZFTime" column="InvoiceZFTime" />
+			<result property="InvoiceZFCause" column="InvoiceZFCause" />
+			<result property="InvoiceDate" column="InvoiceDate" />
+			<result property="InvoiceAbstract" column="InvoiceAbstract" />
+			<result property="InvoiceNote" column="InvoiceNote" />
+			<result property="InvoiceStatus" column="InvoiceStatus" />
+			<result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+			<result property="Employee2" column="Employee2Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+			<result property="Employee3" column="Employee3Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+			<result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+			<result property="Kind" column="Kind"/>
+			<result property="InvoiceTotal1" column="InvoiceHeJi"/>
+			<result property="InvoiceZSE" column="InvoiceZSE"/>
+			<result property="InvoiceZRE" column="InvoiceZRE"/>
+			<result property="InvoiceTax" column="InvoiceTax"/>
+			<result property="InvoiceTotal0" column="InvoiceZongJi"/>
+			<result property="InvoicePayTimeLimit" column="InvoicePayTimeLimit"/>
+			<result property="InvoiceOwed" column="InvoiceOwed"/>			
+			<result property="PayReceived" column="payReceived"/>
+		</resultMap>
+	</resultMaps>
+	<statements>
+		<select id="select_all_FK" resultMap="Invoice01Result">
+			<![CDATA[
+				select * from
+				(
+				select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'cg' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed
+				from dbo.invoicecg where InvoiceZongJi > 0 and invoiceowed>0 and InvoiceStatus = 1 
+				union all
+				select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'xt' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed
+				from dbo.invoicext where InvoiceZongJi > 0 and invoiceowed>0 and InvoiceStatus = 1
+				) Invoice01
+				where 
+				order by InvoicePayTimeLimit,InvoiceDate
+            ]]>			
+		</select>
+		<select id="select_all_SK" resultMap="Invoice01Result">
+			<![CDATA[			
+				select * 
+				from
+				(
+				select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'xs' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed
+				from dbo.invoicexs where InvoiceZongJi > 0 and InvoiceStatus = 1				
+				union all
+				select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'ct' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed
+				from dbo.invoicect where InvoiceZongJi > 0 and InvoiceStatus = 1 
+				) Invoice01 
+				order by InvoicePayTimeLimit,InvoiceDate
+			]]>
+		</select>
+		<select id="select_all_FK_update" resultMap="Invoice01Result_update" parameterClass="Map">
+      <![CDATA[
+      select * from
+      (
+      select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'cg' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed,xp1money as payReceived
+      from dbo.invoicecg cg inner join xp1 on xp1.invoicecgid = cg.invoiceid
+      where
+      InvoiceZongJi > 0 and InvoiceStatus = 1 and invoicefkid = #invoiceFkId#
+      union all
+      select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'xt' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed,xp2money as payReceived
+      from dbo.invoicext xt inner join xp2 on xp2.invoicextid = xt.invoiceid
+      where
+      InvoiceHeJi > 0 and InvoiceStatus = 1 and invoicefkid = #invoiceFkId#
+      ) Invoice01
+      order by InvoicePayTimeLimit,InvoiceDate
+      ]]>
+    </select>
+		<select id="select_all_SK_update" resultMap="Invoice01Result_update" parameterClass="Map">
+      <![CDATA[
+      select
+      *
+      from
+      (select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'xs' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed,xr1money as payReceived
+      from
+      dbo.invoicexs xs inner join xr1 on xr1.invoicexsid = xs.invoiceid
+      where
+      InvoiceZongJi > 0 and InvoiceStatus = 1  and invoiceskid = #invoiceFkId#      
+      union all
+      select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'ct' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed,xr2money as payReceived
+      from
+      dbo.invoicect ct inner join xr2 on xr2.invoicectid = ct.invoiceid
+      where
+      InvoiceZongJi > 0 and InvoiceStatus = 1  and invoiceskid = #invoiceFkId#
+      )
+      Invoice01 
+      order by
+      InvoicePayTimeLimit,InvoiceDate
+      ]]>
+    </select>
+    <select id="select_all_FK_View" resultMap="Invoice01Result_update" parameterClass="Map">
+      <![CDATA[
+      select * from
+      (
+      select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'cg' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed,xp1money as payReceived
+      from dbo.invoicecg cg inner join xp1 on xp1.invoicecgid = cg.invoiceid
+      where InvoiceStatus = 1 and invoicefkid = #invoiceFkId#
+      union all
+      select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'xt' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed,xp2money as payReceived
+      from dbo.invoicext xt inner join xp2 on xp2.invoicextid = xt.invoiceid
+      where InvoiceStatus = 1 and invoicefkid = #invoiceFkId#
+      ) Invoice01 
+      order by InvoicePayTimeLimit,InvoiceDate
+      
+      ]]>
+    </select>
+    <select id="select_all_SK_View" resultMap="Invoice01Result_update" parameterClass="Map">
+      <![CDATA[
+      select
+      *
+      from
+      (
+      select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'xs' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed,xr1money as payReceived
+      from
+      dbo.invoicexs xs inner join xr1 on xr1.invoicexsid = xs.invoiceid
+      where InvoiceStatus = 1  and invoiceskid = #invoiceFkId#      
+      union all
+      select invoiceid,employee0id,employee1id,employee2id,employee3id,InvoiceLRTime,InvoiceGZTime,InvoiceZFCause,InvoiceZFTime, InvoiceDate,InvoiceAbstract,InvoiceNote,InvoiceStatus,'ct' as Kind,InvoiceHeJi,InvoiceZSE,InvoiceZRE,InvoiceTax,InvoiceZongJi,InvoicePayTimeLimit,InvoiceOwed,xr2money as payReceived
+      from
+      dbo.invoicect ct inner join xr2 on xr2.invoicectid = ct.invoiceid
+      where InvoiceStatus = 1  and invoiceskid = #invoiceFkId#
+      )
+      Invoice01
+      where 
+      order by
+      InvoicePayTimeLimit,InvoiceDate
+      ]]>
+    </select>
+	</statements>
+</sqlMap>

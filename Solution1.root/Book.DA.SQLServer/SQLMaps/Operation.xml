@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Operation" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<statements>
+		<select id="select_KeyTag0" resultMap="OperationResult"  >
+			SELECT *
+			FROM
+			[dbo].[Operation] where ParentOperationId is null	order by OperationId
+		</select>
+		<select id="select_ByParent" resultMap="OperationResult"  parameterClass="string">
+			SELECT *
+			FROM
+			[dbo].[Operation] where ParentOperationId=#value# and OperationId  in(select ParentOperationId from Operation) order by OperationId
+		</select>
+
+    <select id="get_byTabelName" resultClass="string"  >
+      SELECT top 1 OperationName
+      FROM
+      [dbo].[Operation] where tablename =#value#
+    </select>
+	</statements>
+</sqlMap>

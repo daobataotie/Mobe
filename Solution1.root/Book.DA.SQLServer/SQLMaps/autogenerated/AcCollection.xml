@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcCollection" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="AcCollection" type="Book.Model.AcCollection, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="AcCollectionResult" class="AcCollection">
+      <result property="AcCollectionId" column="AcCollectionId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="SubjectId" column="SubjectId" />
+      <result property="PayMethodId" column="PayMethodId" />
+      <result property="Employee1Id" column="Employee1Id" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="AtCurrencyCategoryId" column="AtCurrencyCategoryId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="AcPaymentDate" column="AcPaymentDate" />
+      <result property="BankAccount" column="BankAccount" />
+      <result property="BillNo" column="BillNo" />
+      <result property="AdvanceCollectionBalance" column="AdvanceCollectionBalance" />
+      <result property="SubscriptionAdvanceCollection" column="SubscriptionAdvanceCollection" />
+      <result property="JoinAdvanceCollection" column="JoinAdvanceCollection" />
+      <result property="EealityCollection" column="EealityCollection" />
+      <result property="DomesticEealityCollection" column="DomesticEealityCollection" />
+      <result property="CashAgio" column="CashAgio" />
+      <result property="DomesticCashAgio" column="DomesticCashAgio" />
+      <result property="AlreadyChargeMoney" column="AlreadyChargeMoney" />
+      <result property="DomesticMayChargeMoney" column="DomesticMayChargeMoney" />
+      <result property="AcDesc" column="AcDesc" />
+      <result property="AuditingState" column="AuditingState" />
+      <result property="AcInvoiceState" column="AcInvoiceState" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="PayMethod" column="PayMethodId" lazyLoad="false" select="PayMethod.select_by_primary_key" />
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="AtCurrencyCategory" column="AtCurrencyCategoryId" lazyLoad="false" select="AtCurrencyCategory.select_by_primary_key" />
+      <result property="Subject" column="SubjectId" lazyLoad="false" select="AtAccountSubject.select_by_primary_key" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[AcCollection]
+      WHERE
+      [AcCollectionId] = #AcCollectionId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[AcCollection]
+      ) then 1 else 0 end
+    </select>
+    <select id="get_first" resultMap="AcCollectionResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcCollection 
+			order by InsertTime
+			]]>
+    </select>
+    <select id="get_last" resultMap="AcCollectionResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcCollection 			
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_prev" resultMap="AcCollectionResult" parameterClass="AcCollection">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcCollection
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="AcCollectionResult" parameterClass="AcCollection">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcCollection
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+    </select>
+    <select id="has_rows_before" resultClass="bool" parameterClass="AcCollection">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcCollection
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="AcCollection">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcCollection
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="AcCollectionResult" parameterClass="AcCollection">
+      SELECT
+      [AcCollectionId],
+      [EmployeeId],
+      [Employee0Id],
+      [SubjectId],
+      [PayMethodId],
+      [Employee1Id],
+      [CustomerId],
+      [AtCurrencyCategoryId],
+      [InsertTime],
+      [UpdateTime],
+      [AcPaymentDate],
+      [BankAccount],
+      [BillNo],
+      [AdvanceCollectionBalance],
+      [SubscriptionAdvanceCollection],
+      [JoinAdvanceCollection],
+      [EealityCollection],
+      [DomesticEealityCollection],
+      [CashAgio],
+      [DomesticCashAgio],
+      [AlreadyChargeMoney],
+      [DomesticMayChargeMoney],
+      [AcDesc],
+      [AuditingState],
+      [AcInvoiceState],
+      [AuditState],
+      [AuditEmpId]
+      FROM
+      [dbo].[AcCollection]
+      WHERE
+      [AcCollectionId] = #AcCollectionId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[AcCollection]
+      WHERE
+      [AcCollectionId] = #AcCollectionId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="AcCollectionResult" >
+      SELECT *
+      FROM
+      [dbo].[AcCollection]
+
+      ORDER BY InsertTime DESC
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[AcCollection]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="AcCollectionResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[AcCollection]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="AcCollection">
+      INSERT INTO [dbo].[AcCollection]
+      (
+      [AcCollectionId],
+      [EmployeeId],
+      [Employee0Id],
+      [SubjectId],
+      [PayMethodId],
+      [Employee1Id],
+      [CustomerId],
+      [AtCurrencyCategoryId],
+      [InsertTime],
+      [UpdateTime],
+      [AcPaymentDate],
+      [BankAccount],
+      [BillNo],
+      [AdvanceCollectionBalance],
+      [SubscriptionAdvanceCollection],
+      [JoinAdvanceCollection],
+      [EealityCollection],
+      [DomesticEealityCollection],
+      [CashAgio],
+      [DomesticCashAgio],
+      [AlreadyChargeMoney],
+      [DomesticMayChargeMoney],
+      [AcDesc],
+      [AuditingState],
+      [AcInvoiceState],
+      [AuditState],
+      [AuditEmpId]
+      )
+      VALUES
+      (
+      #AcCollectionId#,
+      #EmployeeId#,
+      #Employee0Id#,
+      #SubjectId#,
+      #PayMethodId#,
+      #Employee1Id#,
+      #CustomerId#,
+      #AtCurrencyCategoryId#,
+      #InsertTime#,
+      #UpdateTime#,
+      #AcPaymentDate#,
+      #BankAccount#,
+      #BillNo#,
+      #AdvanceCollectionBalance#,
+      #SubscriptionAdvanceCollection#,
+      #JoinAdvanceCollection#,
+      #EealityCollection#,
+      #DomesticEealityCollection#,
+      #CashAgio#,
+      #DomesticCashAgio#,
+      #AlreadyChargeMoney#,
+      #DomesticMayChargeMoney#,
+      #AcDesc#,
+      #AuditingState#,
+      #AcInvoiceState#,
+      #AuditState#,
+      #AuditEmpId#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="AcCollection">
+      UPDATE [AcCollection] SET
+      [EmployeeId] = #EmployeeId#,
+      [Employee0Id] = #Employee0Id#,
+      [SubjectId] = #SubjectId#,
+      [PayMethodId] = #PayMethodId#,
+      [Employee1Id] = #Employee1Id#,
+      [CustomerId] = #CustomerId#,
+      [AtCurrencyCategoryId] = #AtCurrencyCategoryId#,
+      [InsertTime] = #InsertTime#,
+      [UpdateTime] = #UpdateTime#,
+      [AcPaymentDate] = #AcPaymentDate#,
+      [BankAccount] = #BankAccount#,
+      [BillNo] = #BillNo#,
+      [AdvanceCollectionBalance] = #AdvanceCollectionBalance#,
+      [SubscriptionAdvanceCollection] = #SubscriptionAdvanceCollection#,
+      [JoinAdvanceCollection] = #JoinAdvanceCollection#,
+      [EealityCollection] = #EealityCollection#,
+      [DomesticEealityCollection] = #DomesticEealityCollection#,
+      [CashAgio] = #CashAgio#,
+      [DomesticCashAgio] = #DomesticCashAgio#,
+      [AlreadyChargeMoney] = #AlreadyChargeMoney#,
+      [DomesticMayChargeMoney] = #DomesticMayChargeMoney#,
+      [AcDesc] = #AcDesc#,
+      [AuditingState] = #AuditingState#,
+      [AcInvoiceState] = #AcInvoiceState#
+      [AuditState]=#AuditState#,     
+      [AuditEmpId]=#AuditEmpId#
+      WHERE
+      [AcCollectionId] = #AcCollectionId#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcCollection]
+				where  AcCollectionId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

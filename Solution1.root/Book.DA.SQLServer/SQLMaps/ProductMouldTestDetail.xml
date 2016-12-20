@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProductMouldTestDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <delete id="DeleteByProductMouldTestId" parameterClass="string">
+      DELETE FROM ProductMouldTestDetail WHERE ProductMouldTestId=#value#
+    </delete>
+    <delete id="DeleteByMouldId" parameterClass="string">
+      DELETE FROM [dbo].[ProductMouldDetail]
+      WHERE
+      [MouldId] = #value#
+    </delete>  
+  </statements>
+</sqlMap>

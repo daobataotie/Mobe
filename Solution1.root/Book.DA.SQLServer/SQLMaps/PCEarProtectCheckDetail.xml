@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCEarProtectCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByPCEarProtectCheckId" resultMap="PCEarProtectCheckDetailResult" parameterClass="String">
+      <![CDATA[
+    SELECT * FROM PCEarProtectCheckDetail WHERE PCEarProtectCheckDetail.PCEarProtectCheckId=#value# order by CheckDate
+    ]]>
+    </select>
+
+    <delete id="DeleteByPCEarProtectCheckId" parameterClass="String">
+      <![CDATA[
+      DELETE FROM PCEarProtectCheckDetail WHERE PCEarProtectCheckId=#value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

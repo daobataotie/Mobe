@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceXSDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="InvoiceXSDetailResult1" class="InvoiceXSDetail">
+      <result property="InvoiceXSDetailId" column="InvoiceXSDetailId" />
+      <result property="PrimaryKeyId" column="PrimaryKeyId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="Kind" column="kind"/>
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceXS.select_by_primary_key" />
+      <result property="PrimaryKey" column="PrimaryKeyId" lazyLoad="false" select="CustomerProducts.select_by_primary_key" />
+    </resultMap>
+    <resultMap id="InvoiceXSDetailResult2" class="InvoiceXSDetail">
+      <result property="InvoiceXSDetailId" column="InvoiceXSDetailId" />
+      <result property="InvoiceXODetailId" column="InvoiceXODetailId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="InvoiceXSDetailQuantity" column="InvoiceXSDetailQuantity" />
+      <result property="InvoiceProductUnit" column="InvoiceProductUnit"/>
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceXS.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+
+    <select id="selectbyinvoiceidfz" resultMap="InvoiceXSDetailResult2" parameterClass="string">
+      SELECT max(InvoiceXSDetailId) InvoiceXSDetailId,max(InvoiceXODetailId) InvoiceXODetailId,max(ProductId) ProductId,max(InvoiceId) InvoiceId,max(InvoiceProductUnit) InvoiceProductUnit,sum(InvoiceXSDetailQuantity) InvoiceXSDetailQuantity FROM InvoiceXSDetail WHERE InvoiceId=#value# GROUP BY InvoiceXODetailId
+    </select>
+
+    <select id="select_by_invoiceid" resultMap="InvoiceXSDetailResult" parameterClass="string">
+      SELECT *
+      FROM
+      [dbo].[InvoiceXSDetail]
+      WHERE invoiceid = #value# order by Inumber
+    </select>
+    <delete id="delete_by_invoiceid" parameterClass="string">
+      delete
+      from dbo.InvoiceXSDetail
+      where invoiceid=#value#
+    </delete>
+
+    <select id ="selectbyDateReangeAndProductReangeCompanyReange"  parameterClass="Map" resultMap="InvoiceXSDetailResult">
+      <![CDATA[
+        select detail.* from invoiceXSdetail detail inner join invoiceXS cg on  
+        detail.invoiceid = cg.invoiceid
+        where 
+        (cg.InvoiceDate between #startDate# and #endDate#)
+        and 
+        ([PrimaryKeyId] between #psid# and #peid#)
+        and 
+        (cg.[companyid] between #csid# and #ceid#)
+        ]]>
+    </select>
+    <select id ="select_count"  parameterClass="Map" resultMap="InvoiceXSDetailResult">
+      <![CDATA[
+          select * from invoicexsdetail where  InvoiceId =
+          (select top 1 InvoiceId from invoicexs where InvoiceXOId = #value# order by InvoiceId desc ) 
+        ]]>
+    </select>
+    <select id="select_bycustomerProductId" parameterClass="Map" resultMap="InvoiceXSDetailResult">
+      <![CDATA[
+      select * from invoicexsdetail where InvoiceXOId=#InvoiceId#  and PrimaryKeyId=#PrimaryKeyId#     
+      ]]>
+    </select>
+    <select id="selectByProductIdQuJianEndNULL" parameterClass="Map" resultMap="InvoiceXSDetailResult">
+      <![CDATA[
+         select * from invoicexsdetail where invoiceid = #invoiceId#  
+      ]]>
+    </select>
+
+    <select id="selectByProductIdQuJian" parameterClass="Map" resultMap="InvoiceXSDetailResult">
+      <![CDATA[      
+         select * from invoicexsdetail where invoiceid = #invoiceId#  and ProductId BETWEEN #productStart# AND #productEnd#
+      ]]>
+    </select>
+    <select id="selectByCustomEmpDepetQuJian" parameterClass="Map" resultMap="InvoiceXSDetailResult">
+      <![CDATA[      
+        SELECT * FROM InvoiceXSDetail  WHERE InvoiceXOId IN(SELECT InvoiceId FROM InvoiceXS WHERE InvoiceDate BETWEEN #startdate#  AND #enddate#) AND ( InvoiceXOId IN(SELECT InvoiceId FROM InvoiceXS WHERE customerid=#customerid#) OR #customerid# IS null) 
+AND  ( InvoiceXOId IN(SELECT InvoiceId FROM InvoiceXS WHERE Employee0Id=#employeeId#) OR #employeeId# IS null) 
+AND ( InvoiceXOId IN(SELECT InvoiceId FROM InvoiceXS WHERE DepotId=#depotid#) OR #depotid# IS null) 
+      ]]>
+    </select>
+    <select id="GetByProIdPosIdInvoiceId" parameterClass="Map" resultMap="InvoiceXSDetailResult">
+      SELECT * FROM InvoiceXSDetail WHERE ProductId=#productId# AND DepotPositionId=#positionId# AND InvoiceId=#invoiceId#
+    </select>
+
+    <select id="GetSumByProductIdAndInvoiceId" parameterClass="Map" resultClass="double">
+      SELECT isnull(sum(InvoiceXSDetailQuantity),0) FROM InvoiceXSDetail WHERE ProductId=#productId# AND InvoiceId=#invoiceId#
+    </select>
+
+    <select id="SelectByDateRange" parameterClass="Map" resultMap="InvoiceXSDetailResult">
+      <![CDATA[
+      SELECT * FROM InvoiceXSDetail ixsd
+      LEFT JOIN InvoiceXS ixs 
+      ON ixs.InvoiceId = ixsd.InvoiceId
+      WHERE ixs.InvoiceDate BETWEEN #startdate# AND #enddate#
+      ]]>
+    </select>
+
+    <select id="SelectbyConditionX" parameterClass="string" resultMap="InvoiceXSDetailResult">
+      <![CDATA[
+      SELECT * FROM InvoiceXSDetail WHERE 1 = 1 $value$
+      ]]>
+    </select>
+
+    <select id="SumBeeQuantityByHandbook" parameterClass="string" resultClass="double">
+      <![CDATA[
+      SELECT isnull(sum(InvoiceXSDetailQuantity),0) FROM InvoiceXSDetail  WHERE HandbookId=#HandbookId# AND HandbookProductId=#HandbookProductId#
+      ]]>
+    </select>
+
+    <select id="GetInvoiceXSDetailQuantity" parameterClass="string" resultClass="double">
+      <![CDATA[
+      select InvoiceXSDetailQuantity from InvoiceXSDetail where InvoiceXSDetailId=#value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

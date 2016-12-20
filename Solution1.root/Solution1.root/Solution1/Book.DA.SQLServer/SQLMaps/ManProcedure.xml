@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ManProcedure" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+
+    <delete id="delete_bybom"   parameterClass="string">
+      delete
+      from dbo.ManProcedure
+      where bomid=#value#
+    </delete>
+	  <!--SELECT
+	  *
+	  FROM
+	  [dbo].[ManProcedure]
+	  where [BomId]=#BomId# and (CustomerId=#CustomerId# or #CustomerId# is null)-->
+  <select id="select_bybomidcustomer" resultMap="ManProcedureResult" parameterClass="Map">
+	  select  * from  [dbo].[ManProcedure] where  [BomId]=#BomId# and ( CustomerId=#CustomerId# or #CustomerId# is null)
+  </select>
+	  <select id="select_bybomid" resultMap="ManProcedureResult" parameterClass="string">
+		  select  * from  [dbo].[ManProcedure] where  [BomId]=#value# 
+	  </select>
+	  <select id="select_byBomidMadePro" resultMap="ManProcedureResult" parameterClass="Map">
+		  select  * from  [dbo].[ManProcedure] where  [BomId]=#BomId# 
+		  and (MadeProductId=#MadeProductId# or #MadeProductId# is null)
+	  </select>
+	  <!--<delete id="delete_bybom"   parameterClass="string">
+		  delete
+		  from dbo.ManProcedure
+		  where bomid=#value#
+	  </delete>-->
+	  
+  </statements>
+
+
+
+</sqlMap>

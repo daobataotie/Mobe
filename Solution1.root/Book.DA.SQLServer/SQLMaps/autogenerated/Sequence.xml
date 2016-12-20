@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Sequence" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Sequence" type="Book.Model.Sequence, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="SequenceResult" class="Sequence">
+			<result property="Key" column="Key" />
+			<result property="Val" column="Val" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Sequence]
+				WHERE
+				[Key] = #Key#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Sequence]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="SequenceResult" parameterClass="Sequence">
+			SELECT
+				[Key],
+				[Val]
+			FROM
+				[dbo].[Sequence]
+			WHERE
+				[Key] = #Key#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[Sequence]
+			WHERE
+				[Key] = #Key#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="SequenceResult" >
+			SELECT *
+			FROM 
+				[dbo].[Sequence]
+			ORDER BY Key ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[Sequence]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="SequenceResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Sequence]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Sequence">
+			INSERT INTO [dbo].[Sequence] 
+			(
+				[Key],
+				[Val]
+			) 
+			VALUES 
+			(
+				#Key#,
+				#Val#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Sequence">
+			UPDATE [Sequence] SET
+				[Val] = #Val#
+			WHERE
+				[Key] = #Key#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

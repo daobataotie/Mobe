@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="RetailDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="RetailDetail" type="Book.Model.RetailDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="RetailDetailResult" class="RetailDetail">
+			<result property="RetailDetailId" column="RetailDetailId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="RetailId" column="RetailId" />
+			<result property="RetailDetailQuantity" column="RetailDetailQuantity" />
+			<result property="RetailDetailDiscountRate" column="RetailDetailDiscountRate" />
+			<result property="RetailDetailDiscount" column="RetailDetailDiscount" />
+			<result property="RetailDetailZS" column="RetailDetailZS" />
+			<result property="RetailDetailPrice" column="RetailDetailPrice" />
+			<result property="RetailDetailMoney1" column="RetailDetailMoney1" />
+			<result property="RetailDetailNote" column="RetailDetailNote" />
+			<result property="RetailDetailMoney0" column="RetailDetailMoney0" />
+			<result property="RetailDetailUnit" column="RetailDetailUnit" />
+			<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+			<result property="Retail" column="RetailId" lazyLoad="false" select="Retail.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[RetailDetail]
+				WHERE
+				[RetailDetailId] = #RetailDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[RetailDetail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="RetailDetailResult" parameterClass="RetailDetail">
+			SELECT
+				[RetailDetailId],
+				[ProductId],
+				[RetailId],
+				[RetailDetailQuantity],
+				[RetailDetailDiscountRate],
+				[RetailDetailDiscount],
+				[RetailDetailZS],
+				[RetailDetailPrice],
+				[RetailDetailMoney1],
+				[RetailDetailNote],
+				[RetailDetailMoney0],
+				[RetailDetailUnit]
+			FROM
+				[dbo].[RetailDetail]
+			WHERE
+				[RetailDetailId] = #RetailDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[RetailDetail]
+			WHERE
+				[RetailDetailId] = #RetailDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="RetailDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[RetailDetail]
+			ORDER BY RetailDetailId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[RetailDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="RetailDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[RetailDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="RetailDetail">
+			INSERT INTO [dbo].[RetailDetail] 
+			(
+				[RetailDetailId],
+				[ProductId],
+				[RetailId],
+				[RetailDetailQuantity],
+				[RetailDetailDiscountRate],
+				[RetailDetailDiscount],
+				[RetailDetailZS],
+				[RetailDetailPrice],
+				[RetailDetailMoney1],
+				[RetailDetailNote],
+				[RetailDetailMoney0],
+				[RetailDetailUnit]
+			) 
+			VALUES 
+			(
+				#RetailDetailId#,
+				#ProductId#,
+				#RetailId#,
+				#RetailDetailQuantity#,
+				#RetailDetailDiscountRate#,
+				#RetailDetailDiscount#,
+				#RetailDetailZS#,
+				#RetailDetailPrice#,
+				#RetailDetailMoney1#,
+				#RetailDetailNote#,
+				#RetailDetailMoney0#,
+				#RetailDetailUnit#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="RetailDetail">
+			UPDATE [RetailDetail] SET
+				[ProductId] = #ProductId#,
+				[RetailId] = #RetailId#,
+				[RetailDetailQuantity] = #RetailDetailQuantity#,
+				[RetailDetailDiscountRate] = #RetailDetailDiscountRate#,
+				[RetailDetailDiscount] = #RetailDetailDiscount#,
+				[RetailDetailZS] = #RetailDetailZS#,
+				[RetailDetailPrice] = #RetailDetailPrice#,
+				[RetailDetailMoney1] = #RetailDetailMoney1#,
+				[RetailDetailNote] = #RetailDetailNote#,
+				[RetailDetailMoney0] = #RetailDetailMoney0#,
+				[RetailDetailUnit] = #RetailDetailUnit#
+			WHERE
+				[RetailDetailId] = #RetailDetailId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Tables" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Tables" type="Book.Model.Tables, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="TablesResult" class="Tables">
+      <result property="TablesID" column="TablesID" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="Tablename" column="Tablename" />
+      <result property="TableCode" column="TableCode" />
+      <result property="Id" column="Id" />
+      <result property="TableUrl" column="TableUrl" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Tables]
+				WHERE
+				[TablesID] = #TablesID#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Tables]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="TablesResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.Tables
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="TablesResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.Tables
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="TablesResult" parameterClass="Tables">
+      <![CDATA[
+			select top 1 *
+			from dbo.Tables
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="TablesResult" parameterClass="Tables">
+      <![CDATA[
+			select top 1 *
+			from dbo.Tables
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="Tables">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Tables
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="Tables">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Tables
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="TablesResult" parameterClass="Tables">
+      <![CDATA[SELECT
+				[TablesID],
+				[InsertTime],
+				[UpdateTime],
+				[Tablename],
+				[TableCode],
+				[Id],
+				[TableUrl]
+			FROM
+				[dbo].[Tables]
+			WHERE
+				[TablesID] = #TablesID#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[Tables]
+			WHERE            
+				[TablesID] = #TablesID#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="TablesResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[Tables]
+                			                   
+			ORDER BY Id ASC			
+			
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[Tables]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="TablesResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Tables]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="Tables">
+      <![CDATA[ INSERT INTO [dbo].[Tables] 
+			(
+				[TablesID],
+				[InsertTime],
+				[UpdateTime],
+				[Tablename],
+				[TableCode],
+				[Id],
+				[TableUrl]
+			) 
+			VALUES 
+			(
+				#TablesID#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Tablename#,
+				#TableCode#,
+				#Id#,
+				#TableUrl#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="Tables">
+      <![CDATA[ 	UPDATE [Tables] SET
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Tablename] = #Tablename#,
+				[TableCode] = #TableCode#,
+				[Id] = #Id#,
+				[TableUrl] = #TableUrl#
+			WHERE
+				[TablesID] = #TablesID#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[Tables]
+				where  TablesID = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+    <select id="exists" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Tables
+				where Id = #value#
+               			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="get_by_id" resultMap="TablesResult" parameterClass="string">
+      <![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[Tables]
+                    			          
+         
+			WHERE
+				Id = #value#
+			]]>
+    </select>
+
+    <select id="existsexcept" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from dbo.Tables
+				where Id = #newId# and Id <> #oldId#
+                    			          
+         
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+
+  </statements>
+</sqlMap>
+

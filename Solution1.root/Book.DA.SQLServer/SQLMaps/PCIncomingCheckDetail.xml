@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCIncomingCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByPrimaryId" parameterClass="string" resultMap="PCIncomingCheckDetailResult">
+      <![CDATA[
+      select * from PCIncomingCheckDetail where PCIncomingCheckId=#value# order by CheckDate
+      ]]>
+    </select>
+
+    <delete id="DeleteByPrimaryId" parameterClass="String">
+      <![CDATA[
+      delete from PCIncomingCheckDetail where PCIncomingCheckId=#value#
+      ]]>
+    </delete>
+
+    <select id="SelectByCondition" parameterClass="Map" resultMap="PCIncomingCheckDetailResult">
+      <![CDATA[
+      select * from PCIncomingCheckDetail pcd left join PCIncomingCheck pc on pcd.PCIncomingCheckId=pc.PCIncomingCheckId where pc.CheckDate between #startdate# and #enddate# $sql$
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

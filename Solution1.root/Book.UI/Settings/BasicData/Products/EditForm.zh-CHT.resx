@@ -1,0 +1,1044 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v10.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMC4yLCBWZXJzaW9uPTEwLjIu
+        NC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
+        eXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
+        a2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAChEZXZFeHByZXNzLlV0aWxzLkltYWdlQ29sbGVjdGlvblN0
+        cmVhbWVyAgAAAAlJbWFnZVNpemUERGF0YQQHE1N5c3RlbS5EcmF3aW5nLlNpemUDAAAAAgIAAAAF/P//
+        /xNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAwAAABgAAAAYAAAACQUAAAAP
+        BQAAAF48AAACtgQAAIlQTkcNChoKAAAADUlIRFIAAAAYAAAAGAgGAAAA4Hc9+AAAAAFzUkdCAK7OHOkA
+        AAAEZ0FNQQAAsY8L/GEFAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwA
+        AAQ0SURBVEhLlZXLbxtVFMbPH8DD6gqpXXTDPjt24B0bFv0DQOqSBQo7FqwqWFfdIUKpUgmoEAiFlub9
+        cJx3mncaO44TJ/UjHqeJ60zs2InHMx/fmbGdjB0iOtKn0Z17z++79/ica5H6Y9t2d61WKziOg7fRWN5B
+        x5yD24tenDLIetDgum9OfMiPvW8DJgiT+yeQYQeyYEPW7ObGyHqizKYJF39uWdYmJ/B/lDXLSCaTSCQS
+        6IwdQdZpsHIRS96iMpsGlmV3nZ9Xjyyrhuu0Y9bwybiNW6Eq5lIG0uk0OjfzkFUaLNnNWLIMZTbSc4PQ
+        9WrVwnUyTRPfL53gvekaZNPG0+wxMpkMOqM0WKYB03Q5XplM0w1haj6lI87OrtZQysLO/iEMw0CxWEQw
+        yZxHLhlEaLBIg3nbx1CmsqVarX5bqZyjVTnzHF9NcbdPgM9illYH9MgdCcJe0mDfO8HdlwXIC36bddoY
+        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
+</value>
+  </data>
+  <data name="xtraTabPage1.Text" xml:space="preserve">
+    <value>基本資料</value>
+  </data>
+  <data name="xtraTabPage5.Text" xml:space="preserve">
+    <value>品管</value>
+  </data>
+  <data name="xtraTabPage2.Text" xml:space="preserve">
+    <value>庫存數量</value>
+  </data>
+  <data name="xtraTabPage6.Text" xml:space="preserve">
+    <value>圖檔</value>
+  </data>
+  <data name="xtraTabPageProcee.Text" xml:space="preserve">
+    <value>加工訊息</value>
+  </data>
+  <data name="xtraTabPage10.Text" xml:space="preserve">
+    <value>採購歷史記錄</value>
+  </data>
+  <data name="xtraTabPage11.Text" xml:space="preserve">
+    <value>銷售歷史記錄</value>
+  </data>
+  <data name="xtraTabPageStock.Text" xml:space="preserve">
+    <value>庫存記錄</value>
+  </data>
+  <data name="radioProductType.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checkEditOutSourcing.Properties.Caption" xml:space="preserve">
+    <value>外購</value>
+  </data>
+  <data name="checkEditHomeMade.Properties.Caption" xml:space="preserve">
+    <value>自製</value>
+  </data>
+  <data name="radioGroupBarCode.Properties.Items1" xml:space="preserve">
+    <value>手動輸入</value>
+  </data>
+  <data name="radioGroupBarCode.Properties.Items3" xml:space="preserve">
+    <value>自動生成</value>
+  </data>
+  <data name="textEditProductName.EditValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="layoutControlItem5.CustomizationFormText" xml:space="preserve">
+    <value>商品條碼:</value>
+  </data>
+  <data name="layoutControlItem5.Text" xml:space="preserve">
+    <value>商品條碼:</value>
+  </data>
+  <data name="layoutControlItem16.CustomizationFormText" xml:space="preserve">
+    <value>內包裝:</value>
+  </data>
+  <data name="layoutControlItem16.Text" xml:space="preserve">
+    <value>內包裝:</value>
+  </data>
+  <data name="layoutControlItem17.CustomizationFormText" xml:space="preserve">
+    <value>外包裝:</value>
+  </data>
+  <data name="layoutControlItem17.Text" xml:space="preserve">
+    <value>外包裝:</value>
+  </data>
+  <data name="layoutControlItem1.CustomizationFormText" xml:space="preserve">
+    <value>商品編號:</value>
+  </data>
+  <data name="layoutControlItem1.Text" xml:space="preserve">
+    <value>商品編號:</value>
+  </data>
+  <data name="layoutControlItem3.CustomizationFormText" xml:space="preserve">
+    <value>商品名稱:</value>
+  </data>
+  <data name="layoutControlItem3.Text" xml:space="preserve">
+    <value>商品名稱:</value>
+  </data>
+  <data name="layoutControlItem14.Text" xml:space="preserve">
+    <value>供應商:</value>
+  </data>
+  <data name="layoutControlItem4.CustomizationFormText" xml:space="preserve">
+    <value>生產國家:</value>
+  </data>
+  <data name="layoutControlItem4.Text" xml:space="preserve">
+    <value>生產國家:</value>
+  </data>
+  <data name="layoutControlItem7.CustomizationFormText" xml:space="preserve">
+    <value>商品型號:</value>
+  </data>
+  <data name="layoutControlItem7.Text" xml:space="preserve">
+    <value>商品規格:</value>
+  </data>
+  <data name="layoutControlItem35.CustomizationFormText" xml:space="preserve">
+    <value>商品批號:</value>
+  </data>
+  <data name="layoutControlItem35.Text" xml:space="preserve">
+    <value>商品批號:</value>
+  </data>
+  <data name="layoutControlItem38.Text" xml:space="preserve">
+    <value>商品類別:</value>
+  </data>
+  <data name="layoutControlItem25.Text" xml:space="preserve">
+    <value>採購單位:</value>
+  </data>
+  <data name="layoutControlItem29.CustomizationFormText" xml:space="preserve">
+    <value>主計量單位組:</value>
+  </data>
+  <data name="layoutControlItem29.Text" xml:space="preserve">
+    <value>生產單位:</value>
+  </data>
+  <data name="layoutControlItem6.CustomizationFormText" xml:space="preserve">
+    <value>生產單位:</value>
+  </data>
+  <data name="layoutControlItem6.Text" xml:space="preserve">
+    <value>主計量單位組:</value>
+  </data>
+  <data name="layoutControlItem15.Text" xml:space="preserve">
+    <value>庫房單位:</value>
+  </data>
+  <data name="layoutControlItem30.Text" xml:space="preserve">
+    <value>銷售單位:</value>
+  </data>
+  <data name="layoutControlItem37.Text" xml:space="preserve">
+    <value>客戶貨品名稱:</value>
+  </data>
+  <data name="layoutControlItem39.Text" xml:space="preserve">
+    <value>客戶:</value>
+  </data>
+  <data name="layoutControlItem34.CustomizationFormText" xml:space="preserve">
+    <value>商品產地:</value>
+  </data>
+  <data name="layoutControlItem34.Text" xml:space="preserve">
+    <value>商品產地:</value>
+  </data>
+  <data name="layoutControlItem134.Text" xml:space="preserve">
+    <value>類型:</value>
+  </data>
+  <data name="layoutControlItem157.Text" xml:space="preserve">
+    <value>建檔人：</value>
+  </data>
+  <data name="layoutControlItem158.Text" xml:space="preserve">
+    <value>變更人：</value>
+  </data>
+  <data name="layoutControlItem163.Text" xml:space="preserve">
+    <value>修改時間：</value>
+  </data>
+  <data name="xtraTabPage3.Text" xml:space="preserve">
+    <value>採購價位</value>
+  </data>
+  <data name="xtraTabPage12.Text" xml:space="preserve">
+    <value>銷售價位</value>
+  </data>
+  <data name="xtraTabPage13.Text" xml:space="preserve">
+    <value>正側麥</value>
+  </data>
+  <data name="comboBoxEditValuationWay.Properties.Items" xml:space="preserve">
+    <value>計畫價法</value>
+  </data>
+  <data name="comboBoxEditValuationWay.Properties.Items2" xml:space="preserve">
+    <value>移動平均法</value>
+  </data>
+  <data name="comboBoxEditValuationWay.Properties.Items3" xml:space="preserve">
+    <value>先進先出法</value>
+  </data>
+  <data name="comboBoxEditValuationWay.Properties.Items4" xml:space="preserve">
+    <value>個別計價法</value>
+  </data>
+  <data name="comboBoxEditValuationWay.Properties.Items5" xml:space="preserve">
+    <value>後進先出法</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value> 至     無限大</value>
+  </data>
+  <data name="layoutControlItem113.Text" xml:space="preserve">
+    <value>區間一  從：</value>
+  </data>
+  <data name="layoutControlItem114.Text" xml:space="preserve">
+    <value>  至  ：</value>
+  </data>
+  <data name="layoutControlItem119.Text" xml:space="preserve">
+    <value>價位一：</value>
+  </data>
+  <data name="layoutControlItem115.Text" xml:space="preserve">
+    <value>  至  ：</value>
+  </data>
+  <data name="layoutControlItem116.Text" xml:space="preserve">
+    <value>區間二  從：</value>
+  </data>
+  <data name="layoutControlItem120.Text" xml:space="preserve">
+    <value>價位二：</value>
+  </data>
+  <data name="layoutControlItem117.Text" xml:space="preserve">
+    <value>  至  ：</value>
+  </data>
+  <data name="layoutControlItem118.Text" xml:space="preserve">
+    <value>區間三  從：</value>
+  </data>
+  <data name="layoutControlItem121.Text" xml:space="preserve">
+    <value>價位三：</value>
+  </data>
+  <data name="layoutControlItem122.Text" xml:space="preserve">
+    <value>  至  ：</value>
+  </data>
+  <data name="layoutControlItem123.Text" xml:space="preserve">
+    <value>區間四  從：</value>
+  </data>
+  <data name="layoutControlItem124.Text" xml:space="preserve">
+    <value>價位四：</value>
+  </data>
+  <data name="layoutControlItem125.Text" xml:space="preserve">
+    <value>  至  ：</value>
+  </data>
+  <data name="layoutControlItem126.Text" xml:space="preserve">
+    <value>區間五  從：</value>
+  </data>
+  <data name="layoutControlItem127.Text" xml:space="preserve">
+    <value>價位五：</value>
+  </data>
+  <data name="layoutControlItem128.Text" xml:space="preserve">
+    <value>  至  ：</value>
+  </data>
+  <data name="layoutControlItem129.Text" xml:space="preserve">
+    <value>區間六  從：</value>
+  </data>
+  <data name="layoutControlItem130.Text" xml:space="preserve">
+    <value>價位六：</value>
+  </data>
+  <data name="layoutControlItem131.Text" xml:space="preserve">
+    <value>區間七   從：</value>
+  </data>
+  <data name="layoutControlItem132.Text" xml:space="preserve">
+    <value>區間七  從：</value>
+  </data>
+  <data name="layoutControlItem133.Text" xml:space="preserve">
+    <value>價位七</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value> 至     無限大</value>
+  </data>
+  <data name="layoutControlItem135.Text" xml:space="preserve">
+    <value>區間一  從：</value>
+  </data>
+  <data name="layoutControlItem138.Text" xml:space="preserve">
+    <value>區間七  從：</value>
+  </data>
+  <data name="layoutControlItem140.Text" xml:space="preserve">
+    <value>區間二  從：</value>
+  </data>
+  <data name="layoutControlItem141.Text" xml:space="preserve">
+    <value>價位一：</value>
+  </data>
+  <data name="layoutControlItem137.Text" xml:space="preserve">
+    <value>價位二：</value>
+  </data>
+  <data name="layoutControlItem143.Text" xml:space="preserve">
+    <value>區間三  從：</value>
+  </data>
+  <data name="layoutControlItem145.Text" xml:space="preserve">
+    <value>價位三：</value>
+  </data>
+  <data name="layoutControlItem146.Text" xml:space="preserve">
+    <value>區間四  從：</value>
+  </data>
+  <data name="layoutControlItem148.Text" xml:space="preserve">
+    <value>價位四：</value>
+  </data>
+  <data name="layoutControlItem149.Text" xml:space="preserve">
+    <value>區間五  從：</value>
+  </data>
+  <data name="layoutControlItem151.Text" xml:space="preserve">
+    <value>價位五：</value>
+  </data>
+  <data name="layoutControlItem152.Text" xml:space="preserve">
+    <value>區間六  從：</value>
+  </data>
+  <data name="layoutControlItem153.Text" xml:space="preserve">
+    <value>價位六：</value>
+  </data>
+  <data name="layoutControlItem155.Text" xml:space="preserve">
+    <value>價位七：</value>
+  </data>
+  <data name="layoutControlItem159.Text" xml:space="preserve">
+    <value>正麥：</value>
+  </data>
+  <data name="layoutControlItem160.Text" xml:space="preserve">
+    <value>側麥：</value>
+  </data>
+  <data name="layoutControlItem32.CustomizationFormText" xml:space="preserve">
+    <value>計價方式:</value>
+  </data>
+  <data name="layoutControlItem32.Text" xml:space="preserve">
+    <value>計價方式:</value>
+  </data>
+  <data name="layoutControlItem46.CustomizationFormText" xml:space="preserve">
+    <value>參考成本:</value>
+  </data>
+  <data name="layoutControlItem46.Text" xml:space="preserve">
+    <value>參考成本:</value>
+  </data>
+  <data name="layoutControlItem48.CustomizationFormText" xml:space="preserve">
+    <value>最高進價:</value>
+  </data>
+  <data name="layoutControlItem48.Text" xml:space="preserve">
+    <value>最高進價:</value>
+  </data>
+  <data name="layoutControlItem28.Text" xml:space="preserve">
+    <value>採購人員:</value>
+  </data>
+  <data name="layoutControlItem50.Text" xml:space="preserve">
+    <value>默認貨位:</value>
+  </data>
+  <data name="layoutControlItem45.CustomizationFormText" xml:space="preserve">
+    <value>計畫售價:</value>
+  </data>
+  <data name="layoutControlItem45.Text" xml:space="preserve">
+    <value>計畫售價:</value>
+  </data>
+  <data name="layoutControlItem47.CustomizationFormText" xml:space="preserve">
+    <value>最低售價:</value>
+  </data>
+  <data name="layoutControlItem47.Text" xml:space="preserve">
+    <value>最低售價:</value>
+  </data>
+  <data name="layoutControlItem52.CustomizationFormText" xml:space="preserve">
+    <value>參考售價:</value>
+  </data>
+  <data name="layoutControlItem52.Text" xml:space="preserve">
+    <value>參考售價:</value>
+  </data>
+  <data name="layoutControlItem49.Text" xml:space="preserve">
+    <value>默認倉庫:</value>
+  </data>
+  <data name="labelControlStockTakeCycle.Text" xml:space="preserve">
+    <value>天</value>
+  </data>
+  <data name="layoutControlItem53.Text" xml:space="preserve">
+    <value>最低庫存:</value>
+  </data>
+  <data name="layoutControlItem57.Text" xml:space="preserve">
+    <value>替換件:</value>
+  </data>
+  <data name="layoutControlItem58.Text" xml:space="preserve">
+    <value>ABC分類:</value>
+  </data>
+  <data name="layoutControlItem55.Text" xml:space="preserve">
+    <value>安全庫存:</value>
+  </data>
+  <data name="layoutControlItem66.Text" xml:space="preserve">
+    <value>檢驗周期:</value>
+  </data>
+  <data name="layoutControlItem60.Text" xml:space="preserve">
+    <value>最近盤點日期:</value>
+  </data>
+  <data name="layoutControlItem24.Text" xml:space="preserve">
+    <value>盤點周期:</value>
+  </data>
+  <data name="layoutControlItem59.Text" xml:space="preserve">
+    <value>盤點周期單位:</value>
+  </data>
+  <data name="layoutControlItem54.Text" xml:space="preserve">
+    <value>最高庫存:</value>
+  </data>
+  <data name="layoutControlItem61.Text" xml:space="preserve">
+    <value>合理損耗率:</value>
+  </data>
+  <data name="layoutControlItem67.Text" xml:space="preserve">
+    <value>體積單位組:</value>
+  </data>
+  <data name="layoutControlItem68.Text" xml:space="preserve">
+    <value>長(CM):</value>
+  </data>
+  <data name="layoutControlItem71.Text" xml:space="preserve">
+    <value>體積單位:</value>
+  </data>
+  <data name="layoutControlItem72.Text" xml:space="preserve">
+    <value>重量單位組:</value>
+  </data>
+  <data name="layoutControlItem73.Text" xml:space="preserve">
+    <value>重量單位:</value>
+  </data>
+  <data name="layoutControlItem76.Text" xml:space="preserve">
+    <value>包裝材料:</value>
+  </data>
+  <data name="layoutControlItem78.Text" xml:space="preserve">
+    <value>建檔人:</value>
+  </data>
+  <data name="layoutControlItem69.Text" xml:space="preserve">
+    <value>寬(CM):</value>
+  </data>
+  <data name="layoutControlItem80.Text" xml:space="preserve">
+    <value>體積:</value>
+  </data>
+  <data name="layoutControlItem75.Text" xml:space="preserve">
+    <value>凈重:</value>
+  </data>
+  <data name="layoutControlItem77.Text" xml:space="preserve">
+    <value>質量要求:</value>
+  </data>
+  <data name="layoutControlItem79.Text" xml:space="preserve">
+    <value>變更人:</value>
+  </data>
+  <data name="layoutControlItem81.Text" xml:space="preserve">
+    <value>變更日期:</value>
+  </data>
+  <data name="layoutControlItem2.CustomizationFormText" xml:space="preserve">
+    <value>所屬權限組:</value>
+  </data>
+  <data name="layoutControlItem2.Text" xml:space="preserve">
+    <value>所屬權限組:</value>
+  </data>
+  <data name="layoutControlItem84.Text" xml:space="preserve">
+    <value>抽檢方式:</value>
+  </data>
+  <data name="layoutControlItem86.Text" xml:space="preserve">
+    <value>抽檢率:</value>
+  </data>
+  <data name="layoutControlItem85.Text" xml:space="preserve">
+    <value>抽檢規則:</value>
+  </data>
+  <data name="layoutControlItem87.Text" xml:space="preserve">
+    <value>抽檢量:</value>
+  </data>
+  <data name="layoutControlItem88.Text" xml:space="preserve">
+    <value>自定義抽檢規則:</value>
+  </data>
+  <data name="layoutControlItem90.Text" xml:space="preserve">
+    <value>質量檢驗方案:</value>
+  </data>
+  <data name="layoutControlItem31.CustomizationFormText" xml:space="preserve">
+    <value>採購單位:</value>
+  </data>
+  <data name="layoutControlItem31.Text" xml:space="preserve">
+    <value>檢驗計量單位:</value>
+  </data>
+  <data name="layoutControlItem8.Text" xml:space="preserve">
+    <value>最近進貨日:</value>
+  </data>
+  <data name="layoutControlItem18.CustomizationFormText" xml:space="preserve">
+    <value>現行成本:</value>
+  </data>
+  <data name="layoutControlItem18.Text" xml:space="preserve">
+    <value>在製量:</value>
+  </data>
+  <data name="layoutControlItem20.Text" xml:space="preserve">
+    <value>已訂未入量:</value>
+  </data>
+  <data name="layoutControlItem22.CustomizationFormText" xml:space="preserve">
+    <value>售價D:</value>
+  </data>
+  <data name="layoutControlItem22.Text" xml:space="preserve">
+    <value>未還出量:</value>
+  </data>
+  <data name="layoutControlItem9.CustomizationFormText" xml:space="preserve">
+    <value>最近進貨日:</value>
+  </data>
+  <data name="layoutControlItem9.Text" xml:space="preserve">
+    <value>最近出貨日:</value>
+  </data>
+  <data name="layoutControlItem19.CustomizationFormText" xml:space="preserve">
+    <value>售價B:</value>
+  </data>
+  <data name="layoutControlItem21.CustomizationFormText" xml:space="preserve">
+    <value>售價C:</value>
+  </data>
+  <data name="layoutControlItem21.Text" xml:space="preserve">
+    <value>未還入量:</value>
+  </data>
+  <data name="layoutControlItem23.CustomizationFormText" xml:space="preserve">
+    <value>售價E:</value>
+  </data>
+  <data name="layoutControlItem23.Text" xml:space="preserve">
+    <value>實際在庫量:</value>
+  </data>
+  <data name="simpleButtonselectpic.Text" xml:space="preserve">
+    <value>上傳圖檔</value>
+  </data>
+  <data name="simpleButtonNext.Text" xml:space="preserve">
+    <value>下一張</value>
+  </data>
+  <data name="simpleButtonlast.Text" xml:space="preserve">
+    <value>上一張</value>
+  </data>
+  <data name="simpleButtonsave.Text" xml:space="preserve">
+    <value>保存圖檔</value>
+  </data>
+  <data name="simpleButtonDelete.Text" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="layoutControlItem94.Text" xml:space="preserve">
+    <value>備註:</value>
+  </data>
+  <data name="layoutControlItem42.Text" xml:space="preserve">
+    <value>圖檔一:</value>
+  </data>
+  <data name="layoutControlItem44.Text" xml:space="preserve">
+    <value>圖檔二:</value>
+  </data>
+  <data name="layoutControlItem56.Text" xml:space="preserve">
+    <value>圖檔三:</value>
+  </data>
+  <data name="layoutControlItem82.Text" xml:space="preserve">
+    <value>商品圖檔:</value>
+  </data>
+  <data name="gridColumnWH.Caption" xml:space="preserve">
+    <value>生產站</value>
+  </data>
+  <data name="gridColumn3.Caption" xml:space="preserve">
+    <value>工序名稱</value>
+  </data>
+  <data name="gridColumnId.Caption" xml:space="preserve">
+    <value>工序編號</value>
+  </data>
+  <data name="layoutControlItem103.Text" xml:space="preserve">
+    <value>商品加工編號:</value>
+  </data>
+  <data name="layoutControlItem97.Text" xml:space="preserve">
+    <value>商品加工編號:</value>
+  </data>
+  <data name="gridColumn4.Caption" xml:space="preserve">
+    <value>模具編號</value>
+  </data>
+  <data name="gridColumn5.Caption" xml:space="preserve">
+    <value>模具名稱</value>
+  </data>
+  <data name="simpleButton_search.Text" xml:space="preserve">
+    <value>查看詳細</value>
+  </data>
+  <data name="gridColumnInvoiceId.Caption" xml:space="preserve">
+    <value>訂單編號</value>
+  </data>
+  <data name="gridColumnOrderQuantity.Caption" xml:space="preserve">
+    <value>訂單數量</value>
+  </data>
+  <data name="gridColumnInvoiceCODetailPrice.Caption" xml:space="preserve">
+    <value>單價</value>
+  </data>
+  <data name="gridColumnInvoiceCODetailMoney.Caption" xml:space="preserve">
+    <value>總價</value>
+  </data>
+  <data name="gridColumnNoArrivalQuantity.Caption" xml:space="preserve">
+    <value>未到數量</value>
+  </data>
+  <data name="gridColumnArrivalQuantity.Caption" xml:space="preserve">
+    <value>已到數量</value>
+  </data>
+  <data name="gridColumnInvoiceProductUnit.Caption" xml:space="preserve">
+    <value>單位</value>
+  </data>
+  <data name="gridColumnInvoiceCODetailNote.Caption" xml:space="preserve">
+    <value>說明</value>
+  </data>
+  <data name="gridColumn13.Caption" xml:space="preserve">
+    <value>訂單日期</value>
+  </data>
+  <data name="simpleButtonMation.Text" xml:space="preserve">
+    <value>查看詳細</value>
+  </data>
+  <data name="gridColumn8.Caption" xml:space="preserve">
+    <value>訂單編號</value>
+  </data>
+  <data name="gridColumn9.Caption" xml:space="preserve">
+    <value>訂單數量</value>
+  </data>
+  <data name="gridColumn10.Caption" xml:space="preserve">
+    <value>單價</value>
+  </data>
+  <data name="gridColumn11.Caption" xml:space="preserve">
+    <value>總價</value>
+  </data>
+  <data name="gridColumn12.Caption" xml:space="preserve">
+    <value>說明</value>
+  </data>
+  <data name="gridColumn14.Caption" xml:space="preserve">
+    <value>訂單日期</value>
+  </data>
+  <data name="gridColumn32.Caption" xml:space="preserve">
+    <value>客戶訂單編號</value>
+  </data>
+  <data name="simpleButtonStock.Text" xml:space="preserve">
+    <value>查詢</value>
+  </data>
+  <data name="gridColumn15.Caption" xml:space="preserve">
+    <value>單據類型</value>
+  </data>
+  <data name="gridColumn16.Caption" xml:space="preserve">
+    <value>單據編號</value>
+  </data>
+  <data name="gridColumn18.Caption" xml:space="preserve">
+    <value>數量</value>
+  </data>
+  <data name="gridColumn20.Caption" xml:space="preserve">
+    <value>單位</value>
+  </data>
+  <data name="gridColumn21.Caption" xml:space="preserve">
+    <value>庫房</value>
+  </data>
+  <data name="gridColumn22.Caption" xml:space="preserve">
+    <value>貨位</value>
+  </data>
+  <data name="gridColumn23.Caption" xml:space="preserve">
+    <value>說明</value>
+  </data>
+  <data name="gridColumn2.Caption" xml:space="preserve">
+    <value>出庫房</value>
+  </data>
+  <data name="gridColumn19.Caption" xml:space="preserve">
+    <value>出貨位</value>
+  </data>
+  <data name="gridColumn24.Caption" xml:space="preserve">
+    <value>生產站</value>
+  </data>
+  <data name="gridColumn25.Caption" xml:space="preserve">
+    <value>領料單單號--生產領料&amp;委外領料</value>
+  </data>
+  <data name="gridColumn28.Caption" xml:space="preserve">
+    <value>轉生產數量</value>
+  </data>
+  <data name="gridColumn30.Caption" xml:space="preserve">
+    <value>帳面數量</value>
+  </data>
+  <data name="gridColumn31.Caption" xml:space="preserve">
+    <value>客戶訂單號</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridColumn31.Width" type="System.Int32, mscorlib">
+    <value>87</value>
+  </data>
+  <data name="layoutControlItem91.Text" xml:space="preserve">
+    <value>結束日期:</value>
+  </data>
+  <data name="layoutControlItem92.Text" xml:space="preserve">
+    <value>開始日期:</value>
+  </data>
+  <data name="layoutControlItem95.Text" xml:space="preserve">
+    <value>起初庫存:</value>
+  </data>
+  <data name="layoutControlItem96.Text" xml:space="preserve">
+    <value>當前庫存:</value>
+  </data>
+  <data name="barButtonItemSeach.Caption" xml:space="preserve">
+    <value>查詢</value>
+  </data>
+  <data name="barButtonItem5.Caption" xml:space="preserve">
+    <value>列印條碼</value>
+  </data>
+  <data name="barButtonItem.Caption" xml:space="preserve">
+    <value>搜尋</value>
+  </data>
+  <data name="barButtonItem9.Caption" xml:space="preserve">
+    <value>搜尋</value>
+  </data>
+  <data name="barButtonItem10.Caption" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="barButtonItemList.Caption" xml:space="preserve">
+    <value>商品一覽</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>設定 - 基礎設定 - 商品</value>
+  </data>
+</root>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProduceOtherCompactMaterial" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select  id="selectIsInDepotMaterialDetail"  resultMap="ProduceOtherCompactMaterialResult"  parameterClass="string">
+      SELECT * FROM ProduceOtherCompactMaterial WHERE ProduceOtherCompactId=#value# AND  ProduceQuantity-isnull(AlreadyOutQuantity,0)>0
+    </select>
+	  <select  id="selectByOtherCompact"  resultMap="ProduceOtherCompactMaterialResult"  parameterClass="string">
+        <![CDATA[
+      SELECT * FROM ProduceOtherCompactMaterial WHERE ProduceOtherCompactId=#value#
+      ]]>
+    </select>
+    <select  id="selectByOtherCompactAndFlag"  resultMap="ProduceOtherCompactMaterialResult"  parameterClass="string">
+      <![CDATA[
+      SELECT * FROM ProduceOtherCompactMaterial WHERE ProduceOtherCompactId=#value# and (DetailsFlag<>2 or DetailsFlag is null)
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

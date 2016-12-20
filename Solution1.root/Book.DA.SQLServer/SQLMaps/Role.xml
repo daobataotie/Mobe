@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Role" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byRole"  parameterClass="string" resultMap="RoleResult">
+		SELECT * FROM Role WHERE roleid IN(SELECT roleid FROM OperationRole WHERE OperatorsId=#value# and IsHold=1)
+	</select>
+    <select id="select_byAuditRandTableName"  parameterClass="Map" resultMap="RoleResult">
+      SELECT * FROM Role WHERE roleid IN(SELECT roleid FROM RoleOperation WHERE PossAuditingRank=#auditRank# and TableName=#tableName# )
+    </select>
+  </statements>
+</sqlMap>

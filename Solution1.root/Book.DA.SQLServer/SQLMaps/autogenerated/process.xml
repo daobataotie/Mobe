@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="process" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="process" type="Book.Model.process, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="processResult" class="process">
+      <result property="processId" column="processId" />
+      <result property="WorkflowId" column="WorkflowId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="processname" column="processname" />
+      <result property="descript" column="descript" />
+      <result property="number" column="number" />
+      <result property="andrule" column="andrule" />
+      <result property="Processnex" column="Processnex" />
+      <result property="Processpre" column="Processpre" />
+      <result property="processType" column="processType" />
+      <result property="condition" column="condition" />
+      <result property="Workflow" column="WorkflowId" lazyLoad="false" select="Workflow.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[process]
+				WHERE
+				[processId] = #processId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[process]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="processResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.process
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="processResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.process
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="processResult" parameterClass="process">
+      <![CDATA[
+			select top 1 *
+			from dbo.process
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="processResult" parameterClass="process">
+      <![CDATA[
+			select top 1 *
+			from dbo.process
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="process">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.process
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="process">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.process
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="processResult" parameterClass="process">
+      <![CDATA[SELECT
+				[processId],
+				[WorkflowId],
+				[InsertTime],
+				[UpdateTime],
+				[processname],
+				[descript],
+				[number],
+				[andrule],
+				[Processnex],
+				[Processpre],
+				[processType],
+				[condition]
+			FROM
+				[dbo].[process]
+			WHERE
+				[processId] = #processId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[process]
+			WHERE            
+				[processId] = #processId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="processResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[process]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[process]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="processResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[process]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="process">
+      <![CDATA[ INSERT INTO [dbo].[process] 
+			(
+				[processId],
+				[WorkflowId],
+				[InsertTime],
+				[UpdateTime],
+				[processname],
+				[descript],
+				[number],
+				[andrule],
+				[Processnex],
+				[Processpre],
+				[processType],
+				[condition]
+			) 
+			VALUES 
+			(
+				#processId#,
+				#WorkflowId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#processname#,
+				#descript#,
+				#number#,
+				#andrule#,
+				#Processnex#,
+				#Processpre#,
+				#processType#,
+				#condition#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="process">
+      <![CDATA[ 	UPDATE [process] SET
+				[WorkflowId] = #WorkflowId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[processname] = #processname#,
+				[descript] = #descript#,
+				[number] = #number#,
+				[andrule] = #andrule#,
+				[Processnex] = #Processnex#,
+				[Processpre] = #Processpre#,
+				[processType] = #processType#,
+				[condition] = #condition#
+			WHERE
+				[processId] = #processId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[process]
+				where  processId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ThicknessTestDetails" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ThicknessTestDetails" type="Book.Model.ThicknessTestDetails, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ThicknessTestDetailsResult" class="ThicknessTestDetails">
+			<result property="ThicknessTestDetailsId" column="ThicknessTestDetailsId" />
+			<result property="ThicknessTestId" column="ThicknessTestId" />
+			<result property="HouduBiao" column="HouduBiao" />
+			<result property="attrGuanKou" column="attrGuanKou" />
+			<result property="attrGuanKouFengMian" column="attrGuanKouFengMian" />
+			<result property="attrL1" column="attrL1" />
+			<result property="attrL2" column="attrL2" />
+			<result property="attrL3" column="attrL3" />
+			<result property="attrL4" column="attrL4" />
+			<result property="attrL5" column="attrL5" />
+			<result property="attrR1" column="attrR1" />
+			<result property="attrR2" column="attrR2" />
+			<result property="attrR3" column="attrR3" />
+			<result property="attrR4" column="attrR4" />
+			<result property="attrR5" column="attrR5" />
+		<result property="ThicknessTest" column="ThicknessTestId" lazyLoad="false" select="ThicknessTest.select_by_primary_key" />        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ThicknessTestDetails]
+				WHERE
+				[ThicknessTestDetailsId] = #ThicknessTestDetailsId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ThicknessTestDetails]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ThicknessTestDetailsResult" parameterClass="ThicknessTestDetails">
+			<![CDATA[SELECT
+				[ThicknessTestDetailsId],
+				[ThicknessTestId],
+				[HouduBiao],
+				[attrGuanKou],
+				[attrGuanKouFengMian],
+				[attrL1],
+				[attrL2],
+				[attrL3],
+				[attrL4],
+				[attrL5],
+				[attrR1],
+				[attrR2],
+				[attrR3],
+				[attrR4],
+				[attrR5]
+			FROM
+				[dbo].[ThicknessTestDetails]
+			WHERE
+				[ThicknessTestDetailsId] = #ThicknessTestDetailsId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[ThicknessTestDetails]
+			WHERE            
+				[ThicknessTestDetailsId] = #ThicknessTestDetailsId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ThicknessTestDetailsResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[ThicknessTestDetails]
+                			                   
+
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[ThicknessTestDetails]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ThicknessTestDetailsResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ThicknessTestDetails]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ThicknessTestDetails">
+			 <![CDATA[ INSERT INTO [dbo].[ThicknessTestDetails] 
+			(
+				[ThicknessTestDetailsId],
+				[ThicknessTestId],
+				[HouduBiao],
+				[attrGuanKou],
+				[attrGuanKouFengMian],
+				[attrL1],
+				[attrL2],
+				[attrL3],
+				[attrL4],
+				[attrL5],
+				[attrR1],
+				[attrR2],
+				[attrR3],
+				[attrR4],
+				[attrR5]
+			) 
+			VALUES 
+			(
+				#ThicknessTestDetailsId#,
+				#ThicknessTestId#,
+				#HouduBiao#,
+				#attrGuanKou#,
+				#attrGuanKouFengMian#,
+				#attrL1#,
+				#attrL2#,
+				#attrL3#,
+				#attrL4#,
+				#attrL5#,
+				#attrR1#,
+				#attrR2#,
+				#attrR3#,
+				#attrR4#,
+				#attrR5#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ThicknessTestDetails">
+		 <![CDATA[ 	UPDATE [ThicknessTestDetails] SET
+				[ThicknessTestId] = #ThicknessTestId#,
+				[HouduBiao] = #HouduBiao#,
+				[attrGuanKou] = #attrGuanKou#,
+				[attrGuanKouFengMian] = #attrGuanKouFengMian#,
+				[attrL1] = #attrL1#,
+				[attrL2] = #attrL2#,
+				[attrL3] = #attrL3#,
+				[attrL4] = #attrL4#,
+				[attrL5] = #attrL5#,
+				[attrR1] = #attrR1#,
+				[attrR2] = #attrR2#,
+				[attrR3] = #attrR3#,
+				[attrR4] = #attrR4#,
+				[attrR5] = #attrR5#
+			WHERE
+				[ThicknessTestDetailsId] = #ThicknessTestDetailsId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ThicknessTestDetails]
+				where  ThicknessTestDetailsId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

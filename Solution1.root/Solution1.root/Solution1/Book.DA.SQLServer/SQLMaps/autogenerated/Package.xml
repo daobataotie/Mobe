@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Package" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Package" type="Book.Model.Package, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="PackageResult" class="Package">
+			<result property="PackageId" column="PackageId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="PackageName" column="PackageName" />
+			<result property="PackageDescription" column="PackageDescription" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Package]
+				WHERE
+				[PackageId] = #PackageId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Package]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="PackageResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Package 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="PackageResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Package 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="PackageResult" parameterClass="Package">
+			<![CDATA[
+			select top 1 *
+			from dbo.Package
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="PackageResult" parameterClass="Package">
+			<![CDATA[
+			select top 1 *
+			from dbo.Package
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="Package">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Package
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="Package">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Package
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="PackageResult" parameterClass="Package">
+			SELECT
+				[PackageId],
+				[InsertTime],
+				[UpdateTime],
+				[PackageName],
+				[PackageDescription]
+			FROM
+				[dbo].[Package]
+			WHERE
+				[PackageId] = #PackageId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[Package]
+			WHERE
+				[PackageId] = #PackageId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="PackageResult" >
+			SELECT *
+			FROM 
+				[dbo].[Package]
+			ORDER BY PackageId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[Package]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="PackageResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Package]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Package">
+			INSERT INTO [dbo].[Package] 
+			(
+				[PackageId],
+				[InsertTime],
+				[UpdateTime],
+				[PackageName],
+				[PackageDescription]
+			) 
+			VALUES 
+			(
+				#PackageId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#PackageName#,
+				#PackageDescription#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Package">
+			UPDATE [Package] SET
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[PackageName] = #PackageName#,
+				[PackageDescription] = #PackageDescription#
+			WHERE
+				[PackageId] = #PackageId#
+        </update>
+
+		
+    </statements>
+</sqlMap>
+

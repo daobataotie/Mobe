@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Duty" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Duty" type="Book.Model.Duty, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="DutyResult" class="Duty">
+			<result property="Id" column="Id" />
+			<result property="DutyId" column="DutyId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="DutyName" column="DutyName" />
+			<result property="DutyNote" column="DutyNote" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Duty]
+				WHERE
+				[DutyId] = #DutyId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Duty]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="get_first" resultMap="DutyResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Duty
+			 
+			order by InsertTime 
+			]]>
+		</select>
+		<select id="get_last" resultMap="DutyResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Duty
+						
+            order by InsertTime desc
+			]]>
+            
+		</select>
+		<select id="get_prev" resultMap="DutyResult" parameterClass="Duty">
+			<![CDATA[
+			select top 1 *
+			from dbo.Duty
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="DutyResult" parameterClass="Duty">
+			<![CDATA[
+			select top 1 *
+			from dbo.Duty
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+		</select>
+		
+		<select id="has_rows_before" resultClass="bool" parameterClass="Duty">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Duty
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="Duty">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Duty
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="DutyResult" parameterClass="Duty">
+			<![CDATA[SELECT
+				[Id],
+				[DutyId],
+				[InsertTime],
+				[UpdateTime],
+				[DutyName],
+				[DutyNote]
+			FROM
+				[dbo].[Duty]
+			WHERE
+				[DutyId] = #DutyId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[Duty]
+			WHERE            
+				[DutyId] = #DutyId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="DutyResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[Duty]
+                			                   
+			ORDER BY Id ASC			
+			
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[Duty]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="DutyResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Duty]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Duty">
+			 <![CDATA[ INSERT INTO [dbo].[Duty] 
+			(
+				[Id],
+				[DutyId],
+				[InsertTime],
+				[UpdateTime],
+				[DutyName],
+				[DutyNote]
+			) 
+			VALUES 
+			(
+				#Id#,
+				#DutyId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#DutyName#,
+				#DutyNote#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Duty">
+		 <![CDATA[ 	UPDATE [Duty] SET
+				[Id] = #Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[DutyName] = #DutyName#,
+				[DutyNote] = #DutyNote#
+			WHERE
+				[DutyId] = #DutyId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[Duty]
+				where  DutyId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Duty
+				where Id = #value#
+               			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="DutyResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[Duty]
+                    			          
+         
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.Duty
+				where Id = #newId# and Id <> #oldId#
+                    			          
+         
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

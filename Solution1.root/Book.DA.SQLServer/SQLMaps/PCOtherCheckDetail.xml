@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCOtherCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byPCOtherCheckId" resultMap="PCOtherCheckDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM PCOtherCheckDetail WHERE PCOtherCheckDetail.PCOtherCheckId = #value#  order by CheckDate
+      ]]>
+    </select>
+
+    <delete id="DeleteByPCOCId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM PCOtherCheckDetail WHERE PCOtherCheckDetail.PCOtherCheckId = #value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

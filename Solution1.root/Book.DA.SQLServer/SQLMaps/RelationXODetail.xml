@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="RelationXODetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByHeaderId" resultMap="RelationXODetailResult" parameterClass="String">
+      <![CDATA[
+      select * from RelationXODetail where RelationXOId=#value#
+      ]]>
+    </select>
+
+    <delete id="DeleteByHeaderId" parameterClass="String">
+      <![CDATA[
+      delete from RelationXODetail where RelationXOId=#value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

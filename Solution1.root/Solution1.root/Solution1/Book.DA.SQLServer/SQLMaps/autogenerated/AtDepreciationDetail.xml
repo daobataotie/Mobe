@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AtDepreciationDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AtDepreciationDetail" type="Book.Model.AtDepreciationDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="AtDepreciationDetailResult" class="AtDepreciationDetail">
+			<result property="DepreciationId" column="DepreciationId" />
+			<result property="DepreciationDate" column="DepreciationDate" />
+			<result property="PropertyId" column="PropertyId" />
+			<result property="DepreciationMoney" column="DepreciationMoney" />
+			<result property="DepreciationSubject" column="DepreciationSubject" />
+			<result property="CostSubject" column="CostSubject" />
+			<result property="Mark" column="Mark" />
+			<result property="SummonId" column="SummonId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+		<result property="Property" column="PropertyId" lazyLoad="false" select="AtProperty.select_by_primary_key" />		<result property="Summon" column="SummonId" lazyLoad="false" select="AtSummon.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtDepreciationDetail]
+				WHERE
+				[DepreciationId] = #DepreciationId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtDepreciationDetail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="AtDepreciationDetailResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtDepreciationDetail 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="AtDepreciationDetailResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtDepreciationDetail 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="AtDepreciationDetailResult" parameterClass="AtDepreciationDetail">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtDepreciationDetail
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="AtDepreciationDetailResult" parameterClass="AtDepreciationDetail">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtDepreciationDetail
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="AtDepreciationDetail">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtDepreciationDetail
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="AtDepreciationDetail">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtDepreciationDetail
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AtDepreciationDetailResult" parameterClass="AtDepreciationDetail">
+			SELECT
+				[DepreciationId],
+				[DepreciationDate],
+				[PropertyId],
+				[DepreciationMoney],
+				[DepreciationSubject],
+				[CostSubject],
+				[Mark],
+				[SummonId],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			FROM
+				[dbo].[AtDepreciationDetail]
+			WHERE
+				[DepreciationId] = #DepreciationId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[AtDepreciationDetail]
+			WHERE
+				[DepreciationId] = #DepreciationId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AtDepreciationDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[AtDepreciationDetail]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[AtDepreciationDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AtDepreciationDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AtDepreciationDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AtDepreciationDetail">
+			INSERT INTO [dbo].[AtDepreciationDetail] 
+			(
+				[DepreciationId],
+				[DepreciationDate],
+				[PropertyId],
+				[DepreciationMoney],
+				[DepreciationSubject],
+				[CostSubject],
+				[Mark],
+				[SummonId],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			) 
+			VALUES 
+			(
+				#DepreciationId#,
+				#DepreciationDate#,
+				#PropertyId#,
+				#DepreciationMoney#,
+				#DepreciationSubject#,
+				#CostSubject#,
+				#Mark#,
+				#SummonId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AtDepreciationDetail">
+			UPDATE [AtDepreciationDetail] SET
+				[DepreciationDate] = #DepreciationDate#,
+				[PropertyId] = #PropertyId#,
+				[DepreciationMoney] = #DepreciationMoney#,
+				[DepreciationSubject] = #DepreciationSubject#,
+				[CostSubject] = #CostSubject#,
+				[Mark] = #Mark#,
+				[SummonId] = #SummonId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#
+			WHERE
+				[DepreciationId] = #DepreciationId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AtDepreciationDetail]
+				where  DepreciationId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtDepreciationDetail
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="AtDepreciationDetailResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[AtDepreciationDetail]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.AtDepreciationDetail
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

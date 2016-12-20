@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCEarPressCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCEarPressCheckDetail" type="Book.Model.PCEarPressCheckDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCEarPressCheckDetailResult" class="PCEarPressCheckDetail">
+      <result property="PCEarPressCheckDetailId" column="PCEarPressCheckDetailId" />
+      <result property="PCEarPressCheckId" column="PCEarPressCheckId" />
+      <result property="CheckDate" column="CheckDate" />
+      <result property="ProductId" column="ProductId" />
+      <result property="HeadBand" column="HeadBand" />
+      <result property="CheckTime" column="CheckTime" />
+      <result property="CheckTimeSec" column="CheckTimeSec"/>
+      <result property="CheckStandard" column="CheckStandard" />
+      <result property="CheckStandardW" column="CheckStandardW"/>
+      <result property="CheckPress" column="CheckPress" />
+      <result property="CheckPressSec" column="CheckPressSec"/>
+      <result property="CheckBound" column="CheckBound" />
+      <result property="CheckBoundSec" column="CheckBoundSec"/>
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="NoteIsPass" column="NoteIsPass" />
+      <result property="BusinessHoursId" column="BusinessHoursId"/>
+      <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key"/>
+      <!--<result property="Produt" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct"/>-->
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="PCEarPressCheck" column="PCEarPressCheckId" lazyLoad="false" select="PCEarPressCheck.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCEarPressCheckDetail]
+				WHERE
+				[PCEarPressCheckDetailId] = #PCEarPressCheckDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCEarPressCheckDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCEarPressCheckDetailResult" parameterClass="PCEarPressCheckDetail">
+      <![CDATA[SELECT
+				[PCEarPressCheckDetailId],
+				[PCEarPressCheckId],
+				[CheckDate],
+				[ProductId],
+				[HeadBand],
+				[CheckTime],
+        [CheckTimeSec],
+				[CheckStandard],
+        [CheckStandardW],
+				[CheckPress],
+        [CheckPressSec],
+				[CheckBound],
+        [CheckBoundSec],
+				[EmployeeId],
+				[NoteIsPass],
+        [BusinessHoursId]
+			FROM
+				[dbo].[PCEarPressCheckDetail]
+			WHERE
+				[PCEarPressCheckDetailId] = #PCEarPressCheckDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCEarPressCheckDetail]
+			WHERE            
+				[PCEarPressCheckDetailId] = #PCEarPressCheckDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCEarPressCheckDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCEarPressCheckDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCEarPressCheckDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCEarPressCheckDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCEarPressCheckDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCEarPressCheckDetail">
+      <![CDATA[ INSERT INTO [dbo].[PCEarPressCheckDetail] 
+			(
+				[PCEarPressCheckDetailId],
+				[PCEarPressCheckId],
+				[CheckDate],
+				[ProductId],
+				[HeadBand],
+				[CheckTime],
+        [CheckTimeSec],
+				[CheckStandard],
+        [CheckStandardW],
+				[CheckPress],
+        [CheckPressSec],
+				[CheckBound],
+        [CheckBoundSec],
+				[EmployeeId],
+				[NoteIsPass],
+        [BusinessHoursId]
+			) 
+			VALUES 
+			(
+				#PCEarPressCheckDetailId#,
+				#PCEarPressCheckId#,
+				#CheckDate#,
+				#ProductId#,
+				#HeadBand#,
+				#CheckTime#,
+        #CheckTimeSec#,
+				#CheckStandard#,
+        #CheckStandardW#,
+				#CheckPress#,
+        #CheckPressSec#,
+				#CheckBound#,
+        #CheckBoundSec#,
+				#EmployeeId#,
+				#NoteIsPass#,
+        #BusinessHoursId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCEarPressCheckDetail">
+      <![CDATA[ 	UPDATE [PCEarPressCheckDetail] SET
+				[PCEarPressCheckId] = #PCEarPressCheckId#,
+				[CheckDate] = #CheckDate#,
+				[ProductId] = #ProductId#,
+				[HeadBand] = #HeadBand#,
+				[CheckTime] = #CheckTime#,
+        [CheckTimeSec]=#CheckTimeSec#,
+				[CheckStandard] = #CheckStandard#,
+        [CheckStandardW]=#CheckStandardW#,
+				[CheckPress] = #CheckPress#,
+        [CheckPressSec]=#CheckPressSec#,
+				[CheckBound] = #CheckBound#,
+        [CheckBoundSec]=#CheckBoundSec#,
+				[EmployeeId] = #EmployeeId#,
+				[NoteIsPass] = #NoteIsPass#,
+        [BusinessHoursId]=#BusinessHoursId#
+			WHERE
+				[PCEarPressCheckDetailId] = #PCEarPressCheckDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCEarPressCheckDetail]
+				where  PCEarPressCheckDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

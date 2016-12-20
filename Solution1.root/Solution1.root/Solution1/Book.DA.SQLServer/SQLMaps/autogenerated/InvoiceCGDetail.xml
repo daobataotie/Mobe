@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceCGDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="InvoiceCGDetail" type="Book.Model.InvoiceCGDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="InvoiceCGDetailResult" class="InvoiceCGDetail">
+			<result property="InvoiceCGDetailId" column="InvoiceCGDetailId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="DepotPositionId" column="DepotPositionId" />
+			<result property="InvoiceCODetailId" column="InvoiceCODetailId" />
+			<result property="InvoiceId" column="InvoiceId" />
+			<result property="InvoiceCGDetailQuantity" column="InvoiceCGDetailQuantity" />
+			<result property="InvoiceCGDetailNote" column="InvoiceCGDetailNote" />
+			<result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+			<result property="ORDERId" column="ORDERId" />
+			<result property="Donatetowards" column="Donatetowards" />
+			<result property="Inumber" column="Inumber" />
+		<result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />		<result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceCG.select_by_primary_key" />		<result property="InvoiceCODetail" column="InvoiceCODetailId" lazyLoad="false" select="InvoiceCODetail.select_by_primary_key" />		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceCGDetail]
+				WHERE
+				[InvoiceCGDetailId] = #InvoiceCGDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceCGDetail]
+ 					
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="InvoiceCGDetailResult" parameterClass="InvoiceCGDetail">
+			SELECT
+				[InvoiceCGDetailId],
+				[ProductId],
+				[DepotPositionId],
+				[InvoiceCODetailId],
+				[InvoiceId],
+				[InvoiceCGDetailQuantity],
+				[InvoiceCGDetailNote],
+				[InvoiceProductUnit],
+				[ORDERId],
+				[Donatetowards],
+				[Inumber]
+			FROM
+				[dbo].[InvoiceCGDetail]
+			WHERE
+				[InvoiceCGDetailId] = #InvoiceCGDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[InvoiceCGDetail]
+			WHERE
+				[InvoiceCGDetailId] = #InvoiceCGDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="InvoiceCGDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[InvoiceCGDetail]
+			
+
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[InvoiceCGDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="InvoiceCGDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoiceCGDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="InvoiceCGDetail">
+			INSERT INTO [dbo].[InvoiceCGDetail] 
+			(
+				[InvoiceCGDetailId],
+				[ProductId],
+				[DepotPositionId],
+				[InvoiceCODetailId],
+				[InvoiceId],
+				[InvoiceCGDetailQuantity],
+				[InvoiceCGDetailNote],
+				[InvoiceProductUnit],
+				[ORDERId],
+				[Donatetowards],
+				[Inumber]
+			) 
+			VALUES 
+			(
+				#InvoiceCGDetailId#,
+				#ProductId#,
+				#DepotPositionId#,
+				#InvoiceCODetailId#,
+				#InvoiceId#,
+				#InvoiceCGDetailQuantity#,
+				#InvoiceCGDetailNote#,
+				#InvoiceProductUnit#,
+				#ORDERId#,
+				#Donatetowards#,
+				#Inumber#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="InvoiceCGDetail">
+			UPDATE [InvoiceCGDetail] SET
+				[ProductId] = #ProductId#,
+				[DepotPositionId] = #DepotPositionId#,
+				[InvoiceCODetailId] = #InvoiceCODetailId#,
+				[InvoiceId] = #InvoiceId#,
+				[InvoiceCGDetailQuantity] = #InvoiceCGDetailQuantity#,
+				[InvoiceCGDetailNote] = #InvoiceCGDetailNote#,
+				[InvoiceProductUnit] = #InvoiceProductUnit#,
+				[ORDERId] = #ORDERId#,
+				[Donatetowards] = #Donatetowards#,
+				[Inumber] = #Inumber#
+			WHERE
+				[InvoiceCGDetailId] = #InvoiceCGDetailId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceCGDetail]
+				where  InvoiceCGDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

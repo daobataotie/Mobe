@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="processedaccepter" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="processedaccepter" type="Book.Model.processedaccepter, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="processedaccepterResult" class="processedaccepter">
+			<result property="processedaccepterid" column="processedaccepterid" />
+			<result property="processId" column="processId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="accepterid" column="accepterid" />
+			<result property="state" column="state" />
+			<result property="auditing" column="auditing" />
+		<result property="process" column="processId" lazyLoad="false" select="process.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[processedaccepter]
+				WHERE
+				[processedaccepterid] = #processedaccepterid#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[processedaccepter]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="processedaccepterResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.processedaccepter 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="processedaccepterResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.processedaccepter 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="processedaccepterResult" parameterClass="processedaccepter">
+			<![CDATA[
+			select top 1 *
+			from dbo.processedaccepter
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="processedaccepterResult" parameterClass="processedaccepter">
+			<![CDATA[
+			select top 1 *
+			from dbo.processedaccepter
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="processedaccepter">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.processedaccepter
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="processedaccepter">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.processedaccepter
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="processedaccepterResult" parameterClass="processedaccepter">
+			SELECT
+				[processedaccepterid],
+				[processId],
+				[InsertTime],
+				[UpdateTime],
+				[accepterid],
+				[state],
+				[auditing]
+			FROM
+				[dbo].[processedaccepter]
+			WHERE
+				[processedaccepterid] = #processedaccepterid#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[processedaccepter]
+			WHERE
+				[processedaccepterid] = #processedaccepterid#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="processedaccepterResult" >
+			SELECT *
+			FROM 
+				[dbo].[processedaccepter]
+			ORDER BY processedaccepterid ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[processedaccepter]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="processedaccepterResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[processedaccepter]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="processedaccepter">
+			INSERT INTO [dbo].[processedaccepter] 
+			(
+				[processedaccepterid],
+				[processId],
+				[InsertTime],
+				[UpdateTime],
+				[accepterid],
+				[state],
+				[auditing]
+			) 
+			VALUES 
+			(
+				#processedaccepterid#,
+				#processId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#accepterid#,
+				#state#,
+				#auditing#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="processedaccepter">
+			UPDATE [processedaccepter] SET
+				[processId] = #processId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[accepterid] = #accepterid#,
+				[state] = #state#,
+				[auditing] = #auditing#
+			WHERE
+				[processedaccepterid] = #processedaccepterid#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Employee" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="EmployeeResultSimple" class="Employee">
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="IDNo" column="IDNo" />
+      <result property="EmployeeName" column="EmployeeName" />
+      <result property="DepartmentId" column="DepartmentId" />
+      <result property="BusinessHoursId" column="BusinessHoursId" />
+      <result property="EmployeeJoinDate" column="EmployeeJoinDate" />
+      <result property="EmployeeLeaveDate" column="EmployeeLeaveDate" />
+      <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key" />
+      <result property="Department" column="DepartmentId" lazyLoad="false" select="Department.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+  
+  <statements>
+    <select id="select_SimpleEmployee" resultMap="EmployeeResultSimple" parameterClass="Employee">
+      SELECT
+      [EmployeeId],
+      [IDNo],
+      [EmployeeName],
+      [DepartmentId],
+      [BusinessHoursId],
+      [EmployeeJoinDate],
+      [EmployeeLeaveDate]
+      FROM
+      [dbo].[Employee]
+      WHERE
+      [EmployeeId] = #EmployeeId#
+    </select>
+    
+    <select id="select_operators" resultMap="EmployeeResult">
+      <![CDATA[
+      select * from employee where employeeName='admin'
+      ORDER BY (case when left(idno,1) like '[A-Za-z]'
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end)
+      ]]>
+    </select>
+    <select id="get_byName" parameterClass="string" resultMap="EmployeeResult">
+      <![CDATA[
+      SELECT *
+      FROM [dbo].[Employee]
+      WHERE [EmployeeName] = #value#
+      ORDER BY (case when left(idno,1) like '[A-Za-z]'
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end)
+      ]]>
+    </select>
+    <select id="getbyIdNo" parameterClass="string" resultMap="EmployeeResult">
+      <![CDATA[
+      SELECT *
+      FROM [dbo].[Employee]
+      WHERE [IDNo] = #value#
+      ORDER BY (case when left(idno,1) like '[A-Za-z]'
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end)  
+      ]]>
+    </select>
+    <select id="SelectOnActive"  resultMap="EmployeeResult">
+      <![CDATA[
+      select * from [dbo].[Employee]
+      WHERE EmployeeLeaveDate is null or EmployeeLeaveDate=#value#
+      ORDER BY (case when left(idno,1) like '[A-Za-z]'
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end)
+      ]]>
+    </select>
+    <select id="SelectLeaveJob"  resultMap="EmployeeResult">
+      <![CDATA[
+      select * from [dbo].[Employee]
+      WHERE EmployeeLeaveDate is not null and EmployeeLeaveDate!=#value#
+      ORDER BY EmployeeLeaveDate DESC
+      ]]>
+    </select>
+
+    <select id="SelectbyIDsub"  resultMap="EmployeeResult">
+      <![CDATA[
+      select * from  Employee where  substring(IDNo,1,1)=#value# 
+      ORDER BY (case when left(idno,1) like '[A-Za-z]'
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end)
+      ]]>
+    </select>
+    <select id="select_by_roleId"  resultMap="EmployeeResult">
+      <![CDATA[
+      select * from employee where employeeid in (select employeeid from operators where operatorsid in (select operatorsid from                  OperationRole where roleid in (select roleid from role where id = #value#))) 
+      ORDER BY (case when left(idno,1) like '[A-Za-z]'
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end) 
+      ]]>
+    </select>
+    <select id="select_byDepartment"  resultMap="EmployeeResult">
+      <![CDATA[
+      select * from employee where DepartmentId=#value# 
+      ORDER BY (case when left(idno,1) like '[A-Za-z]'
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end)
+      ]]>
+    </select>
+    <select id="select_byCardId" resultMap="EmployeeResult" parameterClass="Map">
+      select * from  employee where  CardNo=#cardno# AND (EmployeeLeaveDate IS NULL OR EmployeeLeaveDate>#dt#)
+    </select>
+    <select id="select_byPinYin" resultMap="EmployeeResult" parameterClass="string">
+      <![CDATA[
+      select * from  employee where  PinYin=#value# 
+      ORDER BY (case when left(idno,1) like '[A-Za-z]'
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end)
+      ]]>
+    </select>
+    <select id="select_PinYin" resultMap="EmployeeResult" parameterClass="string">
+      select pinyin from employee group by pinyin
+    </select>
+
+    <select id="select_leaverPayActive" resultMap="EmployeeResult" parameterClass="string">
+      select dutyPay, IDNo ,employeeId,employeeName,DepartmentId ,employeeLeaveDate from employee  where month(employeeLeaveDate)=month(getdate()) and year(employeeLeaveDate)=year(getdate())
+    </select>
+
+    <select id ="select_EmployeeSearch0" resultMap="EmployeeResult" parameterClass="Map">
+      SELECT * FROM Employee  WHERE (EmployeeJoinDate BETWEEN #rzbegin# AND #rzend#) AND (EmployeeLeaveDate IS NULL or EmployeeLeaveDate='1900-01-01')
+    </select>
+
+    <select id ="select_EmployeeSearch1" resultMap="EmployeeResult" parameterClass="string">
+      SELECT * FROM Employee WHERE (employeeleavedate BETWEEN #lzbegin# AND #lzend#) AND EmployeeLeaveDate IS NOT NULL
+    </select>
+
+    <select id ="select_EmployeeSearch2" resultMap="EmployeeResult" parameterClass="string">
+      SELECT * FROM Employee  WHERE (EmployeeJoinDate BETWEEN #rzbegin# AND #rzend#) AND (employeeleavedate BETWEEN #lzbegin# AND #lzend#)
+    </select>
+
+    <select id ="select_EmployeeSearch3" resultMap="EmployeeResult">
+      SELECT * FROM Employee
+    </select>
+
+    <select id="get_by_id" resultMap="EmployeeResult" parameterClass="string">
+      <![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[Employee]
+			WHERE
+				IDNo = #value#
+			]]>
+    </select>
+
+    <select id="existsexceptUpdate" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from dbo.Employee
+				where IDNo = #newId# and IDNo <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="existsexceptInsert" resultClass="bool" parameterClass="string">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (
+	      SELECT TOP 1
+	      *
+	      FROM Employee 
+	      WHERE IDNo = #value#
+      )
+      THEN 1 ELSE 0 END 
+			]]>
+    </select>
+
+    <select id="select_HrDailyAttendInfoByDay" resultMap="EmployeeResult" parameterClass="datetime">
+      <![CDATA[
+      SELECT e.* FROM Employee e where e.EmployeeId  in(select h.EmployeeId from HrDailyEmployeeAttendInfo h where 
+      year(h.DutyDate)=YEAR(#value#) AND month(h.DutyDate)=month(#value#))
+	    ORDER BY (case when left(idno,1) like '[A-Za-z]'  
+        then (case when convert(int,substring(idno,2,2)) between 30 and 99 
+        then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+        substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+        convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end) 
+			]]>
+    </select>
+    <select id="DailyEmployeeAttendInfo_EmpList" parameterClass="DateTime" resultMap="EmployeeResult">
+      <![CDATA[
+	    SELECT * FROM Employee
+	    WHERE ( EmployeeLeaveDate is NULL OR EmployeeLeaveDate > #value#)
+		and  EmployeeJoinDate <= #value#
+	    ORDER By (case when left(idno,1) like '[A-Za-z]'  
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99 
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end)
+      ]]>
+    </select>
+
+    <select id="GetHasThereEmpListByDateTime" parameterClass="Map" resultMap="EmployeeResult">
+      <![CDATA[
+      SELECT * FROM Employee WHERE Employee.EmployeeId IN 
+        (SELECT EmployeeId FROM HrDailyEmployeeAttendInfo 
+        WHERE HrDailyEmployeeAttendInfo.EmployeeId = Employee.EmployeeId
+        AND YEAR(HrDailyEmployeeAttendInfo.DutyDate)= #mYear# AND MONTH(HrDailyEmployeeAttendInfo.DutyDate) = #mMonth#)
+      ORDER By (case when left(idno,1) like '[A-Za-z]'  
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99 
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end)
+      ]]>
+    </select>
+
+    <select id="mGetFirst" resultMap="EmployeeResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM Employee
+      WHERE EmployeeLeaveDate is null or EmployeeLeaveDate=#value#
+      ORDER By (case when left(idno,1) like '[A-Za-z]'  
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99 
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end)
+      ]]>
+    </select>
+
+    <select id="mGetLast" resultMap="EmployeeResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM Employee
+      WHERE EmployeeLeaveDate is null or EmployeeLeaveDate=#value#
+      ORDER By (case when left(idno,1) like '[A-Za-z]'  
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99 
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end ) else idno end) DESC
+      ]]>
+    </select>
+
+    <select id="mGetPrev" resultMap="EmployeeResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM Employee
+      WHERE EmployeeLeaveDate is null or EmployeeLeaveDate=#EmployeeLeaveDate#
+      AND InsertTime < #InsertTime#
+      ORDER By (case when left(idno,1) like '[A-Za-z]'  
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99 
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end) else idno end)
+      ]]>
+    </select>
+
+    <select id="mGetNext" resultMap="EmployeeResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM Employee
+      WHERE EmployeeLeaveDate is null or EmployeeLeaveDate=#EmployeeLeaveDate#
+      AND InsertTime > #InsertTime#
+      ORDER By (case when left(idno,1) like '[A-Za-z]'  
+      then (case when convert(int,substring(idno,2,2)) between 30 and 99 
+      then left(idno,1)+cast(1911+convert(int,substring(idno,2,2)) as varchar(10))+
+      substring(idno,4,len(idno)) else left(idno,1)+convert(varchar(10),1911+
+      convert(int,'1'+substring(idno,2,2)))+substring(idno,4,len(idno)) end) else idno end)
+      ]]>
+    </select>
+
+    <select id="mHasRows" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Employee]
+        WHERE EmployeeLeaveDate is null or EmployeeLeaveDate=#value#
+				) then 1 else 0 end
+      ]]>
+    </select>
+
+    <select id="mHasRowsBefore" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      select case when exists(
+				select * 
+				from dbo.Employee
+        WHERE EmployeeLeaveDate is null or EmployeeLeaveDate=#EmployeeLeaveDate#
+				AND InsertTime < #InsertTime#
+				) then 1 else 0 end
+      ]]>
+    </select>
+
+    <select id="mHasRowsAfter" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      select case when exists(
+				select * 
+				from dbo.Employee
+        WHERE EmployeeLeaveDate is null or EmployeeLeaveDate=#EmployeeLeaveDate#
+				AND InsertTime > #InsertTime#
+				) then 1 else 0 end
+      ]]>
+    </select>
+
+    <select id="SelectIdAndName"  resultClass="Employee">
+      <![CDATA[
+      SELECT EmployeeId,IDNo,EmployeeName FROM Employee ORDER BY IDNo
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

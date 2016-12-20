@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Employee" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Employee" type="Book.Model.Employee, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="EmployeeResult" class="Employee">
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="IDNo" column="IDNo" />
+			<result property="CardNo" column="CardNo" />
+			<result property="EmployeeName" column="EmployeeName" />
+			<result property="BankId" column="BankId" />
+			<result property="EmployeeIdentityNO" column="EmployeeIdentityNO" />
+			<result property="EmployeeGender" column="EmployeeGender" />
+			<result property="EmployeeMarried" column="EmployeeMarried" />
+			<result property="EmployeeBloodType" column="EmployeeBloodType" />
+			<result property="DepartmentId" column="DepartmentId" />
+			<result property="ContactPhone" column="ContactPhone" />
+			<result property="Cellphone" column="Cellphone" />
+			<result property="ContactAddress" column="ContactAddress" />
+			<result property="UrgentContact" column="UrgentContact" />
+			<result property="UrgentPhone" column="UrgentPhone" />
+			<result property="BusinessHoursId" column="BusinessHoursId" />
+			<result property="AcademicBackGroundId" column="AcademicBackGroundId" />
+			<result property="CompanyId" column="CompanyId" />
+			<result property="DutyId" column="DutyId" />
+			<result property="EmployeeBirthday" column="EmployeeBirthday" />
+			<result property="EmployeeJoinDate" column="EmployeeJoinDate" />
+			<result property="EmployeeLeaveDate" column="EmployeeLeaveDate" />
+			<result property="EmployeePhoto" column="EmployeePhoto" />
+			<result property="MilitaryState" column="MilitaryState" />
+			<result property="DailyPay" column="DailyPay" />
+			<result property="MonthlyPay" column="MonthlyPay" />
+			<result property="DutyPay" column="DutyPay" />
+			<result property="PostPay" column="PostPay" />
+			<result property="FieldPay" column="FieldPay" />
+			<result property="Insurance" column="Insurance" />
+			<result property="Tax" column="Tax" />
+			<result property="BankAccount" column="BankAccount" />
+			<result property="IsCadre" column="IsCadre" />
+			<result property="EmployeeNativePlace" column="EmployeeNativePlace" />
+			<result property="EmployeeExperience" column="EmployeeExperience" />
+			<result property="EmployeePassword" column="EmployeePassword" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="AcademicBackGround" column="AcademicBackGroundId" lazyLoad="false" select="AcademicBackGround.select_by_primary_key" />
+			<result property="Bank" column="BankId" lazyLoad="false" select="Bank.select_by_primary_key" />
+			<result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key" />
+			<result property="Company" column="CompanyId" lazyLoad="false" select="Company.select_by_primary_key" />
+			<result property="Department" column="DepartmentId" lazyLoad="false" select="Department.select_by_primary_key" />
+			<result property="Duty" column="DutyId" lazyLoad="false" select="Duty.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Employee]
+				WHERE
+				[EmployeeId] = #EmployeeId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Employee]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="EmployeeResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Employee 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="EmployeeResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Employee 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="EmployeeResult" parameterClass="Employee">
+			<![CDATA[
+			select top 1 *
+			from dbo.Employee
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="EmployeeResult" parameterClass="Employee">
+			<![CDATA[
+			select top 1 *
+			from dbo.Employee
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="Employee">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Employee
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="Employee">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Employee
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="EmployeeResult" parameterClass="Employee">
+			SELECT
+				[EmployeeId],
+				[IDNo],
+				[CardNo],
+				[EmployeeName],
+				[BankId],
+				[EmployeeIdentityNO],
+				[EmployeeGender],
+				[EmployeeMarried],
+				[EmployeeBloodType],
+				[DepartmentId],
+				[ContactPhone],
+				[Cellphone],
+				[ContactAddress],
+				[UrgentContact],
+				[UrgentPhone],
+				[BusinessHoursId],
+				[AcademicBackGroundId],
+				[CompanyId],
+				[DutyId],
+				[EmployeeBirthday],
+				[EmployeeJoinDate],
+				[EmployeeLeaveDate],
+				[EmployeePhoto],
+				[MilitaryState],
+				[DailyPay],
+				[MonthlyPay],
+				[DutyPay],
+				[PostPay],
+				[FieldPay],
+				[Insurance],
+				[Tax],
+				[BankAccount],
+				[IsCadre],
+				[EmployeeNativePlace],
+				[EmployeeExperience],
+				[EmployeePassword],
+				[InsertTime],
+				[UpdateTime]
+			FROM
+				[dbo].[Employee]
+			WHERE
+				[EmployeeId] = #EmployeeId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[Employee]
+			WHERE
+				[EmployeeId] = #EmployeeId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="EmployeeResult" >
+			SELECT *
+			FROM 
+				[dbo].[Employee]
+			ORDER BY idno ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[Employee]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="EmployeeResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Employee]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Employee">
+			INSERT INTO [dbo].[Employee] 
+			(
+				[EmployeeId],
+				[IDNo],
+				[CardNo],
+				[EmployeeName],
+				[BankId],
+				[EmployeeIdentityNO],
+				[EmployeeGender],
+				[EmployeeMarried],
+				[EmployeeBloodType],
+				[DepartmentId],
+				[ContactPhone],
+				[Cellphone],
+				[ContactAddress],
+				[UrgentContact],
+				[UrgentPhone],
+				[BusinessHoursId],
+				[AcademicBackGroundId],
+				[CompanyId],
+				[DutyId],
+				[EmployeeBirthday],
+				[EmployeeJoinDate],
+				[EmployeeLeaveDate],
+				[EmployeePhoto],
+				[MilitaryState],
+				[DailyPay],
+				[MonthlyPay],
+				[DutyPay],
+				[PostPay],
+				[FieldPay],
+				[Insurance],
+				[Tax],
+				[BankAccount],
+				[IsCadre],
+				[EmployeeNativePlace],
+				[EmployeeExperience],
+				[EmployeePassword],
+				[InsertTime],
+				[UpdateTime]
+			) 
+			VALUES 
+			(
+				#EmployeeId#,
+				#IDNo#,
+				#CardNo#,
+				#EmployeeName#,
+				#BankId#,
+				#EmployeeIdentityNO#,
+				#EmployeeGender#,
+				#EmployeeMarried#,
+				#EmployeeBloodType#,
+				#DepartmentId#,
+				#ContactPhone#,
+				#Cellphone#,
+				#ContactAddress#,
+				#UrgentContact#,
+				#UrgentPhone#,
+				#BusinessHoursId#,
+				#AcademicBackGroundId#,
+				#CompanyId#,
+				#DutyId#,
+				#EmployeeBirthday#,
+				#EmployeeJoinDate#,
+				#EmployeeLeaveDate#,
+				#EmployeePhoto#,
+				#MilitaryState#,
+				#DailyPay#,
+				#MonthlyPay#,
+				#DutyPay#,
+				#PostPay#,
+				#FieldPay#,
+				#Insurance#,
+				#Tax#,
+				#BankAccount#,
+				#IsCadre#,
+				#EmployeeNativePlace#,
+				#EmployeeExperience#,
+				#EmployeePassword#,
+				#InsertTime#,
+				#UpdateTime#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Employee">
+			UPDATE [Employee] SET
+				[IDNo] = #IDNo#,
+				[CardNo] = #CardNo#,
+				[EmployeeName] = #EmployeeName#,
+				[BankId] = #BankId#,
+				[EmployeeIdentityNO] = #EmployeeIdentityNO#,
+				[EmployeeGender] = #EmployeeGender#,
+				[EmployeeMarried] = #EmployeeMarried#,
+				[EmployeeBloodType] = #EmployeeBloodType#,
+				[DepartmentId] = #DepartmentId#,
+				[ContactPhone] = #ContactPhone#,
+				[Cellphone] = #Cellphone#,
+				[ContactAddress] = #ContactAddress#,
+				[UrgentContact] = #UrgentContact#,
+				[UrgentPhone] = #UrgentPhone#,
+				[BusinessHoursId] = #BusinessHoursId#,
+				[AcademicBackGroundId] = #AcademicBackGroundId#,
+				[CompanyId] = #CompanyId#,
+				[DutyId] = #DutyId#,
+				[EmployeeBirthday] = #EmployeeBirthday#,
+				[EmployeeJoinDate] = #EmployeeJoinDate#,
+				[EmployeeLeaveDate] = #EmployeeLeaveDate#,
+				[EmployeePhoto] = #EmployeePhoto#,
+				[MilitaryState] = #MilitaryState#,
+				[DailyPay] = #DailyPay#,
+				[MonthlyPay] = #MonthlyPay#,
+				[DutyPay] = #DutyPay#,
+				[PostPay] = #PostPay#,
+				[FieldPay] = #FieldPay#,
+				[Insurance] = #Insurance#,
+				[Tax] = #Tax#,
+				[BankAccount] = #BankAccount#,
+				[IsCadre] = #IsCadre#,
+				[EmployeeNativePlace] = #EmployeeNativePlace#,
+				[EmployeeExperience] = #EmployeeExperience#,
+				[EmployeePassword] = #EmployeePassword#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#
+			WHERE
+				[EmployeeId] = #EmployeeId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

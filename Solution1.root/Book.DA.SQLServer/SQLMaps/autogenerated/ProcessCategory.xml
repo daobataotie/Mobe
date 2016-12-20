@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProcessCategory" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ProcessCategory" type="Book.Model.ProcessCategory, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ProcessCategoryResult" class="ProcessCategory">
+			<result property="ProcessCategoryId" column="ProcessCategoryId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+			<result property="ProcessCategoryName" column="ProcessCategoryName" />
+			<result property="Description" column="Description" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProcessCategory]
+				WHERE
+				[ProcessCategoryId] = #ProcessCategoryId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProcessCategory]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="ProcessCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProcessCategory 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="ProcessCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProcessCategory 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="ProcessCategoryResult" parameterClass="ProcessCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProcessCategory
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="ProcessCategoryResult" parameterClass="ProcessCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProcessCategory
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="ProcessCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProcessCategory
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="ProcessCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProcessCategory
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ProcessCategoryResult" parameterClass="ProcessCategory">
+			SELECT
+				[ProcessCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[Id],
+				[ProcessCategoryName],
+				[Description]
+			FROM
+				[dbo].[ProcessCategory]
+			WHERE
+				[ProcessCategoryId] = #ProcessCategoryId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[ProcessCategory]
+			WHERE
+				[ProcessCategoryId] = #ProcessCategoryId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ProcessCategoryResult" >
+			SELECT *
+			FROM 
+				[dbo].[ProcessCategory]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[ProcessCategory]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ProcessCategoryResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProcessCategory]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ProcessCategory">
+			INSERT INTO [dbo].[ProcessCategory] 
+			(
+				[ProcessCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[Id],
+				[ProcessCategoryName],
+				[Description]
+			) 
+			VALUES 
+			(
+				#ProcessCategoryId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#,
+				#ProcessCategoryName#,
+				#Description#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ProcessCategory">
+			UPDATE [ProcessCategory] SET
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#,
+				[ProcessCategoryName] = #ProcessCategoryName#,
+				[Description] = #Description#
+			WHERE
+				[ProcessCategoryId] = #ProcessCategoryId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProcessCategory]
+				where  ProcessCategoryId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProcessCategory
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="ProcessCategoryResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[ProcessCategory]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.ProcessCategory
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProduceTransfer" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ProduceTransfer" type="Book.Model.ProduceTransfer, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ProduceTransferResult" class="ProduceTransfer">
+			<result property="ProduceTransferId" column="ProduceTransferId" />
+			<result property="Employee2Id" column="Employee2Id" />
+			<result property="WorkHouseOutId" column="WorkHouseOutId" />
+			<result property="Employee0Id" column="Employee0Id" />
+			<result property="WorkHouseInId" column="WorkHouseInId" />
+			<result property="Employee1Id" column="Employee1Id" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="description" column="description" />
+			<result property="ProduceTransferDate" column="ProduceTransferDate" />
+		<result property="WorkHouseOut" column="WorkHouseOutId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />		<result property="WorkHouseIn" column="WorkHouseInId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />		<result property="Employee2" column="Employee2Id" lazyLoad="false" select="Employee.select_by_primary_key" />		<result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_by_primary_key" />		<result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProduceTransfer]
+				WHERE
+				[ProduceTransferId] = #ProduceTransferId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProduceTransfer]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="ProduceTransferResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProduceTransfer 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="ProduceTransferResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProduceTransfer 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="ProduceTransferResult" parameterClass="ProduceTransfer">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProduceTransfer
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="ProduceTransferResult" parameterClass="ProduceTransfer">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProduceTransfer
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="ProduceTransfer">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProduceTransfer
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="ProduceTransfer">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProduceTransfer
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ProduceTransferResult" parameterClass="ProduceTransfer">
+			SELECT
+				[ProduceTransferId],
+				[Employee2Id],
+				[WorkHouseOutId],
+				[Employee0Id],
+				[WorkHouseInId],
+				[Employee1Id],
+				[InsertTime],
+				[UpdateTime],
+				[description],
+				[ProduceTransferDate]
+			FROM
+				[dbo].[ProduceTransfer]
+			WHERE
+				[ProduceTransferId] = #ProduceTransferId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[ProduceTransfer]
+			WHERE
+				[ProduceTransferId] = #ProduceTransferId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ProduceTransferResult" >
+			SELECT *
+			FROM 
+				[dbo].[ProduceTransfer]
+			
+  ORDER BY InsertTime DESC  
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[ProduceTransfer]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ProduceTransferResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProduceTransfer]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ProduceTransfer">
+			INSERT INTO [dbo].[ProduceTransfer] 
+			(
+				[ProduceTransferId],
+				[Employee2Id],
+				[WorkHouseOutId],
+				[Employee0Id],
+				[WorkHouseInId],
+				[Employee1Id],
+				[InsertTime],
+				[UpdateTime],
+				[description],
+				[ProduceTransferDate]
+			) 
+			VALUES 
+			(
+				#ProduceTransferId#,
+				#Employee2Id#,
+				#WorkHouseOutId#,
+				#Employee0Id#,
+				#WorkHouseInId#,
+				#Employee1Id#,
+				#InsertTime#,
+				#UpdateTime#,
+				#description#,
+				#ProduceTransferDate#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ProduceTransfer">
+			UPDATE [ProduceTransfer] SET
+				[Employee2Id] = #Employee2Id#,
+				[WorkHouseOutId] = #WorkHouseOutId#,
+				[Employee0Id] = #Employee0Id#,
+				[WorkHouseInId] = #WorkHouseInId#,
+				[Employee1Id] = #Employee1Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[description] = #description#,
+				[ProduceTransferDate] = #ProduceTransferDate#
+			WHERE
+				[ProduceTransferId] = #ProduceTransferId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProduceTransfer]
+				where  ProduceTransferId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

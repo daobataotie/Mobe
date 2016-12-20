@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoicePackingDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <delete id="DeleteByInvoicePackingId" parameterClass="String">
+      <![CDATA[
+      DELETE FROM InvoicePackingDetail WHERE InvoicePackingId=#value#
+      ]]>
+    </delete>
+
+    <select id="SelectByInvoicePackingId" resultMap="InvoicePackingDetailResult" parameterClass="String">
+      <![CDATA[
+      SELECT * FROM InvoicePackingDetail WHERE InvoicePackingId=#value# ORDER BY HandPackingId,ProductId
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

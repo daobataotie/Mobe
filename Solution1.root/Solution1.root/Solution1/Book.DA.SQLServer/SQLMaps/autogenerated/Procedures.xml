@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Procedures" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Procedures" type="Book.Model.Procedures, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ProceduresResult" class="Procedures">
+			<result property="ProceduresId" column="ProceduresId" />
+			<result property="WorkHouseId" column="WorkHouseId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Procedurename" column="Procedurename" />
+			<result property="Proceduresate" column="Proceduresate" />
+			<result property="ProcedureType" column="ProcedureType" />
+			<result property="Startdate" column="Startdate" />
+			<result property="Enddate" column="Enddate" />
+			<result property="Leadtime" column="Leadtime" />
+			<result property="Proceduredescription" column="Proceduredescription" />
+			<result property="Id" column="Id" />
+			<result property="TechnologydetailsNo" column="TechnologydetailsNo" />
+			<result property="PronoteMachineId" column="PronoteMachineId" />
+			<result property="ProcessCategoryId" column="ProcessCategoryId" />
+			<result property="IsChecked" column="IsChecked" />
+			<result property="IsOtherProduceOther" column="IsOtherProduceOther" />
+			<result property="SupplierId" column="SupplierId" />
+		<result property="ProcessCategory" column="ProcessCategoryId" lazyLoad="false" select="ProcessCategory.select_by_primary_key" />		<result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />		<result property="WorkHouse" column="WorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Procedures]
+				WHERE
+				[ProceduresId] = #ProceduresId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Procedures]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="ProceduresResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Procedures 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="ProceduresResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Procedures 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="ProceduresResult" parameterClass="Procedures">
+			<![CDATA[
+			select top 1 *
+			from dbo.Procedures
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="ProceduresResult" parameterClass="Procedures">
+			<![CDATA[
+			select top 1 *
+			from dbo.Procedures
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="Procedures">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Procedures
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="Procedures">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Procedures
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ProceduresResult" parameterClass="Procedures">
+			SELECT
+				[ProceduresId],
+				[WorkHouseId],
+				[InsertTime],
+				[UpdateTime],
+				[Procedurename],
+				[Proceduresate],
+				[ProcedureType],
+				[Startdate],
+				[Enddate],
+				[Leadtime],
+				[Proceduredescription],
+				[Id],
+				[TechnologydetailsNo],
+				[PronoteMachineId],
+				[ProcessCategoryId],
+				[IsChecked],
+				[IsOtherProduceOther],
+				[SupplierId]
+			FROM
+				[dbo].[Procedures]
+			WHERE
+				[ProceduresId] = #ProceduresId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[Procedures]
+			WHERE
+				[ProceduresId] = #ProceduresId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ProceduresResult" >
+			SELECT *
+			FROM 
+				[dbo].[Procedures]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[Procedures]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ProceduresResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Procedures]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Procedures">
+			INSERT INTO [dbo].[Procedures] 
+			(
+				[ProceduresId],
+				[WorkHouseId],
+				[InsertTime],
+				[UpdateTime],
+				[Procedurename],
+				[Proceduresate],
+				[ProcedureType],
+				[Startdate],
+				[Enddate],
+				[Leadtime],
+				[Proceduredescription],
+				[Id],
+				[TechnologydetailsNo],
+				[PronoteMachineId],
+				[ProcessCategoryId],
+				[IsChecked],
+				[IsOtherProduceOther],
+				[SupplierId]
+			) 
+			VALUES 
+			(
+				#ProceduresId#,
+				#WorkHouseId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Procedurename#,
+				#Proceduresate#,
+				#ProcedureType#,
+				#Startdate#,
+				#Enddate#,
+				#Leadtime#,
+				#Proceduredescription#,
+				#Id#,
+				#TechnologydetailsNo#,
+				#PronoteMachineId#,
+				#ProcessCategoryId#,
+				#IsChecked#,
+				#IsOtherProduceOther#,
+				#SupplierId#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Procedures">
+			UPDATE [Procedures] SET
+				[WorkHouseId] = #WorkHouseId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Procedurename] = #Procedurename#,
+				[Proceduresate] = #Proceduresate#,
+				[ProcedureType] = #ProcedureType#,
+				[Startdate] = #Startdate#,
+				[Enddate] = #Enddate#,
+				[Leadtime] = #Leadtime#,
+				[Proceduredescription] = #Proceduredescription#,
+				[Id] = #Id#,
+				[TechnologydetailsNo] = #TechnologydetailsNo#,
+				[PronoteMachineId] = #PronoteMachineId#,
+				[ProcessCategoryId] = #ProcessCategoryId#,
+				[IsChecked] = #IsChecked#,
+				[IsOtherProduceOther] = #IsOtherProduceOther#,
+				[SupplierId] = #SupplierId#
+			WHERE
+				[ProceduresId] = #ProceduresId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[Procedures]
+				where  ProceduresId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Procedures
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="ProceduresResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[Procedures]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.Procedures
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

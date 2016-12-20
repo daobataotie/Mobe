@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="CustomerPackage" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="CustomerPackage" type="Book.Model.CustomerPackage, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="CustomerPackageResult" class="CustomerPackage">
+			<result property="CustomerPackageId" column="CustomerPackageId" />
+			<result property="CustomerId" column="CustomerId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+		<result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerPackage]
+				WHERE
+				[CustomerPackageId] = #CustomerPackageId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerPackage]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="CustomerPackageResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.CustomerPackage 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="CustomerPackageResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.CustomerPackage 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="CustomerPackageResult" parameterClass="CustomerPackage">
+			<![CDATA[
+			select top 1 *
+			from dbo.CustomerPackage
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="CustomerPackageResult" parameterClass="CustomerPackage">
+			<![CDATA[
+			select top 1 *
+			from dbo.CustomerPackage
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="CustomerPackage">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomerPackage
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="CustomerPackage">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomerPackage
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="CustomerPackageResult" parameterClass="CustomerPackage">
+			SELECT
+				[CustomerPackageId],
+				[CustomerId],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			FROM
+				[dbo].[CustomerPackage]
+			WHERE
+				[CustomerPackageId] = #CustomerPackageId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[CustomerPackage]
+			WHERE
+				[CustomerPackageId] = #CustomerPackageId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="CustomerPackageResult" >
+			SELECT *
+			FROM 
+				[dbo].[CustomerPackage]
+			ORDER BY CustomerPackageId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[CustomerPackage]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="CustomerPackageResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[CustomerPackage]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="CustomerPackage">
+			INSERT INTO [dbo].[CustomerPackage] 
+			(
+				[CustomerPackageId],
+				[CustomerId],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			) 
+			VALUES 
+			(
+				#CustomerPackageId#,
+				#CustomerId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="CustomerPackage">
+			UPDATE [CustomerPackage] SET
+				[CustomerId] = #CustomerId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#
+			WHERE
+				[CustomerPackageId] = #CustomerPackageId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomerPackage
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="CustomerPackageResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[CustomerPackage]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.CustomerPackage
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoicePODetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="InvoicePODetailResult1" class="InvoicePODetail">
+      <result property="InvoicePODetailId" column="InvoicePODetailId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="InvoicePODetailJCQuantity" column="InvoicePODetailJCQuantity" />
+      <result property="InvoicePODetailYHQuantity" column="InvoicePODetailYHQuantity" />
+      <result property="InvoicePODetailWHQuantity" column="InvoicePODetailWHQuantity" />
+      <result property="InvoicePODetailNote" column="InvoicePODetailNote" />
+      <result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoicePO.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="InvoicePIDetailQuantity" column="InvoicePIDetailQuantity"/>
+      <result property="InvoicePIDetailNote" column="InvoicePIDetailNote"/>
+    </resultMap>
+  </resultMaps>  
+  <statements>
+    <select id="select_by_invoiceid" parameterClass="string" resultMap="InvoicePODetailResult">
+      <![CDATA[
+            select * 
+            from invoicePOdetail
+            where invoiceid=#value#
+            ]]>
+    </select>
+    <delete id="delete_by_invoiceid" parameterClass="string">
+      delete
+      from InvoicePODetail
+      where invoiceid=#value#
+    </delete>
+    
+    <select id ="select_by_departmentid_insert" parameterClass="string" resultMap="InvoicePODetailResult">
+      select * from invoicepodetail where invoiceid in (select invoiceid from invoicepo where DepartmentId = #value#)
+    </select>
+
+    <select id ="select_by_departmentid_update" parameterClass="Map" resultMap="InvoicePODetailResult1">
+      <![CDATA[
+      SELECT     InvoicePODetail.InvoicePODetailId, InvoicePODetail.ProductId, InvoicePODetail.InvoiceId, 
+                      InvoicePODetail.InvoicePODetailJCQuantity, InvoicePODetail.InvoicePODetailYHQuantity, InvoicePODetail.InvoicePODetailWHQuantity, 
+                      InvoicePODetail.InvoicePODetailNote, InvoicePODetail.InvoiceProductUnit, InvoicePIDetail.InvoicePIDetailQuantity, 
+                      InvoicePIDetail.InvoicePIDetailNote
+FROM         (InvoicePODetail INNER JOIN
+                      InvoicePIDetail ON InvoicePODetail.InvoicePODetailId = InvoicePIDetail.InvoicePODetailId) INNER JOIN
+                      InvoicePI ON InvoicePIDetail.InvoiceId = InvoicePI.InvoiceId
+WHERE     (InvoicePIDetail.InvoiceId =#invoiceid#) AND (InvoicePI.DepartmentId = #departmentid#) 
+      
+]]>
+    </select>
+  </statements>
+</sqlMap>

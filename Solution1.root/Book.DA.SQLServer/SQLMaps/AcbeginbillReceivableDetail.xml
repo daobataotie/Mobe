@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcbeginbillReceivableDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectBybillId" resultMap="AcbeginbillReceivableDetailResult" parameterClass="string">
+      select * from AcbeginbillReceivableDetail where AcbeginbillReceivableId=#value#
+    </select>
+    <select id="SelectDefaultDetails" resultMap="AcbeginbillReceivableDetailResult">
+      <![CDATA[
+        SELECT acr.AcbeginbillReceivableDetailId,acr.AcbeginbillReceivableId,
+        cus.CustomerId,acr.AdvanceCollection,acr.ShouldCollection,acr.DomesticAdvanceCollection,
+        acr.DomesticShouldCollection,acr.AlreadyCollection,acr.DomesticAlreadyCollection,acr.BeginningBalance
+        ,acr.DomesticBeginningBalance
+        FROM Customer cus
+        LEFT JOIN AcbeginbillReceivableDetail acr
+        ON 1!=1
+      ]]>
+    </select>
+    <delete id="DeleteByParentId" parameterClass="string">
+      <![CDATA[
+        DELETE FROM AcbeginbillReceivableDetail WHERE AcbeginbillReceivableId = #value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

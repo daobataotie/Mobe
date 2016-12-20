@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ClockData" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ClockData" type="Book.Model.ClockData, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ClockDataResult" class="ClockData">
+			<result property="ClockDataId" column="ClockDataId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Empclockdate" column="Empclockdate" />
+			<result property="Clocktime" column="Clocktime" />
+			<result property="ClockType" column="ClockType" />
+			<result property="Description" column="Description" />
+			<result property="CardNo" column="CardNo" />
+			<result property="FileNames" column="FileNames" />
+		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ClockData]
+				WHERE
+				[ClockDataId] = #ClockDataId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ClockData]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="ClockDataResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ClockData 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="ClockDataResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ClockData 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="ClockDataResult" parameterClass="ClockData">
+			<![CDATA[
+			select top 1 *
+			from dbo.ClockData
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="ClockDataResult" parameterClass="ClockData">
+			<![CDATA[
+			select top 1 *
+			from dbo.ClockData
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="ClockData">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ClockData
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="ClockData">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ClockData
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ClockDataResult" parameterClass="ClockData">
+			SELECT
+				[ClockDataId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[Empclockdate],
+				[Clocktime],
+				[ClockType],
+				[Description],
+				[CardNo],
+				[FileNames]
+			FROM
+				[dbo].[ClockData]
+			WHERE
+				[ClockDataId] = #ClockDataId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[ClockData]
+			WHERE
+				[ClockDataId] = #ClockDataId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ClockDataResult" >
+			SELECT *
+			FROM 
+				[dbo].[ClockData]
+			
+  ORDER BY InsertTime DESC  
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[ClockData]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ClockDataResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ClockData]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ClockData">
+			INSERT INTO [dbo].[ClockData] 
+			(
+				[ClockDataId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[Empclockdate],
+				[Clocktime],
+				[ClockType],
+				[Description],
+				[CardNo],
+				[FileNames]
+			) 
+			VALUES 
+			(
+				#ClockDataId#,
+				#EmployeeId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Empclockdate#,
+				#Clocktime#,
+				#ClockType#,
+				#Description#,
+				#CardNo#,
+				#FileNames#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ClockData">
+			UPDATE [ClockData] SET
+				[EmployeeId] = #EmployeeId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Empclockdate] = #Empclockdate#,
+				[Clocktime] = #Clocktime#,
+				[ClockType] = #ClockType#,
+				[Description] = #Description#,
+				[CardNo] = #CardNo#,
+				[FileNames] = #FileNames#
+			WHERE
+				[ClockDataId] = #ClockDataId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ClockData]
+				where  ClockDataId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

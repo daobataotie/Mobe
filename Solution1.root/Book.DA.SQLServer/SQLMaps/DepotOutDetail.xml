@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DepotOutDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <resultMaps>
+    <resultMap id="DepotOutDetailResult2" class="DepotOutDetail">
+      <result property="DepotOutDetailId" column="DepotOutDetailId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="DepotPositionId" column="DepotPositionId" />
+      <result property="DepotOutId" column="DepotOutId" />
+      <result property="ProductUnit" column="ProductUnit" />
+      <result property="FormerPrice" column="FormerPrice" />
+      <result property="CostPrice" column="CostPrice" />
+      <result property="Description" column="Description" />
+      <result property="TotalMoney" column="TotalMoney" />
+      <result property="DepotOutDetailQuantity" column="DepotOutDetailQuantity" />
+      <result property="ProduceMaterialdetailsID" column="ProduceMaterialdetailsID" />
+      <result property="InvoiceXOId" column="InvoiceXOId" />
+      <result property="CurrentStockQuantity" column="CurrentStockQuantity" />
+      <result property="CurrentDepotQuantity" column="CurrentDepotQuantity" />
+      <result property="Inumber" column="Inumber" />
+      <result property="ProduceOtherMaterialDetailId" column="ProduceOtherMaterialDetailId" />
+      <result property="CGDate" column="CGDate" />
+      <result property="Date" column="Date"/>
+      <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key5" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="GetDepotOutDetailByDepotOutId"  parameterClass="string" resultMap="DepotOutDetailResult">
+      SELECT * FROM DepotOutDetail WHERE DepotOutId=#value#
+    </select>
+    <delete id="deleteByHeader"  parameterClass="string" >
+      delete from DepotOutDetail where DepotOutId=#value#
+    </delete>
+
+    <select id="SelectByCondition" resultMap="DepotOutDetailResult2" parameterClass="Map">
+      <![CDATA[
+      SELECT DepotOutDetail.*,DepotOut.DepotOutDate AS Date FROM DepotOutDetail LEFT JOIN DepotOut ON DepotOut.DepotOutId = DepotOutDetail.DepotOutId WHERE DepotOut.DepotOutId IN (SELECT DepotOutId FROM DepotOut WHERE DepotOutDate BETWEEN #startDate# AND #endDate# $sql$ )
+      ]]>
+    </select>
+    <select id="SelectByDepotOutId" resultMap="DepotOutDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM DepotOutDetail WHERE DepotOutDetail.DepotOutId=#value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="treeListColumn2.Caption" xml:space="preserve">
+    <value>模塊目錄</value>
+  </data>
+  <data name="barButtonItemSave.Caption" xml:space="preserve">
+    <value>存儲</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>表格金額顯示(採購)</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v10.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMC4yLCBWZXJzaW9uPTEwLjIu
+        NC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
+        eXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
+        a2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAChEZXZFeHByZXNzLlV0aWxzLkltYWdlQ29sbGVjdGlvblN0
+        cmVhbWVyAgAAAAlJbWFnZVNpemUERGF0YQQHE1N5c3RlbS5EcmF3aW5nLlNpemUDAAAAAgIAAAAF/P//
+        /xNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAwAAABgAAAAYAAAACQUAAAAP
+        BQAAAMsEAAACxwQAAIlQTkcNChoKAAAADUlIRFIAAAAYAAAAGAgGAAAA4Hc9+AAAAAFzUkdCAK7OHOkA
+        AAAEZ0FNQQAAsY8L/GEFAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwA
+        AAAJcEhZcwAACvsAAAr7AcufHZAAAAQwSURBVEhLlZU5bxtXFIXvD8hCuApgF27cq0uXsEuTwj/AAVym
+        CJQuRSojqQ13QRTHkIEkRpAgUOxYm7VQ1C5rl0WKokTJXERSlmhqRInrzDs5d7iIiyLEAxwQM/Pud957
+        c+6j2LYtjuN4HGN6jTFZCu+i8YxB17zBzaVGXZasB8pUttQMbvFh/7uAWYepg1PIiIEsOpB1pzExsp7Q
+        4FazwR3bcbb4EP9HSSuPaDSKSCSC7tAxZIMGqxe1ZC2Rc6dhYNtOT6ViH1O4SruWjU8nHNzwlTEfSyEe
+        j6N7KwNZo8Gy01ybUmbd4BqhG+VyBVfJsix8v3yKD2ZsyJaDp8kTJBIJdAdpsEIDblNzvTJpcE2/wWel
+        UhnF4uV6Eatg9+AIqVQKuVwO3ij3PNBkEKDBEg0WnBaGMpUtlUrl20KhhHalrRK+muZsnwCfhyo6GHp1
+        RQh7RYOD6gruvspCXvLZnOlgKFsN7ufzRZtCXT0bFXzYi2pCQg68CePC9fIEHfyULiGTybgGH6+eQxhT
+        mTGN+hrHVvalBvID4UyF7FJhGsQuDN7aOtOCazC8f4gbi2XILA2m/8OgWCydW6dnaJb8SAOF71C6Au57
+        /dJeSZ0V8GU4z5nzPeEebo9MmhaG8pQt+Xwex5mTFslDGih8m+KWePcvDHqPCdTU8KN6AwarZ4B3nQYT
+        poOjbMnlzpFKH7dIHtFA4YyjbBK0Z7BfIihc7VoPM/8gBaTzwGyaz1f5fJwra+MoWywrx4ZJt0ge00Dh
+        jKN2qYepcbPOON6mSZaB6tsHft2pGazQYNR0cJQt2ayFvf14i+SXatY1jm6XEn6TRr5TIGIBPUFgJFH9
+        1VV4edDJC9PBUba85f6Hd6PY3nndkPzGAoXzANM03UsaJIrVGevMFaxb01jBIscPmRaGMpUtqdQRVtaC
+        CG3vIRiKILC1C/mdBTW4d9vgsAA8DAN/v65Cdfb6u8kV3db9J1wGjFurDGUpU9kSjSUxMDwFn38B8wtr
+        WFkPQv5ggfYBP6Y3ZHBWAX4mcO4NcH8D2MgA9/bYdL4q/P0hG9/MHrq1ylCWMpUt0WgSfc/GXA0MT2LU
+        Nwf5i4WEa2K8W9WI/sNZP40BviyPiwW+1y4fNvhk7AR/Tm/CP7Xo1iqjzlO2xHjsDtJN1T80ieeDfkhf
+        7U+klvU33P8w836XZhpHhX/0ooDvxsIYGZvD8MgM+gertcqo85QtsXgKo+PzLZJnhBCuB1jXmkEvP6iH
+        R4ELZxy/GImhb+wl4bOuwei4qpWh98qWeCLN5S21SJ4TpO3PA0ymql2q8K5xC4/8gY7x7fX1e2VL4iCN
+        2fm1FslgE9xv8J6vgq+nEh3j2uva75UtyeQhllcDLdKmcWdOuHfawsRKqGNMe81l98qWVPrIzW+zrvvL
+        uD5dxuP1g4537WOvulf2vwB/rEUW559hAAAAAElFTkSuQmCCCw==
+</value>
+  </data>
+  <data name="checkEdit1.Properties.Caption" xml:space="preserve">
+    <value>表格金額顯示(採購)</value>
+  </data>
+  <data name="checkEditIsXOXiangGuanZiLiao.Properties.Caption" xml:space="preserve">
+    <value>相關資料(銷售)</value>
+  </data>
+  <data name="checkEditIsCOXiangGuanZiLiao.Properties.Caption" xml:space="preserve">
+    <value>相關資料(採購)</value>
+  </data>
+  <data name="checkEditIsXOZhangKuanZiLiao.Properties.Caption" xml:space="preserve">
+    <value>賬款資料(銷售)</value>
+  </data>
+  <data name="checkEditIsCOZhangKuanZiLiao.Properties.Caption" xml:space="preserve">
+    <value>賬款資料(採購)</value>
+  </data>
+  <data name="checkEditIsCOFaPiaoZiLiao.Properties.Caption" xml:space="preserve">
+    <value>發票資料(採購)</value>
+  </data>
+  <data name="checkEditIsXOJiaoYiMingXi.Properties.Caption" xml:space="preserve">
+    <value>交易明細(銷售)</value>
+  </data>
+  <data name="checkEditIsCOJiaoYiMingXi.Properties.Caption" xml:space="preserve">
+    <value>交易明細(採購)</value>
+  </data>
+  <data name="checkEditIsXOFaPiaoZiLiao.Properties.Caption" xml:space="preserve">
+    <value>發票資料(銷售)</value>
+  </data>
+  <data name="checkEdit2.Properties.Caption" xml:space="preserve">
+    <value>表格金額顯示(銷售)</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>採購、銷售金額顯示設定</value>
+  </data>
+  <data name="checkEditIsSalaryViewCalc.Properties.Caption" xml:space="preserve">
+    <value>薪資計算與查看</value>
+  </data>
+  <data name="checkEditIsEmployeeBasicInfo.Properties.Caption" xml:space="preserve">
+    <value>人事基本資料</value>
+  </data>
+  <data name="checkEditIsCOCount.Properties.Caption" xml:space="preserve">
+    <value>顯示採購數量</value>
+  </data>
+  <data name="checkEditIsXOPrice.Properties.Caption" xml:space="preserve">
+    <value>顯示銷售單價</value>
+  </data>
+  <data name="checkEditIsCOPrice.Properties.Caption" xml:space="preserve">
+    <value>顯示採購單價</value>
+  </data>
+  <data name="checkEditIsProductCost.Properties.Caption" xml:space="preserve">
+    <value>顯示成本</value>
+  </data>
+  <data name="checkEditIsStockCount.Properties.Caption" xml:space="preserve">
+    <value>顯示庫存數量</value>
+  </data>
+  <data name="checkEditIsXOQuantity.Properties.Caption" xml:space="preserve">
+    <value>顯示銷售數量</value>
+  </data>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>模塊名稱</value>
+  </data>
+  <data name="gridColumn9.Caption" xml:space="preserve">
+    <value>設置列</value>
+  </data>
+</root>

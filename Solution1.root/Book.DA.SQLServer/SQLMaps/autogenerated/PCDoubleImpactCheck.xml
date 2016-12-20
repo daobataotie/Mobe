@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCDoubleImpactCheck" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCDoubleImpactCheck" type="Book.Model.PCDoubleImpactCheck, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCDoubleImpactCheckResult" class="PCDoubleImpactCheck">
+      <result property="PCDoubleImpactCheckID" column="PCDoubleImpactCheckID" />
+      <result property="ProductId" column="ProductId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="PCDoubleImpactCheckDate" column="PCDoubleImpactCheckDate" />
+      <result property="InvoiceCusXOId" column="InvoiceCusXOId" />
+      <result property="PronoteHeaderId" column="PronoteHeaderId" />
+      <result property="PCDoubleImpactCheckDesc" column="PCDoubleImpactCheckDesc" />
+      <result property="PCDoubleImpactCheckType" column="PCDoubleImpactCheckType" />
+      <result property="Spead" column="Spead" />
+      <result property="CheckStandard" column="CheckStandard" />
+      <result property="InvoiceXOQuantity" column="InvoiceXOQuantity" />
+      <result property="PowerImpact" column="PowerImpact" />
+      <result property="PCDoubleImpactCheckCount" column="PCDoubleImpactCheckCount" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="ProductUnitId" column="ProductUnitId"/>
+      <result property="JiaReWenDu" column="JiaReWenDu"/>
+      <result property="LengDongWenDu" column="LengDongWenDu"/>
+      <result property="ZhuiQiuKG" column="ZhuiQiuKG"/>
+      <result property="PrintHeader" column="PrintHeader"/>
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="ProductUnit" column="ProductUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[PCDoubleImpactCheck]
+      WHERE
+      [PCDoubleImpactCheckID] = #PCDoubleImpactCheckID#
+      ) then 1 else 0 end
+      ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS (
+      SELECT *
+      FROM
+      PCDoubleImpactCheck
+      WHERE PCDoubleImpactCheck.PCDoubleImpactCheckType = #value#
+      ) THEN 1 ELSE 0 END
+      ]]>
+    </select>
+    <select id="get_first" resultMap="PCDoubleImpactCheckResult">
+      <![CDATA[
+      SELECT TOP 1 * 
+      FROM PCDoubleImpactCheck 
+      WHERE PCDoubleImpactCheck.PCDoubleImpactCheckType = #value# 
+      ORDER BY InsertTime 
+			]]>
+    </select>
+    <select id="get_last_hasType" resultMap="PCDoubleImpactCheckResult">
+      <![CDATA[
+      SELECT TOP 1 * 
+      FROM PCDoubleImpactCheck 
+      WHERE PCDoubleImpactCheckType = #value# 
+      ORDER BY InsertTime Desc
+			]]>
+    </select>
+    <select id="get_last" resultMap="PCDoubleImpactCheckResult" parameterClass="int">
+      <![CDATA[
+      SELECT TOP 1 *
+      FROM PCDoubleImpactCheck
+      ORDER BY InsertTime Desc
+			]]>
+    </select>
+    <select id="get_prev" resultMap="PCDoubleImpactCheckResult" parameterClass="PCDoubleImpactCheck">
+      <![CDATA[
+      SELECT TOP 1 * 
+      FROM PCDoubleImpactCheck 
+      WHERE PCDoubleImpactCheck.InsertTime < #InsertTime# 
+      AND PCDoubleImpactCheck.PCDoubleImpactCheckType = #PCDoubleImpactCheckType# 
+      ORDER BY InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="PCDoubleImpactCheckResult" parameterClass="PCDoubleImpactCheck">
+      <![CDATA[
+      SELECT TOP 1 * 
+      FROM PCDoubleImpactCheck 
+      WHERE PCDoubleImpactCheck.InsertTime > #InsertTime# 
+      AND PCDoubleImpactCheck.PCDoubleImpactCheckType = #PCDoubleImpactCheckType# 
+      ORDER BY InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="PCDoubleImpactCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCDoubleImpactCheck
+				where InsertTime < #InsertTime#
+        AND PCDoubleImpactCheck.PCDoubleImpactCheckType = #PCDoubleImpactCheckType#
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="PCDoubleImpactCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCDoubleImpactCheck
+				where InsertTime > #InsertTime#
+        AND PCDoubleImpactCheck.PCDoubleImpactCheckType = #PCDoubleImpactCheckType# 
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCDoubleImpactCheckResult" parameterClass="PCDoubleImpactCheck">
+      <![CDATA[SELECT
+				[PCDoubleImpactCheckID],
+				[ProductId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[PCDoubleImpactCheckDate],
+				[InvoiceCusXOId],
+				[PronoteHeaderId],
+				[PCDoubleImpactCheckDesc],
+				[PCDoubleImpactCheckType],
+				[Spead],
+				[CheckStandard],
+				[InvoiceXOQuantity],
+				[PowerImpact],
+				[PCDoubleImpactCheckCount],
+        [AuditState],
+        [AuditEmpId],
+        [ProductUnitId],
+        [JiaReWenDu],
+        [LengDongWenDu],
+        [ZhuiQiuKG], 
+        [PrintHeader]
+        
+			FROM
+				[dbo].[PCDoubleImpactCheck]
+			WHERE
+				[PCDoubleImpactCheckID] = #PCDoubleImpactCheckID#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCDoubleImpactCheck]
+			WHERE            
+				[PCDoubleImpactCheckID] = #PCDoubleImpactCheckID#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCDoubleImpactCheckResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCDoubleImpactCheck]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCDoubleImpactCheck]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCDoubleImpactCheckResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCDoubleImpactCheck]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCDoubleImpactCheck">
+      <![CDATA[ INSERT INTO [dbo].[PCDoubleImpactCheck] 
+			(
+				[PCDoubleImpactCheckID],
+				[ProductId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[PCDoubleImpactCheckDate],
+				[InvoiceCusXOId],
+				[PronoteHeaderId],
+				[PCDoubleImpactCheckDesc],
+				[PCDoubleImpactCheckType],
+				[Spead],
+				[CheckStandard],
+				[InvoiceXOQuantity],
+				[PowerImpact],
+				[PCDoubleImpactCheckCount],
+        [AuditState],
+        [AuditEmpId],
+        [ProductUnitId],
+        [JiaReWenDu],
+        [LengDongWenDu],
+        [ZhuiQiuKG], 
+        [PrintHeader]
+			) 
+			VALUES 
+			(
+				#PCDoubleImpactCheckID#,
+				#ProductId#,
+				#EmployeeId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#PCDoubleImpactCheckDate#,
+				#InvoiceCusXOId#,
+				#PronoteHeaderId#,
+				#PCDoubleImpactCheckDesc#,
+				#PCDoubleImpactCheckType#,
+				#Spead#,
+				#CheckStandard#,
+				#InvoiceXOQuantity#,
+				#PowerImpact#,
+				#PCDoubleImpactCheckCount#,
+        #AuditState#,
+        #AuditEmpId#,
+        #ProductUnitId#,
+        #JiaReWenDu#,
+        #LengDongWenDu#,
+        #ZhuiQiuKG#, 
+        #PrintHeader#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCDoubleImpactCheck">
+      <![CDATA[ 	UPDATE [PCDoubleImpactCheck] SET
+				[ProductId] = #ProductId#,
+				[EmployeeId] = #EmployeeId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[PCDoubleImpactCheckDate] = #PCDoubleImpactCheckDate#,
+				[InvoiceCusXOId] = #InvoiceCusXOId#,
+				[PronoteHeaderId] = #PronoteHeaderId#,
+				[PCDoubleImpactCheckDesc] = #PCDoubleImpactCheckDesc#,
+				[PCDoubleImpactCheckType] = #PCDoubleImpactCheckType#,
+				[Spead] = #Spead#,
+				[CheckStandard] = #CheckStandard#,
+				[InvoiceXOQuantity] = #InvoiceXOQuantity#,
+				[PowerImpact] = #PowerImpact#,
+				[PCDoubleImpactCheckCount] = #PCDoubleImpactCheckCount#,
+        [AuditState]=#AuditState#,        
+        [AuditEmpId]=#AuditEmpId#,
+        [ProductUnitId] = #ProductUnitId#,
+        [JiaReWenDu]=#JiaReWenDu#,
+        [LengDongWenDu]=#LengDongWenDu#,
+        [ZhuiQiuKG]=#ZhuiQiuKG#, 
+        [PrintHeader]=#PrintHeader#
+			WHERE
+				[PCDoubleImpactCheckID] = #PCDoubleImpactCheckID#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCDoubleImpactCheck]
+				where  PCDoubleImpactCheckID = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

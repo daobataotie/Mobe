@@ -1,0 +1,727 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5D117A7-D096-4713-97D9-EC6AF3ED45A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Book.Model</RootNamespace>
+    <AssemblyName>Book.Model</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/Book.Model/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcademicBackGround.cs" />
+    <Compile Include="AcbeginAccountPayable.cs" />
+    <Compile Include="AcbeginAccountPayableDetail.cs" />
+    <Compile Include="AcbeginbillReceivable.cs" />
+    <Compile Include="AcbeginbillReceivableDetail.cs" />
+    <Compile Include="accepterattrib.cs" />
+    <Compile Include="AcCollection.cs" />
+    <Compile Include="AcCollectionDetail.cs" />
+    <Compile Include="Account.cs" />
+    <Compile Include="AcInvoiceCOBill.cs" />
+    <Compile Include="AcInvoiceCOBillDetail.cs" />
+    <Compile Include="AcInvoiceXOBill.cs" />
+    <Compile Include="AcInvoiceXOBillDetail.cs" />
+    <Compile Include="AcItem.cs" />
+    <Compile Include="AcOtherShouldCollection.cs" />
+    <Compile Include="AcOtherShouldCollectionDetail.cs" />
+    <Compile Include="AcOtherShouldPayment.cs" />
+    <Compile Include="AcOtherShouldPaymentDetail.cs" />
+    <Compile Include="AcPayment.cs" />
+    <Compile Include="AcPaymentDetail.cs" />
+    <Compile Include="AnnualHoliday.cs" />
+    <Compile Include="ANSIPCImpactCheck.cs" />
+    <Compile Include="ANSIPCImpactCheckDetail.cs" />
+    <Compile Include="AreaCategory.cs" />
+    <Compile Include="AtAccountingCategories.cs" />
+    <Compile Include="AtAccountingCategory.cs" />
+    <Compile Include="AtAccountSubject.cs" />
+    <Compile Include="AtBankAccount.cs" />
+    <Compile Include="AtBankSaveUp.cs" />
+    <Compile Include="AtBankTransfer.cs" />
+    <Compile Include="AtBillsIncome.cs" />
+    <Compile Include="AtCurrencyCategory.cs" />
+    <Compile Include="AtDepreciationDetail.cs" />
+    <Compile Include="AtInvoiceSet.cs" />
+    <Compile Include="AtParameterSet.cs" />
+    <Compile Include="AtProfitLoss.cs" />
+    <Compile Include="AtProject.cs" />
+    <Compile Include="AtProperty.cs" />
+    <Compile Include="AtPropertyDebt.cs" />
+    <Compile Include="AtSummon.cs" />
+    <Compile Include="AtSummonDetail.cs" />
+    <Compile Include="autogenerated\AcademicBackGround.cs" />
+    <Compile Include="autogenerated\AcbeginAccountPayable.cs" />
+    <Compile Include="autogenerated\AcbeginAccountPayableDetail.cs" />
+    <Compile Include="autogenerated\AcbeginbillReceivable.cs" />
+    <Compile Include="autogenerated\AcbeginbillReceivableDetail.cs" />
+    <Compile Include="autogenerated\accepterattrib.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="autogenerated\AcCollection.cs" />
+    <Compile Include="autogenerated\AcCollectionDetail.cs" />
+    <Compile Include="autogenerated\Account.cs" />
+    <Compile Include="autogenerated\AcInvoiceCOBill.cs" />
+    <Compile Include="autogenerated\AcInvoiceCOBillDetail.cs" />
+    <Compile Include="autogenerated\AcInvoiceXOBill.cs" />
+    <Compile Include="autogenerated\AcInvoiceXOBillDetail.cs" />
+    <Compile Include="autogenerated\AcItem.cs" />
+    <Compile Include="autogenerated\AcOtherShouldCollection.cs" />
+    <Compile Include="autogenerated\AcOtherShouldCollectionDetail.cs" />
+    <Compile Include="autogenerated\AcOtherShouldPayment.cs" />
+    <Compile Include="autogenerated\AcOtherShouldPaymentDetail.cs" />
+    <Compile Include="autogenerated\AcPayment.cs" />
+    <Compile Include="autogenerated\AcPaymentDetail.cs" />
+    <Compile Include="autogenerated\AnnualHoliday.cs" />
+    <Compile Include="autogenerated\ANSIPCImpactCheck.cs" />
+    <Compile Include="autogenerated\ANSIPCImpactCheckDetail.cs" />
+    <Compile Include="autogenerated\AreaCategory.cs" />
+    <Compile Include="autogenerated\AtAccountingCategories.cs" />
+    <Compile Include="autogenerated\AtAccountingCategory.cs" />
+    <Compile Include="autogenerated\AtAccountSubject.cs" />
+    <Compile Include="autogenerated\AtBankAccount.cs" />
+    <Compile Include="autogenerated\AtBankSaveUp.cs" />
+    <Compile Include="autogenerated\AtBankTransfer.cs" />
+    <Compile Include="autogenerated\AtBillsIncome.cs" />
+    <Compile Include="autogenerated\AtCurrencyCategory.cs" />
+    <Compile Include="autogenerated\AtDepreciationDetail.cs" />
+    <Compile Include="autogenerated\AtInvoiceSet.cs" />
+    <Compile Include="autogenerated\AtParameterSet.cs" />
+    <Compile Include="autogenerated\AtProfitLoss.cs" />
+    <Compile Include="autogenerated\AtProject.cs" />
+    <Compile Include="autogenerated\AtProperty.cs" />
+    <Compile Include="autogenerated\AtPropertyDebt.cs" />
+    <Compile Include="autogenerated\AtSummon.cs" />
+    <Compile Include="autogenerated\AtSummonDetail.cs" />
+    <Compile Include="autogenerated\Bank.cs" />
+    <Compile Include="autogenerated\BGHandbook.cs" />
+    <Compile Include="autogenerated\BGHandbookDepotIn.cs" />
+    <Compile Include="autogenerated\BGHandbookDepotInDetail.cs" />
+    <Compile Include="autogenerated\BGHandbookDepotOut.cs" />
+    <Compile Include="autogenerated\BGHandbookDepotOutDetail.cs" />
+    <Compile Include="autogenerated\BGHandbookDetail1.cs" />
+    <Compile Include="autogenerated\BGHandbookDetail2.cs" />
+    <Compile Include="autogenerated\BGHandbookIdSet.cs" />
+    <Compile Include="autogenerated\BGHandbookRange.cs" />
+    <Compile Include="autogenerated\BGHandbookRangeDetail.cs" />
+    <Compile Include="autogenerated\BGProduct.cs" />
+    <Compile Include="autogenerated\BGProductDepotOut.cs" />
+    <Compile Include="autogenerated\BGProductDepotOutDetail.cs" />
+    <Compile Include="autogenerated\BGProductDetai.cs" />
+    <Compile Include="autogenerated\BomComponentInfo.cs" />
+    <Compile Include="autogenerated\BomPackageDetails.cs" />
+    <Compile Include="autogenerated\BomParentPartInfo.cs" />
+    <Compile Include="autogenerated\BOMProductProcess.cs" />
+    <Compile Include="autogenerated\BusinessHours.cs" />
+    <Compile Include="autogenerated\ClockData.cs" />
+    <Compile Include="autogenerated\Company.cs" />
+    <Compile Include="autogenerated\CompanyLevel.cs" />
+    <Compile Include="autogenerated\ConveyanceMethod.cs" />
+    <Compile Include="autogenerated\CurrencyCategory.cs" />
+    <Compile Include="autogenerated\Customer.cs" />
+    <Compile Include="autogenerated\CustomerCategory.cs" />
+    <Compile Include="autogenerated\CustomerContact.cs" />
+    <Compile Include="autogenerated\CustomerMarks.cs" />
+    <Compile Include="autogenerated\CustomerPictures.cs" />
+    <Compile Include="autogenerated\CustomerProductPrice.cs" />
+    <Compile Include="autogenerated\CustomerProducts.cs" />
+    <Compile Include="autogenerated\CustomInspectionRule.cs" />
+    <Compile Include="autogenerated\Department.cs" />
+    <Compile Include="autogenerated\Depot.cs" />
+    <Compile Include="autogenerated\DepotIn.cs" />
+    <Compile Include="autogenerated\DepotInDetail.cs" />
+    <Compile Include="autogenerated\DepotOut.cs" />
+    <Compile Include="autogenerated\DepotOutDetail.cs" />
+    <Compile Include="autogenerated\DepotPosition.cs" />
+    <Compile Include="autogenerated\Duty.cs" />
+    <Compile Include="autogenerated\Employee.cs" />
+    <Compile Include="autogenerated\EmplyPay.cs" />
+    <Compile Include="autogenerated\ExportSendMail.cs" />
+    <Compile Include="autogenerated\FamilyMembers.cs" />
+    <Compile Include="autogenerated\Flextime.cs" />
+    <Compile Include="autogenerated\FreightedCompany.cs" />
+    <Compile Include="autogenerated\HrAttendStat.cs" />
+    <Compile Include="autogenerated\HrDailyEmployeeAttendInfo.cs" />
+    <Compile Include="autogenerated\HrSpecificHoliday.cs" />
+    <Compile Include="autogenerated\ImportExportShore.cs" />
+    <Compile Include="autogenerated\IncomingKind.cs" />
+    <Compile Include="autogenerated\InvoiceBS.cs" />
+    <Compile Include="autogenerated\InvoiceBSDetail.cs" />
+    <Compile Include="autogenerated\InvoiceBY.cs" />
+    <Compile Include="autogenerated\InvoiceBYDetail.cs" />
+    <Compile Include="autogenerated\InvoiceCF.cs" />
+    <Compile Include="autogenerated\InvoiceCFDetail.cs" />
+    <Compile Include="autogenerated\InvoiceCG.cs" />
+    <Compile Include="autogenerated\InvoiceCGDetail.cs" />
+    <Compile Include="autogenerated\InvoiceCJ.cs" />
+    <Compile Include="autogenerated\InvoiceCJDetail.cs" />
+    <Compile Include="autogenerated\InvoiceCO.cs" />
+    <Compile Include="autogenerated\InvoiceCODetail.cs" />
+    <Compile Include="autogenerated\InvoiceCT.cs" />
+    <Compile Include="autogenerated\InvoiceCTDetail.cs" />
+    <Compile Include="autogenerated\InvoiceFK.cs" />
+    <Compile Include="autogenerated\InvoiceFT.cs" />
+    <Compile Include="autogenerated\InvoiceHC.cs" />
+    <Compile Include="autogenerated\InvoiceHCDetail.cs" />
+    <Compile Include="autogenerated\InvoiceHR.cs" />
+    <Compile Include="autogenerated\InvoiceHRDetail.cs" />
+    <Compile Include="autogenerated\InvoiceHZ.cs" />
+    <Compile Include="autogenerated\InvoiceHZDetail.cs" />
+    <Compile Include="autogenerated\InvoiceJC.cs" />
+    <Compile Include="autogenerated\InvoiceJCDetail.cs" />
+    <Compile Include="autogenerated\InvoiceJR.cs" />
+    <Compile Include="autogenerated\InvoiceJRDetail.cs" />
+    <Compile Include="autogenerated\InvoicePacking.cs" />
+    <Compile Include="autogenerated\InvoicePackingDetail.cs" />
+    <Compile Include="autogenerated\InvoicePI.cs" />
+    <Compile Include="autogenerated\InvoicePIDetail.cs" />
+    <Compile Include="autogenerated\InvoicePO.cs" />
+    <Compile Include="autogenerated\InvoicePODetail.cs" />
+    <Compile Include="autogenerated\InvoicePT.cs" />
+    <Compile Include="autogenerated\InvoicePTDetail.cs" />
+    <Compile Include="autogenerated\InvoiceQI.cs" />
+    <Compile Include="autogenerated\InvoiceQIDetail.cs" />
+    <Compile Include="autogenerated\InvoiceQK.cs" />
+    <Compile Include="autogenerated\InvoiceQO.cs" />
+    <Compile Include="autogenerated\InvoiceQODetail.cs" />
+    <Compile Include="autogenerated\InvoiceSK.cs" />
+    <Compile Include="autogenerated\InvoiceXJ.cs" />
+    <Compile Include="autogenerated\InvoiceXJDetail.cs" />
+    <Compile Include="autogenerated\InvoiceXJPackageDetails.cs" />
+    <Compile Include="autogenerated\InvoiceXJProcess.cs" />
+    <Compile Include="autogenerated\InvoiceXO.cs" />
+    <Compile Include="autogenerated\InvoiceXODetail.cs" />
+    <Compile Include="autogenerated\InvoiceXS.cs" />
+    <Compile Include="autogenerated\InvoiceXSDetail.cs" />
+    <Compile Include="autogenerated\InvoiceXT.cs" />
+    <Compile Include="autogenerated\InvoiceXTDetail.cs" />
+    <Compile Include="autogenerated\InvoiceZG.cs" />
+    <Compile Include="autogenerated\InvoiceZGDetail.cs" />
+    <Compile Include="autogenerated\InvoiceZS.cs" />
+    <Compile Include="autogenerated\InvoiceZSDetail.cs" />
+    <Compile Include="autogenerated\InvoiceZX.cs" />
+    <Compile Include="autogenerated\InvoiceZXDetail.cs" />
+    <Compile Include="autogenerated\InvoiceZZ.cs" />
+    <Compile Include="autogenerated\InvoiceZZDetail.cs" />
+    <Compile Include="autogenerated\Leave.cs" />
+    <Compile Include="autogenerated\LeaveType.cs" />
+    <Compile Include="autogenerated\LoanDetail.cs" />
+    <Compile Include="autogenerated\LunchDetail.cs" />
+    <Compile Include="autogenerated\Material.cs" />
+    <Compile Include="autogenerated\MonthlySalary.cs" />
+    <Compile Include="autogenerated\MouldAttachment.cs" />
+    <Compile Include="autogenerated\MouldCategory.cs" />
+    <Compile Include="autogenerated\MPSdetails.cs" />
+    <Compile Include="autogenerated\MPSheader.cs" />
+    <Compile Include="autogenerated\MRSdetails.cs" />
+    <Compile Include="autogenerated\MRSHeader.cs" />
+    <Compile Include="autogenerated\Operation.cs" />
+    <Compile Include="autogenerated\OperationRole.cs" />
+    <Compile Include="autogenerated\Operators.cs" />
+    <Compile Include="autogenerated\OpticsTest.cs" />
+    <Compile Include="autogenerated\OutgoingKind.cs" />
+    <Compile Include="autogenerated\OverTime.cs" />
+    <Compile Include="autogenerated\Package.cs" />
+    <Compile Include="autogenerated\PackageCustomerDetails.cs" />
+    <Compile Include="autogenerated\PackageDetails.cs" />
+    <Compile Include="autogenerated\PassNoteBook.cs" />
+    <Compile Include="autogenerated\PassNoteBookDetail.cs" />
+    <Compile Include="autogenerated\PayMethod.cs" />
+    <Compile Include="autogenerated\PCBoxFootCheck.cs" />
+    <Compile Include="autogenerated\PCBoxFootCheckDetail.cs" />
+    <Compile Include="autogenerated\PCClarityCheck.cs" />
+    <Compile Include="autogenerated\PCClarityCheckDetail.cs" />
+    <Compile Include="autogenerated\PCDoubleImpactCheck.cs" />
+    <Compile Include="autogenerated\PCDoubleImpactCheckDetail.cs" />
+    <Compile Include="autogenerated\PCEarPressCheck.cs" />
+    <Compile Include="autogenerated\PCEarPressCheckDetail.cs" />
+    <Compile Include="autogenerated\PCEarProtectCheck.cs" />
+    <Compile Include="autogenerated\PCEarProtectCheckDetail.cs" />
+    <Compile Include="autogenerated\PCExportReportANSI.cs" />
+    <Compile Include="autogenerated\PCExportReportANSIDetail.cs" />
+    <Compile Include="autogenerated\PCFinishCheck.cs" />
+    <Compile Include="autogenerated\PCFogCheck.cs" />
+    <Compile Include="autogenerated\PCFogCheckDetail.cs" />
+    <Compile Include="autogenerated\PCImpactCheck.cs" />
+    <Compile Include="autogenerated\PCImpactCheckDetail.cs" />
+    <Compile Include="autogenerated\PCIncomingCheck.cs" />
+    <Compile Include="autogenerated\PCIncomingCheckDetail.cs" />
+    <Compile Include="autogenerated\PCInputCheck.cs" />
+    <Compile Include="autogenerated\PCMaterialCheck.cs" />
+    <Compile Include="autogenerated\PCMaterialCheckDetail.cs" />
+    <Compile Include="autogenerated\PCOpticsCheck.cs" />
+    <Compile Include="autogenerated\PCOtherCheck.cs" />
+    <Compile Include="autogenerated\PCOtherCheckDetail.cs" />
+    <Compile Include="autogenerated\PCPenetrateCheck.cs" />
+    <Compile Include="autogenerated\PCPGOnlineCheck.cs" />
+    <Compile Include="autogenerated\PCPGOnlineCheckDetail.cs" />
+    <Compile Include="autogenerated\PCSampling.cs" />
+    <Compile Include="autogenerated\PCSamplingDetail.cs" />
+    <Compile Include="autogenerated\PCSamplingEar.cs" />
+    <Compile Include="autogenerated\PCSamplingEarDetail.cs" />
+    <Compile Include="autogenerated\Personwork.cs" />
+    <Compile Include="autogenerated\PricingWay.cs" />
+    <Compile Include="autogenerated\Procedures.cs" />
+    <Compile Include="autogenerated\ProceduresMachine.cs" />
+    <Compile Include="autogenerated\process.cs" />
+    <Compile Include="autogenerated\ProcessCategory.cs" />
+    <Compile Include="autogenerated\processedaccepter.cs" />
+    <Compile Include="autogenerated\ProduceInDepot.cs" />
+    <Compile Include="autogenerated\ProduceInDepotDetail.cs" />
+    <Compile Include="autogenerated\ProduceMaterial.cs" />
+    <Compile Include="autogenerated\ProduceMaterialdetails.cs" />
+    <Compile Include="autogenerated\ProduceMaterialExit.cs" />
+    <Compile Include="autogenerated\ProduceMaterialExitDetail.cs" />
+    <Compile Include="autogenerated\ProduceOtherCompact.cs" />
+    <Compile Include="autogenerated\ProduceOtherCompactDetail.cs" />
+    <Compile Include="autogenerated\ProduceOtherCompactMaterial.cs" />
+    <Compile Include="autogenerated\ProduceOtherExitDetail.cs" />
+    <Compile Include="autogenerated\ProduceOtherExitMaterial.cs" />
+    <Compile Include="autogenerated\ProduceOtherInDepot.cs" />
+    <Compile Include="autogenerated\ProduceOtherInDepotDetail.cs" />
+    <Compile Include="autogenerated\ProduceOtherMaterial.cs" />
+    <Compile Include="autogenerated\ProduceOtherMaterialDetail.cs" />
+    <Compile Include="autogenerated\ProduceOtherReturnDetail.cs" />
+    <Compile Include="autogenerated\ProduceOtherReturnMaterial.cs" />
+    <Compile Include="autogenerated\Product.cs" />
+    <Compile Include="autogenerated\ProductCategory.cs" />
+    <Compile Include="autogenerated\ProductEpiboly.cs" />
+    <Compile Include="autogenerated\ProductImage.cs" />
+    <Compile Include="autogenerated\ProductMaterial.cs" />
+    <Compile Include="autogenerated\ProductMould.cs" />
+    <Compile Include="autogenerated\ProductMouldCategory.cs" />
+    <Compile Include="autogenerated\ProductMouldDetail.cs" />
+    <Compile Include="autogenerated\ProductMouldSize.cs" />
+    <Compile Include="autogenerated\ProductMouldTest.cs" />
+    <Compile Include="autogenerated\ProductMouldTestDetail.cs" />
+    <Compile Include="autogenerated\ProductOnlineCheck.cs" />
+    <Compile Include="autogenerated\ProductOnlineCheckDetail.cs" />
+    <Compile Include="autogenerated\ProductProcess.cs" />
+    <Compile Include="autogenerated\ProductUnit.cs" />
+    <Compile Include="autogenerated\Pronotedetails.cs" />
+    <Compile Include="autogenerated\PronotedetailsMaterial.cs" />
+    <Compile Include="autogenerated\PronoteHeader.cs" />
+    <Compile Include="autogenerated\PronoteMachine.cs" />
+    <Compile Include="autogenerated\PronotePackage.cs" />
+    <Compile Include="autogenerated\PronoteProceduresAbility.cs" />
+    <Compile Include="autogenerated\PronoteProceduresAbilityDetail.cs" />
+    <Compile Include="autogenerated\PronoteProceduresDetail.cs" />
+    <Compile Include="autogenerated\QualityTestPlan.cs" />
+    <Compile Include="autogenerated\RalationProductMould.cs" />
+    <Compile Include="autogenerated\RelationXO.cs" />
+    <Compile Include="autogenerated\RelationXODetail.cs" />
+    <Compile Include="autogenerated\Retail.cs" />
+    <Compile Include="autogenerated\RetailDetail.cs" />
+    <Compile Include="autogenerated\Role.cs" />
+    <Compile Include="autogenerated\RoleAuditing.cs" />
+    <Compile Include="autogenerated\RoleOperation.cs" />
+    <Compile Include="autogenerated\SalesFordetails.cs" />
+    <Compile Include="autogenerated\SalesForHeader.cs" />
+    <Compile Include="autogenerated\Sequence.cs" />
+    <Compile Include="autogenerated\SetDataFormat.cs" />
+    <Compile Include="autogenerated\Setting.cs" />
+    <Compile Include="autogenerated\SpecialProfitMargin.cs" />
+    <Compile Include="autogenerated\Stock.cs" />
+    <Compile Include="autogenerated\StockCheck.cs" />
+    <Compile Include="autogenerated\StockCheckDetail.cs" />
+    <Compile Include="autogenerated\StockEditor.cs" />
+    <Compile Include="autogenerated\StockEditorDetal.cs" />
+    <Compile Include="autogenerated\Supplier.cs" />
+    <Compile Include="autogenerated\SupplierCategory.cs" />
+    <Compile Include="autogenerated\SupplierContact.cs" />
+    <Compile Include="autogenerated\SupplierProcesscategory.cs" />
+    <Compile Include="autogenerated\SupplierProduct.cs" />
+    <Compile Include="autogenerated\Technologydetails.cs" />
+    <Compile Include="autogenerated\TechonlogyHeader.cs" />
+    <Compile Include="autogenerated\TempCard.cs" />
+    <Compile Include="autogenerated\ThicknessTest.cs" />
+    <Compile Include="autogenerated\ThicknessTestDetails.cs" />
+    <Compile Include="autogenerated\TradeCategory.cs" />
+    <Compile Include="autogenerated\UnitGroup.cs" />
+    <Compile Include="autogenerated\WorkHouse.cs" />
+    <Compile Include="autogenerated\XP1.cs" />
+    <Compile Include="autogenerated\XP2.cs" />
+    <Compile Include="autogenerated\XR1.cs" />
+    <Compile Include="autogenerated\XR2.cs" />
+    <Compile Include="Bank.cs" />
+    <Compile Include="BGHandbook.cs" />
+    <Compile Include="BGHandbookDepotIn.cs" />
+    <Compile Include="BGHandbookDepotInDetail.cs" />
+    <Compile Include="BGHandbookDepotOut.cs" />
+    <Compile Include="BGHandbookDepotOutDetail.cs" />
+    <Compile Include="BGHandbookDetail1.cs" />
+    <Compile Include="BGHandbookDetail2.cs" />
+    <Compile Include="BGHandbookIdSet.cs" />
+    <Compile Include="BGHandbookRange.cs" />
+    <Compile Include="BGHandbookRangeDetail.cs" />
+    <Compile Include="BGProduct.cs" />
+    <Compile Include="BGProductDepotOut.cs" />
+    <Compile Include="BGProductDepotOutDetail.cs" />
+    <Compile Include="BGProductDetai.cs" />
+    <Compile Include="BomComponentInfo.cs" />
+    <Compile Include="BomPackageDetails.cs" />
+    <Compile Include="BomParentPartInfo.cs" />
+    <Compile Include="BOMProductProcess.cs" />
+    <Compile Include="BusinessHours.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="ClockData.cs" />
+    <Compile Include="Company.cs" />
+    <Compile Include="CompanyLevel.cs" />
+    <Compile Include="ConveyanceMethod.cs" />
+    <Compile Include="CurrencyCategory.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerCategory.cs" />
+    <Compile Include="CustomerContact.cs" />
+    <Compile Include="CustomerMarks.cs" />
+    <Compile Include="CustomerPictures.cs" />
+    <Compile Include="CustomerProductPrice.cs" />
+    <Compile Include="CustomerProductProcess.cs" />
+    <Compile Include="CustomerProducts.cs" />
+    <Compile Include="CustomInspectionRule.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="Depot.cs" />
+    <Compile Include="DepotIn.cs" />
+    <Compile Include="DepotInDetail.cs" />
+    <Compile Include="DepotOut.cs" />
+    <Compile Include="DepotOutDetail.cs" />
+    <Compile Include="DepotPosition.cs" />
+    <Compile Include="District.cs" />
+    <Compile Include="Duty.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="EmplyPay.cs" />
+    <Compile Include="ExportSendMail.cs" />
+    <Compile Include="FamilyMembers.cs" />
+    <Compile Include="Flextime.cs" />
+    <Compile Include="FreightedCompany.cs" />
+    <Compile Include="HrAttendStat.cs" />
+    <Compile Include="HrDailyEmployeeAttendInfo.cs" />
+    <Compile Include="HrSpecificHoliday.cs" />
+    <Compile Include="ImportExportShore.cs" />
+    <Compile Include="IncomingKind.cs" />
+    <Compile Include="Invoice.cs" />
+    <Compile Include="Invoice00.cs" />
+    <Compile Include="Invoice01.cs" />
+    <Compile Include="InvoiceBS.cs" />
+    <Compile Include="InvoiceBSDetail.cs" />
+    <Compile Include="InvoiceBY.cs" />
+    <Compile Include="InvoiceBYDetail.cs" />
+    <Compile Include="InvoiceCF.cs" />
+    <Compile Include="InvoiceCFDetail.cs" />
+    <Compile Include="InvoiceCG.cs" />
+    <Compile Include="InvoiceCGDetail.cs" />
+    <Compile Include="InvoiceCJ.cs" />
+    <Compile Include="InvoiceCJDetail.cs" />
+    <Compile Include="InvoiceCO.cs" />
+    <Compile Include="InvoiceCODetail.cs" />
+    <Compile Include="InvoiceCT.cs" />
+    <Compile Include="InvoiceCTDetail.cs" />
+    <Compile Include="InvoiceDetail01.cs" />
+    <Compile Include="InvoiceFK.cs" />
+    <Compile Include="InvoiceFT.cs" />
+    <Compile Include="InvoiceHC.cs" />
+    <Compile Include="InvoiceHCDetail.cs" />
+    <Compile Include="InvoiceHR.cs" />
+    <Compile Include="InvoiceHRDetail.cs" />
+    <Compile Include="InvoiceHZ.cs" />
+    <Compile Include="InvoiceHZDetail.cs" />
+    <Compile Include="InvoiceJC.cs" />
+    <Compile Include="InvoiceJCDetail.cs" />
+    <Compile Include="InvoiceJR.cs" />
+    <Compile Include="InvoiceJRDetail.cs" />
+    <Compile Include="InvoicePacking.cs" />
+    <Compile Include="InvoicePackingDetail.cs" />
+    <Compile Include="InvoicePI.cs" />
+    <Compile Include="InvoicePIDetail.cs" />
+    <Compile Include="InvoicePO.cs" />
+    <Compile Include="InvoicePODetail.cs" />
+    <Compile Include="InvoicePT.cs" />
+    <Compile Include="InvoicePTDetail.cs" />
+    <Compile Include="InvoiceQI.cs" />
+    <Compile Include="InvoiceQIDetail.cs" />
+    <Compile Include="InvoiceQK.cs" />
+    <Compile Include="InvoiceQO.cs" />
+    <Compile Include="InvoiceQODetail.cs" />
+    <Compile Include="InvoiceSK.cs" />
+    <Compile Include="InvoiceXJ.cs" />
+    <Compile Include="InvoiceXJDetail.cs" />
+    <Compile Include="InvoiceXJPackageDetails.cs" />
+    <Compile Include="InvoiceXJProcess.cs" />
+    <Compile Include="InvoiceXO.cs" />
+    <Compile Include="InvoiceXODetail.cs" />
+    <Compile Include="InvoiceXS.cs" />
+    <Compile Include="InvoiceXSDetail.cs" />
+    <Compile Include="InvoiceXT.cs" />
+    <Compile Include="InvoiceXTDetail.cs" />
+    <Compile Include="InvoiceZG.cs" />
+    <Compile Include="InvoiceZGDetail.cs" />
+    <Compile Include="InvoiceZS.cs" />
+    <Compile Include="InvoiceZSDetail.cs" />
+    <Compile Include="InvoiceZX.cs" />
+    <Compile Include="InvoiceZXDetail.cs" />
+    <Compile Include="InvoiceZZ.cs" />
+    <Compile Include="InvoiceZZDetail.cs" />
+    <Compile Include="Leave.cs" />
+    <Compile Include="LeaveType.cs" />
+    <Compile Include="LoanDetail.cs" />
+    <Compile Include="LunchDetail.cs" />
+    <Compile Include="Material.cs" />
+    <Compile Include="MonthlySalary.cs" />
+    <Compile Include="MouldAttachment.cs" />
+    <Compile Include="MouldCategory.cs" />
+    <Compile Include="MPSdetails.cs" />
+    <Compile Include="MPSheader.cs" />
+    <Compile Include="MRSdetails.cs" />
+    <Compile Include="MRSHeader.cs" />
+    <Compile Include="Operation.cs" />
+    <Compile Include="OperationRole.cs" />
+    <Compile Include="Operators.cs" />
+    <Compile Include="OpticsTest.cs" />
+    <Compile Include="OutgoingKind.cs" />
+    <Compile Include="OverTime.cs" />
+    <Compile Include="Package.cs" />
+    <Compile Include="PackageCustomerDetails.cs" />
+    <Compile Include="PackageDetails.cs" />
+    <Compile Include="PassNoteBook.cs" />
+    <Compile Include="PassNoteBookDetail.cs" />
+    <Compile Include="PayMethod.cs" />
+    <Compile Include="PCBoxFootCheck.cs" />
+    <Compile Include="PCBoxFootCheckDetail.cs" />
+    <Compile Include="PCClarityCheck.cs" />
+    <Compile Include="PCClarityCheckDetail.cs" />
+    <Compile Include="PCDoubleImpactCheck.cs" />
+    <Compile Include="PCDoubleImpactCheckDetail.cs" />
+    <Compile Include="PCEarPressCheck.cs" />
+    <Compile Include="PCEarPressCheckDetail.cs" />
+    <Compile Include="PCEarProtectCheck.cs" />
+    <Compile Include="PCEarProtectCheckDetail.cs" />
+    <Compile Include="PCExportReportANSI.cs" />
+    <Compile Include="PCExportReportANSIDetail.cs" />
+    <Compile Include="PCFinishCheck.cs" />
+    <Compile Include="PCFogCheck.cs" />
+    <Compile Include="PCFogCheckDetail.cs" />
+    <Compile Include="PCImpactCheck.cs" />
+    <Compile Include="PCImpactCheckDetail.cs" />
+    <Compile Include="PCIncomingCheck.cs" />
+    <Compile Include="PCIncomingCheckDetail.cs" />
+    <Compile Include="PCInputCheck.cs" />
+    <Compile Include="PCMaterialCheck.cs" />
+    <Compile Include="PCMaterialCheckDetail.cs" />
+    <Compile Include="PCOpticsCheck.cs" />
+    <Compile Include="PCOtherCheck.cs" />
+    <Compile Include="PCOtherCheckDetail.cs" />
+    <Compile Include="PCPenetrateCheck.cs" />
+    <Compile Include="PCPGOnlineCheck.cs" />
+    <Compile Include="PCPGOnlineCheckDetail.cs" />
+    <Compile Include="PCSampling.cs" />
+    <Compile Include="PCSamplingDetail.cs" />
+    <Compile Include="PCSamplingEar.cs" />
+    <Compile Include="PCSamplingEarDetail.cs" />
+    <Compile Include="Personwork.cs" />
+    <Compile Include="PricingWay.cs" />
+    <Compile Include="Procedures.cs" />
+    <Compile Include="ProceduresMachine.cs" />
+    <Compile Include="process.cs" />
+    <Compile Include="ProcessCategory.cs" />
+    <Compile Include="ProduceInDepot.cs" />
+    <Compile Include="ProduceInDepotDetail.cs" />
+    <Compile Include="ProduceMaterial.cs" />
+    <Compile Include="ProduceMaterialdetails.cs" />
+    <Compile Include="ProduceMaterialExit.cs" />
+    <Compile Include="ProduceMaterialExitDetail.cs" />
+    <Compile Include="ProduceOtherCompact.cs" />
+    <Compile Include="ProduceOtherCompactDetail.cs" />
+    <Compile Include="ProduceOtherCompactMaterial.cs" />
+    <Compile Include="ProduceOtherExitDetail.cs" />
+    <Compile Include="ProduceOtherExitMaterial.cs" />
+    <Compile Include="ProduceOtherInDepot.cs" />
+    <Compile Include="ProduceOtherInDepotDetail.cs" />
+    <Compile Include="ProduceOtherMaterial.cs" />
+    <Compile Include="ProduceOtherMaterialDetail.cs" />
+    <Compile Include="ProduceOtherReturnDetail.cs" />
+    <Compile Include="ProduceOtherReturnMaterial.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductCategory.cs" />
+    <Compile Include="ProductEpiboly.cs" />
+    <Compile Include="ProductImage.cs" />
+    <Compile Include="ProductMaterial.cs" />
+    <Compile Include="ProductMould.cs" />
+    <Compile Include="ProductMouldCategory.cs" />
+    <Compile Include="ProductMouldDetail.cs" />
+    <Compile Include="ProductMouldSize.cs" />
+    <Compile Include="ProductMouldTest.cs" />
+    <Compile Include="ProductMouldTestDetail.cs" />
+    <Compile Include="ProductOnlineCheck.cs" />
+    <Compile Include="ProductOnlineCheckDetail.cs" />
+    <Compile Include="ProductProcess.cs" />
+    <Compile Include="ProductUnit.cs" />
+    <Compile Include="Pronotedetails.cs" />
+    <Compile Include="PronotedetailsMaterial.cs" />
+    <Compile Include="PronoteHeader.cs" />
+    <Compile Include="PronoteMachine.cs" />
+    <Compile Include="PronotePackage.cs" />
+    <Compile Include="PronoteProceduresAbility.cs" />
+    <Compile Include="PronoteProceduresAbilityDetail.cs" />
+    <Compile Include="PronoteProceduresDetail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QualityTestPlan.cs" />
+    <Compile Include="RalationProductMould.cs" />
+    <Compile Include="RelationXO.cs" />
+    <Compile Include="RelationXODetail.cs" />
+    <Compile Include="Retail.cs" />
+    <Compile Include="RetailDetail.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="RoleAuditing.cs" />
+    <Compile Include="RoleOperation.cs" />
+    <Compile Include="SalesFordetails.cs" />
+    <Compile Include="SalesForHeader.cs" />
+    <Compile Include="Sequence.cs" />
+    <Compile Include="SetDataFormat.cs" />
+    <Compile Include="Setting.cs" />
+    <Compile Include="Shreet.cs" />
+    <Compile Include="SpecialProfitMargin.cs" />
+    <Compile Include="Stock.cs" />
+    <Compile Include="StockCheck.cs" />
+    <Compile Include="StockCheckDetail.cs" />
+    <Compile Include="StockEditor.cs" />
+    <Compile Include="StockEditorDetal.cs" />
+    <Compile Include="Supplier.cs" />
+    <Compile Include="SupplierCategory.cs" />
+    <Compile Include="SupplierContact.cs" />
+    <Compile Include="SupplierProcesscategory.cs" />
+    <Compile Include="SupplierProduct.cs" />
+    <Compile Include="Technologydetails.cs" />
+    <Compile Include="TechonlogyHeader.cs" />
+    <Compile Include="TempCard.cs" />
+    <Compile Include="ThicknessTest.cs" />
+    <Compile Include="ThicknessTestDetails.cs" />
+    <Compile Include="TradeCategory.cs" />
+    <Compile Include="UnitGroup.cs" />
+    <Compile Include="WorkHouse.cs" />
+    <Compile Include="XP1.cs" />
+    <Compile Include="XP2.cs" />
+    <Compile Include="XR1.cs" />
+    <Compile Include="XR2.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CHS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CHT.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Helper\Helper.csproj">
+      <Project>{3BD96C87-BBF6-4E0B-ACC8-F4EB08207E63}</Project>
+      <Name>Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram4.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

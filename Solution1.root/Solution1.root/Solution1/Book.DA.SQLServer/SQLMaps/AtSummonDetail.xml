@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AtSummonDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="AtSummonDetailResult1" class="AtSummonDetail">
+      <result property="SubjectId" column="SubjectId" />
+      <result property="DebitMoney" column="DebitMoney" />
+      <result property="CreditMoney" column="CreditMoney" />
+      <result property="Subject" column="SubjectId" lazyLoad="false" select="AtAccountSubject.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="getBySummonId" resultMap="AtSummonDetailResult" parameterClass="string">
+      SELECT * FROM dbo.AtSummonDetail WHERE SummonId=#value#
+    </select>
+    <select id="getByLendAndSubjectId"  resultClass="int">
+      SELECT count(*) FROM dbo.AtSummonDetail WHERE Lending=#lending# and SubjectId=#subjectId#
+    </select>
+    <select id="select_byDdate" resultMap="AtSummonDetailResult" parameterClass="Map">
+      <![CDATA[
+     select * from AtSummonDetail  where  SummonId in (select SummonId from  AtSummon  where  SummonDate  between #startdate# and #enddate# ) 
+    ]]>
+    </select>
+    <select id="select_byDdateAndSubject" resultMap="AtSummonDetailResult1" parameterClass="Map">
+      <![CDATA[
+     select SubjectId,isnull(sum(DebitMoney),0) as DebitMoney,isnull(sum(CreditMoney),0) as CreditMoney from AtSummonDetail  where SummonId in (select SummonId from  AtSummon  where  SummonDate  between #startdate# and #enddate# ) and (SubjectId  between #startSubjectId# and #endSubjectId#) or (#startSubjectId# is null and #endSubjectId# is null) group by SubjectId
+    ]]>
+    </select>
+  </statements>
+</sqlMap>

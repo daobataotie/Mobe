@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridColumn4.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn2.Width" type="System.Int32, mscorlib">
+    <value>104</value>
+  </data>
+  <data name="&gt;&gt;gridView1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridColumn6.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControl1.Name" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="gridColumn10.Caption" xml:space="preserve">
+    <value>毛重</value>
+  </data>
+  <data name="&gt;&gt;gridColumn5.Name" xml:space="preserve">
+    <value>gridColumn5</value>
+  </data>
+  <data name="&gt;&gt;gridControl1.Name" xml:space="preserve">
+    <value>gridControl1</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="gridControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>581, 312</value>
+  </data>
+  <data name="&gt;&gt;gridColumn7.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;bindingSource1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageCollection1.Type" xml:space="preserve">
+    <value>DevExpress.Utils.ImageCollection, DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn7.Caption" xml:space="preserve">
+    <value>宽</value>
+  </data>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>编号</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>605, 406</value>
+  </data>
+  <data name="&gt;&gt;gridControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridView1.Name" xml:space="preserve">
+    <value>gridView1</value>
+  </data>
+  <data name="&gt;&gt;gridColumn2.Name" xml:space="preserve">
+    <value>gridColumn2</value>
+  </data>
+  <data name="&gt;&gt;gridColumn4.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn3.Caption" xml:space="preserve">
+    <value>宽</value>
+  </data>
+  <data name="gridColumn11.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn3.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="gridColumn8.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;gridColumn6.Name" xml:space="preserve">
+    <value>gridColumn6</value>
+  </data>
+  <data name="&gt;&gt;gridColumn3.Name" xml:space="preserve">
+    <value>gridColumn3</value>
+  </data>
+  <data name="gridColumn1.Width" type="System.Int32, mscorlib">
+    <value>105</value>
+  </data>
+  <data name="gridColumn3.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;imageCollection1.Name" xml:space="preserve">
+    <value>imageCollection1</value>
+  </data>
+  <data name="gridColumn5.Caption" xml:space="preserve">
+    <value>编号</value>
+  </data>
+  <data name="gridColumn4.Caption" xml:space="preserve">
+    <value>高</value>
+  </data>
+  <data name="&gt;&gt;barStaticItem1.Name" xml:space="preserve">
+    <value>barStaticItem1</value>
+  </data>
+  <data name="&gt;&gt;gridColumn5.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn2.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="gridColumn3.Width" type="System.Int32, mscorlib">
+    <value>113</value>
+  </data>
+  <data name="&gt;&gt;gridControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn10.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;gridColumn11.Name" xml:space="preserve">
+    <value>gridColumn11</value>
+  </data>
+  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="layoutControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>605, 336</value>
+  </data>
+  <data name="&gt;&gt;gridColumn8.Name" xml:space="preserve">
+    <value>gridColumn8</value>
+  </data>
+  <data name="&gt;&gt;gridControl1.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;gridColumn3.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridColumn2.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;barManager1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarManager, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ListForm</value>
+  </data>
+  <data name="gridColumn7.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="gridColumn8.Caption" xml:space="preserve">
+    <value>高</value>
+  </data>
+  <data name="&gt;&gt;gridColumn10.Name" xml:space="preserve">
+    <value>gridColumn10</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>选取箱子</value>
+  </data>
+  <data name="&gt;&gt;gridColumn1.Name" xml:space="preserve">
+    <value>gridColumn1</value>
+  </data>
+  <data name="gridColumn8.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;gridColumn9.Name" xml:space="preserve">
+    <value>gridColumn9</value>
+  </data>
+  <data name="gridColumn11.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;bindingSource1.Name" xml:space="preserve">
+    <value>bindingSource1</value>
+  </data>
+  <data name="&gt;&gt;bar1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Bar, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn9.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn5.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn5.Width" type="System.Int32, mscorlib">
+    <value>110</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>Book.UI.Settings.BasicData.BaseListForm, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v10.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMC4yLCBWZXJzaW9uPTEwLjIu
+        NC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
+        eXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
+        a2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAChEZXZFeHByZXNzLlV0aWxzLkltYWdlQ29sbGVjdGlvblN0
+        cmVhbWVyAgAAAAlJbWFnZVNpemUERGF0YQQHE1N5c3RlbS5EcmF3aW5nLlNpemUDAAAAAgIAAAAF/P//
+        /xNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAwAAABgAAAAYAAAACQUAAAAP
+        BQAAAMoxAAACuwQAAIlQTkcNChoKAAAADUlIRFIAAAAYAAAAGAgGAAAA4Hc9+AAAAAFzUkdCAK7OHOkA
+        AAAEZ0FNQQAAsY8L/GEFAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwA
+        AAQ5SURBVEhLlZXLbxtVFMbPH8DD6gqpXXTDPjt24B0bFv0DQOqSBQo7Fqwquq66Q4RSpRJQIRAKLc37
+        4TjvNO80dhwnTupHPE4T1xnbcWyPPR/fmbGdjJ1W1NKn0X2c33fvuedeizR+9Xq9t1qt5mzbxrtoImuj
+        a8HGzWU3Thlk3W9ynS8HPmZn/7uAa7Uapg/zkFEbslSHbNRbCyPrsTJbJpz8pWVZ2xzA/1HaLCEejyMW
+        i6E7cgLZpMHaRSx5y8psGVhWvadcLp9YVg1v055Zw2eTddwIVLGQMJBMJtG9nYWs02Cl3oqtVCqGMpvp
+        uUboZrVqMX9vlmmauLuSxwezNch2HU/Sp0ilUugO02CVBkzT5XhlMk3XhKn5vFKpoly+WiMJC3uHxzAM
+        A4VCAf44cx66ZBCiwTINFusehjKVLTz178/PK2hXxqzgmxmu9jHwRcSCHqpuuStG2AsaHLo7uP0iB3nO
+        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
+</value>
+  </data>
+  <data name="&gt;&gt;gridColumn10.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn11.Caption" xml:space="preserve">
+    <value>才积</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridControl1.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="gridColumn6.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="gridColumn10.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;gridColumn11.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v10.2" name="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridControl1.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v10.2">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;gridColumn8.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn9.Caption" xml:space="preserve">
+    <value>净重</value>
+  </data>
+  <data name="&gt;&gt;gridColumn7.Name" xml:space="preserve">
+    <value>gridColumn7</value>
+  </data>
+  <data name="&gt;&gt;gridColumn1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <assembly alias="DevExpress.Data.v10.2" name="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridControl1.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="gridColumn7.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v10.2">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;layoutControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControl, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn2.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn4.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="gridColumn5.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gridColumn9.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="gridColumn6.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 14</value>
+  </data>
+  <data name="gridColumn9.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;barStaticItem1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarStaticItem, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;bar1.Name" xml:space="preserve">
+    <value>bar1</value>
+  </data>
+  <data name="&gt;&gt;gridColumn4.Name" xml:space="preserve">
+    <value>gridColumn4</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gridColumn6.Caption" xml:space="preserve">
+    <value>长</value>
+  </data>
+  <data name="&gt;&gt;barManager1.Name" xml:space="preserve">
+    <value>barManager1</value>
+  </data>
+  <data name="&gt;&gt;layoutControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="gridColumn2.Caption" xml:space="preserve">
+    <value>长</value>
+  </data>
+  <data name="gridColumn4.Width" type="System.Int32, mscorlib">
+    <value>128</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>305, 17</value>
+  </metadata>
+  <metadata name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>167, 17</value>
+  </metadata>
+</root>

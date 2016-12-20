@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="QualityTestPlan" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="QualityTestPlan" type="Book.Model.QualityTestPlan, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="QualityTestPlanResult" class="QualityTestPlan">
+			<result property="QualityTestPlanId" column="QualityTestPlanId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+			<result property="QualityTestPlanName" column="QualityTestPlanName" />
+			<result property="QualityTestCode" column="QualityTestCode" />
+			<result property="QualityTestStandardCode" column="QualityTestStandardCode" />
+			<result property="CreateMan" column="CreateMan" />
+			<result property="EnterMan" column="EnterMan" />
+			<result property="ChangeMan" column="ChangeMan" />
+			<result property="ChanageDate" column="ChanageDate" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[QualityTestPlan]
+				WHERE
+				[QualityTestPlanId] = #QualityTestPlanId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[QualityTestPlan]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="QualityTestPlanResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.QualityTestPlan 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="QualityTestPlanResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.QualityTestPlan 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="QualityTestPlanResult" parameterClass="QualityTestPlan">
+			<![CDATA[
+			select top 1 *
+			from dbo.QualityTestPlan
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="QualityTestPlanResult" parameterClass="QualityTestPlan">
+			<![CDATA[
+			select top 1 *
+			from dbo.QualityTestPlan
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="QualityTestPlan">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.QualityTestPlan
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="QualityTestPlan">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.QualityTestPlan
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="QualityTestPlanResult" parameterClass="QualityTestPlan">
+			SELECT
+				[QualityTestPlanId],
+				[InsertTime],
+				[UpdateTime],
+				[Id],
+				[QualityTestPlanName],
+				[QualityTestCode],
+				[QualityTestStandardCode],
+				[CreateMan],
+				[EnterMan],
+				[ChangeMan],
+				[ChanageDate]
+			FROM
+				[dbo].[QualityTestPlan]
+			WHERE
+				[QualityTestPlanId] = #QualityTestPlanId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[QualityTestPlan]
+			WHERE
+				[QualityTestPlanId] = #QualityTestPlanId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="QualityTestPlanResult" >
+			SELECT *
+			FROM 
+				[dbo].[QualityTestPlan]
+			ORDER BY QualityTestPlanId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[QualityTestPlan]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="QualityTestPlanResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[QualityTestPlan]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="QualityTestPlan">
+			INSERT INTO [dbo].[QualityTestPlan] 
+			(
+				[QualityTestPlanId],
+				[InsertTime],
+				[UpdateTime],
+				[Id],
+				[QualityTestPlanName],
+				[QualityTestCode],
+				[QualityTestStandardCode],
+				[CreateMan],
+				[EnterMan],
+				[ChangeMan],
+				[ChanageDate]
+			) 
+			VALUES 
+			(
+				#QualityTestPlanId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#,
+				#QualityTestPlanName#,
+				#QualityTestCode#,
+				#QualityTestStandardCode#,
+				#CreateMan#,
+				#EnterMan#,
+				#ChangeMan#,
+				#ChanageDate#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="QualityTestPlan">
+			UPDATE [QualityTestPlan] SET
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#,
+				[QualityTestPlanName] = #QualityTestPlanName#,
+				[QualityTestCode] = #QualityTestCode#,
+				[QualityTestStandardCode] = #QualityTestStandardCode#,
+				[CreateMan] = #CreateMan#,
+				[EnterMan] = #EnterMan#,
+				[ChangeMan] = #ChangeMan#,
+				[ChanageDate] = #ChanageDate#
+			WHERE
+				[QualityTestPlanId] = #QualityTestPlanId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.QualityTestPlan
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="QualityTestPlanResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[QualityTestPlan]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.QualityTestPlan
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

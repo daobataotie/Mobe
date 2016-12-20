@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProduceMaterialExit" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectByDateRange" resultMap="ProduceMaterialExitResult" parameterClass="Map">
+      SELECT * FROM ProduceMaterialExit WHERE ProduceExitMaterialDate BETWEEN #start#  AND #end#
+    </select>
+
+    <select id="SelectByProduceHeaderId" resultMap="ProduceMaterialExitResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM ProduceMaterialExit WHERE PronoteHeaderID = #value#
+      ]]>
+    </select>
+
+    <select id="SelectForListForm" resultMap="ProduceMaterialExitResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM ProduceMaterialExit WHERE 1 = 1 $value$
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

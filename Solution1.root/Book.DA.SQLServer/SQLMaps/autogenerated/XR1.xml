@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="XR1" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="XR1" type="Book.Model.XR1, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="XR1Result" class="XR1">
+			<result property="XR1Id" column="XR1Id" />
+			<result property="InvoiceXSId" column="InvoiceXSId" />
+			<result property="InvoiceSKId" column="InvoiceSKId" />
+			<result property="XR1Money" column="XR1Money" />
+			<result property="InvoiceSK" column="InvoiceSKId" lazyLoad="false" select="InvoiceSK.select_by_primary_key" />
+			<result property="InvoiceXS" column="InvoiceXSId" lazyLoad="false" select="InvoiceXS.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[XR1]
+				WHERE
+				[XR1Id] = #XR1Id#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[XR1]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="XR1Result" parameterClass="XR1">
+			SELECT
+				[XR1Id],
+				[InvoiceXSId],
+				[InvoiceSKId],
+				[XR1Money]
+			FROM
+				[dbo].[XR1]
+			WHERE
+				[XR1Id] = #XR1Id#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[XR1]
+			WHERE
+				[XR1Id] = #XR1Id#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="XR1Result" >
+			SELECT *
+			FROM 
+				[dbo].[XR1]
+			ORDER BY XR1Id ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[XR1]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="XR1Result">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[XR1]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="XR1">
+			INSERT INTO [dbo].[XR1] 
+			(
+				[XR1Id],
+				[InvoiceXSId],
+				[InvoiceSKId],
+				[XR1Money]
+			) 
+			VALUES 
+			(
+				#XR1Id#,
+				#InvoiceXSId#,
+				#InvoiceSKId#,
+				#XR1Money#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="XR1">
+			UPDATE [XR1] SET
+				[InvoiceXSId] = #InvoiceXSId#,
+				[InvoiceSKId] = #InvoiceSKId#,
+				[XR1Money] = #XR1Money#
+			WHERE
+				[XR1Id] = #XR1Id#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

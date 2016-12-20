@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="OperationRole" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  
+  <statements>
+    <delete id="deleteByOperatorsId" parameterClass="string">
+      delete
+      from dbo.OperationRole
+      where OperatorsId=#value#
+    </delete>
+    <select id="selectByOperationId"  parameterClass="string" resultMap="OperationRoleResult">
+      select * from OperationRole
+      where operatorsid=#value# order by PrimaryKey ASC
+    </select>
+    <delete id ="DeleteByRoleId" parameterClass ="string">
+      <![CDATA[
+      delete from OperationRole where Roleid=#value#
+      ]]>
+    </delete>
+</statements>
+</sqlMap>

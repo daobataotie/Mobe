@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCFogCheck" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByDateRange" resultMap="PCFogCheckResult" parameterClass="Map">
+      <![CDATA[
+        SELECT * FROM PCFogCheck WHERE PCFogCheck.PCFogCheckDate BETWEEN #startdate# AND #enddate# $sql$ ORDER BY PCFogCheckId DESC
+      ]]>
+    </select>
+
+    <select id="SelectByDate" resultMap="PCFogCheckResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM PCFogCheck WHERE PCFogCheck.PCFogCheckDate BETWEEN #startdate# AND #enddate#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

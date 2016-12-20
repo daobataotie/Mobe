@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="barButtonItem1.Caption" xml:space="preserve">
+    <value>儲存</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="barDockControlTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1025, 47</value>
+  </data>
+  <data name="barDockControlBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 452</value>
+  </data>
+  <data name="barDockControlBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1025, 0</value>
+  </data>
+  <data name="barDockControlLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 405</value>
+  </data>
+  <data name="barDockControlRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1025, 47</value>
+  </data>
+  <data name="barDockControlRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 405</value>
+  </data>
+  <data name="simpleButton_Search.Location" type="System.Drawing.Point, System.Drawing">
+    <value>604, 12</value>
+  </data>
+  <data name="simpleButton_Search.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="textEditProductNameOrId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>448, 12</value>
+  </data>
+  <data name="textEditProductNameOrId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 21</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="textEditProductNameOrId.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v10.2">
+    <value>Information</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>253, 12</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Buttons1" xml:space="preserve">
+    <value>選擇</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Buttons7" xml:space="preserve">
+    <value>選擇</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lookUpEditProductCatogry.Properties.Buttons8" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Buttons9" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
+    <value>Delete</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Buttons10" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Buttons11" type="System.Int32, mscorlib">
+    <value>-1</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Buttons12" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Buttons13" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Buttons14" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v10.2" name="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="lookUpEditProductCatogry.Properties.Buttons15" type="DevExpress.XtraEditors.ImageLocation, DevExpress.XtraEditors.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Buttons16" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Buttons17" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Columns1" xml:space="preserve">
+    <value>類別編號</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Properties.Columns3" xml:space="preserve">
+    <value>類別名稱</value>
+  </data>
+  <data name="lookUpEditProductCatogry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 21</value>
+  </data>
+  <data name="lookUpEditDepot.Properties.Buttons1" xml:space="preserve">
+    <value>選擇</value>
+  </data>
+  <data name="lookUpEditDepot.Properties.Buttons7" xml:space="preserve">
+    <value>選擇</value>
+  </data>
+  <data name="lookUpEditDepot.Properties.Buttons8" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lookUpEditDepot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 21</value>
+  </data>
+  <data name="gridColumnDepotName.Caption" xml:space="preserve">
+    <value>庫房名稱</value>
+  </data>
+  <data name="gridColumnDepotName.Width" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="gridColumnProductId.Caption" xml:space="preserve">
+    <value>商品編號</value>
+  </data>
+  <data name="gridColumnProductId.Width" type="System.Int32, mscorlib">
+    <value>102</value>
+  </data>
+  <data name="gridColumnProductCategoryId.Caption" xml:space="preserve">
+    <value>商品類別</value>
+  </data>
+  <data name="gridColumnProductCategoryId.Width" type="System.Int32, mscorlib">
+    <value>79</value>
+  </data>
+  <data name="gridColumnProductName.Caption" xml:space="preserve">
+    <value>商品名稱</value>
+  </data>
+  <data name="gridColumnProductName.Width" type="System.Int32, mscorlib">
+    <value>115</value>
+  </data>
+  <data name="gridColumnProductUnit.Caption" xml:space="preserve">
+    <value>單位</value>
+  </data>
+  <data name="gridColumnProductUnit.Width" type="System.Int32, mscorlib">
+    <value>82</value>
+  </data>
+  <data name="gridColumnProductSpecification.Caption" xml:space="preserve">
+    <value>規格型號</value>
+  </data>
+  <data name="gridColumnProductSpecification.Width" type="System.Int32, mscorlib">
+    <value>81</value>
+  </data>
+  <data name="gridColumnStockQuantity1.Caption" xml:space="preserve">
+    <value>當前庫存</value>
+  </data>
+  <data name="gridColumnStockQuantity0.Caption" xml:space="preserve">
+    <value>起初倉庫庫存</value>
+  </data>
+  <data name="gridColumnStockQuantity0.Width" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>貨位數量</value>
+  </data>
+  <data name="repositoryItemHyperLinkEdit2.NullText" xml:space="preserve">
+    <value>請設置</value>
+  </data>
+  <data name="gridColumn.Width" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="gridColumn2.Caption" xml:space="preserve">
+    <value>當前倉庫庫存</value>
+  </data>
+  <data name="gridColumn3.Caption" xml:space="preserve">
+    <value>客戶型號</value>
+  </data>
+  <data name="gridControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1001, 355</value>
+  </data>
+  <data name="layoutControlItem2.Text" xml:space="preserve">
+    <value>倉庫：</value>
+  </data>
+  <data name="layoutControlItem3.Text" xml:space="preserve">
+    <value>商品類別:</value>
+  </data>
+  <data name="layoutControlItem4.CustomizationFormText" xml:space="preserve">
+    <value>關鍵字:</value>
+  </data>
+  <data name="layoutControlItem4.Text" xml:space="preserve">
+    <value>關鍵字:</value>
+  </data>
+  <data name="layoutControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1025, 405</value>
+  </data>
+  <data name="simpleButton_Search.Text" xml:space="preserve">
+    <value>查詢(&amp;F)</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1025, 478</value>
+  </data>
+  <data name="barDockControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 452</value>
+  </data>
+  <data name="barDockControl4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1025, 0</value>
+  </data>
+  <data name="barDockControl4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 452</value>
+  </data>
+  <data name="barDockControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 452</value>
+  </data>
+  <data name="barDockControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1025, 26</value>
+  </data>
+  <data name="barDockControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1025, 0</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>設定 - 期初 - 庫存狀況</value>
+  </data>
+  <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v10.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMC4yLCBWZXJzaW9uPTEwLjIu
+        NC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
+        eXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
+        a2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAChEZXZFeHByZXNzLlV0aWxzLkltYWdlQ29sbGVjdGlvblN0
+        cmVhbWVyAgAAAAlJbWFnZVNpemUERGF0YQQHE1N5c3RlbS5EcmF3aW5nLlNpemUDAAAAAgIAAAAF/P//
+        /xNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAwAAABgAAAAYAAAACQUAAAAP
+        BQAAAMAEAAACvAQAAIlQTkcNChoKAAAADUlIRFIAAAAYAAAAGAgGAAAA4Hc9+AAAAAFzUkdCAK7OHOkA
+        AAAEZ0FNQQAAsY8L/GEFAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwA
+        AAAJcEhZcwAACvIAAAryAT1S9xEAAAQlSURBVEhLlZW5bxtHGMW/PyAHkSqAXbhJry5dwi5NCv8BDuAy
+        RaB0KVIZSW24C6I4hgwkMYIEgWLHuqyDom5ZtyxSFCVK5iEuZYmmVpRIkdydl/ctRYpr+lzgYYGZ+X5v
+        ZvbNrDiOI67rBlxjuo0xBQrvotG8QceswZWFZluBrFvKVHbD4BM29rYWvkmsw8TeMWTIQOZdyKrb7CPr
+        njJbDa45rrvBN95GWbuEZDKJRCKBztghZI0Gyxf9ZC3wfa1p4DhuV63mHFJ4nbZtB5+PubgcqmI2ZSGd
+        TqNzIw9ZocGi2zrWUmbD4CM2rFWrNbxOtm3jx8VjfDDlQDZc3M8eIZPJoDNKgyUacJtaxytT2WrwRaVS
+        xdnZy/UoVcP23gEsy0KxWEQwyT2PtBhEaLBAgznXV6dMZUutVvu+XK7gReXsCr6Z5GzvAV/Gat5H1acj
+        QdgTGuzVDa4/KUAes23GtDGUrQY3S6Uzh0JDXWs1fNiNekJiLoIZ48H1CURd/JKrIJ/PewafLp9CGFOZ
+        Ms36cznKfqmB/EQ4UyHbVJwGqQuD547OtOwZDO7u4/J8FTJNg8lXGJydVU7t4xO0Sn6mgcK3KF0B973x
+        aM6tkzK+jpc4c/YTHuD2yLjxMVTKllKphMP8kU9ymwYK36S4JcHdC4PuQwI1NfyowYjB8gkQXKXBmGnj
+        KFuKxVNYuUOf5A4NFM44yjpBOwa7FYLiBDGOAWb+lgXkSsB0ju3LbB/lyl7gKFtsu8gDk/NJ7tJA4Yyj
+        ntIAU+NlnXG8SpMCA9WzC/y+dW6wRINh08ZRthQKNnZ20z7JbyxQuIL1lBJ+hUahYyBhA11RYChTf+sq
+        grzo5JFp4yhbnnOv4ttJbG49bUr+YIHCeYFpmm5kDTJn9RnrzBWsM2+uYJ7jB4yPoUxli2UdYGklitjm
+        DqKxBCIb25A/WXAOD24a7JeB23Hg36d1qM5e3+tc0VXdf8Klz3i1ylCWMpUtyVQWfYMTCIXnMDu3gqXV
+        KOQvFug54McMxgxOasCvBM48A26uAWt54MYOD12oDn9/wMF30/terTKUpUxlSzKZRc+DEU99g+MYDs1A
+        /mEh4ZqY4EY9ov9x1vdTQKjA62KO/XrKBw0+GznC35PrCE/Me7XKaPCULSleu/10U/UOjONhfxjSw2L9
+        iZxn/Rn3P868X6eZxlHhHz8q44eROIZGZjA4NIXe/nqtMho8ZUsqbWF4dNYneUAI4XqBdawYdPNDBngV
+        eHDG8auhFHpGHhM+7RkMj6r8DJWyJZ3JcXkLPslDgvT48wKTCYqnVOEdozbuhCNt418lZUtmL4fp2RWf
+        pL8FHjZ4L1TDtxOZtnFvkrIlm93H4nLEJz00DXhw0sbYUqxtzNtI2WLlDrz8tupSuIpLk1XcXd1r63sX
+        WbkD/A8Af6xF2IxbCQAAAABJRU5ErkJgggs=
+</value>
+  </data>
+</root>

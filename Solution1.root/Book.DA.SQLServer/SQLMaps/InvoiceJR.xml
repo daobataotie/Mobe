@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceJR" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byTime" parameterClass="Map" resultMap="InvoiceJRResult">
+      <![CDATA[
+				select * from InvoiceJR 
+				where invoicedate between #startTime# and #endTime#
+			]]>
+    </select>
+    <select id="select_byStatus" parameterClass="int" resultMap="InvoiceJRResult">
+      <![CDATA[
+      select * from invoiceJR
+				where invoicestatus = #value#
+      ]]>
+    </select>
+    <select id="select_by_supperId" parameterClass="string" resultMap="InvoiceJRResult">
+      SELECT * FROM InvoiceJR WHERE SupplierId=#value#
+    </select>
+    <select id="SelectByDateRangeAndSupplier" parameterClass="Map" resultMap="InvoiceJRResult">
+      <![CDATA[
+        SELECT * FROM InvoiceJR
+        WHERE InvoiceDate BETWEEN #startdate# AND #enddate# $sql$
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

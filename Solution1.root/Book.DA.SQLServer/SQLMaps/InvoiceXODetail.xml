@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceXODetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_by_invoiceid" resultMap="InvoiceXODetailResult" parameterClass="string">
+		SELECT *
+		FROM
+		[dbo].[InvoiceXODetail]
+		WHERE invoiceid = #InvoiceId# $sql$ order by Inumber
+	</select>
+    <delete id="delete_by_invoiceid" parameterClass="string">
+		delete
+		from dbo.InvoiceXODetail
+		where invoiceid=#value# 
+	</delete>
+    <select id="select_by_InvoiceXODetailId" resultMap="InvoiceXODetailResult" parameterClass="string">
+      select InvoiceXODetailQuantity from InvoiceXODetail  where InvoiceXODetailId=#value#
+    </select>
+    <select id="select_by_InvoiceXODetailAndProductId" resultMap="InvoiceXODetailResult" parameterClass="string">
+      select InvoiceXODetail.*,(InvoiceXODetail.InvoiceXODetailQuantity-Product.StocksQuantity)
+      from InvoiceXODetail,CustomerProducts,Product
+      where CustomerProducts.ProductId=Product.ProductId and
+      CustomerProducts.PrimaryKeyId =InvoiceXODetail.PrimaryKeyId
+      and  InvoiceXODetail.InvoiceXODetailId=#value#
+    </select>
+    <select id="select_by_AllCurrentNum" resultMap="InvoiceXODetailResult" parameterClass="string">
+      select InvoiceXODetail.*,(InvoiceXODetail.InvoiceXODetailQuantity-Product.StocksQuantity)
+      from InvoiceXODetail,CustomerProducts,Product
+      where CustomerProducts.ProductId=Product.ProductId and
+      CustomerProducts.PrimaryKeyId =InvoiceXODetail.PrimaryKeyId
+    </select>
+    <select id="select_XOnotInMps" parameterClass="Map" resultMap="InvoiceXODetailResult">
+      <![CDATA[
+      select * from invoicexodetail where InvoiceXODetailQuantity>InvoiceMPSQuantity
+ or InvoiceMPSQuantity is null     
+       ]]>
+    </select>
+    <select id="SelectByDateRangeAndPid" parameterClass="Map" resultMap="InvoiceXODetailResult">
+      <![CDATA[
+      select * from invoicexodetail where productid=#pid# and invoiceid in(select invoiceId from invoicexo where invoicedate between #startdate# and #enddate#)
+      ]]>
+    </select>
+    <select id="SelectBywhere" parameterClass="string" resultMap="InvoiceXODetailResult">
+      <![CDATA[
+      select * from invoicexodetail $value$
+      ]]>
+    </select>
+    <update id="UpdateProofUnitPrice" parameterClass="Map">
+      <![CDATA[
+      UPDATE InvoiceXODetail
+      SET InvoiceXODetail.InvoiceXODetailPrice = #InvoiceXODetailPrice#,InvoiceXODetail.InvoiceXODetailMoney = #InvoiceXODetailMoney#
+      WHERE InvoiceXODetail.InvoiceXODetailId = #InvoiceXODetailId#
+      ]]>
+    </update>
+    <select id="select_byYJRQCustomEmp" parameterClass="String" resultMap="InvoiceXODetailResult">
+      <![CDATA[
+      SELECT * FROM InvoiceXODetail d LEFT JOIN InvoiceXO i ON i.InvoiceId = d.InvoiceId WHERE  $value$
+      ]]>
+    </select>
+
+    <select id="SumOrderQuantityByHandbook" parameterClass="string" resultClass="double">
+      <![CDATA[
+      SELECT isnull(sum(InvoiceXODetailQuantity),0) FROM InvoiceXODetail WHERE HandbookId=#HandbookId# AND HandbookProductId=#HandbookProductId#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

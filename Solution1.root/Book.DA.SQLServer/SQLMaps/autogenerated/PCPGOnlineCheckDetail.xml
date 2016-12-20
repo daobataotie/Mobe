@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCPGOnlineCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCPGOnlineCheckDetail" type="Book.Model.PCPGOnlineCheckDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCPGOnlineCheckDetailResult" class="PCPGOnlineCheckDetail">
+      <result property="PCPGOnlineCheckDetailId" column="PCPGOnlineCheckDetailId" />
+      <result property="PCPGOnlineCheckId" column="PCPGOnlineCheckId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="PCPGOnlineCheckDetailDate" column="PCPGOnlineCheckDetailDate" />
+      <result property="PCPGOnlineCheckDetailTime" column="PCPGOnlineCheckDetailTime" />
+      <result property="InvoiceCusXOId" column="InvoiceCusXOId" />
+      <result property="CheckQuantity" column="CheckQuantity" />
+      <result property="attrColor" column="attrColor" />
+      <result property="ImpactCheck" column="ImpactCheck" />
+      <result property="attrExterior" column="attrExterior" />
+      <result property="attrGaoDiJiaoL" column="attrGaoDiJiaoL" />
+      <result property="attrGaoDiJiaoR" column="attrGaoDiJiaoR" />
+      <result property="attrZhuangJiaoSJDL" column="attrZhuangJiaoSJDL" />
+      <result property="attrZhuangJiaoSJDR" column="attrZhuangJiaoSJDR" />
+      <result property="PCPGOnlineCheckDetailDesc" column="PCPGOnlineCheckDetailDesc" />
+      <result property="attrDianDuPDSLv" column="attrDianDuPDSLv" />
+      <result property="attrDianDuBOLiTest" column="attrDianDuBOLiTest" />
+      <result property="FromInvoiceId" column="FromInvoiceId" />
+      <result property="attrGuanXue" column="attrGuanXue" />
+      <result property="attrUVChengFen" column="attrUVChengFen" />
+      <result property="attrHouDu" column="attrHouDu" />
+      <result property="attrTouShiLv" column="attrTouShiLv" />
+      <result property="attrFangWuMoYingDu" column="attrFangWuMoYingDu" />
+      <result property="attrQiangHuaMo" column="attrQiangHuaMo" />
+      <result property="attrZhePian" column="attrZhePian" />
+      <result property="attrMaoBian" column="attrMaoBian" />
+      <result property="attrCuSuanCeShi" column="attrCuSuanCeShi" />
+      <result property="BusinessHoursId" column="BusinessHoursId"/>
+      <result property="attrFangWuMo" column="attrFangWuMo"/>
+      <result property="attrQiangHuaMoYingDu" column="attrQiangHuaMoYingDu"/>
+      <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCPGOnlineCheckDetail]
+				WHERE
+				[PCPGOnlineCheckDetailId] = #PCPGOnlineCheckDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCPGOnlineCheckDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCPGOnlineCheckDetailResult" parameterClass="PCPGOnlineCheckDetail">
+      <![CDATA[SELECT
+				[PCPGOnlineCheckDetailId],
+				[PCPGOnlineCheckId],
+				[EmployeeId],
+				[PCPGOnlineCheckDetailDate],
+				[PCPGOnlineCheckDetailTime],
+				[InvoiceCusXOId],
+				[CheckQuantity],
+				[attrColor],
+				[ImpactCheck],
+				[attrExterior],
+				[attrGaoDiJiaoL],
+				[attrGaoDiJiaoR],
+				[attrZhuangJiaoSJDL],
+				[attrZhuangJiaoSJDR],
+				[PCPGOnlineCheckDetailDesc],
+				[attrDianDuPDSLv],
+				[attrDianDuBOLiTest],
+				[FromInvoiceId],
+				[attrGuanXue],
+				[attrUVChengFen],
+				[attrHouDu],
+				[attrTouShiLv],
+				[attrFangWuMoYingDu],
+				[attrQiangHuaMo],
+				[attrZhePian],
+				[attrMaoBian],
+				[attrCuSuanCeShi],
+        [BusinessHoursId],
+        [attrFangWuMo],
+        [attrQiangHuaMoYingDu]
+			FROM
+				[dbo].[PCPGOnlineCheckDetail]
+			WHERE
+				[PCPGOnlineCheckDetailId] = #PCPGOnlineCheckDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCPGOnlineCheckDetail]
+			WHERE            
+				[PCPGOnlineCheckDetailId] = #PCPGOnlineCheckDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCPGOnlineCheckDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCPGOnlineCheckDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCPGOnlineCheckDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCPGOnlineCheckDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCPGOnlineCheckDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCPGOnlineCheckDetail">
+      <![CDATA[ INSERT INTO [dbo].[PCPGOnlineCheckDetail] 
+			(
+				[PCPGOnlineCheckDetailId],
+				[PCPGOnlineCheckId],
+				[EmployeeId],
+				[PCPGOnlineCheckDetailDate],
+				[PCPGOnlineCheckDetailTime],
+				[InvoiceCusXOId],
+				[CheckQuantity],
+				[attrColor],
+				[ImpactCheck],
+				[attrExterior],
+				[attrGaoDiJiaoL],
+				[attrGaoDiJiaoR],
+				[attrZhuangJiaoSJDL],
+				[attrZhuangJiaoSJDR],
+				[PCPGOnlineCheckDetailDesc],
+				[attrDianDuPDSLv],
+				[attrDianDuBOLiTest],
+				[FromInvoiceId],
+				[attrGuanXue],
+				[attrUVChengFen],
+				[attrHouDu],
+				[attrTouShiLv],
+				[attrFangWuMoYingDu],
+				[attrQiangHuaMo],
+				[attrZhePian],
+				[attrMaoBian],
+				[attrCuSuanCeShi],
+        [BusinessHoursId],
+        [attrFangWuMo],
+        [attrQiangHuaMoYingDu]
+			) 
+			VALUES 
+			(
+				#PCPGOnlineCheckDetailId#,
+				#PCPGOnlineCheckId#,
+				#EmployeeId#,
+				#PCPGOnlineCheckDetailDate#,
+				#PCPGOnlineCheckDetailTime#,
+				#InvoiceCusXOId#,
+				#CheckQuantity#,
+				#attrColor#,
+				#ImpactCheck#,
+				#attrExterior#,
+				#attrGaoDiJiaoL#,
+				#attrGaoDiJiaoR#,
+				#attrZhuangJiaoSJDL#,
+				#attrZhuangJiaoSJDR#,
+				#PCPGOnlineCheckDetailDesc#,
+				#attrDianDuPDSLv#,
+				#attrDianDuBOLiTest#,
+				#FromInvoiceId#,
+				#attrGuanXue#,
+				#attrUVChengFen#,
+				#attrHouDu#,
+				#attrTouShiLv#,
+				#attrFangWuMoYingDu#,
+				#attrQiangHuaMo#,
+				#attrZhePian#,
+				#attrMaoBian#,
+				#attrCuSuanCeShi#,
+        #BusinessHoursId#,
+        #attrFangWuMo#,
+        #attrQiangHuaMoYingDu#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCPGOnlineCheckDetail">
+      <![CDATA[ 	UPDATE [PCPGOnlineCheckDetail] SET
+				[PCPGOnlineCheckId] = #PCPGOnlineCheckId#,
+				[EmployeeId] = #EmployeeId#,
+				[PCPGOnlineCheckDetailDate] = #PCPGOnlineCheckDetailDate#,
+				[PCPGOnlineCheckDetailTime] = #PCPGOnlineCheckDetailTime#,
+				[InvoiceCusXOId] = #InvoiceCusXOId#,
+				[CheckQuantity] = #CheckQuantity#,
+				[attrColor] = #attrColor#,
+				[ImpactCheck] = #ImpactCheck#,
+				[attrExterior] = #attrExterior#,
+				[attrGaoDiJiaoL] = #attrGaoDiJiaoL#,
+				[attrGaoDiJiaoR] = #attrGaoDiJiaoR#,
+				[attrZhuangJiaoSJDL] = #attrZhuangJiaoSJDL#,
+				[attrZhuangJiaoSJDR] = #attrZhuangJiaoSJDR#,
+				[PCPGOnlineCheckDetailDesc] = #PCPGOnlineCheckDetailDesc#,
+				[attrDianDuPDSLv] = #attrDianDuPDSLv#,
+				[attrDianDuBOLiTest] = #attrDianDuBOLiTest#,
+				[FromInvoiceId] = #FromInvoiceId#,
+				[attrGuanXue] = #attrGuanXue#,
+				[attrUVChengFen] = #attrUVChengFen#,
+				[attrHouDu] = #attrHouDu#,
+				[attrTouShiLv] = #attrTouShiLv#,
+				[attrFangWuMoYingDu] = #attrFangWuMoYingDu#,
+				[attrQiangHuaMo] = #attrQiangHuaMo#,
+				[attrZhePian] = #attrZhePian#,
+				[attrMaoBian] = #attrMaoBian#,
+				[attrCuSuanCeShi] = #attrCuSuanCeShi#,
+        [BusinessHoursId]=#BusinessHoursId#,
+        [attrFangWuMo]=#attrFangWuMo#,
+        [attrQiangHuaMoYingDu]=#attrQiangHuaMoYingDu#
+			WHERE
+				[PCPGOnlineCheckDetailId] = #PCPGOnlineCheckDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCPGOnlineCheckDetail]
+				where  PCPGOnlineCheckDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

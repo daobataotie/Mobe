@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProduceMaterialdetails" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byProduceMaterialID" resultMap="ProduceMaterialdetailsResult" parameterClass="string">
+      select * from ProduceMaterialdetails where ProduceMaterialID=#value# order by Inumber
+    </select>
+    <select id="SelectByHouseDates" resultMap="ProduceMaterialdetailsResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceMaterialdetails where ProduceMaterialID in
+      (select ProduceMaterialID from ProduceMaterial where (WorkHouseId=#houseid#
+      or #houseid# is null)
+      and  ProduceMaterialDate between #startDate# and #enddate#)
+      ]]>
+    </select>
+    <select id="selectBycondition"  resultMap="ProduceMaterialdetailsResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ProduceMaterialdetails detail INNER JOIN ProduceMaterial pm ON pm.ProduceMaterialID = detail.ProduceMaterialID
+      WHERE ((pm.ProduceMaterialDate>=#starDate# OR #starDate# IS NULL) AND (pm.ProduceMaterialDate<=#endDate# OR #endDate# IS NULL))
+      AND ((pm.ProduceMaterialID>=#produceMaterialId0# OR #produceMaterialId0# IS NULL) AND (pm.ProduceMaterialID<=#produceMaterialId1# OR #produceMaterialId1# IS NULL))
+      AND detail.ProductId IN (SELECT ProductId FROM Product WHERE (Id>=#pId0# OR #pId0# IS NULL) AND (Id<=#pId1# OR #pId1# IS NULL))
+      AND (pm.WorkHouseId= #dId0# or #dId0# is null)
+      AND ((pm.InvoiceId>=#pronoteId0# OR #pronoteId0# IS NULL) AND (pm.InvoiceId<=#pronoteId1# OR #pronoteId1# IS NULL))
+      ]]>
+    </select>
+    <select id="select_byState" parameterClass="Map" resultMap="ProduceMaterialdetailsResult">
+      <![CDATA[
+      select * from ProduceMaterialdetails
+				where ProduceMaterialID=#ProduceMaterialID# and (DepotOutStateDetail<>2 or DepotOutStateDetail is null)
+      ]]>
+    </select>
+
+    <select id="selectByproductIdAndHeadId" parameterClass="Map" resultMap="ProduceMaterialdetailsResult">
+      SELECT * FROM ProduceMaterialdetails WHERE ProduceMaterialID=#produceMaterialId# AND ProductId=#productId#
+    </select>
+    <select id="selectByproductIdAndHeadIdRange" parameterClass="Map" resultMap="ProduceMaterialdetailsResult">
+      <![CDATA[
+SELECT * FROM ProduceMaterialdetails WHERE ProduceMaterialID=#produceMaterialId# and productid IN (SELECT ProductId FROM Product WHERE (productname>=#pId0# OR #pId0# IS NULL) AND (productname<=#pId1# OR #pId1# IS NULL))
+]]>
+    </select>
+
+    <select id="GetMaterialprocesedsumForPDMId" parameterClass="String" resultClass="Double">
+      <![CDATA[
+      SELECT ISNULL(SUM(Materialprocesedsum),0) FROM ProduceMaterialdetails WHERE PronotedetailsID = #value#
+      ]]>
+    </select>
+
+    <select id="SelectForDistributioned" resultMap="ProduceMaterialdetailsResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceMaterialdetails where ProductId=#productid# and  ProduceMaterialID in (select ProduceMaterialID from ProduceMaterial where InsertTime>#InsertTime#)
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

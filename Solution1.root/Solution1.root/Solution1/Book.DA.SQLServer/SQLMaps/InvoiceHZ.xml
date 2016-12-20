@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceHZ" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<statements>
+		<select id="select_byTime" parameterClass="Map" resultMap="InvoiceHZResult">
+			<![CDATA[
+				select * from InvoiceHZ 
+				where invoicedate between #startTime# and #endTime#
+			]]>
+		</select>
+    <select id="select_byStatus" parameterClass="int" resultMap="InvoiceHZResult">
+      <![CDATA[
+      select * from invoiceHZ
+				where invoicestatus = #value#
+      ]]>
+    </select>
+	</statements>
+</sqlMap>

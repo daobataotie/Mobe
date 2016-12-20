@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="CustomerProducts" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="CustomerProducts" type="Book.Model.CustomerProducts, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="CustomerProductsResult" class="CustomerProducts">
+      <result property="PrimaryKeyId" column="PrimaryKeyId" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="UnitGroupId" column="UnitGroupId" />
+      <result property="MainUnitId" column="MainUnitId" />
+      <result property="BuyUnitId" column="BuyUnitId" />
+      <result property="ProduceUnitId" column="ProduceUnitId" />
+      <result property="QualityTestUnitId" column="QualityTestUnitId" />
+      <result property="SellUnitId" column="SellUnitId" />
+      <result property="DepotUnitId" column="DepotUnitId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="CustomerProductName" column="CustomerProductName" />
+      <result property="Requirements" column="Requirements" />
+      <result property="CustomerProductId" column="CustomerProductId" />
+      <result property="BarCode" column="BarCode" />
+      <result property="DepotQuantity" column="DepotQuantity" />
+      <result property="OrderQuantity" column="OrderQuantity" />
+      <result property="LossRate" column="LossRate" />
+      <result property="Version" column="Version" />
+      <result property="VersionDescription" column="VersionDescription" />
+      <result property="VersionDate" column="VersionDate" />
+      <result property="Status" column="Status" />
+      <result property="Creator" column="Creator" />
+      <result property="Modify" column="Modify" />
+      <result property="DepotId" column="DepotId" />
+      <result property="DepotPositionId" column="DepotPositionId" />
+      <result property="customerCheck" column="customerCheck" />
+      <result property="CustomerProductProceName" column="CustomerProductProceName" />
+      <result property="CustomerProductDesc" column="CustomerProductDesc" />
+      <result property="SettingId" column="SettingId" />
+      <result property="BLong" column="BLong"/>
+      <result property="BWide" column="BWide"/>
+      <result property="BHigh" column="BHigh"/>
+      <result property="JWeight" column="JWeight"/>
+      <result property="MWeight" column="MWeight"/>
+      <result property="Caiji" column="Caiji"/>
+      <result property="PackingSpecification" column="PackingSpecification"/>
+      <result property ="UpdateEmployeeId" column="UpdateEmployeeId"/>
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Depot" column="DepotId" lazyLoad="false" select="Depot.select_by_primary_key" />
+      <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="DepotUnit" column="DepotUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="QualityTestUnit" column="QualityTestUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="SellUnit" column="SellUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="BuyUnit" column="BuyUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="ProduceUnit" column="ProduceUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="MainUnit" column="MainUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="UnitGroup" column="UnitGroupId" lazyLoad="false" select="UnitGroup.select_by_primary_key" />
+      <result property="Setting" column="SettingId" lazyLoad="false" select="Setting.select_by_primary_key" />
+      <result property ="UpdateEmployee" column="UpdateEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee"/>
+
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[CustomerProducts]
+      WHERE
+      [PrimaryKeyId] = #PrimaryKeyId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[CustomerProducts]
+
+      ) then 1 else 0 end
+    </select>
+    <select id="get_first" resultMap="CustomerProductsResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.CustomerProducts 
+			order by InsertTime
+			]]>
+    </select>
+    <select id="get_last" resultMap="CustomerProductsResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.CustomerProducts 			
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_prev" resultMap="CustomerProductsResult" parameterClass="CustomerProducts">
+      <![CDATA[
+			select top 1 *
+			from dbo.CustomerProducts
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="CustomerProductsResult" parameterClass="CustomerProducts">
+      <![CDATA[
+			select top 1 *
+			from dbo.CustomerProducts
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+    </select>
+    <select id="has_rows_before" resultClass="bool" parameterClass="CustomerProducts">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomerProducts
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="CustomerProducts">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomerProducts
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="CustomerProductsResult" parameterClass="CustomerProducts">
+      SELECT
+      [PrimaryKeyId],
+      [CustomerId],
+      [ProductId],
+      [UnitGroupId],
+      [MainUnitId],
+      [BuyUnitId],
+      [ProduceUnitId],
+      [QualityTestUnitId],
+      [SellUnitId],
+      [DepotUnitId],
+      [InsertTime],
+      [UpdateTime],
+      [CustomerProductName],
+      [Requirements],
+      [CustomerProductId],
+      [BarCode],
+      [DepotQuantity],
+      [OrderQuantity],
+      [LossRate],
+      [Version],
+      [VersionDescription],
+      [VersionDate],
+      [Status],
+      [Creator],
+      [Modify],
+      [DepotId],
+      [DepotPositionId],
+      [customerCheck],
+      [CustomerProductProceName],
+      [CustomerProductDesc],
+      [SettingId],
+      [BLong],
+      [BWide],
+      [BHigh],
+      [JWeight],
+      [MWeight],
+      [Caiji],
+      [PackingSpecification],
+      [UpdateEmployeeId]
+      FROM
+      [dbo].[CustomerProducts]
+      WHERE
+      [PrimaryKeyId] = #PrimaryKeyId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[CustomerProducts]
+      WHERE
+      [PrimaryKeyId] = #PrimaryKeyId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="CustomerProductsResult" >
+      SELECT *
+      FROM
+      [dbo].[CustomerProducts]
+
+      ORDER BY InsertTime DESC
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[CustomerProducts]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="CustomerProductsResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[CustomerProducts]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="CustomerProducts">
+      INSERT INTO [dbo].[CustomerProducts]
+      (
+      [PrimaryKeyId],
+      [CustomerId],
+      [ProductId],
+      [UnitGroupId],
+      [MainUnitId],
+      [BuyUnitId],
+      [ProduceUnitId],
+      [QualityTestUnitId],
+      [SellUnitId],
+      [DepotUnitId],
+      [InsertTime],
+      [UpdateTime],
+      [CustomerProductName],
+      [Requirements],
+      [CustomerProductId],
+      [BarCode],
+      [DepotQuantity],
+      [OrderQuantity],
+      [LossRate],
+      [Version],
+      [VersionDescription],
+      [VersionDate],
+      [Status],
+      [Creator],
+      [Modify],
+      [DepotId],
+      [DepotPositionId],
+      [customerCheck],
+      [CustomerProductProceName],
+      [CustomerProductDesc],
+      [SettingId],
+      [BLong],
+      [BWide],
+      [BHigh],
+      [JWeight],
+      [MWeight],
+      [Caiji],
+      [PackingSpecification],
+      [UpdateEmployeeId]
+      )
+      VALUES
+      (
+      #PrimaryKeyId#,
+      #CustomerId#,
+      #ProductId#,
+      #UnitGroupId#,
+      #MainUnitId#,
+      #BuyUnitId#,
+      #ProduceUnitId#,
+      #QualityTestUnitId#,
+      #SellUnitId#,
+      #DepotUnitId#,
+      #InsertTime#,
+      #UpdateTime#,
+      #CustomerProductName#,
+      #Requirements#,
+      #CustomerProductId#,
+      #BarCode#,
+      #DepotQuantity#,
+      #OrderQuantity#,
+      #LossRate#,
+      #Version#,
+      #VersionDescription#,
+      #VersionDate#,
+      #Status#,
+      #Creator#,
+      #Modify#,
+      #DepotId#,
+      #DepotPositionId#,
+      #customerCheck#,
+      #CustomerProductProceName#,
+      #CustomerProductDesc#,
+      #SettingId#,
+      #BLong#,
+      #BWide#,
+      #BHigh#,
+      #JWeight#,
+      #MWeight#,
+      #Caiji#,
+      #PackingSpecification#,
+      #UpdateEmployeeId#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="CustomerProducts">
+      UPDATE [CustomerProducts] SET
+      [CustomerId] = #CustomerId#,
+      [ProductId] = #ProductId#,
+      [UnitGroupId] = #UnitGroupId#,
+      [MainUnitId] = #MainUnitId#,
+      [BuyUnitId] = #BuyUnitId#,
+      [ProduceUnitId] = #ProduceUnitId#,
+      [QualityTestUnitId] = #QualityTestUnitId#,
+      [SellUnitId] = #SellUnitId#,
+      [DepotUnitId] = #DepotUnitId#,
+      [InsertTime] = #InsertTime#,
+      [UpdateTime] = #UpdateTime#,
+      [CustomerProductName] = #CustomerProductName#,
+      [Requirements] = #Requirements#,
+      [CustomerProductId] = #CustomerProductId#,
+      [BarCode] = #BarCode#,
+      [DepotQuantity] = #DepotQuantity#,
+      [OrderQuantity] = #OrderQuantity#,
+      [LossRate] = #LossRate#,
+      [Version] = #Version#,
+      [VersionDescription] = #VersionDescription#,
+      [VersionDate] = #VersionDate#,
+      [Status] = #Status#,
+      [Creator] = #Creator#,
+      [Modify] = #Modify#,
+      [DepotId] = #DepotId#,
+      [DepotPositionId] = #DepotPositionId#,
+      [customerCheck] = #customerCheck#,
+      [CustomerProductProceName] = #CustomerProductProceName#,
+      [CustomerProductDesc] = #CustomerProductDesc#,
+      [SettingId] = #SettingId#,
+      [BLong] = #BLong#,
+      [BWide] = #BWide#,
+      [BHigh] = #BHigh#,
+      [JWeight] = #JWeight#,
+      [MWeight] = #MWeight#,
+      [Caiji] = #Caiji#,
+      [PackingSpecification] = #PackingSpecification#,
+      [UpdateEmployeeId]=#UpdateEmployeeId#
+      WHERE
+      [PrimaryKeyId] = #PrimaryKeyId#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[CustomerProducts]
+				where  PrimaryKeyId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

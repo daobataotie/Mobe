@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Pronotedetails" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_bypronoteHeaderId" resultMap="PronotedetailsResult" parameterClass="string">
+      select * from Pronotedetails where PronoteHeaderID=#value#
+    </select>
+   <select id="select_byMPSdetail" resultClass="double" parameterClass="string">
+     select isnull(sum(DetailsSum),0) from Pronotedetails  where MPSDetailId=#value#
+   </select>
+    <select id="select_byCustomerANDdate" resultMap="PronotedetailsResult" parameterClass="Map">
+      <![CDATA[
+     select * from Pronotedetails  where  InvoiceXOId in (select InvoiceXOId from  InvoiceXO where   (CustomerId in(select  CustomerId from customer where (id>=#startcustomerid# or #startcustomerid# is null) and (id<= #endcustomerid# or #endcustomerid# is null)) ))
+      and PronoteHeaderID in (select PronoteHeaderID from PronoteHeader where   PronoteDate  between #startdate# and #enddate# )     
+      
+      
+    ]]>
+    </select>
+  </statements>
+</sqlMap>

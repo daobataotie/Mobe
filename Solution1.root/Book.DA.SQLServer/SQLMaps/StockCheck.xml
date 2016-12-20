@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="StockCheck" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <delete id="Delete_by_StockCheckId" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM StockCheck WHERE StockCheckId=#value#
+      ]]>
+    </delete>
+    <select id="Select_by_StockCheckId" parameterClass="string" resultMap="StockCheckResult">
+      <![CDATA[
+      SELECT * FROM StockCheck WHERE StockCheckId=#value#
+      ]]>
+    </select>
+    <select id="SelectByDateRage" parameterClass="Map" resultMap="StockCheckResult">
+      <![CDATA[
+      SELECT * FROM StockCheck WHERE StockCheckDate BETWEEN #StartDate# AND #EndDate#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

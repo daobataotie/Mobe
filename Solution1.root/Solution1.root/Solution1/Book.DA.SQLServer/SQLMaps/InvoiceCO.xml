@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceCO" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<statements>
+		<select id="select_byTime" parameterClass="Map" resultMap="InvoiceCOResult">
+			<![CDATA[
+				select * from InvoiceCO 
+				where invoicedate between #startTime# and #endTime#
+			]]>
+		</select>
+		<select id="select_byStatus" parameterClass="int" resultMap="InvoiceCOResult">
+			<![CDATA[
+      select * from invoiceCO
+				where invoicestatus = #value#
+      ]]>
+		</select>
+		<select id="select_bySupplier" parameterClass="string" resultMap="InvoiceCOResult">
+			<![CDATA[
+      select * from invoiceCO
+				where SupplierId = #value# and InvoiceFlag<>2
+      ]]>
+		</select>
+
+		<select id="selectbySupplierAndinvoiceId" parameterClass="Map" resultMap="InvoiceCOResult">
+			<![CDATA[
+      select * from invoiceCO
+				where (#supperId# is null  or  SupplierId = #supperId# ) and ( #invoiceId# is null or InvoiceId=#invoiceId# ) and InvoiceFlag<>2  ORDER BY InvoiceDate DESC
+      ]]>
+		</select>
+
+		<select id="selectByMrsHeaderId" parameterClass="string" resultMap="InvoiceCOResult">
+			select * from InvoiceCO where MRSHeaderId=#value#
+		</select>
+		<select id="selectFlagNot2" parameterClass="string" resultMap="InvoiceCOResult">
+			<![CDATA[
+			select * from InvoiceCO where InvoiceFlag<>2 or InvoiceFlag is null order by InsertTime desc
+			 ]]>
+		</select>
+
+	</statements>
+</sqlMap>

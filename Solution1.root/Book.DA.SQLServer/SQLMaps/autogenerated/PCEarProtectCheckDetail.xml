@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCEarProtectCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCEarProtectCheckDetail" type="Book.Model.PCEarProtectCheckDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCEarProtectCheckDetailResult" class="PCEarProtectCheckDetail">
+      <result property="PCEarProtectCheckDetailId" column="PCEarProtectCheckDetailId" />
+      <result property="PCEarProtectCheckId" column="PCEarProtectCheckId" />
+      <result property="CheckDate" column="CheckDate" />
+      <result property="ProductId" column="ProductId" />
+      <result property="Fitted" column="Fitted" />
+      <result property="IsBreak" column="IsBreak" />
+      <result property="IsDrop" column="IsDrop" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="NoteIsPass" column="NoteIsPass" />
+      <result property="BusinessHoursId" column="BusinessHoursId"/>
+      <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key"/>
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="PCEarProtectCheck" column="PCEarProtectCheckId" lazyLoad="false" select="PCEarProtectCheck.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCEarProtectCheckDetail]
+				WHERE
+				[PCEarProtectCheckDetailId] = #PCEarProtectCheckDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCEarProtectCheckDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCEarProtectCheckDetailResult" parameterClass="PCEarProtectCheckDetail">
+      <![CDATA[SELECT
+				[PCEarProtectCheckDetailId],
+				[PCEarProtectCheckId],
+				[CheckDate],
+				[ProductId],
+				[Fitted],
+				[IsBreak],
+				[IsDrop],
+				[EmployeeId],
+				[NoteIsPass],
+        [BusinessHoursId]
+			FROM
+				[dbo].[PCEarProtectCheckDetail]
+			WHERE
+				[PCEarProtectCheckDetailId] = #PCEarProtectCheckDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCEarProtectCheckDetail]
+			WHERE            
+				[PCEarProtectCheckDetailId] = #PCEarProtectCheckDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCEarProtectCheckDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCEarProtectCheckDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCEarProtectCheckDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCEarProtectCheckDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCEarProtectCheckDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCEarProtectCheckDetail">
+      <![CDATA[ INSERT INTO [dbo].[PCEarProtectCheckDetail] 
+			(
+				[PCEarProtectCheckDetailId],
+				[PCEarProtectCheckId],
+				[CheckDate],
+				[ProductId],
+				[Fitted],
+				[IsBreak],
+				[IsDrop],
+				[EmployeeId],
+				[NoteIsPass],
+        [BusinessHoursId]
+			) 
+			VALUES 
+			(
+				#PCEarProtectCheckDetailId#,
+				#PCEarProtectCheckId#,
+				#CheckDate#,
+				#ProductId#,
+				#Fitted#,
+				#IsBreak#,
+				#IsDrop#,
+				#EmployeeId#,
+				#NoteIsPass#,
+        #BusinessHoursId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCEarProtectCheckDetail">
+      <![CDATA[ 	UPDATE [PCEarProtectCheckDetail] SET
+				[PCEarProtectCheckId] = #PCEarProtectCheckId#,
+				[CheckDate] = #CheckDate#,
+				[ProductId] = #ProductId#,
+				[Fitted] = #Fitted#,
+				[IsBreak] = #IsBreak#,
+				[IsDrop] = #IsDrop#,
+				[EmployeeId] = #EmployeeId#,
+				[NoteIsPass] = #NoteIsPass#,
+        [BusinessHoursId]=#BusinessHoursId#
+			WHERE
+				[PCEarProtectCheckDetailId] = #PCEarProtectCheckDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCEarProtectCheckDetail]
+				where  PCEarProtectCheckDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

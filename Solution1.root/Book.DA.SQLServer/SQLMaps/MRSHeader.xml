@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="MRSHeader" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectbySourceType" resultMap="MRSHeaderResult" parameterClass="string">
+      SELECT * FROM MRSHeader WHERE SourceType=#value#
+    </select>
+    <select id ="selectByCondition" resultMap="MRSHeaderResult" parameterClass="Map">
+      <![CDATA[
+      select * from mrsheader where (customerId>= #startcustomerId# or #startcustomerId# is null) and (customerId<=#endcustomerId# or #endcustomerId# is null) and (mpsheaderId >=#startmpsheaderId# or #startmpsheaderId# is null) and (mpsheaderId<=#endmpsheaderId# or #endendmpsheaderId# is null) and (mrsstartdate between #startdate# and #enddate#) $sql$
+      ]]>      
+    </select>
+	  <select id ="selectByDateRanCusXOId" resultMap="MRSHeaderResult" parameterClass="Map">
+		  <![CDATA[
+      select * from mrsheader where  (mrsstartdate >=#startdate# or #startdate# is null) and (mrsstartdate<=#enddate# or #enddate# is null) and ((MPSheaderId in(select MPSheaderId from MPSheader where InvoiceXOId in(select InvoiceId from InvoiceXO where CustomerInvoiceXOId=#cusxoid# ) )) or (#cusxoid# is null))  $sql$ order by mrsheaderid desc
+      ]]>
+	  </select>
+	  <select id ="IsCloseed" resultClass="bool" parameterClass="string">
+		  <![CDATA[
+      select case WHEN exists(select * FROM MRSdetails WHERE MRSdetailssum<>0 AND  (ArrangeDesc IS  NULL or  ArrangeDesc=''  ) and MRSHeaderId=#value# )
+THEN 0 ELSE 1 END 
+
+      ]]>
+	  </select>
+	  
+	  
+  </statements>
+</sqlMap>

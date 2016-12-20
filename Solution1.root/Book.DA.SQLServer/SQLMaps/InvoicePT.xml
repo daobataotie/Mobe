@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoicePT" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<statements>
+		<select id="select_byTime" parameterClass="Map" resultMap="InvoicePTResult">
+			<![CDATA[
+				select * from InvoicePT 
+				where invoicedate between #startTime# and #endTime#
+			]]>
+		</select>
+    <select id="select_byStatus" parameterClass="int" resultMap="InvoicePTResult">
+      <![CDATA[
+      select * from invoicePT
+				where invoicestatus = #value#
+      ]]>
+    </select>
+
+    <select id="selectByTimeAndOther" parameterClass="Map" resultMap="InvoicePTResult">
+      <![CDATA[
+				select * from InvoicePT 
+				where invoicedate between #startTime# and #endTime# $sql$
+			]]>
+    </select>
+	</statements>
+</sqlMap>

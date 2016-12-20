@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DepotIn" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="DepotIn" type="Book.Model.DepotIn, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="DepotInResult" class="DepotIn">
+      <result property="DepotInId" column="DepotInId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="DepotId" column="DepotId" />
+      <result property="SupplierId" column="SupplierId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="DepotInDate" column="DepotInDate" />
+      <result property="Description" column="Description" />
+      <result property="ProductCategoryId" column="ProductCategoryId" />
+      <result property="ProduceInDepotId" column="ProduceInDepotId" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="Depot" column="DepotId" lazyLoad="false" select="Depot.select_by_primary_key" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[DepotIn]
+      WHERE
+      [DepotInId] = #DepotInId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[DepotIn]
+
+      ) then 1 else 0 end
+    </select>
+    <select id="get_first" resultMap="DepotInResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.DepotIn 
+			order by InsertTime
+			]]>
+    </select>
+    <select id="get_last" resultMap="DepotInResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.DepotIn 			
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_prev" resultMap="DepotInResult" parameterClass="DepotIn">
+      <![CDATA[
+			select top 1 *
+			from dbo.DepotIn
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="DepotInResult" parameterClass="DepotIn">
+      <![CDATA[
+			select top 1 *
+			from dbo.DepotIn
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+    </select>
+    <select id="has_rows_before" resultClass="bool" parameterClass="DepotIn">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.DepotIn
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="DepotIn">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.DepotIn
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="DepotInResult" parameterClass="DepotIn">
+      SELECT
+      [DepotInId],
+      [EmployeeId],
+      [Employee0Id],
+      [DepotId],
+      [SupplierId],
+      [InsertTime],
+      [UpdateTime],
+      [DepotInDate],
+      [Description],
+      [ProductCategoryId],
+      [ProduceInDepotId],
+      [AuditState],
+      [AuditEmpId]
+
+      FROM
+      [dbo].[DepotIn]
+      WHERE
+      [DepotInId] = #DepotInId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[DepotIn]
+      WHERE
+      [DepotInId] = #DepotInId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="DepotInResult" >
+      SELECT *
+      FROM
+      [dbo].[DepotIn]
+
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[DepotIn]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="DepotInResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[DepotIn]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="DepotIn">
+      INSERT INTO [dbo].[DepotIn]
+      (
+      [DepotInId],
+      [EmployeeId],
+      [Employee0Id],
+      [DepotId],
+      [SupplierId],
+      [InsertTime],
+      [UpdateTime],
+      [DepotInDate],
+      [Description],
+      [ProductCategoryId],
+      [ProduceInDepotId],
+      [AuditState],
+      [AuditEmpId]
+      )
+      VALUES
+      (
+      #DepotInId#,
+      #EmployeeId#,
+      #Employee0Id#,
+      #DepotId#,
+      #SupplierId#,
+      #InsertTime#,
+      #UpdateTime#,
+      #DepotInDate#,
+      #Description#,
+      #ProductCategoryId#,
+      #ProduceInDepotId#,
+      #AuditState#,
+      #AuditEmpId#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="DepotIn">
+      UPDATE [DepotIn] SET
+      [EmployeeId] = #EmployeeId#,
+      [Employee0Id] = #Employee0Id#,
+      [DepotId] = #DepotId#,
+      [SupplierId] = #SupplierId#,
+      [InsertTime] = #InsertTime#,
+      [UpdateTime] = #UpdateTime#,
+      [DepotInDate] = #DepotInDate#,
+      [Description] = #Description#,
+      [ProductCategoryId] = #ProductCategoryId#,
+      [ProduceInDepotId] = #ProduceInDepotId#,
+      [AuditState]=#AuditState#,
+      [AuditEmpId]=#AuditEmpId#
+      WHERE
+      [DepotInId] = #DepotInId#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[DepotIn]
+				where  DepotInId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

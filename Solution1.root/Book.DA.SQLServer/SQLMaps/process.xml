@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="process" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <select id="select_by_wfid" resultMap="processResult" parameterClass="string">
+      SELECT
+      [processId],
+      [WorkflowId],
+      [InsertTime],
+      [UpdateTime],
+      [processname],
+      [descript],
+      [number],
+      [andrule],
+      [Processnex],
+      [Processpre],
+      [processType],
+      [condition]
+      FROM
+      [dbo].[process]
+      WHERE
+      [workflowid] =#value#
+    </select>
+
+    <select id="select_by_name" resultMap="processResult" parameterClass="string">
+      SELECT
+      [processId],
+      [WorkflowId],
+      [InsertTime],
+      [UpdateTime],
+      [processname],
+      [descript],
+      [number],
+      [andrule],
+      [Processnex],
+      [Processpre],
+      [processType],
+      [condition]
+      FROM
+      [dbo].[process]
+      WHERE
+      [processname] =#value#
+    </select>
+
+    <select id="selectpre_by_id" resultMap="processResult" parameterClass="string">
+      SELECT
+      [processId],
+      [WorkflowId],
+      [InsertTime],
+      [UpdateTime],
+      [processname],
+      [descript],
+      [number],
+      [andrule],
+      [Processnex],
+      [Processpre],
+      [processType],
+      [condition]
+      FROM
+      [dbo].[process]
+      WHERE
+      [Processpre] =#value#
+
+    </select>
+
+    <select id="selectnext_by_id" resultMap="processResult" parameterClass="string">
+      SELECT
+      [processId],
+      [WorkflowId],
+      [InsertTime],
+      [UpdateTime],
+      [processname],
+      [descript],
+      [number],
+      [andrule],
+      [Processnex],
+      [Processpre],
+      [processType],
+      [condition]
+      FROM
+      [dbo].[process]
+      WHERE
+      [Processnex] =#value#
+
+    </select>
+    <!--获取流程的开始过程-->
+    <select id="selectbegin_by_wfid" resultMap="processResult" parameterClass="string">
+      SELECT
+      [processId],
+      [WorkflowId],
+      [InsertTime],
+      [UpdateTime],
+      [processname],
+      [descript],
+      [number],
+      [andrule],
+      [Processnex],
+      [Processpre],
+      [processType],
+      [condition]
+      FROM
+      [dbo].[process]
+      WHERE
+      [workflowid] =#value# and  [processType]='开始'
+
+    </select>
+
+    <select id="select_by_id" resultMap="processResult" parameterClass="string">
+      SELECT
+      [processId],
+      [WorkflowId],
+      [InsertTime],
+      [UpdateTime],
+      [processname],
+      [descript],
+      [number],
+      [andrule],
+      [Processnex],
+      [Processpre],
+      [processType],
+      [condition]
+      FROM
+      [dbo].[process]
+      WHERE
+      [processId] =#value#
+    </select>
+  </statements>
+
+
+</sqlMap>

@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="TechonlogyHeader" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="TechonlogyHeader" type="Book.Model.TechonlogyHeader, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="TechonlogyHeaderResult" class="TechonlogyHeader">
+			<result property="TechonlogyHeaderId" column="TechonlogyHeaderId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="TechonlogyHeadername" column="TechonlogyHeadername" />
+			<result property="Techonlogydescription" column="Techonlogydescription" />
+			<result property="Statrdate" column="Statrdate" />
+			<result property="Enddate" column="Enddate" />
+			<result property="Id" column="Id" />
+			<result property="TechonlogyState" column="TechonlogyState" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[TechonlogyHeader]
+				WHERE
+				[TechonlogyHeaderId] = #TechonlogyHeaderId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[TechonlogyHeader]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="TechonlogyHeaderResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.TechonlogyHeader 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="TechonlogyHeaderResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.TechonlogyHeader 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="TechonlogyHeaderResult" parameterClass="TechonlogyHeader">
+			<![CDATA[
+			select top 1 *
+			from dbo.TechonlogyHeader
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="TechonlogyHeaderResult" parameterClass="TechonlogyHeader">
+			<![CDATA[
+			select top 1 *
+			from dbo.TechonlogyHeader
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="TechonlogyHeader">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.TechonlogyHeader
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="TechonlogyHeader">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.TechonlogyHeader
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="TechonlogyHeaderResult" parameterClass="TechonlogyHeader">
+			SELECT
+				[TechonlogyHeaderId],
+				[InsertTime],
+				[UpdateTime],
+				[TechonlogyHeadername],
+				[Techonlogydescription],
+				[Statrdate],
+				[Enddate],
+				[Id],
+				[TechonlogyState]
+			FROM
+				[dbo].[TechonlogyHeader]
+			WHERE
+				[TechonlogyHeaderId] = #TechonlogyHeaderId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[TechonlogyHeader]
+			WHERE
+				[TechonlogyHeaderId] = #TechonlogyHeaderId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="TechonlogyHeaderResult" >
+			SELECT *
+			FROM 
+				[dbo].[TechonlogyHeader]
+			ORDER BY TechonlogyHeaderId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[TechonlogyHeader]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="TechonlogyHeaderResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[TechonlogyHeader]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="TechonlogyHeader">
+			INSERT INTO [dbo].[TechonlogyHeader] 
+			(
+				[TechonlogyHeaderId],
+				[InsertTime],
+				[UpdateTime],
+				[TechonlogyHeadername],
+				[Techonlogydescription],
+				[Statrdate],
+				[Enddate],
+				[Id],
+				[TechonlogyState]
+			) 
+			VALUES 
+			(
+				#TechonlogyHeaderId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#TechonlogyHeadername#,
+				#Techonlogydescription#,
+				#Statrdate#,
+				#Enddate#,
+				#Id#,
+				#TechonlogyState#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="TechonlogyHeader">
+			UPDATE [TechonlogyHeader] SET
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[TechonlogyHeadername] = #TechonlogyHeadername#,
+				[Techonlogydescription] = #Techonlogydescription#,
+				[Statrdate] = #Statrdate#,
+				[Enddate] = #Enddate#,
+				[Id] = #Id#,
+				[TechonlogyState] = #TechonlogyState#
+			WHERE
+				[TechonlogyHeaderId] = #TechonlogyHeaderId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.TechonlogyHeader
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="TechonlogyHeaderResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[TechonlogyHeader]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.TechonlogyHeader
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

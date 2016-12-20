@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="MouldAttachment" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="MouldAttachment" type="Book.Model.MouldAttachment, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="MouldAttachmentResult" class="MouldAttachment">
+			<result property="MouldAttachmentId" column="MouldAttachmentId" />
+			<result property="MouldId" column="MouldId" />
+			<result property="Picture" column="Picture" />
+			<result property="Description" column="Description" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+		<result property="Mould" column="MouldId" lazyLoad="false" select="ProductMould.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[MouldAttachment]
+				WHERE
+				[MouldAttachmentId] = #MouldAttachmentId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[MouldAttachment]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="MouldAttachmentResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.MouldAttachment 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="MouldAttachmentResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.MouldAttachment 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="MouldAttachmentResult" parameterClass="MouldAttachment">
+			<![CDATA[
+			select top 1 *
+			from dbo.MouldAttachment
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="MouldAttachmentResult" parameterClass="MouldAttachment">
+			<![CDATA[
+			select top 1 *
+			from dbo.MouldAttachment
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="MouldAttachment">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.MouldAttachment
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="MouldAttachment">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.MouldAttachment
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="MouldAttachmentResult" parameterClass="MouldAttachment">
+			SELECT
+				[MouldAttachmentId],
+				[MouldId],
+				[Picture],
+				[Description],
+				[InsertTime],
+				[UpdateTime]
+			FROM
+				[dbo].[MouldAttachment]
+			WHERE
+				[MouldAttachmentId] = #MouldAttachmentId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[MouldAttachment]
+			WHERE
+				[MouldAttachmentId] = #MouldAttachmentId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="MouldAttachmentResult" >
+			SELECT *
+			FROM 
+				[dbo].[MouldAttachment]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[MouldAttachment]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="MouldAttachmentResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[MouldAttachment]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="MouldAttachment">
+			INSERT INTO [dbo].[MouldAttachment] 
+			(
+				[MouldAttachmentId],
+				[MouldId],
+				[Picture],
+				[Description],
+				[InsertTime],
+				[UpdateTime]
+			) 
+			VALUES 
+			(
+				#MouldAttachmentId#,
+				#MouldId#,
+				#Picture#,
+				#Description#,
+				#InsertTime#,
+				#UpdateTime#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="MouldAttachment">
+			UPDATE [MouldAttachment] SET
+				[MouldId] = #MouldId#,
+				[Picture] = #Picture#,
+				[Description] = #Description#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#
+			WHERE
+				[MouldAttachmentId] = #MouldAttachmentId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[MouldAttachment]
+				where  MouldAttachmentId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

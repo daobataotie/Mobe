@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="LunchDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byempiddate" parameterClass="Map" resultMap="LunchDetailResult" >
+      SELECT
+      *
+      FROM
+      [dbo].[LunchDetail]
+      where [EmployeeId]=#empid# and  (MarkDate between #startdate# and #enddate#)
+      order by MarkDate asc
+
+    </select>
+
+
+    <!--根据员工和年月查询-->
+    <select id="select_byempAnddate" parameterClass="Map" resultMap="LunchDetailResult">
+      select * from LunchDetail where employeeId=#EmployeeId# and year(MarkDate) = #year# and month(MarkDate) = #month# order by  MarkDate asc
+    </select>
+    
+  </statements>
+</sqlMap>

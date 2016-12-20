@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="SupplierCategory" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="SupplierCategory" type="Book.Model.SupplierCategory, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="SupplierCategoryResult" class="SupplierCategory">
+			<result property="Id" column="Id" />
+			<result property="SupplierCategoryId" column="SupplierCategoryId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="SupplierCategoryName" column="SupplierCategoryName" />
+			<result property="SupplierCategoryDescription" column="SupplierCategoryDescription" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[SupplierCategory]
+				WHERE
+				[SupplierCategoryId] = #SupplierCategoryId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[SupplierCategory]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="SupplierCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.SupplierCategory 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="SupplierCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.SupplierCategory 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="SupplierCategoryResult" parameterClass="SupplierCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.SupplierCategory
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="SupplierCategoryResult" parameterClass="SupplierCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.SupplierCategory
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="SupplierCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.SupplierCategory
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="SupplierCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.SupplierCategory
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="SupplierCategoryResult" parameterClass="SupplierCategory">
+			SELECT
+				[Id],
+				[SupplierCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[SupplierCategoryName],
+				[SupplierCategoryDescription]
+			FROM
+				[dbo].[SupplierCategory]
+			WHERE
+				[SupplierCategoryId] = #SupplierCategoryId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[SupplierCategory]
+			WHERE
+				[SupplierCategoryId] = #SupplierCategoryId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="SupplierCategoryResult" >
+			SELECT *
+			FROM 
+				[dbo].[SupplierCategory]
+			ORDER BY SupplierCategoryId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[SupplierCategory]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="SupplierCategoryResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[SupplierCategory]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="SupplierCategory">
+			INSERT INTO [dbo].[SupplierCategory] 
+			(
+				[Id],
+				[SupplierCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[SupplierCategoryName],
+				[SupplierCategoryDescription]
+			) 
+			VALUES 
+			(
+				#Id#,
+				#SupplierCategoryId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#SupplierCategoryName#,
+				#SupplierCategoryDescription#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="SupplierCategory">
+			UPDATE [SupplierCategory] SET
+				[Id] = #Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[SupplierCategoryName] = #SupplierCategoryName#,
+				[SupplierCategoryDescription] = #SupplierCategoryDescription#
+			WHERE
+				[SupplierCategoryId] = #SupplierCategoryId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.SupplierCategory
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="SupplierCategoryResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[SupplierCategory]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.SupplierCategory
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

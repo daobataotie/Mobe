@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="SalesFordetails" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="SalesFordetails" type="Book.Model.SalesFordetails, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="SalesFordetailsResult" class="SalesFordetails">
+			<result property="SalesFordetailsId" column="SalesFordetailsId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="SalesForHeaderId" column="SalesForHeaderId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="SalesForSum" column="SalesForSum" />
+			<result property="SalesFordesc" column="SalesFordesc" />
+			<result property="ProductUnit" column="ProductUnit" />
+		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[SalesFordetails]
+				WHERE
+				[SalesFordetailsId] = #SalesFordetailsId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[SalesFordetails]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="SalesFordetailsResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.SalesFordetails 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="SalesFordetailsResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.SalesFordetails 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="SalesFordetailsResult" parameterClass="SalesFordetails">
+			<![CDATA[
+			select top 1 *
+			from dbo.SalesFordetails
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="SalesFordetailsResult" parameterClass="SalesFordetails">
+			<![CDATA[
+			select top 1 *
+			from dbo.SalesFordetails
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="SalesFordetails">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.SalesFordetails
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="SalesFordetails">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.SalesFordetails
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="SalesFordetailsResult" parameterClass="SalesFordetails">
+			SELECT
+				[SalesFordetailsId],
+				[ProductId],
+				[SalesForHeaderId],
+				[InsertTime],
+				[UpdateTime],
+				[SalesForSum],
+				[SalesFordesc],
+				[ProductUnit]
+			FROM
+				[dbo].[SalesFordetails]
+			WHERE
+				[SalesFordetailsId] = #SalesFordetailsId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[SalesFordetails]
+			WHERE
+				[SalesFordetailsId] = #SalesFordetailsId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="SalesFordetailsResult" >
+			SELECT *
+			FROM 
+				[dbo].[SalesFordetails]
+			ORDER BY SalesFordetailsId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[SalesFordetails]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="SalesFordetailsResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[SalesFordetails]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="SalesFordetails">
+			INSERT INTO [dbo].[SalesFordetails] 
+			(
+				[SalesFordetailsId],
+				[ProductId],
+				[SalesForHeaderId],
+				[InsertTime],
+				[UpdateTime],
+				[SalesForSum],
+				[SalesFordesc],
+				[ProductUnit]
+			) 
+			VALUES 
+			(
+				#SalesFordetailsId#,
+				#ProductId#,
+				#SalesForHeaderId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#SalesForSum#,
+				#SalesFordesc#,
+				#ProductUnit#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="SalesFordetails">
+			UPDATE [SalesFordetails] SET
+				[ProductId] = #ProductId#,
+				[SalesForHeaderId] = #SalesForHeaderId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[SalesForSum] = #SalesForSum#,
+				[SalesFordesc] = #SalesFordesc#,
+				[ProductUnit] = #ProductUnit#
+			WHERE
+				[SalesFordetailsId] = #SalesFordetailsId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AtAccountSubject" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AtAccountSubject" type="Book.Model.AtAccountSubject, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="AtAccountSubjectResult" class="AtAccountSubject">
+			<result property="SubjectId" column="SubjectId" />
+			<result property="SubjectName" column="SubjectName" />
+			<result property="CommonSummary" column="CommonSummary" />
+			<result property="EnglishName" column="EnglishName" />
+			<result property="AccountingCategoryId" column="AccountingCategoryId" />
+			<result property="TheLending" column="TheLending" />
+			<result property="TheBalance" column="TheBalance" />
+			<result property="OffsetSubject" column="OffsetSubject" />
+			<result property="RuleSubject" column="RuleSubject" />
+			<result property="UnderSubject" column="UnderSubject" />
+			<result property="Mark" column="Mark" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+		<result property="AccountingCategory" column="AccountingCategoryId" lazyLoad="false" select="AtAccountingCategory.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtAccountSubject]
+				WHERE
+				[SubjectId] = #SubjectId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtAccountSubject]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="AtAccountSubjectResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountSubject 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="AtAccountSubjectResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountSubject 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="AtAccountSubjectResult" parameterClass="AtAccountSubject">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountSubject
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="AtAccountSubjectResult" parameterClass="AtAccountSubject">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountSubject
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="AtAccountSubject">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtAccountSubject
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="AtAccountSubject">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtAccountSubject
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AtAccountSubjectResult" parameterClass="AtAccountSubject">
+			SELECT
+				[SubjectId],
+				[SubjectName],
+				[CommonSummary],
+				[EnglishName],
+				[AccountingCategoryId],
+				[TheLending],
+				[TheBalance],
+				[OffsetSubject],
+				[RuleSubject],
+				[UnderSubject],
+				[Mark],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			FROM
+				[dbo].[AtAccountSubject]
+			WHERE
+				[SubjectId] = #SubjectId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[AtAccountSubject]
+			WHERE
+				[SubjectId] = #SubjectId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AtAccountSubjectResult" >
+			SELECT *
+			FROM 
+				[dbo].[AtAccountSubject]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[AtAccountSubject]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AtAccountSubjectResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AtAccountSubject]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AtAccountSubject">
+			INSERT INTO [dbo].[AtAccountSubject] 
+			(
+				[SubjectId],
+				[SubjectName],
+				[CommonSummary],
+				[EnglishName],
+				[AccountingCategoryId],
+				[TheLending],
+				[TheBalance],
+				[OffsetSubject],
+				[RuleSubject],
+				[UnderSubject],
+				[Mark],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			) 
+			VALUES 
+			(
+				#SubjectId#,
+				#SubjectName#,
+				#CommonSummary#,
+				#EnglishName#,
+				#AccountingCategoryId#,
+				#TheLending#,
+				#TheBalance#,
+				#OffsetSubject#,
+				#RuleSubject#,
+				#UnderSubject#,
+				#Mark#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AtAccountSubject">
+			UPDATE [AtAccountSubject] SET
+				[SubjectName] = #SubjectName#,
+				[CommonSummary] = #CommonSummary#,
+				[EnglishName] = #EnglishName#,
+				[AccountingCategoryId] = #AccountingCategoryId#,
+				[TheLending] = #TheLending#,
+				[TheBalance] = #TheBalance#,
+				[OffsetSubject] = #OffsetSubject#,
+				[RuleSubject] = #RuleSubject#,
+				[UnderSubject] = #UnderSubject#,
+				[Mark] = #Mark#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#
+			WHERE
+				[SubjectId] = #SubjectId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AtAccountSubject]
+				where  SubjectId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtAccountSubject
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="AtAccountSubjectResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[AtAccountSubject]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.AtAccountSubject
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

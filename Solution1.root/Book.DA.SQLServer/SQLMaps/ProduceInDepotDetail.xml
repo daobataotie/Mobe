@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProduceInDepotDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byProduceInDepotId" resultMap="ProduceInDepotDetailResult" parameterClass="string">
+      select * from ProduceInDepotDetail where ProduceInDepotId=#value# ORDER BY Inumber ASC
+    </select>
+    <select id="select_byProduceInDateAndPronote" resultMap="ProduceInDepotDetailResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceInDepotDetail where ProduceInDepotId in(select ProduceInDepotId from ProduceInDepot where ProduceInDepotDate
+      between #startdate# and #enddate#)  and (PronoteHeaderId >=#startpronoteid# or #startpronoteid# is null) and
+      (PronoteHeaderId <=#endpronoteid# or #endpronoteid# is null) and (productid=#productid# or #productid#  is null)
+	   $sql$  
+	  order by ProduceInDepotId desc
+      ]]>
+    </select>
+    <select id="selectByDateRange" resultMap="ProduceInDepotDetailResult" parameterClass="Map">
+      select * from ProduceInDepotDetail where ProduceInDepotId in(select ProduceInDepotId from ProduceInDepot where (ProduceInDepotDate between #startdate# and #enddate#) and (workhouseId=#workhouseId# or #workhouseId# is null))  and (PronoteHeaderId =#pronoteid# or #pronoteid# is null)
+      and (productid=#productid# or #productid# is null) and ( (#cusxoid# is null )  or (PronoteHeaderId in(select PronoteHeaderId from PronoteHeader where invoicexoid in(select invoiceid from invoicexo where CustomerInvoiceXOId like '%$cusxoid$%'))  ) )   order by ProduceInDepotId desc
+    </select>
+    <select id="select_sumbyPronHeaderIdWorkHouse" resultClass="Double" parameterClass="string">
+      <![CDATA[
+      select isnull(sum(ProceduresSum),0) from ProduceInDepotDetail where (PronoteHeaderId =#PronoteHeaderId#  OR #PronoteHeaderId# IS NULL)  and ProduceInDepotId IN (SELECT ProduceInDepotId FROM ProduceInDepot WHERE WorkHouseId=#WorkHouseId#) AND ProductId = #ProductId#
+      ]]>
+    </select>
+    <select id="select_checkOutSumyPronHeaderIdWorkHouse" resultClass="Double" parameterClass="string">
+      <![CDATA[
+      select isnull(sum(CheckOutSum),0) from ProduceInDepotDetail where (PronoteHeaderId =#PronoteHeaderId# OR #PronoteHeaderId# IS NULL)   and ProduceInDepotId IN (SELECT ProduceInDepotId FROM ProduceInDepot WHERE WorkHouseId=#WorkHouseId#)  AND ProductId = #ProductId#
+      ]]>
+    </select>
+
+
+    <select id="select_pronoheaWorkhouseDateRang" resultClass="Double" parameterClass="Map">
+      <![CDATA[
+       select isnull(sum(ProceduresSum),0) from ProduceInDepotDetail  WHERE (PronoteHeaderId=#PronoteHeaderId# or #PronoteHeaderId# is null) AND
+    ProduceInDepotId IN( SELECT ProduceInDepotid FROM ProduceInDepot WHERE ProduceInDepot.ProduceInDepotDate BETWEEN
+    #startdate# AND #enddate# AND (WorkHouseId=#WorkHouseId#   or #WorkHouseId# is null)) 
+      ]]>
+    </select>
+    <select id="select_checkOutSumpronoheaWorkhouseDateRang" resultClass="Double" parameterClass="Map">
+      <![CDATA[
+       select isnull(sum(CheckOutSum),0) from ProduceInDepotDetail  WHERE (PronoteHeaderId=#PronoteHeaderId# or  #PronoteHeaderId# is null) AND
+    ProduceInDepotId IN( SELECT ProduceInDepotid FROM ProduceInDepot WHERE ProduceInDepot.ProduceInDepotDate BETWEEN
+    #startdate# AND #enddate# AND (WorkHouseId=#WorkHouseId#   or #WorkHouseId# is null)) 
+      ]]>
+    </select>
+    <select id="select_TransferSumyPronHeaderWorkHouse" resultClass="Double" parameterClass="Map">
+      <![CDATA[
+      select isnull(sum(ProduceTransferQuantity),0) from ProduceInDepotDetail where WorkHouseId =#WorkHouseId# and PronoteHeaderId=#PronoteHeaderId#
+      ]]>
+    </select>
+    <delete id="delete_byheader" parameterClass="string">
+      delete from ProduceInDepotDetail where  ProduceInDepotId=#value#
+    </delete>
+
+    <select id="Select_ChooseDefectRateCls" parameterClass="string" resultMap="ProduceInDepotDetailResult">
+      <![CDATA[
+      SELECT * FROM ProduceInDepotDetail WHERE 1 = 1 $value$
+      ]]>
+    </select>
+
+    <select id="SelectHejiSumByPronoteHeader" parameterClass="string" resultClass="ProduceInDepotDetail">
+      <![CDATA[
+      SELECT PronoteHeaderId,SUM(HeJiProceduresSum) AS HeJiProceduresSum FROM ProduceInDepotDetail
+      WHERE PronoteHeaderId IN ($value$)
+      GROUP BY PronoteHeaderId
+      ]]>
+    </select>
+
+    <select id ="Select_ByWorkHosueAndPronoteId" parameterClass="Map" resultMap="ProduceInDepotDetailResult">
+      <![CDATA[
+      SELECT d.*
+       FROM ProduceInDepotDetail d 
+       LEFT JOIN ProduceInDepot h ON h.ProduceInDepotId = d.ProduceInDepotId
+       WHERE h.WorkHouseId = #WorkHouseid#
+       AND d.PronoteHeaderId = #PronoteHeaderId#
+      ]]>
+    </select>
+
+    <select id ="select_FrontSumByProduceIndepotIdAndProId" parameterClass="Map" resultClass="Double">
+      <![CDATA[
+      SELECT isnull(SUM(ProceduresSum),0) FROM ProduceInDepotDetail
+      WHERE ProduceInDepotId = #ProduceIndepotId# AND ProductId = #ProductId# AND Inumber < #Inumber#
+      ]]>
+    </select>
+
+    <select id="select_FrontCheckoutSumByProduceIndepotIdAndProId" parameterClass="Map" resultClass="Double">
+      <![CDATA[
+      SELECT isnull(SUM(CheckOutSum),0) FROM ProduceInDepotDetail
+      WHERE ProduceInDepotId = #ProduceIndepotId# AND ProductId = #ProductId# AND Inumber < #Inumber#
+      ]]>
+    </select>
+
+
+    <select id="Get_HJForColumnName_Header" parameterClass="Map" resultClass="Double">
+      <![CDATA[
+      SELECT ISNULL(SUM($GetColumn$),0) FROM ProduceInDepotDetail
+      WHERE PronoteHeaderId = #PronoteHeaderId#
+      AND ProductId = #ProductId#
+      AND ProduceInDepotId IN 
+      (
+        SELECT ProduceInDepotId FROM ProduceInDepot 
+        WHERE (WorkHouseId = #WorkHouseId#) 
+        AND InsertTime < #InsertTime#
+      )
+      ]]>
+    </select>
+
+    <select id="select_NextbyPronHeaderIdWorkHouse" resultMap="ProduceInDepotDetailResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceInDepotDetail 
+      where PronoteHeaderId =#PronoteHeaderId#
+      AND ProductId = #productid#
+      and ProduceInDepotId IN 
+      (
+        SELECT ProduceInDepotId FROM ProduceInDepot 
+        WHERE WorkHouseId=#WorkHouseId#
+        AND InsertTime>#insertTime#
+      )
+      ]]>
+    </select>
+
+
+    <select id="Get_HJForColumnName_Detail" parameterClass="Map" resultClass="Double">
+      <![CDATA[
+      SELECT ISNULL(SUM($GetColumn$),0) FROM ProduceInDepotDetail
+      WHERE ProduceInDepotId = #ProduceIndepotId# AND ProductId = #ProductId# AND Inumber <= #Inumber#
+      ]]>
+    </select>
+
+    <select id="GetSupplierProductPriceRange" parameterClass="Map" resultClass="string">
+      <![CDATA[
+      SELECT TOP 1 SupplierProductPriceRange FROM SupplierProduct 
+      WHERE ProductId=#productid#  AND SupplierId=
+      (SELECT SupplierId FROM Supplier WHERE SupplierShortName=#WorkHouseid#)
+      ]]>
+
+    </select>
+  </statements>
+</sqlMap>

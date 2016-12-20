@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceCG" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="InvoiceCGResult1" class="InvoiceCG">
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="SupplierId" column="SupplierId" />      
+      <result property="Employee1Id" column="Employee1Id" />
+      <result property="Employee2Id" column="Employee2Id" />
+      <result property="Employee3Id" column="Employee3Id" />
+      <result property="InvoiceCOId" column="InvoiceCOId" />
+      <result property="InvoiceLRTime" column="InvoiceLRTime" />
+      <result property="InvoiceGZTime" column="InvoiceGZTime" />
+      <result property="InvoiceZFTime" column="InvoiceZFTime" />      
+      <result property="InvoiceDate" column="InvoiceDate" />
+      <result property="InvoiceStatus" column="InvoiceStatus" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="Kind" column="kind"/>   
+      <result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />      
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee2" column="Employee2Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee3" column="Employee3Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+	<statements>
+		<select id="select_byTime" parameterClass="Map" resultMap="InvoiceCGResult">
+			<![CDATA[
+				select * from InvoiceCG 
+				where invoicedate between #startTime# and #endTime# order by InvoiceId desc
+			]]>
+		</select>
+        <update id="owedincrement" parameterClass="Map">
+            <![CDATA[
+            update dbo.InvoiceCG
+            set InvoiceOwed = InvoiceOwed + #InvoiceOwed#
+            where InvoiceId = #InvoiceId#
+            ]]>
+        </update>
+        <update id="oweddecrement" parameterClass="Map">
+            <![CDATA[
+            update dbo.InvoiceCG
+            set InvoiceOwed = InvoiceOwed - #InvoiceOwed#
+            where InvoiceId = #InvoiceId#
+            ]]>
+        </update>
+    <select id="select_byStatus" parameterClass="int" resultMap="InvoiceCGResult">
+      <![CDATA[
+      select * from invoiceCG
+				where invoicestatus = #value#
+      ]]>
+    </select>
+    <select id="select_byDateRengeAndCompanyIDRenge" parameterClass="Map" resultMap="InvoiceCGResult1">
+      <![CDATA[
+      select * from (
+         SELECT [InvoiceId],[SupplierId],[Employee0Id],[DepotId],[Employee1Id],[Employee2Id]
+        ,[Employee3Id],[InvoiceCOId],[InvoiceLRTime],[InvoiceGZTime],[InvoiceZFTime]
+        ,[InvoiceDate],[InvoiceStatus],[InsertTime],[UpdateTime]
+        ,[InvoiceHeJi],[InvoiceYHE],[InvoiceZSE],[InvoiceZRE],[InvoiceTax],[InvoiceZongJi]
+        ,[InvoicePayTimeLimit],[InvoiceOwed],[InvoiceTaxRate],[InvoiceCpbh]
+        ,[InvoiceKslb],[InvoiceKlfs],[InvoiceFpbh],[InvoiceKpls],[InvoiceFpje]
+        ,'cg' as [kind]
+        FROM [InvoiceCG]
+        union
+        SELECT [InvoiceId],[SupplierId],[Employee0Id],[DepotId],[Employee1Id],[Employee2Id]
+        ,[Employee3Id],[InvoiceCOId],[InvoiceLRTime],[InvoiceGZTime],[InvoiceZFTime]
+        ,[InvoiceDate],[InvoiceStatus],[InsertTime],[UpdateTime]
+        ,-[InvoiceHeJi] [InvoiceHeJi],-[InvoiceYHE] [InvoiceYHE],-[InvoiceZSE] [InvoiceZSE],
+        -[InvoiceZRE] [InvoiceZRE],-[InvoiceTax] [InvoiceTax],-[InvoiceZongJi] [InvoiceZongJi]
+        ,[InvoicePayTimeLimit],-[InvoiceOwed] [InvoiceOwed],[InvoiceTaxRate]
+        ,[InvoiceCpbh],[InvoiceKslb],[InvoiceKlfs],[InvoiceFpbh],[InvoiceKpls]
+        ,-[InvoiceFpje] [InvoiceFpje],'ct' as [kind]
+        FROM [InvoiceCT]) 
+      [table]
+      WHERE ([SupplierId] between #startId# and #endId#)   and ([InvoiceDate] between #start# and #end#)
+      ]]>
+    </select>
+
+    <select id="select_byDateRenge" parameterClass="Map" resultMap="InvoiceCGResult1">
+      <![CDATA[
+      select * from (
+         SELECT [InvoiceId],[CompanyId],[Employee0Id],[DepotId],[Employee1Id],[Employee2Id]
+        ,[Employee3Id],[InvoiceCOId],[InvoiceLRTime],[InvoiceGZTime],[InvoiceZFTime]
+        ,[InvoiceDate],[InvoiceStatus],[InsertTime],[UpdateTime]
+        ,[InvoiceHeJi],[InvoiceYHE],[InvoiceZSE],[InvoiceZRE],[InvoiceTax],[InvoiceZongJi]
+        ,[InvoicePayTimeLimit],[InvoiceOwed],[InvoiceTaxRate],[InvoiceCpbh]
+        ,[InvoiceKslb],[InvoiceKlfs],[InvoiceFpbh],[InvoiceKpls],[InvoiceFpje]
+        ,'cg' as [kind]
+        FROM [InvoiceCG]
+        union
+        SELECT [InvoiceId],[CompanyId],[Employee0Id],[DepotId],[Employee1Id],[Employee2Id]
+        ,[Employee3Id],[InvoiceCOId],[InvoiceLRTime],[InvoiceGZTime],[InvoiceZFTime]
+        ,[InvoiceDate],[InvoiceStatus],[InsertTime],[UpdateTime]
+        ,-[InvoiceHeJi] [InvoiceHeJi],-[InvoiceYHE] [InvoiceYHE],-[InvoiceZSE] [InvoiceZSE],
+        -[InvoiceZRE] [InvoiceZRE],-[InvoiceTax] [InvoiceTax],-[InvoiceZongJi] [InvoiceZongJi]
+        ,[InvoicePayTimeLimit],-[InvoiceOwed] [InvoiceOwed],[InvoiceTaxRate]
+        ,[InvoiceCpbh],[InvoiceKslb],[InvoiceKlfs],[InvoiceFpbh],[InvoiceKpls]
+        ,-[InvoiceFpje] [InvoiceFpje],'ct' as [kind]
+        FROM [InvoiceCT]) 
+      [table]
+      WHERE ([InvoiceDate] between #start# and #end#)
+      ]]>
+    </select>
+    <select id="select_bysupplier" parameterClass="Map" resultMap="InvoiceCGResult">
+      <![CDATA[
+      select * from InvoiceCG where supplierId=#value#      
+      ]]>
+    </select>
+    
+       <select id="select_sql" parameterClass="string" resultMap="InvoiceCGResult">
+      <![CDATA[
+      select * from InvoiceCG $value$
+      ]]>
+    </select>  
+  </statements>
+</sqlMap>

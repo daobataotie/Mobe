@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProductOnlineCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByProductOnlineCheckId" resultMap="ProductOnlineCheckDetailResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM ProductOnlineCheckDetail WHERE ProductOnlineCheckId=#value#
+      ]]>
+    </select>
+
+    <delete id="DelectByProductOnlineCheckId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM ProductOnlineCheckDetail WHERE ProductOnlineCheckId=#value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

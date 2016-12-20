@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceZXDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoiceZXDetail" type="Book.Model.InvoiceZXDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoiceZXDetailResult" class="InvoiceZXDetail">
+      <result property="InvoiceZXDetailId" column="InvoiceZXDetailId" />
+      <result property="InvoiceZXId" column="InvoiceZXId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="ProductNum" column="ProductNum" />
+      <result property="InvoiceZXDetailNote" column="InvoiceZXDetailNote" />
+      <result property="InvoiceXODetailId" column="InvoiceXODetailId" />
+      <result property="InvoiceXSDetailId" column="InvoiceXSDetailId" />
+      <result property="CustomerInvoiceXOId" column ="CustomerInvoiceXOId"/>
+      <result property="InvoiceZX" column="InvoiceZXId" lazyLoad="false" select="InvoiceZX.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="InvoiceXODetail" column="InvoiceXODetailId" lazyLoad="false" select="InvoiceXODetail.select_by_primary_key" />
+      <result property="InvoiceXSDetail" column="InvoiceXSDetailId" lazyLoad="false" select="InvoiceXSDetail.select_by_primary_key"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceZXDetail]
+				WHERE
+				[InvoiceZXDetailId] = #InvoiceZXDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceZXDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="InvoiceZXDetailResult" parameterClass="InvoiceZXDetail">
+      <![CDATA[SELECT
+				[InvoiceZXDetailId],
+				[InvoiceZXId],
+				[ProductId],
+				[ProductNum],
+				[InvoiceZXDetailNote],
+				[InvoiceXODetailId],
+        [InvoiceXSDetailId],
+        [CustomerInvoiceXOId]
+			FROM
+				[dbo].[InvoiceZXDetail]
+			WHERE
+				[InvoiceZXDetailId] = #InvoiceZXDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[InvoiceZXDetail]
+			WHERE            
+				[InvoiceZXDetailId] = #InvoiceZXDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="InvoiceZXDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[InvoiceZXDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[InvoiceZXDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="InvoiceZXDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoiceZXDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="InvoiceZXDetail">
+      <![CDATA[ INSERT INTO [dbo].[InvoiceZXDetail] 
+			(
+				[InvoiceZXDetailId],
+				[InvoiceZXId],
+				[ProductId],
+				[ProductNum],
+				[InvoiceZXDetailNote],
+				[InvoiceXODetailId],
+        [InvoiceXSDetailId],
+        [CustomerInvoiceXOId]
+			) 
+			VALUES 
+			(
+				#InvoiceZXDetailId#,
+				#InvoiceZXId#,
+				#ProductId#,
+				#ProductNum#,
+				#InvoiceZXDetailNote#,
+				#InvoiceXODetailId#,
+        #InvoiceXSDetailId#,
+        #CustomerInvoiceXOId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="InvoiceZXDetail">
+      <![CDATA[ 	UPDATE [InvoiceZXDetail] SET
+				[InvoiceZXId] = #InvoiceZXId#,
+				[ProductId] = #ProductId#,
+				[ProductNum] = #ProductNum#,
+				[InvoiceZXDetailNote] = #InvoiceZXDetailNote#,
+				[InvoiceXODetailId] = #InvoiceXODetailId#,
+        [InvoiceXSDetailId] = #InvoiceXSDetailId#,
+        [CustomerInvoiceXOId]=#CustomerInvoiceXOId#
+			WHERE
+				[InvoiceZXDetailId] = #InvoiceZXDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceZXDetail]
+				where  InvoiceZXDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

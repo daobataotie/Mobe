@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceXJPackageDetails" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoiceXJPackageDetails" type="Book.Model.InvoiceXJPackageDetails, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoiceXJPackageDetailsResult" class="InvoiceXJPackageDetails">
+      <result property="InvoiceXJPackageDetailsId" column="InvoiceXJPackageDetailsId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="Quantity" column="Quantity" />
+      <result property="UseQuantity" column="UseQuantity" />
+      <result property="ConsumeRate" column="ConsumeRate" />
+      <result property="EffectsDate" column="EffectsDate" />
+      <result property="ExpiringDate" column="ExpiringDate" />
+      <result property="PackageUnit" column="PackageUnit" />
+      <result property="Description" column="Description" />
+      <result property="Inumber" column="Inumber" />
+      <result property="PackagePrice" column="PackagePrice" />
+      <result property="InvoiceXJPackageDetailsType" column="InvoiceXJPackageDetailsType" />
+      <result property="InvoiceXJProcessCB1" column="InvoiceXJProcessCB1" />
+      <result property="InvoiceXJProcessCB2" column="InvoiceXJProcessCB2" />
+      <result property="ProcessCategoryId" column="ProcessCategoryId" />
+      <result property="SupplierId" column="SupplierId" />
+      <result property="InvoiceXJPackageDetailsQuantity" column="InvoiceXJPackageDetailsQuantity" />
+      <result property="ProductName" column="ProductName"/>
+      <result property="DanJia" column="DanJia"/>
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceXJ.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="ProcessCategory" column="ProcessCategoryId" lazyLoad="false" select="ProcessCategory.select_by_primary_key" />
+      <result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceXJPackageDetails]
+				WHERE
+				[InvoiceXJPackageDetailsId] = #InvoiceXJPackageDetailsId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceXJPackageDetails]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="InvoiceXJPackageDetailsResult" parameterClass="InvoiceXJPackageDetails">
+      <![CDATA[SELECT
+				[InvoiceXJPackageDetailsId],
+				[ProductId],
+				[InvoiceId],
+				[Quantity],
+				[UseQuantity],
+				[ConsumeRate],
+				[EffectsDate],
+				[ExpiringDate],
+				[PackageUnit],
+				[Description],
+				[Inumber],
+				[PackagePrice],
+        [InvoiceXJPackageDetailsType],
+        [InvoiceXJProcessCB1],
+        [InvoiceXJProcessCB2],
+        [ProcessCategoryId],
+        [SupplierId],
+        [InvoiceXJPackageDetailsQuantity],
+        [ProductName],
+        [DanJia]
+			FROM
+				[dbo].[InvoiceXJPackageDetails]
+			WHERE
+				[InvoiceXJPackageDetailsId] = #InvoiceXJPackageDetailsId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[InvoiceXJPackageDetails]
+			WHERE            
+				[InvoiceXJPackageDetailsId] = #InvoiceXJPackageDetailsId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="InvoiceXJPackageDetailsResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[InvoiceXJPackageDetails]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[InvoiceXJPackageDetails]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="InvoiceXJPackageDetailsResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoiceXJPackageDetails]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="InvoiceXJPackageDetails">
+      <![CDATA[ INSERT INTO [dbo].[InvoiceXJPackageDetails] 
+			(
+				[InvoiceXJPackageDetailsId],
+				[ProductId],
+				[InvoiceId],
+				[Quantity],
+				[UseQuantity],
+				[ConsumeRate],
+				[EffectsDate],
+				[ExpiringDate],
+				[PackageUnit],
+				[Description],
+				[Inumber],
+				[PackagePrice],
+        [InvoiceXJPackageDetailsType],
+        [InvoiceXJProcessCB1],
+        [InvoiceXJProcessCB2],
+        [ProcessCategoryId],
+        [SupplierId],
+        [InvoiceXJPackageDetailsQuantity],
+        [ProductName],
+        [DanJia]
+			) 
+			VALUES 
+			(
+				#InvoiceXJPackageDetailsId#,
+				#ProductId#,
+				#InvoiceId#,
+				#Quantity#,
+				#UseQuantity#,
+				#ConsumeRate#,
+				#EffectsDate#,
+				#ExpiringDate#,
+				#PackageUnit#,
+				#Description#,
+				#Inumber#,
+				#PackagePrice#,
+        #InvoiceXJPackageDetailsType#,
+        #InvoiceXJProcessCB1#,
+        #InvoiceXJProcessCB2#,
+        #ProcessCategoryId#,
+        #SupplierId#,
+        #InvoiceXJPackageDetailsQuantity#,
+        #ProductName#,
+        #DanJia#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="InvoiceXJPackageDetails">
+      <![CDATA[ 	UPDATE [InvoiceXJPackageDetails] SET
+				[ProductId] = #ProductId#,
+				[InvoiceId] = #InvoiceId#,
+				[Quantity] = #Quantity#,
+				[UseQuantity] = #UseQuantity#,
+				[ConsumeRate] = #ConsumeRate#,
+				[EffectsDate] = #EffectsDate#,
+				[ExpiringDate] = #ExpiringDate#,
+				[PackageUnit] = #PackageUnit#,
+				[Description] = #Description#,
+				[Inumber] = #Inumber#,
+				[PackagePrice] = #PackagePrice#,
+        [InvoiceXJPackageDetailsType] = #InvoiceXJPackageDetailsType#,
+        [InvoiceXJProcessCB1] = #InvoiceXJProcessCB1#,
+        [InvoiceXJProcessCB2] = #InvoiceXJProcessCB2#,
+        [ProcessCategoryId] = #ProcessCategoryId#,
+        [SupplierId] = #SupplierId#,
+        [InvoiceXJPackageDetailsQuantity] = #InvoiceXJPackageDetailsQuantity#,
+        [ProductName] = #ProductName#,
+        [DanJia] = #DanJia#
+			WHERE
+				[InvoiceXJPackageDetailsId] = #InvoiceXJPackageDetailsId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceXJPackageDetails]
+				where  InvoiceXJPackageDetailsId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

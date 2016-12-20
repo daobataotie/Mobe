@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProduceOtherInDepot" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectByDateWhere" resultMap="ProduceOtherInDepotResult" parameterClass="Map">
+      <![CDATA[
+  SELECT * FROM ProduceOtherInDepot WHERE   ProduceOtherInDepotDate between #startdate# and #enddate#  $sql$
+  order by ProduceOtherInDepotId desc
+      ]]>
+    </select>
+    <select id="SelectByDateRange" resultMap="ProduceOtherInDepotResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ProduceOtherInDepot
+      WHERE ProduceOtherInDepot.ProduceOtherInDepotDate
+      BETWEEN #startdate# AND #enddate#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

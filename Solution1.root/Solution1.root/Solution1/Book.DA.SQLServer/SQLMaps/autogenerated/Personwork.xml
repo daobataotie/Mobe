@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Personwork" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Personwork" type="Book.Model.Personwork, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="PersonworkResult" class="Personwork">
+			<result property="PersonworkID" column="PersonworkID" />
+			<result property="wfrecordid" column="wfrecordid" />
+			<result property="Logid" column="Logid" />
+			<result property="Type" column="Type" />
+			<result property="tableid" column="tableid" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Personwork]
+				WHERE
+				[PersonworkID] = #PersonworkID#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Personwork]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="PersonworkResult" parameterClass="Personwork">
+			SELECT
+				[PersonworkID],
+				[wfrecordid],
+				[Logid],
+				[Type],
+				[tableid]
+			FROM
+				[dbo].[Personwork]
+			WHERE
+				[PersonworkID] = #PersonworkID#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[Personwork]
+			WHERE
+				[PersonworkID] = #PersonworkID#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="PersonworkResult" >
+			SELECT *
+			FROM 
+				[dbo].[Personwork]
+			ORDER BY PersonworkID ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[Personwork]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="PersonworkResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Personwork]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Personwork">
+			INSERT INTO [dbo].[Personwork] 
+			(
+				[PersonworkID],
+				[wfrecordid],
+				[Logid],
+				[Type],
+				[tableid]
+			) 
+			VALUES 
+			(
+				#PersonworkID#,
+				#wfrecordid#,
+				#Logid#,
+				#Type#,
+				#tableid#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Personwork">
+			UPDATE [Personwork] SET
+				[wfrecordid] = #wfrecordid#,
+				[Logid] = #Logid#,
+				[Type] = #Type#,
+				[tableid] = #tableid#
+			WHERE
+				[PersonworkID] = #PersonworkID#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="CurrencyCategory" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="getCurrencyCategory" resultMap="CurrencyCategoryResult" parameterClass="string">
+      SELECT top 1 * FROM dbo.CurrencyCategory  order by EffectDate desc
+    </select>
+  </statements>
+</sqlMap>

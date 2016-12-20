@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="HrDailyEmployeeAttendInfo" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectByEmpMonth" parameterClass="Map" resultMap="HrDailyEmployeeAttendInfoResult">
+      <![CDATA[      
+          SELECT * FROM HrDailyEmployeeAttendInfo WHERE EmployeeId = #employeeid# AND YEAR(DutyDate) = #years#  AND MONTH(DutyDate) = #months# order by DutyDate
+      ]]>  
+    </select>]
+    <select id="SelectHrInfoByEmployeeIdAndDueDate" parameterClass="Map" resultMap="HrDailyEmployeeAttendInfoResult">
+      <![CDATA[      
+          SELECT * FROM HrDailyEmployeeAttendInfo WHERE EmployeeId = #employeeid# AND  DutyDate=#dueDate# order by DutyDate
+      ]]>
+    </select>]
+    <select id="selectBusinessHourPaySum" parameterClass="Map" resultClass="int">
+      <![CDATA[      
+          select  isnull(sum(specialbonus),0) as sum  from HrDailyEmployeeAttendInfo where year(dutydate)=#years# and month(dutydate)=#months# and  employeeid=#employeeid#
+      ]]>
+    </select>]
+  </statements>
+</sqlMap>

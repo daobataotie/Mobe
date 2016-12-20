@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="BOMProductProcess" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<statements>
+  <delete id="delete_byBomId" parameterClass="string" >
+    DELETE FROM [dbo].[BOMProductProcess]
+    WHERE
+    [BomId] = #value#
+  </delete> 
+  <select  id="select_byBomId" resultMap="BOMProductProcessResult"  parameterClass="string" >
+    SELECT *
+    FROM [dbo].[BOMProductProcess]
+    WHERE
+    [BomId] = #value#
+  </select>
+
+
+  <select id="select_processcategory" resultMap="BOMProductProcessResult">
+    <![CDATA[
+      select null as [BOMProductProcessId],ProcessCategoryId,null as [BomId],null as [ProcessId],0 as [IsCheck] from ProcessCategory
+      ]]>
+  </select>
+
+  <!--<select id="select_processcategory_by_customerproductid" resultMap="BOMProductProcessResult">
+    <![CDATA[
+      SELECT [BOMProductProcessId],processCategory.[ProcessCategoryId],[BomId],[ProcessId],isnull([IsCheck],0) as [IsCheck]
+  FROM processCategory left join  BOMProductProcess on processCategory.processCategoryId = BOMProductProcess.processCategoryId
+      where BomId = #value# or BomId is null  
+      ]]>
+  </select>-->
+</statements>
+
+</sqlMap>

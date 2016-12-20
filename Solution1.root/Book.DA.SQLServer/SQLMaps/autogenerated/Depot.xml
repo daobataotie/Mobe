@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Depot" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Depot" type="Book.Model.Depot, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="DepotResult" class="Depot">
+			<result property="Id" column="Id" />
+			<result property="DepotId" column="DepotId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="DepotName" column="DepotName" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="DepotDescription" column="DepotDescription" />
+			<result property="Telphone" column="Telphone" />
+			<result property="DepotAddress" column="DepotAddress" />
+			<result property="Fax" column="Fax" />
+			<result property="StoreKeeper" column="StoreKeeper" />
+			<result property="DepotCode" column="DepotCode" />
+			<result property="DepotTypeName" column="DepotTypeName" />
+			<result property="IsFinalProductDepot" column="IsFinalProductDepot" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Depot]
+				WHERE
+				[DepotId] = #DepotId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Depot]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="DepotResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Depot 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="DepotResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Depot 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="DepotResult" parameterClass="Depot">
+			<![CDATA[
+			select top 1 *
+			from dbo.Depot
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="DepotResult" parameterClass="Depot">
+			<![CDATA[
+			select top 1 *
+			from dbo.Depot
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="Depot">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Depot
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="Depot">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Depot
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="DepotResult" parameterClass="Depot">
+			SELECT
+				[Id],
+				[DepotId],
+				[InsertTime],
+				[DepotName],
+				[UpdateTime],
+				[DepotDescription],
+				[Telphone],
+				[DepotAddress],
+				[Fax],
+				[StoreKeeper],
+				[DepotCode],
+				[DepotTypeName],
+				[IsFinalProductDepot]
+			FROM
+				[dbo].[Depot]
+			WHERE
+				[DepotId] = #DepotId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[Depot]
+			WHERE
+				[DepotId] = #DepotId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="DepotResult" >
+			SELECT *
+			FROM 
+				[dbo].[Depot]
+			
+				
+			ORDER BY Id ASC
+			
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[Depot]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="DepotResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Depot]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Depot">
+			INSERT INTO [dbo].[Depot] 
+			(
+				[Id],
+				[DepotId],
+				[InsertTime],
+				[DepotName],
+				[UpdateTime],
+				[DepotDescription],
+				[Telphone],
+				[DepotAddress],
+				[Fax],
+				[StoreKeeper],
+				[DepotCode],
+				[DepotTypeName],
+				[IsFinalProductDepot]
+			) 
+			VALUES 
+			(
+				#Id#,
+				#DepotId#,
+				#InsertTime#,
+				#DepotName#,
+				#UpdateTime#,
+				#DepotDescription#,
+				#Telphone#,
+				#DepotAddress#,
+				#Fax#,
+				#StoreKeeper#,
+				#DepotCode#,
+				#DepotTypeName#,
+				#IsFinalProductDepot#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Depot">
+			UPDATE [Depot] SET
+				[Id] = #Id#,
+				[InsertTime] = #InsertTime#,
+				[DepotName] = #DepotName#,
+				[UpdateTime] = #UpdateTime#,
+				[DepotDescription] = #DepotDescription#,
+				[Telphone] = #Telphone#,
+				[DepotAddress] = #DepotAddress#,
+				[Fax] = #Fax#,
+				[StoreKeeper] = #StoreKeeper#,
+				[DepotCode] = #DepotCode#,
+				[DepotTypeName] = #DepotTypeName#,
+				[IsFinalProductDepot] = #IsFinalProductDepot#
+			WHERE
+				[DepotId] = #DepotId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[Depot]
+				where  DepotId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Depot
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="DepotResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[Depot]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.Depot
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

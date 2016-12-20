@@ -1,0 +1,38 @@
+<connections>
+  <connection>
+    <type>Common.SQLServerConnection</type>
+    <name>text1</name>
+    <datafile>192.168.1.35</datafile>
+    <initialcatalog>ErpGeneralCode</initialcatalog>
+    <username>sa</username>
+    <password>sa</password>
+    <authentication>SQLServer</authentication>
+  </connection>
+  <connection>
+    <type>Common.SQLServerConnection</type>
+    <name>text</name>
+    <datafile>192.168.1.35</datafile>
+    <initialcatalog>ErpGeneralCode2</initialcatalog>
+    <username>sa</username>
+    <password>sa</password>
+    <authentication>SQLServer</authentication>
+  </connection>
+  <connection>
+    <type>Common.SQLServerConnection</type>
+    <name>kong</name>
+    <datafile>192.168.1.35</datafile>
+    <initialcatalog>ErpGeneralCode3</initialcatalog>
+    <username>sa</username>
+    <password>sa</password>
+    <authentication>SQLServer</authentication>
+  </connection>
+<connection>
+    <type>Common.SQLServerConnection</type>
+    <name>Code4</name>
+    <datafile>192.168.1.35</datafile>
+    <initialcatalog>ErpGeneralCode4</initialcatalog>
+    <username>sa</username>
+    <password>sa</password>
+    <authentication>SQLServer</authentication>
+  </connection>
+</connections>

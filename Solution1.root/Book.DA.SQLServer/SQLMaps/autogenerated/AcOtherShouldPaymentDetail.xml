@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcOtherShouldPaymentDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="AcOtherShouldPaymentDetail" type="Book.Model.AcOtherShouldPaymentDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="AcOtherShouldPaymentDetailResult" class="AcOtherShouldPaymentDetail">
+      <result property="AcOtherShouldPaymentDetailId" column="AcOtherShouldPaymentDetailId" />
+      <result property="AcOtherShouldPaymentId" column="AcOtherShouldPaymentId" />
+      <result property="LoanName" column="LoanName" />
+      <result property="AcMoney" column="AcMoney" />
+      <result property="DetailDesc" column="DetailDesc" />
+      <result property="SubjectId" column="SubjectId" />
+      <result property="AcItemId" column="AcItemId" />
+      <result property="AcQuantity" column="AcQuantity" />
+      <result property="AcItemPrice" column="AcItemPrice" />
+      <result property="AcItem" column="AcItemId" lazyLoad="false" select="AcItem.select_by_primary_key" />
+      <result property="AcOtherShouldPayment" column="AcOtherShouldPaymentId" lazyLoad="false" select="AcOtherShouldPayment.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcOtherShouldPaymentDetail]
+				WHERE
+				[AcOtherShouldPaymentDetailId] = #AcOtherShouldPaymentDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcOtherShouldPaymentDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="AcOtherShouldPaymentDetailResult" parameterClass="AcOtherShouldPaymentDetail">
+      <![CDATA[SELECT
+				[AcOtherShouldPaymentDetailId],
+				[AcOtherShouldPaymentId],
+				[LoanName],
+				[AcMoney],
+				[DetailDesc],
+				[SubjectId],
+				[AcItemId],
+				[AcQuantity],
+				[AcItemPrice]
+			FROM
+				[dbo].[AcOtherShouldPaymentDetail]
+			WHERE
+				[AcOtherShouldPaymentDetailId] = #AcOtherShouldPaymentDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[AcOtherShouldPaymentDetail]
+			WHERE            
+				[AcOtherShouldPaymentDetailId] = #AcOtherShouldPaymentDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="AcOtherShouldPaymentDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[AcOtherShouldPaymentDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[AcOtherShouldPaymentDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="AcOtherShouldPaymentDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AcOtherShouldPaymentDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="AcOtherShouldPaymentDetail">
+      <![CDATA[ INSERT INTO [dbo].[AcOtherShouldPaymentDetail] 
+			(
+				[AcOtherShouldPaymentDetailId],
+				[AcOtherShouldPaymentId],
+				[LoanName],
+				[AcMoney],
+				[DetailDesc],
+				[SubjectId],
+				[AcItemId],
+				[AcQuantity],
+				[AcItemPrice]
+			) 
+			VALUES 
+			(
+				#AcOtherShouldPaymentDetailId#,
+				#AcOtherShouldPaymentId#,
+				#LoanName#,
+				#AcMoney#,
+				#DetailDesc#,
+				#SubjectId#,
+				#AcItemId#,
+				#AcQuantity#,
+				#AcItemPrice#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="AcOtherShouldPaymentDetail">
+      <![CDATA[ 	UPDATE [AcOtherShouldPaymentDetail] SET
+				[AcOtherShouldPaymentId] = #AcOtherShouldPaymentId#,
+				[LoanName] = #LoanName#,
+				[AcMoney] = #AcMoney#,
+				[DetailDesc] = #DetailDesc#,
+				[SubjectId] = #SubjectId#,
+				[AcItemId] = #AcItemId#,
+				[AcQuantity] = #AcQuantity#,
+				[AcItemPrice] = #AcItemPrice#
+			WHERE
+				[AcOtherShouldPaymentDetailId] = #AcOtherShouldPaymentDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcOtherShouldPaymentDetail]
+				where  AcOtherShouldPaymentDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

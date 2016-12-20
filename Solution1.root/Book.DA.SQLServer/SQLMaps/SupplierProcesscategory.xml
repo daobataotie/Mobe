@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SupplierProcesscategory" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="mGetFirst" resultMap="SupplierProcesscategoryResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM SupplierProcesscategory
+      WHERE SupplierId = #value#
+      ORDER BY InsertTime ASC
+			]]>
+    </select>
+
+    <select id="mGetLast" resultMap="SupplierProcesscategoryResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM SupplierProcesscategory
+      WHERE SupplierId = #value#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="mGetPrev" resultMap="SupplierProcesscategoryResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM SupplierProcesscategory
+      WHERE InsertTime < #InsertDate#
+      AND SupplierId = #SupplierId#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="mGetNext" resultMap="SupplierProcesscategoryResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM SupplierProcesscategory
+      WHERE InsertTime > #InsertDate#
+      AND SupplierId = #SupplierId#
+      ORDER BY InsertTime ASC
+      ]]>
+    </select>
+
+    <select id="mHasRows" resultClass="bool" parameterClass="string">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM SupplierProcesscategory WHERE SupplierId = #value#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="mHasRowsBefore" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM SupplierProcesscategory WHERE InsertTime < #InsertTime# AND SupplierId = #SupplierId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="mHasRowsAfter" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM SupplierProcesscategory WHERE InsertTime > #InsertTime# AND SupplierId = #SupplierId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="mSelect" resultMap="SupplierProcesscategoryResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM SupplierProcesscategory WHERE SupplierId = #value#
+      ]]>
+    </select>
+
+    <select id="SelectBySupAndProc" resultMap="SupplierProcesscategoryResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM SupplierProcesscategory 
+      WHERE SupplierId = #value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

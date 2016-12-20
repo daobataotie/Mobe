@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProductUnit" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="getUnitbyName" resultMap="ProductUnitResult" parameterClass="string">
+      select top 1 * from ProductUnit where CnName = #value#
+    </select>
+    
+    <select id="selectbygroup" resultMap="ProductUnitResult" parameterClass="string">
+      select * from ProductUnit where UnitGroupId = #value#
+    </select>
+
+    <update id ="updatebygroup" parameterClass="string" >
+      update ProductUnit set [IsMainUnit]=0  where UnitGroupId = #value#
+
+
+    </update>
+
+
+    <select id="existsInsertName" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductUnit
+				where CnName = #name# and unitgroupid=#groupunitd#
+				) then 1 else 0 end
+			]]>
+    </select>
+    <select id="existsUpdateName" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductUnit
+				where CnName = #CnName# and ProductUnitId<>#ProductUnitId# and unitgroupid=#groupunitid#
+				) then 1 else 0 end
+			]]>
+    </select>
+    <select id="SelectByCondition" resultClass="double?" parameterClass="Map">
+      select $UnitId0Quantity$/(select convertrate from ProductUnit where unitgroupid=#GroupUnitId# and cnname=#UnitId0#)*(select convertrate from ProductUnit where unitgroupid=#GroupUnitId# and cnname=#UnitId1#) Numbers
+    </select>
+  </statements>
+</sqlMap>

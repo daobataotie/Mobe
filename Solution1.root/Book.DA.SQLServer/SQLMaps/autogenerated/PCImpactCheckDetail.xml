@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCImpactCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCImpactCheckDetail" type="Book.Model.PCImpactCheckDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCImpactCheckDetailResult" class="PCImpactCheckDetail">
+      <result property="PCImpactCheckDetailId" column="PCImpactCheckDetailId" />
+      <result property="PCImpactCheckId" column="PCImpactCheckId" />
+      <result property="attrBanBie" column="attrBanBie" />
+      <result property="attrDate" column="attrDate" />
+      <result property="attrGlassUpL" column="attrGlassUpL" />
+      <result property="attrGlassUpR" column="attrGlassUpR" />
+      <result property="attrGlassDownL" column="attrGlassDownL" />
+      <result property="attrGlassDownR" column="attrGlassDownR" />
+      <result property="attrGlassLeftL" column="attrGlassLeftL" />
+      <result property="attrGlassLeftR" column="attrGlassLeftR" />
+      <result property="attrGlassRightL" column="attrGlassRightL" />
+      <result property="attrGlassRightR" column="attrGlassRightR" />
+      <result property="attrCentralL" column="attrCentralL" />
+      <result property="attrCentralR" column="attrCentralR" />
+      <result property="attrNoseCentral" column="attrNoseCentral" />
+      <result property="attrGuanZui" column="attrGuanZui" />
+      <result property="attrJieHenL" column="attrJieHenL" />
+      <result property="attrJieHenR" column="attrJieHenR" />
+      <result property="attrWingL" column="attrWingL" />
+      <result property="attrWingR" column="attrWingR" />
+      <result property="attr_15L" column="attr_15L" />
+      <result property="attr_15R" column="attr_15R" />
+      <result property="attr0L" column="attr0L" />
+      <result property="attr0R" column="attr0R" />
+      <result property="attr15L" column="attr15L" />
+      <result property="attr15R" column="attr15R" />
+      <result property="attr30L" column="attr30L" />
+      <result property="attr30R" column="attr30R" />
+      <result property="attr45L" column="attr45L" />
+      <result property="attr45R" column="attr45R" />
+      <result property="attr60L" column="attr60L" />
+      <result property="attr60R" column="attr60R" />
+      <result property="attr75L" column="attr75L" />
+      <result property="attr75R" column="attr75R" />
+      <result property="attr90L" column="attr90L" />
+      <result property="attr90R" column="attr90R" />
+      <result property="attrRetest" column="attrRetest" />
+      <result property="attrFootL" column="attrFootL" />
+      <result property="attrFootR" column="attrFootR" />
+      <result property="attr90T" column="attr90T"/>
+      <result property="attr90B" column="attr90B"/>
+      <!--<result property="BusinessHoursId" column="BusinessHoursId"/>
+      <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key"/>-->
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCImpactCheckDetail]
+				WHERE
+				[PCImpactCheckDetailId] = #PCImpactCheckDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCImpactCheckDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCImpactCheckDetailResult" parameterClass="PCImpactCheckDetail">
+      <![CDATA[SELECT
+				[PCImpactCheckDetailId],
+				[PCImpactCheckId],
+				[attrBanBie],
+				[attrDate],
+				[attrGlassUpL],
+				[attrGlassUpR],
+				[attrGlassDownL],
+				[attrGlassDownR],
+				[attrGlassLeftL],
+				[attrGlassLeftR],
+				[attrGlassRightL],
+				[attrGlassRightR],
+				[attrCentralL],
+				[attrCentralR],
+				[attrNoseCentral],
+				[attrGuanZui],
+				[attrJieHenL],
+				[attrJieHenR],
+				[attrWingL],
+				[attrWingR],
+				[attr_15L],
+				[attr_15R],
+				[attr0L],
+				[attr0R],
+				[attr15L],
+				[attr15R],
+				[attr30L],
+				[attr30R],
+				[attr45L],
+				[attr45R],
+				[attr60L],
+				[attr60R],
+				[attr75L],
+				[attr75R],
+				[attr90L],
+				[attr90R],
+				[attrRetest],
+				[attrFootL],
+				[attrFootR],
+        [attr90T],
+        [attr90B]
+        
+        
+			FROM
+				[dbo].[PCImpactCheckDetail]
+			WHERE
+				[PCImpactCheckDetailId] = #PCImpactCheckDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCImpactCheckDetail]
+			WHERE            
+				[PCImpactCheckDetailId] = #PCImpactCheckDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCImpactCheckDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCImpactCheckDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCImpactCheckDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCImpactCheckDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCImpactCheckDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCImpactCheckDetail">
+      <![CDATA[ INSERT INTO [dbo].[PCImpactCheckDetail] 
+			(
+				[PCImpactCheckDetailId],
+				[PCImpactCheckId],
+				[attrBanBie],
+				[attrDate],
+				[attrGlassUpL],
+				[attrGlassUpR],
+				[attrGlassDownL],
+				[attrGlassDownR],
+				[attrGlassLeftL],
+				[attrGlassLeftR],
+				[attrGlassRightL],
+				[attrGlassRightR],
+				[attrCentralL],
+				[attrCentralR],
+				[attrNoseCentral],
+				[attrGuanZui],
+				[attrJieHenL],
+				[attrJieHenR],
+				[attrWingL],
+				[attrWingR],
+				[attr_15L],
+				[attr_15R],
+				[attr0L],
+				[attr0R],
+				[attr15L],
+				[attr15R],
+				[attr30L],
+				[attr30R],
+				[attr45L],
+				[attr45R],
+				[attr60L],
+				[attr60R],
+				[attr75L],
+				[attr75R],
+				[attr90L],
+				[attr90R],
+				[attrRetest],
+				[attrFootL],
+				[attrFootR],
+        [attr90T],
+        [attr90B]
+        
+        
+			) 
+			VALUES 
+			(
+				#PCImpactCheckDetailId#,
+				#PCImpactCheckId#,
+				#attrBanBie#,
+				#attrDate#,
+				#attrGlassUpL#,
+				#attrGlassUpR#,
+				#attrGlassDownL#,
+				#attrGlassDownR#,
+				#attrGlassLeftL#,
+				#attrGlassLeftR#,
+				#attrGlassRightL#,
+				#attrGlassRightR#,
+				#attrCentralL#,
+				#attrCentralR#,
+				#attrNoseCentral#,
+				#attrGuanZui#,
+				#attrJieHenL#,
+				#attrJieHenR#,
+				#attrWingL#,
+				#attrWingR#,
+				#attr_15L#,
+				#attr_15R#,
+				#attr0L#,
+				#attr0R#,
+				#attr15L#,
+				#attr15R#,
+				#attr30L#,
+				#attr30R#,
+				#attr45L#,
+				#attr45R#,
+				#attr60L#,
+				#attr60R#,
+				#attr75L#,
+				#attr75R#,
+				#attr90L#,
+				#attr90R#,
+				#attrRetest#,
+				#attrFootL#,
+				#attrFootR#,
+        #attr90T#,
+        #attr90B#
+       
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCImpactCheckDetail">
+      <![CDATA[ 	UPDATE [PCImpactCheckDetail] SET
+				[PCImpactCheckId] = #PCImpactCheckId#,
+				[attrBanBie] = #attrBanBie#,
+				[attrDate] = #attrDate#,
+				[attrGlassUpL] = #attrGlassUpL#,
+				[attrGlassUpR] = #attrGlassUpR#,
+				[attrGlassDownL] = #attrGlassDownL#,
+				[attrGlassDownR] = #attrGlassDownR#,
+				[attrGlassLeftL] = #attrGlassLeftL#,
+				[attrGlassLeftR] = #attrGlassLeftR#,
+				[attrGlassRightL] = #attrGlassRightL#,
+				[attrGlassRightR] = #attrGlassRightR#,
+				[attrCentralL] = #attrCentralL#,
+				[attrCentralR] = #attrCentralR#,
+				[attrNoseCentral] = #attrNoseCentral#,
+				[attrGuanZui] = #attrGuanZui#,
+				[attrJieHenL] = #attrJieHenL#,
+				[attrJieHenR] = #attrJieHenR#,
+				[attrWingL] = #attrWingL#,
+				[attrWingR] = #attrWingR#,
+				[attr_15L] = #attr_15L#,
+				[attr_15R] = #attr_15R#,
+				[attr0L] = #attr0L#,
+				[attr0R] = #attr0R#,
+				[attr15L] = #attr15L#,
+				[attr15R] = #attr15R#,
+				[attr30L] = #attr30L#,
+				[attr30R] = #attr30R#,
+				[attr45L] = #attr45L#,
+				[attr45R] = #attr45R#,
+				[attr60L] = #attr60L#,
+				[attr60R] = #attr60R#,
+				[attr75L] = #attr75L#,
+				[attr75R] = #attr75R#,
+				[attr90L] = #attr90L#,
+				[attr90R] = #attr90R#,
+				[attrRetest] = #attrRetest#,
+				[attrFootL] = #attrFootL#,
+				[attrFootR] = #attrFootR#,
+        [attr90T]=#attr90T#,
+        [attr90B]=#attr90B#
+        
+			WHERE
+				[PCImpactCheckDetailId] = #PCImpactCheckDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCImpactCheckDetail]
+				where  PCImpactCheckDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

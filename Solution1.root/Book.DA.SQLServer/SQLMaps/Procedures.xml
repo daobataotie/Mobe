@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Procedures" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byProcedures" resultMap="ProceduresResult" parameterClass="string">
+      select * from Procedures where Procedures.ProceduresId in
+      (select ProceduresId from Technologydetails where TechonlogyHeaderId =#value#) 
+    </select>
+
+
+    <!--<select id="select_byProceduresAndBom" resultMap="ProceduresResult" parameterClass="string">
+      select * from Procedures where Procedures.ProceduresId in
+      (select ProceduresId from BomParentPartInfo where BomId =#value#)
+    </select>-->
+
+    <select id="select_byProceduresAndBom" resultMap="ProceduresResult" parameterClass="string">
+      select * from Procedures where Procedures.ProceduresId in
+      (select ProceduresId from ManProcedure where BomId =#value#)
+    </select>
+    <select id="select_byWorkHouseId" resultMap="ProceduresResult" parameterClass="string">
+      select * from Procedures where Workhouseid=#value#
+    </select>
+  </statements>
+</sqlMap>

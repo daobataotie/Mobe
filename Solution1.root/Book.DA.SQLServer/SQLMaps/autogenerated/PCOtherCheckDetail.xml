@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCOtherCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCOtherCheckDetail" type="Book.Model.PCOtherCheckDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCOtherCheckDetailResult" class="PCOtherCheckDetail">
+      <result property="PCOtherCheckDetailId" column="PCOtherCheckDetailId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="PCOtherCheckId" column="PCOtherCheckId" />
+      <result property="ProceduresId" column="ProceduresId" />
+      <result property="PCOtherCheckDetailQuantity" column="PCOtherCheckDetailQuantity" />
+      <result property="ProductUnit" column="ProductUnit" />
+      <result property="PerspectiveRate" column="PerspectiveRate" />
+      <result property="DeliveryDate" column="DeliveryDate" />
+      <result property="OutQuantity" column="OutQuantity" />
+      <result property="InQuantity" column="InQuantity" />
+      <result property="Determinant" column="Determinant" />
+      <result property="PCOtherCheckDetailDesc" column="PCOtherCheckDetailDesc" />
+      <result property="FromInvoiceID" column="FromInvoiceID" />
+      <result property="FromInvoiceDetailID" column="FromInvoiceDetailID" />
+      <result property="PCOtherCheckDetailFromPC" column="PCOtherCheckDetailFromPC" />
+      <result property="PCOtherCheckDetailDesc1" column="PCOtherCheckDetailDesc1" />
+      <result property="InvoiceCusXOId" column="InvoiceCusXOId"/>
+      <result property="CheckDate" column="CheckDate"/>
+      <result property="BusinessHoursId" column="BusinessHoursId"/>
+      <result property="PCOtherCheck" column="PCOtherCheckId" lazyLoad="false" select="PCOtherCheck.select_by_primary_key" />
+      <result property="Procedures" column="ProceduresId" lazyLoad="false" select="Procedures.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select ="BusinessHours.select_by_primary_key"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[PCOtherCheckDetail]
+      WHERE
+      [PCOtherCheckDetailId] = #PCOtherCheckDetailId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[PCOtherCheckDetail]
+
+      ) then 1 else 0 end
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCOtherCheckDetailResult" parameterClass="PCOtherCheckDetail">
+      SELECT
+      [PCOtherCheckDetailId],
+      [ProductId],
+      [PCOtherCheckId],
+      [ProceduresId],
+      [PCOtherCheckDetailQuantity],
+      [ProductUnit],
+      [PerspectiveRate],
+      [DeliveryDate],
+      [OutQuantity],
+      [InQuantity],
+      [Determinant],
+      [PCOtherCheckDetailDesc],
+      [FromInvoiceID],
+      [FromInvoiceDetailID],
+      [PCOtherCheckDetailFromPC],
+      [PCOtherCheckDetailDesc1],
+      [InvoiceCusXOId],
+      [CheckDate],
+      [BusinessHoursId]
+      FROM
+      [dbo].[PCOtherCheckDetail]
+      WHERE
+      [PCOtherCheckDetailId] = #PCOtherCheckDetailId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[PCOtherCheckDetail]
+      WHERE
+      [PCOtherCheckDetailId] = #PCOtherCheckDetailId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCOtherCheckDetailResult" >
+      SELECT *
+      FROM
+      [dbo].[PCOtherCheckDetail]
+
+
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[PCOtherCheckDetail]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCOtherCheckDetailResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[PCOtherCheckDetail]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCOtherCheckDetail">
+      INSERT INTO [dbo].[PCOtherCheckDetail]
+      (
+      [PCOtherCheckDetailId],
+      [ProductId],
+      [PCOtherCheckId],
+      [ProceduresId],
+      [PCOtherCheckDetailQuantity],
+      [ProductUnit],
+      [PerspectiveRate],
+      [DeliveryDate],
+      [OutQuantity],
+      [InQuantity],
+      [Determinant],
+      [PCOtherCheckDetailDesc],
+      [FromInvoiceID],
+      [FromInvoiceDetailID],
+      [PCOtherCheckDetailFromPC],
+      [PCOtherCheckDetailDesc1],
+      [InvoiceCusXOId],
+      [CheckDate],
+      [BusinessHoursId]
+      )
+      VALUES
+      (
+      #PCOtherCheckDetailId#,
+      #ProductId#,
+      #PCOtherCheckId#,
+      #ProceduresId#,
+      #PCOtherCheckDetailQuantity#,
+      #ProductUnit#,
+      #PerspectiveRate#,
+      #DeliveryDate#,
+      #OutQuantity#,
+      #InQuantity#,
+      #Determinant#,
+      #PCOtherCheckDetailDesc#,
+      #FromInvoiceID#,
+      #FromInvoiceDetailID#,
+      #PCOtherCheckDetailFromPC#,
+      #PCOtherCheckDetailDesc1#,
+      #InvoiceCusXOId#,
+      #CheckDate#,
+      #BusinessHoursId#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCOtherCheckDetail">
+      UPDATE [PCOtherCheckDetail] SET
+      [ProductId] = #ProductId#,
+      [PCOtherCheckId] = #PCOtherCheckId#,
+      [ProceduresId] = #ProceduresId#,
+      [PCOtherCheckDetailQuantity] = #PCOtherCheckDetailQuantity#,
+      [ProductUnit] = #ProductUnit#,
+      [PerspectiveRate] = #PerspectiveRate#,
+      [DeliveryDate] = #DeliveryDate#,
+      [OutQuantity] = #OutQuantity#,
+      [InQuantity] = #InQuantity#,
+      [Determinant] = #Determinant#,
+      [PCOtherCheckDetailDesc] = #PCOtherCheckDetailDesc#,
+      [FromInvoiceID] = #FromInvoiceID#,
+      [FromInvoiceDetailID] = #FromInvoiceDetailID#,
+      [PCOtherCheckDetailFromPC] = #PCOtherCheckDetailFromPC#,
+      [PCOtherCheckDetailDesc1] = #PCOtherCheckDetailDesc1#,
+      [InvoiceCusXOId] = #InvoiceCusXOId#,
+      [CheckDate]=#CheckDate#,
+      [BusinessHoursId]=#BusinessHoursId#
+      WHERE
+      [PCOtherCheckDetailId] = #PCOtherCheckDetailId#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCOtherCheckDetail]
+				where  PCOtherCheckDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

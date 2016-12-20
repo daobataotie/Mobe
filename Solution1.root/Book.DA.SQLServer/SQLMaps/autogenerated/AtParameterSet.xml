@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AtParameterSet" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AtParameterSet" type="Book.Model.AtParameterSet, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="AtParameterSetResult" class="AtParameterSet">
+			<result property="AtParameterSetId" column="AtParameterSetId" />
+			<result property="AtOldSunYiSubjectId" column="AtOldSunYiSubjectId" />
+			<result property="AtSunYiSubjectId" column="AtSunYiSubjectId" />
+			<result property="ACMoneySubjectId" column="ACMoneySubjectId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="AtCurrentlyYear" column="AtCurrentlyYear" />
+			<result property="AtBeginMonth" column="AtBeginMonth" />
+			<result property="AtEndMonth" column="AtEndMonth" />
+			<result property="AtBeginDate" column="AtBeginDate" />
+			<result property="AtEndDate" column="AtEndDate" />
+			<result property="IsThisYear" column="IsThisYear" />
+		<result property="AtOldSunYiSubject" column="AtOldSunYiSubjectId" lazyLoad="false" select="AtAccountSubject.select_by_primary_key" />		<result property="ACMoneySubject" column="ACMoneySubjectId" lazyLoad="false" select="AtAccountSubject.select_by_primary_key" />		<result property="AtSunYiSubject" column="AtSunYiSubjectId" lazyLoad="false" select="AtAccountSubject.select_by_primary_key" />        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtParameterSet]
+				WHERE
+				[AtParameterSetId] = #AtParameterSetId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtParameterSet]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="get_first" resultMap="AtParameterSetResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtParameterSet
+			 
+			order by InsertTime 
+			]]>
+		</select>
+		<select id="get_last" resultMap="AtParameterSetResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtParameterSet
+						
+            order by InsertTime desc
+			]]>
+            
+		</select>
+		<select id="get_prev" resultMap="AtParameterSetResult" parameterClass="AtParameterSet">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtParameterSet
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="AtParameterSetResult" parameterClass="AtParameterSet">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtParameterSet
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+		</select>
+		
+		<select id="has_rows_before" resultClass="bool" parameterClass="AtParameterSet">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtParameterSet
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="AtParameterSet">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtParameterSet
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AtParameterSetResult" parameterClass="AtParameterSet">
+			<![CDATA[SELECT
+				[AtParameterSetId],
+				[AtOldSunYiSubjectId],
+				[AtSunYiSubjectId],
+				[ACMoneySubjectId],
+				[InsertTime],
+				[UpdateTime],
+				[AtCurrentlyYear],
+				[AtBeginMonth],
+				[AtEndMonth],
+				[AtBeginDate],
+				[AtEndDate],
+				[IsThisYear]
+			FROM
+				[dbo].[AtParameterSet]
+			WHERE
+				[AtParameterSetId] = #AtParameterSetId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[AtParameterSet]
+			WHERE            
+				[AtParameterSetId] = #AtParameterSetId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AtParameterSetResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[AtParameterSet]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[AtParameterSet]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AtParameterSetResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AtParameterSet]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AtParameterSet">
+			 <![CDATA[ INSERT INTO [dbo].[AtParameterSet] 
+			(
+				[AtParameterSetId],
+				[AtOldSunYiSubjectId],
+				[AtSunYiSubjectId],
+				[ACMoneySubjectId],
+				[InsertTime],
+				[UpdateTime],
+				[AtCurrentlyYear],
+				[AtBeginMonth],
+				[AtEndMonth],
+				[AtBeginDate],
+				[AtEndDate],
+				[IsThisYear]
+			) 
+			VALUES 
+			(
+				#AtParameterSetId#,
+				#AtOldSunYiSubjectId#,
+				#AtSunYiSubjectId#,
+				#ACMoneySubjectId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#AtCurrentlyYear#,
+				#AtBeginMonth#,
+				#AtEndMonth#,
+				#AtBeginDate#,
+				#AtEndDate#,
+				#IsThisYear#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AtParameterSet">
+		 <![CDATA[ 	UPDATE [AtParameterSet] SET
+				[AtOldSunYiSubjectId] = #AtOldSunYiSubjectId#,
+				[AtSunYiSubjectId] = #AtSunYiSubjectId#,
+				[ACMoneySubjectId] = #ACMoneySubjectId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[AtCurrentlyYear] = #AtCurrentlyYear#,
+				[AtBeginMonth] = #AtBeginMonth#,
+				[AtEndMonth] = #AtEndMonth#,
+				[AtBeginDate] = #AtBeginDate#,
+				[AtEndDate] = #AtEndDate#,
+				[IsThisYear] = #IsThisYear#
+			WHERE
+				[AtParameterSetId] = #AtParameterSetId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AtParameterSet]
+				where  AtParameterSetId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

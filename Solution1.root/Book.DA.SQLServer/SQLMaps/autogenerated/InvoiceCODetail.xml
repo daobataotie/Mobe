@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceCODetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoiceCODetail" type="Book.Model.InvoiceCODetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoiceCODetailResult" class="InvoiceCODetail">
+      <result property="InvoiceCODetailId" column="InvoiceCODetailId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="OrderQuantity" column="OrderQuantity" />
+      <result property="InvoiceCODetailPrice" column="InvoiceCODetailPrice" />
+      <result property="InvoiceCODetailMoney" column="InvoiceCODetailMoney" />
+      <result property="NoArrivalQuantity" column="NoArrivalQuantity" />
+      <result property="ArrivalQuantity" column="ArrivalQuantity" />
+      <result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+      <result property="TotalMoney" column="TotalMoney" />
+      <result property="InvoiceCODetailNote" column="InvoiceCODetailNote" />
+      <result property="DetailsFlag" column="DetailsFlag" />
+      <result property="Inumber" column="Inumber" />
+      <result property="NextWorkHouseId" column="NextWorkHouseId" />
+      <result property="InvoiceCTQuantity" column="InvoiceCTQuantity" />
+      <result property="Remark" column="Remark"/>
+      <result property="YiPrice" column="YiPrice"/>
+      <result property="HandbookId" column="HandbookId"/>
+      <result property="HandbookProductId" column="HandbookProductId"/>
+      <result property="MRSdetailId" column="MRSdetailId"/>
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceCO.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="NextWorkHouse" column="NextWorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceCODetail]
+				WHERE
+				[InvoiceCODetailId] = #InvoiceCODetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceCODetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="InvoiceCODetailResult" parameterClass="InvoiceCODetail">
+      <![CDATA[SELECT
+				[InvoiceCODetailId],
+				[ProductId],
+				[InvoiceId],
+				[OrderQuantity],
+				[InvoiceCODetailPrice],
+				[InvoiceCODetailMoney],
+				[NoArrivalQuantity],
+				[ArrivalQuantity],
+				[InvoiceProductUnit],
+				[TotalMoney],
+				[InvoiceCODetailNote],
+				[DetailsFlag],
+				[Inumber],
+				[NextWorkHouseId],
+				[InvoiceCTQuantity],
+        [Remark],
+        [YiPrice],
+        [HandbookId],
+        [HandbookProductId],
+        [MRSdetailId]
+			FROM
+				[dbo].[InvoiceCODetail]
+			WHERE
+				[InvoiceCODetailId] = #InvoiceCODetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[InvoiceCODetail]
+			WHERE            
+				[InvoiceCODetailId] = #InvoiceCODetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="InvoiceCODetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[InvoiceCODetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[InvoiceCODetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="InvoiceCODetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoiceCODetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="InvoiceCODetail">
+      <![CDATA[ INSERT INTO [dbo].[InvoiceCODetail] 
+			(
+				[InvoiceCODetailId],
+				[ProductId],
+				[InvoiceId],
+				[OrderQuantity],
+				[InvoiceCODetailPrice],
+				[InvoiceCODetailMoney],
+				[NoArrivalQuantity],
+				[ArrivalQuantity],
+				[InvoiceProductUnit],
+				[TotalMoney],
+				[InvoiceCODetailNote],
+				[DetailsFlag],
+				[Inumber],
+				[NextWorkHouseId],
+				[InvoiceCTQuantity],
+        [Remark],
+        [YiPrice],
+        [HandbookId],
+        [HandbookProductId],
+        [MRSdetailId]
+			) 
+			VALUES 
+			(
+				#InvoiceCODetailId#,
+				#ProductId#,
+				#InvoiceId#,
+				#OrderQuantity#,
+				#InvoiceCODetailPrice#,
+				#InvoiceCODetailMoney#,
+				#NoArrivalQuantity#,
+				#ArrivalQuantity#,
+				#InvoiceProductUnit#,
+				#TotalMoney#,
+				#InvoiceCODetailNote#,
+				#DetailsFlag#,
+				#Inumber#,
+				#NextWorkHouseId#,
+				#InvoiceCTQuantity#,
+        #Remark#,
+        #YiPrice#,
+        #HandbookId#,
+        #HandbookProductId#,
+        #MRSdetailId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="InvoiceCODetail">
+      <![CDATA[ 	UPDATE [InvoiceCODetail] SET
+				[ProductId] = #ProductId#,
+				[InvoiceId] = #InvoiceId#,
+				[OrderQuantity] = #OrderQuantity#,
+				[InvoiceCODetailPrice] = #InvoiceCODetailPrice#,
+				[InvoiceCODetailMoney] = #InvoiceCODetailMoney#,
+				[NoArrivalQuantity] = #NoArrivalQuantity#,
+				[ArrivalQuantity] = #ArrivalQuantity#,
+				[InvoiceProductUnit] = #InvoiceProductUnit#,
+				[TotalMoney] = #TotalMoney#,
+				[InvoiceCODetailNote] = #InvoiceCODetailNote#,
+				[DetailsFlag] = #DetailsFlag#,
+				[Inumber] = #Inumber#,
+				[NextWorkHouseId] = #NextWorkHouseId#,
+				[InvoiceCTQuantity] = #InvoiceCTQuantity#,
+        [Remark]=#Remark#,
+        [YiPrice]=#YiPrice#,
+        [HandbookId]=#HandbookId#,
+        [HandbookProductId]=#HandbookProductId#,
+        [MRSdetailId] = #MRSdetailId# 
+			WHERE
+				[InvoiceCODetailId] = #InvoiceCODetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceCODetail]
+				where  InvoiceCODetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

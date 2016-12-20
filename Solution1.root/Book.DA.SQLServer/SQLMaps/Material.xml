@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Material" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="CountJWeightByMaterial" resultClass="double" parameterClass="Map">
+      <![CDATA[
+      SELECT isnull(sum(Jweight),0) FROM Material WHERE 1=1 $sql$
+      ]]>
+    </select>
+
+    <select id="SelectOther" resultMap="MaterialResult">
+      <![CDATA[
+      SELECT *,(MaterialCategoryName+','+Id+','+cast(isnull(JWeight,0) AS varchar(50))) AS Information FROM Material ORDER BY Material.MaterialCategoryName
+      ]]>
+    </select>
+
+    <select id="SelectIdByMaterialId" resultClass="string" parameterClass="Map">
+      <![CDATA[
+      SELECT Id FROM Material WHERE 1=1 $sql$
+      ]]>
+    </select>
+    <select id="SelectMaterialByPrimary" resultMap="MaterialResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM Material WHERE MaterialId=#value#
+      ]]>
+    </select>
+    <select id="MaterialCategoryName" resultClass="string">
+      <![CDATA[
+      SELECT MaterialCategoryName FROM Material Group BY Material.MaterialCategoryName
+      ]]>
+    </select>
+    <select id="SelectAll" resultMap="MaterialResult">
+      <![CDATA[
+      SELECT * FROM Material ORDER BY MaterialCategoryName
+      ]]>
+    </select>
+    <select id="SelectIdByPrimary" resultClass="String" parameterClass="String">
+      <![CDATA[
+      SELECT Id FROM Material WHERE MaterialId=#value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

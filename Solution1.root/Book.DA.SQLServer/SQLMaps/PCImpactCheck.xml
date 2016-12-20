@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCImpactCheck" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <select id="SelectByDateRange" resultMap="PCImpactCheckResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM PCImpactCheck WHERE PCImpactCheck.PCImpactCheckDate BETWEEN #startdate# AND #enddate# $sql$ ORDER BY PCImpactCheck.PCImpactCheckId DESC
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcInvoiceXOBill" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="AcInvoiceXOBill" type="Book.Model.AcInvoiceXOBill, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="AcInvoiceXOBillResult" class="AcInvoiceXOBill">
+      <result property="AcInvoiceXOBillId" column="AcInvoiceXOBillId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="Employee1Id" column="Employee1Id" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="AuditingState" column="AuditingState" />
+      <result property="InvoiceStatus" column="InvoiceStatus" />
+      <result property="AuditingStateDate" column="AuditingStateDate" />
+      <result property="AcInvoiceXOBillDate" column="AcInvoiceXOBillDate" />
+      <result property="AcInvoiceXOBillType" column="AcInvoiceXOBillType" />
+      <result property="Id" column="Id" />
+      <result property="AcInvoiceXOBillDesc" column="AcInvoiceXOBillDesc" />
+      <result property="TaxRate" column="TaxRate" />
+      <result property="TaxRateType" column="TaxRateType" />
+      <result property="TaxRateMoney" column="TaxRateMoney" />
+      <result property="HeJiMoney" column="HeJiMoney" />
+      <result property="ZongMoney" column="ZongMoney" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="mHeXiaoJingE" column="mHeXiaoJingE" />
+      <result property="YSDate" column="YSDate" />
+      <result property="InvoiceAllowanceTotal" column="InvoiceAllowanceTotal" />
+      <result property="NoHeXiaoTotal" column="NoHeXiaoTotal" />
+      <result property="CustomerShouPiaoId" column="CustomerShouPiaoId" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="CustomerShouPiao" column="CustomerShouPiaoId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcInvoiceXOBill]
+				WHERE
+				[AcInvoiceXOBillId] = #AcInvoiceXOBillId#
+                         and invoicestatus<>2 			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcInvoiceXOBill]
+ 				where invoicestatus<>2 				
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="AcInvoiceXOBillResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcInvoiceXOBill
+			where invoicestatus<>2 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="AcInvoiceXOBillResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcInvoiceXOBill
+			where invoicestatus<>2			
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="AcInvoiceXOBillResult" parameterClass="AcInvoiceXOBill">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcInvoiceXOBill
+			where InsertTime < #InsertTime#	
+             and invoicestatus<>2 			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="AcInvoiceXOBillResult" parameterClass="AcInvoiceXOBill">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcInvoiceXOBill
+			where InsertTime > #InsertTime#	
+                 and invoicestatus<>2			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="AcInvoiceXOBill">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcInvoiceXOBill
+				where InsertTime < #InsertTime#
+                 and invoicestatus<>2			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="AcInvoiceXOBill">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcInvoiceXOBill
+				where InsertTime > #InsertTime#
+                 and invoicestatus<>2 			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="AcInvoiceXOBillResult" parameterClass="AcInvoiceXOBill">
+      <![CDATA[SELECT
+				[AcInvoiceXOBillId],
+				[EmployeeId],
+				[Employee0Id],
+				[Employee1Id],
+				[CustomerId],
+				[AuditingState],
+				[InvoiceStatus],
+				[AuditingStateDate],
+				[AcInvoiceXOBillDate],
+				[AcInvoiceXOBillType],
+				[Id],
+				[AcInvoiceXOBillDesc],
+				[TaxRate],
+				[TaxRateType],
+				[TaxRateMoney],
+				[HeJiMoney],
+				[ZongMoney],
+				[InsertTime],
+				[UpdateTime],
+				[mHeXiaoJingE],
+				[YSDate],
+				[InvoiceAllowanceTotal],
+				[NoHeXiaoTotal],
+				[CustomerShouPiaoId],
+        [AuditState],
+        [AuditEmpId]
+        
+			FROM
+				[dbo].[AcInvoiceXOBill]
+			WHERE
+				[AcInvoiceXOBillId] = #AcInvoiceXOBillId#
+                 and invoicestatus<>2 			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[AcInvoiceXOBill]
+			WHERE            
+				[AcInvoiceXOBillId] = #AcInvoiceXOBillId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="AcInvoiceXOBillResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[AcInvoiceXOBill]
+                 where  invoicestatus<>2 			                   
+			ORDER BY Id ASC			
+			
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[AcInvoiceXOBill]
+                 where invoicestatus<>2 			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="AcInvoiceXOBillResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AcInvoiceXOBill]
+                     where  invoicestatus<>2 			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="AcInvoiceXOBill">
+      <![CDATA[ INSERT INTO [dbo].[AcInvoiceXOBill] 
+			(
+				[AcInvoiceXOBillId],
+				[EmployeeId],
+				[Employee0Id],
+				[Employee1Id],
+				[CustomerId],
+				[AuditingState],
+				[InvoiceStatus],
+				[AuditingStateDate],
+				[AcInvoiceXOBillDate],
+				[AcInvoiceXOBillType],
+				[Id],
+				[AcInvoiceXOBillDesc],
+				[TaxRate],
+				[TaxRateType],
+				[TaxRateMoney],
+				[HeJiMoney],
+				[ZongMoney],
+				[InsertTime],
+				[UpdateTime],
+				[mHeXiaoJingE],
+				[YSDate],
+				[InvoiceAllowanceTotal],
+				[NoHeXiaoTotal],
+				[CustomerShouPiaoId],
+        [AuditState],
+        [AuditEmpId]
+			) 
+			VALUES 
+			(
+				#AcInvoiceXOBillId#,
+				#EmployeeId#,
+				#Employee0Id#,
+				#Employee1Id#,
+				#CustomerId#,
+				#AuditingState#,
+				#InvoiceStatus#,
+				#AuditingStateDate#,
+				#AcInvoiceXOBillDate#,
+				#AcInvoiceXOBillType#,
+				#Id#,
+				#AcInvoiceXOBillDesc#,
+				#TaxRate#,
+				#TaxRateType#,
+				#TaxRateMoney#,
+				#HeJiMoney#,
+				#ZongMoney#,
+				#InsertTime#,
+				#UpdateTime#,
+				#mHeXiaoJingE#,
+				#YSDate#,
+				#InvoiceAllowanceTotal#,
+				#NoHeXiaoTotal#,
+				#CustomerShouPiaoId#,
+        #AuditState#,
+        #AuditEmpId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="AcInvoiceXOBill">
+      <![CDATA[ 	UPDATE [AcInvoiceXOBill] SET
+				[EmployeeId] = #EmployeeId#,
+				[Employee0Id] = #Employee0Id#,
+				[Employee1Id] = #Employee1Id#,
+				[CustomerId] = #CustomerId#,
+				[AuditingState] = #AuditingState#,
+				[InvoiceStatus] = #InvoiceStatus#,
+				[AuditingStateDate] = #AuditingStateDate#,
+				[AcInvoiceXOBillDate] = #AcInvoiceXOBillDate#,
+				[AcInvoiceXOBillType] = #AcInvoiceXOBillType#,
+				[Id] = #Id#,
+				[AcInvoiceXOBillDesc] = #AcInvoiceXOBillDesc#,
+				[TaxRate] = #TaxRate#,
+				[TaxRateType] = #TaxRateType#,
+				[TaxRateMoney] = #TaxRateMoney#,
+				[HeJiMoney] = #HeJiMoney#,
+				[ZongMoney] = #ZongMoney#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[mHeXiaoJingE] = #mHeXiaoJingE#,
+				[YSDate] = #YSDate#,
+				[InvoiceAllowanceTotal] = #InvoiceAllowanceTotal#,
+				[NoHeXiaoTotal] = #NoHeXiaoTotal#,
+				[CustomerShouPiaoId] = #CustomerShouPiaoId#,
+        [AuditState]=#AuditState#,
+        [AuditEmpId]=#AuditEmpId#
+			WHERE
+				[AcInvoiceXOBillId] = #AcInvoiceXOBillId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcInvoiceXOBill]
+				where  AcInvoiceXOBillId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+    <select id="exists" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcInvoiceXOBill
+				where Id = #value#
+                and invoicestatus<>2 			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="get_by_id" resultMap="AcInvoiceXOBillResult" parameterClass="string">
+      <![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[AcInvoiceXOBill]
+                     where invoicestatus<>2 			          
+         
+			WHERE
+				Id = #value#
+			]]>
+    </select>
+
+    <select id="existsexcept" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from dbo.AcInvoiceXOBill
+				where Id = #newId# and Id <> #oldId#
+                     and invoicestatus<>2 			          
+         
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+
+  </statements>
+</sqlMap>
+

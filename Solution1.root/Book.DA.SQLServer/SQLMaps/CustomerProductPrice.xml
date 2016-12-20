@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="CustomerProductPrice" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <select id="SelectByCustomerId" resultMap="CustomerProductPriceResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM CustomerProductPrice WHERE CustomerId=#value#
+      ]]>
+    </select>
+
+    <select id="SelectByProductId" resultMap="CustomerProductPriceResult" parameterClass="string">
+      <![CDATA[
+      select * FROM CustomerProductPrice WHERE ProductId=#value#
+      ]]>
+    </select>
+
+    <update id="UpdateByCustomerProductsId" parameterClass="CustomerProductPrice" >
+      <![CDATA[
+      UPDATE CustomerProductPrice SET CustomerId=#CustomerId#,ProductId=#ProductId#,UpdateTime=#UpdateTime# WHERE CustomerProductsId=#CustomerProductsId#
+      ]]>
+    </update>
+    <select id="SelectPriceByProductId" resultClass="string" parameterClass="string">
+      <![CDATA[
+      SELECT CustomerProductPriceRage FROM CustomerProductPrice WHERE ProductId=#value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

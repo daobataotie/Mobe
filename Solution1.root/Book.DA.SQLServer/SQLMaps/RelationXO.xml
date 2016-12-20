@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="RelationXO" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id ="ExistsXO" parameterClass="Map" resultClass="bool">
+      <![CDATA[
+      select case when exists (select * from RelationXO where InvoiceCusId=#InvoiceCusId# and RelationXOId<>#RelationXOId#) then 1 else 0 end
+      ]]>
+    </select>
+
+    <select id="SelectByInvoiceXOCusId" parameterClass ="string" resultMap="RelationXOResult">
+      <![CDATA[
+      select * from RelationXO where InvoiceXOId in (select InvoiceId from InvoiceXO where CustomerInvoiceXOId =#value#)
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

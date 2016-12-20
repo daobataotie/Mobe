@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AtBankSaveUp" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byDdateAndBank" resultMap="AtBankSaveUpResult" parameterClass="Map">
+      <![CDATA[
+     select * from AtBankSaveUp where 
+  (SaveUpdate between #startdate# and #enddate# ) or (#startdate# is null and #enddate# is null) and BankId=#BankAccountId#
+    ]]>
+    </select>
+  </statements>
+</sqlMap>

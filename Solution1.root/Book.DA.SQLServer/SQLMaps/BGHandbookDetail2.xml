@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BGHandbookDetail2" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="BGHandbookDetail2Result1" class="BGHandbookDetail2">
+      <result property="BGHandbookDetail2Id" column="BGHandbookDetail2Id" />
+      <result property="Id" column="Id" />
+      <result property="ProName" column="ProName" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="select_byheader" resultMap="BGHandbookDetail2Result" parameterClass="string">
+      <![CDATA[
+      select * from BGHandbookDetail2 where BGHandbookId=#value:varchar# order by Id
+      ]]>
+    </select>
+
+    <select id="select_byShouceandId" resultMap="BGHandbookDetail2Result" parameterClass="Map">
+      <![CDATA[
+      select * from BGHandbookDetail2 where BGHandbookId in(select BGHandbookId from BGHandbook where id=#bgid:varchar#) and id=#id:varchar#
+      ]]>
+    </select>
+
+    <select id="SelectBGProduct" resultMap="BGHandbookDetail2Result" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM BGHandbookDetail2 WHERE ProName IS NOT NULL $sql$
+      ]]>
+    </select>
+
+    <select id="SelectByShouce" parameterClass="string" resultMap="BGHandbookDetail2Result1">
+      <![CDATA[
+      select BGHandbookDetail2Id,Id,ProName from BGHandbookDetail2 where BGHandbookId in (SELECT TOP 1 BGHandbookId FROM BGHandbook WHERE Id=#value# ORDER BY BGHandbookDate desc) order by id
+      ]]>
+    </select>
+
+    <select id="SelectByShouceAndId" resultMap="BGHandbookDetail2Result" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM BGHandbookDetail2 WHERE BGHandbookDetail2.BGHandbookId IN (SELECT TOP 1 BGHandbookId FROM BGHandbook WHERE Id=#Shouce# and IsEffect='1' ORDER BY BGHandbookDate desc) AND id=#id#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

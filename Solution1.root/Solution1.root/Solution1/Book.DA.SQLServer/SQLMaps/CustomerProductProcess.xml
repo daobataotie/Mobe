@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="CustomerProductProcess" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_processcategory" resultMap="CustomerProductProcessResult">
+      <![CDATA[
+      select null as [CustomerProductProcessId],processCateGoryId,null as [PrimaryKeyId],null as [ProcessId],0 as [IsCheck] from ProcessCategory
+      ]]>
+    </select>
+
+    <select id="select_processcategory_by_customerproductid" resultMap="CustomerProductProcessResult">
+      
+      <!--   SELECT [CustomerProductProcessId],processCategory.[ProcessCategoryId],[PrimaryKeyId],[ProcessId],isnull([IsCheck],0) as [IsCheck]
+  FROM processCategory left join CustomerProductProcess on processCategory.processCategoryId = CustomerProductProcess.processCategoryId
+      where primarykeyId = #value# or primarykeyId is null     -->
+      <![CDATA[   
+             
+          select * from CustomerProductProcess where  primarykeyId = #value#
+      ]]> 
+      
+      
+  
+    </select>
+    <delete id="delete_customerproductId" parameterClass="string">
+      delete
+      from dbo.CustomerProductProcess
+      where PrimaryKeyId = #value#
+    </delete>
+
+  </statements>
+</sqlMap>

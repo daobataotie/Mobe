@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="BGHandbookDetail2" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="BGHandbookDetail2" type="Book.Model.BGHandbookDetail2, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="BGHandbookDetail2Result" class="BGHandbookDetail2">
+			<result property="BGHandbookDetail2Id" column="BGHandbookDetail2Id" />
+			<result property="BGHandbookId" column="BGHandbookId" />
+			<result property="Id" column="Id" />
+			<result property="ProName" column="ProName" />
+			<result property="Ljingliang" column="Ljingliang" />
+			<result property="LjingSunliang" column="LjingSunliang" />
+			<result property="LLastjingSunliang" column="LLastjingSunliang" />
+			<result property="Lchazhi" column="Lchazhi" />
+			<result property="LPrice" column="LPrice" />
+			<result property="Lmoney" column="Lmoney" />
+			<result property="LbejinQuantity" column="LbejinQuantity" />
+			<result property="LciciMoney" column="LciciMoney" />
+			<result property="UpQuantity" column="UpQuantity" />
+			<result property="LilunHaoYong" column="LilunHaoYong" />
+			<result property="LilunStock" column="LilunStock" />
+			<result property="YaoJInQuantity" column="YaoJInQuantity" />
+			<result property="HaiKeJInQuantity" column="HaiKeJInQuantity" />
+			<result property="ZhuanCeInQuantity" column="ZhuanCeInQuantity" />
+			<result property="ZhuanCeOutQuantity" column="ZhuanCeOutQuantity" />
+			<result property="ZhuanRuShouCeId" column="ZhuanRuShouCeId" />
+			<result property="JinKouiMoney" column="JinKouiMoney" />
+<result property="LastMoney" column="LastMoney" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[BGHandbookDetail2]
+				WHERE
+				[BGHandbookDetail2Id] = #BGHandbookDetail2Id#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[BGHandbookDetail2]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="BGHandbookDetail2Result" parameterClass="BGHandbookDetail2">
+			<![CDATA[SELECT
+				[BGHandbookDetail2Id],
+				[BGHandbookId],
+				[Id],
+				[ProName],
+				[Ljingliang],
+				[LjingSunliang],
+				[LLastjingSunliang],
+				[Lchazhi],
+				[LPrice],
+				[Lmoney],
+				[LbejinQuantity],
+				[LciciMoney],
+				[UpQuantity],
+				[LilunHaoYong],
+				[LilunStock],
+				[YaoJInQuantity],
+				[HaiKeJInQuantity],
+				[ZhuanCeInQuantity],
+				[ZhuanCeOutQuantity],
+				[ZhuanRuShouCeId],
+        [JinKouiMoney],
+        [LastMoney]
+			FROM
+				[dbo].[BGHandbookDetail2]
+			WHERE
+				[BGHandbookDetail2Id] = #BGHandbookDetail2Id#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[BGHandbookDetail2]
+			WHERE            
+				[BGHandbookDetail2Id] = #BGHandbookDetail2Id#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="BGHandbookDetail2Result" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[BGHandbookDetail2]
+                			                   
+			ORDER BY Id ASC			
+			
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[BGHandbookDetail2]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="BGHandbookDetail2Result">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[BGHandbookDetail2]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="BGHandbookDetail2">
+			 <![CDATA[ INSERT INTO [dbo].[BGHandbookDetail2] 
+			(
+				[BGHandbookDetail2Id],
+				[BGHandbookId],
+				[Id],
+				[ProName],
+				[Ljingliang],
+				[LjingSunliang],
+				[LLastjingSunliang],
+				[Lchazhi],
+				[LPrice],
+				[Lmoney],
+				[LbejinQuantity],
+				[LciciMoney],
+				[UpQuantity],
+				[LilunHaoYong],
+				[LilunStock],
+				[YaoJInQuantity],
+				[HaiKeJInQuantity],
+				[ZhuanCeInQuantity],
+				[ZhuanCeOutQuantity],
+				[ZhuanRuShouCeId],
+        [JinKouiMoney],
+        [LastMoney]
+			) 
+			VALUES 
+			(
+				#BGHandbookDetail2Id#,
+				#BGHandbookId#,
+				#Id#,
+				#ProName#,
+				#Ljingliang#,
+				#LjingSunliang#,
+				#LLastjingSunliang#,
+				#Lchazhi#,
+				#LPrice#,
+				#Lmoney#,
+				#LbejinQuantity#,
+				#LciciMoney#,
+				#UpQuantity#,
+				#LilunHaoYong#,
+				#LilunStock#,
+				#YaoJInQuantity#,
+				#HaiKeJInQuantity#,
+				#ZhuanCeInQuantity#,
+				#ZhuanCeOutQuantity#,
+				#ZhuanRuShouCeId#,
+        #JinKouiMoney#,
+        #LastMoney#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="BGHandbookDetail2">
+		 <![CDATA[ 	UPDATE [BGHandbookDetail2] SET
+				[BGHandbookId] = #BGHandbookId#,
+				[Id] = #Id#,
+				[ProName] = #ProName#,
+				[Ljingliang] = #Ljingliang#,
+				[LjingSunliang] = #LjingSunliang#,
+				[LLastjingSunliang] = #LLastjingSunliang#,
+				[Lchazhi] = #Lchazhi#,
+				[LPrice] = #LPrice#,
+				[Lmoney] = #Lmoney#,
+				[LbejinQuantity] = #LbejinQuantity#,
+				[LciciMoney] = #LciciMoney#,
+				[UpQuantity] = #UpQuantity#,
+				[LilunHaoYong] = #LilunHaoYong#,
+				[LilunStock] = #LilunStock#,
+				[YaoJInQuantity] = #YaoJInQuantity#,
+				[HaiKeJInQuantity] = #HaiKeJInQuantity#,
+				[ZhuanCeInQuantity] = #ZhuanCeInQuantity#,
+				[ZhuanCeOutQuantity] = #ZhuanCeOutQuantity#,
+				[ZhuanRuShouCeId] = #ZhuanRuShouCeId#,
+        [JinKouiMoney]=#JinKouiMoney#,
+        [LastMoney]=#LastMoney#
+			WHERE
+				[BGHandbookDetail2Id] = #BGHandbookDetail2Id#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[BGHandbookDetail2]
+				where  BGHandbookDetail2Id = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.BGHandbookDetail2
+				where Id = #value#
+               			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="BGHandbookDetail2Result" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[BGHandbookDetail2]
+                    			          
+         
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.BGHandbookDetail2
+				where Id = #newId# and Id <> #oldId#
+                    			          
+         
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+
+      <update id="update_CeIn" parameterClass="Map" >
+        update BGHandbookDetail2 set ZhuanCeInQuantity=#ZhuanCeInQuantity# ,UpQuantity=LjingSunliang-LbejinQuantity-#ZhuanCeInQuantity#,HaiKeJInQuantity=LjingSunliang-LbejinQuantity-#ZhuanCeInQuantity#-YaoJInQuantity
+        where BGHandbookId=#BGHandbookId# and  Id=#id#
+      </update>
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="BGHandbookDepotInDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="BGHandbookDepotInDetail" type="Book.Model.BGHandbookDepotInDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="BGHandbookDepotInDetailResult" class="BGHandbookDepotInDetail">
+			<result property="BGHandbookDepotInDetailId" column="BGHandbookDepotInDetailId" />
+			<result property="BGHandbookDepotInId" column="BGHandbookDepotInId" />
+			<result property="BGHandbookDepotInDetailDate" column="BGHandbookDepotInDetailDate" />
+			<result property="BGHandbookProductId" column="BGHandbookProductId" />
+			<result property="BGHandbookProductName" column="BGHandbookProductName" />
+			<result property="DepotInQuantity" column="DepotInQuantity" />
+			<result property="ProductUnitId" column="ProductUnitId" />
+			<result property="InvoiceId" column="InvoiceId" />
+			<result property="DeclareCustomsId" column="DeclareCustomsId" />
+			<result property="IsInto" column="IsInto" />
+		<result property="BGHandbookDepotIn" column="BGHandbookDepotInId" lazyLoad="false" select="BGHandbookDepotIn.select_by_primary_key" />		<result property="ProductUnit" column="ProductUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[BGHandbookDepotInDetail]
+				WHERE
+				[BGHandbookDepotInDetailId] = #BGHandbookDepotInDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[BGHandbookDepotInDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="BGHandbookDepotInDetailResult" parameterClass="BGHandbookDepotInDetail">
+			<![CDATA[SELECT
+				[BGHandbookDepotInDetailId],
+				[BGHandbookDepotInId],
+				[BGHandbookDepotInDetailDate],
+				[BGHandbookProductId],
+				[BGHandbookProductName],
+				[DepotInQuantity],
+				[ProductUnitId],
+				[InvoiceId],
+				[DeclareCustomsId],
+				[IsInto]
+			FROM
+				[dbo].[BGHandbookDepotInDetail]
+			WHERE
+				[BGHandbookDepotInDetailId] = #BGHandbookDepotInDetailId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[BGHandbookDepotInDetail]
+			WHERE            
+				[BGHandbookDepotInDetailId] = #BGHandbookDepotInDetailId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="BGHandbookDepotInDetailResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[BGHandbookDepotInDetail]
+                			                   
+
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[BGHandbookDepotInDetail]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="BGHandbookDepotInDetailResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[BGHandbookDepotInDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="BGHandbookDepotInDetail">
+			 <![CDATA[ INSERT INTO [dbo].[BGHandbookDepotInDetail] 
+			(
+				[BGHandbookDepotInDetailId],
+				[BGHandbookDepotInId],
+				[BGHandbookDepotInDetailDate],
+				[BGHandbookProductId],
+				[BGHandbookProductName],
+				[DepotInQuantity],
+				[ProductUnitId],
+				[InvoiceId],
+				[DeclareCustomsId],
+				[IsInto]
+			) 
+			VALUES 
+			(
+				#BGHandbookDepotInDetailId#,
+				#BGHandbookDepotInId#,
+				#BGHandbookDepotInDetailDate#,
+				#BGHandbookProductId#,
+				#BGHandbookProductName#,
+				#DepotInQuantity#,
+				#ProductUnitId#,
+				#InvoiceId#,
+				#DeclareCustomsId#,
+				#IsInto#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="BGHandbookDepotInDetail">
+		 <![CDATA[ 	UPDATE [BGHandbookDepotInDetail] SET
+				[BGHandbookDepotInId] = #BGHandbookDepotInId#,
+				[BGHandbookDepotInDetailDate] = #BGHandbookDepotInDetailDate#,
+				[BGHandbookProductId] = #BGHandbookProductId#,
+				[BGHandbookProductName] = #BGHandbookProductName#,
+				[DepotInQuantity] = #DepotInQuantity#,
+				[ProductUnitId] = #ProductUnitId#,
+				[InvoiceId] = #InvoiceId#,
+				[DeclareCustomsId] = #DeclareCustomsId#,
+				[IsInto] = #IsInto#
+			WHERE
+				[BGHandbookDepotInDetailId] = #BGHandbookDepotInDetailId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[BGHandbookDepotInDetail]
+				where  BGHandbookDepotInDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

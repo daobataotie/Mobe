@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AcCollectionDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AcCollectionDetail" type="Book.Model.AcCollectionDetail, Book.Model" />
+    </alias>
+    <resultMaps>
+        <resultMap id="AcCollectionDetailResult" class="AcCollectionDetail">
+			<result property="AcCollectionDetailId" column="AcCollectionDetailId" />
+			<result property="AcCollectionId" column="AcCollectionId" />
+			<result property="AcInvoiceType" column="AcInvoiceType" />
+			<result property="AcInvoiceId" column="AcInvoiceId" />
+			<result property="ShouldCollectionMoney" column="ShouldCollectionMoney" />
+			<result property="NoCollectionMoney" column="NoCollectionMoney" />
+			<result property="ThisChargeMoney" column="ThisChargeMoney" />
+			<result property="DetailCashAgio" column="DetailCashAgio" />
+			<result property="MayChargeMoney" column="MayChargeMoney" />
+			<result property="BillId" column="BillId" />
+			<result property="DomesticShouldCollectionMoney" column="DomesticShouldCollectionMoney" />
+			<result property="DomesticNoPaymentMoney" column="DomesticNoPaymentMoney" />
+			<result property="DomesticThisChargeMoney" column="DomesticThisChargeMoney" />
+			<result property="DomesticDetailCashAgio" column="DomesticDetailCashAgio" />
+			<result property="DomesticMayChargeMoney" column="DomesticMayChargeMoney" />
+		<result property="AcCollection" column="AcCollectionId" lazyLoad="false" select="AcCollection.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcCollectionDetail]
+				WHERE
+				[AcCollectionDetailId] = #AcCollectionDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcCollectionDetail]
+ 				where invoicestatus=1 or invoicestatus is null				
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AcCollectionDetailResult" parameterClass="AcCollectionDetail">
+			SELECT
+				[AcCollectionDetailId],
+				[AcCollectionId],
+				[AcInvoiceType],
+				[AcInvoiceId],
+				[ShouldCollectionMoney],
+				[NoCollectionMoney],
+				[ThisChargeMoney],
+				[DetailCashAgio],
+				[MayChargeMoney],
+				[BillId],
+				[DomesticShouldCollectionMoney],
+				[DomesticNoPaymentMoney],
+				[DomesticThisChargeMoney],
+				[DomesticDetailCashAgio],
+				[DomesticMayChargeMoney]
+			FROM
+				[dbo].[AcCollectionDetail]
+			WHERE
+				[AcCollectionDetailId] = #AcCollectionDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[AcCollectionDetail]
+			WHERE
+				[AcCollectionDetailId] = #AcCollectionDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AcCollectionDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[AcCollectionDetail]
+			
+
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[AcCollectionDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AcCollectionDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AcCollectionDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AcCollectionDetail">
+			INSERT INTO [dbo].[AcCollectionDetail] 
+			(
+				[AcCollectionDetailId],
+				[AcCollectionId],
+				[AcInvoiceType],
+				[AcInvoiceId],
+				[ShouldCollectionMoney],
+				[NoCollectionMoney],
+				[ThisChargeMoney],
+				[DetailCashAgio],
+				[MayChargeMoney],
+				[BillId],
+				[DomesticShouldCollectionMoney],
+				[DomesticNoPaymentMoney],
+				[DomesticThisChargeMoney],
+				[DomesticDetailCashAgio],
+				[DomesticMayChargeMoney]
+			) 
+			VALUES 
+			(
+				#AcCollectionDetailId#,
+				#AcCollectionId#,
+				#AcInvoiceType#,
+				#AcInvoiceId#,
+				#ShouldCollectionMoney#,
+				#NoCollectionMoney#,
+				#ThisChargeMoney#,
+				#DetailCashAgio#,
+				#MayChargeMoney#,
+				#BillId#,
+				#DomesticShouldCollectionMoney#,
+				#DomesticNoPaymentMoney#,
+				#DomesticThisChargeMoney#,
+				#DomesticDetailCashAgio#,
+				#DomesticMayChargeMoney#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AcCollectionDetail">
+			UPDATE [AcCollectionDetail] SET
+				[AcCollectionId] = #AcCollectionId#,
+				[AcInvoiceType] = #AcInvoiceType#,
+				[AcInvoiceId] = #AcInvoiceId#,
+				[ShouldCollectionMoney] = #ShouldCollectionMoney#,
+				[NoCollectionMoney] = #NoCollectionMoney#,
+				[ThisChargeMoney] = #ThisChargeMoney#,
+				[DetailCashAgio] = #DetailCashAgio#,
+				[MayChargeMoney] = #MayChargeMoney#,
+				[BillId] = #BillId#,
+				[DomesticShouldCollectionMoney] = #DomesticShouldCollectionMoney#,
+				[DomesticNoPaymentMoney] = #DomesticNoPaymentMoney#,
+				[DomesticThisChargeMoney] = #DomesticThisChargeMoney#,
+				[DomesticDetailCashAgio] = #DomesticDetailCashAgio#,
+				[DomesticMayChargeMoney] = #DomesticMayChargeMoney#
+			WHERE
+				[AcCollectionDetailId] = #AcCollectionDetailId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcCollectionDetail]
+				where  AcCollectionDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

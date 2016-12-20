@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="accepterattrib" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <delete id="DeleteByProcessId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM accepterattrib WHERE processId = #value#
+      ]]>
+    </delete>
+    <select id="SelectByProcessId" resultMap="accepterattribResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM accepterattrib WHERE processId = #value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

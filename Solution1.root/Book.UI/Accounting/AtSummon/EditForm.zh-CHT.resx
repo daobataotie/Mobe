@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v10.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMC4yLCBWZXJzaW9uPTEwLjIu
+        NC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
+        eXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
+        a2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAChEZXZFeHByZXNzLlV0aWxzLkltYWdlQ29sbGVjdGlvblN0
+        cmVhbWVyAgAAAAlJbWFnZVNpemUERGF0YQQHE1N5c3RlbS5EcmF3aW5nLlNpemUDAAAAAgIAAAAF/P//
+        /xNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAwAAABgAAAAYAAAACQUAAAAP
+        BQAAALYxAAACswQAAIlQTkcNChoKAAAADUlIRFIAAAAYAAAAGAgGAAAA4Hc9+AAAAAFzUkdCAK7OHOkA
+        AAAEZ0FNQQAAsY8L/GEFAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwA
+        AAQxSURBVEhLlZVLT1tXFIX3D+jD6qhSMsgkc2adtZ510kF+QCtl2EFFZx10FLXjKLOqNI2I1DaqWlU0
+        aXg/jHkTwBiCjTEY4ge+JuCYi8HGvo/Vta8N+MahNEdaunD22d86j32ORRuAgOM43VTJdV28jcaKLjrm
+        XNxYbPyvDOqeMj24NgZusrO3NfEq2baNyd0jyLALWXAgK855jKxH/N5s4kU4+HPLttcZ0OCVypsVpNNp
+        pFIpdCYOIKs0WL6Ik7eozCZexLKcrnrdOrAsG/+lLdPGJ+MOrofqmMsYyGaz6FwvQqI0WHLOx5FlKNOD
+        cykfsHOVnRq4VKZp4vulI7w3bUPWHTzOHyKXy6EzToMIDbhNreOVqWzO3vq0Vqvj9PTNGspY2Nrdh2EY
+        KJfLCKa557EWgxgNFmkw7/jylKlsqdfr31arNbyuglnDV1Oc7SPgs4TlHaquuCNF2HMa7DYMbj8vQZ6x
+        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
+        bIQGAAAAAElFTkSuQmCCCw==
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="spinEditCreditTotal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>606, 326</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="spinEditCreditTotal.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="DevExpress.XtraEditors.v10.2" name="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="spinEditCreditTotal.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="spinEditCreditTotal.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spinEditCreditTotal.Properties.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="spinEditCreditTotal.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditCreditTotal.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="spinEditCreditTotal.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="spinEditCreditTotal.Properties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditCreditTotal.Properties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditCreditTotal.Properties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spinEditCreditTotal.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="spinEditCreditTotal.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spinEditCreditTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 21</value>
+  </data>
+  <data name="spinEditTotalDebits.Location" type="System.Drawing.Point, System.Drawing">
+    <value>424, 326</value>
+  </data>
+  <data name="spinEditTotalDebits.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditTotalDebits.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="spinEditTotalDebits.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spinEditTotalDebits.Properties.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="spinEditTotalDebits.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditTotalDebits.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="spinEditTotalDebits.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="spinEditTotalDebits.Properties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditTotalDebits.Properties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="spinEditTotalDebits.Properties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spinEditTotalDebits.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="spinEditTotalDebits.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spinEditTotalDebits.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 21</value>
+  </data>
+  <data name="comboBoxEditSummonCategory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>540, 12</value>
+  </data>
+  <data name="comboBoxEditSummonCategory.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="comboBoxEditSummonCategory.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="comboBoxEditSummonCategory.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="comboBoxEditSummonCategory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 21</value>
+  </data>
+  <data name="textEditSummonId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>307, 12</value>
+  </data>
+  <data name="textEditSummonId.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textEditSummonId.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="textEditSummonId.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="textEditSummonId.Properties.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textEditSummonId.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textEditSummonId.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>None</value>
+  </data>
+  <data name="textEditSummonId.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="textEditSummonId.Properties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textEditSummonId.Properties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textEditSummonId.Properties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="textEditSummonId.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textEditSummonId.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="textEditSummonId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 21</value>
+  </data>
+  <data name="dateEditSummonDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 12</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.Mask.EditMask" xml:space="preserve">
+    <value>d</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dateEditSummonDate.Properties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.AutoHeight" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.Mask.EditMask" xml:space="preserve">
+    <value>T</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>DateTime</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.NullValuePrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dateEditSummonDate.Properties.VistaTimeProperties.NullValuePromptShowForEmptyValue" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dateEditSummonDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 21</value>
+  </data>
+  <assembly alias="DevExpress.Data.v10.2" name="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="gridControl1.EmbeddedNavigator.AllowHtmlTextInToolTip" type="DevExpress.Utils.DefaultBoolean, DevExpress.Data.v10.2">
+    <value>Default</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gridControl1.EmbeddedNavigator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Tile</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.TextLocation" type="DevExpress.XtraEditors.NavigatorButtonsTextLocation, DevExpress.XtraEditors.v10.2">
+    <value>Center</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTipIconType" type="DevExpress.Utils.ToolTipIconType, DevExpress.Utils.v10.2">
+    <value>None</value>
+  </data>
+  <data name="gridControl1.EmbeddedNavigator.ToolTipTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemLookUpEdit1.Columns3" xml:space="preserve">
+    <value>科目編號</value>
+  </data>
+  <data name="repositoryItemLookUpEdit2.Columns3" xml:space="preserve">
+    <value>科目編號</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.AutoComplete" type="DevExpress.XtraEditors.Mask.AutoCompleteType, DevExpress.XtraEditors.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.EditMask" xml:space="preserve">
+    <value />
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.IgnoreMaskBlank" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v10.2">
+    <value>Numeric</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.PlaceHolder" type="System.Char, mscorlib" xml:space="preserve">
+    <value>_</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.SaveLiteral" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.ShowPlaceHolders" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="repositoryItemSpinEdit1.Mask.UseMaskAsDisplayFormat" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>會計傳票</value>
+  </data>
+</root>

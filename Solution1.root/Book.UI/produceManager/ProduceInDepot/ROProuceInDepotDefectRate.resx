@@ -1,0 +1,1100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xrTable2.BorderColor" type="System.Drawing.Color, System.Drawing">
+    <value>DarkRed</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="xrTable2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="xrTable2.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0.000242233276, 0</value>
+  </data>
+  <data name="TCRiQi.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCRiQi.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <assembly alias="DevExpress.Data.v10.2" name="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="TCRiQi.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="TCpingming.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCpingming.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="TCProductType.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCProductType.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCfangwuqinghua.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCfangwuqinghua.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCgongsibumeng.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCgongsibumeng.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCshuliang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCshuliang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TChegeshuliang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TChegeshuliang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCbulianglv.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCbulianglv.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCdanwei.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCdanwei.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmYuanliaowenti.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmYuanliaowenti.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmChouliaowenti.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmChouliaowenti.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmPaoguanwenti.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmPaoguanwenti.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmJingdiangudingdian.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmJingdiangudingdian.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmChapiancashang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmChapiancashang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmWanMocashang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmWanMocashang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmGuaiShouZhuangShang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmGuaiShouZhuangShang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmHuabancashang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmHuabancashang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmGuohuojizhua.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmGuohuojizhua.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmBaiyanHeiYan.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmBaiyanHeiYan.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmJieHeXianHuiwen.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmJieHeXianHuiwen.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmSuoShui.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmSuoShui.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmQiPao.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmQiPao.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmShechuqita.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmShechuqita.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmCaMoSunHua.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmCaMoSunHua.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmChaipiancashang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmChaipiancashang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmHeidianzazhi.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmHeidianzazhi.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmQianghuaqiancashang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmQianghuaqiancashang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmQianghuahoucashang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmQianghuahoucashang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmHanyao.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmHanyao.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmKeLimianxu.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmKeLimianxu.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmLiuheng.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmLiuheng.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmPengYaodiyao.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmPengYaodiyao.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmQianghuafangwuxian.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmQianghuafangwuxian.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmYoudian.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmYoudian.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmQianghuaQiTa.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmQianghuaQiTa.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmChangshangbuliang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmChangshangbuliang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmZuzhuangcashang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmZuzhuangcashang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmCashang.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmCashang.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="xrTableRow2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTable2.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>3999.99976, 62.58331</value>
+  </data>
+  <data name="xrTable2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="Detail.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="Detail.HeightF" type="System.Single, mscorlib">
+    <value>62.58331</value>
+  </data>
+  <data name="Detail.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>TopLeft</value>
+  </data>
+  <data name="TopMargin.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TopMargin.HeightF" type="System.Single, mscorlib">
+    <value>79</value>
+  </data>
+  <data name="TopMargin.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>TopLeft</value>
+  </data>
+  <data name="BottomMargin.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="BottomMargin.HeightF" type="System.Single, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="BottomMargin.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>TopLeft</value>
+  </data>
+  <data name="lblCompanyName.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="lblCompanyName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>PMingLiU, 20pt</value>
+  </data>
+  <data name="lblCompanyName.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 0</value>
+  </data>
+  <data name="lblCompanyName.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>4000, 137.795</value>
+  </data>
+  <data name="lblCompanyName.Text" xml:space="preserve">
+    <value>lblCompanyName</value>
+  </data>
+  <data name="ReportHeader.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="ReportHeader.HeightF" type="System.Single, mscorlib">
+    <value>137.795</value>
+  </data>
+  <data name="lblJiLuFangShi.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="lblJiLuFangShi.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2346.48267, 166.58165</value>
+  </data>
+  <data name="lblJiLuFangShi.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>237.416016, 53.1283264</value>
+  </data>
+  <data name="lblJiLuFangShi.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="xrLabel7.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrLabel7.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2142.75342, 166.58165</value>
+  </data>
+  <data name="xrLabel7.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>203.729, 53.1283264</value>
+  </data>
+  <data name="xrLabel7.Text" xml:space="preserve">
+    <value>记录方式：</value>
+  </data>
+  <data name="xrLabel7.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
+  </data>
+  <data name="lblProductAttrRange.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="lblProductAttrRange.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1535.57373, 166.58165</value>
+  </data>
+  <data name="lblProductAttrRange.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>356.187866, 53.1283264</value>
+  </data>
+  <data name="lblProductAttrRange.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="xrLabel5.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrLabel5.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1331.84436, 166.58165</value>
+  </data>
+  <data name="xrLabel5.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>203.729248, 53.1283264</value>
+  </data>
+  <data name="xrLabel5.Text" xml:space="preserve">
+    <value>商品属性：</value>
+  </data>
+  <data name="xrLabel5.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
+  </data>
+  <data name="lblWorkHouseRange.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="lblWorkHouseRange.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>819.2085, 166.58165</value>
+  </data>
+  <data name="lblWorkHouseRange.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>380.000244, 53.1283264</value>
+  </data>
+  <data name="lblWorkHouseRange.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="xrLabel3.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrLabel3.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>639.2919, 166.58165</value>
+  </data>
+  <data name="xrLabel3.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>179.916626, 53.1283264</value>
+  </data>
+  <data name="xrLabel3.Text" xml:space="preserve">
+    <value>部门：</value>
+  </data>
+  <data name="xrLabel3.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
+  </data>
+  <data name="lblDateRange.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="lblDateRange.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>179.916672, 166.58165</value>
+  </data>
+  <data name="lblDateRange.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>422.333618, 53.1283264</value>
+  </data>
+  <data name="lblDateRange.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="xrLabel1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrLabel1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 166.58165</value>
+  </data>
+  <data name="xrLabel1.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>179.916672, 53.1283264</value>
+  </data>
+  <data name="xrLabel1.Text" xml:space="preserve">
+    <value>日期：</value>
+  </data>
+  <data name="xrLabel1.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
+  </data>
+  <data name="xrTable1.BorderColor" type="System.Drawing.Color, System.Drawing">
+    <value>DarkRed</value>
+  </data>
+  <data name="xrTable1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTable1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0.0003229777, 243.687485</value>
+  </data>
+  <data name="TCRiQi_H.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCRiQi_H.Text" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="TCRiQi_H.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrTableCell10.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell10.Text" xml:space="preserve">
+    <value>品名</value>
+  </data>
+  <data name="xrTableCell35.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell35.Text" xml:space="preserve">
+    <value>商品状态</value>
+  </data>
+  <data name="xrTableCell34.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell34.Text" xml:space="preserve">
+    <value>强化防雾</value>
+  </data>
+  <data name="xrTableCell3.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell3.Text" xml:space="preserve">
+    <value>公司部门</value>
+  </data>
+  <data name="xrTableCell9.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell9.Text" xml:space="preserve">
+    <value>生产数量</value>
+  </data>
+  <data name="xrTableCell11.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell11.Text" xml:space="preserve">
+    <value>合格数量</value>
+  </data>
+  <data name="xrTableCell7.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell7.Text" xml:space="preserve">
+    <value>不良率</value>
+  </data>
+  <data name="xrTableCell5.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell5.Text" xml:space="preserve">
+    <value>单位</value>
+  </data>
+  <data name="xrTableCell17.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell17.Text" xml:space="preserve">
+    <value>原料问题</value>
+  </data>
+  <data name="xrTableCell2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell2.Text" xml:space="preserve">
+    <value>抽料问题</value>
+  </data>
+  <data name="xrTableCell19.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell19.Text" xml:space="preserve">
+    <value>砲管问题</value>
+  </data>
+  <data name="xrTableCell20.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell20.Text" xml:space="preserve">
+    <value>晶点固定点</value>
+  </data>
+  <data name="xrTableCell21.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell21.Text" xml:space="preserve">
+    <value>插片擦伤</value>
+  </data>
+  <data name="xrTableCell18.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell18.Text" xml:space="preserve">
+    <value>挽模擦伤</value>
+  </data>
+  <data name="xrTableCell27.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell27.Text" xml:space="preserve">
+    <value>怪手撞伤</value>
+  </data>
+  <data name="xrTableCell24.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell24.Text" xml:space="preserve">
+    <value>滑板擦伤</value>
+  </data>
+  <data name="xrTableCell22.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell22.Text" xml:space="preserve">
+    <value>过火鸡爪</value>
+  </data>
+  <data name="xrTableCell25.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell25.Text" xml:space="preserve">
+    <value>白烟黑烟</value>
+  </data>
+  <data name="xrTableCell23.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell23.Text" xml:space="preserve">
+    <value>结合线回纹冷料喷须</value>
+  </data>
+  <data name="xrTableCell26.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell26.Text" xml:space="preserve">
+    <value>缩水</value>
+  </data>
+  <data name="xrTableCell13.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell13.Text" xml:space="preserve">
+    <value>气泡</value>
+  </data>
+  <data name="xrTableCell14.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell14.Text" xml:space="preserve">
+    <value>射出其它</value>
+  </data>
+  <data name="xrTableCell6.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell6.Text" xml:space="preserve">
+    <value>擦模损坏</value>
+  </data>
+  <data name="xrTableCell15.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell15.Text" xml:space="preserve">
+    <value>拆片擦伤</value>
+  </data>
+  <data name="xrTableCell12.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell12.Text" xml:space="preserve">
+    <value>黑点杂质</value>
+  </data>
+  <data name="xrTableCell33.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell33.Text" xml:space="preserve">
+    <value>强化前擦伤</value>
+  </data>
+  <data name="xrTableCell29.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell29.Text" xml:space="preserve">
+    <value>强化后擦伤</value>
+  </data>
+  <data name="xrTableCell32.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell32.Text" xml:space="preserve">
+    <value>含药</value>
+  </data>
+  <data name="xrTableCell8.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell8.Text" xml:space="preserve">
+    <value>颗粒棉絮</value>
+  </data>
+  <data name="xrTableCell31.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell31.Text" xml:space="preserve">
+    <value>流痕</value>
+  </data>
+  <data name="xrTableCell28.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell28.Text" xml:space="preserve">
+    <value>喷药滴药</value>
+  </data>
+  <data name="xrTableCell30.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell30.Text" xml:space="preserve">
+    <value>强化防雾线</value>
+  </data>
+  <data name="xrTableCell4.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell4.Text" xml:space="preserve">
+    <value>油点</value>
+  </data>
+  <data name="xrTableCell1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell1.Text" xml:space="preserve">
+    <value>强化其它</value>
+  </data>
+  <data name="xrTableCell36.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell36.Text" xml:space="preserve">
+    <value>厂商不良</value>
+  </data>
+  <data name="xrTableCell38.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell38.Text" xml:space="preserve">
+    <value>组装擦伤</value>
+  </data>
+  <data name="xrTableCell37.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell37.Text" xml:space="preserve">
+    <value>擦伤</value>
+  </data>
+  <data name="xrTableRow1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTable1.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>3999.99976, 90.22914</value>
+  </data>
+  <data name="lblReportDate.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="lblReportDate.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>3600.5415, 84.87838</value>
+  </data>
+  <data name="lblReportDate.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>399.4585, 58.4200134</value>
+  </data>
+  <data name="lblReportDate.Text" xml:space="preserve">
+    <value>列印日期：</value>
+  </data>
+  <data name="lblReportDate.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
+  </data>
+  <data name="lblReportName.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="lblReportName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>PMingLiU, 14pt</value>
+  </data>
+  <data name="lblReportName.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 0</value>
+  </data>
+  <data name="lblReportName.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>4000, 84.87834</value>
+  </data>
+  <data name="lblReportName.Text" xml:space="preserve">
+    <value>lblReportName</value>
+  </data>
+  <data name="PageHeader.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="PageHeader.HeightF" type="System.Single, mscorlib">
+    <value>333.916626</value>
+  </data>
+  <data name="lblworkHouseData.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="lblworkHouseData.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>254.000076, 321.604065</value>
+  </data>
+  <data name="lblworkHouseData.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>3746, 177.482468</value>
+  </data>
+  <data name="lblworkHouseData.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>TopLeft</value>
+  </data>
+  <data name="xrLabel2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrLabel2.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0.000403722137, 321.604065</value>
+  </data>
+  <data name="xrLabel2.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>253.999969, 53.1283264</value>
+  </data>
+  <data name="xrLabel2.Text" xml:space="preserve">
+    <value>部门数据统计：</value>
+  </data>
+  <data name="xrLabel2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
+  </data>
+  <data name="xrTable3.BorderColor" type="System.Drawing.Color, System.Drawing">
+    <value>DarkRed</value>
+  </data>
+  <data name="xrTable3.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTable3.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0.0003229777, 0</value>
+  </data>
+  <data name="TCRiQi2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCRiQi2.Text" xml:space="preserve">
+    <value> 统计：</value>
+  </data>
+  <data name="TCRiQi2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="TCshuliang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TChegeshuliang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TChegeshuliang2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCbulianglv2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCbulianglv2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="xrTableCell46.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell46.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmYuanliaowenti2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmYuanliaowenti2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmChouliaowenti2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmChouliaowenti2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmPaoguanwenti2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmPaoguanwenti2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmJingdiangudingdian2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmJingdiangudingdian2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmChapiancashang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmChapiancashang2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmWanMocashang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmWanMocashang2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmGuaiShouZhuangShang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmGuaiShouZhuangShang2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmHuabancashang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmHuabancashang2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmGuohuojizhua2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmGuohuojizhua2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmBaiyanHeiYan2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmBaiyanHeiYan2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmJieHeXianHuiwen2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmJieHeXianHuiwen2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmSuoShui2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmSuoShui2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmQiPao2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmQiPao2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmShechuqita2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmShechuqita2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmCaMoSunHua2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmCaMoSunHua2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmChaipiancashang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmChaipiancashang2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmHeidianzazhi2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmHeidianzazhi2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmQianghuaqiancashang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmQianghuaqiancashang2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmQianghuahoucashang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmQianghuahoucashang2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmHanyao2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmHanyao2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmKeLimianxu2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmKeLimianxu2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmLiuheng2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmLiuheng2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmPengYaodiyao2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmPengYaodiyao2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmQianghuafangwuxian2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmQianghuafangwuxian2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmYoudian2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmYoudian2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmQianghuaQiTa2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmQianghuaQiTa2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmChangshangbuliang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmChangshangbuliang2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmZuzhuangcashang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmZuzhuangcashang2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="TCmCashang2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCmCashang2.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="xrTableRow3.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTable3.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>3999.99976, 90</value>
+  </data>
+  <data name="xrTable3.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="ReportFooter.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="ReportFooter.HeightF" type="System.Single, mscorlib">
+    <value>499.086548</value>
+  </data>
+  <data name="xrPageInfo1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrPageInfo1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>3746, 0</value>
+  </data>
+  <data name="xrPageInfo1.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>254, 58.42</value>
+  </data>
+  <data name="PageFooter.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="PageFooter.HeightF" type="System.Single, mscorlib">
+    <value>58.42</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>PMingLiU, 9.75pt</value>
+  </data>
+  <assembly alias="DevExpress.XtraReports.v10.2" name="DevExpress.XtraReports.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="$this.ReportUnit" type="DevExpress.XtraReports.UI.ReportUnit, DevExpress.XtraReports.v10.2">
+    <value>TenthsOfAMillimeter</value>
+  </data>
+  <data name="$this.SnapGridSize" type="System.Single, mscorlib">
+    <value>31.75</value>
+  </data>
+  <data name="$this.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+</root>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProduceOtherInDepotDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byProduceOtherInDepotId" resultMap="ProduceOtherInDepotDetailResult" parameterClass="string">
+      select * from ProduceOtherInDepotDetail where ProduceOtherInDepotId=#value#
+    </select>
+    <select id="select_byProduceInDateAndPronote" resultMap="ProduceOtherInDepotDetailResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceOtherInDepotDetail where ProduceOtherInDepotId in(select ProduceOtherInDepotId from ProduceOtherInDepot where ProduceOtherInDepotDate
+      between #startdate# and #enddate#)  and (ProduceOtherCompactId >=#startpronoteid# or #startpronoteid# is null) and
+      (ProduceOtherCompactId <=#endpronoteid# or #endpronoteid# is null)
+      ]]>
+    </select>
+    <select id="selectByCondition" resultMap="ProduceOtherInDepotDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ProduceOtherInDepotDetail WHERE ProduceOtherInDepotId=#indepotId# AND ProductId IN (SELECT ProductId FROM Product WHERE (Id>=#productId1# OR #productId1# IS NULL) AND (Id<=#productId2# OR #productId2# IS NULL))
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

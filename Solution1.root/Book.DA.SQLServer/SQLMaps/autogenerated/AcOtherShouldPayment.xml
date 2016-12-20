@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcOtherShouldPayment" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="AcOtherShouldPayment" type="Book.Model.AcOtherShouldPayment, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="AcOtherShouldPaymentResult" class="AcOtherShouldPayment">
+      <result property="AcOtherShouldPaymentId" column="AcOtherShouldPaymentId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="AtCurrencyCategoryId" column="AtCurrencyCategoryId" />
+      <result property="Employee1Id" column="Employee1Id" />
+      <result property="SupplierId" column="SupplierId" />
+      <result property="AcOtherShouldPaymentDate" column="AcOtherShouldPaymentDate" />
+      <result property="ObjectName" column="ObjectName" />
+      <result property="ExchangeRate" column="ExchangeRate" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="HeJi" column="HeJi" />
+      <result property="AcInvoiceState" column="AcInvoiceState" />
+      <result property="AuditingState" column="AuditingState" />
+      <result property="AdvancePayableDate" column="AdvancePayableDate" />
+      <result property="AcDesc" column="AcDesc" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="mHeXiaoJingE" column="mHeXiaoJingE" />
+      <result property="NoHeXiaoTotal" column="NoHeXiaoTotal" />
+      <result property="BillMoney" column="BillMoney" />
+      <result property="InvoiceTaxrate" column="InvoiceTaxrate" />
+      <result property="InvoiceTax" column="InvoiceTax" />
+      <result property="InvoiceHeji" column="InvoiceHeji" />
+      <result property="TaxCaluType" column="TaxCaluType" />
+      <result property="CompanyId" column="CompanyId" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="IsPaymentOver" column="IsPaymentOver"/>
+      <result property="Company" column="CompanyId" lazyLoad="false" select="Company.select_by_primary_key" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="AtCurrencyCategory" column="AtCurrencyCategoryId" lazyLoad="false" select="AtCurrencyCategory.select_by_primary_key" />
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcOtherShouldPayment]
+				WHERE
+				[AcOtherShouldPaymentId] = #AcOtherShouldPaymentId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcOtherShouldPayment]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="AcOtherShouldPaymentResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcOtherShouldPayment
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="AcOtherShouldPaymentResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcOtherShouldPayment
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="AcOtherShouldPaymentResult" parameterClass="AcOtherShouldPayment">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcOtherShouldPayment
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="AcOtherShouldPaymentResult" parameterClass="AcOtherShouldPayment">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcOtherShouldPayment
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="AcOtherShouldPayment">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcOtherShouldPayment
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="AcOtherShouldPayment">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcOtherShouldPayment
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="AcOtherShouldPaymentResult" parameterClass="AcOtherShouldPayment">
+      <![CDATA[SELECT
+				[AcOtherShouldPaymentId],
+				[EmployeeId],
+				[Employee0Id],
+				[AtCurrencyCategoryId],
+				[Employee1Id],
+				[SupplierId],
+				[AcOtherShouldPaymentDate],
+				[ObjectName],
+				[ExchangeRate],
+				[InvoiceId],
+				[HeJi],
+				[AcInvoiceState],
+				[AuditingState],
+				[AdvancePayableDate],
+				[AcDesc],
+				[InsertTime],
+				[UpdateTime],
+				[mHeXiaoJingE],
+				[NoHeXiaoTotal],
+				[BillMoney],
+				[InvoiceTaxrate],
+				[InvoiceTax],
+				[InvoiceHeji],
+				[TaxCaluType],
+				[CompanyId],
+        [AuditState],
+        [AuditEmpId],
+        [IsPaymentOver]
+			FROM
+				[dbo].[AcOtherShouldPayment]
+			WHERE
+				[AcOtherShouldPaymentId] = #AcOtherShouldPaymentId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[AcOtherShouldPayment]
+			WHERE            
+				[AcOtherShouldPaymentId] = #AcOtherShouldPaymentId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="AcOtherShouldPaymentResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[AcOtherShouldPayment]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[AcOtherShouldPayment]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="AcOtherShouldPaymentResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AcOtherShouldPayment]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="AcOtherShouldPayment">
+      <![CDATA[ INSERT INTO [dbo].[AcOtherShouldPayment] 
+			(
+				[AcOtherShouldPaymentId],
+				[EmployeeId],
+				[Employee0Id],
+				[AtCurrencyCategoryId],
+				[Employee1Id],
+				[SupplierId],
+				[AcOtherShouldPaymentDate],
+				[ObjectName],
+				[ExchangeRate],
+				[InvoiceId],
+				[HeJi],
+				[AcInvoiceState],
+				[AuditingState],
+				[AdvancePayableDate],
+				[AcDesc],
+				[InsertTime],
+				[UpdateTime],
+				[mHeXiaoJingE],
+				[NoHeXiaoTotal],
+				[BillMoney],
+				[InvoiceTaxrate],
+				[InvoiceTax],
+				[InvoiceHeji],
+				[TaxCaluType],
+				[CompanyId],
+        [AuditState],
+        [AuditEmpId],
+        [IsPaymentOver]
+			) 
+			VALUES 
+			(
+				#AcOtherShouldPaymentId#,
+				#EmployeeId#,
+				#Employee0Id#,
+				#AtCurrencyCategoryId#,
+				#Employee1Id#,
+				#SupplierId#,
+				#AcOtherShouldPaymentDate#,
+				#ObjectName#,
+				#ExchangeRate#,
+				#InvoiceId#,
+				#HeJi#,
+				#AcInvoiceState#,
+				#AuditingState#,
+				#AdvancePayableDate#,
+				#AcDesc#,
+				#InsertTime#,
+				#UpdateTime#,
+				#mHeXiaoJingE#,
+				#NoHeXiaoTotal#,
+				#BillMoney#,
+				#InvoiceTaxrate#,
+				#InvoiceTax#,
+				#InvoiceHeji#,
+				#TaxCaluType#,
+				#CompanyId#,
+        #AuditState#,
+        #AuditEmpId#,
+        #IsPaymentOver#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="AcOtherShouldPayment">
+      <![CDATA[ 	UPDATE [AcOtherShouldPayment] SET
+				[EmployeeId] = #EmployeeId#,
+				[Employee0Id] = #Employee0Id#,
+				[AtCurrencyCategoryId] = #AtCurrencyCategoryId#,
+				[Employee1Id] = #Employee1Id#,
+				[SupplierId] = #SupplierId#,
+				[AcOtherShouldPaymentDate] = #AcOtherShouldPaymentDate#,
+				[ObjectName] = #ObjectName#,
+				[ExchangeRate] = #ExchangeRate#,
+				[InvoiceId] = #InvoiceId#,
+				[HeJi] = #HeJi#,
+				[AcInvoiceState] = #AcInvoiceState#,
+				[AuditingState] = #AuditingState#,
+				[AdvancePayableDate] = #AdvancePayableDate#,
+				[AcDesc] = #AcDesc#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[mHeXiaoJingE] = #mHeXiaoJingE#,
+				[NoHeXiaoTotal] = #NoHeXiaoTotal#,
+				[BillMoney] = #BillMoney#,
+				[InvoiceTaxrate] = #InvoiceTaxrate#,
+				[InvoiceTax] = #InvoiceTax#,
+				[InvoiceHeji] = #InvoiceHeji#,
+				[TaxCaluType] = #TaxCaluType#,
+				[CompanyId] = #CompanyId#,
+        [AuditState]=#AuditState#,
+        [AuditEmpId]=#AuditEmpId#,
+        [IsPaymentOver] = #IsPaymentOver#
+			WHERE
+				[AcOtherShouldPaymentId] = #AcOtherShouldPaymentId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcOtherShouldPayment]
+				where  AcOtherShouldPaymentId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

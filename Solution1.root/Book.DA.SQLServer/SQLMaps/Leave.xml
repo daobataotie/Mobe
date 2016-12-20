@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Leave" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- select by primary key -->
+  <statements>
+    <select id="select_byempiddate" resultMap="LeaveResult" parameterClass="Map">
+      SELECT
+      [LeaveId],
+      [LeaveTypeId],
+      [EmployeeId],
+      [LeaveDate],
+      [LeaveRange],
+      [LeaveText]
+      FROM
+      [dbo].[Leave]
+      where [EmployeeId]=#empid# and  ([LeaveDate] between #startdate# and #enddate#)
+      order by [LeaveDate] asc
+    </select>
+    <select id="select_SpecificHolidayMonthEmp" resultClass="int" parameterClass="Map">
+      <![CDATA[  SELECT count(DutyDate) FROM HrDailyEmployeeAttendInfo WHERE EmployeeId =#employeeId# AND YEAR(DutyDate) = #year# AND MONTH(DutyDate) =#month# AND  convert(varchar(2), month(DutyDate))+'/'+ convert(varchar(2),day(DutyDate)) in (SELECT holidaydate  FROM HrSpecificHoliday)
+  ]]>
+    </select>
+
+    <select id="select_byempidmonth" resultMap="LeaveResult" parameterClass="Map">
+      select * from  Leave  where employeeId=#employeeId#  and year(LeaveDate)=#year# and (#month# is null or month(LeaveDate)=#month# ) order by LeaveDate desc
+    </select>
+
+    <select id="select_GetEmployeeLeavebyDate" resultMap="LeaveResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM Leave 
+      WHERE EmployeeId = #EmpID#
+      AND Leave.LeaveDate = #LeaveDate#
+      ]]>
+    </select>
+    <select id="GetLastForEmployeeYear" resultMap="LeaveResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM Leave
+      WHERE EmployeeId = #EmpID#
+	  and  year(LeaveDate)=#year#
+      ORDER BY Leave.LeaveDate DESC 
+      ]]>
+    </select>
+    <select id="GetNextForEmployeeYear" resultMap="LeaveResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM Leave
+      WHERE EmployeeId = #EmpID# 
+	  and  year(LeaveDate)=#year#
+      AND LeaveDate > #LeaveYear#
+      ORDER BY LeaveDate  	  
+      ]]>
+    </select>
+    <select id="GetPrevForEmployeeYear" resultMap="LeaveResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM Leave
+      WHERE EmployeeId = #EmpID# 
+	  and  year(LeaveDate)=#year#
+      AND LeaveDate < #LeaveYear#
+      ORDER BY LeaveDate asc  	  
+      ]]>
+    </select>
+    <select id="select_ByEmpAndYear" resultMap="LeaveResult" parameterClass="Map">
+      <![CDATA[
+      SELECT  * FROM Leave 
+      WHERE EmployeeId = #EmpID#
+      AND Leave.LeaveDate = #LeaveDate#
+      ]]>
+    </select>
+
+    <select id="SelectForMonthListPrint" resultMap="LeaveResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM Leave $value$
+      ]]>
+    </select>
+
+    <delete id="DeleteByDateRangeEmp" parameterClass="Map">
+      <![CDATA[
+        DELETE FROM Leave WHERE EmployeeId = #EmployeeId# AND LeaveDate = #startDate#
+      ]]>
+    </delete>
+
+    <select id="SelectLeaveListbyEmp" resultMap="LeaveResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM Leave WHERE EmployeeId in ($empid$) AND LeaveDate > #startdate#
+      ]]>
+    </select>
+
+    <select id ="SelectByDateRangeEmp" resultMap="LeaveResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM Leave WHERE EmployeeId IN ($emps$) AND Leave.LeaveDate BETWEEN #startdate# AND #enddate#
+      ORDER BY EmployeeId,LeaveDate ASC
+      ]]>
+    </select>
+
+    <delete id="DeleteByDateRange" parameterClass="Map">
+      <![CDATA[
+      DELETE FROM Leave WHERE EmployeeId = #EmployeeId# AND LeaveDate BETWEEN #startdate# AND #enddate#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

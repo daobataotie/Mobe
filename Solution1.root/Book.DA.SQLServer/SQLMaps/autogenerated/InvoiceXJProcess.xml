@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceXJProcess" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoiceXJProcess" type="Book.Model.InvoiceXJProcess, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoiceXJProcessResult" class="InvoiceXJProcess">
+      <result property="InvoiceXJProcessId" column="InvoiceXJProcessId" />
+      <result property="InvoiceXJProcessPrice" column="InvoiceXJProcessPrice" />
+      <result property="ProcessCategoryId" column="ProcessCategoryId" />
+      <result property="InvoiceXJId" column="InvoiceXJId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceXJDetailId" column="InvoiceXJDetailId" />
+      <result property="SupplierId" column="SupplierId" />
+      <result property="InvoiceXJProcessType" column="InvoiceXJProcessType" />
+      <result property="InvoiceXJProcessDESC" column="InvoiceXJProcessDESC" />
+      <result property="InvoiceXJProcessCB1" column="InvoiceXJProcessCB1" />
+      <result property="InvoiceXJProcessCB2" column="InvoiceXJProcessCB2" />
+      <result property="IsMustProc" column="IsMustProc" />
+      <result property="InvoiceXJProcessQuantity" column="InvoiceXJProcessQuantity" />
+      <result property="ProductName" column="ProductName"/>
+      <result property="DanJia" column="DanJia"/>
+      <result property="Inumber" column="Inumber"/>
+      <result property="ProcessCategory" column="ProcessCategoryId" lazyLoad="false" select="ProcessCategory.select_by_primary_key" />
+      <result property="InvoiceXJ" column="InvoiceXJId" lazyLoad="false" select="InvoiceXJ.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceXJProcess]
+      WHERE
+      [InvoiceXJProcessId] = #InvoiceXJProcessId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceXJProcess]
+
+      ) then 1 else 0 end
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="InvoiceXJProcessResult" parameterClass="InvoiceXJProcess">
+      <![CDATA[
+      SELECT
+      [InvoiceXJProcessId],
+      [InvoiceXJProcessPrice],
+      [ProcessCategoryId],
+      [InvoiceXJId],
+      [ProductId],
+      [InvoiceXJDetailId],
+      [SupplierId],
+      [InvoiceXJProcessType],
+      [InvoiceXJProcessDESC],
+      [InvoiceXJProcessCB1],
+      [InvoiceXJProcessCB2],
+      [IsMustProc],
+      [InvoiceXJProcessQuantity],
+      [ProductName],
+      [DanJia],
+      [Inumber]
+      FROM
+      [dbo].[InvoiceXJProcess]
+      WHERE
+      [InvoiceXJProcessId] = #InvoiceXJProcessId#
+    ]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[InvoiceXJProcess]
+      WHERE
+      [InvoiceXJProcessId] = #InvoiceXJProcessId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="InvoiceXJProcessResult" >
+      SELECT *
+      FROM
+      [dbo].[InvoiceXJProcess]
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[InvoiceXJProcess]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="InvoiceXJProcessResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[InvoiceXJProcess]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="InvoiceXJProcess">
+      <![CDATA[
+      INSERT INTO [dbo].[InvoiceXJProcess]
+      (
+      [InvoiceXJProcessId],
+      [InvoiceXJProcessPrice],
+      [ProcessCategoryId],
+      [InvoiceXJId],
+      [ProductId],
+      [InvoiceXJDetailId],
+      [SupplierId],
+      [InvoiceXJProcessType],
+      [InvoiceXJProcessDESC],
+      [InvoiceXJProcessCB1],
+      [InvoiceXJProcessCB2],
+      [IsMustProc],
+      [InvoiceXJProcessQuantity],
+      [ProductName],
+      [DanJia],
+      [Inumber]
+      )
+      VALUES
+      (
+      #InvoiceXJProcessId#,
+      #InvoiceXJProcessPrice#,
+      #ProcessCategoryId#,
+      #InvoiceXJId#,
+      #ProductId#,
+      #InvoiceXJDetailId#,
+      #SupplierId#,
+      #InvoiceXJProcessType#,
+      #InvoiceXJProcessDESC#,
+      #InvoiceXJProcessCB1#,
+      #InvoiceXJProcessCB2#,
+      #IsMustProc#,
+      #InvoiceXJProcessQuantity#,
+      #ProductName#,
+      #DanJia#,
+      #Inumber#
+      )
+      ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="InvoiceXJProcess">
+      <![CDATA[
+      UPDATE [InvoiceXJProcess] SET
+      [InvoiceXJProcessPrice] = #InvoiceXJProcessPrice#,
+      [ProcessCategoryId] = #ProcessCategoryId#,
+      [InvoiceXJId] = #InvoiceXJId#,
+      [ProductId] = #ProductId#,
+      [InvoiceXJDetailId] = #InvoiceXJDetailId#,
+      [SupplierId] = #SupplierId#,
+      [InvoiceXJProcessType] =#InvoiceXJProcessType#,
+      [InvoiceXJProcessDESC] = #InvoiceXJProcessDESC#,
+      [InvoiceXJProcessCB1] = #InvoiceXJProcessCB1#,
+      [InvoiceXJProcessCB2] = #InvoiceXJProcessCB2#,
+      [IsMustProc] =#IsMustProc#,
+      [InvoiceXJProcessQuantity] = #InvoiceXJProcessQuantity#,
+      [ProductName] = #ProductName#,
+      [DanJia] = #DanJia#,
+      [Inumber] = #Inumber#
+      WHERE
+      [InvoiceXJProcessId] = #InvoiceXJProcessId#,
+    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceXJProcess]
+				where  InvoiceXJProcessId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

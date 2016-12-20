@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="FamilyMembers" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  
+  <statements>
+    <select id="select_emp_empid" resultMap="FamilyMembersResult">
+      select * from FamilyMembers where EmployeeId = #value#
+    </select>
+
+    <delete id="DeleteByEmployeeId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM FamilyMembers WHERE EmployeeId = #value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

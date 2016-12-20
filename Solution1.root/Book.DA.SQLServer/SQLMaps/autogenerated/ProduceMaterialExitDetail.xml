@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProduceMaterialExitDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="ProduceMaterialExitDetail" type="Book.Model.ProduceMaterialExitDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="ProduceMaterialExitDetailResult" class="ProduceMaterialExitDetail">
+      <result property="ProductId" column="ProductId" />
+      <result property="ProduceQuantity" column="ProduceQuantity" />
+      <result property="ProductStock" column="ProductStock" />
+      <result property="InDepotSum" column="InDepotSum" />
+      <result property="ProductUnit" column="ProductUnit" />
+      <result property="ProduceMaterialExitId" column="ProduceMaterialExitId" />
+      <result property="Inumber" column="Inumber" />
+      <result property="ProduceMaterialExitDetailId" column="ProduceMaterialExitDetailId" />
+      <result property="DetailDesc" column="DetailDesc" />
+      <result property="DepotPositionId" column="DepotPositionId" />
+      <result property="ProductioinBatch" column="ProductioinBatch" />
+      <result property="HandbookId" column="HandbookId"/>
+      <result property="HandbookProductId" column="HandbookProductId"/>
+      <result property="ProduceMaterialExit" column="ProduceMaterialExitId" lazyLoad="false" select="ProduceMaterialExit.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProduceMaterialExitDetail]
+				WHERE
+				[ProduceMaterialExitDetailId] = #ProduceMaterialExitDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProduceMaterialExitDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="ProduceMaterialExitDetailResult" parameterClass="ProduceMaterialExitDetail">
+      <![CDATA[SELECT
+				[ProductId],
+				[ProduceQuantity],
+				[ProductStock],
+				[InDepotSum],
+				[ProductUnit],
+				[ProduceMaterialExitId],
+				[Inumber],
+				[ProduceMaterialExitDetailId],
+				[DetailDesc],
+				[DepotPositionId],
+				[ProductioinBatch],
+        [HandbookId],
+        [HandbookProductId]
+			FROM
+				[dbo].[ProduceMaterialExitDetail]
+			WHERE
+				[ProduceMaterialExitDetailId] = #ProduceMaterialExitDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[ProduceMaterialExitDetail]
+			WHERE            
+				[ProduceMaterialExitDetailId] = #ProduceMaterialExitDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="ProduceMaterialExitDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[ProduceMaterialExitDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[ProduceMaterialExitDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="ProduceMaterialExitDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProduceMaterialExitDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="ProduceMaterialExitDetail">
+      <![CDATA[ INSERT INTO [dbo].[ProduceMaterialExitDetail] 
+			(
+				[ProductId],
+				[ProduceQuantity],
+				[ProductStock],
+				[InDepotSum],
+				[ProductUnit],
+				[ProduceMaterialExitId],
+				[Inumber],
+				[ProduceMaterialExitDetailId],
+				[DetailDesc],
+				[DepotPositionId],
+				[ProductioinBatch],
+        [HandbookId],
+        [HandbookProductId]
+			) 
+			VALUES 
+			(
+				#ProductId#,
+				#ProduceQuantity#,
+				#ProductStock#,
+				#InDepotSum#,
+				#ProductUnit#,
+				#ProduceMaterialExitId#,
+				#Inumber#,
+				#ProduceMaterialExitDetailId#,
+				#DetailDesc#,
+				#DepotPositionId#,
+				#ProductioinBatch#,
+        #HandbookId#,
+        #HandbookProductId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="ProduceMaterialExitDetail">
+      <![CDATA[ 	UPDATE [ProduceMaterialExitDetail] SET
+				[ProductId] = #ProductId#,
+				[ProduceQuantity] = #ProduceQuantity#,
+				[ProductStock] = #ProductStock#,
+				[InDepotSum] = #InDepotSum#,
+				[ProductUnit] = #ProductUnit#,
+				[ProduceMaterialExitId] = #ProduceMaterialExitId#,
+				[Inumber] = #Inumber#,
+				[DetailDesc] = #DetailDesc#,
+				[DepotPositionId] = #DepotPositionId#,
+				[ProductioinBatch] = #ProductioinBatch#,
+        [HandbookId]=#HandbookId#,
+        [HandbookProductId]=#HandbookProductId#
+			WHERE
+				[ProduceMaterialExitDetailId] = #ProduceMaterialExitDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProduceMaterialExitDetail]
+				where  ProduceMaterialExitDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

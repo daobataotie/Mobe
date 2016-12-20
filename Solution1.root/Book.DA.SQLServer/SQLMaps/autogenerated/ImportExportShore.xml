@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ImportExportShore" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ImportExportShore" type="Book.Model.ImportExportShore, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ImportExportShoreResult" class="ImportExportShore">
+			<result property="ImportExportShoreId" column="ImportExportShoreId" />
+			<result property="Id" column="id" />
+			<result property="ShoreName" column="ShoreName" />
+			<result property="EnglishName" column="EnglishName" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ImportExportShore]
+				WHERE
+				[ImportExportShoreId] = #ImportExportShoreId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ImportExportShore]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ImportExportShoreResult" parameterClass="ImportExportShore">
+			<![CDATA[SELECT
+				[ImportExportShoreId],
+				[id],
+				[ShoreName],
+				[EnglishName]
+			FROM
+				[dbo].[ImportExportShore]
+			WHERE
+				[ImportExportShoreId] = #ImportExportShoreId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[ImportExportShore]
+			WHERE            
+				[ImportExportShoreId] = #ImportExportShoreId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ImportExportShoreResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[ImportExportShore]
+                			                   
+			ORDER BY Id ASC			
+			
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[ImportExportShore]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ImportExportShoreResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ImportExportShore]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ImportExportShore">
+			 <![CDATA[ INSERT INTO [dbo].[ImportExportShore] 
+			(
+				[ImportExportShoreId],
+				[id],
+				[ShoreName],
+				[EnglishName]
+			) 
+			VALUES 
+			(
+				#ImportExportShoreId#,
+				#id#,
+				#ShoreName#,
+				#EnglishName#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ImportExportShore">
+		 <![CDATA[ 	UPDATE [ImportExportShore] SET
+				[id] = #id#,
+				[ShoreName] = #ShoreName#,
+				[EnglishName] = #EnglishName#
+			WHERE
+				[ImportExportShoreId] = #ImportExportShoreId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ImportExportShore]
+				where  ImportExportShoreId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ImportExportShore
+				where Id = #value#
+               			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="ImportExportShoreResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[ImportExportShore]
+                    			          
+         
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.ImportExportShore
+				where Id = #newId# and Id <> #oldId#
+                    			          
+         
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

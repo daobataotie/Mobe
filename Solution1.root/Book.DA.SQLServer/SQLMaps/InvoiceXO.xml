@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceXO" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="InvoiceXOResultSimple" class="InvoiceXO">
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="InvoiceLRTime" column="InvoiceLRTime" />
+      <result property="InvoiceGZTime" column="InvoiceGZTime" />
+      <result property="InvoiceDate" column="InvoiceDate" />
+      <result property="InvoiceNote" column="InvoiceNote" />
+      <result property="InvoiceStatus" column="InvoiceStatus" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="InvoiceTotal" column="InvoiceTotal" />
+      <result property="InvoiceTaxrate" column="InvoiceTaxrate" />
+      <result property="InvoiceTax" column="InvoiceTax" />
+      <result property="InvoiceYjrq" column="InvoiceYjrq" />
+      <result property="InvoiceHeji" column="InvoiceHeji" />
+      <result property="InvoiceDiscount" column="InvoiceDiscount" />
+      <result property="InvoicePayDate" column="InvoicePayDate" />
+      <result property="InvoiceCPBH" column="InvoiceCPBH" />
+      <result property="InvoiceKSLB" column="InvoiceKSLB" />
+      <result property="InvoiceKLFS" column="InvoiceKLFS" />
+      <result property="InvoiceFPBH" column="InvoiceFPBH" />
+      <result property="InvoiceKPLS" column="InvoiceKPLS" />
+      <result property="InvoiceFPJE" column="InvoiceFPJE" />
+      <result property="TaxCaluType" column="TaxCaluType" />
+      <result property="InvoiceFlag" column="InvoiceFlag" />
+      <result property="InvoiceFPDate" column="InvoiceFPDate" />
+      <result property="InvoiceReceiveable" column="InvoiceReceiveable" />
+      <result property="CustomerInvoiceXOId" column="CustomerInvoiceXOId" />
+      <result property="xocustomerId" column="xocustomerId" />
+      <result property="InvoiceMPSState" column="InvoiceMPSState" />
+      <result property="Employee4Id" column="Employee4Id" />
+      <result property="CustomerLotNumber" column="CustomerLotNumber" />
+      <result property="IsClose" column="IsClose" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property ="IsForeigntrade" column="IsForeigntrade"/>
+      <result property ="Currency" column="Currency"/>
+      <result property="JieAnDate" column="JieAnDate"/>
+      <result property="CustomerMarks" column="CustomerMarks"/>
+      <result property="DeliveryAddress" column="DeliveryAddress"/>
+      <result property="PaymentWay" column="PaymentWay"/>
+      <result property="DepositBank" column="DepositBank"/>
+      <result property="AccountNumber" column="AccountNumber"/>
+      <result property="Payee" column="Payee"/>
+      <result property="DeliveryDate" column="DeliveryDate"/>
+      <result property="CheckRule" column="CheckRule"/>
+      <result property="OtherAppoint" column="OtherAppoint"/>
+      <result property="xocustomer" column="xocustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Employee4" column="Employee4Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="select_SimpleInvoicexo" resultMap="InvoiceXOResultSimple" parameterClass="InvoiceXO">
+      <![CDATA[SELECT
+				[InvoiceId],
+				[Employee0Id],
+				[CustomerId],
+				[InvoiceLRTime],
+				[InvoiceGZTime],
+				[InvoiceDate],
+				[InvoiceNote],
+				[InvoiceStatus],
+        [InsertTime],
+        [UpdateTime],
+				[InvoiceTotal],
+				[InvoiceTaxrate],
+				[InvoiceTax],
+				[InvoiceYjrq],
+				[InvoiceHeji],
+				[InvoiceDiscount],
+				[InvoicePayDate],
+				[InvoiceCPBH],
+				[InvoiceKSLB],
+				[InvoiceKLFS],
+				[InvoiceFPBH],
+				[InvoiceKPLS],
+				[InvoiceFPJE],
+				[TaxCaluType],
+				[InvoiceFlag],
+				[InvoiceFPDate],
+				[InvoiceReceiveable],
+				[CustomerInvoiceXOId],
+				[xocustomerId],
+				[InvoiceMPSState],
+				[Employee4Id],
+				[CustomerLotNumber],
+				[IsClose],
+				[AuditState],
+				[AuditEmpId],
+        [IsForeigntrade],
+	      [Currency],
+        [JieAnDate],
+        [CustomerMarks],
+        [DeliveryAddress],
+        [PaymentWay],
+        [DepositBank],
+        [AccountNumber],
+        [Payee],
+        [DeliveryDate],
+        [CheckRule],
+        [OtherAppoint]
+			FROM
+				[dbo].[InvoiceXO]
+			WHERE
+				[InvoiceId] = #InvoiceId#
+                 and invoicestatus<>2 			          
+         		]]>
+    </select>
+
+    <select id="select_byTime" parameterClass="Map" resultMap="InvoiceXOResult">
+      <![CDATA[
+				select * from InvoiceXO 
+				where invoicedate between #startTime# and #endTime# order by InvoiceId desc
+			]]>
+    </select>
+    <select id="select_byStatus" parameterClass="int" resultMap="InvoiceXOResult">
+      <![CDATA[
+      select * from invoiceXO
+				where invoicestatus = #value#
+      ]]>
+    </select>
+    <select id="select_byYJRQ" parameterClass="Map" resultMap="InvoiceXOResult">
+      <![CDATA[
+     select * from  InvoiceXO where invoiceyjrq<=#value# and IsClose=0 
+     ]]>
+    </select>
+    <select id="select_byYJRQCustomEmp" parameterClass="Map" resultMap="InvoiceXOResult">
+          <![CDATA[
+      select * from invoicexo
+      where (invoicedate   between #startDate# and #endDate#)  and
+      (InvoiceYjrq between #yjrq1# and #yjrq2#)   $sql$	 
+     ]]></select>
+    <select id="select_byCustomers" parameterClass="Map" resultMap="InvoiceXOResult">
+<![CDATA[
+      select * from invoicexo where InvoiceId  not in (select InvoiceXOId from MPSdetails) and IsClose=0 
+      and  CustomerId=#value#
+
+       ]]>		
+</select>
+	  <select id="selectFlagNot2" parameterClass="string" resultMap="InvoiceXOResult">
+		  <![CDATA[
+			select * from invoicexo where IsClose=0   order by InsertTime desc
+			 ]]>
+	  </select>
+<select id="selectDateRangCusXOCustomer" parameterClass="Map" resultMap="InvoiceXOResult">
+      <![CDATA[
+				select * from InvoiceXO 
+				where invoicedate between #startdate# and #enddate#  and (CustomerInvoiceXOId like '%$cusxoid$%' or #cusxoid# is null) and (xocustomerId=#customerid# or #customerid# is null) order by InvoiceId desc
+			]]>
+    </select>
+	  <select id="get_mpsIscloseState"  parameterClass="string" resultClass="InvoiceXO">
+		  <![CDATA[
+			select InvoiceId,CustomerInvoiceXOId from invoicexo where invoiceid =(select invoicexoid from mpsheader
+	 WHERE mpsheader.mpsheaderId =#value:varchar#)
+	 order by invoiceid desc
+			 ]]>
+	  </select>
+  </statements>
+</sqlMap>

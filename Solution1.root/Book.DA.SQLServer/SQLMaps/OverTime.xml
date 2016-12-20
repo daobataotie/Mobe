@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="OverTime" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_empiddate" resultMap="OverTimeResult" parameterClass="Map">
+      select * from OverTime
+      where [EmployeeId]=#empid# and  ([DueDate] between #startdate# and #enddate#)
+      order by [DueDate] asc
+    </select>
+    <select id="select_ByEmployeeAndMonth" resultMap="OverTimeResult" parameterClass="Map">
+      select * from OverTime
+      where [EmployeeId]=#employeeid# and year(DueDate)=#year# and month(DueDate)=#month#
+      order by [DueDate] asc
+    </select>
+    <select id="GetLastForEmployeeYearMonth" resultMap="OverTimeResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM OverTime
+      WHERE EmployeeId = #empid#
+	  and year(DueDate)=#year#
+	  and month(DueDate)=#month#
+      ORDER BY InsertTime DESC 
+      ]]>
+    </select>
+    <select id="GetNextForEmployeeYearMonth" resultMap="OverTimeResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM OverTime
+      WHERE EmployeeId = #empid#
+	  and year(DueDate)=#year#
+	  and month(DueDate)=#month#
+      AND InsertTime > #inserttime#
+      ORDER BY InsertTime  
+      ]]>
+    </select>
+    <select id="GetPrevForEmployeeYearMonth" resultMap="OverTimeResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM OverTime
+      WHERE EmployeeId = #empid#
+	  and year(DueDate)=#year#
+	  and month(DueDate)=#month#
+      AND InsertTime < #inserttime#
+      ORDER BY InsertTime  desc  
+      ]]>
+    </select>
+    <select id="SelectOverTimeList" parameterClass="Map" resultMap="OverTimeResult">
+      <![CDATA[
+      SELECT * FROM OverTime WHERE DueDate BETWEEN #startdate# AND #enddate# 
+      ]]>
+    </select>
+
+    <select id="JudgeRepeater" parameterClass="Map" resultClass="int">
+      <![CDATA[
+      SELECT COUNT(*) FROM OverTime WHERE EmployeeId IN ($empids$) AND year(DueDate) = #year# AND MONTH(DueDate) = #month# AND DAY(DueDate) = #day#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

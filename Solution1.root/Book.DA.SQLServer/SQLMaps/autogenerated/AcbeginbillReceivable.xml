@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcbeginbillReceivable" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="AcbeginbillReceivable" type="Book.Model.AcbeginbillReceivable, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="AcbeginbillReceivableResult" class="AcbeginbillReceivable">
+      <result property="AcbeginbillReceivableId" column="AcbeginbillReceivableId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="AtCurrencyCategoryId" column="AtCurrencyCategoryId" />
+      <result property="Employee1Id" column="Employee1Id" />
+      <result property="AcbeginbillReceivableDate" column="AcbeginbillReceivableDate" />
+      <result property="AcbeginbillReceivableDesc" column="AcbeginbillReceivableDesc" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="AuditingState" column="AuditingState" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="AtCurrencyCategory" column="AtCurrencyCategoryId" lazyLoad="false" select="AtCurrencyCategory.select_by_primary_key" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcbeginbillReceivable]
+				WHERE
+				[AcbeginbillReceivableId] = #AcbeginbillReceivableId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AcbeginbillReceivable]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="AcbeginbillReceivableResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcbeginbillReceivable
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="AcbeginbillReceivableResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcbeginbillReceivable
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="AcbeginbillReceivableResult" parameterClass="AcbeginbillReceivable">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcbeginbillReceivable
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="AcbeginbillReceivableResult" parameterClass="AcbeginbillReceivable">
+      <![CDATA[
+			select top 1 *
+			from dbo.AcbeginbillReceivable
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="AcbeginbillReceivable">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcbeginbillReceivable
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="AcbeginbillReceivable">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AcbeginbillReceivable
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="AcbeginbillReceivableResult" parameterClass="AcbeginbillReceivable">
+      <![CDATA[SELECT
+				[AcbeginbillReceivableId],
+				[EmployeeId],
+				[AtCurrencyCategoryId],
+				[Employee1Id],
+				[AcbeginbillReceivableDate],
+				[AcbeginbillReceivableDesc],
+				[InsertTime],
+				[UpdateTime],
+				[AuditingState],
+        [AuditState],
+        [AuditEmpId]
+        
+			FROM
+				[dbo].[AcbeginbillReceivable]
+			WHERE
+				[AcbeginbillReceivableId] = #AcbeginbillReceivableId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[AcbeginbillReceivable]
+			WHERE            
+				[AcbeginbillReceivableId] = #AcbeginbillReceivableId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="AcbeginbillReceivableResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[AcbeginbillReceivable]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[AcbeginbillReceivable]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="AcbeginbillReceivableResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AcbeginbillReceivable]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="AcbeginbillReceivable">
+      <![CDATA[ INSERT INTO [dbo].[AcbeginbillReceivable] 
+			(
+				[AcbeginbillReceivableId],
+				[EmployeeId],
+				[AtCurrencyCategoryId],
+				[Employee1Id],
+				[AcbeginbillReceivableDate],
+				[AcbeginbillReceivableDesc],
+				[InsertTime],
+				[UpdateTime],
+				[AuditingState],
+        [AuditState],
+        [AuditEmpId]
+			) 
+			VALUES 
+			(
+				#AcbeginbillReceivableId#,
+				#EmployeeId#,
+				#AtCurrencyCategoryId#,
+				#Employee1Id#,
+				#AcbeginbillReceivableDate#,
+				#AcbeginbillReceivableDesc#,
+				#InsertTime#,
+				#UpdateTime#,
+				#AuditingState#,
+        #AuditState#,
+        #AuditEmpId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="AcbeginbillReceivable">
+      <![CDATA[ 	UPDATE [AcbeginbillReceivable] SET
+				[EmployeeId] = #EmployeeId#,
+				[AtCurrencyCategoryId] = #AtCurrencyCategoryId#,
+				[Employee1Id] = #Employee1Id#,
+				[AcbeginbillReceivableDate] = #AcbeginbillReceivableDate#,
+				[AcbeginbillReceivableDesc] = #AcbeginbillReceivableDesc#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[AuditingState] = #AuditingState#,
+        [AuditState]=#AuditState#,        
+        [AuditEmpId]=#AuditEmpId#
+			WHERE
+				[AcbeginbillReceivableId] = #AcbeginbillReceivableId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcbeginbillReceivable]
+				where  AcbeginbillReceivableId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

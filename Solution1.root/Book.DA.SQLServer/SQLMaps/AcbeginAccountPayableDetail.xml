@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcbeginAccountPayableDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectByacbeginaccountPaybleId" resultMap="AcbeginAccountPayableDetailResult" parameterClass="string">
+      select * from AcbeginAccountPayableDetail where AcbeginAccountPayableId=#value#
+    </select>
+    <select id ="SelectDefaultDetails" resultMap="AcbeginAccountPayableDetailResult">
+      <![CDATA[
+          SELECT aap.AcbeginAccountPayableDetailId,aap.AcbeginAccountPayableId,
+           s.SupplierId,aap.DomesticAdvancePayment,
+          aap.DomesticBeginningBalance,
+           aap.AdvancePayment,aap.ShouldPayment,aap.DomesticAccountPayable,
+           aap.AlreadyPayment,aap.DomesticAlreadyPayment,aap.BeginningBalance
+          FROM Supplier s Left JOIN AcbeginAccountPayableDetail aap
+          ON 1!=1
+      ]]>
+    </select>
+    <delete id="DeleteByAcbeginAccountPayableId" parameterClass="string">
+      <![CDATA[
+        DELETE FROM AcbeginAccountPayableDetail WHERE AcbeginAccountPayableId = #value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

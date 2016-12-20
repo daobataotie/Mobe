@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="StockCheckDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="StockCheckDetail" type="Book.Model.StockCheckDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="StockCheckDetailResult" class="StockCheckDetail">
+			<result property="StockCheckDetailId" column="StockCheckDetailId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="StockCheckId" column="StockCheckId" />
+			<result property="DepotId" column="DepotId" />
+			<result property="StockCheckQuantity" column="StockCheckQuantity" />
+			<result property="ProductUnitName" column="ProductUnitName" />
+			<result property="Directions" column="Directions" />
+			<result property="StockCheckQuantityOld" column="StockCheckQuantityOld" />
+			<result property="DepotPositionId" column="DepotPositionId" />
+			<result property="StockCheckBookQuantity" column="StockCheckBookQuantity" />
+		<result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />		<result property="Depot" column="DepotId" lazyLoad="false" select="Depot.select_by_primary_key" />		<result property="StockCheck" column="StockCheckId" lazyLoad="false" select="StockCheck.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[StockCheckDetail]
+				WHERE
+				[StockCheckDetailId] = #StockCheckDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[StockCheckDetail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="StockCheckDetailResult" parameterClass="StockCheckDetail">
+			SELECT
+				[StockCheckDetailId],
+				[ProductId],
+				[StockCheckId],
+				[DepotId],
+				[StockCheckQuantity],
+				[ProductUnitName],
+				[Directions],
+				[StockCheckQuantityOld],
+				[DepotPositionId],
+				[StockCheckBookQuantity]
+			FROM
+				[dbo].[StockCheckDetail]
+			WHERE
+				[StockCheckDetailId] = #StockCheckDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[StockCheckDetail]
+			WHERE
+				[StockCheckDetailId] = #StockCheckDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="StockCheckDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[StockCheckDetail]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[StockCheckDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="StockCheckDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[StockCheckDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="StockCheckDetail">
+			INSERT INTO [dbo].[StockCheckDetail] 
+			(
+				[StockCheckDetailId],
+				[ProductId],
+				[StockCheckId],
+				[DepotId],
+				[StockCheckQuantity],
+				[ProductUnitName],
+				[Directions],
+				[StockCheckQuantityOld],
+				[DepotPositionId],
+				[StockCheckBookQuantity]
+			) 
+			VALUES 
+			(
+				#StockCheckDetailId#,
+				#ProductId#,
+				#StockCheckId#,
+				#DepotId#,
+				#StockCheckQuantity#,
+				#ProductUnitName#,
+				#Directions#,
+				#StockCheckQuantityOld#,
+				#DepotPositionId#,
+				#StockCheckBookQuantity#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="StockCheckDetail">
+			UPDATE [StockCheckDetail] SET
+				[ProductId] = #ProductId#,
+				[StockCheckId] = #StockCheckId#,
+				[DepotId] = #DepotId#,
+				[StockCheckQuantity] = #StockCheckQuantity#,
+				[ProductUnitName] = #ProductUnitName#,
+				[Directions] = #Directions#,
+				[StockCheckQuantityOld] = #StockCheckQuantityOld#,
+				[DepotPositionId] = #DepotPositionId#,
+				[StockCheckBookQuantity] = #StockCheckBookQuantity#
+			WHERE
+				[StockCheckDetailId] = #StockCheckDetailId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[StockCheckDetail]
+				where  StockCheckDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

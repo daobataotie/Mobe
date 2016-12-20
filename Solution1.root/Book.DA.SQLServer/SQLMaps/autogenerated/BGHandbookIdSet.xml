@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="BGHandbookIdSet" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="BGHandbookIdSet" type="Book.Model.BGHandbookIdSet, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="BGHandbookIdSetResult" class="BGHandbookIdSet">
+			<result property="BGHangBookId" column="BGHangBookId" />
+			<result property="note" column="note" />
+			<result property="IsUsing" column="IsUsing" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[BGHandbookIdSet]
+				WHERE
+				[BGHangBookId] = #BGHangBookId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[BGHandbookIdSet]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="get_first" resultMap="BGHandbookIdSetResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.BGHandbookIdSet
+			 
+			order by InsertTime 
+			]]>
+		</select>
+		<select id="get_last" resultMap="BGHandbookIdSetResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.BGHandbookIdSet
+						
+            order by InsertTime desc
+			]]>
+            
+		</select>
+		<select id="get_prev" resultMap="BGHandbookIdSetResult" parameterClass="BGHandbookIdSet">
+			<![CDATA[
+			select top 1 *
+			from dbo.BGHandbookIdSet
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="BGHandbookIdSetResult" parameterClass="BGHandbookIdSet">
+			<![CDATA[
+			select top 1 *
+			from dbo.BGHandbookIdSet
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+		</select>
+		
+		<select id="has_rows_before" resultClass="bool" parameterClass="BGHandbookIdSet">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.BGHandbookIdSet
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="BGHandbookIdSet">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.BGHandbookIdSet
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="BGHandbookIdSetResult" parameterClass="BGHandbookIdSet">
+			<![CDATA[SELECT
+				[BGHangBookId],
+				[note],
+				[IsUsing],
+				[InsertTime],
+				[UpdateTime]
+			FROM
+				[dbo].[BGHandbookIdSet]
+			WHERE
+				[BGHangBookId] = #BGHangBookId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[BGHandbookIdSet]
+			WHERE            
+				[BGHangBookId] = #BGHangBookId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="BGHandbookIdSetResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[BGHandbookIdSet]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[BGHandbookIdSet]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="BGHandbookIdSetResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[BGHandbookIdSet]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="BGHandbookIdSet">
+			 <![CDATA[ INSERT INTO [dbo].[BGHandbookIdSet] 
+			(
+				[BGHangBookId],
+				[note],
+				[IsUsing],
+				[InsertTime],
+				[UpdateTime]
+			) 
+			VALUES 
+			(
+				#BGHangBookId#,
+				#note#,
+				#IsUsing#,
+				#InsertTime#,
+				#UpdateTime#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="BGHandbookIdSet">
+		 <![CDATA[ 	UPDATE [BGHandbookIdSet] SET
+				[note] = #note#,
+				[IsUsing] = #IsUsing#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#
+			WHERE
+				[BGHangBookId] = #BGHangBookId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[BGHandbookIdSet]
+				where  BGHangBookId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceDetail01" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoiceDetail01" type="Book.Model.InvoiceDetail01, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoiceDetailO1Result" class="InvoiceDetail01">
+      <result property="InvoiceDetailId" column="InvoiceXSDetailId" />
+      <result property="CompanyId" column="CompanyId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="InvoiceDetailQuantity" column="InvoiceXSDetailQuantity" />
+      <result property="InvoiceDetailPrice" column="InvoiceXSDetailPrice" />
+      <result property="InvoiceDetailDiscountRate" column="InvoiceXSDetailDiscountRate" />
+      <result property="InvoiceDetailDiscount" column="InvoiceXSDetailDiscount" />
+      <result property="InvoiceDetailTaxRate" column="InvoiceXSDetailTaxRate" />
+      <result property="InvoiceDetailTax" column="InvoiceXSDetailTax" />
+      <result property="InvoiceDetailMoney0" column="InvoiceXSDetailMoney0" />
+      <result property="InvoiceDetailZS" column="InvoiceXSDetailZS" />
+      <result property="InvoiceDetailMoney1" column="InvoiceXSDetailMoney1" />
+      <result property="InvoiceDetailCostPrice" column="InvoiceXSDetailCostPrice" />
+      <result property="InvoiceDetailCostMoney" column="InvoiceXSDetailCostMoney" />
+      <result property="Kind" column="kind"/>
+      <result property="InvoiceFpbh" column="InvoiceFpbh"/>
+      <result property="InvoiceDate" column="InvoiceDate"/>
+      <result property="InvoiceHeJi" column="InvoiceHeJi" />
+      <result property="InvoiceYHE" column="InvoiceYHE" />
+      <result property="InvoiceZSE" column="InvoiceZSE" />
+      <result property="InvoiceZRE" column="InvoiceZRE" />
+      <result property="InvoiceTax" column="InvoiceTax" />
+      <result property="InvoiceZongJi" column="InvoiceZongJi" />
+      <result property="InvoicePayTimeLimit" column="InvoicePayTimeLimit" />
+      <result property="InvoiceOwed" column="InvoiceOwed" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />      
+    </resultMap>
+    <resultMap id="InvoiceDetailO1Result1" class="InvoiceDetail01">
+      <result property="InvoiceDetailId" column="InvoiceCGDetailId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="CompanyId" column="CompanyId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="InvoiceDetailQuantity" column="InvoiceCGDetailQuantity" />
+      <result property="InvoiceDetailPrice" column="InvoiceCGDetailPrice" />
+      <result property="InvoiceDetailDiscountRate" column="InvoiceCGDetailDiscountRate" />
+      <result property="InvoiceDetailDiscount" column="InvoiceCGDetailDiscount" />
+      <result property="InvoiceDetailTaxRate" column="InvoiceCGDetailTaxRate" />
+      <result property="InvoiceDetailTax" column="InvoiceCGDetailTax" />
+      <result property="InvoiceDetailMoney0" column="InvoiceCGDetailMoney0" />
+      <result property="InvoiceDetailZS" column="InvoiceCGDetailZS" />
+      <result property="InvoiceDetailMoney1" column="InvoiceCGDetailMoney1" />
+      <result property="Kind" column="kind"/>
+      <result property="InvoiceFpbh" column="InvoiceFpbh"/>
+      <result property="InvoiceDate" column="InvoiceDate"/>
+      <result property="InvoiceHeJi" column="InvoiceHeJi" />
+      <result property="InvoiceYHE" column="InvoiceYHE" />
+      <result property="InvoiceZSE" column="InvoiceZSE" />
+      <result property="InvoiceZRE" column="InvoiceZRE" />
+      <result property="InvoiceTax" column="InvoiceTax" />
+      <result property="InvoiceZongJi" column="InvoiceZongJi" />
+      <result property="InvoicePayTimeLimit" column="InvoicePayTimeLimit" />
+      <result property="InvoiceOwed" column="InvoiceOwed" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />      
+    </resultMap>
+
+    <resultMap id="InvoiceDetailO2Result1" class="InvoiceDetail01">
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="CompanyId" column="CompanyId" />
+      <result property="InvoiceHeJi" column="InvoiceHeJi" />
+      <result property="InvoiceYHE" column="InvoiceYHE" />
+      <result property="InvoiceZSE" column="InvoiceZSE" />
+      <result property="InvoiceZRE" column="InvoiceZRE" />
+      <result property="InvoiceTax" column="InvoiceTax" />
+      <result property="InvoiceZongJi" column="InvoiceZongJi" />      
+      <result property="InvoiceOwed" column="InvoiceOwed" />
+      <result property="InvoiceFpje" column ="InvoiceFpje"/>
+      <result property="Employee" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />      
+    </resultMap>
+
+    <resultMap id="InvoiceDetailO2Result2" class="InvoiceDetail01">      
+      <result property="CompanyId" column="CompanyId" />
+      <result property="InvoiceHeJi" column="InvoiceHeJi" />
+      <result property="InvoiceYHE" column="InvoiceYHE" />
+      <result property="InvoiceZSE" column="InvoiceZSE" />
+      <result property="InvoiceZRE" column="InvoiceZRE" />
+      <result property="InvoiceTax" column="InvoiceTax" />
+      <result property="InvoiceZongJi" column="InvoiceZongJi" />
+      <result property="InvoiceOwed" column="InvoiceOwed" />
+      <result property="InvoiceFpje" column ="InvoiceFpje"/>            
+    </resultMap>
+  </resultMaps>
+  
+  <statements>    
+    <select id ="select_byDateRengeAndCustomer" parameterClass="Map" resultMap="InvoiceDetailO1Result">
+      <![CDATA[
+      SELECT* from (
+      SELECT [InvoiceXSDetailId]
+      ,xs.CompanyId
+      ,[ProductId]
+      ,detail.[InvoiceId]
+      ,[InvoiceXSDetailQuantity]
+      ,[InvoiceXSDetailPrice]
+      ,[InvoiceXSDetailDiscountRate]
+      ,[InvoiceXSDetailDiscount]
+      ,[InvoiceXSDetailTaxRate]
+      ,[InvoiceXSDetailTax]
+      ,[InvoiceXSDetailMoney0]
+      ,[InvoiceXSDetailZS]
+      ,[InvoiceXSDetailMoney1]
+      ,[InvoiceXSDetailCostPrice]
+      ,[InvoiceXSDetailCostMoney]
+      ,'xs' as Kind
+	    ,[InvoiceFpbh]
+      ,[InvoiceDate]
+      ,[InvoiceHeJi]
+      ,[InvoiceYHE]
+      ,[InvoiceZSE]
+      ,[InvoiceZRE]
+      ,[InvoiceTax]
+      ,[InvoiceZongJi]
+      ,[InvoicePayTimeLimit]
+      ,[InvoiceOwed]
+      FROM [InvoiceXSDetail] detail inner join [InvoiceXS] xs on xs.[InvoiceId] = detail.[InvoiceId]
+      where xs.CompanyId between #startId# and #endId# and [InvoiceDate] between #start# and #end#
+      union
+      SELECT [InvoiceXTDetailId]
+      ,xt.CompanyId
+      ,[ProductId]
+      ,detail.[InvoiceId]
+      ,-[InvoiceXTDetailQuantity] [InvoiceXTDetailQuantity]
+      ,[InvoiceXTDetailPrice]
+      ,[InvoiceXTDetailDiscountRate]
+      ,-[InvoiceXTDetailDiscount] [InvoiceXTDetailDiscount]
+      ,[InvoiceXTDetailTaxRate]
+      ,-[InvoiceXTDetailTax] [InvoiceXTDetailTax]
+      ,-[InvoiceXTDetailMoney0] [InvoiceXTDetailMoney0]
+      ,[InvoiceXTDetailZS]
+      ,-[InvoiceXTDetailMoney1] [InvoiceXTDetailMoney1]
+      ,-[InvoiceXTDetailCostPrice] [InvoiceXTDetailCostPrice]
+      ,-[InvoiceXTDetailCostMoney] [InvoiceXTDetailCostMoney]
+      ,'xt' as Kind
+	    ,[InvoiceFpbh]
+      ,[InvoiceDate]
+      ,[InvoiceHeJi]
+      ,[InvoiceYHE]
+      ,[InvoiceZSE]
+      ,[InvoiceZRE]
+      ,[InvoiceTax]
+      ,[InvoiceZongJi]
+      ,[InvoicePayTimeLimit]
+      ,[InvoiceOwed]
+      FROM [InvoiceXTDetail] detail inner join [InvoiceXT] xt on xt.[InvoiceId] = detail.[InvoiceId]
+      where xt.CompanyId between #startId# and #endId# and [InvoiceDate] between #start# and #end#
+      ) [table]
+      ]]>
+    </select>
+
+    <select id ="select_byDateRengeAndSupplier" parameterClass="Map" resultMap="InvoiceDetailO1Result1">
+      <![CDATA[
+       SELECT* from (
+      SELECT [InvoiceCGDetailId]
+      ,cg.CompanyId
+      ,[ProductId]
+      ,detail.[InvoiceId]
+      ,[InvoiceCGDetailQuantity]
+      ,[InvoiceCGDetailPrice]
+      ,[InvoiceCGDetailDiscountRate]
+      ,[InvoiceCGDetailDiscount]
+      ,[InvoiceCGDetailTaxRate]
+      ,[InvoiceCGDetailTax]
+      ,[InvoiceCGDetailMoney0]
+      ,[InvoiceCGDetailZS]
+      ,[InvoiceCGDetailMoney1]
+      ,'cg' as Kind
+      ,[InvoiceFpbh]
+      ,[InvoiceDate]
+      ,[InvoiceHeJi]
+      ,[InvoiceYHE]
+      ,[InvoiceZSE]
+      ,[InvoiceZRE]
+      ,[InvoiceTax]
+      ,[InvoiceZongJi]
+      ,[InvoicePayTimeLimit]
+      ,[InvoiceOwed]
+      FROM [InvoiceCGDetail] detail inner join [InvoiceCG] cg on cg.[InvoiceId] = detail.[InvoiceId]
+where cg.CompanyId between #startId# and #endId# and [InvoiceDate] between #start# and #end#
+      union
+      SELECT [InvoiceCTDetailId]
+      ,ct.CompanyId
+      ,[ProductId]
+      ,detail.[InvoiceId]
+      ,-[InvoiceCTDetailQuantity] [InvoiceCTDetailQuantity]
+      ,[InvoiceCTDetailPrice]
+      ,[InvoiceCTDetailDiscountRate]
+      ,-[InvoiceCTDetailDisount] [InvoiceCTDetailDisount]
+      ,[InvoiceCTDetailTaxRate]
+      ,-[InvoiceCTDetailTax] [InvoiceCTDetailTax]
+      ,-[InvoiceCTDetailMoney0] [InvoiceCTDetailMoney0]
+      ,[InvoiceCTDetailZS]
+      ,-[InvoiceCTDetailMoney1] [InvoiceCTDetailMoney1]
+      ,'ct' as Kind
+      ,[InvoiceFpbh]
+      ,[InvoiceDate]
+      ,[InvoiceHeJi]
+      ,[InvoiceYHE]
+      ,[InvoiceZSE]
+      ,[InvoiceZRE]
+      ,[InvoiceTax]
+      ,[InvoiceZongJi]
+      ,[InvoicePayTimeLimit]
+      ,[InvoiceOwed]
+      FROM [InvoiceCTDetail] detail inner join [InvoiceCT] ct on ct.[InvoiceId] = detail.[InvoiceId]
+      where ct.CompanyId between #startId# and #endId# and [InvoiceDate] between #start# and #end#
+      ) [table]
+      ]]>
+    </select>
+    
+    <select id="selectDataTableQ32" parameterClass="Map" resultMap="InvoiceDetailO2Result1">
+      <![CDATA[
+      select 
+       [CompanyId]         
+      ,[Employee0Id]       
+      ,sum([InvoiceHeJi])	 [InvoiceHeJi]
+      ,sum([InvoiceYHE])	 [InvoiceYHE]
+      ,sum([InvoiceZSE])	 [InvoiceZSE]
+      ,sum([InvoiceZRE])	 [InvoiceZRE]
+      ,sum([InvoiceTax])	 [InvoiceTax]
+      ,sum([InvoiceZongJi])	 [InvoiceZongJi]
+      ,sum([InvoiceOwed])	 [InvoiceOwed]
+      ,sum([InvoiceFpje])	 [InvoiceFpje]
+       from      
+          (SELECT [CompanyId]
+                ,[Employee0Id]
+                ,[InvoiceHeJi]
+                ,[InvoiceYHE]
+                ,[InvoiceZSE]
+                ,[InvoiceZRE]
+                ,[InvoiceTax]
+                ,[InvoiceZongJi]      
+                ,[InvoiceOwed]
+                ,[InvoiceFpje]
+            FROM [InvoiceXS]	
+          where (([InvoiceDate] between #start# and #end#) and ([InvoiceStatus] = 1))
+          union
+          SELECT [CompanyId]
+                ,[Employee0Id]
+                ,- [InvoiceHeJi]
+                ,-[InvoiceYHE]
+                ,-[InvoiceZSE]
+                ,-[InvoiceZRE]
+                ,-[InvoiceTax]
+                ,-[InvoiceZongJi]      
+                ,- [InvoiceOwed]
+                ,- [InvoiceFpje]
+            FROM [InvoiceXT]
+          where (([InvoiceDate] between #start# and #end#) and ([InvoiceStatus] = 1)))
+         [table]
+          group by [CompanyId],[Employee0Id] 
+      ]]>
+    </select>
+
+    <select id ="select_byDateRengeAndCustomer1" parameterClass="Map" resultMap="InvoiceDetailO2Result2">
+      <![CDATA[
+      select
+      [CompanyId]
+      ,sum([InvoiceHeJi]) [InvoiceHeJi]
+      ,sum([InvoiceYHE]) [InvoiceYHE]
+      ,sum([InvoiceZSE]) [InvoiceZSE]
+      ,sum([InvoiceZRE]) [InvoiceZRE]
+      ,sum([InvoiceTax]) [InvoiceTax]
+      ,sum([InvoiceZongJi]) [InvoiceZongJi]
+      ,sum([InvoiceOwed]) [InvoiceOwed]
+      ,sum([InvoiceFpje]) [InvoiceFpje]
+      from
+      (
+      SELECT [InvoiceId]
+      ,[Employee0Id]
+      ,[CompanyId]
+      ,[InvoiceDate]
+      ,[InvoiceHeJi]
+      ,[InvoiceYHE]
+      ,[InvoiceZSE]
+      ,[InvoiceZRE]
+      ,[InvoiceTax]
+      ,[InvoiceZongJi]
+      ,[InvoicePayTimeLimit]
+      ,[InvoiceOwed]
+      ,[InvoiceFpje]
+      FROM [InvoiceXS]
+      union
+      SELECT [InvoiceId]
+      ,[Employee0Id]
+      ,[CompanyId]
+      ,[InvoiceDate]
+      ,-[InvoiceHeJi]
+      ,-[InvoiceYHE]
+      ,-[InvoiceZSE]
+      ,-[InvoiceZRE]
+      ,-[InvoiceTax]
+      ,-[InvoiceZongJi]
+      ,[InvoicePayTimeLimit]
+      ,-[InvoiceOwed]
+      ,-[InvoiceFpje]
+      FROM [InvoiceXT]
+      ) [table] where ([InvoiceDate] between #start# and #end#) and ([CompanyId] between #startId# and #endId#)
+      group by [CompanyId]
+      ]]>
+    </select>
+
+    <select id ="select_byDateRengeAndSupplier1" parameterClass="Map" resultMap="InvoiceDetailO2Result2">
+      <![CDATA[
+      select
+      [CompanyId]
+      ,sum([InvoiceHeJi]) [InvoiceHeJi]
+      ,sum([InvoiceYHE]) [InvoiceYHE]
+      ,sum([InvoiceZSE]) [InvoiceZSE]
+      ,sum([InvoiceZRE]) [InvoiceZRE]
+      ,sum([InvoiceTax]) [InvoiceTax]
+      ,sum([InvoiceZongJi]) [InvoiceZongJi]
+      ,sum([InvoiceOwed]) [InvoiceOwed]
+      ,sum([InvoiceFpje]) [InvoiceFpje]
+      from
+      (
+      SELECT [InvoiceId]
+      ,[Employee0Id]
+      ,[CompanyId]
+      ,[InvoiceDate]
+      ,[InvoiceHeJi]
+      ,[InvoiceYHE]
+      ,[InvoiceZSE]
+      ,[InvoiceZRE]
+      ,[InvoiceTax]
+      ,[InvoiceZongJi]
+      ,[InvoicePayTimeLimit]
+      ,[InvoiceOwed]
+      ,[InvoiceFpje]
+      FROM [InvoiceCG]
+      union
+      SELECT [InvoiceId]
+      ,[Employee0Id]
+      ,[CompanyId]
+      ,[InvoiceDate]
+      ,-[InvoiceHeJi]
+      ,-[InvoiceYHE]
+      ,-[InvoiceZSE]
+      ,-[InvoiceZRE]
+      ,-[InvoiceTax]
+      ,-[InvoiceZongJi]
+      ,[InvoicePayTimeLimit]
+      ,-[InvoiceOwed]
+      ,-[InvoiceFpje]
+      FROM [InvoiceCT]
+      ) [table] where ([InvoiceDate] between #start# and #end#) and ([CompanyId] between #startId# and #endId#)
+      group by [CompanyId]
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

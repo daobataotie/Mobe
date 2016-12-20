@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AnnualHoliday" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+  <select id="existsAutoYear" resultClass="bool" parameterClass="string">
+    select case when  exists(select * from AnnualHoliday where years=#value#)  then 1 else 0 end 
+  </select>
+  </statements>
+  </sqlMap>

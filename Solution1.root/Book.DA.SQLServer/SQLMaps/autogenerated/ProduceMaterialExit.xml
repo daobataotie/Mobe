@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProduceMaterialExit" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ProduceMaterialExit" type="Book.Model.ProduceMaterialExit, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ProduceMaterialExitResult" class="ProduceMaterialExit">
+			<result property="ProduceMaterialExitId" column="ProduceMaterialExitId" />
+			<result property="Employee0Id" column="Employee0Id" />
+			<result property="Employee1Id" column="Employee1Id" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="ProduceExitMaterialDesc" column="ProduceExitMaterialDesc" />
+			<result property="ProduceExitMaterialDate" column="ProduceExitMaterialDate" />
+			<result property="WorkHouseId" column="WorkHouseId" />
+			<result property="DepotId" column="DepotId" />
+			<result property="PronoteHeaderID" column="PronoteHeaderID" />
+			<result property="CustomerInvoiceXOId" column="CustomerInvoiceXOId" />
+			<result property="SupplierId" column="SupplierId" />
+			<result property="AuditState" column="AuditState" />
+			<result property="AuditEmpId" column="AuditEmpId" />
+		<result property="Depot" column="DepotId" lazyLoad="false" select="Depot.select_by_primary_key" />		<result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />		<result property="WorkHouse" column="WorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProduceMaterialExit]
+				WHERE
+				[ProduceMaterialExitId] = #ProduceMaterialExitId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProduceMaterialExit]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="get_first" resultMap="ProduceMaterialExitResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProduceMaterialExit
+			 
+			order by InsertTime 
+			]]>
+		</select>
+		<select id="get_last" resultMap="ProduceMaterialExitResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProduceMaterialExit
+						
+            order by InsertTime desc
+			]]>
+            
+		</select>
+		<select id="get_prev" resultMap="ProduceMaterialExitResult" parameterClass="ProduceMaterialExit">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProduceMaterialExit
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="ProduceMaterialExitResult" parameterClass="ProduceMaterialExit">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProduceMaterialExit
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+		</select>
+		
+		<select id="has_rows_before" resultClass="bool" parameterClass="ProduceMaterialExit">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProduceMaterialExit
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="ProduceMaterialExit">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProduceMaterialExit
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ProduceMaterialExitResult" parameterClass="ProduceMaterialExit">
+			<![CDATA[SELECT
+				[ProduceMaterialExitId],
+				[Employee0Id],
+				[Employee1Id],
+				[InsertTime],
+				[UpdateTime],
+				[ProduceExitMaterialDesc],
+				[ProduceExitMaterialDate],
+				[WorkHouseId],
+				[DepotId],
+				[PronoteHeaderID],
+				[CustomerInvoiceXOId],
+				[SupplierId],
+				[AuditState],
+				[AuditEmpId]
+			FROM
+				[dbo].[ProduceMaterialExit]
+			WHERE
+				[ProduceMaterialExitId] = #ProduceMaterialExitId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[ProduceMaterialExit]
+			WHERE            
+				[ProduceMaterialExitId] = #ProduceMaterialExitId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ProduceMaterialExitResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[ProduceMaterialExit]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[ProduceMaterialExit]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ProduceMaterialExitResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProduceMaterialExit]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ProduceMaterialExit">
+			 <![CDATA[ INSERT INTO [dbo].[ProduceMaterialExit] 
+			(
+				[ProduceMaterialExitId],
+				[Employee0Id],
+				[Employee1Id],
+				[InsertTime],
+				[UpdateTime],
+				[ProduceExitMaterialDesc],
+				[ProduceExitMaterialDate],
+				[WorkHouseId],
+				[DepotId],
+				[PronoteHeaderID],
+				[CustomerInvoiceXOId],
+				[SupplierId],
+				[AuditState],
+				[AuditEmpId]
+			) 
+			VALUES 
+			(
+				#ProduceMaterialExitId#,
+				#Employee0Id#,
+				#Employee1Id#,
+				#InsertTime#,
+				#UpdateTime#,
+				#ProduceExitMaterialDesc#,
+				#ProduceExitMaterialDate#,
+				#WorkHouseId#,
+				#DepotId#,
+				#PronoteHeaderID#,
+				#CustomerInvoiceXOId#,
+				#SupplierId#,
+				#AuditState#,
+				#AuditEmpId#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ProduceMaterialExit">
+		 <![CDATA[ 	UPDATE [ProduceMaterialExit] SET
+				[Employee0Id] = #Employee0Id#,
+				[Employee1Id] = #Employee1Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[ProduceExitMaterialDesc] = #ProduceExitMaterialDesc#,
+				[ProduceExitMaterialDate] = #ProduceExitMaterialDate#,
+				[WorkHouseId] = #WorkHouseId#,
+				[DepotId] = #DepotId#,
+				[PronoteHeaderID] = #PronoteHeaderID#,
+				[CustomerInvoiceXOId] = #CustomerInvoiceXOId#,
+				[SupplierId] = #SupplierId#,
+				[AuditState] = #AuditState#,
+				[AuditEmpId] = #AuditEmpId#
+			WHERE
+				[ProduceMaterialExitId] = #ProduceMaterialExitId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProduceMaterialExit]
+				where  ProduceMaterialExitId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

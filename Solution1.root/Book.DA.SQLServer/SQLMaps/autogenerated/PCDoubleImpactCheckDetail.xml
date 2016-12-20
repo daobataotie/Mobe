@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCDoubleImpactCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCDoubleImpactCheckDetail" type="Book.Model.PCDoubleImpactCheckDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCDoubleImpactCheckDetailResult" class="PCDoubleImpactCheckDetail">
+      <result property="PCDoubleImpactCheckDetailID" column="PCDoubleImpactCheckDetailID" />
+      <result property="PCDoubleImpactCheckID" column="PCDoubleImpactCheckID" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="PCDoubleImpactCheckDetailDate" column="PCDoubleImpactCheckDetailDate" />
+      <result property="PCDoubleImpactCheckBanBie" column="PCDoubleImpactCheckBanBie" />
+      <result property="attrJiaoLianL" column="attrJiaoLianL" />
+      <result property="attrJiaoLianR" column="attrJiaoLianR" />
+      <result property="attrJPUpL" column="attrJPUpL" />
+      <result property="attrJPUpR" column="attrJPUpR" />
+      <result property="attrJPDownL" column="attrJPDownL" />
+      <result property="attrJPDownR" column="attrJPDownR" />
+      <result property="attrJPLeftL" column="attrJPLeftL" />
+      <result property="attrJPLeftR" column="attrJPLeftR" />
+      <result property="attrJPRightL" column="attrJPRightL" />
+      <result property="attrJPRightR" column="attrJPRightR" />
+      <result property="attrBiZhong" column="attrBiZhong" />
+      <result property="attrShangLiangL" column="attrShangLiangL" />
+      <result property="attrShangLiangR" column="attrShangLiangR" />
+      <result property="attrJPZYL" column="attrJPZYL" />
+      <result property="attrJPZYR" column="attrJPZYR" />
+      <result property="attrS_SZhongL" column="attrS_SZhongL" />
+      <result property="attrS_SZhongR" column="attrS_SZhongR" />
+      <result property="attrS_SShangL" column="attrS_SShangL" />
+      <result property="attrS_SShangR" column="attrS_SShangR" />
+      <result property="attrS_SXiaL" column="attrS_SXiaL" />
+      <result property="attrS_SXiaR" column="attrS_SXiaR" />
+      <result property="attrHotL" column="attrHotL" />
+      <result property="attrHotR" column="attrHotR" />
+      <result property="attrCoolL" column="attrCoolL" />
+      <result property="attrCoolR" column="attrCoolR" />
+      <result property="attrHeat60" column="attrHeat60"/>
+      <result property="attrHeat30m" column="attrHeat30m"/>
+      <result property="attrHM500gL" column="attrHM500gL" />
+      <result property="attrHM500gR" column="attrHM500gR" />
+      <result property="attrZhuiQiu68gL" column="attrZhuiQiu68gL" />
+      <result property="attrZhuiQiu68gR" column="attrZhuiQiu68gR" />
+      <result property="attrChuanTou44_2gL" column="attrChuanTou44_2gL" />
+      <result property="attrChuanTou44_2gR" column="attrChuanTou44_2gR" />
+      <result property="attr30Left" column="attr30Left"/>
+      <result property="attr30Right" column="attr30Right"/>
+      <result property="PCDoubleImpactCheck" column="PCDoubleImpactCheckID" lazyLoad="false" select="PCDoubleImpactCheck.select_by_primary_key" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[PCDoubleImpactCheckDetail]
+      WHERE
+      [PCDoubleImpactCheckDetailID] = #PCDoubleImpactCheckDetailID#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[PCDoubleImpactCheckDetail]
+
+      ) then 1 else 0 end
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCDoubleImpactCheckDetailResult" parameterClass="PCDoubleImpactCheckDetail">
+      SELECT
+      [PCDoubleImpactCheckDetailID],
+      [PCDoubleImpactCheckID],
+      [EmployeeId],
+      [PCDoubleImpactCheckDetailDate],
+      [PCDoubleImpactCheckBanBie],
+      [attrJiaoLianL],
+      [attrJiaoLianR],
+      [attrJPUpL],
+      [attrJPUpR],
+      [attrJPDownL],
+      [attrJPDownR],
+      [attrJPLeftL],
+      [attrJPLeftR],
+      [attrJPRightL],
+      [attrJPRightR],
+      [attrBiZhong],
+      [attrShangLiangL],
+      [attrShangLiangR],
+      [attrJPZYL],
+      [attrJPZYR],
+      [attrS_SZhongL],
+      [attrS_SZhongR],
+      [attrS_SShangL],
+      [attrS_SShangR],
+      [attrS_SXiaL],
+      [attrS_SXiaR],
+      [attrHotL],
+      [attrHotR],
+      [attrCoolL],
+      [attrCoolR],
+      [attrHeat60],
+      [attrHeat30m],
+      [attrHM500gL],
+      [attrHM500gR],
+      [attrZhuiQiu68gL],
+      [attrZhuiQiu68gR],
+      [attrChuanTou44_2gL],
+      [attrChuanTou44_2gR],
+      [attr30Left],
+      [attr30Right]
+      FROM
+      [dbo].[PCDoubleImpactCheckDetail]
+      WHERE
+      [PCDoubleImpactCheckDetailID] = #PCDoubleImpactCheckDetailID#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[PCDoubleImpactCheckDetail]
+      WHERE
+      [PCDoubleImpactCheckDetailID] = #PCDoubleImpactCheckDetailID#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCDoubleImpactCheckDetailResult" >
+      SELECT *
+      FROM
+      [dbo].[PCDoubleImpactCheckDetail]
+
+
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[PCDoubleImpactCheckDetail]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCDoubleImpactCheckDetailResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[PCDoubleImpactCheckDetail]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCDoubleImpactCheckDetail">
+      INSERT INTO [dbo].[PCDoubleImpactCheckDetail]
+      (
+      [PCDoubleImpactCheckDetailID],
+      [PCDoubleImpactCheckID],
+      [EmployeeId],
+      [PCDoubleImpactCheckDetailDate],
+      [PCDoubleImpactCheckBanBie],
+      [attrJiaoLianL],
+      [attrJiaoLianR],
+      [attrJPUpL],
+      [attrJPUpR],
+      [attrJPDownL],
+      [attrJPDownR],
+      [attrJPLeftL],
+      [attrJPLeftR],
+      [attrJPRightL],
+      [attrJPRightR],
+      [attrBiZhong],
+      [attrShangLiangL],
+      [attrShangLiangR],
+      [attrJPZYL],
+      [attrJPZYR],
+      [attrS_SZhongL],
+      [attrS_SZhongR],
+      [attrS_SShangL],
+      [attrS_SShangR],
+      [attrS_SXiaL],
+      [attrS_SXiaR],
+      [attrHotL],
+      [attrHotR],
+      [attrCoolL],
+      [attrCoolR],
+      [attrHeat60],
+      [attrHeat30m],
+      [attrHM500gL],
+      [attrHM500gR],
+      [attrZhuiQiu68gL],
+      [attrZhuiQiu68gR],
+      [attrChuanTou44_2gL],
+      [attrChuanTou44_2gR],
+      [attr30Left],
+      [attr30Right]
+      )
+      VALUES
+      (
+      #PCDoubleImpactCheckDetailID#,
+      #PCDoubleImpactCheckID#,
+      #EmployeeId#,
+      #PCDoubleImpactCheckDetailDate#,
+      #PCDoubleImpactCheckBanBie#,
+      #attrJiaoLianL#,
+      #attrJiaoLianR#,
+      #attrJPUpL#,
+      #attrJPUpR#,
+      #attrJPDownL#,
+      #attrJPDownR#,
+      #attrJPLeftL#,
+      #attrJPLeftR#,
+      #attrJPRightL#,
+      #attrJPRightR#,
+      #attrBiZhong#,
+      #attrShangLiangL#,
+      #attrShangLiangR#,
+      #attrJPZYL#,
+      #attrJPZYR#,
+      #attrS_SZhongL#,
+      #attrS_SZhongR#,
+      #attrS_SShangL#,
+      #attrS_SShangR#,
+      #attrS_SXiaL#,
+      #attrS_SXiaR#,
+      #attrHotL#,
+      #attrHotR#,
+      #attrCoolL#,
+      #attrCoolR#,
+      #attrHeat60#,
+      #attrHeat30m#,
+      #attrHM500gL#,
+      #attrHM500gR#,
+      #attrZhuiQiu68gL#,
+      #attrZhuiQiu68gR#,
+      #attrChuanTou44_2gL#,
+      #attrChuanTou44_2gR#,
+      #attr30Left#,
+      #attr30Right#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCDoubleImpactCheckDetail">
+      UPDATE [PCDoubleImpactCheckDetail] SET
+      [PCDoubleImpactCheckID] = #PCDoubleImpactCheckID#,
+      [EmployeeId] = #EmployeeId#,
+      [PCDoubleImpactCheckDetailDate] = #PCDoubleImpactCheckDetailDate#,
+      [PCDoubleImpactCheckBanBie] = #PCDoubleImpactCheckBanBie#,
+      [attrJiaoLianL] = #attrJiaoLianL#,
+      [attrJiaoLianR] = #attrJiaoLianR#,
+      [attrJPUpL] = #attrJPUpL#,
+      [attrJPUpR] = #attrJPUpR#,
+      [attrJPDownL] = #attrJPDownL#,
+      [attrJPDownR] = #attrJPDownR#,
+      [attrJPLeftL] = #attrJPLeftL#,
+      [attrJPLeftR] = #attrJPLeftR#,
+      [attrJPRightL] = #attrJPRightL#,
+      [attrJPRightR] = #attrJPRightR#,
+      [attrBiZhong] = #attrBiZhong#,
+      [attrShangLiangL] = #attrShangLiangL#,
+      [attrShangLiangR] = #attrShangLiangR#,
+      [attrJPZYL] = #attrJPZYL#,
+      [attrJPZYR] = #attrJPZYR#,
+      [attrS_SZhongL] = #attrS_SZhongL#,
+      [attrS_SZhongR] = #attrS_SZhongR#,
+      [attrS_SShangL] = #attrS_SShangL#,
+      [attrS_SShangR] = #attrS_SShangR#,
+      [attrS_SXiaL] = #attrS_SXiaL#,
+      [attrS_SXiaR] = #attrS_SXiaR#,
+      [attrHotL]=#attrHotL#,
+      [attrHotR]=#attrHotR#,
+      [attrCoolL]=#attrCoolL#,
+      [attrCoolR]=#attrCoolR#,
+      [attrHeat60]=#attrHeat60#,
+      [attrHeat30m]=#attrHeat30m#,
+      [attrHM500gL]=#attrHM500gL#,
+      [attrHM500gR]=#attrHM500gR#,
+      [attrZhuiQiu68gL]=#attrZhuiQiu68gL#,
+      [attrZhuiQiu68gR]=#attrZhuiQiu68gR#,
+      [attrChuanTou44_2gL]=#attrChuanTou44_2gL#,
+      [attrChuanTou44_2gR]=#attrChuanTou44_2gR#,
+      [attr30Left]=#attr30Left#,
+      [attr30Right]=#attr30Right#
+      WHERE
+      [PCDoubleImpactCheckDetailID] = #PCDoubleImpactCheckDetailID#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCDoubleImpactCheckDetail]
+				where  PCDoubleImpactCheckDetailID = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

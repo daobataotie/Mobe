@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PCPenetrateCheck" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByDateRange" resultMap="PCPenetrateCheckResult">
+      <![CDATA[
+      SELECT * FROM PCPenetrateCheck WHERE PCPenetrateCheck.PCPenetrateCheckDate BETWEEN #startdate# AND #enddate# $sql$ ORDER BY PCPenetrateCheckId DESC
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

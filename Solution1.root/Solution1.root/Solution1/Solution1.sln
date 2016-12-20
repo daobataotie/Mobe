@@ -1,0 +1,120 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.BL", "Book.BL\Book.BL.csproj", "{E5A2C929-E373-41D2-BE02-4E7C6CC29D35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.UI", "Book.UI\Book.UI.csproj", "{ECCEF5A5-BC9A-4CA4-9879-A8E1B170F7B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "Helper\Helper.csproj", "{3BD96C87-BBF6-4E0B-ACC8-F4EB08207E63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UT", "UT\UT.csproj", "{9BA129D4-6322-44A3-B8FF-985AC22D5614}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.Model", "Book.Model\Book.Model.csproj", "{F5D117A7-D096-4713-97D9-EC6AF3ED45A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.DA", "Book.DA\Book.DA.csproj", "{2BA6A46A-8A57-413A-BD90-C08EF22939D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book.DA.SQLServer", "Book.DA.SQLServer\Book.DA.SQLServer.csproj", "{3A5B5789-D63A-4E8C-A8AE-F057048AD9E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool.CSManager", "Tool.CSManager\Tool.CSManager.csproj", "{8D23FDFB-A3C1-48F2-8661-A4129486C4CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool.DBManager", "Tool.DBManager\Tool.DBManager.csproj", "{6562CF3A-9016-4AE7-AFE1-C5D1E3B30A9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Install", "Install\Install.csproj", "{D375A9D6-9411-44F3-834D-1444A6D2C254}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{202788F6-03AF-4463-B9B3-C8C414A60236}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 12
+		SccProjectUniqueName0 = Book.UI\\Book.UI.csproj
+		SccProjectName0 = \u0022$/易达erp110525/Solution1/Book.UI\u0022,\u0020FRDAAAAA
+		SccLocalPath0 = Book.UI
+		SccProjectUniqueName1 = Helper\\Helper.csproj
+		SccProjectName1 = \u0022$/易达erp110525/Solution1/Helper\u0022,\u0020NFIAAAAA
+		SccLocalPath1 = Helper
+		SccProjectUniqueName2 = UT\\UT.csproj
+		SccProjectName2 = \u0022$/易达erp110525/Solution1/UT\u0022,\u0020DJIAAAAA
+		SccLocalPath2 = UT
+		SccProjectUniqueName3 = Tool.CSManager\\Tool.CSManager.csproj
+		SccProjectName3 = \u0022$/易达erp110525/Solution1/Tool.CSManager\u0022,\u0020PGIAAAAA
+		SccLocalPath3 = Tool.CSManager
+		SccProjectUniqueName4 = Tool.DBManager\\Tool.DBManager.csproj
+		SccProjectName4 = \u0022$/易达erp110525/Solution1/Tool.DBManager\u0022,\u0020ZHIAAAAA
+		SccLocalPath4 = Tool.DBManager
+		SccProjectUniqueName5 = Install\\Install.csproj
+		SccProjectName5 = \u0022$/易达erp110525/Solution1/Install\u0022,\u0020IGIAAAAA
+		SccLocalPath5 = Install
+		SccProjectUniqueName6 = Common\\Common.csproj
+		SccProjectName6 = \u0022$/易达erp110525/Solution1/Common\u0022,\u0020BFIAAAAA
+		SccLocalPath6 = Common
+		SccLocalPath7 = .
+		SccProjectUniqueName8 = Book.BL\\Book.BL.csproj
+		SccLocalPath8 = .
+		SccProjectFilePathRelativizedFromConnection8 = Book.BL\\
+		SccProjectUniqueName9 = Book.DA.SQLServer\\Book.DA.SQLServer.csproj
+		SccLocalPath9 = .
+		SccProjectFilePathRelativizedFromConnection9 = Book.DA.SQLServer\\
+		SccProjectUniqueName10 = Book.DA\\Book.DA.csproj
+		SccLocalPath10 = .
+		SccProjectFilePathRelativizedFromConnection10 = Book.DA\\
+		SccProjectUniqueName11 = Book.Model\\Book.Model.csproj
+		SccLocalPath11 = .
+		SccProjectFilePathRelativizedFromConnection11 = Book.Model\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5A2C929-E373-41D2-BE02-4E7C6CC29D35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A2C929-E373-41D2-BE02-4E7C6CC29D35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A2C929-E373-41D2-BE02-4E7C6CC29D35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A2C929-E373-41D2-BE02-4E7C6CC29D35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECCEF5A5-BC9A-4CA4-9879-A8E1B170F7B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECCEF5A5-BC9A-4CA4-9879-A8E1B170F7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECCEF5A5-BC9A-4CA4-9879-A8E1B170F7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECCEF5A5-BC9A-4CA4-9879-A8E1B170F7B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD96C87-BBF6-4E0B-ACC8-F4EB08207E63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD96C87-BBF6-4E0B-ACC8-F4EB08207E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD96C87-BBF6-4E0B-ACC8-F4EB08207E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD96C87-BBF6-4E0B-ACC8-F4EB08207E63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA129D4-6322-44A3-B8FF-985AC22D5614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA129D4-6322-44A3-B8FF-985AC22D5614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA129D4-6322-44A3-B8FF-985AC22D5614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA129D4-6322-44A3-B8FF-985AC22D5614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D117A7-D096-4713-97D9-EC6AF3ED45A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D117A7-D096-4713-97D9-EC6AF3ED45A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D117A7-D096-4713-97D9-EC6AF3ED45A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D117A7-D096-4713-97D9-EC6AF3ED45A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BA6A46A-8A57-413A-BD90-C08EF22939D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BA6A46A-8A57-413A-BD90-C08EF22939D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BA6A46A-8A57-413A-BD90-C08EF22939D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BA6A46A-8A57-413A-BD90-C08EF22939D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A5B5789-D63A-4E8C-A8AE-F057048AD9E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A5B5789-D63A-4E8C-A8AE-F057048AD9E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A5B5789-D63A-4E8C-A8AE-F057048AD9E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A5B5789-D63A-4E8C-A8AE-F057048AD9E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D23FDFB-A3C1-48F2-8661-A4129486C4CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D23FDFB-A3C1-48F2-8661-A4129486C4CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D23FDFB-A3C1-48F2-8661-A4129486C4CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D23FDFB-A3C1-48F2-8661-A4129486C4CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6562CF3A-9016-4AE7-AFE1-C5D1E3B30A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6562CF3A-9016-4AE7-AFE1-C5D1E3B30A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6562CF3A-9016-4AE7-AFE1-C5D1E3B30A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6562CF3A-9016-4AE7-AFE1-C5D1E3B30A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D375A9D6-9411-44F3-834D-1444A6D2C254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D375A9D6-9411-44F3-834D-1444A6D2C254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D375A9D6-9411-44F3-834D-1444A6D2C254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D375A9D6-9411-44F3-834D-1444A6D2C254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{202788F6-03AF-4463-B9B3-C8C414A60236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202788F6-03AF-4463-B9B3-C8C414A60236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202788F6-03AF-4463-B9B3-C8C414A60236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202788F6-03AF-4463-B9B3-C8C414A60236}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(PowerDesigner) = preSolution
+		HasSWS = 1
+	EndGlobalSection
+EndGlobal

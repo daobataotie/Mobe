@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AnnualHoliday" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="existsAutoYear" resultClass="bool" parameterClass="string">
+      select case when  exists(select * from AnnualHoliday where years=#value#)  then 1 else 0 end
+    </select>
+
+    <select id="IsExistForHolidayDate" resultClass="bool" prameterClass="string">
+      <![CDATA[
+       SELECT CASE WHEN EXISTS
+        (SELECT * FROM AnnualHoliday 
+	        WHERE HolidayDate =#value# )
+	        THEN 1 ELSE 0 END
+      ]]>
+    </select>
+    <select id="SelectAnnualInfoByYear" resultMap="AnnualHolidayResult" prameterClass="string">
+      <![CDATA[
+       SELECT * FROM AnnualHoliday WHERE year(HolidayDate) = #value#
+      ]]>
+    </select>
+
+    <select id="SelectBigThanDate" resultMap="AnnualHolidayResult" parameterClass="DateTime">
+      <![CDATA[
+      SELECT * FROM AnnualHoliday WHERE HolidayDate > #value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Supplier" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Supplier" type="Book.Model.Supplier, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="SupplierResult" class="Supplier">
+      <result property="SupplierId" column="SupplierId" />
+      <result property="PayMethodId" column="PayMethodId" />
+      <result property="SupplierCategoryId" column="SupplierCategoryId" />
+      <result property="TradeCategoryId" column="TradeCategoryId" />
+      <result property="AreaCategoryId" column="AreaCategoryId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="Id" column="Id" />
+      <result property="SupplierFullName" column="SupplierFullName" />
+      <result property="SupplierShortName" column="SupplierShortName" />
+      <result property="SupplierManager" column="SupplierManager" />
+      <result property="SupplierNumber" column="SupplierNumber" />
+      <result property="SupplierPhone1" column="SupplierPhone1" />
+      <result property="SupplierPhone2" column="SupplierPhone2" />
+      <result property="SupplierMobile" column="SupplierMobile" />
+      <result property="SupplierFax" column="SupplierFax" />
+      <result property="PostCode" column="PostCode" />
+      <result property="NetAddress" column="NetAddress" />
+      <result property="Email" column="Email" />
+      <result property="CompanyAddress" column="CompanyAddress" />
+      <result property="FactoryAddress" column="FactoryAddress" />
+      <result property="PayAddress" column="PayAddress" />
+      <result property="LastTransactionDate" column="LastTransactionDate" />
+      <result property="LastTransactionMoney" column="LastTransactionMoney" />
+      <result property="LastPayDate" column="LastPayDate" />
+      <result property="LastPayMoney" column="LastPayMoney" />
+      <result property="PayableOwe" column="PayableOwe" />
+      <result property="PayDay" column="PayDay" />
+      <result property="AdvancePatment" column="AdvancePatment" />
+      <result property="AbcCategory" column="AbcCategory" />
+      <result property="Remark" column="Remark" />
+      <result property="EmployeeBusinessId" column="EmployeeBusinessId" />
+      <result property="EmployeeCreatorId" column="EmployeeCreatorId" />
+      <result property="EmployeeChangeId" column="EmployeeChangeId" />
+      <result property ="SupplierRemark" column="SupplierRemark"/>
+      <result property="SupplierContact" column="SupplierContact" />
+      
+      <result property="SupplierCategory" column="SupplierCategoryId" lazyLoad="false" select="SupplierCategory.select_by_primary_key" />
+      <result property="AreaCategory" column="AreaCategoryId" lazyLoad="false" select="AreaCategory.select_by_primary_key" />
+      <result property="TradeCategory" column="TradeCategoryId" lazyLoad="false" select="TradeCategory.select_by_primary_key" />
+      <result property="PayMethod" column="PayMethodId" lazyLoad="false" select="PayMethod.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[Supplier]
+      WHERE
+      [SupplierId] = #SupplierId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[Supplier]
+
+      ) then 1 else 0 end
+    </select>
+    <select id="get_first" resultMap="SupplierResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.Supplier 
+			order by InsertTime
+			]]>
+    </select>
+    <select id="get_last" resultMap="SupplierResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.Supplier 			
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_prev" resultMap="SupplierResult" parameterClass="Supplier">
+      <![CDATA[
+			select top 1 *
+			from dbo.Supplier
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="SupplierResult" parameterClass="Supplier">
+      <![CDATA[
+			select top 1 *
+			from dbo.Supplier
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+    </select>
+    <select id="has_rows_before" resultClass="bool" parameterClass="Supplier">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Supplier
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="Supplier">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Supplier
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="SupplierResult" parameterClass="Supplier">
+      SELECT
+      [SupplierId],
+      [PayMethodId],
+      [SupplierCategoryId],
+      [TradeCategoryId],
+      [AreaCategoryId],
+      [InsertTime],
+      [UpdateTime],
+      [Id],
+      [SupplierFullName],
+      [SupplierShortName],
+      [SupplierManager],
+      [SupplierNumber],
+      [SupplierPhone1],
+      [SupplierPhone2],
+      [SupplierMobile],
+      [SupplierFax],
+      [PostCode],
+      [NetAddress],
+      [Email],
+      [CompanyAddress],
+      [FactoryAddress],
+      [PayAddress],
+      [LastTransactionDate],
+      [LastTransactionMoney],
+      [LastPayDate],
+      [LastPayMoney],
+      [PayableOwe],
+      [PayDay],
+      [AdvancePatment],
+      [AbcCategory],
+      [Remark],
+      [EmployeeBusinessId],
+      [EmployeeCreatorId],
+      [EmployeeChangeId],
+      [SupplierRemark],
+      [SupplierContact]
+      FROM
+      [dbo].[Supplier]
+      WHERE
+      [SupplierId] = #SupplierId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[Supplier]
+      WHERE
+      [SupplierId] = #SupplierId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="SupplierResult" >
+      SELECT *
+      FROM
+      [dbo].[Supplier]
+      ORDER BY SupplierId ASC
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[Supplier]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="SupplierResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[Supplier]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="Supplier">
+      INSERT INTO [dbo].[Supplier]
+      (
+      [SupplierId],
+      [PayMethodId],
+      [SupplierCategoryId],
+      [TradeCategoryId],
+      [AreaCategoryId],
+      [InsertTime],
+      [UpdateTime],
+      [Id],
+      [SupplierFullName],
+      [SupplierShortName],
+      [SupplierManager],
+      [SupplierNumber],
+      [SupplierPhone1],
+      [SupplierPhone2],
+      [SupplierMobile],
+      [SupplierFax],
+      [PostCode],
+      [NetAddress],
+      [Email],
+      [CompanyAddress],
+      [FactoryAddress],
+      [PayAddress],
+      [LastTransactionDate],
+      [LastTransactionMoney],
+      [LastPayDate],
+      [LastPayMoney],
+      [PayableOwe],
+      [PayDay],
+      [AdvancePatment],
+      [AbcCategory],
+      [Remark],
+      [EmployeeBusinessId],
+      [EmployeeCreatorId],
+      [EmployeeChangeId],
+      [SupplierRemark],
+      [SupplierContact]
+      )
+      VALUES
+      (
+      #SupplierId#,
+      #PayMethodId#,
+      #SupplierCategoryId#,
+      #TradeCategoryId#,
+      #AreaCategoryId#,
+      #InsertTime#,
+      #UpdateTime#,
+      #Id#,
+      #SupplierFullName#,
+      #SupplierShortName#,
+      #SupplierManager#,
+      #SupplierNumber#,
+      #SupplierPhone1#,
+      #SupplierPhone2#,
+      #SupplierMobile#,
+      #SupplierFax#,
+      #PostCode#,
+      #NetAddress#,
+      #Email#,
+      #CompanyAddress#,
+      #FactoryAddress#,
+      #PayAddress#,
+      #LastTransactionDate#,
+      #LastTransactionMoney#,
+      #LastPayDate#,
+      #LastPayMoney#,
+      #PayableOwe#,
+      #PayDay#,
+      #AdvancePatment#,
+      #AbcCategory#,
+      #Remark#,
+      #EmployeeBusinessId#,
+      #EmployeeCreatorId#,
+      #EmployeeChangeId#,
+      #SupplierRemark#,
+      #SupplierContact#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="Supplier">
+      UPDATE [Supplier] SET
+      [PayMethodId] = #PayMethodId#,
+      [SupplierCategoryId] = #SupplierCategoryId#,
+      [TradeCategoryId] = #TradeCategoryId#,
+      [AreaCategoryId] = #AreaCategoryId#,
+      [InsertTime] = #InsertTime#,
+      [UpdateTime] = #UpdateTime#,
+      [Id] = #Id#,
+      [SupplierFullName] = #SupplierFullName#,
+      [SupplierShortName] = #SupplierShortName#,
+      [SupplierManager] = #SupplierManager#,
+      [SupplierNumber] = #SupplierNumber#,
+      [SupplierPhone1] = #SupplierPhone1#,
+      [SupplierPhone2] = #SupplierPhone2#,
+      [SupplierMobile] = #SupplierMobile#,
+      [SupplierFax] = #SupplierFax#,
+      [PostCode] = #PostCode#,
+      [NetAddress] = #NetAddress#,
+      [Email] = #Email#,
+      [CompanyAddress] = #CompanyAddress#,
+      [FactoryAddress] = #FactoryAddress#,
+      [PayAddress] = #PayAddress#,
+      [LastTransactionDate] = #LastTransactionDate#,
+      [LastTransactionMoney] = #LastTransactionMoney#,
+      [LastPayDate] = #LastPayDate#,
+      [LastPayMoney] = #LastPayMoney#,
+      [PayableOwe] = #PayableOwe#,
+      [PayDay] = #PayDay#,
+      [AdvancePatment] = #AdvancePatment#,
+      [AbcCategory] = #AbcCategory#,
+      [Remark] = #Remark#,
+      [EmployeeBusinessId] = #EmployeeBusinessId#,
+      [EmployeeCreatorId] = #EmployeeCreatorId#,
+      [EmployeeChangeId] = #EmployeeChangeId#,
+      [SupplierRemark]=#SupplierRemark#,
+      [SupplierContact]=#SupplierContact#
+      WHERE
+      [SupplierId] = #SupplierId#
+    </update>
+
+    <select id="exists" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Supplier
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="get_by_id" resultMap="SupplierResult" parameterClass="string">
+      <![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[Supplier]
+			WHERE
+				Id = #value#
+			]]>
+    </select>
+
+    <select id="existsexcept" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from dbo.Supplier
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

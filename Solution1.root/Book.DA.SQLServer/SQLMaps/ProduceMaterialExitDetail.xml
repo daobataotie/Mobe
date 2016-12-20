@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProduceMaterialExitDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byProduceExitMaterialId" resultMap="ProduceMaterialExitDetailResult" parameterClass="string">
+      select * from ProduceMaterialExitDetail where ProduceMaterialExitId=#value#
+    </select>
+    <select id="SelectByHouseDates" resultMap="ProduceMaterialExitDetailResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceMaterialExitDetail where ProduceMaterialExitId in
+      (select ProduceMaterialExitId from ProduceMaterialExit where (WorkHouseId=#houseid#
+      or #houseid# is null)
+      and  ProduceExitMaterialDate between #startDate# and #enddate#)
+      ]]>
+    </select>
+    <select id ="selectByCondition"  resultMap="ProduceMaterialExitDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ProduceMaterialExitDetail detail INNER JOIN ProduceMaterialExit pm ON pm.ProduceMaterialExitId = detail.ProduceMaterialExitId
+      WHERE ((pm.ProduceExitMaterialDate>=#starDate# OR #starDate# IS NULL) AND (pm.ProduceExitMaterialDate<=#endDate# OR #endDate# IS NULL))
+      AND ((pm.ProduceMaterialExitId>=#produceMaterialExitId0# OR #produceMaterialExitId0# IS NULL) AND (pm.ProduceMaterialExitId<=#produceMaterialExitId1# OR #produceMaterialExitId1# IS NULL))
+      AND detail.ProductId IN (SELECT ProductId FROM Product WHERE (productname>=#pId0# OR #pId0# IS NULL) AND (productname<=#pId1# OR #pId1# IS NULL))
+      AND detail.DepotPositionId IN(SELECT DepotPositionId FROM Department WHERE (Id>=#dId0# OR #dId0# IS NULL) AND (Id<=#dId1# OR #dId1# IS NULL))
+      AND ((pm.PronoteHeaderID>=#pronoteId0# OR #pronoteId0# IS NULL) AND (pm.PronoteHeaderID<=#pronoteId1# OR #pronoteId1# IS NULL))
+      ]]>
+    </select>
+	  <delete id="delete_byheader" parameterClass="string">
+		  delete from ProduceMaterialExitDetail WHERE ProduceMaterialExitId=#value#
+	  </delete>
+  </statements>
+</sqlMap>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Flextime" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Flextime" type="Book.Model.Flextime, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="FlextimeResult" class="Flextime">
+			<result property="FlextimeId" column="FlextimeId" />
+			<result property="BusinessHoursId" column="BusinessHoursId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="FlexDate" column="FlexDate" />
+		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Flextime]
+				WHERE
+				[FlextimeId] = #FlextimeId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Flextime]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="FlextimeResult" parameterClass="Flextime">
+			SELECT
+				[FlextimeId],
+				[BusinessHoursId],
+				[EmployeeId],
+				[FlexDate]
+			FROM
+				[dbo].[Flextime]
+			WHERE
+				[FlextimeId] = #FlextimeId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[Flextime]
+			WHERE
+				[FlextimeId] = #FlextimeId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="FlextimeResult" >
+			SELECT *
+			FROM 
+				[dbo].[Flextime]
+			ORDER BY FlextimeId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[Flextime]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="FlextimeResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Flextime]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Flextime">
+			INSERT INTO [dbo].[Flextime] 
+			(
+				[FlextimeId],
+				[BusinessHoursId],
+				[EmployeeId],
+				[FlexDate]
+			) 
+			VALUES 
+			(
+				#FlextimeId#,
+				#BusinessHoursId#,
+				#EmployeeId#,
+				#FlexDate#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Flextime">
+			UPDATE [Flextime] SET
+				[BusinessHoursId] = #BusinessHoursId#,
+				[EmployeeId] = #EmployeeId#,
+				[FlexDate] = #FlexDate#
+			WHERE
+				[FlextimeId] = #FlextimeId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

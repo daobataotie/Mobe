@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcItem" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <delete id="DeleteALL">
+      <![CDATA[
+      DELETE FROM AcItem
+      ]]>
+    </delete>
+    <select id ="SelectPriIdByName" parameterClass="string" resultClass="string">
+      <![CDATA[
+      SELECT AcItemId FROM AcItem WHERE ItemName=#value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

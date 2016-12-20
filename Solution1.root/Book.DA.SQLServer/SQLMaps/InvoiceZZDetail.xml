@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceZZDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<statements>
+		<!-- select by primary key -->
+		<select id="select_by_InvoiceId_InvoiceZZDetailKind" resultMap="InvoiceZZDetailResult" parameterClass="Map">
+			SELECT
+			*
+			FROM
+			[InvoiceZZDetail]
+			WHERE
+			[InvoiceId] = #InvoiceId#
+			AND
+			[InvoiceZZDetailKind]=#InvoiceZZDetailKind#
+		</select>
+		<select id="select_by_invoiceid" resultMap="InvoiceZZDetailResult" parameterClass="string">
+			SELECT
+			*
+			FROM
+			[InvoiceZZDetail]
+			WHERE
+			[InvoiceId] = #InvoiceId#
+		</select>
+    <delete id="delete_by_invoiceid" parameterClass="string">
+      delete
+      from InvoiceZZDetail
+      where invoiceid=#value#
+    </delete>
+	</statements>
+</sqlMap>

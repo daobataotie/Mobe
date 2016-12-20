@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="RoleAuditing" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="RoleAuditing" type="Book.Model.RoleAuditing, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="RoleAuditingResult" class="RoleAuditing">
+			<result property="RoleAuditingId" column="RoleAuditingId" />
+			<result property="Employee0Id" column="Employee0Id" />
+			<result property="Employee1Id" column="Employee1Id" />
+			<result property="Role0Id" column="Role0Id" />
+			<result property="Role1Id" column="Role1Id" />
+			<result property="InvoiceName" column="InvoiceName" />
+			<result property="InvoiceId" column="InvoiceId" />
+			<result property="AuditDate" column="AuditDate" />
+			<result property="AuditState" column="AuditState" />
+			<result property="AuditRank" column="AuditRank" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="NextAuditRoleId" column="NextAuditRoleId" />
+			<result property="TableName" column="TableName" />
+		<result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="Role0" column="Role0Id" lazyLoad="false" select="Role.select_by_primary_key" />		<result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="Role1" column="Role1Id" lazyLoad="false" select="Role.select_by_primary_key" />		<result property="NextAuditRole" column="NextAuditRoleId" lazyLoad="false" select="Role.select_by_primary_key" />        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[RoleAuditing]
+				WHERE
+				[RoleAuditingId] = #RoleAuditingId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[RoleAuditing]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="get_first" resultMap="RoleAuditingResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.RoleAuditing
+			 
+			order by InsertTime 
+			]]>
+		</select>
+		<select id="get_last" resultMap="RoleAuditingResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.RoleAuditing
+						
+            order by InsertTime desc
+			]]>
+            
+		</select>
+		<select id="get_prev" resultMap="RoleAuditingResult" parameterClass="RoleAuditing">
+			<![CDATA[
+			select top 1 *
+			from dbo.RoleAuditing
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="RoleAuditingResult" parameterClass="RoleAuditing">
+			<![CDATA[
+			select top 1 *
+			from dbo.RoleAuditing
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+		</select>
+		
+		<select id="has_rows_before" resultClass="bool" parameterClass="RoleAuditing">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.RoleAuditing
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="RoleAuditing">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.RoleAuditing
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="RoleAuditingResult" parameterClass="RoleAuditing">
+			<![CDATA[SELECT
+				[RoleAuditingId],
+				[Employee0Id],
+				[Employee1Id],
+				[Role0Id],
+				[Role1Id],
+				[InvoiceName],
+				[InvoiceId],
+				[AuditDate],
+				[AuditState],
+				[AuditRank],
+				[InsertTime],
+				[UpdateTime],
+				[NextAuditRoleId],
+				[TableName]
+			FROM
+				[dbo].[RoleAuditing]
+			WHERE
+				[RoleAuditingId] = #RoleAuditingId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[RoleAuditing]
+			WHERE            
+				[RoleAuditingId] = #RoleAuditingId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="RoleAuditingResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[RoleAuditing]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[RoleAuditing]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="RoleAuditingResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[RoleAuditing]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="RoleAuditing">
+			 <![CDATA[ INSERT INTO [dbo].[RoleAuditing] 
+			(
+				[RoleAuditingId],
+				[Employee0Id],
+				[Employee1Id],
+				[Role0Id],
+				[Role1Id],
+				[InvoiceName],
+				[InvoiceId],
+				[AuditDate],
+				[AuditState],
+				[AuditRank],
+				[InsertTime],
+				[UpdateTime],
+				[NextAuditRoleId],
+				[TableName]
+			) 
+			VALUES 
+			(
+				#RoleAuditingId#,
+				#Employee0Id#,
+				#Employee1Id#,
+				#Role0Id#,
+				#Role1Id#,
+				#InvoiceName#,
+				#InvoiceId#,
+				#AuditDate#,
+				#AuditState#,
+				#AuditRank#,
+				#InsertTime#,
+				#UpdateTime#,
+				#NextAuditRoleId#,
+				#TableName#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="RoleAuditing">
+		 <![CDATA[ 	UPDATE [RoleAuditing] SET
+				[Employee0Id] = #Employee0Id#,
+				[Employee1Id] = #Employee1Id#,
+				[Role0Id] = #Role0Id#,
+				[Role1Id] = #Role1Id#,
+				[InvoiceName] = #InvoiceName#,
+				[InvoiceId] = #InvoiceId#,
+				[AuditDate] = #AuditDate#,
+				[AuditState] = #AuditState#,
+				[AuditRank] = #AuditRank#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[NextAuditRoleId] = #NextAuditRoleId#,
+				[TableName] = #TableName#
+			WHERE
+				[RoleAuditingId] = #RoleAuditingId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[RoleAuditing]
+				where  RoleAuditingId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

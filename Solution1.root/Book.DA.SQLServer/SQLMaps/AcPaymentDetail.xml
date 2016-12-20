@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcPaymentDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectByAcPayment" resultMap="AcPaymentDetailResult" parameterClass="string" >
+      select * from AcPaymentDetail where AcPaymentId=#value#
+    </select>
+    <delete id="DeleteByAcPaymentId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM AcPaymentDetail WHERE AcPaymentDetail.AcPaymentId = #value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

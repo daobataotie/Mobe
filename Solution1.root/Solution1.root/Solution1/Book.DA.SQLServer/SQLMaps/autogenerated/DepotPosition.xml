@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="DepotPosition" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="DepotPosition" type="Book.Model.DepotPosition, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="DepotPositionResult" class="DepotPosition">
+			<result property="DepotPositionId" column="DepotPositionId" />
+			<result property="DepotId" column="DepotId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+			<result property="DepotPositionBarCode" column="DepotPositionBarCode" />
+			<result property="DepotPositionDescription" column="DepotPositionDescription" />
+			<result property="DepotPositionName" column="DepotPositionName" />
+			<result property="Depot" column="DepotId" lazyLoad="false" select="Depot.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[DepotPosition]
+				WHERE
+				[DepotPositionId] = #DepotPositionId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[DepotPosition]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="DepotPositionResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.DepotPosition 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="DepotPositionResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.DepotPosition 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="DepotPositionResult" parameterClass="DepotPosition">
+			<![CDATA[
+			select top 1 *
+			from dbo.DepotPosition
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="DepotPositionResult" parameterClass="DepotPosition">
+			<![CDATA[
+			select top 1 *
+			from dbo.DepotPosition
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="DepotPosition">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.DepotPosition
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="DepotPosition">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.DepotPosition
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="DepotPositionResult" parameterClass="DepotPosition">
+			SELECT
+				[DepotPositionId],
+				[DepotId],
+				[InsertTime],
+				[UpdateTime],
+				[Id],
+				[DepotPositionBarCode],
+				[DepotPositionDescription],
+				[DepotPositionName]
+			FROM
+				[dbo].[DepotPosition]
+			WHERE
+				[DepotPositionId] = #DepotPositionId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[DepotPosition]
+			WHERE
+				[DepotPositionId] = #DepotPositionId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="DepotPositionResult" >
+			SELECT *
+			FROM 
+				[dbo].[DepotPosition]
+			ORDER BY DepotPositionId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[DepotPosition]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="DepotPositionResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[DepotPosition]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="DepotPosition">
+			INSERT INTO [dbo].[DepotPosition] 
+			(
+				[DepotPositionId],
+				[DepotId],
+				[InsertTime],
+				[UpdateTime],
+				[Id],
+				[DepotPositionBarCode],
+				[DepotPositionDescription],
+				[DepotPositionName]
+			) 
+			VALUES 
+			(
+				#DepotPositionId#,
+				#DepotId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#,
+				#DepotPositionBarCode#,
+				#DepotPositionDescription#,
+				#DepotPositionName#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="DepotPosition">
+			UPDATE [DepotPosition] SET
+				[DepotId] = #DepotId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#,
+				[DepotPositionBarCode] = #DepotPositionBarCode#,
+				[DepotPositionDescription] = #DepotPositionDescription#,
+				[DepotPositionName] = #DepotPositionName#
+			WHERE
+				[DepotPositionId] = #DepotPositionId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.DepotPosition
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="DepotPositionResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[DepotPosition]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.DepotPosition
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

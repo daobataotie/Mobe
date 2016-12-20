@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCInputCheck" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCInputCheck" type="Book.Model.PCInputCheck, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCInputCheckResult" class="PCInputCheck">
+      <result property="PCInputCheckId" column="PCInputCheckId" />
+      <result property="PCInputCheckDate" column="PCInputCheckDate" />
+      <result property="SupplierId" column="SupplierId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceCOId" column="InvoiceCOId" />
+      <result property="InvoiceCGId" column="InvoiceCGId" />
+      <result property="Quantity" column="Quantity" />
+      <result property="ProductUnit" column="ProductUnit" />
+      <result property="ChouliaoDate" column="ChouliaoDate" />
+      <result property="TestDate" column="TestDate" />
+      <result property="LotNumber" column="LotNumber" />
+      <result property="TestProductId" column="TestProductId" />
+      <result property="TestEmployeeId" column="TestEmployeeId" />
+      <result property="Heidian" column="Heidian" />
+      <result property="Guohuo" column="Guohuo" />
+      <result property="Liaodian" column="Liaodian" />
+      <result property="Wasiqi" column="Wasiqi" />
+      <result property="Zazhi" column="Zazhi" />
+      <result property="Qipao" column="Qipao" />
+      <result property="Guangxue" column="Guangxue"/>
+      <result property="Duise" column="Duise" />
+      <result property="Chongji" column="Chongji" />
+      <result property="Nairanceshi" column="Nairanceshi" />
+      <result property="UVvalue" column="UVvalue" />
+      <result property="ANSICSAToushilv" column="ANSICSAToushilv" />
+      <result property="ENToushilv" column="ENToushilv" />
+      <result property="ASToushilv" column="ASToushilv" />
+      <result property="JISToushilv" column="JISToushilv" />
+      <result property="CheckEmployeeId" column="CheckEmployeeId" />
+      <result property="ConfirmorId" column="ConfirmorId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="DuiseEmployeeId" column="DuiseEmployeeId" />
+      <result property="ChongjiEmployeeId" column="ChongjiEmployeeId" />
+      <result property="NairanEmployeeId" column="NairanEmployeeId" />
+      <result property="UVEmployeeId" column="UVEmployeeId" />
+      <result property="ToushiEmployeeId" column="ToushiEmployeeId" />
+      <result property ="AuditState" column="AuditState"/>
+      <result property ="AuditEmpId" column="AuditEmpId"/>
+      <result property ="Wudu" column="Wudu"/>
+      <result property="InvoiceXOCusId" column="InvoiceXOCusId"/>
+      <result property ="IsClosed" column="IsClosed"/>
+      <result property="CheckEmployee" column="CheckEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="ChongjiEmployee" column="ChongjiEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Confirmor" column="ConfirmorId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="DuiseEmployee" column="DuiseEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="NairanEmployee" column="NairanEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />
+      <result property="TestEmployee" column="TestEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="ToushiEmployee" column="ToushiEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="UVEmployee" column="UVEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCInputCheck]
+				WHERE
+				[PCInputCheckId] = #PCInputCheckId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCInputCheck]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="PCInputCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCInputCheck
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="PCInputCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCInputCheck
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="PCInputCheckResult" parameterClass="PCInputCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCInputCheck
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="PCInputCheckResult" parameterClass="PCInputCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCInputCheck
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="PCInputCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCInputCheck
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="PCInputCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCInputCheck
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCInputCheckResult" parameterClass="PCInputCheck">
+      <![CDATA[SELECT
+				[PCInputCheckId],
+				[PCInputCheckDate],
+				[SupplierId],
+				[ProductId],
+				[InvoiceCOId],
+				[InvoiceCGId],
+				[Quantity],
+				[ProductUnit],
+				[ChouliaoDate],
+				[TestDate],
+				[LotNumber],
+				[TestProductId],
+				[TestEmployeeId],
+				[Heidian],
+				[Guohuo],
+				[Liaodian],
+				[Wasiqi],
+				[Zazhi],
+				[Qipao],
+        [Guangxue],
+				[Duise],
+				[Chongji],
+				[Nairanceshi],
+				[UVvalue],
+				[ANSICSAToushilv],
+				[ENToushilv],
+				[ASToushilv],
+				[JISToushilv],
+				[CheckEmployeeId],
+				[ConfirmorId],
+				[InsertTime],
+				[UpdateTime],
+				[DuiseEmployeeId],
+				[ChongjiEmployeeId],
+				[NairanEmployeeId],
+				[UVEmployeeId],
+				[ToushiEmployeeId],
+        [AuditState],
+        [AuditEmpId],
+        [Wudu],
+        [InvoiceXOCusId],
+        [IsClosed]
+        
+			FROM
+				[dbo].[PCInputCheck]
+			WHERE
+				[PCInputCheckId] = #PCInputCheckId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCInputCheck]
+			WHERE            
+				[PCInputCheckId] = #PCInputCheckId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCInputCheckResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCInputCheck]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCInputCheck]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCInputCheckResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCInputCheck]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCInputCheck">
+      <![CDATA[ INSERT INTO [dbo].[PCInputCheck] 
+			(
+				[PCInputCheckId],
+				[PCInputCheckDate],
+				[SupplierId],
+				[ProductId],
+				[InvoiceCOId],
+				[InvoiceCGId],
+				[Quantity],
+				[ProductUnit],
+				[ChouliaoDate],
+				[TestDate],
+				[LotNumber],
+				[TestProductId],
+				[TestEmployeeId],
+				[Heidian],
+				[Guohuo],
+				[Liaodian],
+				[Wasiqi],
+				[Zazhi],
+				[Qipao],
+        [Guangxue],
+				[Duise],
+				[Chongji],
+				[Nairanceshi],
+				[UVvalue],
+				[ANSICSAToushilv],
+				[ENToushilv],
+				[ASToushilv],
+				[JISToushilv],
+				[CheckEmployeeId],
+				[ConfirmorId],
+				[InsertTime],
+				[UpdateTime],
+				[DuiseEmployeeId],
+				[ChongjiEmployeeId],
+				[NairanEmployeeId],
+				[UVEmployeeId],
+				[ToushiEmployeeId],
+        [AuditState],
+        [AuditEmpId],
+        [Wudu],
+        [InvoiceXOCusId],
+        [IsClosed]
+			) 
+			VALUES 
+			(
+				#PCInputCheckId#,
+				#PCInputCheckDate#,
+				#SupplierId#,
+				#ProductId#,
+				#InvoiceCOId#,
+				#InvoiceCGId#,
+				#Quantity#,
+				#ProductUnit#,
+				#ChouliaoDate#,
+				#TestDate#,
+				#LotNumber#,
+				#TestProductId#,
+				#TestEmployeeId#,
+				#Heidian#,
+				#Guohuo#,
+				#Liaodian#,
+				#Wasiqi#,
+				#Zazhi#,
+				#Qipao#,
+        #Guangxue#,
+				#Duise#,
+				#Chongji#,
+				#Nairanceshi#,
+				#UVvalue#,
+				#ANSICSAToushilv#,
+				#ENToushilv#,
+				#ASToushilv#,
+				#JISToushilv#,
+				#CheckEmployeeId#,
+				#ConfirmorId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#DuiseEmployeeId#,
+				#ChongjiEmployeeId#,
+				#NairanEmployeeId#,
+				#UVEmployeeId#,
+				#ToushiEmployeeId#,
+        #AuditState#,
+        #AuditEmpId#,
+        #Wudu#,
+        #InvoiceXOCusId#,
+        #IsClosed#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCInputCheck">
+      <![CDATA[ 	UPDATE [PCInputCheck] SET
+				[PCInputCheckDate] = #PCInputCheckDate#,
+				[SupplierId] = #SupplierId#,
+				[ProductId] = #ProductId#,
+				[InvoiceCOId] = #InvoiceCOId#,
+				[InvoiceCGId] = #InvoiceCGId#,
+				[Quantity] = #Quantity#,
+				[ProductUnit] = #ProductUnit#,
+				[ChouliaoDate] = #ChouliaoDate#,
+				[TestDate] = #TestDate#,
+				[LotNumber] = #LotNumber#,
+				[TestProductId] = #TestProductId#,
+				[TestEmployeeId] = #TestEmployeeId#,
+				[Heidian] = #Heidian#,
+				[Guohuo] = #Guohuo#,
+				[Liaodian] = #Liaodian#,
+				[Wasiqi] = #Wasiqi#,
+				[Zazhi] = #Zazhi#,
+				[Qipao] = #Qipao#,
+        [Guangxue] = #Guangxue#,
+				[Duise] = #Duise#,
+				[Chongji] = #Chongji#,
+				[Nairanceshi] = #Nairanceshi#,
+				[UVvalue] = #UVvalue#,
+				[ANSICSAToushilv] = #ANSICSAToushilv#,
+				[ENToushilv] = #ENToushilv#,
+				[ASToushilv] = #ASToushilv#,
+				[JISToushilv] = #JISToushilv#,
+				[CheckEmployeeId] = #CheckEmployeeId#,
+				[ConfirmorId] = #ConfirmorId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[DuiseEmployeeId] = #DuiseEmployeeId#,
+				[ChongjiEmployeeId] = #ChongjiEmployeeId#,
+				[NairanEmployeeId] = #NairanEmployeeId#,
+				[UVEmployeeId] = #UVEmployeeId#,
+				[ToushiEmployeeId] = #ToushiEmployeeId#,
+        [AuditState]=#AuditState#,
+        [AuditEmpId]=#AuditEmpId#,
+        [Wudu]=#Wudu#,
+        [InvoiceXOCusId]=#InvoiceXOCusId#,
+        [IsClosed]=#IsClosed#
+			WHERE
+				[PCInputCheckId] = #PCInputCheckId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCInputCheck]
+				where  PCInputCheckId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>

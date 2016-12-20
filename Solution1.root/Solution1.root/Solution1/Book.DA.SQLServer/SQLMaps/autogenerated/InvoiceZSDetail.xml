@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceZSDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="InvoiceZSDetail" type="Book.Model.InvoiceZSDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="InvoiceZSDetailResult" class="InvoiceZSDetail">
+			<result property="InvoiceZSDetailId" column="InvoiceZSDetailId" />
+			<result property="DepotPositionId" column="DepotPositionId" />
+			<result property="PrimaryKeyId" column="PrimaryKeyId" />
+			<result property="InvoiceId" column="InvoiceId" />
+			<result property="InvoiceZSDetailPrice" column="InvoiceZSDetailPrice" />
+			<result property="InvoiceZSDetailQuantity" column="InvoiceZSDetailQuantity" />
+			<result property="InvoiceZSDetailMoney" column="InvoiceZSDetailMoney" />
+			<result property="InvoiceZSDetailNote" column="InvoiceZSDetailNote" />
+			<result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+			<result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceZS.select_by_primary_key" />
+			<result property="PrimaryKey" column="PrimaryKeyId" lazyLoad="false" select="CustomerProducts.select_by_primary_key" />
+			<result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceZSDetail]
+				WHERE
+				[InvoiceZSDetailId] = #InvoiceZSDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceZSDetail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="InvoiceZSDetailResult" parameterClass="InvoiceZSDetail">
+			SELECT
+				[InvoiceZSDetailId],
+				[DepotPositionId],
+				[PrimaryKeyId],
+				[InvoiceId],
+				[InvoiceZSDetailPrice],
+				[InvoiceZSDetailQuantity],
+				[InvoiceZSDetailMoney],
+				[InvoiceZSDetailNote],
+				[InvoiceProductUnit]
+			FROM
+				[dbo].[InvoiceZSDetail]
+			WHERE
+				[InvoiceZSDetailId] = #InvoiceZSDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[InvoiceZSDetail]
+			WHERE
+				[InvoiceZSDetailId] = #InvoiceZSDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="InvoiceZSDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[InvoiceZSDetail]
+			ORDER BY InvoiceZSDetailId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[InvoiceZSDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="InvoiceZSDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoiceZSDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="InvoiceZSDetail">
+			INSERT INTO [dbo].[InvoiceZSDetail] 
+			(
+				[InvoiceZSDetailId],
+				[DepotPositionId],
+				[PrimaryKeyId],
+				[InvoiceId],
+				[InvoiceZSDetailPrice],
+				[InvoiceZSDetailQuantity],
+				[InvoiceZSDetailMoney],
+				[InvoiceZSDetailNote],
+				[InvoiceProductUnit]
+			) 
+			VALUES 
+			(
+				#InvoiceZSDetailId#,
+				#DepotPositionId#,
+				#PrimaryKeyId#,
+				#InvoiceId#,
+				#InvoiceZSDetailPrice#,
+				#InvoiceZSDetailQuantity#,
+				#InvoiceZSDetailMoney#,
+				#InvoiceZSDetailNote#,
+				#InvoiceProductUnit#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="InvoiceZSDetail">
+			UPDATE [InvoiceZSDetail] SET
+				[DepotPositionId] = #DepotPositionId#,
+				[PrimaryKeyId] = #PrimaryKeyId#,
+				[InvoiceId] = #InvoiceId#,
+				[InvoiceZSDetailPrice] = #InvoiceZSDetailPrice#,
+				[InvoiceZSDetailQuantity] = #InvoiceZSDetailQuantity#,
+				[InvoiceZSDetailMoney] = #InvoiceZSDetailMoney#,
+				[InvoiceZSDetailNote] = #InvoiceZSDetailNote#,
+				[InvoiceProductUnit] = #InvoiceProductUnit#
+			WHERE
+				[InvoiceZSDetailId] = #InvoiceZSDetailId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

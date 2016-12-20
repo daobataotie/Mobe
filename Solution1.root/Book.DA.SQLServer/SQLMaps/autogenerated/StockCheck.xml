@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="StockCheck" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="StockCheck" type="Book.Model.StockCheck, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="StockCheckResult" class="StockCheck">
+      <result property="StockCheckId" column="StockCheckId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="DepotId" column="DepotId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="StockCheckDate" column="StockCheckDate" />
+      <result property="Directions" column="Directions" />
+      <result property="ProductCategoryId" column="ProductCategoryId" />
+      <result property="StockEditorId" column="StockEditorId" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Depot" column="DepotId" lazyLoad="false" select="Depot.select_by_primary_key" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[StockCheck]
+      WHERE
+      [StockCheckId] = #StockCheckId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[StockCheck]
+
+      ) then 1 else 0 end
+    </select>
+    <select id="get_first" resultMap="StockCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.StockCheck 
+			order by InsertTime
+			]]>
+    </select>
+    <select id="get_last" resultMap="StockCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.StockCheck 			
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_prev" resultMap="StockCheckResult" parameterClass="StockCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.StockCheck
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="StockCheckResult" parameterClass="StockCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.StockCheck
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+    </select>
+    <select id="has_rows_before" resultClass="bool" parameterClass="StockCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.StockCheck
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="StockCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.StockCheck
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="StockCheckResult" parameterClass="StockCheck">
+      SELECT
+      [StockCheckId],
+      [EmployeeId],
+      [Employee0Id],
+      [DepotId],
+      [InsertTime],
+      [UpdateTime],
+      [StockCheckDate],
+      [Directions],
+      [ProductCategoryId],
+      [StockEditorId],
+      [AuditState],
+      [AuditEmpId]
+
+      FROM
+      [dbo].[StockCheck]
+      WHERE
+      [StockCheckId] = #StockCheckId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[StockCheck]
+      WHERE
+      [StockCheckId] = #StockCheckId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="StockCheckResult" >
+      SELECT *
+      FROM
+      [dbo].[StockCheck]
+
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[StockCheck]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="StockCheckResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[StockCheck]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="StockCheck">
+      INSERT INTO [dbo].[StockCheck]
+      (
+      [StockCheckId],
+      [EmployeeId],
+      [Employee0Id],
+      [DepotId],
+      [InsertTime],
+      [UpdateTime],
+      [StockCheckDate],
+      [Directions],
+      [ProductCategoryId],
+      [StockEditorId],
+      [AuditState],
+      [AuditEmpId]
+      )
+      VALUES
+      (
+      #StockCheckId#,
+      #EmployeeId#,
+      #Employee0Id#,
+      #DepotId#,
+      #InsertTime#,
+      #UpdateTime#,
+      #StockCheckDate#,
+      #Directions#,
+      #ProductCategoryId#,
+      #StockEditorId#,
+      #AuditState#,
+      #AuditEmpId#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="StockCheck">
+      UPDATE [StockCheck] SET
+      [EmployeeId] = #EmployeeId#,
+      [Employee0Id] = #Employee0Id#,
+      [DepotId] = #DepotId#,
+      [InsertTime] = #InsertTime#,
+      [UpdateTime] = #UpdateTime#,
+      [StockCheckDate] = #StockCheckDate#,
+      [Directions] = #Directions#,
+      [ProductCategoryId] = #ProductCategoryId#,
+      [StockEditorId] = #StockEditorId#,
+      [AuditState]=#AuditState#,
+      [AuditEmpId]=#AuditEmpId#
+      WHERE
+      [StockCheckId] = #StockCheckId#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[StockCheck]
+				where  StockCheckId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

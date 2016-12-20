@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="LoanDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="LoanDetail" type="Book.Model.LoanDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="LoanDetailResult" class="LoanDetail">
+			<result property="LoanId" column="LoanId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="IsCash" column="IsCash" />
+			<result property="LoanFee" column="LoanFee" />
+			<result property="IdentifyDate" column="IdentifyDate" />
+		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[LoanDetail]
+				WHERE
+				[LoanId] = #LoanId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[LoanDetail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="LoanDetailResult" parameterClass="LoanDetail">
+			SELECT
+				[LoanId],
+				[EmployeeId],
+				[IsCash],
+				[LoanFee],
+				[IdentifyDate]
+			FROM
+				[dbo].[LoanDetail]
+			WHERE
+				[LoanId] = #LoanId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[LoanDetail]
+			WHERE
+				[LoanId] = #LoanId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="LoanDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[LoanDetail]
+			ORDER BY LoanId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[LoanDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="LoanDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[LoanDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="LoanDetail">
+			INSERT INTO [dbo].[LoanDetail] 
+			(
+				[LoanId],
+				[EmployeeId],
+				[IsCash],
+				[LoanFee],
+				[IdentifyDate]
+			) 
+			VALUES 
+			(
+				#LoanId#,
+				#EmployeeId#,
+				#IsCash#,
+				#LoanFee#,
+				#IdentifyDate#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="LoanDetail">
+			UPDATE [LoanDetail] SET
+				[EmployeeId] = #EmployeeId#,
+				[IsCash] = #IsCash#,
+				[LoanFee] = #LoanFee#,
+				[IdentifyDate] = #IdentifyDate#
+			WHERE
+				[LoanId] = #LoanId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

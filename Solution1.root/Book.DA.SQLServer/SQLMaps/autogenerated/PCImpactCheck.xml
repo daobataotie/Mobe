@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCImpactCheck" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCImpactCheck" type="Book.Model.PCImpactCheck, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCImpactCheckResult" class="PCImpactCheck">
+      <result property="PCImpactCheckId" column="PCImpactCheckId" />
+      <result property="WorkHouseId" column="WorkHouseId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="PCImpactCheckDate" column="PCImpactCheckDate" />
+      <result property="PCImpactCheckQuantity" column="PCImpactCheckQuantity" />
+      <result property="InvoiceCusXOId" column="InvoiceCusXOId" />
+      <result property="PronoteHeaderId" column="PronoteHeaderId" />
+      <result property="PCImpactCheckDesc" column="PCImpactCheckDesc" />
+      <result property="PCFromType" column="PCFromType" />
+      <result property="mCheckStandard" column="mCheckStandard" />
+      <result property="InvoiceXOQuantity" column="InvoiceXOQuantity" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="ProductUnitId" column="ProductUnitId" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="WorkHouse" column="WorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="ProductUnit" column="ProductUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCImpactCheck]
+				WHERE
+				[PCImpactCheckId] = #PCImpactCheckId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCImpactCheck]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="PCImpactCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCImpactCheck
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="PCImpactCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCImpactCheck
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="PCImpactCheckResult" parameterClass="PCImpactCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCImpactCheck
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="PCImpactCheckResult" parameterClass="PCImpactCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCImpactCheck
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="PCImpactCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCImpactCheck
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="PCImpactCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCImpactCheck
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCImpactCheckResult" parameterClass="PCImpactCheck">
+      <![CDATA[SELECT
+				[PCImpactCheckId],
+				[WorkHouseId],
+				[EmployeeId],
+				[ProductId],
+				[InsertTime],
+				[UpdateTime],
+				[PCImpactCheckDate],
+				[PCImpactCheckQuantity],
+				[InvoiceCusXOId],
+				[PronoteHeaderId],
+				[PCImpactCheckDesc],
+				[PCFromType],
+				[mCheckStandard],
+				[InvoiceXOQuantity],
+        [AuditState],
+        [AuditEmpId],
+        [ProductUnitId]
+			FROM
+				[dbo].[PCImpactCheck]
+			WHERE
+				[PCImpactCheckId] = #PCImpactCheckId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCImpactCheck]
+			WHERE            
+				[PCImpactCheckId] = #PCImpactCheckId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCImpactCheckResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCImpactCheck]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCImpactCheck]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCImpactCheckResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCImpactCheck]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCImpactCheck">
+      <![CDATA[ INSERT INTO [dbo].[PCImpactCheck] 
+			(
+				[PCImpactCheckId],
+				[WorkHouseId],
+				[EmployeeId],
+				[ProductId],
+				[InsertTime],
+				[UpdateTime],
+				[PCImpactCheckDate],
+				[PCImpactCheckQuantity],
+				[InvoiceCusXOId],
+				[PronoteHeaderId],
+				[PCImpactCheckDesc],
+				[PCFromType],
+				[mCheckStandard],
+				[InvoiceXOQuantity],
+        [AuditState],
+        [AuditEmpId],
+        [ProductUnitId]
+			) 
+			VALUES 
+			(
+				#PCImpactCheckId#,
+				#WorkHouseId#,
+				#EmployeeId#,
+				#ProductId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#PCImpactCheckDate#,
+				#PCImpactCheckQuantity#,
+				#InvoiceCusXOId#,
+				#PronoteHeaderId#,
+				#PCImpactCheckDesc#,
+				#PCFromType#,
+				#mCheckStandard#,
+				#InvoiceXOQuantity#,
+        #AuditState#,
+        #AuditEmpId#,
+        #ProductUnitId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCImpactCheck">
+      <![CDATA[ 	UPDATE [PCImpactCheck] SET
+				[WorkHouseId] = #WorkHouseId#,
+				[EmployeeId] = #EmployeeId#,
+				[ProductId] = #ProductId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[PCImpactCheckDate] = #PCImpactCheckDate#,
+				[PCImpactCheckQuantity] = #PCImpactCheckQuantity#,
+				[InvoiceCusXOId] = #InvoiceCusXOId#,
+				[PronoteHeaderId] = #PronoteHeaderId#,
+				[PCImpactCheckDesc] = #PCImpactCheckDesc#,
+				[PCFromType] = #PCFromType#,
+				[mCheckStandard] = #mCheckStandard#,
+				[InvoiceXOQuantity] = #InvoiceXOQuantity#,
+        [AuditState]=#AuditState#,        
+        [AuditEmpId]=#AuditEmpId#,
+        [ProductUnitId] = #ProductUnitId#
+			WHERE
+				[PCImpactCheckId] = #PCImpactCheckId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCImpactCheck]
+				where  PCImpactCheckId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

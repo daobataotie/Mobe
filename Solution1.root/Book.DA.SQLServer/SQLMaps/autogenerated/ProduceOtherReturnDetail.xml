@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProduceOtherReturnDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="ProduceOtherReturnDetail" type="Book.Model.ProduceOtherReturnDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="ProduceOtherReturnDetailResult" class="ProduceOtherReturnDetail">
+      <result property="ProduceOtherReturnDetailId" column="ProduceOtherReturnDetailId" />
+      <result property="ProduceOtherReturnMaterialId" column="ProduceOtherReturnMaterialId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="ProduceOtherReturnDetailDesc" column="ProduceOtherReturnDetailDesc" />
+      <result property="Quantity" column="Quantity" />
+      <result property="ProductUnit" column="ProductUnit" />
+      <result property="DepotPositionId" column="DepotPositionId" />
+      <result property="ProduceOtherCompactId" column="ProduceOtherCompactId" />
+      <result property="ProduceOtherCompactDetailId" column="ProduceOtherCompactDetailId" />
+      <result property="HandbookId" column="HandbookId"/>
+      <result property="HandbookProductId" column="HandbookProductId"/>
+      <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+      <result property="ProduceOtherReturnMaterial" column="ProduceOtherReturnMaterialId" lazyLoad="false" select="ProduceOtherReturnMaterial.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[ProduceOtherReturnDetail]
+      WHERE
+      [ProduceOtherReturnDetailId] = #ProduceOtherReturnDetailId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[ProduceOtherReturnDetail]
+
+      ) then 1 else 0 end
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="ProduceOtherReturnDetailResult" parameterClass="ProduceOtherReturnDetail">
+      SELECT
+      [ProduceOtherReturnDetailId],
+      [ProduceOtherReturnMaterialId],
+      [ProductId],
+      [ProduceOtherReturnDetailDesc],
+      [Quantity],
+      [ProductUnit],
+      [DepotPositionId],
+      [ProduceOtherCompactId],
+      [ProduceOtherCompactDetailId],
+      [HandbookId],
+      [HandbookProductId]
+      FROM
+      [dbo].[ProduceOtherReturnDetail]
+      WHERE
+      [ProduceOtherReturnDetailId] = #ProduceOtherReturnDetailId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[ProduceOtherReturnDetail]
+      WHERE
+      [ProduceOtherReturnDetailId] = #ProduceOtherReturnDetailId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="ProduceOtherReturnDetailResult" >
+      SELECT *
+      FROM
+      [dbo].[ProduceOtherReturnDetail]
+
+
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[ProduceOtherReturnDetail]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="ProduceOtherReturnDetailResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[ProduceOtherReturnDetail]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="ProduceOtherReturnDetail">
+      INSERT INTO [dbo].[ProduceOtherReturnDetail]
+      (
+      [ProduceOtherReturnDetailId],
+      [ProduceOtherReturnMaterialId],
+      [ProductId],
+      [ProduceOtherReturnDetailDesc],
+      [Quantity],
+      [ProductUnit],
+      [DepotPositionId],
+      [ProduceOtherCompactId],
+      [ProduceOtherCompactDetailId],
+      [HandbookId],
+      [HandbookProductId]
+      )
+      VALUES
+      (
+      #ProduceOtherReturnDetailId#,
+      #ProduceOtherReturnMaterialId#,
+      #ProductId#,
+      #ProduceOtherReturnDetailDesc#,
+      #Quantity#,
+      #ProductUnit#,
+      #DepotPositionId#,
+      #ProduceOtherCompactId#,
+      #ProduceOtherCompactDetailId#,
+      #HandbookId#,
+      #HandbookProductId#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="ProduceOtherReturnDetail">
+      UPDATE [ProduceOtherReturnDetail] SET
+      [ProduceOtherReturnMaterialId] = #ProduceOtherReturnMaterialId#,
+      [ProductId] = #ProductId#,
+      [ProduceOtherReturnDetailDesc] = #ProduceOtherReturnDetailDesc#,
+      [Quantity] = #Quantity#,
+      [ProductUnit] = #ProductUnit#,
+      [DepotPositionId] = #DepotPositionId#,
+      [ProduceOtherCompactId] = #ProduceOtherCompactId#,
+      [ProduceOtherCompactDetailId] = #ProduceOtherCompactDetailId#,
+      [HandbookId]=#HandbookId#,
+      [HandbookProductId]=#HandbookProductId#
+      WHERE
+      [ProduceOtherReturnDetailId] = #ProduceOtherReturnDetailId#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProduceOtherReturnDetail]
+				where  ProduceOtherReturnDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

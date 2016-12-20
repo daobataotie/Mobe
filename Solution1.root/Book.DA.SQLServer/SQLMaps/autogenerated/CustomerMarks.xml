@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="CustomerMarks" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="CustomerMarks" type="Book.Model.CustomerMarks, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="CustomerMarksResult" class="CustomerMarks">
+      <result property="CustomerMarksId" column="CustomerMarksId" />
+      <result property="Id" column="Id" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="CustomerMarksName" column="CustomerMarksName" />
+      <result property="InvoicePackingId" column="InvoicePackingId"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerMarks]
+				WHERE
+				[CustomerMarksId] = #CustomerMarksId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerMarks]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="CustomerMarksResult" parameterClass="CustomerMarks">
+      <![CDATA[SELECT
+				[CustomerMarksId],
+				[Id],
+				[CustomerId],
+				[CustomerMarksName],
+        [InvoicePackingId]
+			FROM
+				[dbo].[CustomerMarks]
+			WHERE
+				[CustomerMarksId] = #CustomerMarksId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[CustomerMarks]
+			WHERE            
+				[CustomerMarksId] = #CustomerMarksId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="CustomerMarksResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[CustomerMarks]
+                			                   
+			ORDER BY Id ASC			
+			
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[CustomerMarks]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="CustomerMarksResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[CustomerMarks]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="CustomerMarks">
+      <![CDATA[ INSERT INTO [dbo].[CustomerMarks] 
+			(
+				[CustomerMarksId],
+				[Id],
+				[CustomerId],
+				[CustomerMarksName],
+        [InvoicePackingId]
+			) 
+			VALUES 
+			(
+				#CustomerMarksId#,
+				#Id#,
+				#CustomerId#,
+				#CustomerMarksName#,
+        #InvoicePackingId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="CustomerMarks">
+      <![CDATA[ 	UPDATE [CustomerMarks] SET
+				[Id] = #Id#,
+				[CustomerId] = #CustomerId#,
+				[CustomerMarksName] = #CustomerMarksName#,
+        [InvoicePackingId]=#InvoicePackingId#
+			WHERE
+				[CustomerMarksId] = #CustomerMarksId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[CustomerMarks]
+				where  CustomerMarksId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+    <select id="exists" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomerMarks
+				where Id = #value#
+               			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="get_by_id" resultMap="CustomerMarksResult" parameterClass="string">
+      <![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[CustomerMarks]
+                    			          
+         
+			WHERE
+				Id = #value#
+			]]>
+    </select>
+
+    <select id="existsexcept" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from dbo.CustomerMarks
+				where Id = #newId# and Id <> #oldId#
+                    			          
+         
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+
+  </statements>
+</sqlMap>
+

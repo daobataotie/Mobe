@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProductUnit" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ProductUnit" type="Book.Model.ProductUnit, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ProductUnitResult" class="ProductUnit">
+			<result property="ProductUnitId" column="ProductUnitId" />
+			<result property="UnitGroupId" column="UnitGroupId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+			<result property="CnName" column="CnName" />
+			<result property="UkName" column="UkName" />
+			<result property="UkNames" column="UkNames" />
+			<result property="ConvertRate" column="ConvertRate" />
+			<result property="UnitBarCode" column="UnitBarCode" />
+			<result property="IsMainUnit" column="IsMainUnit" />
+		<result property="UnitGroup" column="UnitGroupId" lazyLoad="false" select="UnitGroup.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductUnit]
+				WHERE
+				[ProductUnitId] = #ProductUnitId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductUnit]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="ProductUnitResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductUnit 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="ProductUnitResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductUnit 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="ProductUnitResult" parameterClass="ProductUnit">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductUnit
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="ProductUnitResult" parameterClass="ProductUnit">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductUnit
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="ProductUnit">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductUnit
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="ProductUnit">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductUnit
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ProductUnitResult" parameterClass="ProductUnit">
+			SELECT
+				[ProductUnitId],
+				[UnitGroupId],
+				[InsertTime],
+				[UpdateTime],
+				[Id],
+				[CnName],
+				[UkName],
+				[UkNames],
+				[ConvertRate],
+				[UnitBarCode],
+				[IsMainUnit]
+			FROM
+				[dbo].[ProductUnit]
+			WHERE
+				[ProductUnitId] = #ProductUnitId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[ProductUnit]
+			WHERE
+				[ProductUnitId] = #ProductUnitId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ProductUnitResult" >
+			SELECT *
+			FROM 
+				[dbo].[ProductUnit]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[ProductUnit]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ProductUnitResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProductUnit]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ProductUnit">
+			INSERT INTO [dbo].[ProductUnit] 
+			(
+				[ProductUnitId],
+				[UnitGroupId],
+				[InsertTime],
+				[UpdateTime],
+				[Id],
+				[CnName],
+				[UkName],
+				[UkNames],
+				[ConvertRate],
+				[UnitBarCode],
+				[IsMainUnit]
+			) 
+			VALUES 
+			(
+				#ProductUnitId#,
+				#UnitGroupId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#,
+				#CnName#,
+				#UkName#,
+				#UkNames#,
+				#ConvertRate#,
+				#UnitBarCode#,
+				#IsMainUnit#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ProductUnit">
+			UPDATE [ProductUnit] SET
+				[UnitGroupId] = #UnitGroupId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#,
+				[CnName] = #CnName#,
+				[UkName] = #UkName#,
+				[UkNames] = #UkNames#,
+				[ConvertRate] = #ConvertRate#,
+				[UnitBarCode] = #UnitBarCode#,
+				[IsMainUnit] = #IsMainUnit#
+			WHERE
+				[ProductUnitId] = #ProductUnitId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProductUnit]
+				where  ProductUnitId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductUnit
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="ProductUnitResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[ProductUnit]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.ProductUnit
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

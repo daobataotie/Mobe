@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="MPSheader" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byMRSheaderId" resultMap="MPSheaderResult" parameterClass="string">
+      select * from MPSheader where MPSheaderId=#value# order by InsertTime desc
+    </select>
+    <select id="select_byTime" resultMap="MPSheaderResult" parameterClass="string">
+		select * from MPSheader where MPSStartDate between #startTime# and #endTime#
+	</select>
+  </statements>
+</sqlMap>

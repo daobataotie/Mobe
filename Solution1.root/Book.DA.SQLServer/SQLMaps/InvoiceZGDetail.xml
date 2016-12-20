@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceZGDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <delete id="DeleteByInvoiceZGId" parameterClass="String">
+      <![CDATA[
+      DELETE FROM InvoiceZGDetail WHERE InvoiceZGId=#value#
+      ]]>
+    </delete>
+
+    <select id="SelectByInvoiceZGId" resultMap="InvoiceZGDetailResult" parameterClass="String">
+      <![CDATA[
+      SELECT * FROM InvoiceZGDetail WHERE InvoiceZGId=#value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

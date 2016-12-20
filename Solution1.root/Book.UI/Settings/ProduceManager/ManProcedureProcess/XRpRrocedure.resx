@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xrTableNames.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 50</value>
+  </data>
+  <data name="xrLabelBomType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrLabel13.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.5pt</value>
+  </data>
+  <data name="xrLabel18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1249, 529</value>
+  </data>
+  <data name="xrTableNames.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 0</value>
+  </data>
+  <data name="xrTableProceduresId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrTableRow2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1884, 50</value>
+  </data>
+  <data name="xrTableProceduredescription.Text" xml:space="preserve">
+    <value>備註</value>
+  </data>
+  <data name="xrTableLeadtime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1482, 0</value>
+  </data>
+  <data name="xrLabel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrLabel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1249, 402</value>
+  </data>
+  <data name="xrTableProcedurename.Location" type="System.Drawing.Point, System.Drawing">
+    <value>466, 0</value>
+  </data>
+  <data name="xrTableProcedureType.Text" xml:space="preserve">
+    <value>生产序号类别</value>
+  </data>
+  <data name="xrTableProcedurenames.Location" type="System.Drawing.Point, System.Drawing">
+    <value>466, 0</value>
+  </data>
+  <data name="xrLabelEffectiveDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="XRpRrocedure.ExportOptions.Pdf.DocumentOptions.Title" xml:space="preserve">
+    <value />
+  </data>
+  <data name="xrLabelParentsModel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>233, 402</value>
+  </data>
+  <data name="xrTable1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1884, 42</value>
+  </data>
+  <data name="xrLabelLossRate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="xrLabel14.Text" xml:space="preserve">
+    <value>版本代号:</value>
+  </data>
+  <data name="xrLabel12.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.5pt</value>
+  </data>
+  <data name="xrLabelBOMPartName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrLabel14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrLabelProductId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>847, 339</value>
+  </data>
+  <data name="xrLabel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 64</value>
+  </data>
+  <data name="xrTableRow1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="xrTableWorkhouseId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 0</value>
+  </data>
+  <data name="XRpRrocedure.ExportOptions.Pdf.DocumentOptions.Author" xml:space="preserve">
+    <value />
+  </data>
+  <data name="xrLabelBOMid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrLabelDataName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 13pt, style=Bold</value>
+  </data>
+  <data name="xrTableEnddates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 50</value>
+  </data>
+  <data name="xrLabel2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 15pt, style=Bold</value>
+  </data>
+  <data name="xrLabel10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.5pt</value>
+  </data>
+  <data name="xrLabelBomDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1503, 529</value>
+  </data>
+  <data name="xrTableProcedureType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 42</value>
+  </data>
+  <data name="xrLabel10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>635, 529</value>
+  </data>
+  <data name="xrLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 339</value>
+  </data>
+  <data name="xrTableWorkhouseId.Text" xml:space="preserve">
+    <value>生产站名称</value>
+  </data>
+  <data name="xrLabel3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.5pt</value>
+  </data>
+  <data name="xrTable2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrTableIds.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 50</value>
+  </data>
+  <data name="xrTableProcedurename.Text" xml:space="preserve">
+    <value>生产序号名称</value>
+  </data>
+  <data name="xrTableLeadtime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 42</value>
+  </data>
+  <data name="xrTableProcedureType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>826, 0</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="XRpRrocedure.ExportOptions.Text.EncodingType" type="DevExpress.XtraPrinting.EncodingType, DevExpress.Utils.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="xrLabel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1249, 339</value>
+  </data>
+  <data name="xrTableStartdate.Text" xml:space="preserve">
+    <value>生效日期</value>
+  </data>
+  <data name="xrLabelCommanyName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1016, 127</value>
+  </data>
+  <data name="xrTableLeadtimes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 50</value>
+  </data>
+  <data name="xrTableProceduresate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>656, 0</value>
+  </data>
+  <data name="xrLabel14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.5pt</value>
+  </data>
+  <data name="xrLabel11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrTableProcedurename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 42</value>
+  </data>
+  <data name="xrLabel4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.5pt</value>
+  </data>
+  <data name="xrTableLeadtime.Text" xml:space="preserve">
+    <value>生产序号级别</value>
+  </data>
+  <data name="xrLabel4.Text" xml:space="preserve">
+    <value>货品编号:</value>
+  </data>
+  <data name="xrLabel12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 402</value>
+  </data>
+  <data name="xrTableStartdates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 50</value>
+  </data>
+  <data name="xrTableProceduresates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 50</value>
+  </data>
+  <data name="xrTableIds.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrTableEnddate.Text" xml:space="preserve">
+    <value>失效日期</value>
+  </data>
+  <data name="xrTableLeadtimes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1480, 0</value>
+  </data>
+  <data name="xrTableRow1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1884, 42</value>
+  </data>
+  <data name="xrTableProceduresId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 42</value>
+  </data>
+  <data name="xrLabel13.Text" xml:space="preserve">
+    <value>版 本 日  期:</value>
+  </data>
+  <data name="xrLabelBOMPartName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1503, 339</value>
+  </data>
+  <data name="xrLabel13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1249, 466</value>
+  </data>
+  <data name="XRpRrocedure.ExportOptions.Mht.Title" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="xrLabel1.Text" xml:space="preserve">
+    <value>Bom编号:</value>
+  </data>
+  <data name="xrLabel11.Text" xml:space="preserve">
+    <value>Bom类别:</value>
+  </data>
+  <data name="xrLabel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>635, 339</value>
+  </data>
+  <data name="xrTableStartdates.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1037, 0</value>
+  </data>
+  <data name="xrLabel18.Text" xml:space="preserve">
+    <value>版 本 说  明:</value>
+  </data>
+  <data name="xrTableProcedureTypes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>826, 0</value>
+  </data>
+  <data name="xrLabel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 50</value>
+  </data>
+  <data name="xrTableProceduredescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 42</value>
+  </data>
+  <data name="xrLabel18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="XRpRrocedure.ExportOptions.Xls.SheetName" xml:space="preserve">
+    <value>Sheet1</value>
+  </data>
+  <data name="xrLabel13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrLabel10.Text" xml:space="preserve">
+    <value>默认基础数量:</value>
+  </data>
+  <data name="xrTableWorkhouseId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 42</value>
+  </data>
+  <data name="xrLabel14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 466</value>
+  </data>
+  <data name="xrLabel11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 529</value>
+  </data>
+  <data name="xrLabel10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrTableEnddates.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1268, 0</value>
+  </data>
+  <data name="xrTableProcedurenames.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 50</value>
+  </data>
+  <data name="xrTable2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1884, 50</value>
+  </data>
+  <data name="xrTableProceduresId.Text" xml:space="preserve">
+    <value>生产序号编号</value>
+  </data>
+  <data name="xrTableProceduredescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1694, 0</value>
+  </data>
+  <data name="xrTableProceduresate.Text" xml:space="preserve">
+    <value>生产序号状态</value>
+  </data>
+  <data name="xrLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="XRpRrocedure.ExportOptions.Pdf.DocumentOptions.Keywords" xml:space="preserve">
+    <value />
+  </data>
+  <data name="xrLabelBOMid.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrLabelDefaultQuantity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>910, 529</value>
+  </data>
+  <data name="xrLabel8BomVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>233, 466</value>
+  </data>
+  <data name="XRpRrocedure.ExportOptions.Pdf.DocumentOptions.Application" xml:space="preserve">
+    <value />
+  </data>
+  <data name="xrTableProceduredescriptions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1692, 0</value>
+  </data>
+  <data name="xrLabelDefaultQuantity.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="XRpRrocedure.ExportOptions.Html.Title" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="xrLabelCommanyName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 16pt, style=Bold</value>
+  </data>
+  <data name="xrLabelBOMPartName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="xrLabel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 656</value>
+  </data>
+  <data name="xrTableProceduredescriptions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 50</value>
+  </data>
+  <data name="xrLabelBOMid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>233, 339</value>
+  </data>
+  <data name="xrLabelBomDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 50</value>
+  </data>
+  <data name="xrTable1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="xrTableProceduresates.Location" type="System.Drawing.Point, System.Drawing">
+    <value>656, 0</value>
+  </data>
+  <data name="xrLabelLossRate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrLabel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="xrLabelDataName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>614, 85</value>
+  </data>
+  <data name="xrTableStartdate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 42</value>
+  </data>
+  <data name="xrLabel11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.5pt</value>
+  </data>
+  <data name="xrLabelCommanyName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>444, 0</value>
+  </data>
+  <data name="xrTableProcedureTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="XRpRrocedure.ExportOptions.Html.CharacterSet" xml:space="preserve">
+    <value>utf-8</value>
+  </data>
+  <data name="xrLabelBomType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>233, 529</value>
+  </data>
+  <data name="xrLabel6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.5pt</value>
+  </data>
+  <data name="XRpRrocedure.ExportOptions.Mht.CharacterSet" xml:space="preserve">
+    <value>utf-8</value>
+  </data>
+  <data name="xrLabel18.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.5pt</value>
+  </data>
+  <data name="xrLabelProductId.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="XRpRrocedure.ExportOptions.Csv.EncodingType" type="DevExpress.XtraPrinting.EncodingType, DevExpress.Utils.v10.2">
+    <value>Default</value>
+  </data>
+  <data name="xrLabelParentsModel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="XRpRrocedure.ExportOptions.Pdf.DocumentOptions.Subject" xml:space="preserve">
+    <value />
+  </data>
+  <data name="xrLabelDataName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>656, 169</value>
+  </data>
+  <data name="xrLabelDefaultQuantity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 50</value>
+  </data>
+  <data name="xrLabelBomDescription.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrTableStartdate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1037, 0</value>
+  </data>
+  <data name="xrLabelEffectiveDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1503, 466</value>
+  </data>
+  <data name="xrLabel8BomVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrTableRow2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="xrLabelProductId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrLabel12.Text" xml:space="preserve">
+    <value>规格型号:</value>
+  </data>
+  <data name="xrLabel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 50</value>
+  </data>
+  <data name="xrLabel1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.5pt</value>
+  </data>
+  <data name="xrTableProceduresate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 42</value>
+  </data>
+  <data name="xrLabel3.Text" xml:space="preserve">
+    <value>母 件 名  称:</value>
+  </data>
+  <data name="xrTableEnddate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 42</value>
+  </data>
+  <data name="xrLabel8BomVersion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrLabelParentsModel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 50</value>
+  </data>
+  <data name="xrLabelLossRate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1503, 402</value>
+  </data>
+  <data name="xrLabel6.Text" xml:space="preserve">
+    <value>母件损耗率:</value>
+  </data>
+  <data name="xrLabelEffectiveDate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrTableEnddate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1271, 0</value>
+  </data>
+  <data name="xrLabelBomType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="xrLabel2.Text" xml:space="preserve">
+    <value>生产序号信息</value>
+  </data>
+  <metadata name="xrTableRow2.Name" xml:space="preserve">
+    <value>xrTableRow2</value>
+  </metadata>
+  <metadata name="xrLabelBomType.Name" xml:space="preserve">
+    <value>xrLabelBomType</value>
+  </metadata>
+  <metadata name="PageHeader.Name" xml:space="preserve">
+    <value>PageHeader</value>
+  </metadata>
+  <metadata name="xrLabelBOMid.Name" xml:space="preserve">
+    <value>xrLabelBOMid</value>
+  </metadata>
+  <metadata name="xrTableProceduresId.Name" xml:space="preserve">
+    <value>xrTableProceduresId</value>
+  </metadata>
+  <metadata name="xrTableStartdate.Name" xml:space="preserve">
+    <value>xrTableStartdate</value>
+  </metadata>
+  <metadata name="xrLabel4.Name" xml:space="preserve">
+    <value>xrLabel4</value>
+  </metadata>
+  <metadata name="xrLabelBomDescription.Name" xml:space="preserve">
+    <value>xrLabelBomDescription</value>
+  </metadata>
+  <metadata name="xrLabel11.Name" xml:space="preserve">
+    <value>xrLabel11</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="xrLabelDefaultQuantity.Name" xml:space="preserve">
+    <value>xrLabelDefaultQuantity</value>
+  </metadata>
+  <metadata name="xrLabelProductId.Name" xml:space="preserve">
+    <value>xrLabelProductId</value>
+  </metadata>
+  <metadata name="xrLabelEffectiveDate.Name" xml:space="preserve">
+    <value>xrLabelEffectiveDate</value>
+  </metadata>
+  <metadata name="xrLabel13.Name" xml:space="preserve">
+    <value>xrLabel13</value>
+  </metadata>
+  <metadata name="ReportFooter.Name" xml:space="preserve">
+    <value>ReportFooter</value>
+  </metadata>
+  <metadata name="xrLabel3.Name" xml:space="preserve">
+    <value>xrLabel3</value>
+  </metadata>
+  <metadata name="xrLabelBOMPartName.Name" xml:space="preserve">
+    <value>xrLabelBOMPartName</value>
+  </metadata>
+  <metadata name="xrLabel2.Name" xml:space="preserve">
+    <value>xrLabel2</value>
+  </metadata>
+  <metadata name="xrTableEnddate.Name" xml:space="preserve">
+    <value>xrTableEnddate</value>
+  </metadata>
+  <metadata name="PageFooter.Name" xml:space="preserve">
+    <value>PageFooter</value>
+  </metadata>
+  <metadata name="xrTableProcedurename.Name" xml:space="preserve">
+    <value>xrTableProcedurename</value>
+  </metadata>
+  <metadata name="xrTable2.Name" xml:space="preserve">
+    <value>xrTable2</value>
+  </metadata>
+  <metadata name="xrTableIds.Name" xml:space="preserve">
+    <value>xrTableIds</value>
+  </metadata>
+  <metadata name="xrLabel14.Name" xml:space="preserve">
+    <value>xrLabel14</value>
+  </metadata>
+  <metadata name="xrTableRow1.Name" xml:space="preserve">
+    <value>xrTableRow1</value>
+  </metadata>
+  <metadata name="xrTable1.Name" xml:space="preserve">
+    <value>xrTable1</value>
+  </metadata>
+  <metadata name="xrTableProceduredescriptions.Name" xml:space="preserve">
+    <value>xrTableProceduredescriptions</value>
+  </metadata>
+  <metadata name="xrTableNames.Name" xml:space="preserve">
+    <value>xrTableNames</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>Chinese (Traditional)</value>
+  </metadata>
+  <metadata name="xrTableWorkhouseId.Name" xml:space="preserve">
+    <value>xrTableWorkhouseId</value>
+  </metadata>
+  <metadata name="xrLabelDataName.Name" xml:space="preserve">
+    <value>xrLabelDataName</value>
+  </metadata>
+  <metadata name="xrLabel12.Name" xml:space="preserve">
+    <value>xrLabel12</value>
+  </metadata>
+  <metadata name="xrTableStartdates.Name" xml:space="preserve">
+    <value>xrTableStartdates</value>
+  </metadata>
+  <metadata name="xrTableProceduredescription.Name" xml:space="preserve">
+    <value>xrTableProceduredescription</value>
+  </metadata>
+  <metadata name="xrLabel18.Name" xml:space="preserve">
+    <value>xrLabel18</value>
+  </metadata>
+  <metadata name="xrTableLeadtime.Name" xml:space="preserve">
+    <value>xrTableLeadtime</value>
+  </metadata>
+  <metadata name="$this.Name" xml:space="preserve">
+    <value>XRpRrocedure</value>
+  </metadata>
+  <metadata name="xrLabelParentsModel.Name" xml:space="preserve">
+    <value>xrLabelParentsModel</value>
+  </metadata>
+  <metadata name="xrLabel8BomVersion.Name" xml:space="preserve">
+    <value>xrLabel8BomVersion</value>
+  </metadata>
+  <metadata name="xrLabelLossRate.Name" xml:space="preserve">
+    <value>xrLabelLossRate</value>
+  </metadata>
+  <metadata name="xrLabelCommanyName.Name" xml:space="preserve">
+    <value>xrLabelCommanyName</value>
+  </metadata>
+  <metadata name="Detail.Name" xml:space="preserve">
+    <value>Detail</value>
+  </metadata>
+  <metadata name="xrLabel1.Name" xml:space="preserve">
+    <value>xrLabel1</value>
+  </metadata>
+  <metadata name="xrTableProceduresate.Name" xml:space="preserve">
+    <value>xrTableProceduresate</value>
+  </metadata>
+  <metadata name="xrTableProcedureType.Name" xml:space="preserve">
+    <value>xrTableProcedureType</value>
+  </metadata>
+  <metadata name="xrTableLeadtimes.Name" xml:space="preserve">
+    <value>xrTableLeadtimes</value>
+  </metadata>
+  <metadata name="xrLabel6.Name" xml:space="preserve">
+    <value>xrLabel6</value>
+  </metadata>
+  <metadata name="xrTableProcedurenames.Name" xml:space="preserve">
+    <value>xrTableProcedurenames</value>
+  </metadata>
+  <metadata name="xrTableProceduresates.Name" xml:space="preserve">
+    <value>xrTableProceduresates</value>
+  </metadata>
+  <metadata name="xrLabel10.Name" xml:space="preserve">
+    <value>xrLabel10</value>
+  </metadata>
+  <metadata name="ReportHeader.Name" xml:space="preserve">
+    <value>ReportHeader</value>
+  </metadata>
+  <metadata name="xrTableEnddates.Name" xml:space="preserve">
+    <value>xrTableEnddates</value>
+  </metadata>
+  <metadata name="xrTableProcedureTypes.Name" xml:space="preserve">
+    <value>xrTableProcedureTypes</value>
+  </metadata>
+</root>

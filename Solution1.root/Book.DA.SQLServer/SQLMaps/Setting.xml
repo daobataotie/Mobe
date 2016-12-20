@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Setting" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <select id="select_by_tag" parameterClass="string" resultMap="SettingResult">
+      select *
+      from dbo.setting
+      where charindex(#value#,settingtags) > 0
+    </select>
+    <update id="update_by_id_value" parameterClass="map">
+      update dbo.Setting
+      set SettingCurrentValue = #Value#
+      where SettingId = #Id#
+    </update>
+    <update id="update_by_piclogo_value" parameterClass="map">
+      UPDATE Setting SET PictrueLogo = #Value# WHERE SettingId=#Id#
+    </update>
+
+    <select id="select_by_piclogo" parameterClass="string" resultMap="SettingResult">
+      select *
+      from dbo.setting
+      where SettingId=#value#
+    </select>
+
+    <select id="select_by_tagOrderDefault" parameterClass="string" resultMap="SettingResult">
+      select *
+      from dbo.setting
+      where  settingtags=#value# order by IdNO
+    </select>
+    <select id="select_by_Name" parameterClass="string" resultMap="SettingResult">
+      select *
+      from dbo.setting
+      where  SettingName=#value# order by IdNO
+    </select>
+    <delete id="deleteByTag" parameterClass="string">
+      delete from  Setting WHERE settingtags=#value#
+    </delete>
+
+    <select id="select_by_IdNo" parameterClass ="string" resultMap="SettingResult">
+      SELECT * FROM Setting WHERE SettingTags='BOX' AND IdNO=#value#
+    </select>
+  </statements>
+
+</sqlMap>

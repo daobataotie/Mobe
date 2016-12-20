@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProductMouldCategory" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ProductMouldCategory" type="Book.Model.ProductMouldCategory, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ProductMouldCategoryResult" class="ProductMouldCategory">
+			<result property="ProductMouldCategoryId" column="ProductMouldCategoryId" />
+			<result property="Id" column="Id" />
+			<result property="CategoryName" column="CategoryName" />
+			<result property="CategoryDes" column="CategoryDes" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductMouldCategory]
+				WHERE
+				[ProductMouldCategoryId] = #ProductMouldCategoryId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductMouldCategory]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="get_first" resultMap="ProductMouldCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductMouldCategory
+			 
+			order by InsertTime 
+			]]>
+		</select>
+		<select id="get_last" resultMap="ProductMouldCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductMouldCategory
+						
+            order by InsertTime desc
+			]]>
+            
+		</select>
+		<select id="get_prev" resultMap="ProductMouldCategoryResult" parameterClass="ProductMouldCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductMouldCategory
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="ProductMouldCategoryResult" parameterClass="ProductMouldCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.ProductMouldCategory
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+		</select>
+		
+		<select id="has_rows_before" resultClass="bool" parameterClass="ProductMouldCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductMouldCategory
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="ProductMouldCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductMouldCategory
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ProductMouldCategoryResult" parameterClass="ProductMouldCategory">
+			<![CDATA[SELECT
+				[ProductMouldCategoryId],
+				[Id],
+				[CategoryName],
+				[CategoryDes],
+				[InsertTime],
+				[UpdateTime]
+			FROM
+				[dbo].[ProductMouldCategory]
+			WHERE
+				[ProductMouldCategoryId] = #ProductMouldCategoryId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[ProductMouldCategory]
+			WHERE            
+				[ProductMouldCategoryId] = #ProductMouldCategoryId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ProductMouldCategoryResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[ProductMouldCategory]
+                			                   
+			ORDER BY Id ASC			
+			
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[ProductMouldCategory]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ProductMouldCategoryResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProductMouldCategory]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ProductMouldCategory">
+			 <![CDATA[ INSERT INTO [dbo].[ProductMouldCategory] 
+			(
+				[ProductMouldCategoryId],
+				[Id],
+				[CategoryName],
+				[CategoryDes],
+				[InsertTime],
+				[UpdateTime]
+			) 
+			VALUES 
+			(
+				#ProductMouldCategoryId#,
+				#Id#,
+				#CategoryName#,
+				#CategoryDes#,
+				#InsertTime#,
+				#UpdateTime#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ProductMouldCategory">
+		 <![CDATA[ 	UPDATE [ProductMouldCategory] SET
+				[Id] = #Id#,
+				[CategoryName] = #CategoryName#,
+				[CategoryDes] = #CategoryDes#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#
+			WHERE
+				[ProductMouldCategoryId] = #ProductMouldCategoryId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProductMouldCategory]
+				where  ProductMouldCategoryId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductMouldCategory
+				where Id = #value#
+               			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="ProductMouldCategoryResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[ProductMouldCategory]
+                    			          
+         
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.ProductMouldCategory
+				where Id = #newId# and Id <> #oldId#
+                    			          
+         
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

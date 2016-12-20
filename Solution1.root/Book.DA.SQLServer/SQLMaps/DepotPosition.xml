@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DepotPosition" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<resultMaps>
+		<resultMap id="DepotPositionResult1" class="DepotPosition">
+			<result property="DepotPositionId" column="DepotPositionId" />
+			<result property="DepotId" column="DepotId" />		
+			<result property="Id" column="Id" />		
+			<result property="DepotPositionDescription" column="DepotPositionDescription" />
+			<result property="StockQuantity1" column="StockQuantity1" />
+		</resultMap>
+	</resultMaps>
+  <statements>
+    <select id="select_by_depot" resultMap="DepotPositionResult" >
+      SELECT *
+      FROM
+      [dbo].[DepotPosition] Where DepotId = #value#
+      ORDER BY Id ASC
+    </select>
+    <select id="existsInsertName" resultClass="bool" parameterClass="Map">
+		select case when exists(
+		select *
+		from dbo.DepotPosition
+		where DepotPositionid = #DepotPositionid# and DepotId=#depotid#
+		) then 1 else 0 end
+	</select>
+    <select id="GetDepotNot0PositionsByDepotAndProduct" resultMap="DepotPositionResult" parameterClass="Map">
+		SELECT * FROM DepotPosition WHERE DepotPositionId IN (SELECT DepotPositionId FROM Stock WHERE DepotId=#depotId# AND ProductId=#productId# AND StockQuantity1>0 )
+	</select>
+	  <select id="GetStockByDepotAndProduct" resultMap="DepotPositionResult1" parameterClass="Map">
+		  SELECT d.DepotPositionId,d.DepotId,d.Id,d.DepotPositionDescription,s.ProductId AS ProductId ,ISNULL (s.StockQuantity1,0) AS StockQuantity1   FROM DepotPosition d left join stock s  on d.DepotPositionId=s.DepotPositionId
+		  AND productid=#productId#
+		  WHERE  d.DepotId=#depotId#
+	  </select>
+  </statements>
+</sqlMap>

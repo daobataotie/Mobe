@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Role" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Role" type="Book.Model.Role, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="RoleResult" class="Role">
+			<result property="Id" column="Id" />
+			<result property="RoleId" column="RoleId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="RoleName" column="RoleName" />
+			<result property="RoleDescription" column="RoleDescription" />
+			<result property="IsXOPrice" column="IsXOPrice" />
+			<result property="IsXOQuantity" column="IsXOQuantity" />
+			<result property="IsCOPrice" column="IsCOPrice" />
+			<result property="IsCOCount" column="IsCOCount" />
+			<result property="IsStockPrice" column="IsStockPrice" />
+			<result property="IsStockCount" column="IsStockCount" />
+			<result property="IsProductCost" column="IsProductCost" />
+			<result property="IsEmployeeBasicInfo" column="IsEmployeeBasicInfo" />
+			<result property="IsSalaryViewCalc" column="IsSalaryViewCalc" />
+			<result property="IsXOJiaoYiMingXi" column="IsXOJiaoYiMingXi" />
+			<result property="IsXOFaPiaoZiLiao" column="IsXOFaPiaoZiLiao" />
+			<result property="IsXOZhangKuanZiLiao" column="IsXOZhangKuanZiLiao" />
+			<result property="IsXOXiangGuanZiLiao" column="IsXOXiangGuanZiLiao" />
+			<result property="IsCOJiaoYiMingXi" column="IsCOJiaoYiMingXi" />
+			<result property="IsCOFaPiaoZiLiao" column="IsCOFaPiaoZiLiao" />
+			<result property="IsCOZhangKuanZiLiao" column="IsCOZhangKuanZiLiao" />
+			<result property="IsCOXiangGuanZiLiao" column="IsCOXiangGuanZiLiao" />
+			<result property="IsXOJinHuoJinE" column="IsXOJinHuoJinE" />
+			<result property="IsCOJinHuoJinE" column="IsCOJinHuoJinE" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Role]
+				WHERE
+				[RoleId] = #RoleId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Role]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="get_first" resultMap="RoleResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Role
+			 
+			order by InsertTime 
+			]]>
+		</select>
+		<select id="get_last" resultMap="RoleResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Role
+						
+            order by InsertTime desc
+			]]>
+            
+		</select>
+		<select id="get_prev" resultMap="RoleResult" parameterClass="Role">
+			<![CDATA[
+			select top 1 *
+			from dbo.Role
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="RoleResult" parameterClass="Role">
+			<![CDATA[
+			select top 1 *
+			from dbo.Role
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+		</select>
+		
+		<select id="has_rows_before" resultClass="bool" parameterClass="Role">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Role
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="Role">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Role
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="RoleResult" parameterClass="Role">
+			<![CDATA[SELECT
+				[Id],
+				[RoleId],
+				[InsertTime],
+				[UpdateTime],
+				[RoleName],
+				[RoleDescription],
+				[IsXOPrice],
+				[IsXOQuantity],
+				[IsCOPrice],
+				[IsCOCount],
+				[IsStockPrice],
+				[IsStockCount],
+				[IsProductCost],
+				[IsEmployeeBasicInfo],
+				[IsSalaryViewCalc],
+				[IsXOJiaoYiMingXi],
+				[IsXOFaPiaoZiLiao],
+				[IsXOZhangKuanZiLiao],
+				[IsXOXiangGuanZiLiao],
+				[IsCOJiaoYiMingXi],
+				[IsCOFaPiaoZiLiao],
+				[IsCOZhangKuanZiLiao],
+				[IsCOXiangGuanZiLiao],
+				[IsXOJinHuoJinE],
+				[IsCOJinHuoJinE]
+			FROM
+				[dbo].[Role]
+			WHERE
+				[RoleId] = #RoleId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[Role]
+			WHERE            
+				[RoleId] = #RoleId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="RoleResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[Role]
+                			                   
+			ORDER BY Id ASC			
+			
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[Role]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="RoleResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Role]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Role">
+			 <![CDATA[ INSERT INTO [dbo].[Role] 
+			(
+				[Id],
+				[RoleId],
+				[InsertTime],
+				[UpdateTime],
+				[RoleName],
+				[RoleDescription],
+				[IsXOPrice],
+				[IsXOQuantity],
+				[IsCOPrice],
+				[IsCOCount],
+				[IsStockPrice],
+				[IsStockCount],
+				[IsProductCost],
+				[IsEmployeeBasicInfo],
+				[IsSalaryViewCalc],
+				[IsXOJiaoYiMingXi],
+				[IsXOFaPiaoZiLiao],
+				[IsXOZhangKuanZiLiao],
+				[IsXOXiangGuanZiLiao],
+				[IsCOJiaoYiMingXi],
+				[IsCOFaPiaoZiLiao],
+				[IsCOZhangKuanZiLiao],
+				[IsCOXiangGuanZiLiao],
+				[IsXOJinHuoJinE],
+				[IsCOJinHuoJinE]
+			) 
+			VALUES 
+			(
+				#Id#,
+				#RoleId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#RoleName#,
+				#RoleDescription#,
+				#IsXOPrice#,
+				#IsXOQuantity#,
+				#IsCOPrice#,
+				#IsCOCount#,
+				#IsStockPrice#,
+				#IsStockCount#,
+				#IsProductCost#,
+				#IsEmployeeBasicInfo#,
+				#IsSalaryViewCalc#,
+				#IsXOJiaoYiMingXi#,
+				#IsXOFaPiaoZiLiao#,
+				#IsXOZhangKuanZiLiao#,
+				#IsXOXiangGuanZiLiao#,
+				#IsCOJiaoYiMingXi#,
+				#IsCOFaPiaoZiLiao#,
+				#IsCOZhangKuanZiLiao#,
+				#IsCOXiangGuanZiLiao#,
+				#IsXOJinHuoJinE#,
+				#IsCOJinHuoJinE#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Role">
+		 <![CDATA[ 	UPDATE [Role] SET
+				[Id] = #Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[RoleName] = #RoleName#,
+				[RoleDescription] = #RoleDescription#,
+				[IsXOPrice] = #IsXOPrice#,
+				[IsXOQuantity] = #IsXOQuantity#,
+				[IsCOPrice] = #IsCOPrice#,
+				[IsCOCount] = #IsCOCount#,
+				[IsStockPrice] = #IsStockPrice#,
+				[IsStockCount] = #IsStockCount#,
+				[IsProductCost] = #IsProductCost#,
+				[IsEmployeeBasicInfo] = #IsEmployeeBasicInfo#,
+				[IsSalaryViewCalc] = #IsSalaryViewCalc#,
+				[IsXOJiaoYiMingXi] = #IsXOJiaoYiMingXi#,
+				[IsXOFaPiaoZiLiao] = #IsXOFaPiaoZiLiao#,
+				[IsXOZhangKuanZiLiao] = #IsXOZhangKuanZiLiao#,
+				[IsXOXiangGuanZiLiao] = #IsXOXiangGuanZiLiao#,
+				[IsCOJiaoYiMingXi] = #IsCOJiaoYiMingXi#,
+				[IsCOFaPiaoZiLiao] = #IsCOFaPiaoZiLiao#,
+				[IsCOZhangKuanZiLiao] = #IsCOZhangKuanZiLiao#,
+				[IsCOXiangGuanZiLiao] = #IsCOXiangGuanZiLiao#,
+				[IsXOJinHuoJinE] = #IsXOJinHuoJinE#,
+				[IsCOJinHuoJinE] = #IsCOJinHuoJinE#
+			WHERE
+				[RoleId] = #RoleId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[Role]
+				where  RoleId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Role
+				where Id = #value#
+               			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="RoleResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[Role]
+                    			          
+         
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.Role
+				where Id = #newId# and Id <> #oldId#
+                    			          
+         
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

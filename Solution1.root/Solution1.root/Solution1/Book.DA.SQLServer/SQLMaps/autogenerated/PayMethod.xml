@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PayMethod" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="PayMethod" type="Book.Model.PayMethod, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="PayMethodResult" class="PayMethod">
+			<result property="Id" column="Id" />
+			<result property="PayMethodId" column="PayMethodId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="PayMethodName" column="PayMethodName" />
+			<result property="PayMethodDescription" column="PayMethodDescription" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PayMethod]
+				WHERE
+				[PayMethodId] = #PayMethodId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PayMethod]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="PayMethodResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.PayMethod 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="PayMethodResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.PayMethod 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="PayMethodResult" parameterClass="PayMethod">
+			<![CDATA[
+			select top 1 *
+			from dbo.PayMethod
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="PayMethodResult" parameterClass="PayMethod">
+			<![CDATA[
+			select top 1 *
+			from dbo.PayMethod
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="PayMethod">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PayMethod
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="PayMethod">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PayMethod
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="PayMethodResult" parameterClass="PayMethod">
+			SELECT
+				[Id],
+				[PayMethodId],
+				[InsertTime],
+				[UpdateTime],
+				[PayMethodName],
+				[PayMethodDescription]
+			FROM
+				[dbo].[PayMethod]
+			WHERE
+				[PayMethodId] = #PayMethodId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[PayMethod]
+			WHERE
+				[PayMethodId] = #PayMethodId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="PayMethodResult" >
+			SELECT *
+			FROM 
+				[dbo].[PayMethod]
+			ORDER BY PayMethodId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[PayMethod]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="PayMethodResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PayMethod]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="PayMethod">
+			INSERT INTO [dbo].[PayMethod] 
+			(
+				[Id],
+				[PayMethodId],
+				[InsertTime],
+				[UpdateTime],
+				[PayMethodName],
+				[PayMethodDescription]
+			) 
+			VALUES 
+			(
+				#Id#,
+				#PayMethodId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#PayMethodName#,
+				#PayMethodDescription#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="PayMethod">
+			UPDATE [PayMethod] SET
+				[Id] = #Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[PayMethodName] = #PayMethodName#,
+				[PayMethodDescription] = #PayMethodDescription#
+			WHERE
+				[PayMethodId] = #PayMethodId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PayMethod
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="PayMethodResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[PayMethod]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.PayMethod
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

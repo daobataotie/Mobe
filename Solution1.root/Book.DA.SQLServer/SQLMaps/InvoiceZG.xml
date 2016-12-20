@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceZG" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <select id="SelectInvoiceZG" resultMap="InvoiceZGResult" parameterClass="Map">
+     <![CDATA[
+      SELECT * FROM InvoiceZG WHERE InvoiceZGDate BETWEEN #StartDate# AND #EndDate#  $sql$
+     ]]>
+    </select>
+  </statements>
+</sqlMap>

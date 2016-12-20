@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AtProject" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AtProject" type="Book.Model.AtProject, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="AtProjectResult" class="AtProject">
+			<result property="ProjectId" column="ProjectId" />
+			<result property="ProjectName" column="ProjectName" />
+			<result property="ProjectAddressd" column="ProjectAddressd" />
+			<result property="StartDate" column="StartDate" />
+			<result property="EndDate" column="EndDate" />
+			<result property="Mark" column="Mark" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtProject]
+				WHERE
+				[ProjectId] = #ProjectId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtProject]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="AtProjectResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtProject 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="AtProjectResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtProject 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="AtProjectResult" parameterClass="AtProject">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtProject
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="AtProjectResult" parameterClass="AtProject">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtProject
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="AtProject">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtProject
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="AtProject">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtProject
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AtProjectResult" parameterClass="AtProject">
+			SELECT
+				[ProjectId],
+				[ProjectName],
+				[ProjectAddressd],
+				[StartDate],
+				[EndDate],
+				[Mark],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			FROM
+				[dbo].[AtProject]
+			WHERE
+				[ProjectId] = #ProjectId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[AtProject]
+			WHERE
+				[ProjectId] = #ProjectId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AtProjectResult" >
+			SELECT *
+			FROM 
+				[dbo].[AtProject]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[AtProject]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AtProjectResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AtProject]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AtProject">
+			INSERT INTO [dbo].[AtProject] 
+			(
+				[ProjectId],
+				[ProjectName],
+				[ProjectAddressd],
+				[StartDate],
+				[EndDate],
+				[Mark],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			) 
+			VALUES 
+			(
+				#ProjectId#,
+				#ProjectName#,
+				#ProjectAddressd#,
+				#StartDate#,
+				#EndDate#,
+				#Mark#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AtProject">
+			UPDATE [AtProject] SET
+				[ProjectName] = #ProjectName#,
+				[ProjectAddressd] = #ProjectAddressd#,
+				[StartDate] = #StartDate#,
+				[EndDate] = #EndDate#,
+				[Mark] = #Mark#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#
+			WHERE
+				[ProjectId] = #ProjectId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AtProject]
+				where  ProjectId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtProject
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="AtProjectResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[AtProject]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.AtProject
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

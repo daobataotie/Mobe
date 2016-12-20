@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProduceMaterialdetails" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="ProduceMaterialdetails" type="Book.Model.ProduceMaterialdetails, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="ProduceMaterialdetailsResult" class="ProduceMaterialdetails">
+			<result property="ProduceMaterialdetailsID" column="ProduceMaterialdetailsID" />
+			<result property="ProductId" column="ProductId" />
+			<result property="DepotPositionId" column="DepotPositionId" />
+			<result property="ProduceMaterialID" column="ProduceMaterialID" />
+			<result property="Materialprocessum" column="Materialprocessum" />
+			<result property="Materialprocesedsum" column="Materialprocesedsum" />
+			<result property="ProductStock" column="ProductStock" />
+			<result property="MPSheaderId" column="MPSheaderId" />
+			<result property="InvoiceXOId" column="InvoiceXOId" />
+			<result property="InvoiceXODetailId" column="InvoiceXODetailId" />
+			<result property="ProductUnit" column="ProductUnit" />
+			<result property="PrimaryKeyId" column="PrimaryKeyId" />
+			<result property="PronoteHeaderID" column="PronoteHeaderID" />
+			<result property="PronotedetailsID" column="PronotedetailsID" />
+			<result property="Pihao" column="Pihao" />
+			<result property="IsChecked" column="IsChecked" />
+			<result property="CustomerInvoiceXOId" column="CustomerInvoiceXOId" />
+			<result property="StockQuantity" column="StockQuantity" />
+			<result property="Inumber" column="Inumber" />
+			<result property="DepotOutStateDetail" column="DepotOutStateDetail" />
+		<result property="PrimaryKey" column="PrimaryKeyId" lazyLoad="false" select="CustomerProducts.select_by_primary_key" />		<result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />		<result property="ProduceMaterial" column="ProduceMaterialID" lazyLoad="false" select="ProduceMaterial.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProduceMaterialdetails]
+				WHERE
+				[ProduceMaterialdetailsID] = #ProduceMaterialdetailsID#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProduceMaterialdetails]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="ProduceMaterialdetailsResult" parameterClass="ProduceMaterialdetails">
+			SELECT
+				[ProduceMaterialdetailsID],
+				[ProductId],
+				[DepotPositionId],
+				[ProduceMaterialID],
+				[Materialprocessum],
+				[Materialprocesedsum],
+				[ProductStock],
+				[MPSheaderId],
+				[InvoiceXOId],
+				[InvoiceXODetailId],
+				[ProductUnit],
+				[PrimaryKeyId],
+				[PronoteHeaderID],
+				[PronotedetailsID],
+				[Pihao],
+				[IsChecked],
+				[CustomerInvoiceXOId],
+				[StockQuantity],
+				[Inumber],
+				[DepotOutStateDetail]
+			FROM
+				[dbo].[ProduceMaterialdetails]
+			WHERE
+				[ProduceMaterialdetailsID] = #ProduceMaterialdetailsID#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[ProduceMaterialdetails]
+			WHERE
+				[ProduceMaterialdetailsID] = #ProduceMaterialdetailsID#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="ProduceMaterialdetailsResult" >
+			SELECT *
+			FROM 
+				[dbo].[ProduceMaterialdetails]
+			
+
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[ProduceMaterialdetails]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="ProduceMaterialdetailsResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProduceMaterialdetails]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="ProduceMaterialdetails">
+			INSERT INTO [dbo].[ProduceMaterialdetails] 
+			(
+				[ProduceMaterialdetailsID],
+				[ProductId],
+				[DepotPositionId],
+				[ProduceMaterialID],
+				[Materialprocessum],
+				[Materialprocesedsum],
+				[ProductStock],
+				[MPSheaderId],
+				[InvoiceXOId],
+				[InvoiceXODetailId],
+				[ProductUnit],
+				[PrimaryKeyId],
+				[PronoteHeaderID],
+				[PronotedetailsID],
+				[Pihao],
+				[IsChecked],
+				[CustomerInvoiceXOId],
+				[StockQuantity],
+				[Inumber],
+				[DepotOutStateDetail]
+			) 
+			VALUES 
+			(
+				#ProduceMaterialdetailsID#,
+				#ProductId#,
+				#DepotPositionId#,
+				#ProduceMaterialID#,
+				#Materialprocessum#,
+				#Materialprocesedsum#,
+				#ProductStock#,
+				#MPSheaderId#,
+				#InvoiceXOId#,
+				#InvoiceXODetailId#,
+				#ProductUnit#,
+				#PrimaryKeyId#,
+				#PronoteHeaderID#,
+				#PronotedetailsID#,
+				#Pihao#,
+				#IsChecked#,
+				#CustomerInvoiceXOId#,
+				#StockQuantity#,
+				#Inumber#,
+				#DepotOutStateDetail#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="ProduceMaterialdetails">
+			UPDATE [ProduceMaterialdetails] SET
+				[ProductId] = #ProductId#,
+				[DepotPositionId] = #DepotPositionId#,
+				[ProduceMaterialID] = #ProduceMaterialID#,
+				[Materialprocessum] = #Materialprocessum#,
+				[Materialprocesedsum] = #Materialprocesedsum#,
+				[ProductStock] = #ProductStock#,
+				[MPSheaderId] = #MPSheaderId#,
+				[InvoiceXOId] = #InvoiceXOId#,
+				[InvoiceXODetailId] = #InvoiceXODetailId#,
+				[ProductUnit] = #ProductUnit#,
+				[PrimaryKeyId] = #PrimaryKeyId#,
+				[PronoteHeaderID] = #PronoteHeaderID#,
+				[PronotedetailsID] = #PronotedetailsID#,
+				[Pihao] = #Pihao#,
+				[IsChecked] = #IsChecked#,
+				[CustomerInvoiceXOId] = #CustomerInvoiceXOId#,
+				[StockQuantity] = #StockQuantity#,
+				[Inumber] = #Inumber#,
+				[DepotOutStateDetail] = #DepotOutStateDetail#
+			WHERE
+				[ProduceMaterialdetailsID] = #ProduceMaterialdetailsID#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProduceMaterialdetails]
+				where  ProduceMaterialdetailsID = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

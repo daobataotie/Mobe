@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceXJ" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<statements>
+		<select id="select_byTime" parameterClass="Map" resultMap="InvoiceXJResult">
+			<![CDATA[
+				select * from InvoiceXJ 
+				where invoicedate between #startTime# and #endTime#
+			]]>
+		</select>
+    <select id="select_byStatus" parameterClass="int" resultMap="InvoiceXJResult">
+      <![CDATA[
+      select * from invoiceXJ
+				where invoicestatus = #value#
+      ]]>
+    </select>
+
+    <select id="SelectByHead" parameterClass="Map" resultMap="InvoiceXJResult">
+      <![CDATA[
+      SELECT * FROM InvoiceXJ
+      WHERE 1 = 1
+      AND InvoiceDate BETWEEN #startDate# AND #endDate#
+      AND (CustomerId = #customerid# OR #customerid# IS NULL)
+      AND (CompanyId = #companyid# OR #companyid# IS NULL)
+      AND (ProductId = #productid# OR #productid# IS NULL)
+      AND (InvoiceId = #invoicexjid# OR #invoicexjid# IS NULL)
+      ]]>
+    </select>
+	</statements>
+</sqlMap>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProduceOtherCompactDetail" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byProduceOtherCompactId" resultMap="ProduceOtherCompactDetailResult" parameterClass="string">
+      select * from ProduceOtherCompactDetail where ProduceOtherCompactId=#value#
+    </select>
+    <select id="select_byProduceOtherCompactIdAndFlag" resultMap="ProduceOtherCompactDetailResult" parameterClass="string">
+      <![CDATA[
+      select * from ProduceOtherCompactDetail where ProduceOtherCompactId=#value# and (DetailsFlag<>2  or DetailsFlag is null)
+      ]]>
+    </select>
+    <select id="selectbyCompactIdIsInDepot" resultMap="ProduceOtherCompactDetailResult" parameterClass="string">
+      <![CDATA[
+      select * from ProduceOtherCompactDetail where ProduceOtherCompactId=#value# and OtherCompactCount- isnull(InDepotCount,0)<>0
+      ]]>
+    </select>
+
+    <select id="select_byMPSdetail" resultClass="double" parameterClass="string">
+      select isnull(sum(OtherCompactCount),0) from ProduceOtherCompactDetail  where MPSDetailId=#value#
+    </select>
+    <select id="select_byCustomerANDdate" resultMap="ProduceOtherCompactDetailResult" parameterClass="Map">
+      <![CDATA[
+     select * from ProduceOtherCompactDetail  where  InvoiceXOId in (select InvoiceXOId from  InvoiceXO where  
+     (CustomerId in(select  CustomerId from customer where (id>=#startcustomerid# or #startcustomerid# is null) and
+     (id<= #endcustomerid# or #endcustomerid# is null)) ))
+      and ProduceOtherCompactId in (select ProduceOtherCompactId from ProduceOtherCompact where   ProduceOtherCompactDate  between #startdate# and #enddate# ) 
+    ]]>
+    </select>
+    <select id="selectBycondition" resultMap="ProduceOtherCompactDetailResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ProduceOtherCompactDetail detail INNER JOIN ProduceOtherCompact pc ON pc.ProduceOtherCompactId = detail.ProduceOtherCompactId
+	WHERE ((pc.ProduceOtherCompactId>=#cid1# OR #cid1# IS NULL) AND (pc.ProduceOtherCompactId<=#cid2# OR #cid2# IS NULL))
+	AND((pc.ProduceOtherCompactDate>=#startdate# OR #startdate# IS null) AND (pc.ProduceOtherCompactDate<=#enddate# OR #enddate# IS NULL))
+     AND detail.ProductId IN (SELECT ProductId FROM Product WHERE (ProductName>=#pid0# OR #pid0# IS NULL) AND (ProductName<=#pid1# OR #pid1# IS NULL))
+	 AND (pc.SupplierId IN (SELECT SupplierId FROM Supplier WHERE (Id>=#sid0# OR #sid0# IS NULL)  AND (Id<=#sid1# OR #sid1# IS NULL)) or pc.SupplierId is null)
+	 ]]>
+    </select>
+    <select id="Select_ThreeMaths" resultMap="ProduceOtherCompactDetailResult" parameterClass="string">
+      SELECT * FROM ProduceOtherCompactDetail WHERE ProduceOtherCompactId IN(SELECT ProduceOtherCompactId FROM ProduceOtherCompact WHERE ProduceOtherCompactDate>=DateAdd(Month,-3,getdate())) order by ProduceOtherCompactId desc
+    </select>
+    <select id="select_GetToDate" resultMap="ProduceOtherCompactDetailResult" parameterClass="string">
+      SELECT * FROM ProduceOtherCompactDetail WHERE ProduceOtherCompactId IN(SELECT ProduceOtherCompactId FROM ProduceOtherCompact WHERE ProduceOtherCompactDate between #startdate# and #enddate#) order by ProduceOtherCompactId desc
+    </select>
+    <select id="selectByHeaderIdAndPid" resultMap="ProduceOtherCompactDetailResult" parameterClass="Map">
+      <![CDATA[
+      select * from ProduceOtherCompactDetail where ProduceOtherCompactId=#ProduceOtherCompactDetail# and 
+productId in(select productId from product where (ProductName>=#StartpId# or #StartpId# is null) and (ProductName<=#EndpId# or #EndpId# is null))
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

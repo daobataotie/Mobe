@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProductMouldTest" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="ProductMouldTest" type="Book.Model.ProductMouldTest, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="ProductMouldTestResult" class="ProductMouldTest">
+      <result property="ProductMouldTestId" column="ProductMouldTestId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="Emp_EmployeeId" column="Emp_EmployeeId" />
+      <result property="Emp_EmployeeId2" column="Emp_EmployeeId2" />
+      <result property="Emp_EmployeeId3" column="Emp_EmployeeId3" />
+      <result property="Emp_EmployeeId4" column="Emp_EmployeeId4" />
+      <result property="AreaCategoryId" column="AreaCategoryId" />
+      <result property="PronoteMachineId" column="PronoteMachineId" />
+      <result property="Emp_EmployeeId5" column="Emp_EmployeeId5" />
+      <result property="Emp_EmployeeId6" column="Emp_EmployeeId6" />
+      <result property="SupplierId" column="SupplierId" />
+      <result property="Emp_EmployeeId7" column="Emp_EmployeeId7" />
+      <result property="Emp_EmployeeId8" column="Emp_EmployeeId8" />
+      <result property="Id" column="Id" />
+      <result property="InFactoryDate" column="InFactoryDate" />
+      <result property="OutFactoryDate" column="OutFactoryDate" />
+      <result property="TestCause" column="TestCause" />
+      <result property="ProductMouldTestDate" column="ProductMouldTestDate" />
+      <result property="MouldId" column="MouldId" />
+      <result property="MouldInjectionType" column="MouldInjectionType" />
+      <result property="MouldInjectionDate" column="MouldInjectionDate" />
+      <result property="MouldStrengthenType" column="MouldStrengthenType" />
+      <result property="MouldStrengthenDate" column="MouldStrengthenDate" />
+      <result property="InstallType" column="InstallType" />
+      <result property="InstallBool" column="InstallBool" />
+      <result property="ClearType" column="ClearType" />
+      <result property="ClearBool" column="ClearBool" />
+      <result property="OpticsType" column="OpticsType" />
+      <result property="OpticsBool" column="OpticsBool" />
+      <result property="LaserType" column="LaserType" />
+      <result property="LaserBool" column="LaserBool" />
+      <result property="ImpaceType" column="ImpaceType" />
+      <result property="ImpactBool" column="ImpactBool" />
+      <result property="Content" column="Content" />
+      <result property="ContentDetail" column="ContentDetail" />
+      <result property="ContentType" column="ContentType" />
+      <result property="DevelopRemarks" column="DevelopRemarks" />
+      <result property="FourWayDate" column="FourWayDate" />
+      <result property="ImpactDate" column="ImpactDate" />
+      <result property="ContentDate" column="ContentDate" />
+      <result property="DevelopRemarksDate" column="DevelopRemarksDate" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="MouldSize" column="MouldSize" />
+      <result property="MouldMount" column="MouldMount" />
+      <result property="ProductMaterialId" column="ProductMaterialId" />
+      <result property="ProductTypeWay" column="ProductTypeWay" />
+      <result property="ProductCategoryName" column="ProductCategoryName"/>
+      <result property="MouldWeight" column="MouldWeight"/>
+      <result property="InjectionNote" column="InjectionNote"/>
+      <result property="StrengThenNote" column="StrengThenNote"/>
+      <result property="QualityControlNote" column="QualityControlNote"/>
+      <result property ="ProductCategoryId" column="ProductCategoryId"/>
+      <result property ="EachMouldDesc" column="EachMouldDesc"/>
+      <result property="AreaCategory" column="AreaCategoryId" lazyLoad="false" select="AreaCategory.select_by_primary_key" />
+      <result property="Emp_Employee5" column="Emp_EmployeeId5" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Emp_Employee6" column="Emp_EmployeeId6" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Emp_Employee8" column="Emp_EmployeeId8" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Emp_Employee" column="Emp_EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Emp_Employee3" column="Emp_EmployeeId3" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Emp_Employee7" column="Emp_EmployeeId7" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Emp_Employee4" column="Emp_EmployeeId4" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Emp_Employee2" column="Emp_EmployeeId2" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="PronoteMachine" column="PronoteMachineId" lazyLoad="false" select="PronoteMachine.select_by_primary_key" />
+      <result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />
+      <result property="Mould" column="MouldId" lazyLoad="false" select="ProductMould.select_by_primary_key" />
+      <result property="ProductMaterial" column="ProductMaterialId" lazyLoad="false" select="ProductMaterial.select_by_primary_key" />
+      <result property ="ProductCategory" column="ProductCategoryId" lazyLoad="false" select="ProductMouldCategory.select_by_primary_key"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductMouldTest]
+				WHERE
+				[ProductMouldTestId] = #ProductMouldTestId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductMouldTest]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="ProductMouldTestResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProductMouldTest
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="ProductMouldTestResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProductMouldTest
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="ProductMouldTestResult" parameterClass="ProductMouldTest">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProductMouldTest
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="ProductMouldTestResult" parameterClass="ProductMouldTest">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProductMouldTest
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="ProductMouldTest">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductMouldTest
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="ProductMouldTest">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductMouldTest
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="ProductMouldTestResult" parameterClass="ProductMouldTest">
+      <![CDATA[SELECT
+				[ProductMouldTestId],
+				[EmployeeId],
+				[Emp_EmployeeId],
+				[Emp_EmployeeId2],
+				[Emp_EmployeeId3],
+				[Emp_EmployeeId4],
+				[AreaCategoryId],
+				[PronoteMachineId],
+				[Emp_EmployeeId5],
+				[Emp_EmployeeId6],
+				[SupplierId],
+				[Emp_EmployeeId7],
+				[Emp_EmployeeId8],
+				[Id],
+				[InFactoryDate],
+				[OutFactoryDate],
+				[TestCause],
+				[ProductMouldTestDate],
+				[MouldId],
+				[MouldInjectionType],
+				[MouldInjectionDate],
+				[MouldStrengthenType],
+				[MouldStrengthenDate],
+				[InstallType],
+				[InstallBool],
+				[ClearType],
+				[ClearBool],
+				[OpticsType],
+				[OpticsBool],
+				[LaserType],
+				[LaserBool],
+				[ImpaceType],
+				[ImpactBool],
+				[Content],
+				[ContentDetail],
+				[ContentType],
+				[DevelopRemarks],
+				[FourWayDate],
+				[ImpactDate],
+				[ContentDate],
+				[DevelopRemarksDate],
+				[InsertTime],
+				[UpdateTime],
+				[MouldSize],
+				[MouldMount],
+				[ProductMaterialId],
+				[ProductTypeWay],
+				[ProductCategoryName],
+        [MouldWeight],
+        [InjectionNote],
+        [StrengThenNote],
+        [QualityControlNote],
+        [ProductCategoryId],
+        [EachMouldDesc]
+			FROM
+				[dbo].[ProductMouldTest]
+			WHERE
+				[ProductMouldTestId] = #ProductMouldTestId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[ProductMouldTest]
+			WHERE            
+				[ProductMouldTestId] = #ProductMouldTestId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="ProductMouldTestResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[ProductMouldTest]
+                			                   
+			ORDER BY Id ASC			
+			
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[ProductMouldTest]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="ProductMouldTestResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProductMouldTest]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="ProductMouldTest">
+      <![CDATA[ INSERT INTO [dbo].[ProductMouldTest] 
+			(
+				[ProductMouldTestId],
+				[EmployeeId],
+				[Emp_EmployeeId],
+				[Emp_EmployeeId2],
+				[Emp_EmployeeId3],
+				[Emp_EmployeeId4],
+				[AreaCategoryId],
+				[PronoteMachineId],
+				[Emp_EmployeeId5],
+				[Emp_EmployeeId6],
+				[SupplierId],
+				[Emp_EmployeeId7],
+				[Emp_EmployeeId8],
+				[Id],
+				[InFactoryDate],
+				[OutFactoryDate],
+				[TestCause],
+				[ProductMouldTestDate],
+				[MouldId],
+				[MouldInjectionType],
+				[MouldInjectionDate],
+				[MouldStrengthenType],
+				[MouldStrengthenDate],
+				[InstallType],
+				[InstallBool],
+				[ClearType],
+				[ClearBool],
+				[OpticsType],
+				[OpticsBool],
+				[LaserType],
+				[LaserBool],
+				[ImpaceType],
+				[ImpactBool],
+				[Content],
+				[ContentDetail],
+				[ContentType],
+				[DevelopRemarks],
+				[FourWayDate],
+				[ImpactDate],
+				[ContentDate],
+				[DevelopRemarksDate],
+				[InsertTime],
+				[UpdateTime],
+				[MouldSize],
+				[MouldMount],
+				[ProductMaterialId],
+				[ProductTypeWay],
+				[ProductCategoryName],
+        [MouldWeight],
+        [InjectionNote],
+        [StrengThenNote],
+        [QualityControlNote],
+        [ProductCategoryId],
+        [EachMouldDesc]
+			) 
+			VALUES 
+			(
+				#ProductMouldTestId#,
+				#EmployeeId#,
+				#Emp_EmployeeId#,
+				#Emp_EmployeeId2#,
+				#Emp_EmployeeId3#,
+				#Emp_EmployeeId4#,
+				#AreaCategoryId#,
+				#PronoteMachineId#,
+				#Emp_EmployeeId5#,
+				#Emp_EmployeeId6#,
+				#SupplierId#,
+				#Emp_EmployeeId7#,
+				#Emp_EmployeeId8#,
+				#Id#,
+				#InFactoryDate#,
+				#OutFactoryDate#,
+				#TestCause#,
+				#ProductMouldTestDate#,
+				#MouldId#,
+				#MouldInjectionType#,
+				#MouldInjectionDate#,
+				#MouldStrengthenType#,
+				#MouldStrengthenDate#,
+				#InstallType#,
+				#InstallBool#,
+				#ClearType#,
+				#ClearBool#,
+				#OpticsType#,
+				#OpticsBool#,
+				#LaserType#,
+				#LaserBool#,
+				#ImpaceType#,
+				#ImpactBool#,
+				#Content#,
+				#ContentDetail#,
+				#ContentType#,
+				#DevelopRemarks#,
+				#FourWayDate#,
+				#ImpactDate#,
+				#ContentDate#,
+				#DevelopRemarksDate#,
+				#InsertTime#,
+				#UpdateTime#,
+				#MouldSize#,
+				#MouldMount#,
+				#ProductMaterialId#,
+				#ProductTypeWay#,
+				#ProductCategoryName#,
+        #MouldWeight#,
+        #InjectionNote#,
+        #StrengThenNote#,
+        #QualityControlNote#,
+        #ProductCategoryId#,
+        #EachMouldDesc#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="ProductMouldTest">
+      <![CDATA[ 	UPDATE [ProductMouldTest] SET
+				[EmployeeId] = #EmployeeId#,
+				[Emp_EmployeeId] = #Emp_EmployeeId#,
+				[Emp_EmployeeId2] = #Emp_EmployeeId2#,
+				[Emp_EmployeeId3] = #Emp_EmployeeId3#,
+				[Emp_EmployeeId4] = #Emp_EmployeeId4#,
+				[AreaCategoryId] = #AreaCategoryId#,
+				[PronoteMachineId] = #PronoteMachineId#,
+				[Emp_EmployeeId5] = #Emp_EmployeeId5#,
+				[Emp_EmployeeId6] = #Emp_EmployeeId6#,
+				[SupplierId] = #SupplierId#,
+				[Emp_EmployeeId7] = #Emp_EmployeeId7#,
+				[Emp_EmployeeId8] = #Emp_EmployeeId8#,
+				[Id] = #Id#,
+				[InFactoryDate] = #InFactoryDate#,
+				[OutFactoryDate] = #OutFactoryDate#,
+				[TestCause] = #TestCause#,
+				[ProductMouldTestDate] = #ProductMouldTestDate#,
+				[MouldId] = #MouldId#,
+				[MouldInjectionType] = #MouldInjectionType#,
+				[MouldInjectionDate] = #MouldInjectionDate#,
+				[MouldStrengthenType] = #MouldStrengthenType#,
+				[MouldStrengthenDate] = #MouldStrengthenDate#,
+				[InstallType] = #InstallType#,
+				[InstallBool] = #InstallBool#,
+				[ClearType] = #ClearType#,
+				[ClearBool] = #ClearBool#,
+				[OpticsType] = #OpticsType#,
+				[OpticsBool] = #OpticsBool#,
+				[LaserType] = #LaserType#,
+				[LaserBool] = #LaserBool#,
+				[ImpaceType] = #ImpaceType#,
+				[ImpactBool] = #ImpactBool#,
+				[Content] = #Content#,
+				[ContentDetail] = #ContentDetail#,
+				[ContentType] = #ContentType#,
+				[DevelopRemarks] = #DevelopRemarks#,
+				[FourWayDate] = #FourWayDate#,
+				[ImpactDate] = #ImpactDate#,
+				[ContentDate] = #ContentDate#,
+				[DevelopRemarksDate] = #DevelopRemarksDate#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[MouldSize] = #MouldSize#,
+				[MouldMount] = #MouldMount#,
+				[ProductMaterialId] = #ProductMaterialId#,
+				[ProductTypeWay] = #ProductTypeWay#,
+				[ProductCategoryName]=#ProductCategoryName#,
+        [MouldWeight]=#MouldWeight#,
+        [InjectionNote]=#InjectionNote#,
+        [StrengThenNote]=#StrengThenNote#,
+        [QualityControlNote]=#QualityControlNote#,
+        [ProductCategoryId]=#ProductCategoryId#,
+        [EachMouldDesc]=#EachMouldDesc#
+			WHERE
+				[ProductMouldTestId] = #ProductMouldTestId#
+        
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProductMouldTest]
+				where  ProductMouldTestId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+    <select id="exists" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductMouldTest
+				where Id = #value#
+               			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="get_by_id" resultMap="ProductMouldTestResult" parameterClass="string">
+      <![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[ProductMouldTest]
+                    			          
+         
+			WHERE
+				Id = #value#
+			]]>
+    </select>
+
+    <select id="existsexcept" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from dbo.ProductMouldTest
+				where Id = #newId# and Id <> #oldId#
+                    			          
+         
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+
+  </statements>
+</sqlMap>
+

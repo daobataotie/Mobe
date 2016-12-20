@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PronoteProceduresDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="PronoteProceduresDetail" type="Book.Model.PronoteProceduresDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="PronoteProceduresDetailResult" class="PronoteProceduresDetail">
+			<result property="PronoteProceduresDetailId" column="PronoteProceduresDetailId" />
+			<result property="ProceduresId" column="ProceduresId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="PronoteHeaderID" column="PronoteHeaderID" />
+			<result property="Employee0Id" column="Employee0Id" />
+			<result property="PronoteMachineId" column="PronoteMachineId" />
+			<result property="FulfillQuantity" column="FulfillQuantity" />
+			<result property="DeposeQuantity" column="DeposeQuantity" />
+			<result property="checkQuantity" column="checkQuantity" />
+			<result property="ProceduresNo" column="ProceduresNo" />
+			<result property="PronoteProceduresDate" column="PronoteProceduresDate" />
+			<result property="WorkHouseId" column="WorkHouseId" />
+			<result property="IsOtherProduceOther" column="IsOtherProduceOther" />
+			<result property="SupplierId" column="SupplierId" />
+			<result property="Description" column="Description" />
+			<result property="PronoteYingQuantity" column="PronoteYingQuantity" />
+			<result property="ProduceMaterialID" column="ProduceMaterialID" />
+			<result property="LossQuantity" column="LossQuantity" />
+			<result property="PronoteBeenQuantity" column="PronoteBeenQuantity" />
+			<result property="PronoteNoBeenQuantity" column="PronoteNoBeenQuantity" />
+		<result property="Procedures" column="ProceduresId" lazyLoad="false" select="Procedures.select_by_primary_key" />		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />		<result property="PronoteHeader" column="PronoteHeaderID" lazyLoad="false" select="PronoteHeader.select_by_primary_key" />		<result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />		<result property="WorkHouse" column="WorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PronoteProceduresDetail]
+				WHERE
+				[PronoteProceduresDetailId] = #PronoteProceduresDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PronoteProceduresDetail]
+ 						
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="PronoteProceduresDetailResult" parameterClass="PronoteProceduresDetail">
+			SELECT
+				[PronoteProceduresDetailId],
+				[ProceduresId],
+				[EmployeeId],
+				[PronoteHeaderID],
+				[Employee0Id],
+				[PronoteMachineId],
+				[FulfillQuantity],
+				[DeposeQuantity],
+				[checkQuantity],
+				[ProceduresNo],
+				[PronoteProceduresDate],
+				[WorkHouseId],
+				[IsOtherProduceOther],
+				[SupplierId],
+				[Description],
+				[PronoteYingQuantity],
+				[ProduceMaterialID],
+				[LossQuantity],
+				[PronoteBeenQuantity],
+				[PronoteNoBeenQuantity]
+			FROM
+				[dbo].[PronoteProceduresDetail]
+			WHERE
+				[PronoteProceduresDetailId] = #PronoteProceduresDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[PronoteProceduresDetail]
+			WHERE
+				[PronoteProceduresDetailId] = #PronoteProceduresDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="PronoteProceduresDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[PronoteProceduresDetail]
+			
+
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[PronoteProceduresDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="PronoteProceduresDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PronoteProceduresDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="PronoteProceduresDetail">
+			INSERT INTO [dbo].[PronoteProceduresDetail] 
+			(
+				[PronoteProceduresDetailId],
+				[ProceduresId],
+				[EmployeeId],
+				[PronoteHeaderID],
+				[Employee0Id],
+				[PronoteMachineId],
+				[FulfillQuantity],
+				[DeposeQuantity],
+				[checkQuantity],
+				[ProceduresNo],
+				[PronoteProceduresDate],
+				[WorkHouseId],
+				[IsOtherProduceOther],
+				[SupplierId],
+				[Description],
+				[PronoteYingQuantity],
+				[ProduceMaterialID],
+				[LossQuantity],
+				[PronoteBeenQuantity],
+				[PronoteNoBeenQuantity]
+			) 
+			VALUES 
+			(
+				#PronoteProceduresDetailId#,
+				#ProceduresId#,
+				#EmployeeId#,
+				#PronoteHeaderID#,
+				#Employee0Id#,
+				#PronoteMachineId#,
+				#FulfillQuantity#,
+				#DeposeQuantity#,
+				#checkQuantity#,
+				#ProceduresNo#,
+				#PronoteProceduresDate#,
+				#WorkHouseId#,
+				#IsOtherProduceOther#,
+				#SupplierId#,
+				#Description#,
+				#PronoteYingQuantity#,
+				#ProduceMaterialID#,
+				#LossQuantity#,
+				#PronoteBeenQuantity#,
+				#PronoteNoBeenQuantity#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="PronoteProceduresDetail">
+			UPDATE [PronoteProceduresDetail] SET
+				[ProceduresId] = #ProceduresId#,
+				[EmployeeId] = #EmployeeId#,
+				[PronoteHeaderID] = #PronoteHeaderID#,
+				[Employee0Id] = #Employee0Id#,
+				[PronoteMachineId] = #PronoteMachineId#,
+				[FulfillQuantity] = #FulfillQuantity#,
+				[DeposeQuantity] = #DeposeQuantity#,
+				[checkQuantity] = #checkQuantity#,
+				[ProceduresNo] = #ProceduresNo#,
+				[PronoteProceduresDate] = #PronoteProceduresDate#,
+				[WorkHouseId] = #WorkHouseId#,
+				[IsOtherProduceOther] = #IsOtherProduceOther#,
+				[SupplierId] = #SupplierId#,
+				[Description] = #Description#,
+				[PronoteYingQuantity] = #PronoteYingQuantity#,
+				[ProduceMaterialID] = #ProduceMaterialID#,
+				[LossQuantity] = #LossQuantity#,
+				[PronoteBeenQuantity] = #PronoteBeenQuantity#,
+				[PronoteNoBeenQuantity] = #PronoteNoBeenQuantity#
+			WHERE
+				[PronoteProceduresDetailId] = #PronoteProceduresDetailId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PronoteProceduresDetail]
+				where  PronoteProceduresDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Operators" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Operators" type="Book.Model.Operators, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="OperatorsResult" class="Operators">
+			<result property="Id" column="Id" />
+			<result property="OperatorsId" column="OperatorsId" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="OperatorName" column="OperatorName" />
+			<result property="Password" column="Password" />
+			<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Operators]
+				WHERE
+				[OperatorsId] = #OperatorsId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Operators]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="OperatorsResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Operators 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="OperatorsResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Operators 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="OperatorsResult" parameterClass="Operators">
+			<![CDATA[
+			select top 1 *
+			from dbo.Operators
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="OperatorsResult" parameterClass="Operators">
+			<![CDATA[
+			select top 1 *
+			from dbo.Operators
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="Operators">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Operators
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="Operators">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Operators
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="OperatorsResult" parameterClass="Operators">
+			SELECT
+				[Id],
+				[OperatorsId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[OperatorName],
+				[Password]
+			FROM
+				[dbo].[Operators]
+			WHERE
+				[OperatorsId] = #OperatorsId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[Operators]
+			WHERE
+				[OperatorsId] = #OperatorsId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="OperatorsResult" >
+			SELECT *
+			FROM 
+				[dbo].[Operators]
+			ORDER BY OperatorsId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[Operators]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="OperatorsResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Operators]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Operators">
+			INSERT INTO [dbo].[Operators] 
+			(
+				[Id],
+				[OperatorsId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[OperatorName],
+				[Password]
+			) 
+			VALUES 
+			(
+				#Id#,
+				#OperatorsId#,
+				#EmployeeId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#OperatorName#,
+				#Password#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Operators">
+			UPDATE [Operators] SET
+				[Id] = #Id#,
+				[EmployeeId] = #EmployeeId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[OperatorName] = #OperatorName#,
+				[Password] = #Password#
+			WHERE
+				[OperatorsId] = #OperatorsId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Operators
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="OperatorsResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[Operators]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.Operators
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

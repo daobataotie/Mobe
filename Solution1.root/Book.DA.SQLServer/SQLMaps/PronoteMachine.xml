@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PronoteMachine" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="Existsid" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+               select case when exists(select * from PronoteMachine where PronoteMachineId<>#proid# and Id=#id#) then 1 else 0 end
+      ]]>
+    </select>
+    <select id="ExistsName" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+               select case when exists(select * from PronoteMachine where PronoteMachineId<>#id# and PronoteMachineName=#name#) then 1 else 0 end
+      ]]>
+    </select>
+    <select id="selectMachineByProduresId"  resultMap="PronoteMachineResult" parameterClass="string">
+      SELECT * FROM PronoteMachine WHERE PronoteMachineId IN( SELECT PronoteMachineId FROM ProceduresMachine WHERE ProceduresId=#value#)
+    </select>
+
+    <select id="GetPronoteMachineByPronoteProceduresDetailId"  resultMap="PronoteMachineResult" parameterClass="string">
+      SELECT * FROM PronoteMachine WHERE PronoteMachineId IN( SELECT PronoteMachineId FROM ProceduresMachine WHERE PronoteProceduresDetailId=#value#)
+    </select>
+    
+    <select id="selectMachineByName" resultMap="PronoteMachineResult" parameterClass="string">
+      select * from PronoteMachine where PronoteMachineName=#value#
+    </select>
+    
+  </statements>
+</sqlMap>

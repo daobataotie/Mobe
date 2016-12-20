@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="WorkHouse" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <select id="ExistsWorkHouseCode" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[WorkHouse]
+				where  WorkhouseCode = #value# 
+				)
+				then 1 else 0 end
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

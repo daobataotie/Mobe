@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceZX" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoiceZX" type="Book.Model.InvoiceZX, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoiceZXResult" class="InvoiceZX">
+      <result property="InvoiceZXId" column="InvoiceZXId" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="PackingId" column="PackingId" />
+      <result property="InvoiceDate" column="InvoiceDate" />
+      <result property="InvoiceNote" column="InvoiceNote" />
+      <result property="BLong" column="BLong" />
+      <result property="BWide" column="BWide" />
+      <result property="BHigh" column="BHigh" />
+      <result property="BWeight" column="BWeight" />
+      <result property="AllWeight" column="AllWeight"/>
+      <result property="ProductId" column="productId"/>
+      <result property="XOcustomerId" column="xocustomerId"/>
+      <result property="Caiji" column="caiji"/>
+      <result property="PackingNum" column="PackingNum"/>
+      <result property="UNITPRICE" column="UNITPRICE"/>
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Product" column="productId" lazyLoad="false" select="Product.select_SimpleProduct"/>
+      <result property="XOcustomer" column="xocustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer"/>
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceZX]
+				WHERE
+				[InvoiceZXId] = #InvoiceZXId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceZX]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="InvoiceZXResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.InvoiceZX
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="InvoiceZXResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.InvoiceZX
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="InvoiceZXResult" parameterClass="InvoiceZX">
+      <![CDATA[
+			select top 1 *
+			from dbo.InvoiceZX
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="InvoiceZXResult" parameterClass="InvoiceZX">
+      <![CDATA[
+			select top 1 *
+			from dbo.InvoiceZX
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="InvoiceZX">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.InvoiceZX
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="InvoiceZX">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.InvoiceZX
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="InvoiceZXResult" parameterClass="InvoiceZX">
+      <![CDATA[SELECT
+				[InvoiceZXId],
+				[CustomerId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[PackingId],
+				[InvoiceDate],
+				[InvoiceNote],
+				[BLong],
+				[BWide],
+				[BHigh],
+				[BWeight],
+        [AllWeight],
+        [ProductId],
+        [XOcustomerId],
+        [Caiji],
+        [PackingNum],
+        [UNITPRICE],
+        [AuditState],
+        [AuditEmpId]
+        
+			FROM
+				[dbo].[InvoiceZX]
+			WHERE
+				[InvoiceZXId] = #InvoiceZXId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[InvoiceZX]
+			WHERE            
+				[InvoiceZXId] = #InvoiceZXId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="InvoiceZXResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[InvoiceZX]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[InvoiceZX]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="InvoiceZXResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoiceZX]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="InvoiceZX">
+      <![CDATA[ INSERT INTO [dbo].[InvoiceZX] 
+			(
+				[InvoiceZXId],
+				[CustomerId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[PackingId],
+				[InvoiceDate],
+				[InvoiceNote],
+				[BLong],
+				[BWide],
+				[BHigh],
+				[BWeight],
+        [AllWeight],
+        [ProductId],
+        [XOcustomerId],
+        [Caiji],
+        [PackingNum],
+        [UNITPRICE],
+        [AuditState],
+        [AuditEmpId]
+			) 
+			VALUES 
+			(
+				#InvoiceZXId#,
+				#CustomerId#,
+				#EmployeeId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#PackingId#,
+				#InvoiceDate#,
+				#InvoiceNote#,
+				#BLong#,
+				#BWide#,
+				#BHigh#,
+				#BWeight#,
+        #AllWeight#,
+        #ProductId#,
+        #XOcustomerId#,
+        #Caiji#,
+        #PackingNum#,
+        #UNITPRICE#,
+        #AuditState#,
+        #AuditEmpId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="InvoiceZX">
+      <![CDATA[ 	UPDATE [InvoiceZX] SET
+				[CustomerId] = #CustomerId#,
+				[EmployeeId] = #EmployeeId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[PackingId] = #PackingId#,
+				[InvoiceDate] = #InvoiceDate#,
+				[InvoiceNote] = #InvoiceNote#,
+				[BLong] = #BLong#,
+				[BWide] = #BWide#,
+				[BHigh] = #BHigh#,
+				[BWeight] = #BWeight#,
+        [AllWeight] = #AllWeight#,
+        [ProductId]=#ProductId#,
+        [XOcustomerId]=#XOcustomerId#,
+        [Caiji]=#Caiji#,
+        [PackingNum]=#PackingNum#,
+        [UNITPRICE]=#UNITPRICE#,
+        [AuditState]=#AuditState#,        
+        [AuditEmpId]=#AuditEmpId#
+			WHERE
+				[InvoiceZXId] = #InvoiceZXId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceZX]
+				where  InvoiceZXId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

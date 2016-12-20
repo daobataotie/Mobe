@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcInvoiceXOBill" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="selectForDateRange" resultMap="AcInvoiceXOBillResult">
+      <![CDATA[
+      SELECT 
+      * 
+      FROM
+      AcInvoiceXOBill 
+      WHERE 
+      AcInvoiceXOBillDate 
+      BETWEEN #StartDate# 
+      AND 
+      #EndDate#
+    ]]>
+    </select>
+
+    <update id="UpdateHeXiaoByAcInvoiceXOBillId" parameterClass="Map">
+      <![CDATA[
+      UPDATE AcInvoiceXOBill
+      SET
+      mHeXiaoJingE = #HeXiao#
+      WHERE AcInvoiceXOBill.AcInvoiceXOBillId = #AcInvoiceXOBillId#
+      ]]>
+    </update>
+  </statements>
+</sqlMap>

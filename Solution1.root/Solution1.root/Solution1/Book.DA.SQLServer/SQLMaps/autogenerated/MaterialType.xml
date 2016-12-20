@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="MaterialType" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="MaterialType" type="Book.Model.MaterialType, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="MaterialTypeResult" class="MaterialType">
+			<result property="MaterialTypeID" column="MaterialTypeID" />
+			<result property="MaterialTypeName" column="MaterialTypeName" />
+			<result property="MaterialTypeDescription" column="MaterialTypeDescription" />
+			<result property="FatherMaterialTypeID" column="FatherMaterialTypeID" />
+			<result property="MaterialLevel" column="MaterialLevel" />
+			<result property="EndMaterialTypeLogo" column="EndMaterialTypeLogo" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[MaterialType]
+				WHERE
+				[MaterialTypeID] = #MaterialTypeID#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[MaterialType]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="MaterialTypeResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.MaterialType 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="MaterialTypeResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.MaterialType 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="MaterialTypeResult" parameterClass="MaterialType">
+			<![CDATA[
+			select top 1 *
+			from dbo.MaterialType
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="MaterialTypeResult" parameterClass="MaterialType">
+			<![CDATA[
+			select top 1 *
+			from dbo.MaterialType
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="MaterialType">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.MaterialType
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="MaterialType">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.MaterialType
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="MaterialTypeResult" parameterClass="MaterialType">
+			SELECT
+				[MaterialTypeID],
+				[MaterialTypeName],
+				[MaterialTypeDescription],
+				[FatherMaterialTypeID],
+				[MaterialLevel],
+				[EndMaterialTypeLogo],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			FROM
+				[dbo].[MaterialType]
+			WHERE
+				[MaterialTypeID] = #MaterialTypeID#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[MaterialType]
+			WHERE
+				[MaterialTypeID] = #MaterialTypeID#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="MaterialTypeResult" >
+			SELECT *
+			FROM 
+				[dbo].[MaterialType]
+			
+				
+			ORDER BY InsertTime ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[MaterialType]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="MaterialTypeResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[MaterialType]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="MaterialType">
+			INSERT INTO [dbo].[MaterialType] 
+			(
+				[MaterialTypeID],
+				[MaterialTypeName],
+				[MaterialTypeDescription],
+				[FatherMaterialTypeID],
+				[MaterialLevel],
+				[EndMaterialTypeLogo],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			) 
+			VALUES 
+			(
+				#MaterialTypeID#,
+				#MaterialTypeName#,
+				#MaterialTypeDescription#,
+				#FatherMaterialTypeID#,
+				#MaterialLevel#,
+				#EndMaterialTypeLogo#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="MaterialType">
+			UPDATE [MaterialType] SET
+				[MaterialTypeName] = #MaterialTypeName#,
+				[MaterialTypeDescription] = #MaterialTypeDescription#,
+				[FatherMaterialTypeID] = #FatherMaterialTypeID#,
+				[MaterialLevel] = #MaterialLevel#,
+				[EndMaterialTypeLogo] = #EndMaterialTypeLogo#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#
+			WHERE
+				[MaterialTypeID] = #MaterialTypeID#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[MaterialType]
+				where  MaterialTypeID = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.MaterialType
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="MaterialTypeResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[MaterialType]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.MaterialType
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

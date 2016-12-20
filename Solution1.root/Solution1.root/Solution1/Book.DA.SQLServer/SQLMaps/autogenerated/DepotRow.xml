@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="DepotRow" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="DepotRow" type="Book.Model.DepotRow, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="DepotRowResult" class="DepotRow">
+			<result property="RowId" column="RowId" />
+			<result property="DepotId" column="DepotId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="RowCode" column="RowCode" />
+			<result property="RowDescription" column="RowDescription" />
+			<result property="Depot" column="DepotId" lazyLoad="false" select="Depot.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[DepotRow]
+				WHERE
+				[RowId] = #RowId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[DepotRow]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="DepotRowResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.DepotRow
+			
+			order by InvoiceDate,inserttime
+			]]>
+		</select>
+		<select id="get_last" resultMap="DepotRowResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.DepotRow
+			
+			order by InvoiceDate desc,inserttime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="DepotRowResult" parameterClass="DepotRow">
+			<![CDATA[
+			select top 1 *
+			from dbo.DepotRow
+			where InvoiceDate < #InvoiceDate#
+			order by InvoiceDate desc, inserttime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="DepotRowResult" parameterClass="DepotRow">
+			<![CDATA[
+			select top 1 *
+			from dbo.DepotRow
+			where InvoiceDate > #InvoiceDate#
+			order by InvoiceDate,inserttime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="DepotRow">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.DepotRow
+				where InvoiceDate < #InvoiceDate#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="DepotRow">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.DepotRow
+				where InvoiceDate > #InvoiceDate#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<!--
+		<select id="has_rows_before" resultClass="bool" parameterClass="DepotRow">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.DepotRow
+				where inserttime < #InsertTime# 
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="DepotRow">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.DepotRow
+				where inserttime > #InsertTime# 
+				) then 1 else 0 end
+			]]>
+		</select>
+		-->
+		
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="DepotRowResult" parameterClass="DepotRow">
+			SELECT
+				[RowId],
+				[DepotId],
+				[InsertTime],
+				[UpdateTime],
+				[RowCode],
+				[RowDescription]
+			FROM
+				[dbo].[DepotRow]
+			WHERE
+				[RowId] = #RowId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[DepotRow]
+			WHERE
+				[RowId] = #RowId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="DepotRowResult" >
+			SELECT *
+			FROM 
+				[dbo].[DepotRow]
+			ORDER BY RowId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[DepotRow]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="DepotRowResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[DepotRow]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="DepotRow">
+			INSERT INTO [dbo].[DepotRow] 
+			(
+				[RowId],
+				[DepotId],
+				[InsertTime],
+				[UpdateTime],
+				[RowCode],
+				[RowDescription]
+			) 
+			VALUES 
+			(
+				#RowId#,
+				#DepotId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#RowCode#,
+				#RowDescription#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="DepotRow">
+			UPDATE [DepotRow] SET
+				[DepotId] = #DepotId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[RowCode] = #RowCode#,
+				[RowDescription] = #RowDescription#
+			WHERE
+				[RowId] = #RowId#
+        </update>
+
+		
+    </statements>
+</sqlMap>
+

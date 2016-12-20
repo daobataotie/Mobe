@@ -1,0 +1,755 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Product" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Product" type="Book.Model.Product, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="ProductResult" class="Product">
+      <result property="Id" column="Id" />
+      <result property="ProductId" column="ProductId" />
+      <result property="BasedUnitGroupId" column="BasedUnitGroupId" />
+      <result property="MainUnitId" column="MainUnitId" />
+      <result property="BuyUnitId" column="BuyUnitId" />
+      <result property="VolumeUnitId" column="VolumeUnitId" />
+      <result property="CustomInspectionRuleId" column="CustomInspectionRuleId" />
+      <result property="EmployeeChangeId" column="EmployeeChangeId" />
+      <result property="InsteadOfProductId" column="InsteadOfProductId" />
+      <result property="EmployeeCreatorId" column="EmployeeCreatorId" />
+      <result property="ProduceUnitId" column="ProduceUnitId" />
+      <result property="VolumeUnitGroupId" column="VolumeUnitGroupId" />
+      <result property="BuyEmployeeId" column="BuyEmployeeId" />
+      <result property="WeightUnitGroupId" column="WeightUnitGroupId" />
+      <result property="QualityTestUnitId" column="QualityTestUnitId" />
+      <result property="PackageTypeId" column="PackageTypeId" />
+      <result property="SellUnitId" column="SellUnitId" />
+      <result property="DepotUnitId" column="DepotUnitId" />
+      <result property="WeightUnitId" column="WeightUnitId" />
+      <result property="QualityTestPlanId" column="QualityTestPlanId" />
+      <result property="DepotPositionId" column="DepotPositionId" />
+      <result property="DepotId" column="DepotId" />
+      <result property="SupplierId" column="SupplierId" />
+      <result property="ProductCategoryId" column="ProductCategoryId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="ProductName" column="ProductName" />
+      <result property="ProductBarCode" column="ProductBarCode" />
+      <result property="ProductSpecification" column="ProductSpecification" />
+      <result property="ProductDescription" column="ProductDescription" />
+      <result property="ProductPlace" column="ProductPlace" />
+      <result property="ProductBatch" column="ProductBatch" />
+      <result property="ProductDeadDate" column="ProductDeadDate" />
+      <result property="ProductNearCGDate" column="ProductNearCGDate" />
+      <result property="ProductNearXSDate" column="ProductNearXSDate" />
+      <result property="ProduceCounty" column="ProduceCounty" />
+      <result property="ValuationWay" column="ValuationWay" />
+      <result property="PlanSellPrice" column="PlanSellPrice" />
+      <result property="ReferenceCost" column="ReferenceCost" />
+      <result property="LowestSellPrice" column="LowestSellPrice" />
+      <result property="HighestPurchasingPrice" column="HighestPurchasingPrice" />
+      <result property="NewestCost" column="NewestCost" />
+      <result property="ReferenceSellPrice" column="ReferenceSellPrice" />
+      <result property="HighestStock" column="HighestStock" />
+      <result property="LowestStock" column="LowestStock" />
+      <result property="SafeStock" column="SafeStock" />
+      <result property="DamageRate" column="DamageRate" />
+      <result property="AbcCategory" column="AbcCategory" />
+      <result property="StockCheckTimeParts" column="StockCheckTimeParts" />
+      <result property="StockTakeCycle" column="StockTakeCycle" />
+      <result property="LastStockTakeTime" column="LastStockTakeTime" />
+      <result property="Digital" column="Digital" />
+      <result property="Length" column="Length" />
+      <result property="Width" column="Width" />
+      <result property="Height" column="Height" />
+      <result property="Volume" column="Volume" />
+      <result property="NetWeight" column="NetWeight" />
+      <result property="GrossWeight" column="GrossWeight" />
+      <result property="CheckCategory" column="CheckCategory" />
+      <result property="CheckRule" column="CheckRule" />
+      <result property="CheckRate" column="CheckRate" />
+      <result property="CheckCount" column="CheckCount" />
+      <result property="QualityRequire" column="QualityRequire" />
+      <result property="PowerGroup" column="PowerGroup" />
+      <result property="OutSourcing" column="OutSourcing" />
+      <result property="Consume" column="Consume" />
+      <result property="TrustOut" column="TrustOut" />
+      <result property="HomeMade" column="HomeMade" />
+      <result property="OnMadingQuantity" column="OnMadingQuantity" />
+      <result property="BeenAssigned" column="BeenAssigned" />
+      <result property="StocksQuantity" column="StocksQuantity" />
+      <result property="OrderOnWayQuantity" column="OrderOnWayQuantity" />
+      <result property="LendQuantity" column="LendQuantity" />
+      <result property="BorrowQuantity" column="BorrowQuantity" />
+      <result property="IsRequiredCheck" column="IsRequiredCheck" />
+      <result property="IsRequiredCheckCycle" column="IsRequiredCheckCycle" />
+      <result property="CheckCycle" column="CheckCycle" />
+      <result property="ProceebeforeProductId" column="ProceebeforeProductId" />
+      <result property="IsProcee" column="IsProcee" />
+      <result property="IsCustomerProduct" column="IsCustomerProduct" />
+      <result property="CustomerBeforeProductId" column="CustomerBeforeProductId" />
+      <result property="CustomerProductName" column="CustomerProductName" />
+      <result property="CustomerBeforeProductName" column="CustomerBeforeProductName" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="ProductBarCodeIsAuto" column="ProductBarCodeIsAuto" />
+      <result property="TechonlogyHeaderid" column="TechonlogyHeaderid" />
+      <result property="ProceduresId" column="ProceduresId" />
+      <result property="MpsStockQuantity" column="MpsStockQuantity" />
+      <result property="Inumber" column="Inumber" />
+      <result property="MRSStockQuantity" column="MRSStockQuantity" />
+      <result property="ProduceMaterialDistributioned" column="ProduceMaterialDistributioned" />
+      <result property="OtherMaterialDistributioned" column="OtherMaterialDistributioned" />
+      <result property="PriceAndRange" column="PriceAndRange" />
+      <result property="ProductType" column="ProductType" />
+      <result property="XOPriceAndRange" column="XOPriceAndRange" />
+      <result property="AttrZhengMai" column="AttrZhengMai" />
+      <result property="AttrCeMai" column="AttrCeMai" />
+      <result property="ProductState" column="ProductState" />
+      <result property="ProductVersion" column="ProductVersion" />
+      <result property="IsQiangHua" column="IsQiangHua" />
+      <result property="IsFangWu" column="IsFangWu" />
+      <result property="IsNoQiangFang" column="IsNoQiangFang" />
+      <result property="MaterialIds" column="MaterialIds"/>
+      <result property="MaterialNum" column="MaterialNum"/>
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="EmployeeChange" column="EmployeeChangeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="EmployeeCreator" column="EmployeeCreatorId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="CustomInspectionRule" column="CustomInspectionRuleId" lazyLoad="false" select="CustomInspectionRule.select_by_primary_key" />
+      <result property="Depot" column="DepotId" lazyLoad="false" select="Depot.select_by_primary_key" />
+      <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+      <result property="BuyEmployee" column="BuyEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="ProductCategory" column="ProductCategoryId" lazyLoad="false" select="ProductCategory.select_by_primary_key" />
+      <result property="BuyUnit" column="BuyUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="SellUnit" column="SellUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="DepotUnit" column="DepotUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="ProduceUnit" column="ProduceUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="MainUnit" column="MainUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="WeightUnit" column="WeightUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="VolumeUnit" column="VolumeUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="QualityTestUnit" column="QualityTestUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+      <result property="QualityTestPlan" column="QualityTestPlanId" lazyLoad="false" select="QualityTestPlan.select_by_primary_key" />
+      <result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />
+      <result property="BasedUnitGroup" column="BasedUnitGroupId" lazyLoad="false" select="UnitGroup.select_by_primary_key" />
+      <result property="VolumeUnitGroup" column="VolumeUnitGroupId" lazyLoad="false" select="UnitGroup.select_by_primary_key" />
+      <result property="WeightUnitGroup" column="WeightUnitGroupId" lazyLoad="false" select="UnitGroup.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Product]
+				WHERE
+				[ProductId] = #ProductId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Product]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="ProductResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.Product
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="ProductResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.Product
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="ProductResult" parameterClass="Product">
+      <![CDATA[
+			select top 1 *
+			from dbo.Product
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="ProductResult" parameterClass="Product">
+      <![CDATA[
+			select top 1 *
+			from dbo.Product
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="Product">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Product
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="Product">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Product
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="ProductResult" parameterClass="Product">
+      SELECT
+				[Id],
+				[ProductId],
+				[BasedUnitGroupId],
+				[MainUnitId],
+				[BuyUnitId],
+				[VolumeUnitId],
+				[CustomInspectionRuleId],
+				[EmployeeChangeId],
+				[InsteadOfProductId],
+				[EmployeeCreatorId],
+				[ProduceUnitId],
+				[VolumeUnitGroupId],
+				[BuyEmployeeId],
+				[WeightUnitGroupId],
+				[QualityTestUnitId],
+				[PackageTypeId],
+				[SellUnitId],
+				[DepotUnitId],
+				[WeightUnitId],
+				[QualityTestPlanId],
+				[DepotPositionId],
+				[DepotId],
+				[SupplierId],
+				[ProductCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[ProductName],
+				[ProductBarCode],
+				[ProductSpecification],
+				[ProductDescription],
+				[ProductPlace],
+				[ProductBatch],
+				[ProductDeadDate],
+				[ProductNearCGDate],
+				[ProductNearXSDate],
+				[ProduceCounty],
+				[ValuationWay],
+				[PlanSellPrice],
+				[ReferenceCost],
+				[LowestSellPrice],
+				[HighestPurchasingPrice],
+				[NewestCost],
+				[ReferenceSellPrice],
+				[HighestStock],
+				[LowestStock],
+				[SafeStock],
+				[DamageRate],
+				[AbcCategory],
+				[StockCheckTimeParts],
+				[StockTakeCycle],
+				[LastStockTakeTime],
+				[Digital],
+				[Length],
+				[Width],
+				[Height],
+				[Volume],
+				[NetWeight],
+				[GrossWeight],
+				[CheckCategory],
+				[CheckRule],
+				[CheckRate],
+				[CheckCount],
+				[QualityRequire],
+				[PowerGroup],
+				[OutSourcing],
+				[Consume],
+				[TrustOut],
+				[HomeMade],
+				[OnMadingQuantity],
+				[BeenAssigned],
+				[StocksQuantity],
+				[OrderOnWayQuantity],
+				[LendQuantity],
+				[BorrowQuantity],
+				[IsRequiredCheck],
+				[IsRequiredCheckCycle],
+				[CheckCycle],
+				[ProceebeforeProductId],
+				[IsProcee],
+				[IsCustomerProduct],
+				[CustomerBeforeProductId],
+				[CustomerProductName],
+				[CustomerBeforeProductName],
+				[CustomerId],
+				[ProductBarCodeIsAuto],
+				[TechonlogyHeaderid],
+				[ProceduresId],
+				[MpsStockQuantity],
+				[Inumber],
+				[MRSStockQuantity],
+				[ProduceMaterialDistributioned],
+				[OtherMaterialDistributioned],
+				[PriceAndRange],
+				[ProductType],
+				[XOPriceAndRange],
+				[AttrZhengMai],
+				[AttrCeMai],
+				[ProductState],
+				[ProductVersion],
+				[IsQiangHua],
+			  [IsFangWu],
+			  [IsNoQiangFang],
+        [MaterialIds],
+        [MaterialNum]
+			FROM
+				[dbo].[Product]
+			WHERE
+				[ProductId] = #ProductId#
+                			          
+         		
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[Product]
+			WHERE            
+				[ProductId] = #ProductId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="ProductResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[Product]
+                			                   
+			ORDER BY Id ASC			
+			
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[Product]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="ProductResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Product]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="Product">
+       INSERT INTO [dbo].[Product] 
+			(
+				[Id],
+				[ProductId],
+				[BasedUnitGroupId],
+				[MainUnitId],
+				[BuyUnitId],
+				[VolumeUnitId],
+				[CustomInspectionRuleId],
+				[EmployeeChangeId],
+				[InsteadOfProductId],
+				[EmployeeCreatorId],
+				[ProduceUnitId],
+				[VolumeUnitGroupId],
+				[BuyEmployeeId],
+				[WeightUnitGroupId],
+				[QualityTestUnitId],
+				[PackageTypeId],
+				[SellUnitId],
+				[DepotUnitId],
+				[WeightUnitId],
+				[QualityTestPlanId],
+				[DepotPositionId],
+				[DepotId],
+				[SupplierId],
+				[ProductCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[ProductName],
+				[ProductBarCode],
+				[ProductSpecification],
+				[ProductDescription],
+				[ProductPlace],
+				[ProductBatch],
+				[ProductDeadDate],
+				[ProductNearCGDate],
+				[ProductNearXSDate],
+				[ProduceCounty],
+				[ValuationWay],
+				[PlanSellPrice],
+				[ReferenceCost],
+				[LowestSellPrice],
+				[HighestPurchasingPrice],
+				[NewestCost],
+				[ReferenceSellPrice],
+				[HighestStock],
+				[LowestStock],
+				[SafeStock],
+				[DamageRate],
+				[AbcCategory],
+				[StockCheckTimeParts],
+				[StockTakeCycle],
+				[LastStockTakeTime],
+				[Digital],
+				[Length],
+				[Width],
+				[Height],
+				[Volume],
+				[NetWeight],
+				[GrossWeight],
+				[CheckCategory],
+				[CheckRule],
+				[CheckRate],
+				[CheckCount],
+				[QualityRequire],
+				[PowerGroup],
+				[OutSourcing],
+				[Consume],
+				[TrustOut],
+				[HomeMade],
+				[OnMadingQuantity],
+				[BeenAssigned],
+				[StocksQuantity],
+				[OrderOnWayQuantity],
+				[LendQuantity],
+				[BorrowQuantity],
+				[IsRequiredCheck],
+				[IsRequiredCheckCycle],
+				[CheckCycle],
+				[ProceebeforeProductId],
+				[IsProcee],
+				[IsCustomerProduct],
+				[CustomerBeforeProductId],
+				[CustomerProductName],
+				[CustomerBeforeProductName],
+				[CustomerId],
+				[ProductBarCodeIsAuto],
+				[TechonlogyHeaderid],
+				[ProceduresId],
+				[MpsStockQuantity],
+				[Inumber],
+				[MRSStockQuantity],
+				[ProduceMaterialDistributioned],
+				[OtherMaterialDistributioned],
+				[PriceAndRange],
+				[ProductType],
+				[XOPriceAndRange],
+				[AttrZhengMai],
+				[AttrCeMai],
+				[ProductState],
+				[ProductVersion],
+				[IsQiangHua],
+			  [IsFangWu],
+			  [IsNoQiangFang],
+        [MaterialIds],
+        [MaterialNum]
+			) 
+			VALUES 
+			(
+				#Id#,
+				#ProductId#,
+				#BasedUnitGroupId#,
+				#MainUnitId#,
+				#BuyUnitId#,
+				#VolumeUnitId#,
+				#CustomInspectionRuleId#,
+				#EmployeeChangeId#,
+				#InsteadOfProductId#,
+				#EmployeeCreatorId#,
+				#ProduceUnitId#,
+				#VolumeUnitGroupId#,
+				#BuyEmployeeId#,
+				#WeightUnitGroupId#,
+				#QualityTestUnitId#,
+				#PackageTypeId#,
+				#SellUnitId#,
+				#DepotUnitId#,
+				#WeightUnitId#,
+				#QualityTestPlanId#,
+				#DepotPositionId#,
+				#DepotId#,
+				#SupplierId#,
+				#ProductCategoryId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#ProductName#,
+				#ProductBarCode#,
+				#ProductSpecification#,
+				#ProductDescription#,
+				#ProductPlace#,
+				#ProductBatch#,
+				#ProductDeadDate#,
+				#ProductNearCGDate#,
+				#ProductNearXSDate#,
+				#ProduceCounty#,
+				#ValuationWay#,
+				#PlanSellPrice#,
+				#ReferenceCost#,
+				#LowestSellPrice#,
+				#HighestPurchasingPrice#,
+				#NewestCost#,
+				#ReferenceSellPrice#,
+				#HighestStock#,
+				#LowestStock#,
+				#SafeStock#,
+				#DamageRate#,
+				#AbcCategory#,
+				#StockCheckTimeParts#,
+				#StockTakeCycle#,
+				#LastStockTakeTime#,
+				#Digital#,
+				#Length#,
+				#Width#,
+				#Height#,
+				#Volume#,
+				#NetWeight#,
+				#GrossWeight#,
+				#CheckCategory#,
+				#CheckRule#,
+				#CheckRate#,
+				#CheckCount#,
+				#QualityRequire#,
+				#PowerGroup#,
+				#OutSourcing#,
+				#Consume#,
+				#TrustOut#,
+				#HomeMade#,
+				#OnMadingQuantity#,
+				#BeenAssigned#,
+				#StocksQuantity#,
+				#OrderOnWayQuantity#,
+				#LendQuantity#,
+				#BorrowQuantity#,
+				#IsRequiredCheck#,
+				#IsRequiredCheckCycle#,
+				#CheckCycle#,
+				#ProceebeforeProductId#,
+				#IsProcee#,
+				#IsCustomerProduct#,
+				#CustomerBeforeProductId#,
+				#CustomerProductName#,
+				#CustomerBeforeProductName#,
+				#CustomerId#,
+				#ProductBarCodeIsAuto#,
+				#TechonlogyHeaderid#,
+				#ProceduresId#,
+				#MpsStockQuantity#,
+				#Inumber#,
+				#MRSStockQuantity#,
+				#ProduceMaterialDistributioned#,
+				#OtherMaterialDistributioned#,
+				#PriceAndRange#,
+				#ProductType#,
+				#XOPriceAndRange#,
+				#AttrZhengMai#,
+				#AttrCeMai#,
+				#ProductState#,
+				#ProductVersion#,
+				#IsQiangHua#,
+			  #IsFangWu#,
+			  #IsNoQiangFang#,
+        #MaterialIds#,
+        #MaterialNum#
+			)
+             
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="Product">
+      	UPDATE [Product] SET
+				[Id] = #Id#,
+				[BasedUnitGroupId] = #BasedUnitGroupId#,
+				[MainUnitId] = #MainUnitId#,
+				[BuyUnitId] = #BuyUnitId#,
+				[VolumeUnitId] = #VolumeUnitId#,
+				[CustomInspectionRuleId] = #CustomInspectionRuleId#,
+				[EmployeeChangeId] = #EmployeeChangeId#,
+				[InsteadOfProductId] = #InsteadOfProductId#,
+				[EmployeeCreatorId] = #EmployeeCreatorId#,
+				[ProduceUnitId] = #ProduceUnitId#,
+				[VolumeUnitGroupId] = #VolumeUnitGroupId#,
+				[BuyEmployeeId] = #BuyEmployeeId#,
+				[WeightUnitGroupId] = #WeightUnitGroupId#,
+				[QualityTestUnitId] = #QualityTestUnitId#,
+				[PackageTypeId] = #PackageTypeId#,
+				[SellUnitId] = #SellUnitId#,
+				[DepotUnitId] = #DepotUnitId#,
+				[WeightUnitId] = #WeightUnitId#,
+				[QualityTestPlanId] = #QualityTestPlanId#,
+				[DepotPositionId] = #DepotPositionId#,
+				[DepotId] = #DepotId#,
+				[SupplierId] = #SupplierId#,
+				[ProductCategoryId] = #ProductCategoryId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[ProductName] = #ProductName#,
+				[ProductBarCode] = #ProductBarCode#,
+				[ProductSpecification] = #ProductSpecification#,
+				[ProductDescription] = #ProductDescription#,
+				[ProductPlace] = #ProductPlace#,
+				[ProductBatch] = #ProductBatch#,
+				[ProductDeadDate] = #ProductDeadDate#,
+				[ProductNearCGDate] = #ProductNearCGDate#,
+				[ProductNearXSDate] = #ProductNearXSDate#,
+				[ProduceCounty] = #ProduceCounty#,
+				[ValuationWay] = #ValuationWay#,
+				[PlanSellPrice] = #PlanSellPrice#,
+				[ReferenceCost] = #ReferenceCost#,
+				[LowestSellPrice] = #LowestSellPrice#,
+				[HighestPurchasingPrice] = #HighestPurchasingPrice#,
+				[NewestCost] = #NewestCost#,
+				[ReferenceSellPrice] = #ReferenceSellPrice#,
+				[HighestStock] = #HighestStock#,
+				[LowestStock] = #LowestStock#,
+				[SafeStock] = #SafeStock#,
+				[DamageRate] = #DamageRate#,
+				[AbcCategory] = #AbcCategory#,
+				[StockCheckTimeParts] = #StockCheckTimeParts#,
+				[StockTakeCycle] = #StockTakeCycle#,
+				[LastStockTakeTime] = #LastStockTakeTime#,
+				[Digital] = #Digital#,
+				[Length] = #Length#,
+				[Width] = #Width#,
+				[Height] = #Height#,
+				[Volume] = #Volume#,
+				[NetWeight] = #NetWeight#,
+				[GrossWeight] = #GrossWeight#,
+				[CheckCategory] = #CheckCategory#,
+				[CheckRule] = #CheckRule#,
+				[CheckRate] = #CheckRate#,
+				[CheckCount] = #CheckCount#,
+				[QualityRequire] = #QualityRequire#,
+				[PowerGroup] = #PowerGroup#,
+				[OutSourcing] = #OutSourcing#,
+				[Consume] = #Consume#,
+				[TrustOut] = #TrustOut#,
+				[HomeMade] = #HomeMade#,
+				[OnMadingQuantity] = #OnMadingQuantity#,
+				[BeenAssigned] = #BeenAssigned#,
+				[StocksQuantity] = #StocksQuantity#,
+				[OrderOnWayQuantity] = #OrderOnWayQuantity#,
+				[LendQuantity] = #LendQuantity#,
+				[BorrowQuantity] = #BorrowQuantity#,
+				[IsRequiredCheck] = #IsRequiredCheck#,
+				[IsRequiredCheckCycle] = #IsRequiredCheckCycle#,
+				[CheckCycle] = #CheckCycle#,
+				[ProceebeforeProductId] = #ProceebeforeProductId#,
+				[IsProcee] = #IsProcee#,
+				[IsCustomerProduct] = #IsCustomerProduct#,
+				[CustomerBeforeProductId] = #CustomerBeforeProductId#,
+				[CustomerProductName] = #CustomerProductName#,
+				[CustomerBeforeProductName] = #CustomerBeforeProductName#,
+				[CustomerId] = #CustomerId#,
+				[ProductBarCodeIsAuto] = #ProductBarCodeIsAuto#,
+				[TechonlogyHeaderid] = #TechonlogyHeaderid#,
+				[ProceduresId] = #ProceduresId#,
+				[MpsStockQuantity] = #MpsStockQuantity#,
+				[Inumber] = #Inumber#,
+				[MRSStockQuantity] = #MRSStockQuantity#,
+				[ProduceMaterialDistributioned] = #ProduceMaterialDistributioned#,
+				[OtherMaterialDistributioned] = #OtherMaterialDistributioned#,
+				[PriceAndRange] = #PriceAndRange#,
+				[ProductType] = #ProductType#,
+				[XOPriceAndRange] = #XOPriceAndRange#,
+				[AttrZhengMai] = #AttrZhengMai#,
+				[AttrCeMai] = #AttrCeMai#,
+				[ProductState] = #ProductState#,
+				[ProductVersion] = #ProductVersion#,
+				[IsQiangHua]=#IsQiangHua#,
+			  [IsFangWu]=#IsFangWu#,
+			  [IsNoQiangFang]=#IsNoQiangFang#,
+        [MaterialIds]=#MaterialIds#,
+        [MaterialNum]=#MaterialNum#
+			WHERE
+				[ProductId] = #ProductId#
+                   
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[Product]
+				where  ProductId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+    <select id="exists" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Product
+				where Id = #value#
+               			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="get_by_id" resultMap="ProductResult" parameterClass="string">
+      <![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[Product]
+                    			          
+         
+			WHERE
+				Id = #value#
+			]]>
+    </select>
+
+    <select id="existsexcept" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from dbo.Product
+				where Id = #newId# and Id <> #oldId#
+                    			          
+         
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+
+  </statements>
+</sqlMap>
+

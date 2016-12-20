@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ThicknessTest" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="ThicknessTest" type="Book.Model.ThicknessTest, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="ThicknessTestResult" class="ThicknessTest">
+      <result property="ThicknessTestId" column="ThicknessTestId" />
+      <result property="PCPGOnlineCheckDetailId" column="PCPGOnlineCheckDetailId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="Perspectiverate" column="Perspectiverate" />
+      <result property="ThicknessDescript" column="ThicknessDescript" />
+      <result property="ThicknessTestDate" column="ThicknessTestDate" />
+      <result property="manualId" column="manualId" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="Condition" column="Condition"/>
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="PCPGOnlineCheckDetail" column="PCPGOnlineCheckDetailId" lazyLoad="false" select="PCPGOnlineCheckDetail.select_by_primary_key" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ThicknessTest]
+				WHERE
+				[ThicknessTestId] = #ThicknessTestId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ThicknessTest]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="ThicknessTestResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.ThicknessTest
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="ThicknessTestResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.ThicknessTest
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="ThicknessTestResult" parameterClass="ThicknessTest">
+      <![CDATA[
+			select top 1 *
+			from dbo.ThicknessTest
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="ThicknessTestResult" parameterClass="ThicknessTest">
+      <![CDATA[
+			select top 1 *
+			from dbo.ThicknessTest
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="ThicknessTest">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ThicknessTest
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="ThicknessTest">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ThicknessTest
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="ThicknessTestResult" parameterClass="ThicknessTest">
+      <![CDATA[SELECT
+				[ThicknessTestId],
+				[PCPGOnlineCheckDetailId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[Perspectiverate],
+				[ThicknessDescript],
+				[ThicknessTestDate],
+				[manualId],
+        [AuditState],
+        [AuditEmpId],
+        [Condition]
+        
+			FROM
+				[dbo].[ThicknessTest]
+			WHERE
+				[ThicknessTestId] = #ThicknessTestId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[ThicknessTest]
+			WHERE            
+				[ThicknessTestId] = #ThicknessTestId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="ThicknessTestResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[ThicknessTest]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[ThicknessTest]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="ThicknessTestResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ThicknessTest]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="ThicknessTest">
+      <![CDATA[ INSERT INTO [dbo].[ThicknessTest] 
+			(
+				[ThicknessTestId],
+				[PCPGOnlineCheckDetailId],
+				[EmployeeId],
+				[InsertTime],
+				[UpdateTime],
+				[Perspectiverate],
+				[ThicknessDescript],
+				[ThicknessTestDate],
+				[manualId],
+        [AuditState],
+        [AuditEmpId],
+        [Condition]
+			) 
+			VALUES 
+			(
+				#ThicknessTestId#,
+				#PCPGOnlineCheckDetailId#,
+				#EmployeeId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Perspectiverate#,
+				#ThicknessDescript#,
+				#ThicknessTestDate#,
+				#manualId#,
+        #AuditState#,
+        #AuditEmpId#,
+        #Condition#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="ThicknessTest">
+      <![CDATA[ 	UPDATE [ThicknessTest] SET
+				[PCPGOnlineCheckDetailId] = #PCPGOnlineCheckDetailId#,
+				[EmployeeId] = #EmployeeId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Perspectiverate] = #Perspectiverate#,
+				[ThicknessDescript] = #ThicknessDescript#,
+				[ThicknessTestDate] = #ThicknessTestDate#,
+				[manualId] = #manualId#,
+        [AuditState]=#AuditState#,        
+        [AuditEmpId]=#AuditEmpId#,
+        [Condition]=#Condition#
+			WHERE
+				[ThicknessTestId] = #ThicknessTestId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ThicknessTest]
+				where  ThicknessTestId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="CustomerProductPrice" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="CustomerProductPrice" type="Book.Model.CustomerProductPrice, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="CustomerProductPriceResult" class="CustomerProductPrice">
+      <result property="CustomerProductPriceId" column="CustomerProductPriceId" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="CustomerProductPriceRage" column="CustomerProductPriceRage" />
+      <result property="CustomerProductsId" column="CustomerProductsId"/>
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="CustomerProducts" column="CustomerProductsId" lazyLoad="false" select="CustomerProducts.select_by_primary_key"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerProductPrice]
+				WHERE
+				[CustomerProductPriceId] = #CustomerProductPriceId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerProductPrice]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="CustomerProductPriceResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.CustomerProductPrice
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="CustomerProductPriceResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.CustomerProductPrice
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="CustomerProductPriceResult" parameterClass="CustomerProductPrice">
+      <![CDATA[
+			select top 1 *
+			from dbo.CustomerProductPrice
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="CustomerProductPriceResult" parameterClass="CustomerProductPrice">
+      <![CDATA[
+			select top 1 *
+			from dbo.CustomerProductPrice
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="CustomerProductPrice">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomerProductPrice
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="CustomerProductPrice">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomerProductPrice
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="CustomerProductPriceResult" parameterClass="CustomerProductPrice">
+      <![CDATA[SELECT
+				[CustomerProductPriceId],
+				[CustomerId],
+				[ProductId],
+				[InsertTime],
+				[UpdateTime],
+				[CustomerProductPriceRage],
+        [CustomerProductsId]
+			FROM
+				[dbo].[CustomerProductPrice]
+			WHERE
+				[CustomerProductPriceId] = #CustomerProductPriceId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[CustomerProductPrice]
+			WHERE            
+				[CustomerProductPriceId] = #CustomerProductPriceId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="CustomerProductPriceResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[CustomerProductPrice]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[CustomerProductPrice]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="CustomerProductPriceResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[CustomerProductPrice]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="CustomerProductPrice">
+      <![CDATA[ INSERT INTO [dbo].[CustomerProductPrice] 
+			(
+				[CustomerProductPriceId],
+				[CustomerId],
+				[ProductId],
+				[InsertTime],
+				[UpdateTime],
+				[CustomerProductPriceRage],
+        [CustomerProductsId]
+			) 
+			VALUES 
+			(
+				#CustomerProductPriceId#,
+				#CustomerId#,
+				#ProductId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#CustomerProductPriceRage#,
+        #CustomerProductsId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="CustomerProductPrice">
+      <![CDATA[ 	UPDATE [CustomerProductPrice] SET
+				[CustomerId] = #CustomerId#,
+				[ProductId] = #ProductId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[CustomerProductPriceRage] = #CustomerProductPriceRage#,
+        [CustomerProductsId]=#CustomerProductsId#
+			WHERE
+				[CustomerProductPriceId] = #CustomerProductPriceId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[CustomerProductPrice]
+				where  CustomerProductPriceId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

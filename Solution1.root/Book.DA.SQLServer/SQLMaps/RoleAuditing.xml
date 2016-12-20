@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="RoleAuditing" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_IsHasAudit" parameterClass="Map" resultClass="bool"><!--是否拥有下级级别审核权限-->
+      select case when exists(
+      select 1 from RoleAuditing where invoiceid=#invoiceid:varchar# and TableName=#TableName:varchar#   and  NextAuditRoleId in(select roleid from OperationRole where OperatorsId =#operatorsId:varchar# and IsHold=1)
+      ) then 1 else 0 end
+    </select>
+    <select id="select_IsHasGiveUpAudited" parameterClass="Map" resultClass="bool"> <!--是否有弃核权限-->
+      select case when exists(
+      select 1 from RoleAuditing where invoiceid=#invoiceid# and TableName=#TableName:varchar#  and  Role1Id in(select roleid from OperationRole where OperatorsId =#operatorsId:varchar# and IsHold=1)
+      ) then 1 else 0 end
+    </select>
+    <select id="select_IsNeedAuditByTableName" parameterClass="string" resultClass="bool">
+      select case when exists(
+      select 1 FROM RoleOperation WHERE OperationId in(SELECT OperationId FROM Operation WHERE TableName=#value:varchar#) AND RoleOperation.PossAuditingRank>0
+      ) then 1 else 0 end
+    </select>
+    <select id="select_IsNeedAuditByTag" parameterClass="string" resultClass="bool">
+      select case when exists(
+      select 1 FROM RoleOperation WHERE OperationId in(SELECT OperationId FROM Operation WHERE KeyTag=#value:varchar#) AND RoleOperation.PossAuditingRank>0
+      ) then 1 else 0 end
+    </select>
+
+    <select id="selectByInvoiceIdAndTable" parameterClass="Map" resultClass="RoleAuditing">
+      select * from RoleAuditing where invoiceid=#invoiceid:varchar#  and  tablename=#tableName:varchar#
+    </select>
+    <select id="select_IsLastAudit" parameterClass="Map" resultClass="bool">
+      select case when exists(
+      select 1 from RoleOperation where tablename=#tableName:varchar# and PossAuditingRank=#auditRank:int#)
+      then 1 else 0 end
+    </select>
+    <delete id="delete_ByInvoiceIdAndTable" parameterClass="Map">
+      delete  from RoleAuditing where invoiceid=#invoiceid:varchar#  and  tablename=#tableName:varchar#
+    </delete>
+  
+  </statements>
+</sqlMap>

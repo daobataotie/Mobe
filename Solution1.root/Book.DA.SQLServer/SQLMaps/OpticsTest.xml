@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="OpticsTest" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <select id="mGetFirst" resultMap="OpticsTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE PCPGOnlineCheckDetailId = #value#
+      ORDER BY InsertTime ASC
+			]]>
+    </select>
+
+    <select id="mGetLast" resultMap="OpticsTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE PCPGOnlineCheckDetailId = #value#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="mGetPrev" resultMap="OpticsTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE InsertTime < #InsertDate#
+      AND PCPGOnlineCheckDetailId = #PCPGOnlineCheckDetailId#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="mGetNext" resultMap="OpticsTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE InsertTime > #InsertDate#
+      AND PCPGOnlineCheckDetailId = #PCPGOnlineCheckDetailId#
+      ORDER BY InsertTime ASC
+      ]]>
+    </select>
+
+    <select id="mHasRows" resultClass="bool" parameterClass="string">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM OpticsTest WHERE PCPGOnlineCheckDetailId = #value#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="mHasRowsBefore" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM OpticsTest WHERE InsertTime < #InsertTime# AND PCPGOnlineCheckDetailId = #PCPGOnlineCheckDetailId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="mHasRowsAfter" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM OpticsTest WHERE InsertTime > #InsertTime# AND PCPGOnlineCheckDetailId = #PCPGOnlineCheckDetailId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="mSelect" resultMap="OpticsTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM OpticsTest WHERE PCPGOnlineCheckDetailId = #value# ORDER BY OpticsTest.OptiscTestDate asc
+      ]]>
+    </select>
+
+    <select id="SelectByDateRage" resultMap="OpticsTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM OpticsTest WHERE OpticsTest.OptiscTestDate BETWEEN #startdate# AND #enddate# 
+      AND PCPGOnlineCheckDetailId = #PCPGOnlineCheckDetailId#
+      ]]>
+    </select>
+
+    <delete id="DeleteByPCPGOnlineCheckDetailId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM OpticsTest WHERE PCPGOnlineCheckDetailId = #value#
+      ]]>
+    </delete>
+
+    <select id="ExistsManualId" parameterClass="Map" resultClass="bool">
+      <![CDATA[
+        select case when exists(
+				 select *
+				 from [dbo].[OpticsTest]
+				 where ManualId = #ManualId#
+         and OpticsTestId <> #OpticsTestid#
+				)
+				then 1 else 0 end
+      ]]>
+    </select>
+
+    
+    
+    
+    <select id="FGetFirst" resultMap="OpticsTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE PCFinishCheckId = #value#
+      ORDER BY InsertTime ASC
+			]]>
+    </select>
+
+    <select id="FGetLast" resultMap="OpticsTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE PCFinishCheckId = #value#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="FGetPrev" resultMap="OpticsTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE InsertTime < #InsertDate#
+      AND PCFinishCheckId = #PCFinishCheckId#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="FGetNext" resultMap="OpticsTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE InsertTime > #InsertDate#
+      AND PCFinishCheckId = #PCFinishCheckId#
+      ORDER BY InsertTime ASC
+      ]]>
+    </select>
+
+    <select id="FHasRows" resultClass="bool" parameterClass="string">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM OpticsTest WHERE PCFinishCheckId = #value#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="FHasRowsBefore" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM OpticsTest WHERE InsertTime < #InsertTime# AND PCFinishCheckId = #PCFinishCheckId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="FHasRowsAfter" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM OpticsTest WHERE InsertTime > #InsertTime# AND PCFinishCheckId = #PCFinishCheckId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="FSelect" resultMap="OpticsTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM OpticsTest WHERE PCFinishCheckId = #value# ORDER BY OpticsTest.OptiscTestDate asc
+      ]]>
+    </select>
+
+    <select id="FSelectByDateRage" resultMap="OpticsTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM OpticsTest WHERE OpticsTest.OptiscTestDate BETWEEN #startdate# AND #enddate# 
+      AND PCFinishCheckId = #PCFinishCheckId#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

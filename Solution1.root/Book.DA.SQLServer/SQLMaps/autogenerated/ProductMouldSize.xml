@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProductMouldSize" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="ProductMouldSize" type="Book.Model.ProductMouldSize, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="ProductMouldSizeResult" class="ProductMouldSize">
+      <result property="ProductMouldSizeId" column="ProductMouldSizeId" />
+      <result property="ProductSizeId" column="ProductSizeId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="MouldCateGoryId1" column="MouldCateGoryId1" />
+      <result property="MouldCategoryId2" column="MouldCategoryId2" />
+      <result property="MouldCategoryId3" column="MouldCategoryId3" />
+      <result property="MouldCategoryId4" column="MouldCategoryId4" />
+      <result property="MouldCategoryId5" column="MouldCategoryId5" />
+      <result property="MouldCategoryId6" column="MouldCategoryId6" />
+      <result property="MouldCategoryId7" column="MouldCategoryId7" />
+      <result property="MouldCategoryId8" column="MouldCategoryId8" />
+      <result property="MouldId1" column="MouldId1" />
+      <result property="MouldId2" column="MouldId2" />
+      <result property="MouldId3" column="MouldId3" />
+      <result property="MouldId4" column="MouldId4" />
+      <result property="MouldId5" column="MouldId5" />
+      <result property="MouldId6" column="MouldId6" />
+      <result property="MouldId7" column="MouldId7" />
+      <result property="MouldId8" column="MouldId8" />
+      <result property="Note" column="Note" />
+      <result property="ProductDate" column="ProductDate" />
+      <result property="Picture" column="Picture" />
+      <result property="MouldCategoryId9" column="MouldCategoryId9" />
+      <result property="MouldCategoryId10" column="MouldCategoryId10" />
+      <result property="MouldCategoryId11" column="MouldCategoryId11" />
+      <result property="MouldCategoryId12" column="MouldCategoryId12" />
+      <result property="MouldCategoryId13" column="MouldCategoryId13" />
+      <result property="MouldCategoryId14" column="MouldCategoryId14" />
+      <result property="MouldId9" column="MouldId9" />
+      <result property="MouldId10" column="MouldId10" />
+      <result property="MouldId11" column="MouldId11" />
+      <result property="MouldId12" column="MouldId12" />
+      <result property="MouldId13" column="MouldId13" />
+      <result property="MouldId14" column="MouldId14" />
+      <result property="MouldCateGory1" column="MouldCateGoryId1" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory10" column="MouldCategoryId10" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory11" column="MouldCategoryId11" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory12" column="MouldCategoryId12" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory13" column="MouldCategoryId13" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory14" column="MouldCategoryId14" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory2" column="MouldCategoryId2" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory3" column="MouldCategoryId3" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory4" column="MouldCategoryId4" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory5" column="MouldCategoryId5" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory6" column="MouldCategoryId6" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory7" column="MouldCategoryId7" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory8" column="MouldCategoryId8" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+      <result property="MouldCategory9" column="MouldCategoryId9" lazyLoad="false" select="MouldCategory.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductMouldSize]
+				WHERE
+				[ProductMouldSizeId] = #ProductMouldSizeId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProductMouldSize]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="ProductMouldSizeResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProductMouldSize
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="ProductMouldSizeResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProductMouldSize
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="ProductMouldSizeResult" parameterClass="ProductMouldSize">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProductMouldSize
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="ProductMouldSizeResult" parameterClass="ProductMouldSize">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProductMouldSize
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="ProductMouldSize">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductMouldSize
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="ProductMouldSize">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProductMouldSize
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="ProductMouldSizeResult" parameterClass="ProductMouldSize">
+      <![CDATA[SELECT
+				[ProductMouldSizeId],
+				[ProductSizeId],
+				[InsertTime],
+				[UpdateTime],
+				[MouldCateGoryId1],
+				[MouldCategoryId2],
+				[MouldCategoryId3],
+				[MouldCategoryId4],
+				[MouldCategoryId5],
+				[MouldCategoryId6],
+				[MouldCategoryId7],
+				[MouldCategoryId8],
+				[MouldId1],
+				[MouldId2],
+				[MouldId3],
+				[MouldId4],
+				[MouldId5],
+				[MouldId6],
+				[MouldId7],
+				[MouldId8],
+				[Note],
+				[ProductDate],
+				[Picture],
+				[MouldCategoryId9],
+				[MouldCategoryId10],
+				[MouldCategoryId11],
+				[MouldCategoryId12],
+				[MouldCategoryId13],
+				[MouldCategoryId14],
+				[MouldId9],
+				[MouldId10],
+				[MouldId11],
+				[MouldId12],
+				[MouldId13],
+				[MouldId14]
+			FROM
+				[dbo].[ProductMouldSize]
+			WHERE
+				[ProductMouldSizeId] = #ProductMouldSizeId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[ProductMouldSize]
+			WHERE            
+				[ProductMouldSizeId] = #ProductMouldSizeId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="ProductMouldSizeResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[ProductMouldSize]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[ProductMouldSize]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="ProductMouldSizeResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProductMouldSize]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="ProductMouldSize">
+      <![CDATA[ INSERT INTO [dbo].[ProductMouldSize] 
+			(
+				[ProductMouldSizeId],
+				[ProductSizeId],
+				[InsertTime],
+				[UpdateTime],
+				[MouldCateGoryId1],
+				[MouldCategoryId2],
+				[MouldCategoryId3],
+				[MouldCategoryId4],
+				[MouldCategoryId5],
+				[MouldCategoryId6],
+				[MouldCategoryId7],
+				[MouldCategoryId8],
+				[MouldId1],
+				[MouldId2],
+				[MouldId3],
+				[MouldId4],
+				[MouldId5],
+				[MouldId6],
+				[MouldId7],
+				[MouldId8],
+				[Note],
+				[ProductDate],
+				[Picture],
+				[MouldCategoryId9],
+				[MouldCategoryId10],
+				[MouldCategoryId11],
+				[MouldCategoryId12],
+				[MouldCategoryId13],
+				[MouldCategoryId14],
+				[MouldId9],
+				[MouldId10],
+				[MouldId11],
+				[MouldId12],
+				[MouldId13],
+				[MouldId14]
+			) 
+			VALUES 
+			(
+				#ProductMouldSizeId#,
+				#ProductSizeId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#MouldCateGoryId1#,
+				#MouldCategoryId2#,
+				#MouldCategoryId3#,
+				#MouldCategoryId4#,
+				#MouldCategoryId5#,
+				#MouldCategoryId6#,
+				#MouldCategoryId7#,
+				#MouldCategoryId8#,
+				#MouldId1#,
+				#MouldId2#,
+				#MouldId3#,
+				#MouldId4#,
+				#MouldId5#,
+				#MouldId6#,
+				#MouldId7#,
+				#MouldId8#,
+				#Note#,
+				#ProductDate#,
+				#Picture#,
+				#MouldCategoryId9#,
+				#MouldCategoryId10#,
+				#MouldCategoryId11#,
+				#MouldCategoryId12#,
+				#MouldCategoryId13#,
+				#MouldCategoryId14#,
+				#MouldId9#,
+				#MouldId10#,
+				#MouldId11#,
+				#MouldId12#,
+				#MouldId13#,
+				#MouldId14#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="ProductMouldSize">
+      <![CDATA[ 	UPDATE [ProductMouldSize] SET
+				[ProductSizeId] = #ProductSizeId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[MouldCateGoryId1] = #MouldCateGoryId1#,
+				[MouldCategoryId2] = #MouldCategoryId2#,
+				[MouldCategoryId3] = #MouldCategoryId3#,
+				[MouldCategoryId4] = #MouldCategoryId4#,
+				[MouldCategoryId5] = #MouldCategoryId5#,
+				[MouldCategoryId6] = #MouldCategoryId6#,
+				[MouldCategoryId7] = #MouldCategoryId7#,
+				[MouldCategoryId8] = #MouldCategoryId8#,
+				[MouldId1] = #MouldId1#,
+				[MouldId2] = #MouldId2#,
+				[MouldId3] = #MouldId3#,
+				[MouldId4] = #MouldId4#,
+				[MouldId5] = #MouldId5#,
+				[MouldId6] = #MouldId6#,
+				[MouldId7] = #MouldId7#,
+				[MouldId8] = #MouldId8#,
+				[Note] = #Note#,
+				[ProductDate] = #ProductDate#,
+				[Picture] = #Picture#,
+				[MouldCategoryId9] = #MouldCategoryId9#,
+				[MouldCategoryId10] = #MouldCategoryId10#,
+				[MouldCategoryId11] = #MouldCategoryId11#,
+				[MouldCategoryId12] = #MouldCategoryId12#,
+				[MouldCategoryId13] = #MouldCategoryId13#,
+				[MouldCategoryId14] = #MouldCategoryId14#,
+				[MouldId9] = #MouldId9#,
+				[MouldId10] = #MouldId10#,
+				[MouldId11] = #MouldId11#,
+				[MouldId12] = #MouldId12#,
+				[MouldId13] = #MouldId13#,
+				[MouldId14] = #MouldId14#
+			WHERE
+				[ProductMouldSizeId] = #ProductMouldSizeId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProductMouldSize]
+				where  ProductMouldSizeId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

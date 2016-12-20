@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="TempCard" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+  <select id="select_byCardnoDate" parameterClass="Map"  resultMap="TempCardResult">
+    select * from TempCard where DutyDate=#DutyDate# and CardNo=#CardNo#
+  </select>
+    <select id="select_byDate" parameterClass="Map"  resultMap="TempCardResult">
+      select * from TempCard where DutyDate between #startdate# and #enddate# order by DutyDate desc
+    </select>
+
+    <!--pars.Add("empid", empid);
+    pars.Add("startdate", startdate);
+    pars.Add("enddate", enddate);-->
+
+    <select id="select_byDateemnpid" parameterClass="Map"  resultMap="TempCardResult">
+      select top 1 * from TempCard where [EmployeeId]=#empid# and (DutyDate between #startdate# and #enddate#)  order by DutyDate
+    </select>
+    
+    <select id="select_byempid" parameterClass="string" resultMap="TempCardResult">
+      select * from TempCard where EmployeeId=#value# order by DutyDate desc 
+    </select>    
+    
+    <!--查询近三个月临时卡信息-->
+    <select id="select_byDateTopThreeMonth" parameterClass="string" resultMap="TempCardResult">
+      select * from TempCard where  DutyDate>=dateadd(mm,-3, getdate()) order by DutyDate desc
+    </select>
+    <select id="select_byCardType" parameterClass="Map" resultMap="TempCardResult">
+      <![CDATA[
+      select * from TempCard
+      where
+      (CardNo=#CardNo# or #CardNo# is null )
+      and  
+      ( EmployeeId = #EmployeeId# or #EmployeeId# is null)
+      and
+      ((DutyDate between #startDate# and #endDate#) or (#startDate# is null and #endDate# is null))
+     ]]>
+    </select>
+   
+  </statements>
+</sqlMap>

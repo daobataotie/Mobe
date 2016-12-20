@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BomParentPartInfo" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!--<resultMaps>
+	--><!--<resultMap id="BomParentPartInfoResult1" class="BomParentPartInfo">
+		<result property="ProductId" column="ProductId" />
+		<result property="BomId" column="BomId" />
+		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />
+	</resultMap>--><!--
+	</resultMaps>-->
+  <statements>
+    <select id="select_by_productId" resultMap="BomParentPartInfoResult">
+      <![CDATA[
+      select * from BomParentPartInfo where productId = #value# 
+      ]]>      
+    </select>
+    <select id="selectnotcontent" resultMap="BomParentPartInfoResult">
+      <![CDATA[
+     select * from dbo.BomParentPartInfo where  productid not in
+(select productid from dbo.BomComponentInfo) 
+      ]]>
+    </select>
+    
+    <select id="selectnotcontentByCustomer" resultMap="BomParentPartInfoResult">
+      <![CDATA[
+     select * from dbo.BomParentPartInfo where  productid not in
+(select productid from dbo.BomComponentInfo) and customerid=#value#
+      ]]>
+    </select>
+    <select id="select_by_productIdAndCustomer" resultMap="BomParentPartInfoResult" parameterClass="Map">
+      <![CDATA[
+      select * from BomParentPartInfo where
+      (productId = #productid# and CustomerId=#customerid# and #customerid# is not null) 
+      or (productId = #productid# and #customerid# is null and ( IsCustomerProcut <>1 or IsCustomerProcut is null ) )
+      ]]>
+    </select>
+    <!--<delete id="deleteByProductCustom" parameterClass="Map">
+      DELETE FROM [dbo].[BomParentPartInfo]
+      
+      [ProductId] = #productid# and CustomerId=#customerid#
+    </delete>-->
+    <!--<delete id="deleteByBOMInProductCustom" parameterClass="Map">
+      DELETE FROM [dbo].[BomParentPartInfo]
+      WHERE
+      [CustomerBOMInProductId] = #productid# and CustomerId=#customerid#
+    </delete>-->
+    <delete id="deleteByProduct" parameterClass="string">
+      DELETE FROM [dbo].[BomParentPartInfo]
+      WHERE
+      [ProductId] = #value#
+    </delete>
+	  <select id="exists_field" resultClass="bool" parameterClass="Map">
+		  <![CDATA[
+				select case when exists(
+				select *
+				from dbo.BomParentPartInfo
+				where $value$
+				)
+				then 1 else 0 end
+			]]>
+	  </select>
+	  <select id="select_byIdOrNameKey" resultMap="BomParentPartInfoResult" parameterClass="Map">
+		  <![CDATA[
+   SELECT * FROM  BomParentPartInfo WHERE (id like '%$bomid$%' or #bomid# is null) and 
+(ProductId IN(SELECT ProductId FROM Product  where ( product.id like '%$id$%' or #id# is null) and (ProductName like '%$name$%' or #name# is null) and (CustomerProductName like '%$customerProductName$%' or #customerProductName# is null) ))
+      ]]>
+	  </select>
+	  
+	  
+		<!--查看上笔,下笔等-->
+	  <select id="has_rows1" resultClass="bool">
+		  select case when exists(
+		  SELECT
+		  *
+		  FROM
+		  [dbo].[BomParentPartInfo] where  productid not in
+		  (select productid from dbo.BomComponentInfo)
+		  ) then 1 else 0 end
+	  </select>
+	  <select id="get_first1" resultMap="BomParentPartInfoResult">
+		  <![CDATA[
+			select top 1 *
+			from dbo.BomParentPartInfo where  productid not in
+		  (select productid from dbo.BomComponentInfo)
+			order by InsertTime
+			]]>
+	  </select>
+	  <select id="get_last1" resultMap="BomParentPartInfoResult">
+		  <![CDATA[
+			select top 1 *
+			from dbo.BomParentPartInfo  where  productid not in (select productid from dbo.BomComponentInfo)			
+			order by InsertTime desc
+			]]>
+	  </select>
+	  <select id="get_prev1" resultMap="BomParentPartInfoResult" parameterClass="BomParentPartInfo">
+		  <![CDATA[
+			select top 1 *
+			from dbo.BomParentPartInfo
+			where InsertTime < #InsertTime# and productid not in (select productid from dbo.BomComponentInfo)	
+			order by InsertTime desc
+			]]>
+	  </select>
+	  <select id="get_next1" resultMap="BomParentPartInfoResult" parameterClass="BomParentPartInfo">
+		  <![CDATA[
+			select top 1 *
+			from dbo.BomParentPartInfo
+			where InsertTime > #InsertTime# and productid not in (select productid from dbo.BomComponentInfo)	
+			order by InsertTime
+			]]>
+	  </select>
+	  <select id="has_rows_before1" resultClass="bool" parameterClass="BomParentPartInfo">
+		  <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.BomParentPartInfo
+				where InsertTime < #InsertTime# and productid not in (select productid from dbo.BomComponentInfo)	
+				) 
+				then 1 else 0 end
+			]]>
+	  </select>
+
+	  <select id="has_rows_after1" resultClass="bool" parameterClass="BomParentPartInfo">
+		  <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.BomParentPartInfo
+				where InsertTime > #InsertTime# and productid not in (select productid from dbo.BomComponentInfo)) then 1 else 0 end
+			]]>
+	  </select>
+
+
+
+
+	 
+  </statements>
+</sqlMap>

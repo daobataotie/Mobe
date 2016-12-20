@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceFK" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<statements>
+		<select id="select_byTime" parameterClass="Map" resultMap="InvoiceFKResult">
+			<![CDATA[
+				select * from InvoiceFK 
+				where invoicedate between #startTime# and #endTime#
+			]]>
+		</select>
+    <select id="select_byStatus" parameterClass="int" resultMap="InvoiceFKResult">
+      <![CDATA[
+      select * from invoiceFK
+				where invoicestatus = #value#
+      ]]>
+    </select>
+	</statements>
+</sqlMap>

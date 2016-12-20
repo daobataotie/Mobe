@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="TradeCategory" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="TradeCategory" type="Book.Model.TradeCategory, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="TradeCategoryResult" class="TradeCategory">
+			<result property="Id" column="Id" />
+			<result property="TradeCategoryId" column="TradeCategoryId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="TradeCategoryName" column="TradeCategoryName" />
+			<result property="Description" column="Description" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[TradeCategory]
+				WHERE
+				[TradeCategoryId] = #TradeCategoryId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[TradeCategory]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="TradeCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.TradeCategory 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="TradeCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.TradeCategory 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="TradeCategoryResult" parameterClass="TradeCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.TradeCategory
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="TradeCategoryResult" parameterClass="TradeCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.TradeCategory
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="TradeCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.TradeCategory
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="TradeCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.TradeCategory
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="TradeCategoryResult" parameterClass="TradeCategory">
+			SELECT
+				[Id],
+				[TradeCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[TradeCategoryName],
+				[Description]
+			FROM
+				[dbo].[TradeCategory]
+			WHERE
+				[TradeCategoryId] = #TradeCategoryId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[TradeCategory]
+			WHERE
+				[TradeCategoryId] = #TradeCategoryId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="TradeCategoryResult" >
+			SELECT *
+			FROM 
+				[dbo].[TradeCategory]
+			ORDER BY TradeCategoryId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[TradeCategory]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="TradeCategoryResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[TradeCategory]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="TradeCategory">
+			INSERT INTO [dbo].[TradeCategory] 
+			(
+				[Id],
+				[TradeCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[TradeCategoryName],
+				[Description]
+			) 
+			VALUES 
+			(
+				#Id#,
+				#TradeCategoryId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#TradeCategoryName#,
+				#Description#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="TradeCategory">
+			UPDATE [TradeCategory] SET
+				[Id] = #Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[TradeCategoryName] = #TradeCategoryName#,
+				[Description] = #Description#
+			WHERE
+				[TradeCategoryId] = #TradeCategoryId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.TradeCategory
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="TradeCategoryResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[TradeCategory]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.TradeCategory
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

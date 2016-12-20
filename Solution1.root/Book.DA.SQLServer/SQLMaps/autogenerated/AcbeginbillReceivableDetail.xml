@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AcbeginbillReceivableDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="AcbeginbillReceivableDetail" type="Book.Model.AcbeginbillReceivableDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="AcbeginbillReceivableDetailResult" class="AcbeginbillReceivableDetail">
+      <result property="AcbeginbillReceivableDetailId" column="AcbeginbillReceivableDetailId" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="AcbeginbillReceivableId" column="AcbeginbillReceivableId" />
+      <result property="AdvanceCollection" column="AdvanceCollection" />
+      <result property="ShouldCollection" column="ShouldCollection" />
+      <result property="DomesticAdvanceCollection" column="DomesticAdvanceCollection" />
+      <result property="DomesticShouldCollection" column="DomesticShouldCollection" />
+      <result property="AlreadyCollection" column="AlreadyCollection" />
+      <result property="DomesticAlreadyCollection" column="DomesticAlreadyCollection" />
+      <result property="BeginningBalance" column="BeginningBalance" />
+      <result property="DomesticBeginningBalance" column="DomesticBeginningBalance" />
+      <result property="AcbeginbillReceivable" column="AcbeginbillReceivableId" lazyLoad="false" select="AcbeginbillReceivable.select_by_primary_key" />
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[AcbeginbillReceivableDetail]
+      WHERE
+      [AcbeginbillReceivableDetailId] = #AcbeginbillReceivableDetailId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[AcbeginbillReceivableDetail]
+      where invoicestatus=1 or invoicestatus is null
+      ) then 1 else 0 end
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="AcbeginbillReceivableDetailResult" parameterClass="AcbeginbillReceivableDetail">
+      SELECT
+      [AcbeginbillReceivableDetailId],
+      [CustomerId],
+      [AcbeginbillReceivableId],
+      [AdvanceCollection],
+      [ShouldCollection],
+      [DomesticAdvanceCollection],
+      [DomesticShouldCollection],
+      [AlreadyCollection],
+      [DomesticAlreadyCollection],
+      [BeginningBalance],
+      [DomesticBeginningBalance]
+      FROM
+      [dbo].[AcbeginbillReceivableDetail]
+      WHERE
+      [AcbeginbillReceivableDetailId] = #AcbeginbillReceivableDetailId#
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[AcbeginbillReceivableDetail]
+      WHERE
+      [AcbeginbillReceivableDetailId] = #AcbeginbillReceivableDetailId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="AcbeginbillReceivableDetailResult" >
+      SELECT *
+      FROM
+      [dbo].[AcbeginbillReceivableDetail]
+
+
+
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[AcbeginbillReceivableDetail]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="AcbeginbillReceivableDetailResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[AcbeginbillReceivableDetail]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="AcbeginbillReceivableDetail">
+      INSERT INTO [dbo].[AcbeginbillReceivableDetail]
+      (
+      [AcbeginbillReceivableDetailId],
+      [CustomerId],
+      [AcbeginbillReceivableId],
+      [AdvanceCollection],
+      [ShouldCollection],
+      [DomesticAdvanceCollection],
+      [DomesticShouldCollection],
+      [AlreadyCollection],
+      [DomesticAlreadyCollection],
+      [BeginningBalance],
+      [DomesticBeginningBalance]
+      )
+      VALUES
+      (
+      #AcbeginbillReceivableDetailId#,
+      #CustomerId#,
+      #AcbeginbillReceivableId#,
+      #AdvanceCollection#,
+      #ShouldCollection#,
+      #DomesticAdvanceCollection#,
+      #DomesticShouldCollection#,
+      #AlreadyCollection#,
+      #DomesticAlreadyCollection#,
+      #BeginningBalance#,
+      #DomesticBeginningBalance#
+      )
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="AcbeginbillReceivableDetail">
+      UPDATE [AcbeginbillReceivableDetail] SET
+      [CustomerId] = #CustomerId#,
+      [AcbeginbillReceivableId] = #AcbeginbillReceivableId#,
+      [AdvanceCollection] = #AdvanceCollection#,
+      [ShouldCollection] = #ShouldCollection#,
+      [DomesticAdvanceCollection] = #DomesticAdvanceCollection#,
+      [DomesticShouldCollection] = #DomesticShouldCollection#,
+      [AlreadyCollection] = #AlreadyCollection#,
+      [DomesticAlreadyCollection] = #DomesticAlreadyCollection#,
+      [BeginningBalance] = #BeginningBalance#,
+      [DomesticBeginningBalance] = #DomesticBeginningBalance#
+      WHERE
+      [AcbeginbillReceivableDetailId] = #AcbeginbillReceivableDetailId#
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AcbeginbillReceivableDetail]
+				where  AcbeginbillReceivableDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

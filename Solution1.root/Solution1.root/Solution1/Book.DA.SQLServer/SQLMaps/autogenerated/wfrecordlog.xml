@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="wfrecordlog" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="wfrecordlog" type="Book.Model.wfrecordlog, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="wfrecordlogResult" class="wfrecordlog">
+			<result property="wfrecordlogid" column="wfrecordlogid" />
+			<result property="wfrecordId" column="wfrecordId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="logid" column="logid" />
+			<result property="logtype" column="logtype" />
+			<result property="updatelogid" column="updatelogid" />
+		<result property="wfrecord" column="wfrecordId" lazyLoad="false" select="wfrecord.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[wfrecordlog]
+				WHERE
+				[wfrecordlogid] = #wfrecordlogid#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[wfrecordlog]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="wfrecordlogResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.wfrecordlog 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="wfrecordlogResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.wfrecordlog 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="wfrecordlogResult" parameterClass="wfrecordlog">
+			<![CDATA[
+			select top 1 *
+			from dbo.wfrecordlog
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="wfrecordlogResult" parameterClass="wfrecordlog">
+			<![CDATA[
+			select top 1 *
+			from dbo.wfrecordlog
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="wfrecordlog">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.wfrecordlog
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="wfrecordlog">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.wfrecordlog
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="wfrecordlogResult" parameterClass="wfrecordlog">
+			SELECT
+				[wfrecordlogid],
+				[wfrecordId],
+				[InsertTime],
+				[UpdateTime],
+				[logid],
+				[logtype],
+				[updatelogid]
+			FROM
+				[dbo].[wfrecordlog]
+			WHERE
+				[wfrecordlogid] = #wfrecordlogid#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[wfrecordlog]
+			WHERE
+				[wfrecordlogid] = #wfrecordlogid#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="wfrecordlogResult" >
+			SELECT *
+			FROM 
+				[dbo].[wfrecordlog]
+			ORDER BY wfrecordlogid ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[wfrecordlog]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="wfrecordlogResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[wfrecordlog]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="wfrecordlog">
+			INSERT INTO [dbo].[wfrecordlog] 
+			(
+				[wfrecordlogid],
+				[wfrecordId],
+				[InsertTime],
+				[UpdateTime],
+				[logid],
+				[logtype],
+				[updatelogid]
+			) 
+			VALUES 
+			(
+				#wfrecordlogid#,
+				#wfrecordId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#logid#,
+				#logtype#,
+				#updatelogid#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="wfrecordlog">
+			UPDATE [wfrecordlog] SET
+				[wfrecordId] = #wfrecordId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[logid] = #logid#,
+				[logtype] = #logtype#,
+				[updatelogid] = #updatelogid#
+			WHERE
+				[wfrecordlogid] = #wfrecordlogid#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

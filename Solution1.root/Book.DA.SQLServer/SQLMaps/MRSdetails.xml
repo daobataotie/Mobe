@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="MRSdetails" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <resultMaps>
+    <resultMap id="MRSdetailsResult1" class="MRSdetails">
+      <result property="ProductId" column="ProductId" />
+      <result property="MRSHeaderId" column="MRSHeaderId" />
+      <result property="MRSdetailssum" column="MRSdetailssum" />
+      <result property="ProductUnit" column="ProductUnit" />
+      <result property="MPSheaderId" column="MPSheaderId" />
+      <result property="MRSdetailsQuantity" column="MRSdetailsQuantity" />
+      <result property="MPSDate" column="MPSDate" />
+      <result property="MRSHeader" column="MRSHeaderId" lazyLoad="false" select="MRSHeader.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+    </resultMap>
+
+    <resultMap id="MRSdetailsAndProductFPSLsumResult" class="MRSdetails">
+      <result property="MRSdetailsId" column="MRSdetailsId" />
+      <!--<result property="CustomerId" column="CustomerId" />-->
+      <result property="ProductId" column="ProductId" />
+      <result property="MRSHeaderId" column="MRSHeaderId" />
+      <result property="MRSdetailssum" column="MRSdetailssum" />
+      <result property="MRSdetailsdes" column="MRSdetailsdes" />
+      <!--<result property="MPSheaderId" column="MPSheaderId" />-->
+      <result property="ProductUnit" column="ProductUnit" />
+      <result property="MRSdetailsQuantity" column="MRSdetailsQuantity" />
+      <!--<result property="MRSHasSingleSum" column="MRSHasSingleSum" />
+      <result property="MPSDate" column="MPSDate" />
+      <result property="MPSdetailsId" column="MPSdetailsId" />-->
+      <result property="MadeProductId" column="MadeProductId" />
+      <result property="DetailsFlag" column="DetailsFlag" />
+      <result property="Inumber" column="Inumber" />
+      <result property="JiaoHuoDate" column="JiaoHuoDate" />
+      <!--<result property="IsArrange" column="IsArrange" />-->
+      <result property="ArrangeDesc" column="ArrangeDesc" />
+      <result property="BeforePackageProductId" column="BeforePackageProductId" />
+      <result property="SupplierId" column="SupplierId" />
+      <result property="WorkHouseNextId" column="WorkHouseNextId" />
+      <result property="HandbookId" column="HandbookId"/>
+      <result property="HandbookProductId" column="HandbookProductId"/>
+      <result property ="MadeProductName" column="MadeProductName"/>
+      <!--分配数量总计-->
+      <result property="ProductFPSLsum" column="ProductFPSLsum"/>
+      <!--<result property="MadeProduct" column="MadeProductId" lazyLoad="false" select="Product.select_SimpleProduct" />-->
+      <result property="BeforePackageProduct" column="BeforePackageProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="MRSHeader" column="MRSHeaderId" lazyLoad="false" select="MRSHeader.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <!--<result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />-->
+      <result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />
+      <result property="WorkHouseNext" column="WorkHouseNextId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+
+
+  <statements>
+    <select id="select_byMRSheaderId" resultMap="MRSdetailsAndProductFPSLsumResult" parameterClass="string">
+      <!--SELECT ProductId,MRSHeaderId,SUM(MRSdetailssum) MRSdetailssum,HandbookId,HandbookProductId,ProductUnit,MPSheaderId,SUM(MRSdetailsQuantity) MRSdetailsQuantity,max(MPSDate) MPSDate from MRSdetails where MRSheaderId=#value# GROUP BY ProductId,ProductUnit,MRSHeaderId,MPSheaderId-->
+      <![CDATA[
+      SELECT MRSdetailsId,ProductId,MRSHeaderId,MRSdetailssum,MRSdetailsdes,ProductUnit,MRSdetailsQuantity,MadeProductId, Inumber,JiaoHuoDate,ArrangeDesc,BeforePackageProductId,SupplierId,WorkHouseNextId,DetailsFlag,HandbookId,HandbookProductId,(select ProductName+'{'+CustomerProductName+'}' from product p where p.productid=MRSdetails.MadeProductId) as MadeProductName,(SELECT (ProduceMaterialDistributioned+OtherMaterialDistributioned) FROM Product WHERE Product.ProductId = MRSdetails.ProductId) AS ProductFPSLsum FROM MRSdetails WHERE MRSHeaderId=#value:varchar# order by Inumber
+      ]]>
+      <!--select * from dbo.MRSdetails m  LEFT join Supplier s on s.SupplierId in(select SupplierId from product where product.productid=m.productid OR SupplierId IS null) WHERE MRSHeaderId=#value# order by s.id-->
+    </select>
+
+    <!--<select id="GetMrsdetailBySourceType" resultMap="MRSdetailsResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM MRSdetails WHERE MRSHeaderId IN(SELECT MRSHeaderId FROM MRSHeader WHERE MRSstartdate>=DateAdd(Month,-3,getdate()) and  SourceType=#value#) and MRSdetailssum <>0   order by MRSHeaderId desc 
+      		]]>
+    </select>-->
+    <!--<select id="select_GetDateSourceType" resultMap="MRSdetailsResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM MRSdetails WHERE MRSHeaderId IN(SELECT MRSHeaderId FROM MRSHeader WHERE MRSstartdate between #startdate# and #enddate# and SourceType=#SourceType# or SourceType=#SourceType1# or SourceType=#SourceType2#)    and MRSdetailssum <>0   order by MRSHeaderId desc
+        ]]>
+    </select>-->
+    <select id="select_GetDate" resultMap="MRSdetailsResult" parameterClass="Map">
+      <![CDATA[      
+      select * from mrsDetails where MRSHeaderId IN(SELECT MRSHeaderId FROM MRSHeader WHERE MRSstartdate between #startdate# and #enddate# and SourceType=#SourceType# or SourceType=#SourceType1#  or SourceType=#SourceType2# )  and MRSdetailssum <>0 
+	  and ( (mrsheaderid in(select mrsheaderid where  MPSheaderId in(select MPSheaderId from MPSheader where InvoiceXOId in(select InvoiceId from InvoiceXO where CustomerInvoiceXOId=#cusxoid# ) ))) or (#cusxoid# is null))  and (#single# =0 or MRSHasSingleSum<MRSdetailssum )
+	  order by MRSHeaderId desc
+      ]]>
+    </select>
+
+    <select id="selectBySourceTypeAndMPS" resultMap="MRSdetailsResult" parameterClass="Map">
+      SELECT * FROM MRSdetails WHERE MRSHeaderId IN(SELECT MRSHeaderId FROM MRSHeader WHERE SourceType=#sourceType# or SourceType=#SourceType1# or SourceType=#SourceType2#
+      and MPSheaderId=#mpsHeaderId#)
+    </select>
+    <select id="select_GetByMRSIDAndProId" resultMap="MRSdetailsResult" parameterClass="Map">
+      <![CDATA[
+     SELECT top 1 * FROM MRSdetails WHERE ( ProductId=#ProductId# or #ProductId# is null) AND MRSHeaderId in (select MRSHeaderId from MRSHeader where MPSheaderId=(SELECT MPSheaderId FROM MRSHeader WHERE MRSHeader.MRSHeaderId=#MRSHeaderId#)   )
+        ]]>
+    </select>
+
+    <select id="select_where" resultMap="MRSdetailsResult" parameterClass="string">
+      SELECT * FROM MRSdetails WHERE $value$
+    </select>
+    <delete id="DeleteByHeader" parameterClass="string">
+      <![CDATA[
+      DELETE FROM MRSdetails WHERE MRSdetails.MRSHeaderId = #value#
+      ]]>
+    </delete>
+
+    <select id ="selectByCondition" resultMap="MRSdetailsResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM MRSdetails LEFT JOIN MRSHeader ON MRSHeader.MRSHeaderId = MRSdetails.MRSHeaderId WHERE 1=1 $value$
+      ]]>
+    </select>
+
+    <select id="SumSpotStock" resultClass="double" parameterClass="string">
+      <![CDATA[
+      SELECT isnull(sum(Stock.StockQuantity1),0) FROM Stock inner JOIN DepotPosition ON DepotPosition.DepotPositionId = Stock.DepotPositionId WHERE Stock.ProductId=#value# AND (DepotPosition.IsSpot<>1 OR DepotPosition.IsSpot IS NULL)
+
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

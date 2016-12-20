@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCExportReportANSI" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCExportReportANSI" type="Book.Model.PCExportReportANSI, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCExportReportANSIResult" class="PCExportReportANSI">
+      <result property="ExportReportId" column="ExportReportId" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="InvoiceCusXOId" column="InvoiceCusXOId" />
+      <result property="Amount" column="Amount" />
+      <result property="AmountTest" column="AmountTest" />
+      <result property="Specification" column="Specification" />
+      <result property="ReportDate" column="ReportDate" />
+      <result property="Criteria3" column="Criteria3" />
+      <result property="PanDing0" column="PanDing0" />
+      <result property="ShouCeShu1" column="ShouCeShu1" />
+      <result property="QuYangShu1" column="QuYangShu1" />
+      <result property="PanDing1" column="PanDing1" />
+      <result property="ShouCeShu2" column="ShouCeShu2" />
+      <result property="QuYangShu2" column="QuYangShu2" />
+      <result property="PanDing2" column="PanDing2" />
+      <result property="ShouCeShu3" column="ShouCeShu3" />
+      <result property="QuYangShu3" column="QuYangShu3" />
+      <result property="PanDing3" column="PanDing3" />
+      <result property="ShouCeShu4" column="ShouCeShu4" />
+      <result property="QuYangShu4" column="QuYangShu4" />
+      <result property="PanDing4" column="PanDing4" />
+      <result property="ShouCeShu5" column="ShouCeShu5" />
+      <result property="QuYangShu5" column="QuYangShu5" />
+      <result property="PanDing5" column="PanDing5" />
+      <result property="ShouCeShu6" column="ShouCeShu6" />
+      <result property="QuYangShu6" column="QuYangShu6" />
+      <result property="PanDing6" column="PanDing6" />
+      <result property="ShouCeShu7" column="ShouCeShu7" />
+      <result property="QuYangShu7" column="QuYangShu7" />
+      <result property="PanDing7" column="PanDing7" />
+      <result property="ShouCeShu8" column="ShouCeShu8" />
+      <result property="QuYangShu8" column="QuYangShu8" />
+      <result property="PanDing8" column="PanDing8" />
+      <result property="ShouCeShu9" column="ShouCeShu9" />
+      <result property="QuYangShu9" column="QuYangShu9" />
+      <result property="PanDing9" column="PanDing9" />
+      <result property="ShouCeShu10" column="ShouCeShu10" />
+      <result property="QuYangShu10" column="QuYangShu10" />
+      <result property="PanDing10" column="PanDing10" />
+      <result property="ShouCeShu11" column="ShouCeShu11" />
+      <result property="QuYangShu11" column="QuYangShu11" />
+      <result property="PanDing11" column="PanDing11" />
+      <result property="ShouCeShu12" column="ShouCeShu12" />
+      <result property="QuYangShu12" column="QuYangShu12" />
+      <result property="PanDingShu12" column="PanDingShu12" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="ExpType" column="ExpType" />
+      <result property="Smokelens" column="Smokelens"/>
+      <result property="IR3lens" column="IR3lens"/>
+      <result property="IR5lens" column="IR5lens"/>
+      <result property="Mirrorlens" column="Mirrorlens"/>
+      <result property="Clearlens" column="Clearlens"/>
+      <result property="ShouCeShu13" column="ShouCeShu13" />
+      <result property="QuYangShu13" column="QuYangShu13" />
+      <result property="PanDingShu13" column="PanDingShu13" />
+      <result property="ShouCeShu14" column="ShouCeShu14" />
+      <result property="QuYangShu14" column="QuYangShu14" />
+      <result property="PanDingShu14" column="PanDingShu14" />
+      <result property="ShouCeShu15" column="ShouCeShu15" />
+      <result property="QuYangShu15" column="QuYangShu15" />
+      <result property="PanDingShu15" column="PanDingShu15" />
+      <result property="ShouCeShu16" column="ShouCeShu16" />
+      <result property="QuYangShu16" column="QuYangShu16" />
+      <result property="PanDingShu16" column="PanDingShu16" />
+      <result property="ShouCeShu17" column="ShouCeShu17" />
+      <result property="QuYangShu17" column="QuYangShu17" />
+      <result property="PanDingShu17" column="PanDingShu17" />
+      <result property="ShouCeShu18" column="ShouCeShu18" />
+      <result property="QuYangShu18" column="QuYangShu18" />
+      <result property="PanDingShu18" column="PanDingShu18" />
+      <result property="ShouCeShu19" column="ShouCeShu19" />
+      <result property="QuYangShu19" column="QuYangShu19" />
+      <result property="PanDingShu19" column="PanDingShu19" />
+      <result property="ShouCeShu20" column="ShouCeShu20" />
+      <result property="QuYangShu20" column="QuYangShu20" />
+      <result property="PanDingShu20" column="PanDingShu20" />
+      <result property="ShouCeShu21" column="ShouCeShu21" />
+      <result property="QuYangShu21" column="QuYangShu21" />
+      <result property="PanDingShu21" column="PanDingShu21" />
+      <result property="ProductBatchNo" column="ProductBatchNo" />
+      <result property="VisualTest" column="VisualTest" />
+      <result property="ThermalStability" column="ThermalStability" />
+      <result property="PrismaticPowerHIn" column="PrismaticPowerHIn" />
+      <result property="PrismaticPowerHOut" column="PrismaticPowerHOut" />
+      <result property="PrismaticPowerVUp" column="PrismaticPowerVUp" />
+      <result property="PrismaticPowerVDwn" column="PrismaticPowerVDwn" />
+      <result property="RefractivePower" column="RefractivePower" />
+      <result property="ScatterLight" column="ScatterLight" />
+      <result property="MediumImpact" column="MediumImpact" />
+      <result property="HighImpact" column="HighImpact" />
+      <result property="ExtraHighImpact" column="ExtraHighImpact" />
+      <result property="PermertrationTest" column="PermertrationTest" />
+      <result property="IgnitionTest" column="IgnitionTest" />
+      <result property="Corrsion" column="Corrsion" />
+      <result property="Markings" column="Markings" />
+      <result property="TraceMarking" column="TraceMarking" />
+      <result property="Protectionone" column="Protectionone" />
+      <result property="Protectiontwo" column="Protectiontwo" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="ProductUnitId" column="ProductUnitId"/>
+      <result property ="CeShiSuLi" column="CeShiSuLi"/>
+      <result property ="ApprovalDate" column="ApprovalDate"/>
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="ProductUnit" column="ProductUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCExportReportANSI]
+				WHERE
+				[ExportReportId] = #ExportReportId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCExportReportANSI]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="PCExportReportANSIResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCExportReportANSI
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="PCExportReportANSIResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCExportReportANSI
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="PCExportReportANSIResult" parameterClass="PCExportReportANSI">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCExportReportANSI
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="PCExportReportANSIResult" parameterClass="PCExportReportANSI">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCExportReportANSI
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="PCExportReportANSI">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCExportReportANSI
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="PCExportReportANSI">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCExportReportANSI
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCExportReportANSIResult" parameterClass="PCExportReportANSI">
+      <![CDATA[SELECT
+				[ExportReportId],
+				[EmployeeId],
+				[ProductId],
+				[CustomerId],
+				[InvoiceCusXOId],
+				[Amount],
+				[AmountTest],
+				[Specification],
+				[ReportDate],
+				[Criteria3],
+				[PanDing0],
+				[ShouCeShu1],
+				[QuYangShu1],
+				[PanDing1],
+				[ShouCeShu2],
+				[QuYangShu2],
+				[PanDing2],
+				[ShouCeShu3],
+				[QuYangShu3],
+				[PanDing3],
+				[ShouCeShu4],
+				[QuYangShu4],
+				[PanDing4],
+				[ShouCeShu5],
+				[QuYangShu5],
+				[PanDing5],
+				[ShouCeShu6],
+				[QuYangShu6],
+				[PanDing6],
+				[ShouCeShu7],
+				[QuYangShu7],
+				[PanDing7],
+				[ShouCeShu8],
+				[QuYangShu8],
+				[PanDing8],
+				[ShouCeShu9],
+				[QuYangShu9],
+				[PanDing9],
+				[ShouCeShu10],
+				[QuYangShu10],
+				[PanDing10],
+				[ShouCeShu11],
+				[QuYangShu11],
+				[PanDing11],
+        [ShouCeShu12],
+				[QuYangShu12],
+				[PanDingShu12],
+        [ShouCeShu13],
+				[QuYangShu13],
+				[PanDingShu13],
+        [ShouCeShu14],
+				[QuYangShu14],
+				[PanDingShu14],
+        [ShouCeShu15],
+				[QuYangShu15],
+				[PanDingShu15],
+        [ShouCeShu16],
+				[QuYangShu16],
+				[PanDingShu16],
+        [ShouCeShu17],
+				[QuYangShu17],
+				[PanDingShu17],
+        [ShouCeShu18],
+				[QuYangShu18],
+				[PanDingShu18],
+        [ShouCeShu19],
+				[QuYangShu19],
+				[PanDingShu19],
+        [ShouCeShu20],
+				[QuYangShu20],
+				[PanDingShu20],
+        [ShouCeShu21],
+				[QuYangShu21],
+				[PanDingShu21],
+				[InsertTime],
+				[UpdateTime],
+				[ExpType],
+        [Smokelens],
+        [IR3lens],
+        [IR5lens],
+        [Mirrorlens],
+        [Clearlens],
+        [ProductBatchNo],
+        [VisualTest],
+        [ThermalStability],
+        [PrismaticPowerHIn],
+        [PrismaticPowerHOut],
+        [PrismaticPowerVUp],
+        [PrismaticPowerVDwn],
+        [RefractivePower],
+        [ScatterLight],
+        [MediumImpact],
+        [HighImpact],
+        [ExtraHighImpact],
+        [PermertrationTest],
+        [IgnitionTest],
+        [Corrsion],
+        [Markings],
+        [TraceMarking],
+        [Protectionone],
+        [Protectiontwo],
+        [AuditState],
+        [AuditEmpId],
+        [ProductUnitId],
+        [CeShiSuLi],
+        [ApprovalDate]
+			FROM
+				[dbo].[PCExportReportANSI]
+			WHERE
+				[ExportReportId] = #ExportReportId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCExportReportANSI]
+			WHERE            
+				[ExportReportId] = #ExportReportId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCExportReportANSIResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCExportReportANSI]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCExportReportANSI]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCExportReportANSIResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCExportReportANSI]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCExportReportANSI">
+      <![CDATA[ INSERT INTO [dbo].[PCExportReportANSI] 
+			(
+				[ExportReportId],
+				[EmployeeId],
+				[ProductId],
+				[CustomerId],
+				[InvoiceCusXOId],
+				[Amount],
+				[AmountTest],
+				[Specification],
+				[ReportDate],
+				[Criteria3],
+				[PanDing0],
+				[ShouCeShu1],
+				[QuYangShu1],
+				[PanDing1],
+				[ShouCeShu2],
+				[QuYangShu2],
+				[PanDing2],
+				[ShouCeShu3],
+				[QuYangShu3],
+				[PanDing3],
+				[ShouCeShu4],
+				[QuYangShu4],
+				[PanDing4],
+				[ShouCeShu5],
+				[QuYangShu5],
+				[PanDing5],
+				[ShouCeShu6],
+				[QuYangShu6],
+				[PanDing6],
+				[ShouCeShu7],
+				[QuYangShu7],
+				[PanDing7],
+				[ShouCeShu8],
+				[QuYangShu8],
+				[PanDing8],
+				[ShouCeShu9],
+				[QuYangShu9],
+				[PanDing9],
+				[ShouCeShu10],
+				[QuYangShu10],
+				[PanDing10],
+				[ShouCeShu11],
+				[QuYangShu11],
+				[PanDing11],
+        [ShouCeShu12],
+				[QuYangShu12],
+				[PanDingShu12],
+        [ShouCeShu13],
+				[QuYangShu13],
+				[PanDingShu13],
+        [ShouCeShu14],
+				[QuYangShu14],
+				[PanDingShu14],
+        [ShouCeShu15],
+				[QuYangShu15],
+				[PanDingShu15],
+        [ShouCeShu16],
+				[QuYangShu16],
+				[PanDingShu16],
+        [ShouCeShu17],
+				[QuYangShu17],
+				[PanDingShu17],
+        [ShouCeShu18],
+				[QuYangShu18],
+				[PanDingShu18],
+        [ShouCeShu19],
+				[QuYangShu19],
+				[PanDingShu19],
+        [ShouCeShu20],
+				[QuYangShu20],
+				[PanDingShu20],
+        [ShouCeShu21],
+				[QuYangShu21],
+				[PanDingShu21],
+				[InsertTime],
+				[UpdateTime],
+				[ExpType],
+        [Smokelens],
+        [IR3lens],
+        [IR5lens],
+        [Mirrorlens],
+        [Clearlens],
+        [ProductBatchNo],
+        [VisualTest],
+        [ThermalStability],
+        [PrismaticPowerHIn],
+        [PrismaticPowerHOut],
+        [PrismaticPowerVUp],
+        [PrismaticPowerVDwn],
+        [RefractivePower],
+        [ScatterLight],
+        [MediumImpact],
+        [HighImpact],
+        [ExtraHighImpact],
+        [PermertrationTest],
+        [IgnitionTest],
+        [Corrsion],
+        [Markings],
+        [TraceMarking],
+        [Protectionone],
+        [Protectiontwo],
+        [AuditState],
+        [AuditEmpId],
+        [ProductUnitId],
+        [CeShiSuLi],
+        [ApprovalDate]
+			) 
+			VALUES 
+			(
+				#ExportReportId#,
+				#EmployeeId#,
+				#ProductId#,
+				#CustomerId#,
+				#InvoiceCusXOId#,
+				#Amount#,
+				#AmountTest#,
+				#Specification#,
+				#ReportDate#,
+				#Criteria3#,
+				#PanDing0#,
+				#ShouCeShu1#,
+				#QuYangShu1#,
+				#PanDing1#,
+				#ShouCeShu2#,
+				#QuYangShu2#,
+				#PanDing2#,
+				#ShouCeShu3#,
+				#QuYangShu3#,
+				#PanDing3#,
+				#ShouCeShu4#,
+				#QuYangShu4#,
+				#PanDing4#,
+				#ShouCeShu5#,
+				#QuYangShu5#,
+				#PanDing5#,
+				#ShouCeShu6#,
+				#QuYangShu6#,
+				#PanDing6#,
+				#ShouCeShu7#,
+				#QuYangShu7#,
+				#PanDing7#,
+				#ShouCeShu8#,
+				#QuYangShu8#,
+				#PanDing8#,
+				#ShouCeShu9#,
+				#QuYangShu9#,
+				#PanDing9#,
+				#ShouCeShu10#,
+				#QuYangShu10#,
+				#PanDing10#,
+				#ShouCeShu11#,
+				#QuYangShu11#,
+				#PanDing11#,
+        #ShouCeShu12#,
+				#QuYangShu12#,
+				#PanDingShu12#,
+        #ShouCeShu13#,
+				#QuYangShu13#,
+				#PanDingShu13#,
+        #ShouCeShu14#,
+				#QuYangShu14#,
+				#PanDingShu14#,
+        #ShouCeShu15#,
+				#QuYangShu15#,
+				#PanDingShu15#,
+        #ShouCeShu16#,
+				#QuYangShu16#,
+				#PanDingShu16#,
+        #ShouCeShu17#,
+				#QuYangShu17#,
+				#PanDingShu17#,
+        #ShouCeShu18#,
+				#QuYangShu18#,
+				#PanDingShu18#,
+        #ShouCeShu19#,
+				#QuYangShu19#,
+				#PanDingShu19#,
+        #ShouCeShu20#,
+				#QuYangShu20#,
+				#PanDingShu20#,
+        #ShouCeShu21#,
+				#QuYangShu21#,
+				#PanDingShu21#,
+				#InsertTime#,
+				#UpdateTime#,
+				#ExpType#,
+        #Smokelens#,
+        #IR3lens#,
+        #IR5lens#,
+        #Mirrorlens#,
+        #Clearlens#,
+        #ProductBatchNo#,
+        #VisualTest#,
+        #ThermalStability#,
+        #PrismaticPowerHIn#,
+        #PrismaticPowerHOut#,
+        #PrismaticPowerVUp#,
+        #PrismaticPowerVDwn#,
+        #RefractivePower#,
+        #ScatterLight#,
+        #MediumImpact#,
+        #HighImpact#,
+        #ExtraHighImpact#,
+        #PermertrationTest#,
+        #IgnitionTest#,
+        #Corrsion#,
+        #Markings#,
+        #TraceMarking#,
+        #Protectionone#,
+        #Protectiontwo#,
+        #AuditState#,
+        #AuditEmpId#,
+        #ProductUnitId#,
+        #CeShiSuLi#,
+        #ApprovalDate#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCExportReportANSI">
+      <![CDATA[ 	UPDATE [PCExportReportANSI] SET
+				[EmployeeId] = #EmployeeId#,
+				[ProductId] = #ProductId#,
+				[CustomerId] = #CustomerId#,
+				[InvoiceCusXOId] = #InvoiceCusXOId#,
+				[Amount] = #Amount#,
+				[AmountTest] = #AmountTest#,
+				[Specification] = #Specification#,
+				[ReportDate] = #ReportDate#,
+				[Criteria3] = #Criteria3#,
+				[PanDing0] = #PanDing0#,
+				[ShouCeShu1] = #ShouCeShu1#,
+				[QuYangShu1] = #QuYangShu1#,
+				[PanDing1] = #PanDing1#,
+				[ShouCeShu2] = #ShouCeShu2#,
+				[QuYangShu2] = #QuYangShu2#,
+				[PanDing2] = #PanDing2#,
+				[ShouCeShu3] = #ShouCeShu3#,
+				[QuYangShu3] = #QuYangShu3#,
+				[PanDing3] = #PanDing3#,
+				[ShouCeShu4] = #ShouCeShu4#,
+				[QuYangShu4] = #QuYangShu4#,
+				[PanDing4] = #PanDing4#,
+				[ShouCeShu5] = #ShouCeShu5#,
+				[QuYangShu5] = #QuYangShu5#,
+				[PanDing5] = #PanDing5#,
+				[ShouCeShu6] = #ShouCeShu6#,
+				[QuYangShu6] = #QuYangShu6#,
+				[PanDing6] = #PanDing6#,
+				[ShouCeShu7] = #ShouCeShu7#,
+				[QuYangShu7] = #QuYangShu7#,
+				[PanDing7] = #PanDing7#,
+				[ShouCeShu8] = #ShouCeShu8#,
+				[QuYangShu8] = #QuYangShu8#,
+				[PanDing8] = #PanDing8#,
+				[ShouCeShu9] = #ShouCeShu9#,
+				[QuYangShu9] = #QuYangShu9#,
+				[PanDing9] = #PanDing9#,
+				[ShouCeShu10] = #ShouCeShu10#,
+				[QuYangShu10] = #QuYangShu10#,
+				[PanDing10] = #PanDing10#,
+				[ShouCeShu11] = #ShouCeShu11#,
+				[QuYangShu11] = #QuYangShu11#,
+				[PanDing11] = #PanDing11#,
+        [ShouCeShu12] = #ShouCeShu12#,
+				[QuYangShu12] = #QuYangShu12#,
+				[PanDingShu12] = #PanDingShu12#,
+        [ShouCeShu13]=#ShouCeShu13#,
+				[QuYangShu13]=#QuYangShu13#,
+				[PanDingShu13]=#PanDingShu13#,
+        [ShouCeShu14]=#ShouCeShu14#,
+				[QuYangShu14]=#QuYangShu14#,
+				[PanDingShu14]=#PanDingShu14#,
+        [ShouCeShu15]=#ShouCeShu15#,
+				[QuYangShu15]=#QuYangShu15#,
+				[PanDingShu15]=#PanDingShu15#,
+        [ShouCeShu16]=#ShouCeShu16#,
+				[QuYangShu16]=#QuYangShu16#,
+				[PanDingShu16]=#PanDingShu16#,
+        [ShouCeShu17]=#ShouCeShu17#,
+				[QuYangShu17]=#QuYangShu17#,
+				[PanDingShu17]=#PanDingShu17#,
+        [ShouCeShu18]=#ShouCeShu18#,
+				[QuYangShu18]=#QuYangShu18#,
+				[PanDingShu18]=#PanDingShu18#,
+        [ShouCeShu19]=#ShouCeShu19#,
+				[QuYangShu19]=#QuYangShu19#,
+				[PanDingShu19]=#PanDingShu19#,
+        [ShouCeShu20]=#ShouCeShu20#,
+				[QuYangShu20]=#QuYangShu20#,
+				[PanDingShu20]=#PanDingShu20#,
+        [ShouCeShu21]=#ShouCeShu21#,
+				[QuYangShu21]=#QuYangShu21#,
+				[PanDingShu21]=#PanDingShu21#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[ExpType] = #ExpType#,
+        [Smokelens]=#Smokelens#,
+        [IR3lens]=#IR3lens#,
+        [IR5lens]=#IR5lens#,
+        [Mirrorlens]=#Mirrorlens#,
+        [Clearlens]=#Clearlens#,
+        [ProductBatchNo]=#ProductBatchNo#,
+        [VisualTest]=#VisualTest#,
+        [ThermalStability]=#ThermalStability#,
+        [PrismaticPowerHIn]=#PrismaticPowerHIn#,
+        [PrismaticPowerHOut]=#PrismaticPowerHOut#,
+        [PrismaticPowerVUp]=#PrismaticPowerVUp#,
+        [PrismaticPowerVDwn]=#PrismaticPowerVDwn#,
+        [RefractivePower]=#RefractivePower#,
+        [ScatterLight]=#ScatterLight#,
+        [MediumImpact]=#MediumImpact#,
+        [HighImpact]=#HighImpact#,
+        [ExtraHighImpact]=#ExtraHighImpact#,
+        [PermertrationTest]=#PermertrationTest#,
+        [IgnitionTest]=#IgnitionTest#,
+        [Corrsion]=#Corrsion#,
+        [Markings]=#Markings#,
+        [TraceMarking]=#TraceMarking#,
+        [Protectionone]=#Protectionone#,
+        [Protectiontwo]=#Protectiontwo#,
+        [AuditState]=#AuditState#,        
+        [AuditEmpId]=#AuditEmpId#,
+        [ProductUnitId] = #ProductUnitId#,
+        [CeShiSuLi]=#CeShiSuLi#,
+        [ApprovalDate]=#ApprovalDate#
+			WHERE
+				[ExportReportId] = #ExportReportId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCExportReportANSI]
+				where  ExportReportId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

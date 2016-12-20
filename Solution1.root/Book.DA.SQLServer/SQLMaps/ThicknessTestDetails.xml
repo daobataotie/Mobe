@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ThicknessTestDetails" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <statements>
+    <select id="SelectByHeaderId" resultMap="ThicknessTestDetailsResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM ThicknessTestDetails WHERE ThicknessTestId = #value#  order by HouduBiao
+      ]]>
+    </select>
+
+    <delete id="DeleteByheaderId" parameterClass="string">
+      <![CDATA[
+      DELETE FROM ThicknessTestDetails WHERE ThicknessTestId = #value#
+      ]]>
+    </delete>
+  </statements>
+</sqlMap>

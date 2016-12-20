@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AreaCategory" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AreaCategory" type="Book.Model.AreaCategory, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="AreaCategoryResult" class="AreaCategory">
+			<result property="Id" column="Id" />
+			<result property="AreaCategoryId" column="AreaCategoryId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="AreaCategoryName" column="AreaCategoryName" />
+			<result property="Description" column="Description" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AreaCategory]
+				WHERE
+				[AreaCategoryId] = #AreaCategoryId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AreaCategory]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="AreaCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AreaCategory 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="AreaCategoryResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AreaCategory 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="AreaCategoryResult" parameterClass="AreaCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.AreaCategory
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="AreaCategoryResult" parameterClass="AreaCategory">
+			<![CDATA[
+			select top 1 *
+			from dbo.AreaCategory
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="AreaCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AreaCategory
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="AreaCategory">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AreaCategory
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AreaCategoryResult" parameterClass="AreaCategory">
+			SELECT
+				[Id],
+				[AreaCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[AreaCategoryName],
+				[Description]
+			FROM
+				[dbo].[AreaCategory]
+			WHERE
+				[AreaCategoryId] = #AreaCategoryId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[AreaCategory]
+			WHERE
+				[AreaCategoryId] = #AreaCategoryId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AreaCategoryResult" >
+			SELECT *
+			FROM 
+				[dbo].[AreaCategory]
+			ORDER BY AreaCategoryId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[AreaCategory]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AreaCategoryResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AreaCategory]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AreaCategory">
+			INSERT INTO [dbo].[AreaCategory] 
+			(
+				[Id],
+				[AreaCategoryId],
+				[InsertTime],
+				[UpdateTime],
+				[AreaCategoryName],
+				[Description]
+			) 
+			VALUES 
+			(
+				#Id#,
+				#AreaCategoryId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#AreaCategoryName#,
+				#Description#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AreaCategory">
+			UPDATE [AreaCategory] SET
+				[Id] = #Id#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[AreaCategoryName] = #AreaCategoryName#,
+				[Description] = #Description#
+			WHERE
+				[AreaCategoryId] = #AreaCategoryId#
+        </update>
+		
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AreaCategory
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="AreaCategoryResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[AreaCategory]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.AreaCategory
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

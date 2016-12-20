@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="MRSdetails" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<resultMaps>
+		<resultMap id="MRSdetailsResult1" class="MRSdetails">
+			<result property="ProductId" column="ProductId" />
+			<result property="MRSHeaderId" column="MRSHeaderId" />
+			<result property="MRSdetailssum" column="MRSdetailssum" />
+			<result property="ProductUnit" column="ProductUnit" />
+			<result property="MPSheaderId" column="MPSheaderId" />
+			<result property="MRSdetailsQuantity" column="MRSdetailsQuantity" />
+			<result property="MPSDate" column="MPSDate" />
+			<result property="MRSHeader" column="MRSHeaderId" lazyLoad="false" select="MRSHeader.select_by_primary_key" />
+			<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />
+		</resultMap>
+	</resultMaps>
+
+	<statements>
+		<select id="select_byMRSheaderId" resultMap="MRSdetailsResult" parameterClass="string">
+			<!--SELECT ProductId,MRSHeaderId,SUM(MRSdetailssum) MRSdetailssum,ProductUnit,MPSheaderId,SUM(MRSdetailsQuantity) MRSdetailsQuantity,max(MPSDate) MPSDate from MRSdetails where MRSheaderId=#value# GROUP BY ProductId,ProductUnit,MRSHeaderId,MPSheaderId-->
+			<!--SELECT * FROM MRSdetails WHERE MRSHeaderId=#value#-->
+			select * from dbo.MRSdetails m  LEFT join Supplier s on s.SupplierId in(select SupplierId from product where product.productid=m.productid OR SupplierId IS null) WHERE MRSHeaderId=#value# order by s.id
+		</select>
+
+		<!--<select id="GetMrsdetailBySourceType" resultMap="MRSdetailsResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM MRSdetails WHERE MRSHeaderId IN(SELECT MRSHeaderId FROM MRSHeader WHERE MRSstartdate>=DateAdd(Month,-3,getdate()) and  SourceType=#value#) and MRSdetailssum <>0   order by MRSHeaderId desc 
+      		]]>
+    </select>-->
+    <select id="select_GetDateSourceType" resultMap="MRSdetailsResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM MRSdetails WHERE MRSHeaderId IN(SELECT MRSHeaderId FROM MRSHeader WHERE MRSstartdate between #startdate# and #enddate# and SourceType=#SourceType#)    and MRSdetailssum <>0 order by MRSHeaderId desc
+        ]]>
+    </select>
+		<select id="selectBySourceTypeAndMPS" resultMap="MRSdetailsResult" parameterClass="Map">
+			SELECT * FROM MRSdetails WHERE MRSHeaderId IN(SELECT MRSHeaderId FROM MRSHeader WHERE SourceType=#sourceType#
+			and MPSheaderId=#mpsHeaderId#)
+		</select>
+	</statements>
+</sqlMap>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="BGHandbook" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byId" resultMap="BGHandbookResult" parameterClass="string">
+      <![CDATA[
+      select * from BGHandbook where Id=#value:varchar# order by BGHandbookDate 
+      ]]>
+    </select>
+    <update id="UpdateIsEffect" parameterClass="Map">
+      <![CDATA[
+      UPDATE BGHandbook SET IsEffect=#IsEffect# WHERE Id=#id#
+      ]]>
+    </update>
+
+    <select id="HasEffect" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      select case when exists (select 1 from BGHandbook where Id=#Id# and IsEffect='1' and BGHandbookId<>#BGHandbookId#) then 1 else 0 end
+      ]]>
+    </select>
+  </statements>
+
+</sqlMap>

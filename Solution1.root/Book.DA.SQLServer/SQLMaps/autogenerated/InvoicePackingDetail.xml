@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoicePackingDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoicePackingDetail" type="Book.Model.InvoicePackingDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoicePackingDetailResult" class="InvoicePackingDetail">
+      <result property="InvoicePackingDetailId" column="InvoicePackingDetailId" />
+      <result property="InvoicePackingId" column="InvoicePackingId" />
+      <result property="HandPackingId" column="HandPackingId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="XOCustomerId" column="XOCustomerId" />
+      <result property="PackingNum" column="PackingNum" />
+      <result property="UnitPrice" column="UnitPrice" />
+      <result property="BLong" column="BLong" />
+      <result property="BWidth" column="BWidth" />
+      <result property="BHeight" column="BHeight" />
+      <result property="UnitJWeight" column="UnitJWeight" />
+      <result property="UnitMWeight" column="UnitMWeight" />
+      <result property="UnitCaiji" column="UnitCaiji" />
+      <result property="AllJweight" column="AllJweight" />
+      <result property="AllMWeight" column="AllMWeight" />
+      <result property="AllCaiji" column="AllCaiji" />
+      <result property="Note" column="Note" />
+      <result property="BoxNum" column="BoxNum"/>
+      <result property ="Amount" column="Amount"/>
+      <result property="InvoiceXOId" column="InvoiceXOId"/>
+      <result property="InvoiceXODetailId" column="InvoiceXODetailId"/>
+      <result property="ProductUnit" column="ProductUnit"/>
+      <result property="InvoiceXOQuantity" column="InvoiceXOQuantity"/>
+      <result property="HasFPQuantity" column="HasFPQuantity"/>
+      <result property="UnitNum" column="UnitNum"/>
+      <result property="HandbookId" column="HandbookId"/>
+      <result property="HandbookProductId" column="HandbookProductId"/>
+      <result property="WeightUnit" column="WeightUnit"/>
+      <result property="PriceUnit" column="PriceUnit"/>
+      <result property="BGHandBookProduct" column="BGHandBookProduct"/>
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="InvoicePacking" column="InvoicePackingId" lazyLoad="false" select="InvoicePacking.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="XOCustomer" column="XOCustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo"/>
+      <result property="InvoiceXODetail" column="InvoiceXODetailId" lazyLoad="false" select="InvoiceXODetail.select_by_primary_key"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoicePackingDetail]
+				WHERE
+				[InvoicePackingDetailId] = #InvoicePackingDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoicePackingDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="InvoicePackingDetailResult" parameterClass="InvoicePackingDetail">
+      <![CDATA[SELECT
+				[InvoicePackingDetailId],
+				[InvoicePackingId],
+				[HandPackingId],
+				[ProductId],
+				[CustomerId],
+				[XOCustomerId],
+				[PackingNum],
+				[UnitPrice],
+				[BLong],
+				[BWidth],
+				[BHeight],
+				[UnitJWeight],
+				[UnitMWeight],
+				[UnitCaiji],
+				[AllJweight],
+				[AllMWeight],
+				[AllCaiji],
+				[Note],
+        [BoxNum],
+        [Amount],
+        [InvoiceXOId],
+        [InvoiceXODetailId],
+        [ProductUnit],
+        [InvoiceXOQuantity],
+        [HasFPQuantity],
+        [UnitNum],
+        [HandbookId],
+        [HandbookProductId],
+        [WeightUnit],
+        [PriceUnit],
+        [BGHandBookProduct]
+			FROM
+				[dbo].[InvoicePackingDetail]
+			WHERE
+				[InvoicePackingDetailId] = #InvoicePackingDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[InvoicePackingDetail]
+			WHERE            
+				[InvoicePackingDetailId] = #InvoicePackingDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="InvoicePackingDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[InvoicePackingDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[InvoicePackingDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="InvoicePackingDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoicePackingDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="InvoicePackingDetail">
+      <![CDATA[ INSERT INTO [dbo].[InvoicePackingDetail] 
+			(
+				[InvoicePackingDetailId],
+				[InvoicePackingId],
+				[HandPackingId],
+				[ProductId],
+				[CustomerId],
+				[XOCustomerId],
+				[PackingNum],
+				[UnitPrice],
+				[BLong],
+				[BWidth],
+				[BHeight],
+				[UnitJWeight],
+				[UnitMWeight],
+				[UnitCaiji],
+				[AllJweight],
+				[AllMWeight],
+				[AllCaiji],
+				[Note],
+        [BoxNum],
+        [Amount],
+        [InvoiceXOId],
+        [InvoiceXODetailId],
+        [ProductUnit],
+        [InvoiceXOQuantity],
+        [HasFPQuantity],
+        [UnitNum],
+        [HandbookId],
+        [HandbookProductId],
+        [WeightUnit],
+        [PriceUnit],
+        [BGHandBookProduct]
+			) 
+			VALUES 
+			(
+				#InvoicePackingDetailId#,
+				#InvoicePackingId#,
+				#HandPackingId#,
+				#ProductId#,
+				#CustomerId#,
+				#XOCustomerId#,
+				#PackingNum#,
+				#UnitPrice#,
+				#BLong#,
+				#BWidth#,
+				#BHeight#,
+				#UnitJWeight#,
+				#UnitMWeight#,
+				#UnitCaiji#,
+				#AllJweight#,
+				#AllMWeight#,
+				#AllCaiji#,
+				#Note#,
+        #BoxNum#,
+        #Amount#,
+        #InvoiceXOId#,
+        #InvoiceXODetailId#,
+        #ProductUnit#,
+        #InvoiceXOQuantity#,
+        #HasFPQuantity#,
+        #UnitNum#,
+        #HandbookId#,
+        #HandbookProductId#,
+        #WeightUnit#,
+        #PriceUnit#,
+        #BGHandBookProduct#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="InvoicePackingDetail">
+      <![CDATA[ 	UPDATE [InvoicePackingDetail] SET
+				[InvoicePackingId] = #InvoicePackingId#,
+				[HandPackingId] = #HandPackingId#,
+				[ProductId] = #ProductId#,
+				[CustomerId] = #CustomerId#,
+				[XOCustomerId] = #XOCustomerId#,
+				[PackingNum] = #PackingNum#,
+				[UnitPrice] = #UnitPrice#,
+				[BLong] = #BLong#,
+				[BWidth] = #BWidth#,
+				[BHeight] = #BHeight#,
+				[UnitJWeight] = #UnitJWeight#,
+				[UnitMWeight] = #UnitMWeight#,
+				[UnitCaiji] = #UnitCaiji#,
+				[AllJweight] = #AllJweight#,
+				[AllMWeight] = #AllMWeight#,
+				[AllCaiji] = #AllCaiji#,
+				[Note] = #Note#,
+        [BoxNum]=#BoxNum#,
+        [Amount]=#Amount#,
+        [InvoiceXOId]=#InvoiceXOId#,
+        [InvoiceXODetailId]=#InvoiceXODetailId#,
+        [ProductUnit]=#ProductUnit#,
+        [InvoiceXOQuantity]=#InvoiceXOQuantity#,
+        [HasFPQuantity]=#HasFPQuantity#,
+        [UnitNum]=#UnitNum#,
+        [HandbookId]=#HandbookId#,
+        [HandbookProductId]=#HandbookProductId#,
+        [WeightUnit]=#WeightUnit#,
+        [PriceUnit]=#PriceUnit#,
+        [BGHandBookProduct]=#BGHandBookProduct#
+			WHERE
+				[InvoicePackingDetailId] = #InvoicePackingDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoicePackingDetail]
+				where  InvoicePackingDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

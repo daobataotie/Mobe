@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceBYDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="InvoiceBYDetail" type="Book.Model.InvoiceBYDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="InvoiceBYDetailResult" class="InvoiceBYDetail">
+			<result property="InvoiceBYDetailId" column="InvoiceBYDetailId" />
+			<result property="DepotPositionId" column="DepotPositionId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="InvoiceId" column="InvoiceId" />
+			<result property="InvoiceBYDetailQuantity" column="InvoiceBYDetailQuantity" />
+			<result property="InvoiceBYDetailNote" column="InvoiceBYDetailNote" />
+			<result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+			<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+			<result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceBY.select_by_primary_key" />
+			<result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceBYDetail]
+				WHERE
+				[InvoiceBYDetailId] = #InvoiceBYDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[InvoiceBYDetail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="InvoiceBYDetailResult" parameterClass="InvoiceBYDetail">
+			SELECT
+				[InvoiceBYDetailId],
+				[DepotPositionId],
+				[ProductId],
+				[InvoiceId],
+				[InvoiceBYDetailQuantity],
+				[InvoiceBYDetailNote],
+				[InvoiceProductUnit]
+			FROM
+				[dbo].[InvoiceBYDetail]
+			WHERE
+				[InvoiceBYDetailId] = #InvoiceBYDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[InvoiceBYDetail]
+			WHERE
+				[InvoiceBYDetailId] = #InvoiceBYDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="InvoiceBYDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[InvoiceBYDetail]
+			ORDER BY InvoiceBYDetailId ASC
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[InvoiceBYDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="InvoiceBYDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[InvoiceBYDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="InvoiceBYDetail">
+			INSERT INTO [dbo].[InvoiceBYDetail] 
+			(
+				[InvoiceBYDetailId],
+				[DepotPositionId],
+				[ProductId],
+				[InvoiceId],
+				[InvoiceBYDetailQuantity],
+				[InvoiceBYDetailNote],
+				[InvoiceProductUnit]
+			) 
+			VALUES 
+			(
+				#InvoiceBYDetailId#,
+				#DepotPositionId#,
+				#ProductId#,
+				#InvoiceId#,
+				#InvoiceBYDetailQuantity#,
+				#InvoiceBYDetailNote#,
+				#InvoiceProductUnit#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="InvoiceBYDetail">
+			UPDATE [InvoiceBYDetail] SET
+				[DepotPositionId] = #DepotPositionId#,
+				[ProductId] = #ProductId#,
+				[InvoiceId] = #InvoiceId#,
+				[InvoiceBYDetailQuantity] = #InvoiceBYDetailQuantity#,
+				[InvoiceBYDetailNote] = #InvoiceBYDetailNote#,
+				[InvoiceProductUnit] = #InvoiceProductUnit#
+			WHERE
+				[InvoiceBYDetailId] = #InvoiceBYDetailId#
+        </update>
+		
+		
+    </statements>
+</sqlMap>
+

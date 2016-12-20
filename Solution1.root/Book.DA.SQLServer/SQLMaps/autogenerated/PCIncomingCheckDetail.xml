@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCIncomingCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCIncomingCheckDetail" type="Book.Model.PCIncomingCheckDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCIncomingCheckDetailResult" class="PCIncomingCheckDetail">
+      <result property="PCIncomingCheckDetailId" column="PCIncomingCheckDetailId" />
+      <result property="PCIncomingCheckId" column="PCIncomingCheckId" />
+      <result property="CheckDate" column="CheckDate" />
+      <result property="ProductId" column="ProductId" />
+      <result property="Sehao" column="Sehao" />
+      <result property="Pihao" column="Pihao" />
+      <result property="Guangxue" column="Guangxue" />
+      <result property="Toushilv" column="Toushilv" />
+      <result property="Chongji" column="Chongji" />
+      <result property="Waiguan" column="Waiguan" />
+      <result property="UVValue" column="UVValue" />
+      <result property="Nairanceshi" column="Nairanceshi" />
+      <result property="ProductName" column="ProductName"/>
+      <result property="PCIncomingCheck" column="PCIncomingCheckId" lazyLoad="false" select="PCIncomingCheck.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCIncomingCheckDetail]
+				WHERE
+				[PCIncomingCheckDetailId] = #PCIncomingCheckDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCIncomingCheckDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCIncomingCheckDetailResult" parameterClass="PCIncomingCheckDetail">
+      <![CDATA[SELECT
+				[PCIncomingCheckDetailId],
+				[PCIncomingCheckId],
+				[CheckDate],
+				[ProductId],
+				[Sehao],
+				[Pihao],
+				[Guangxue],
+				[Toushilv],
+				[Chongji],
+				[Waiguan],
+				[UVValue],
+				[Nairanceshi],
+        [ProductName]
+			FROM
+				[dbo].[PCIncomingCheckDetail]
+			WHERE
+				[PCIncomingCheckDetailId] = #PCIncomingCheckDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCIncomingCheckDetail]
+			WHERE            
+				[PCIncomingCheckDetailId] = #PCIncomingCheckDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCIncomingCheckDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCIncomingCheckDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCIncomingCheckDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCIncomingCheckDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCIncomingCheckDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCIncomingCheckDetail">
+      <![CDATA[ INSERT INTO [dbo].[PCIncomingCheckDetail] 
+			(
+				[PCIncomingCheckDetailId],
+				[PCIncomingCheckId],
+				[CheckDate],
+				[ProductId],
+				[Sehao],
+				[Pihao],
+				[Guangxue],
+				[Toushilv],
+				[Chongji],
+				[Waiguan],
+				[UVValue],
+				[Nairanceshi],
+        [ProductName]
+			) 
+			VALUES 
+			(
+				#PCIncomingCheckDetailId#,
+				#PCIncomingCheckId#,
+				#CheckDate#,
+				#ProductId#,
+				#Sehao#,
+				#Pihao#,
+				#Guangxue#,
+				#Toushilv#,
+				#Chongji#,
+				#Waiguan#,
+				#UVValue#,
+				#Nairanceshi#,
+        #ProductName#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCIncomingCheckDetail">
+      <![CDATA[ 	UPDATE [PCIncomingCheckDetail] SET
+				[PCIncomingCheckId] = #PCIncomingCheckId#,
+				[CheckDate] = #CheckDate#,
+				[ProductId] = #ProductId#,
+				[Sehao] = #Sehao#,
+				[Pihao] = #Pihao#,
+				[Guangxue] = #Guangxue#,
+				[Toushilv] = #Toushilv#,
+				[Chongji] = #Chongji#,
+				[Waiguan] = #Waiguan#,
+				[UVValue] = #UVValue#,
+				[Nairanceshi] = #Nairanceshi#,
+        [ProductName]=#ProductName#
+			WHERE
+				[PCIncomingCheckDetailId] = #PCIncomingCheckDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCIncomingCheckDetail]
+				where  PCIncomingCheckDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>

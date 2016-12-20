@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="MouldCategory" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="IsExistMouldCategoryName" resultClass="bool" prameterClass="Map">
+      <![CDATA[
+               select case when exists(select * from MouldCategory where MouldCategoryId<>#mid# and MouldCategoryName=#name#) then 1 else 0 end
+      ]]>
+    </select>
+
+    <select id="IsExistId" resultClass="bool" prameterClass="Map">
+      <![CDATA[
+               select case when exists(select * from MouldCategory where MouldCategoryId<>#mid# and Id=#id#) then 1 else 0 end
+      ]]>
+    </select>
+    
+  </statements>
+</sqlMap>

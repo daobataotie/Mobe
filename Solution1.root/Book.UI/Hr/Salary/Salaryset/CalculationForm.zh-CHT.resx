@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="gridColumn4.Caption" xml:space="preserve">
+    <value>員工編號</value>
+  </data>
+  <data name="gridColumn6.Caption" xml:space="preserve">
+    <value>部門</value>
+  </data>
+  <data name="gridColumnBusinessTime.Caption" xml:space="preserve">
+    <value>上班時間</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="comboBoxEdit1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 12</value>
+  </data>
+  <data name="comboBoxEdit1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 21</value>
+  </data>
+  <data name="layoutControlItem18.Text" xml:space="preserve">
+    <value>欲維護月份：</value>
+  </data>
+  <data name="labelControl18.Text" xml:space="preserve">
+    <value>責任獎金：</value>
+  </data>
+  <data name="labelControl19.Text" xml:space="preserve">
+    <value>班別獎金：</value>
+  </data>
+  <data name="labelControl25.Text" xml:space="preserve">
+    <value>職務獎金：</value>
+  </data>
+  <data name="label_zhiwjt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 14</value>
+  </data>
+  <data name="label_zhiwjt.Text" xml:space="preserve">
+    <value>                 </value>
+  </data>
+  <data name="labelControl29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 111</value>
+  </data>
+  <data name="labelControl29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 14</value>
+  </data>
+  <data name="labelControl29.Text" xml:space="preserve">
+    <value>實領金額：</value>
+  </data>
+  <data name="label_BonusTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 14</value>
+  </data>
+  <data name="label_BonusTotal.Text" xml:space="preserve">
+    <value>                      </value>
+  </data>
+  <data name="label_SalaryTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 14</value>
+  </data>
+  <data name="label_SalaryTotal.Text" xml:space="preserve">
+    <value>                 </value>
+  </data>
+  <data name="labelTax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 14</value>
+  </data>
+  <data name="labelTax.Text" xml:space="preserve">
+    <value>                 </value>
+  </data>
+  <data name="label_jiez.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 14</value>
+  </data>
+  <data name="label_jiez.Text" xml:space="preserve">
+    <value>                 </value>
+  </data>
+  <data name="label_baox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 14</value>
+  </data>
+  <data name="label_baox.Text" xml:space="preserve">
+    <value>                 </value>
+  </data>
+  <data name="labelControl26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 136</value>
+  </data>
+  <data name="labelControl26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 14</value>
+  </data>
+  <data name="labelControl26.Text" xml:space="preserve">
+    <value>其它補款：</value>
+  </data>
+  <data name="labelControl31.Text" xml:space="preserve">
+    <value>小計：</value>
+  </data>
+  <data name="label_SubTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 14</value>
+  </data>
+  <data name="label_SubTotal.Text" xml:space="preserve">
+    <value>                 </value>
+  </data>
+  <data name="labelControl28.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 188</value>
+  </data>
+  <data name="labelControl28.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 14</value>
+  </data>
+  <data name="labelControl28.Text" xml:space="preserve">
+    <value>遲到扣款：</value>
+  </data>
+  <data name="labelControl27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 162</value>
+  </data>
+  <data name="labelControl27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 14</value>
+  </data>
+  <data name="labelControl27.Text" xml:space="preserve">
+    <value>其它扣款：</value>
+  </data>
+  <data name="labelControl41.Text" xml:space="preserve">
+    <value>總計：</value>
+  </data>
+  <data name="labelControl42.Text" xml:space="preserve">
+    <value>餐費：</value>
+  </data>
+  <data name="label_cf.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 14</value>
+  </data>
+  <data name="label_cf.Text" xml:space="preserve">
+    <value>                 </value>
+  </data>
+  <data name="labelControl43.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 308</value>
+  </data>
+  <data name="labelControl43.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 14</value>
+  </data>
+  <data name="labelControl43.Text" xml:space="preserve">
+    <value>保險費：</value>
+  </data>
+  <data name="labelControl44.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 333</value>
+  </data>
+  <data name="labelControl44.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 14</value>
+  </data>
+  <data name="labelControl44.Text" xml:space="preserve">
+    <value>借支：</value>
+  </data>
+  <data name="labelControl45.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 361</value>
+  </data>
+  <data name="labelControl45.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 14</value>
+  </data>
+  <data name="labelControl45.Text" xml:space="preserve">
+    <value>所得稅：</value>
+  </data>
+  <data name="labelControl46.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 391</value>
+  </data>
+  <data name="labelControl46.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 14</value>
+  </data>
+  <data name="labelControl46.Text" xml:space="preserve">
+    <value>實領金額：</value>
+  </data>
+  <data name="labelControl1.Text" xml:space="preserve">
+    <value>年假(補休)：</value>
+  </data>
+  <data name="labelControl38.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 6</value>
+  </data>
+  <data name="labelControl38.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 14</value>
+  </data>
+  <data name="labelControl38.Text" xml:space="preserve">
+    <value>底薪：</value>
+  </data>
+  <data name="barButtonItem4.Caption" xml:space="preserve">
+    <value>列印總月報表</value>
+  </data>
+  <data name="barButtonItem5.Caption" xml:space="preserve">
+    <value>列印個人月表報</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>人力資源-薪資管理-薪資計算</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v10.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxMC4yLCBWZXJzaW9uPTEwLjIu
+        NC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEMAwAAAFFT
+        eXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRv
+        a2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAAChEZXZFeHByZXNzLlV0aWxzLkltYWdlQ29sbGVjdGlvblN0
+        cmVhbWVyAgAAAAlJbWFnZVNpemUERGF0YQQHE1N5c3RlbS5EcmF3aW5nLlNpemUDAAAAAgIAAAAF/P//
+        /xNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAV3aWR0aAZoZWlnaHQAAAgIAwAAABgAAAAYAAAACQUAAAAP
+        BQAAAOYJAAACIgUAAIlQTkcNChoKAAAADUlIRFIAAAAYAAAAGAgGAAAA4Hc9+AAAAAFzUkdCAK7OHOkA
+        AAAEZ0FNQQAAsY8L/GEFAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwA
+        AAAJcEhZcwAACvYAAAr2AcKvcAMAAASLSURBVEhLlZVrUxtVGMf3Izh+AN/5BYptB7RWkQIFClhKUaQt
+        9YLjFG2ntbwQfaEOU17oaKdOZzqjo3YQhEJTKCGEUATCJdBwDTShoSgJIQmXUCDZ7GYvf5+zJEAoKM3M
+        bzZ75uz/9+zuec5y7KcoyguKqv6qquoKgRhDKyrKbEC1C1gQtsb/hxXK+oFlauHsRycv06B+5+R7HuD9
+        IeC8FSh+qKLikYouf/yc3aCsapYZjdcERbKi2OmI7eg86jYBcHZAxXt9Cor7ZPw8JcMblOPmx6AsKx2L
+        ovEcJ8vKLUmSlwhsp3Jqd8Hpbhm57RLS9SI+7RSgmxIRCEnbr/WyzGi4/CINjEciEnZS6dhF0K+ggARv
+        P5BwnARH68M48FsQJ2rW4q5lmSybCdJEMQJBiGcqENLC4wSDKor6VRSYFU2Q0SLijYYwEn4PoswUjLue
+        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
+        A/wPAH+sRdiMWwkAAAAASUVORK5CYIIL
+</value>
+  </data>
+  <data name="barButtonItem1.Caption" xml:space="preserve">
+    <value>打印當前</value>
+  </data>
+  <data name="label_dx.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 14</value>
+  </data>
+  <data name="label_dx.Text" xml:space="preserve">
+    <value>                 </value>
+  </data>
+  <data name="labelControl32.Text" xml:space="preserve">
+    <value>出勤獎金：</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label_gj.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label_gj.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="label_gj.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 29</value>
+  </data>
+  <data name="labelControl34.Text" xml:space="preserve">
+    <value>餐費津貼：</value>
+  </data>
+  <data name="label_zhicjt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 14</value>
+  </data>
+  <data name="label_zhicjt.Text" xml:space="preserve">
+    <value>                 </value>
+  </data>
+  <data name="labelControl36.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 84</value>
+  </data>
+  <data name="labelControl36.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 14</value>
+  </data>
+  <data name="labelControl36.Text" xml:space="preserve">
+    <value>績效係數：</value>
+  </data>
+  <data name="labelControl30.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 19</value>
+  </data>
+  <data name="labelControl30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 14</value>
+  </data>
+  <data name="labelControl30.Text" xml:space="preserve">
+    <value>姓名：</value>
+  </data>
+  <data name="label_gname.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 14</value>
+  </data>
+  <data name="label_gname.Text" xml:space="preserve">
+    <value>                 </value>
+  </data>
+</root>

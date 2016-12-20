@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Depot" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byPosition" resultMap="DepotResult" parameterClass="string">
+      <![CDATA[ select *
+      FROM
+      [dbo].[Depot]
+      WHERE
+      [DepotId] =( select DepotId from DepotPosition where DepotPositionId=#value#)
+      ]]>
+    </select>
+  </statements>
+
+</sqlMap> 

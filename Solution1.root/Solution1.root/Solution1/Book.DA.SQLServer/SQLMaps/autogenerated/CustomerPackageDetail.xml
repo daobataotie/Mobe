@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="CustomerPackageDetail" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="CustomerPackageDetail" type="Book.Model.CustomerPackageDetail, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="CustomerPackageDetailResult" class="CustomerPackageDetail">
+			<result property="CustomerPackageDetailId" column="CustomerPackageDetailId" />
+			<result property="CustomerPackageId" column="CustomerPackageId" />
+			<result property="ProductId" column="ProductId" />
+			<result property="Quantity" column="Quantity" />
+			<result property="ConsumeRate" column="ConsumeRate" />
+			<result property="EffectsDate" column="EffectsDate" />
+			<result property="ExpiringDate" column="ExpiringDate" />
+			<result property="Description" column="Description" />
+			<result property="PackageUnit" column="PackageUnit" />
+			<result property="UseQuantity" column="UseQuantity" />
+		<result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />		<result property="CustomerPackage" column="CustomerPackageId" lazyLoad="false" select="CustomerPackage.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerPackageDetail]
+				WHERE
+				[CustomerPackageDetailId] = #CustomerPackageDetailId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[CustomerPackageDetail]
+ 								
+				) then 1 else 0 end
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="CustomerPackageDetailResult" parameterClass="CustomerPackageDetail">
+			SELECT
+				[CustomerPackageDetailId],
+				[CustomerPackageId],
+				[ProductId],
+				[Quantity],
+				[ConsumeRate],
+				[EffectsDate],
+				[ExpiringDate],
+				[Description],
+				[PackageUnit],
+				[UseQuantity]
+			FROM
+				[dbo].[CustomerPackageDetail]
+			WHERE
+				[CustomerPackageDetailId] = #CustomerPackageDetailId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[CustomerPackageDetail]
+			WHERE
+				[CustomerPackageDetailId] = #CustomerPackageDetailId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="CustomerPackageDetailResult" >
+			SELECT *
+			FROM 
+				[dbo].[CustomerPackageDetail]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[CustomerPackageDetail]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="CustomerPackageDetailResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[CustomerPackageDetail]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="CustomerPackageDetail">
+			INSERT INTO [dbo].[CustomerPackageDetail] 
+			(
+				[CustomerPackageDetailId],
+				[CustomerPackageId],
+				[ProductId],
+				[Quantity],
+				[ConsumeRate],
+				[EffectsDate],
+				[ExpiringDate],
+				[Description],
+				[PackageUnit],
+				[UseQuantity]
+			) 
+			VALUES 
+			(
+				#CustomerPackageDetailId#,
+				#CustomerPackageId#,
+				#ProductId#,
+				#Quantity#,
+				#ConsumeRate#,
+				#EffectsDate#,
+				#ExpiringDate#,
+				#Description#,
+				#PackageUnit#,
+				#UseQuantity#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="CustomerPackageDetail">
+			UPDATE [CustomerPackageDetail] SET
+				[CustomerPackageId] = #CustomerPackageId#,
+				[ProductId] = #ProductId#,
+				[Quantity] = #Quantity#,
+				[ConsumeRate] = #ConsumeRate#,
+				[EffectsDate] = #EffectsDate#,
+				[ExpiringDate] = #ExpiringDate#,
+				[Description] = #Description#,
+				[PackageUnit] = #PackageUnit#,
+				[UseQuantity] = #UseQuantity#
+			WHERE
+				[CustomerPackageDetailId] = #CustomerPackageDetailId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[CustomerPackageDetail]
+				where  CustomerPackageDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="StockEditor" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_noStockCheck" resultMap="StockEditorResult" >
+      select * from StockEditor where IsStockCheck=0 or IsStockCheck is null
+    </select>
+  </statements>
+</sqlMap>

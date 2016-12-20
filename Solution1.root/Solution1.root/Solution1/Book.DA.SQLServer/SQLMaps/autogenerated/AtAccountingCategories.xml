@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AtAccountingCategories" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AtAccountingCategories" type="Book.Model.AtAccountingCategories, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="AtAccountingCategoriesResult" class="AtAccountingCategories">
+			<result property="AccountingCategoriesId" column="AccountingCategoriesId" />
+			<result property="AccountingCategoriesName" column="AccountingCategoriesName" />
+			<result property="EnglishAccountingCategoriesName" column="EnglishAccountingCategoriesName" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtAccountingCategories]
+				WHERE
+				[AccountingCategoriesId] = #AccountingCategoriesId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtAccountingCategories]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="AtAccountingCategoriesResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountingCategories 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="AtAccountingCategoriesResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountingCategories 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="AtAccountingCategoriesResult" parameterClass="AtAccountingCategories">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountingCategories
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="AtAccountingCategoriesResult" parameterClass="AtAccountingCategories">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtAccountingCategories
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="AtAccountingCategories">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtAccountingCategories
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="AtAccountingCategories">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtAccountingCategories
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AtAccountingCategoriesResult" parameterClass="AtAccountingCategories">
+			SELECT
+				[AccountingCategoriesId],
+				[AccountingCategoriesName],
+				[EnglishAccountingCategoriesName],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			FROM
+				[dbo].[AtAccountingCategories]
+			WHERE
+				[AccountingCategoriesId] = #AccountingCategoriesId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[AtAccountingCategories]
+			WHERE
+				[AccountingCategoriesId] = #AccountingCategoriesId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AtAccountingCategoriesResult" >
+			SELECT *
+			FROM 
+				[dbo].[AtAccountingCategories]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[AtAccountingCategories]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AtAccountingCategoriesResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AtAccountingCategories]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AtAccountingCategories">
+			INSERT INTO [dbo].[AtAccountingCategories] 
+			(
+				[AccountingCategoriesId],
+				[AccountingCategoriesName],
+				[EnglishAccountingCategoriesName],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			) 
+			VALUES 
+			(
+				#AccountingCategoriesId#,
+				#AccountingCategoriesName#,
+				#EnglishAccountingCategoriesName#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AtAccountingCategories">
+			UPDATE [AtAccountingCategories] SET
+				[AccountingCategoriesName] = #AccountingCategoriesName#,
+				[EnglishAccountingCategoriesName] = #EnglishAccountingCategoriesName#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#
+			WHERE
+				[AccountingCategoriesId] = #AccountingCategoriesId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AtAccountingCategories]
+				where  AccountingCategoriesId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtAccountingCategories
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="AtAccountingCategoriesResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[AtAccountingCategories]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.AtAccountingCategories
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

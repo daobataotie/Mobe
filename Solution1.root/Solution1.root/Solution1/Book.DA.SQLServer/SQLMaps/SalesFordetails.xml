@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="SalesFordetails" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_bySalesHeader" parameterClass="string" resultMap="SalesFordetailsResult">      
+       select *
+            from dbo.SalesFordetails
+            where SalesForHeaderId=#value#
+    </select>
+    <select id="select_byProductId" parameterClass="string" resultMap="SalesFordetailsResult">
+      select top 1 *
+      from dbo.SalesFordetails
+      where ProductId=#value#
+    </select>
+  </statements>
+</sqlMap>

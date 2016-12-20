@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="RelationXODetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="RelationXODetail" type="Book.Model.RelationXODetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="RelationXODetailResult" class="RelationXODetail">
+      <result property="RelationXODetailId" column="RelationXODetailId" />
+      <result property="RelationXOId" column="RelationXOId" />
+      <result property="PCInputCheckId" column="PCInputCheckId" />
+      <result property="LotNumber" column="LotNumber" />
+      <result property="ProductName" column="ProductName"/>
+      <result property="InvoiceXOCusId" column="InvoiceXOCusId"/>
+      <result property="RelationXO" column="RelationXOId" lazyLoad="false" select="RelationXO.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[RelationXODetail]
+				WHERE
+				[RelationXODetailId] = #RelationXODetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[RelationXODetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="RelationXODetailResult" parameterClass="RelationXODetail">
+      <![CDATA[SELECT
+				[RelationXODetailId],
+				[RelationXOId],
+				[PCInputCheckId],
+				[LotNumber],
+        [ProductName],
+        [InvoiceXOCusId]
+			FROM
+				[dbo].[RelationXODetail]
+			WHERE
+				[RelationXODetailId] = #RelationXODetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[RelationXODetail]
+			WHERE            
+				[RelationXODetailId] = #RelationXODetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="RelationXODetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[RelationXODetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[RelationXODetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="RelationXODetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[RelationXODetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="RelationXODetail">
+      <![CDATA[ INSERT INTO [dbo].[RelationXODetail] 
+			(
+				[RelationXODetailId],
+				[RelationXOId],
+				[PCInputCheckId],
+				[LotNumber],
+        [ProductName],
+        [InvoiceXOCusId]
+			) 
+			VALUES 
+			(
+				#RelationXODetailId#,
+				#RelationXOId#,
+				#PCInputCheckId#,
+				#LotNumber#,
+        #ProductName#,
+        #InvoiceXOCusId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="RelationXODetail">
+      <![CDATA[ 	UPDATE [RelationXODetail] SET
+				[RelationXOId] = #RelationXOId#,
+				[PCInputCheckId] = #PCInputCheckId#,
+				[LotNumber] = #LotNumber#,
+        [ProductName]=#ProductName#,
+        [InvoiceXOCusId]=#InvoiceXOCusId#
+			WHERE
+				[RelationXODetailId] = #RelationXODetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[RelationXODetail]
+				where  RelationXODetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>

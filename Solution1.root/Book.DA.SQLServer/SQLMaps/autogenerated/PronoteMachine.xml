@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PronoteMachine" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="PronoteMachine" type="Book.Model.PronoteMachine, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="PronoteMachineResult" class="PronoteMachine">
+			<result property="PronoteMachineId" column="PronoteMachineId" />
+			<result property="WorkHouseId" column="WorkHouseId" />
+			<result property="Id" column="Id" />
+			<result property="PronoteMachineName" column="PronoteMachineName" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="IsChecked" column="IsChecked" />
+			<result property="ProductUnitId" column="ProductUnitId" />
+			<result property="Quantity" column="Quantity" />
+			<result property="MachineTotal" column="MachineTotal" />
+			<result property="MachinePower" column="MachinePower" />
+			<result property="MachineState" column="MachineState" />
+		<result property="WorkHouse" column="WorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />		<result property="ProductUnit" column="ProductUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PronoteMachine]
+				WHERE
+				[PronoteMachineId] = #PronoteMachineId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PronoteMachine]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="PronoteMachineResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.PronoteMachine 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="PronoteMachineResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.PronoteMachine 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="PronoteMachineResult" parameterClass="PronoteMachine">
+			<![CDATA[
+			select top 1 *
+			from dbo.PronoteMachine
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="PronoteMachineResult" parameterClass="PronoteMachine">
+			<![CDATA[
+			select top 1 *
+			from dbo.PronoteMachine
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="PronoteMachine">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PronoteMachine
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="PronoteMachine">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PronoteMachine
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="PronoteMachineResult" parameterClass="PronoteMachine">
+			SELECT
+				[PronoteMachineId],
+				[WorkHouseId],
+				[Id],
+				[PronoteMachineName],
+				[InsertTime],
+				[UpdateTime],
+				[IsChecked],
+				[ProductUnitId],
+				[Quantity],
+				[MachineTotal],
+				[MachinePower],
+				[MachineState]
+			FROM
+				[dbo].[PronoteMachine]
+			WHERE
+				[PronoteMachineId] = #PronoteMachineId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[PronoteMachine]
+			WHERE
+				[PronoteMachineId] = #PronoteMachineId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="PronoteMachineResult" >
+			SELECT *
+			FROM 
+				[dbo].[PronoteMachine]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[PronoteMachine]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="PronoteMachineResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PronoteMachine]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="PronoteMachine">
+			INSERT INTO [dbo].[PronoteMachine] 
+			(
+				[PronoteMachineId],
+				[WorkHouseId],
+				[Id],
+				[PronoteMachineName],
+				[InsertTime],
+				[UpdateTime],
+				[IsChecked],
+				[ProductUnitId],
+				[Quantity],
+				[MachineTotal],
+				[MachinePower],
+				[MachineState]
+			) 
+			VALUES 
+			(
+				#PronoteMachineId#,
+				#WorkHouseId#,
+				#Id#,
+				#PronoteMachineName#,
+				#InsertTime#,
+				#UpdateTime#,
+				#IsChecked#,
+				#ProductUnitId#,
+				#Quantity#,
+				#MachineTotal#,
+				#MachinePower#,
+				#MachineState#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="PronoteMachine">
+			UPDATE [PronoteMachine] SET
+				[WorkHouseId] = #WorkHouseId#,
+				[Id] = #Id#,
+				[PronoteMachineName] = #PronoteMachineName#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[IsChecked] = #IsChecked#,
+				[ProductUnitId] = #ProductUnitId#,
+				[Quantity] = #Quantity#,
+				[MachineTotal] = #MachineTotal#,
+				[MachinePower] = #MachinePower#,
+				[MachineState] = #MachineState#
+			WHERE
+				[PronoteMachineId] = #PronoteMachineId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PronoteMachine]
+				where  PronoteMachineId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PronoteMachine
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="PronoteMachineResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[PronoteMachine]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.PronoteMachine
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

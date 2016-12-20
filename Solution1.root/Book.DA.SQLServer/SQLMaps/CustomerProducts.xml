@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="CustomerProducts" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_by_customerId" resultMap="CustomerProductsResult">
+      <![CDATA[
+      select * from CustomerProducts where CustomerId = #value#
+      ]]>
+    </select>
+
+    <select id="exists_by_customerId_productId_customerproductId" resultClass="bool" parameterClass="CustomerProducts">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.CustomerProducts
+				where PrimaryKeyId <> #PrimaryKeyId# 
+        AND ProductId = #ProductId# and CustomerProductId = #CustomerProductId# and CustomerId = #CustomerId# and Version = #Version#)
+        then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="existsexcept" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from dbo.CustomerProducts
+				where CustomerProductId = #newId# and CustomerProductId <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="get_by_CustomerProducts" resultMap="CustomerProductsResult" parameterClass="string">
+      <![CDATA[
+				select *
+				from CustomerProducts
+				where CustomerProductId = #value#
+			]]>
+    </select>
+    <!--<select id="select_byXSDate" parameterClass="Map"  resultMap="CustomerProductsResult">
+      <![CDATA[      
+      select * from CustomerProducts where (CustomerProductId between #productStart# and #productEnd# )  and 
+        customerid in (select customerid from invoiceXS
+where invoicedate between #dateStart# and #dateEnd#) and (customerid between #customerStart# and #customerEnd# )
+     ]]>
+    </select>-->
+    <select id="select_by_StocksQuantity" resultMap="CustomerProductsResult" parameterClass="string">
+      select Product.StocksQuantity from Product,CustomerProducts where
+      CustomerProducts.ProductId=Product.ProductId and CustomerProducts.PrimaryKeyId= #value#
+    </select>
+
+    <select id ="IsExistsCustomerProductId"  resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      select case when exists(select * from CustomerProducts where PrimaryKeyId<>#PrimaryKeyId# and CustomerProductId=#CustomerProductId#) then 1 else 0 end
+      ]]>
+    </select>
+
+    <select id="SelectByCustomerIdAndProductId"  resultClass="bool" parameterClass="Map">
+      <![CDATA[
+            select case when exists(select * from CustomerProducts WHERE PrimaryKeyId<>#PrimaryKeyId# and CustomerId=#CustomerId# AND productId=#productid#) then 1 else 0 END
+      ]]>
+    </select>
+
+    <select id="SelectByCustomerProductProceId" resultMap="CustomerProductsResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM CustomerProducts WHERE CustomerProductProceName=#productid#
+      ]]>
+    </select>
+    <select id="SelectPrimaryIdByProceName" resultClass="string" parameterClass="string">
+      <![CDATA[
+      SELECT PrimaryKeyId FROM CustomerProducts WHERE CustomerProductProceName=#value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

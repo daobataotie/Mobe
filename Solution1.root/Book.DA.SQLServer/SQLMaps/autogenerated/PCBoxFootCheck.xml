@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCBoxFootCheck" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCBoxFootCheck" type="Book.Model.PCBoxFootCheck, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCBoxFootCheckResult" class="PCBoxFootCheck">
+      <result property="PCBoxFootCheckId" column="PCBoxFootCheckId" />
+      <result property="CheckDate" column="CheckDate" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceXOId" column="InvoiceXOId" />
+      <result property="PronoteHeaderId" column="PronoteHeaderId" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="Flap" column="Flap" />
+      <result property="Exterior" column="Exterior" />
+      <result property="OfColor" column="OfColor" />
+      <result property="HeightFootL" column="HeightFootL" />
+      <result property="HeightFootR" column="HeightFootR" />
+      <result property="FootElasticL" column="FootElasticL" />
+      <result property="FootElasticR" column="FootElasticR" />
+      <result property="ImpactTest" column="ImpactTest" />
+      <result property="AceticacidTest" column="AceticacidTest" />
+      <result property="Note" column="Note" />
+      <result property="GetNum" column="GetNum" />
+      <result property="CheckNum" column="CheckNum" />
+      <result property="PassNum" column="PassNum" />
+      <result property="NoPassNum" column="NoPassNum" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property ="ProductUnit" column="ProductUnit"/>
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="PronoteHeader" column="PronoteHeaderId" lazyLoad="false" select="PronoteHeader.selectwithXO" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCBoxFootCheck]
+				WHERE
+				[PCBoxFootCheckId] = #PCBoxFootCheckId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCBoxFootCheck]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="PCBoxFootCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCBoxFootCheck
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="PCBoxFootCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCBoxFootCheck
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="PCBoxFootCheckResult" parameterClass="PCBoxFootCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCBoxFootCheck
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="PCBoxFootCheckResult" parameterClass="PCBoxFootCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCBoxFootCheck
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="PCBoxFootCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCBoxFootCheck
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="PCBoxFootCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCBoxFootCheck
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCBoxFootCheckResult" parameterClass="PCBoxFootCheck">
+      <![CDATA[SELECT
+				[PCBoxFootCheckId],
+				[CheckDate],
+				[EmployeeId],
+				[ProductId],
+				[InvoiceXOId],
+				[PronoteHeaderId],
+				[InsertTime],
+				[UpdateTime],
+				[Flap],
+				[Exterior],
+				[OfColor],
+				[HeightFootL],
+				[HeightFootR],
+				[FootElasticL],
+				[FootElasticR],
+				[ImpactTest],
+				[AceticacidTest],
+				[Note],
+				[GetNum],
+				[CheckNum],
+				[PassNum],
+				[NoPassNum],
+        [AuditState],
+        [AuditEmpId],
+        [ProductUnit]
+        
+			FROM
+				[dbo].[PCBoxFootCheck]
+			WHERE
+				[PCBoxFootCheckId] = #PCBoxFootCheckId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCBoxFootCheck]
+			WHERE            
+				[PCBoxFootCheckId] = #PCBoxFootCheckId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCBoxFootCheckResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCBoxFootCheck]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCBoxFootCheck]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCBoxFootCheckResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCBoxFootCheck]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCBoxFootCheck">
+      <![CDATA[ INSERT INTO [dbo].[PCBoxFootCheck] 
+			(
+				[PCBoxFootCheckId],
+				[CheckDate],
+				[EmployeeId],
+				[ProductId],
+				[InvoiceXOId],
+				[PronoteHeaderId],
+				[InsertTime],
+				[UpdateTime],
+				[Flap],
+				[Exterior],
+				[OfColor],
+				[HeightFootL],
+				[HeightFootR],
+				[FootElasticL],
+				[FootElasticR],
+				[ImpactTest],
+				[AceticacidTest],
+				[Note],
+				[GetNum],
+				[CheckNum],
+				[PassNum],
+				[NoPassNum],
+        [AuditState],
+        [AuditEmpId],
+        [ProductUnit]
+			) 
+			VALUES 
+			(
+				#PCBoxFootCheckId#,
+				#CheckDate#,
+				#EmployeeId#,
+				#ProductId#,
+				#InvoiceXOId#,
+				#PronoteHeaderId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Flap#,
+				#Exterior#,
+				#OfColor#,
+				#HeightFootL#,
+				#HeightFootR#,
+				#FootElasticL#,
+				#FootElasticR#,
+				#ImpactTest#,
+				#AceticacidTest#,
+				#Note#,
+				#GetNum#,
+				#CheckNum#,
+				#PassNum#,
+				#NoPassNum#,
+        #AuditState#,
+        #AuditEmpId#,
+        #ProductUnit#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCBoxFootCheck">
+      <![CDATA[ 	UPDATE [PCBoxFootCheck] SET
+				[CheckDate] = #CheckDate#,
+				[EmployeeId] = #EmployeeId#,
+				[ProductId] = #ProductId#,
+				[InvoiceXOId] = #InvoiceXOId#,
+				[PronoteHeaderId] = #PronoteHeaderId#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Flap] = #Flap#,
+				[Exterior] = #Exterior#,
+				[OfColor] = #OfColor#,
+				[HeightFootL] = #HeightFootL#,
+				[HeightFootR] = #HeightFootR#,
+				[FootElasticL] = #FootElasticL#,
+				[FootElasticR] = #FootElasticR#,
+				[ImpactTest] = #ImpactTest#,
+				[AceticacidTest] = #AceticacidTest#,
+				[Note] = #Note#,
+				[GetNum] = #GetNum#,
+				[CheckNum] = #CheckNum#,
+				[PassNum] = #PassNum#,
+				[NoPassNum] = #NoPassNum#,
+        [AuditState]=#AuditState#,
+        [AuditEmpId]=#AuditEmpId#,
+        [ProductUnit]=#ProductUnit#
+			WHERE
+				[PCBoxFootCheckId] = #PCBoxFootCheckId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCBoxFootCheck]
+				where  PCBoxFootCheckId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

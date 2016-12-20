@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Processing" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  
+  <statements>
+    <!--<select id="select_by_customer" resultMap="ProcessingResult" parameterClass="string">
+      select * from Processing where CustomerId = #value#
+    </select>-->
+
+    <select id="select_category" resultMap="ProcessingResult" parameterClass="Map">
+      select * from processing where  processCategoryId = #value#
+    </select>
+    <!--<select id="select_processing_category_customer" resultMap="ProcessingResult" parameterClass="Map">
+      select * from processing where customerId = #customerId# and processCategoryId = #processCategoryId#
+    </select>-->
+    <select id="ExistsName" resultClass="bool" prameterClass="Map">
+      <![CDATA[
+               select case when exists(select * from processing where ProcessId<>#id# and Content=#Content#) then 1 else 0 end
+      ]]>
+    </select>
+    
+  </statements>
+</sqlMap>

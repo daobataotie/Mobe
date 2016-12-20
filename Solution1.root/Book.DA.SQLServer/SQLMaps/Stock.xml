@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Stock" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="StockResult" class="Stock">
+      <result property="DepotStockCount" column="DepotStockCount" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <update id="increment" parameterClass="Map">
+      UPDATE [Stock] SET
+      [StockQuantity1] = [StockQuantity1] + #Quantity#
+      WHERE
+      [DepotPositionId] = #positionId# AND [ProductId] = #ProductId#
+    </update>
+    <update id="decrement" parameterClass="Map">
+      UPDATE [Stock] SET
+      [StockQuantity1] = [StockQuantity1] - #Quantity#
+      WHERE
+      [DepotPositionId] = #positionId# AND [ProductId] = #ProductId#
+
+    </update>
+    <select id="count_productId_depotid" parameterClass="Map" resultClass="int">
+      select Count(*) from stock where [DepotPositionId] = #positionId# AND [ProductId] = #ProductId#
+    </select>
+
+    <update id="incrementjr" parameterClass="Map">
+      UPDATE [Stock] SET
+      [StockCurrentJR] = isnull([StockCurrentJR],0) + #Quantity#,
+      [StockQuantity1]=isnull([StockQuantity1],0)+ #Quantity#
+      WHERE
+      [DepotPositionId] = #positionId# AND [ProductId] = #ProductId#
+    </update>
+    <update id="incrementjc" parameterClass="Map">
+      UPDATE [Stock] SET
+      [StockCurrentJC] = [StockCurrentJC] + #Quantity#,
+      [StockQuantity1]=isnull([StockQuantity1],0)- #Quantity#
+      WHERE
+      [DepotPositionId] = #positionId# AND [ProductId] = #ProductId#
+    </update>
+    <update id="decrementjr" parameterClass="Map">
+      UPDATE [Stock] SET
+      [StockCurrentJR] = isnull([StockCurrentJR],0) - #Quantity#,
+      [StockQuantity1]=isnull([StockQuantity1],0)- #Quantity#
+      WHERE
+      [DepotPositionId] = #positionId# AND [ProductId] = #ProductId#
+    </update>
+    <update id="decrementjc" parameterClass="Map">
+      UPDATE [Stock] SET
+      [StockCurrentJC] = isnull([StockCurrentJC],0) - #Quantity#,
+      [StockQuantity1]=isnull([StockQuantity1],0)+ #Quantity#
+      WHERE
+      [DepotPositionId] = #positionId# AND [ProductId] = #ProductId#
+    </update>
+    <select id ="BeginStockAndJrJc">
+      select
+      isnull(sum(StockQuantity0),0) as StockBeginQuantity,
+      isnull(sum(StockQuantity1),0) as StockCurrentQuantity,
+      isnull(sum(StockBeginJR),0) as StockBeginJR1,
+      isnull(sum(StockBeginJC),0) as StockBeginJC1,
+      isnull(sum(StockCurrentJR),0) as StockCurrentJR1,
+      isnull(sum(StockCurrentJC),0) as StockCurrentJC1
+      from stock
+      where productId = #value#
+    </select>
+    <select id="select_byProductID" resultMap="StockResult" parameterClass="string">
+      select * from stock where ProductId = #value#
+    </select>
+    <select id="select_byDepotID" resultMap="StockResult" parameterClass="string">
+      select * from stock
+      where depotpositionid in
+      (select depotpositionid from depotposition where depotid = #value#)
+    </select>
+    <!--<select id="select_byDepotProductID" resultMap="StockResult" parameterClass="string">
+      select *,sum(StockQuantity1) from stock
+      where depotpositionid in
+      (select depotpositionid from depotposition where depotid = #DepotId# ) and ProductId=#ProductId#
+    </select>-->
+    <select id="select_by_productidAndDepotId" resultMap="StockResult" parameterClass="Map">
+      SELECT * FROM Stock WHERE DepotId=#did# AND ProductId=#pid#
+    </select>
+
+    <select id="selectNotZeroByPidAndDid" resultMap="StockResult" parameterClass="Map">
+      SELECT * FROM Stock WHERE DepotId=#did# AND ProductId=#pid# AND StockQuantity1>0  ORDER BY StockQuantity1
+    </select>
+
+    <select id="GetStockByProductIdAndDepotPositionId"  resultMap="StockResult" parameterClass="Map">
+      SELECT * FROM Stock WHERE DepotPositionId=#depotPositionId# AND ProductId=#productid#
+    </select>
+    <select id="GetTheCount1OfProductByProductId" resultClass="Double" parameterClass="Map">
+      select isnull(sum(StockQuantity1),0) FROM Stock WHERE ProductId=#productId# and DepotId=#depotId#
+    </select>
+    <select id="GetTheCount0OfProductByProductId" resultClass="Double" parameterClass="Map">
+      select isnull(sum(StockQuantity0),0) FROM Stock WHERE ProductId=#productId# and DepotId=#depotId#
+    </select>
+
+    <select id="GetTheCountByProduct" resultClass="Double" parameterClass="string">
+      select isnull(sum(StockQuantity1),0) FROM Stock WHERE ProductId=#value#
+    </select>
+    <select id="Get0DateByProduct" resultClass="DateTime" parameterClass="string">
+      select top 1 Stock0Date FROM Stock WHERE ProductId=#value#
+    </select>
+    <select id="SelectStockQuantity0" resultClass="Double" parameterClass="string">
+      <![CDATA[
+  SELECT isnull(SUM(stockquantity0),0) FROM Stock  WHERE ProductId=#value#
+  ]]>
+    </select>
+
+    <select id="SelectStockQuantity1" resultClass="Double" parameterClass="Map">
+      <![CDATA[
+      SELECT Stock.StockQuantity1 FROM Stock WHERE ProductId=#productId# AND DepotPositionId=#depotpositionId#
+      ]]>
+    </select>
+
+    <select id="SelectJiShidistributioned" resultClass="Double" parameterClass="Map">
+      <![CDATA[
+      SELECT isnull(p.ProduceMaterialDistributioned,0)+isnull(p.OtherMaterialDistributioned,0)-(
+SELECT isnull(Sum(Materialprocessum),0) FROM ProduceMaterialdetails pm WHERE pm.ProductId=p.ProductId AND pm.ProduceMaterialID IN 
+(SELECT ProduceMaterialID FROM ProduceMaterial WHERE ProduceMaterial.ProduceMaterialDate BETWEEN #StartDate# AND #EndDate#))-
+(SELECT isnull(Sum(OtherMaterialQuantity),0) FROM ProduceOtherMaterialDetail po WHERE po.ProductId=p.ProductId AND po.ProduceOtherMaterialId IN
+(SELECT ProduceOtherMaterialId FROM ProduceOtherMaterial WHERE ProduceOtherMaterial.ProduceOtherMaterialDate BETWEEN #StartDate# AND #EndDate#))
+ FROM Product p WHERE p.ProductId=#ProductId#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

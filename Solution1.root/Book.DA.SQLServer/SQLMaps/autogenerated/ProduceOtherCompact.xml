@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ProduceOtherCompact" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="ProduceOtherCompact" type="Book.Model.ProduceOtherCompact, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="ProduceOtherCompactResult" class="ProduceOtherCompact">
+      <result property="ProduceOtherCompactId" column="ProduceOtherCompactId" />
+      <result property="SupplierId" column="SupplierId" />
+      <result property="Employee0Id" column="Employee0Id" />
+      <result property="ProduceOtherCompactDate" column="ProduceOtherCompactDate" />
+      <result property="ProduceOtherCompactDesc" column="ProduceOtherCompactDesc" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="MRSHeaderId" column="MRSHeaderId" />
+      <result property="Employee1Id" column="Employee1Id" />
+      <result property="Employee2Id" column="Employee2Id" />
+      <result property="OtherProduceType" column="OtherProduceType" />
+      <result property="OtherOperationType" column="OtherOperationType" />
+      <result property="PaymentCondition" column="PaymentCondition" />
+      <result property="InvoiceDetailFlag" column="InvoiceDetailFlag" />
+      <result property="DepartmentId" column="DepartmentId" />
+      <result property="InvoiceMaterialFlag" column="InvoiceMaterialFlag" />
+      <result property="InvoiceStatus" column="InvoiceStatus" />
+      <result property="JiaoHuoDate" column="JiaoHuoDate" />
+      <result property="PronoteHeaderId" column="PronoteHeaderId" />
+      <result property="NextWorkHouseId" column="NextWorkHouseId" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="InvoiceXOId" column="InvoiceXOId" />
+      <result property="CustomerInvoiceXOId" column="CustomerInvoiceXOId" />
+      <result property="AuditState" column="AuditState" />
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="LotNumber" column="LotNumber"/>
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Department" column="DepartmentId" lazyLoad="false" select="Department.select_by_primary_key" />
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee2" column="Employee2Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo" />
+      <result property="Supplier" column="SupplierId" lazyLoad="false" select="Supplier.select_by_primary_key" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="NextWorkHouse" column="NextWorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProduceOtherCompact]
+				WHERE
+				[ProduceOtherCompactId] = #ProduceOtherCompactId#
+                         and invoicestatus<>2 			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[ProduceOtherCompact]
+ 				where invoicestatus<>2 				
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="ProduceOtherCompactResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProduceOtherCompact
+			where invoicestatus<>2 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="ProduceOtherCompactResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProduceOtherCompact
+			where invoicestatus<>2			
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="ProduceOtherCompactResult" parameterClass="ProduceOtherCompact">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProduceOtherCompact
+			where InsertTime < #InsertTime#	
+             and invoicestatus<>2 			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="ProduceOtherCompactResult" parameterClass="ProduceOtherCompact">
+      <![CDATA[
+			select top 1 *
+			from dbo.ProduceOtherCompact
+			where InsertTime > #InsertTime#	
+                 and invoicestatus<>2			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="ProduceOtherCompact">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProduceOtherCompact
+				where InsertTime < #InsertTime#
+                 and invoicestatus<>2			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="ProduceOtherCompact">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.ProduceOtherCompact
+				where InsertTime > #InsertTime#
+                 and invoicestatus<>2 			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="ProduceOtherCompactResult" parameterClass="ProduceOtherCompact">
+      <![CDATA[SELECT
+				[ProduceOtherCompactId],
+				[SupplierId],
+				[Employee0Id],
+				[ProduceOtherCompactDate],
+				[ProduceOtherCompactDesc],
+				[InsertTime],
+				[UpdateTime],
+				[MRSHeaderId],
+				[Employee1Id],
+				[Employee2Id],
+				[OtherProduceType],
+				[OtherOperationType],
+				[PaymentCondition],
+				[InvoiceDetailFlag],
+				[DepartmentId],
+				[InvoiceMaterialFlag],
+				[InvoiceStatus],
+				[JiaoHuoDate],
+				[PronoteHeaderId],
+				[NextWorkHouseId],
+				[CustomerId],
+				[InvoiceXOId],
+				[CustomerInvoiceXOId],
+				[AuditState],
+				[AuditEmpId],
+        [LotNumber]
+			FROM
+				[dbo].[ProduceOtherCompact]
+			WHERE
+				[ProduceOtherCompactId] = #ProduceOtherCompactId#
+                 and invoicestatus<>2 			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[ProduceOtherCompact]
+			WHERE            
+				[ProduceOtherCompactId] = #ProduceOtherCompactId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="ProduceOtherCompactResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[ProduceOtherCompact]
+                 where  invoicestatus<>2 			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[ProduceOtherCompact]
+                 where invoicestatus<>2 			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="ProduceOtherCompactResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[ProduceOtherCompact]
+                     where  invoicestatus<>2 			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="ProduceOtherCompact">
+      <![CDATA[ INSERT INTO [dbo].[ProduceOtherCompact] 
+			(
+				[ProduceOtherCompactId],
+				[SupplierId],
+				[Employee0Id],
+				[ProduceOtherCompactDate],
+				[ProduceOtherCompactDesc],
+				[InsertTime],
+				[UpdateTime],
+				[MRSHeaderId],
+				[Employee1Id],
+				[Employee2Id],
+				[OtherProduceType],
+				[OtherOperationType],
+				[PaymentCondition],
+				[InvoiceDetailFlag],
+				[DepartmentId],
+				[InvoiceMaterialFlag],
+				[InvoiceStatus],
+				[JiaoHuoDate],
+				[PronoteHeaderId],
+				[NextWorkHouseId],
+				[CustomerId],
+				[InvoiceXOId],
+				[CustomerInvoiceXOId],
+				[AuditState],
+				[AuditEmpId],
+        [LotNumber]
+			) 
+			VALUES 
+			(
+				#ProduceOtherCompactId#,
+				#SupplierId#,
+				#Employee0Id#,
+				#ProduceOtherCompactDate#,
+				#ProduceOtherCompactDesc#,
+				#InsertTime#,
+				#UpdateTime#,
+				#MRSHeaderId#,
+				#Employee1Id#,
+				#Employee2Id#,
+				#OtherProduceType#,
+				#OtherOperationType#,
+				#PaymentCondition#,
+				#InvoiceDetailFlag#,
+				#DepartmentId#,
+				#InvoiceMaterialFlag#,
+				#InvoiceStatus#,
+				#JiaoHuoDate#,
+				#PronoteHeaderId#,
+				#NextWorkHouseId#,
+				#CustomerId#,
+				#InvoiceXOId#,
+				#CustomerInvoiceXOId#,
+				#AuditState#,
+				#AuditEmpId#,
+        #LotNumber#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="ProduceOtherCompact">
+      <![CDATA[ 	UPDATE [ProduceOtherCompact] SET
+				[SupplierId] = #SupplierId#,
+				[Employee0Id] = #Employee0Id#,
+				[ProduceOtherCompactDate] = #ProduceOtherCompactDate#,
+				[ProduceOtherCompactDesc] = #ProduceOtherCompactDesc#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[MRSHeaderId] = #MRSHeaderId#,
+				[Employee1Id] = #Employee1Id#,
+				[Employee2Id] = #Employee2Id#,
+				[OtherProduceType] = #OtherProduceType#,
+				[OtherOperationType] = #OtherOperationType#,
+				[PaymentCondition] = #PaymentCondition#,
+				[InvoiceDetailFlag] = #InvoiceDetailFlag#,
+				[DepartmentId] = #DepartmentId#,
+				[InvoiceMaterialFlag] = #InvoiceMaterialFlag#,
+				[InvoiceStatus] = #InvoiceStatus#,
+				[JiaoHuoDate] = #JiaoHuoDate#,
+				[PronoteHeaderId] = #PronoteHeaderId#,
+				[NextWorkHouseId] = #NextWorkHouseId#,
+				[CustomerId] = #CustomerId#,
+				[InvoiceXOId] = #InvoiceXOId#,
+				[CustomerInvoiceXOId] = #CustomerInvoiceXOId#,
+				[AuditState] = #AuditState#,
+				[AuditEmpId] = #AuditEmpId#,
+        [LotNumber]=#LotNumber#
+			WHERE
+				[ProduceOtherCompactId] = #ProduceOtherCompactId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[ProduceOtherCompact]
+				where  ProduceOtherCompactId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

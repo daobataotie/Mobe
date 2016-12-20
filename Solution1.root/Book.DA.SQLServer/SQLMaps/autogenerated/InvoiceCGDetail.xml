@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="InvoiceCGDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="InvoiceCGDetail" type="Book.Model.InvoiceCGDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="InvoiceCGDetailResult" class="InvoiceCGDetail">
+      <result property="InvoiceCGDetailId" column="InvoiceCGDetailId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="DepotPositionId" column="DepotPositionId" />
+      <result property="InvoiceCODetailId" column="InvoiceCODetailId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="InvoiceCGDetailNote" column="InvoiceCGDetailNote" />
+      <result property="InvoiceCGDetailQuantity" column="InvoiceCGDetailQuantity" />
+      <result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+      <result property="ORDERId" column="ORDERId" />
+      <result property="Donatetowards" column="Donatetowards" />
+      <result property="Inumber" column="Inumber" />
+      <result property="InvoiceCGDetaiInQuantity" column="InvoiceCGDetaiInQuantity" />
+      <result property="ProduceTransferQuantity" column="ProduceTransferQuantity" />
+      <result property="WorkHouseId" column="WorkHouseId" />
+      <result property="InvoiceAllowance" column="InvoiceAllowance" />
+      <result property="InvoiceCGDetailPrice" column="InvoiceCGDetailPrice" />
+      <result property="InvoiceCGDetailMoney" column="InvoiceCGDetailMoney" />
+      <result property="InvoiceCGDetailTaxPrice" column="InvoiceCGDetailTaxPrice" />
+      <result property="InvoiceCGDetailTaxMoney" column="InvoiceCGDetailTaxMoney" />
+      <result property="InvoiceCGDetailFPQuantity" column="InvoiceCGDetailFPQuantity" />
+      <result property="InvoiceCGDetailTax" column="InvoiceCGDetailTax" />
+      <result property="InvoiceCOId" column="InvoiceCOId" />
+      <result property="SupplierLotNumber" column="SupplierLotNumber"/>
+      <result property="Remark" column="Remark"/>
+      <result property="HandbookId" column="HandbookId"/>
+      <result property="HandbookProductId" column="HandbookProductId"/>
+      <result property="ISPass" column="ISPass"/>
+      <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceCG.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="WorkHouse" column="WorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
+      <result property="InvoiceCODetail" column="InvoiceCODetailId"  select="InvoiceCODetail.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceCGDetail]
+      WHERE
+      [InvoiceCGDetailId] = #InvoiceCGDetailId#
+      ) then 1 else 0 end
+    </select>
+    <select id="has_rows" resultClass="bool">
+      select case when exists(
+      SELECT
+      *
+      FROM
+      [dbo].[InvoiceCGDetail]
+
+      ) then 1 else 0 end
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="InvoiceCGDetailResult" parameterClass="InvoiceCGDetail">
+      <![CDATA[
+      SELECT
+      [InvoiceCGDetailId],
+      [ProductId],
+      [DepotPositionId],
+      [InvoiceCODetailId],
+      [InvoiceId],
+      [InvoiceCGDetailNote],
+      [InvoiceCGDetailQuantity],
+      [InvoiceProductUnit],
+      [ORDERId],
+      [Donatetowards],
+      [Inumber],
+      [InvoiceCGDetaiInQuantity],
+      [ProduceTransferQuantity],
+      [WorkHouseId],
+      [InvoiceAllowance],
+      [InvoiceCGDetailPrice],
+      [InvoiceCGDetailMoney],
+      [InvoiceCGDetailTaxPrice],
+      [InvoiceCGDetailTaxMoney],
+      [InvoiceCGDetailFPQuantity],
+      [InvoiceCGDetailTax],
+      [InvoiceCOId],
+      [SupplierLotNumber],
+      [Remark],
+      [HandbookId],
+      [HandbookProductId],
+      [ISPass]
+      FROM
+      [dbo].[InvoiceCGDetail]
+      WHERE
+      [InvoiceCGDetailId] = #InvoiceCGDetailId#
+      ]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      DELETE FROM [dbo].[InvoiceCGDetail]
+      WHERE
+      [InvoiceCGDetailId] = #InvoiceCGDetailId#
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="InvoiceCGDetailResult" >
+      SELECT *
+      FROM
+      [dbo].[InvoiceCGDetail]
+    </select>
+
+    <select id="count_all" resultClass="int">
+      select count(*)
+      from
+      [dbo].[InvoiceCGDetail]
+    </select>
+
+    <select id="select_all_with_paging" resultMap="InvoiceCGDetailResult">
+      SELECT *
+      FROM
+      (
+      SELECT *, row_number() over(order by $OrderStatement$) rownumber
+      FROM
+      [dbo].[InvoiceCGDetail]
+      ) t
+      WHERE t.rownumber between #Row1# and #Row2#
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="InvoiceCGDetail">
+      <![CDATA[
+      INSERT INTO [dbo].[InvoiceCGDetail]
+      (
+      [InvoiceCGDetailId],
+      [ProductId],
+      [DepotPositionId],
+      [InvoiceCODetailId],
+      [InvoiceId],
+      [InvoiceCGDetailNote],
+      [InvoiceCGDetailQuantity],
+      [InvoiceProductUnit],
+      [ORDERId],
+      [Donatetowards],
+      [Inumber],
+      [InvoiceCGDetaiInQuantity],
+      [ProduceTransferQuantity],
+      [WorkHouseId],
+      [InvoiceAllowance],
+      [InvoiceCGDetailPrice],
+      [InvoiceCGDetailMoney],
+      [InvoiceCGDetailTaxPrice],
+      [InvoiceCGDetailTaxMoney],
+      [InvoiceCGDetailFPQuantity],
+      [InvoiceCGDetailTax],
+      [InvoiceCOId],
+      [SupplierLotNumber],
+      [Remark],
+      [HandbookId],
+      [HandbookProductId],
+      [ISPass]
+      )
+      VALUES
+      (
+      #InvoiceCGDetailId#,
+      #ProductId#,
+      #DepotPositionId#,
+      #InvoiceCODetailId#,
+      #InvoiceId#,
+      #InvoiceCGDetailNote#,
+      #InvoiceCGDetailQuantity#,
+      #InvoiceProductUnit#,
+      #ORDERId#,
+      #Donatetowards#,
+      #Inumber#,
+      #InvoiceCGDetaiInQuantity#,
+      #ProduceTransferQuantity#,
+      #WorkHouseId#,
+      #InvoiceAllowance#,
+      #InvoiceCGDetailPrice#,
+      #InvoiceCGDetailMoney#,
+      #InvoiceCGDetailTaxPrice#,
+      #InvoiceCGDetailTaxMoney#,
+      #InvoiceCGDetailFPQuantity#,
+      #InvoiceCGDetailTax#,
+      #InvoiceCOId#,
+      #SupplierLotNumber#,
+      #Remark#,
+      #HandbookId#,
+      #HandbookProductId#,
+      #ISPass#
+      )
+      ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="InvoiceCGDetail">
+      <![CDATA[
+      UPDATE [InvoiceCGDetail] SET
+      [ProductId] = #ProductId#,
+      [DepotPositionId] = #DepotPositionId#,
+      [InvoiceCODetailId] = #InvoiceCODetailId#,
+      [InvoiceId] = #InvoiceId#,
+      [InvoiceCGDetailNote] = #InvoiceCGDetailNote#,
+      [InvoiceCGDetailQuantity] = #InvoiceCGDetailQuantity#,
+      [InvoiceProductUnit] = #InvoiceProductUnit#,
+      [ORDERId] = #ORDERId#,
+      [Donatetowards] = #Donatetowards#,
+      [Inumber] = #Inumber#,
+      [InvoiceCGDetaiInQuantity] = #InvoiceCGDetaiInQuantity#,
+      [ProduceTransferQuantity] = #ProduceTransferQuantity#,
+      [WorkHouseId] = #WorkHouseId#,
+      [InvoiceAllowance] = #InvoiceAllowance#,
+      [InvoiceCGDetailPrice] = #InvoiceCGDetailPrice#,
+      [InvoiceCGDetailMoney] = #InvoiceCGDetailMoney#,
+      [InvoiceCGDetailTaxPrice] = #InvoiceCGDetailTaxPrice#,
+      [InvoiceCGDetailTaxMoney] = #InvoiceCGDetailTaxMoney#,
+      [InvoiceCGDetailFPQuantity] = #InvoiceCGDetailFPQuantity#,
+      [InvoiceCGDetailTax] = #InvoiceCGDetailTax#,
+      [InvoiceCOId] = #InvoiceCOId#,
+      [SupplierLotNumber] = #SupplierLotNumber#,
+      [Remark] = #Remark#,
+      [HandbookId]=#HandbookId#,
+      [HandbookProductId]=#HandbookProductId#,
+      [ISPass]=#ISPass#
+      WHERE
+      [InvoiceCGDetailId] = #InvoiceCGDetailId#
+    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[InvoiceCGDetail]
+				where  InvoiceCGDetailId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>
+

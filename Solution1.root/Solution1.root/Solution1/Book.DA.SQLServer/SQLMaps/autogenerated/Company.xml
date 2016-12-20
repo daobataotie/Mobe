@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="Company" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="Company" type="Book.Model.Company, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="CompanyResult" class="Company">
+			<result property="CompanyId" column="CompanyId" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="CompanyName" column="CompanyName" />
+			<result property="Description" column="Description" />
+			<result property="CompanySign" column="CompanySign" />
+			<result property="CompanyEnglishName" column="CompanyEnglishName" />
+			<result property="CompanyPrinciple" column="CompanyPrinciple" />
+			<result property="CompanyPhone" column="CompanyPhone" />
+			<result property="CompanyFax" column="CompanyFax" />
+			<result property="CompanyEMail" column="CompanyEMail" />
+			<result property="CompanyWebUrl" column="CompanyWebUrl" />
+			<result property="CompanyAddress1" column="CompanyAddress1" />
+			<result property="CompanyAddress2" column="CompanyAddress2" />
+			<result property="CompanyAddress3" column="CompanyAddress3" />
+			<result property="IsDefault" column="IsDefault" />
+			<result property="NoNnite" column="NoNnite" />
+
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Company]
+				WHERE
+				[CompanyId] = #CompanyId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[Company]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="CompanyResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Company 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="CompanyResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.Company 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="CompanyResult" parameterClass="Company">
+			<![CDATA[
+			select top 1 *
+			from dbo.Company
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="CompanyResult" parameterClass="Company">
+			<![CDATA[
+			select top 1 *
+			from dbo.Company
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="Company">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Company
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="Company">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.Company
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="CompanyResult" parameterClass="Company">
+			SELECT
+				[CompanyId],
+				[InsertTime],
+				[UpdateTime],
+				[CompanyName],
+				[Description],
+				[CompanySign],
+				[CompanyEnglishName],
+				[CompanyPrinciple],
+				[CompanyPhone],
+				[CompanyFax],
+				[CompanyEMail],
+				[CompanyWebUrl],
+				[CompanyAddress1],
+				[CompanyAddress2],
+				[CompanyAddress3],
+				[IsDefault],
+				[NoNnite]
+			FROM
+				[dbo].[Company]
+			WHERE
+				[CompanyId] = #CompanyId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[Company]
+			WHERE
+				[CompanyId] = #CompanyId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="CompanyResult" >
+			SELECT *
+			FROM 
+				[dbo].[Company]
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[Company]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="CompanyResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[Company]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="Company">
+			INSERT INTO [dbo].[Company] 
+			(
+				[CompanyId],
+				[InsertTime],
+				[UpdateTime],
+				[CompanyName],
+				[Description],
+				[CompanySign],
+				[CompanyEnglishName],
+				[CompanyPrinciple],
+				[CompanyPhone],
+				[CompanyFax],
+				[CompanyEMail],
+				[CompanyWebUrl],
+				[CompanyAddress1],
+				[CompanyAddress2],
+				[CompanyAddress3],
+				[IsDefault],
+				[NoNnite]
+			) 
+			VALUES 
+			(
+				#CompanyId#,
+				#InsertTime#,
+				#UpdateTime#,
+				#CompanyName#,
+				#Description#,
+				#CompanySign#,
+				#CompanyEnglishName#,
+				#CompanyPrinciple#,
+				#CompanyPhone#,
+				#CompanyFax#,
+				#CompanyEMail#,
+				#CompanyWebUrl#,
+				#CompanyAddress1#,
+				#CompanyAddress2#,
+				#CompanyAddress3#,
+				#IsDefault#,
+				#NoNnite#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="Company">
+			UPDATE [Company] SET
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[CompanyName] = #CompanyName#,
+				[Description] = #Description#,
+				[CompanySign] = #CompanySign#,
+				[CompanyEnglishName] = #CompanyEnglishName#,
+				[CompanyPrinciple] = #CompanyPrinciple#,
+				[CompanyPhone] = #CompanyPhone#,
+				[CompanyFax] = #CompanyFax#,
+				[CompanyEMail] = #CompanyEMail#,
+				[CompanyWebUrl] = #CompanyWebUrl#,
+				[CompanyAddress1] = #CompanyAddress1#,
+				[CompanyAddress2] = #CompanyAddress2#,
+				[CompanyAddress3] = #CompanyAddress3#,
+				[IsDefault] = #IsDefault#,
+				[NoNnite] = #NoNnite#
+			WHERE
+				[CompanyId] = #CompanyId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[Company]
+				where  CompanyId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>
+

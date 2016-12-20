@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AtProperty" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AtProperty" type="Book.Model.AtProperty, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="AtPropertyResult" class="AtProperty">
+			<result property="PropertyId" column="PropertyId" />
+			<result property="PropertyName" column="PropertyName" />
+			<result property="Specifications" column="Specifications" />
+			<result property="Position" column="Position" />
+			<result property="Quantity" column="Quantity" />
+			<result property="Unit" column="Unit" />
+			<result property="ToDate" column="ToDate" />
+			<result property="ObtainRegular" column="ObtainRegular" />
+			<result property="Often" column="Often" />
+			<result property="DurableMonths" column="DurableMonths" />
+			<result property="ReserveValue" column="ReserveValue" />
+			<result property="Depreciation" column="Depreciation" />
+			<result property="DepreciationDate" column="DepreciationDate" />
+			<result property="DepreciationMoney" column="DepreciationMoney" />
+			<result property="DepreciationSubject" column="DepreciationSubject" />
+			<result property="RespectiveSubject" column="RespectiveSubject" />
+			<result property="CostSubject" column="CostSubject" />
+			<result property="ImprovedDate" column="ImprovedDate" />
+			<result property="ImprovedMoney" column="ImprovedMoney" />
+			<result property="DepartmentId" column="DepartmentId" />
+			<result property="Mark" column="Mark" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+			<result property="Id" column="Id" />
+		<result property="Department" column="DepartmentId" lazyLoad="false" select="Department.select_by_primary_key" />
+        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtProperty]
+				WHERE
+				[PropertyId] = #PropertyId#
+				) then 1 else 0 end
+		</select>
+		<select id="has_rows" resultClass="bool">
+			select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AtProperty]
+ 								
+				) then 1 else 0 end
+		</select>
+		<select id="get_first" resultMap="AtPropertyResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtProperty 
+			order by InsertTime
+			]]>
+		</select>
+		<select id="get_last" resultMap="AtPropertyResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtProperty 			
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_prev" resultMap="AtPropertyResult" parameterClass="AtProperty">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtProperty
+			where InsertTime < #InsertTime#
+			order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="AtPropertyResult" parameterClass="AtProperty">
+			<![CDATA[
+			select top 1 *
+			from dbo.AtProperty
+			where InsertTime > #InsertTime#
+			order by InsertTime
+			]]>
+		</select>
+		<select id="has_rows_before" resultClass="bool" parameterClass="AtProperty">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtProperty
+				where InsertTime < #InsertTime#
+				) 
+				then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="AtProperty">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtProperty
+				where InsertTime > #InsertTime#
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AtPropertyResult" parameterClass="AtProperty">
+			SELECT
+				[PropertyId],
+				[PropertyName],
+				[Specifications],
+				[Position],
+				[Quantity],
+				[Unit],
+				[ToDate],
+				[ObtainRegular],
+				[Often],
+				[DurableMonths],
+				[ReserveValue],
+				[Depreciation],
+				[DepreciationDate],
+				[DepreciationMoney],
+				[DepreciationSubject],
+				[RespectiveSubject],
+				[CostSubject],
+				[ImprovedDate],
+				[ImprovedMoney],
+				[DepartmentId],
+				[Mark],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			FROM
+				[dbo].[AtProperty]
+			WHERE
+				[PropertyId] = #PropertyId#
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+			DELETE FROM [dbo].[AtProperty]
+			WHERE
+				[PropertyId] = #PropertyId#
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AtPropertyResult" >
+			SELECT *
+			FROM 
+				[dbo].[AtProperty]
+			
+				
+			ORDER BY Id ASC
+			
+			
+        </select>
+        
+		<select id="count_all" resultClass="int">
+			select count(*)
+			from 
+				[dbo].[AtProperty]
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AtPropertyResult">
+            SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AtProperty]
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AtProperty">
+			INSERT INTO [dbo].[AtProperty] 
+			(
+				[PropertyId],
+				[PropertyName],
+				[Specifications],
+				[Position],
+				[Quantity],
+				[Unit],
+				[ToDate],
+				[ObtainRegular],
+				[Often],
+				[DurableMonths],
+				[ReserveValue],
+				[Depreciation],
+				[DepreciationDate],
+				[DepreciationMoney],
+				[DepreciationSubject],
+				[RespectiveSubject],
+				[CostSubject],
+				[ImprovedDate],
+				[ImprovedMoney],
+				[DepartmentId],
+				[Mark],
+				[InsertTime],
+				[UpdateTime],
+				[Id]
+			) 
+			VALUES 
+			(
+				#PropertyId#,
+				#PropertyName#,
+				#Specifications#,
+				#Position#,
+				#Quantity#,
+				#Unit#,
+				#ToDate#,
+				#ObtainRegular#,
+				#Often#,
+				#DurableMonths#,
+				#ReserveValue#,
+				#Depreciation#,
+				#DepreciationDate#,
+				#DepreciationMoney#,
+				#DepreciationSubject#,
+				#RespectiveSubject#,
+				#CostSubject#,
+				#ImprovedDate#,
+				#ImprovedMoney#,
+				#DepartmentId#,
+				#Mark#,
+				#InsertTime#,
+				#UpdateTime#,
+				#Id#
+			)
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AtProperty">
+			UPDATE [AtProperty] SET
+				[PropertyName] = #PropertyName#,
+				[Specifications] = #Specifications#,
+				[Position] = #Position#,
+				[Quantity] = #Quantity#,
+				[Unit] = #Unit#,
+				[ToDate] = #ToDate#,
+				[ObtainRegular] = #ObtainRegular#,
+				[Often] = #Often#,
+				[DurableMonths] = #DurableMonths#,
+				[ReserveValue] = #ReserveValue#,
+				[Depreciation] = #Depreciation#,
+				[DepreciationDate] = #DepreciationDate#,
+				[DepreciationMoney] = #DepreciationMoney#,
+				[DepreciationSubject] = #DepreciationSubject#,
+				[RespectiveSubject] = #RespectiveSubject#,
+				[CostSubject] = #CostSubject#,
+				[ImprovedDate] = #ImprovedDate#,
+				[ImprovedMoney] = #ImprovedMoney#,
+				[DepartmentId] = #DepartmentId#,
+				[Mark] = #Mark#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[Id] = #Id#
+			WHERE
+				[PropertyId] = #PropertyId#
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AtProperty]
+				where  PropertyId = #value# 
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		<select id="exists" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AtProperty
+				where Id = #value#
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="get_by_id" resultMap="AtPropertyResult" parameterClass="string">
+			<![CDATA[
+			SELECT top 1
+				*
+			FROM
+				[dbo].[AtProperty]
+			WHERE
+				Id = #value#
+			]]>	
+        </select>
+		
+		<select id="existsexcept" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from dbo.AtProperty
+				where Id = #newId# and Id <> #oldId#
+				)
+				then 1 else 0 end
+			]]>
+		</select>		
+		
+		
+    </statements>
+</sqlMap>
+

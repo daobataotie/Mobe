@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Flextime" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <!-- delete -->
+    <delete id="delete2" parameterClass="string">
+      DELETE FROM [dbo].[Flextime]
+      WHERE
+      [EmployeeId] = #EmployeeId#
+    </delete>
+
+    <select id="select_byempiddate" resultMap="FlextimeResult" parameterClass="Map">
+      SELECT *
+      FROM
+      [dbo].[Flextime] where [EmployeeId]=#empid# and CONVERT(varchar(20),FlexDate,101)=#flexdate#
+      ORDER BY FlextimeId ASC
+    </select>
+
+    <select id="select_bydate" resultMap="FlextimeResult" parameterClass="string">
+      SELECT * FROM Flextime WHERE  CONVERT(varchar(20),FlexDate,101)= CONVERT(varchar(20),#flexdate#,101)
+    </select>
+
+    <select id="get_byempiddate" resultClass="bool" parameterClass="Map">
+      select case when exists(
+      SELECT * FROM Flextime WHERE EmployeeId=#empid# AND CONVERT(varchar(20),FlexDate,101)=CONVERT(varchar(20),#flexdate#,101)
+      ) then 1 else 0 end
+    </select>
+
+    <select id="selectall_ByEmpid" resultMap="FlextimeResult" parameterClass="Map">
+      <![CDATA[
+		select * from Flextime where EmployeeId=#employeeid# and datediff(mm,FlexDate,getdate())<2 order by FlexDate asc
+		]]>
+    </select>
+
+    <delete id="delete_ByEmpiddate"  parameterClass="Map">
+      delete from Flextime where EmployeeId=#EmployeeId# and FlexDate=#FlexDate#
+    </delete>
+
+    <select id="selectByEmpidsAndDates" parameterClass="Map" resultMap="FlextimeResult">
+      <![CDATA[
+      SELECT * FROM Flextime WHERE EmployeeId IN ($empids$) AND FlexDate IN ($dates$)
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

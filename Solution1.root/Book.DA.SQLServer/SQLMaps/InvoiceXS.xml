@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="InvoiceXS" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="InvoiceXSResult1" class="InvoiceXS">
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="CustomerId" column="CustomerId" />
+      <result property="Employee0Id" column="Employee0Id" />      
+      <result property="Employee1Id" column="Employee1Id" />
+      <result property="Employee2Id" column="Employee2Id" />
+      <result property="Employee3Id" column="Employee3Id" />
+      <result property="InvoiceXOId" column="InvoiceXOId" />
+      <result property="InvoiceLRTime" column="InvoiceLRTime" />
+      <result property="InvoiceGZTime" column="InvoiceGZTime" />
+      <result property="InvoiceZFTime" column="InvoiceZFTime" />      
+      <result property="InvoiceDate" column="InvoiceDate" />            
+      <result property="InvoiceStatus" column="InvoiceStatus" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />      
+      <result property="Kind" column="kind" />
+      <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo" />      
+      <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
+      <result property="Employee1" column="Employee1Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee2" column="Employee2Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee3" column="Employee3Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+    <resultMap id="InvoiceXSResult2" class="InvoiceXS">
+      <result property="InvoiceXOId" column="InvoiceXOId" />
+    </resultMap>
+  </resultMaps>
+	<statements>
+		<select id="select_byTime" parameterClass="Map" resultMap="InvoiceXSResult">
+			<![CDATA[
+				select * from InvoiceXS 
+				where invoicedate between #startTime# and #endTime#
+			]]>
+		</select>
+        <update id="owedincrement" parameterClass="Map">
+            <![CDATA[
+            update dbo.InvoiceXS
+            set InvoiceOwed = InvoiceOwed + #InvoiceOwed#
+            where InvoiceId = #InvoiceId#
+            ]]>
+        </update>
+        <update id="oweddecrement" parameterClass="Map">
+            <![CDATA[
+            update dbo.InvoiceXS
+            set InvoiceOwed = InvoiceOwed - #InvoiceOwed#
+            where InvoiceId = #InvoiceId#
+            ]]>
+        </update>
+    <select id="select_byStatus" parameterClass="int" resultMap="InvoiceXSResult">
+      <![CDATA[
+      select * from invoiceXS
+				where invoicestatus = #value#
+      ]]>
+    </select>
+    <select id="select_byDateRengeAndCompanyIdRenge" parameterClass="Map" resultMap="InvoiceXSResult1">
+      <![CDATA[
+        select * from (
+          SELECT [InvoiceId],[CompanyId],[Employee0Id],[DepotId],[Employee1Id],[Employee2Id]
+          ,[Employee3Id],[InvoiceXOId],[InvoiceLRTime],[InvoiceGZTime],[InvoiceZFTime]
+          ,[InvoiceDate],[InvoiceStatus],[InsertTime],[UpdateTime],'xs' as [kind]
+            FROM [InvoiceXS]
+          union
+          SELECT [InvoiceId],[CompanyId],[Employee0Id],[DepotId],[Employee1Id],[Employee2Id]
+          ,[Employee3Id],[InvoiceXOId],[InvoiceLRTime],[InvoiceGZTime],[InvoiceZFTime]
+          ,[InvoiceDate],[InvoiceStatus],[InsertTime],[UpdateTime]
+          ,'xt' as [kind]
+            FROM [InvoiceXT]) 
+          [table] 
+        WHERE ([CompanyId] between #startId# and #endId#)  and ([InvoiceDate] between #start# and #end#)
+      ]]>
+    </select>
+    <select id="select_byDateRengeAndEmployee0" parameterClass="Map" resultMap="InvoiceXSResult1">
+      <![CDATA[
+        select * from (
+          SELECT [InvoiceId],[CompanyId],[Employee0Id],[DepotId],[Employee1Id],[Employee2Id]
+          ,[Employee3Id],[InvoiceXOId],[InvoiceLRTime],[InvoiceGZTime],[InvoiceZFTime]
+          ,[InvoiceDate],[InvoiceStatus],[InsertTime],[UpdateTime],'xs' as [kind]
+            FROM [InvoiceXS]
+          union
+          SELECT [InvoiceId],[CompanyId],[Employee0Id],[DepotId],[Employee1Id],[Employee2Id]
+          ,[Employee3Id],[InvoiceXOId],[InvoiceLRTime],[InvoiceGZTime],[InvoiceZFTime]
+          ,[InvoiceDate],[InvoiceStatus],[InsertTime],[UpdateTime],'xt' as [kind]
+            FROM [InvoiceXT]) 
+          [table] 
+        WHERE ([Employee0Id]) = #EmployeeId#  and ([InvoiceDate] between #start# and #end#)
+      ]]>
+    </select>
+
+    <select id="select_byDateRenge" parameterClass="Map" resultMap="InvoiceXSResult1">
+      <![CDATA[
+        select * from (
+          SELECT [InvoiceId],[CompanyId],[Employee0Id],[DepotId],[Employee1Id],[Employee2Id]
+          ,[Employee3Id],[InvoiceXOId],[InvoiceLRTime],[InvoiceGZTime],[InvoiceZFTime]
+          ,[InvoiceDate],[InvoiceStatus],[InsertTime],[UpdateTime],'xs' as [kind]
+            FROM [InvoiceXS]
+          union
+          SELECT [InvoiceId],[CompanyId],[Employee0Id],[DepotId],[Employee1Id],[Employee2Id]
+          ,[Employee3Id],[InvoiceXOId],[InvoiceLRTime],[InvoiceGZTime],[InvoiceZFTime]
+          ,[InvoiceDate],[InvoiceStatus],[InsertTime],[UpdateTime],'xt' as [kind]
+            FROM [InvoiceXT]) 
+          [table] 
+        WHERE  (InvoiceStatus<>2 or InvoiceStatus is null) and ([InvoiceDate] between #start# and #end#)
+      ]]>
+    </select>
+    <select id="select_byDateXOId" parameterClass="Map" resultMap="InvoiceXSResult">
+      <![CDATA[
+      select * from InvoiceXS where  (InvoiceStatus<>2 or InvoiceStatus is null) and InvoiceXOId=#value#      
+      ]]>
+    </select>
+    <select id="select_bycustomerId" parameterClass="Map" resultMap="InvoiceXSResult">
+      <![CDATA[
+      select * from InvoiceXS where  (InvoiceStatus<>2 or InvoiceStatus is null) and CustomerId=#value#      
+      ]]>
+    </select>
+      <select id="select_bycustomerProductId" parameterClass="Map" resultMap="InvoiceXSResult">
+        <![CDATA[
+      select * from InvoiceXS where CustomerId=#value#      
+      ]]>
+    </select>     
+    <select id="selectbydateProENDNUll" parameterClass="Map" resultMap="InvoiceXSResult">
+      <![CDATA[   
+      
+       select * from InvoiceXS where CustomerId in(select  CustomerId from customer where id between #customerStart# and #customerEnd#)   and       
+ (invoicedate between #dateStart# and #dateEnd#) and invoiceid in (select invoiceid from invoiceXSdetail
+ where primarykeyid  in (select primarykeyid from customerproducts where CustomerProductId>= #productStart#))
+
+      ]]>
+    </select>
+    <select id="selectbydatePro" parameterClass="Map" resultMap="InvoiceXSResult">
+      <![CDATA[         
+       select * from InvoiceXS where CustomerId in(select  CustomerId from customer where id between #customerStart# and #customerEnd#)   and       
+ (invoicedate between #dateStart# and #dateEnd#) and invoiceid in (select invoiceid from invoiceXSdetail
+ where primarykeyid  in (select primarykeyid from customerproducts where CustomerProductId between #productStart# and #productEnd#))
+
+      ]]>
+    </select>
+    <select id="selectByCustomerId" parameterClass="string" resultMap="InvoiceXSResult2">
+      SELECT InvoiceXOId FROM dbo.InvoiceXS WHERE CustomerId=#value# GROUP BY InvoiceXOId
+    </select>
+    <select id="selectCustomerInfo" parameterClass="string" resultMap="InvoiceXSResult">
+      SELECT * FROM InvoiceXS WHERE InvoiceXOId=#value#
+    </select>
+		<select id="select_where" parameterClass="string" resultMap="InvoiceXSResult">
+			<![CDATA[
+               select * from InvoiceXS where (InvoiceStatus<>2 or InvoiceStatus is null) and (InvoiceDate between #dateStart# and #dateEnd# or (#dateStart# is null and #dateEnd# is null))  $sql$ 
+            ]]>
+		</select>
+  </statements>
+</sqlMap>

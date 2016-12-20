@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BGHandbookDetail1" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="select_byheader" resultMap="BGHandbookDetail1Result" parameterClass="string">
+      <![CDATA[
+      select * from BGHandbookDetail1 where BGHandbookId=#value:varchar# order by NOId
+      ]]>
+    </select>
+
+    <select id="SelectProName" resultClass="string" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 ProName FROM BGHandbookDetail1 WHERE Proname IS NOT null $sql$
+      ]]>
+    </select>
+    <select id="SelectBGProduct" resultMap="BGHandbookDetail1Result" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM BGHandbookDetail1 WHERE Proname IS NOT NULL $sql$
+      ]]>
+    </select>
+  </statements>
+</sqlMap>
