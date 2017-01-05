@@ -134,11 +134,11 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -221,7 +221,6 @@
             this.layoutControlItem159 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem160 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem161 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem56 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem62 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem181 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -266,6 +265,7 @@
             this.emptySpaceItem15 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.label172 = new System.Windows.Forms.Label();
@@ -681,7 +681,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem159)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem160)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem56)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem62)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem181)).BeginInit();
@@ -726,6 +725,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1787,12 +1787,6 @@
             resources.ApplyResources(this.label16, "label16");
             this.label16.Name = "label16";
             // 
-            // label15
-            // 
-            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            // 
             // label14
             // 
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1818,6 +1812,12 @@
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
+            // 
+            // label15
+            // 
+            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
             // 
             // label11
             // 
@@ -2898,14 +2898,6 @@
             this.layoutControlItem161.TextToControlDistance = 0;
             this.layoutControlItem161.TextVisible = false;
             // 
-            // emptySpaceItem2
-            // 
-            resources.ApplyResources(this.emptySpaceItem2, "emptySpaceItem2");
-            this.emptySpaceItem2.Location = new System.Drawing.Point(677, 75);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(254, 10);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // emptySpaceItem56
             // 
             resources.ApplyResources(this.emptySpaceItem56, "emptySpaceItem56");
@@ -3341,6 +3333,14 @@
             this.emptySpaceItem8.Name = "emptySpaceItem8";
             this.emptySpaceItem8.Size = new System.Drawing.Size(254, 10);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem2
+            // 
+            resources.ApplyResources(this.emptySpaceItem2, "emptySpaceItem2");
+            this.emptySpaceItem2.Location = new System.Drawing.Point(677, 75);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(254, 10);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // xtraTabPage2
             // 
@@ -6447,7 +6447,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem159)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem160)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem56)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem62)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem181)).EndInit();
@@ -6492,6 +6491,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
