@@ -155,6 +155,7 @@ namespace Book.UI.Settings.BasicData.Customs
                 this._customer.LastTransactionDate = this.dateEditCompanyExchangeDay.DateTime;
             }
             this._customer.CheckedStandard = this.textBoxCheckedStandard.Text;
+            this._customer.CustomerName = this.txt_CustomerName.Text;
 
             if (!string.IsNullOrEmpty(this.richTextBoxMarks1.Text))
                 this._customer.Marks1 = this.richTextBoxMarks1.Rtf;
@@ -274,6 +275,7 @@ namespace Book.UI.Settings.BasicData.Customs
             this.richTextBoxMarks2.Rtf = this._customer.Marks2;
             this.richTextBoxMarks3.Rtf = this._customer.Marks3;
 
+            this.txt_CustomerName.EditValue = this._customer.CustomerName;
             //this._customer.Marks = this.customerMarksManager.SelectByCustomerId(this._customer.CustomerId);
             //this.bindingSourceCustomerMarks.DataSource = this._customer.Marks;
 

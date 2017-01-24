@@ -112,6 +112,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="ProductUnitId" column="ProductUnitId"/>
       <result property ="CeShiSuLi" column="CeShiSuLi"/>
       <result property ="ApprovalDate" column="ApprovalDate"/>
+      <result property="CSAJiShuBiaoZhun" column="CSAJiShuBiaoZhun"/>
       <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
@@ -309,7 +310,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AuditEmpId],
         [ProductUnitId],
         [CeShiSuLi],
-        [ApprovalDate]
+        [ApprovalDate],
+        [CSAJiShuBiaoZhun]
 			FROM
 				[dbo].[PCExportReportANSI]
 			WHERE
@@ -468,7 +470,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AuditEmpId],
         [ProductUnitId],
         [CeShiSuLi],
-        [ApprovalDate]
+        [ApprovalDate],
+        [CSAJiShuBiaoZhun]
 			) 
 			VALUES 
 			(
@@ -577,7 +580,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         #AuditEmpId#,
         #ProductUnitId#,
         #CeShiSuLi#,
-        #ApprovalDate#
+        #ApprovalDate#,
+        #CSAJiShuBiaoZhun#
 			)
              ]]>
     </insert>
@@ -689,7 +693,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AuditEmpId]=#AuditEmpId#,
         [ProductUnitId] = #ProductUnitId#,
         [CeShiSuLi]=#CeShiSuLi#,
-        [ApprovalDate]=#ApprovalDate#
+        [ApprovalDate]=#ApprovalDate#,
+        [CSAJiShuBiaoZhun]=#CSAJiShuBiaoZhun#
 			WHERE
 				[ExportReportId] = #ExportReportId#
                     ]]>

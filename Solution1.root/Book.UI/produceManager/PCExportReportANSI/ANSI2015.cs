@@ -128,7 +128,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._PCExportReportANSI.InvoiceCusXOId = this.TxtCustomersId.Text == null ? null : this.TxtCustomersId.Text.ToString();
             this._PCExportReportANSI.Customer = (this.NccCustomer.EditValue as Model.Customer);
             this._PCExportReportANSI.ReportDate = this.DateReportDate.EditValue == null ? DateTime.Now : this.DateReportDate.DateTime;
-
+            this._PCExportReportANSI.Clearlens = this.memoTrans.EditValue == null ? "" : this.memoTrans.EditValue.ToString();
             if (this._PCExportReportANSI.Customer != null)
             {
                 this._PCExportReportANSI.CustomerId = this._PCExportReportANSI.Customer.CustomerId;
@@ -254,7 +254,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             //this.textTraceMarking.Text = this._PCExportReportANSI.TraceMarking == null ? null : this._PCExportReportANSI.TraceMarking;
             //this.textProtectionone.Text = this._PCExportReportANSI.Protectionone == null ? null : this._PCExportReportANSI.Protectionone;
             //this.textProtectiontwo.Text = this._PCExportReportANSI.Protectiontwo == null ? null : this._PCExportReportANSI.Protectiontwo;
-
+            this.memoTrans.EditValue = this._PCExportReportANSI.Clearlens;
             this.spe_Quyang1.EditValue = this._PCExportReportANSI.QuYangShu1.HasValue ? this._PCExportReportANSI.QuYangShu1.Value : 0;
             this.spe_Quyang2.EditValue = this._PCExportReportANSI.QuYangShu2.HasValue ? this._PCExportReportANSI.QuYangShu2.Value : 0;
             this.spe_Quyang3.EditValue = this._PCExportReportANSI.QuYangShu3.HasValue ? this._PCExportReportANSI.QuYangShu3.Value : 0;

@@ -33,7 +33,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.lblChanpingpingming.Text = _PCExpANSI.Product.CustomerProductName == null ? "" : _PCExpANSI.Product.CustomerProductName.ToString();
             this.lblDingDanBianHao.Text = _PCExpANSI.InvoiceCusXOId;
             this.lblDingDanShuLiang.Text = (_PCExpANSI.Amount.HasValue ? _PCExpANSI.Amount.ToString() : "0") + "pcs";
-            this.lblKehu.Text = _PCExpANSI.Customer == null ? "" : _PCExpANSI.Customer.ToString();
+            this.lblKehu.Text = _PCExpANSI.Customer == null ? "" : _PCExpANSI.Customer.CustomerName;
             this.lblZhiXingCeShiYuan.Text = _PCExpANSI.Employee == null ? "" : _PCExpANSI.Employee.ToString();
 
             this.lblShouCe1.Text = _PCExpANSI.ShouCeShu1.HasValue ? _PCExpANSI.ShouCeShu1.Value.ToString() : "0";

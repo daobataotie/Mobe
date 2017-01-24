@@ -50,6 +50,7 @@
       <result property="Marks1" column="Marks1"/>
       <result property="Marks2" column="Marks2"/>
       <result property="Marks3" column="Marks3"/>
+      <result property="CustomerName" column="CustomerName"/>
       <result property="AreaCategory" column="AreaCategoryId" lazyLoad="false" select="AreaCategory.select_by_primary_key" />
       <result property="CompanyLevel" column="CompanyLevelId" lazyLoad="false" select="CompanyLevel.select_by_primary_key" />
       <result property="CustomerCategory" column="CustomerCategoryId" lazyLoad="false" select="CustomerCategory.select_by_primary_key" />
@@ -112,7 +113,8 @@
 				[CustomerContact],
         [Marks1],
         [Marks2],
-        [Marks3]
+        [Marks3],
+        [CustomerName]
 			FROM
 				[dbo].[Customer]
 			WHERE

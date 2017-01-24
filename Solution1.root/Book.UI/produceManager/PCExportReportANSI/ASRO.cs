@@ -34,7 +34,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             //this.LbTestDate.Text = _PCExportReportANSI.ReportDate == null ? null : _PCExportReportANSI.ReportDate.Value.ToShortDateString();
             this.LbTestDate.Text = _PCExportReportANSI.ReportDate == null ? null : _PCExportReportANSI.ReportDate.Value.ToString("dd-MMM-yy", new System.Globalization.CultureInfo("en-us"));
             this.LbQtyTest.Text = (_PCExportReportANSI.QuYangShu2.HasValue ? _PCExportReportANSI.QuYangShu2.Value.ToString() : "0") + "PCS";
-            this.LbBuyer.Text += "   " + (_PCExportReportANSI.Customer == null ? null : _PCExportReportANSI.Customer.ToString());
+            this.LbBuyer.Text += "   " + (_PCExportReportANSI.Customer == null ? null : _PCExportReportANSI.Customer.CustomerName);
             this.LbOrderNo.Text += "   " + (_PCExportReportANSI.InvoiceCusXOId == null ? null : _PCExportReportANSI.InvoiceCusXOId.ToString());
             this.lblOrderQty.Text += "   " + (_PCExportReportANSI.Amount.HasValue ? _PCExportReportANSI.Amount.Value.ToString("0.##")  : "0")+ "PCS";
             this.LbBatchNo.Text = _PCExportReportANSI.ProductBatchNo == null ? null : _PCExportReportANSI.ProductBatchNo.ToString();

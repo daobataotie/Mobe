@@ -2367,5 +2367,15 @@ namespace Book.Model
 
         public readonly static string PRO_ApprovalDate = "ApprovalDate";
         #endregion
+
+        private string _CSAJiShuBiaoZhun;
+
+        public string CSAJiShuBiaoZhun
+        {
+            get { return _CSAJiShuBiaoZhun; }
+            set { _CSAJiShuBiaoZhun = value; }
+        }
+
+        public readonly static string PRO_CSAJiShuBiaoZhun = "CSAJiShuBiaoZhun";
     }
 }

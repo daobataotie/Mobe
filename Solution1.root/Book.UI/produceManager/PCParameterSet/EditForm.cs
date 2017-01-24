@@ -120,6 +120,12 @@ namespace Book.UI.produceManager.PCParameterSet
             dr["SettingSetId"] = "PCEarPressCheckW";
             dr["SettingName"] = "耳压测试报告规格W";
             da.Rows.Add(dr);
+
+            dr = da.NewRow();
+            dr["SettingSetId"] = "CSAJiShuBiaoZhun";
+            dr["SettingName"] = "CSA外銷報告技術標準";
+            da.Rows.Add(dr);
+
             this._detail = this.settingManager.SelectTagOrderDefault("PCISO");
             this.requireValueExceptions.Add(Model.Setting.PRO_SettingName, new AA(Properties.Resources.NameIsNotNull, this.gridControl1));
 

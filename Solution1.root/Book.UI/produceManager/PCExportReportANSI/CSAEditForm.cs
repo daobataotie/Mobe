@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Book.UI.Settings.BasicData;
 using System.IO;
+using System.Linq;
 
 namespace Book.UI.produceManager.PCExportReportANSI
 {
@@ -116,6 +117,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._PCExportReportANSI.ReportDate = DateTime.Now.Date;
             this._PCExportReportANSI.ExpType = "CSA";
 
+            var jiShuBiaoZhun = new BL.SettingManager().SelectByName("CSAJiShuBiaoZhun").FirstOrDefault();
+            this._PCExportReportANSI.CSAJiShuBiaoZhun = jiShuBiaoZhun == null ? "CSA Z94.3-2015" : jiShuBiaoZhun.SettingCurrentValue; 
         }
 
         protected override void Delete()
@@ -141,6 +144,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._PCExportReportANSI.Customer = (this.NccCustomer.EditValue as Model.Customer);
             this._PCExportReportANSI.Mirrorlens = this.memoMirrorlens.EditValue == null ? null : this.memoMirrorlens.EditValue.ToString();
             this._PCExportReportANSI.ReportDate = this.DateReportDate.EditValue == null ? DateTime.Now : this.DateReportDate.DateTime;
+            this._PCExportReportANSI.CSAJiShuBiaoZhun = this.label25.Text;
 
             if (this._PCExportReportANSI.Customer != null)
             {
@@ -267,6 +271,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.txt_AuditState.EditValue = this.GetAuditName(this._PCExportReportANSI.AuditState);
 
             this.lookUpEditUnit.EditValue = this._PCExportReportANSI.ProductUnitId;
+            this.label25.Text = string.IsNullOrEmpty(this._PCExportReportANSI.CSAJiShuBiaoZhun) ? "CSA Z94.3-07" : this._PCExportReportANSI.CSAJiShuBiaoZhun;
         }
 
         //列印

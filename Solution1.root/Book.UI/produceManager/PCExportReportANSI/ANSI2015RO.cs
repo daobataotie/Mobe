@@ -28,7 +28,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             }
             else
                 this.lbl_Signature.Text = new BL.SettingManager().SelectByName("ASWANSignature").Count < 1 ? "" : new BL.SettingManager().SelectByName("ASWANSignature")[0].SettingCurrentValue;
-            this.LbCustomer.Text = _PCExportReportANSI.Customer == null ? null : _PCExportReportANSI.Customer.ToString();
+            this.LbCustomer.Text = _PCExportReportANSI.Customer == null ? null : _PCExportReportANSI.Customer.CustomerName;
             this.LbOrderId.Text = _PCExportReportANSI.InvoiceCusXOId == null ? null : _PCExportReportANSI.InvoiceCusXOId.ToString();
             this.LbProduct.Text = _PCExportReportANSI.Product.CustomerProductName == null ? null : _PCExportReportANSI.Product.CustomerProductName.ToString();
             this.LbOrderAmount.Text = (_PCExportReportANSI.Amount.HasValue ? _PCExportReportANSI.Amount.ToString() : "0") + "PCS";
@@ -36,7 +36,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.LbTesrPerson.Text = _PCExportReportANSI.Employee == null ? null : _PCExportReportANSI.Employee.ToString();
             //this.LbReportDate.Text = _PCExportReportANSI.ReportDate == null ? null : _PCExportReportANSI.ReportDate.Value.ToShortDateString();
             this.LbReportDate.Text = _PCExportReportANSI.ReportDate == null ? null : _PCExportReportANSI.ReportDate.Value.ToString("dd/MM/yyyy");
-
+            this.LbClearlens.Text = _PCExportReportANSI.Clearlens == null ? null : _PCExportReportANSI.Clearlens.ToString();
+            this.LbClearlens.Multiline = true;
             //this.lbl_ShouCe1.Text = (_PCExportReportANSI.QuYangShu1.HasValue ? _PCExportReportANSI.QuYangShu1.ToString() : "0") + " PCS";
             this.lbl_ShouCe2.Text = (_PCExportReportANSI.QuYangShu2.HasValue ? _PCExportReportANSI.QuYangShu2.ToString() : "0") + " PCS";
             this.lbl_ShouCe3.Text = (_PCExportReportANSI.QuYangShu3.HasValue ? _PCExportReportANSI.QuYangShu3.ToString() : "0") + " PCS";

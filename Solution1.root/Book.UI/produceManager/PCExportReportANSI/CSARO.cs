@@ -28,7 +28,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             }
             else
                 this.lbl_Signature.Text = new BL.SettingManager().SelectByName("ASWANSignature").Count < 1 ? "" : new BL.SettingManager().SelectByName("ASWANSignature")[0].SettingCurrentValue;
-            this.LbCustomer.Text = _PCExportReportANSI.Customer == null ? null : _PCExportReportANSI.Customer.ToString();
+            this.LbCustomer.Text = _PCExportReportANSI.Customer == null ? null : _PCExportReportANSI.Customer.CustomerName;
             this.LbOrderId.Text = _PCExportReportANSI.InvoiceCusXOId == null ? null : _PCExportReportANSI.InvoiceCusXOId.ToString();
             this.LbProduct.Text = _PCExportReportANSI.Product.CustomerProductName == null ? null : _PCExportReportANSI.Product.CustomerProductName.ToString();
             this.LbOrderAmount.Text = (_PCExportReportANSI.Amount.HasValue ? _PCExportReportANSI.Amount.ToString() : "0") + "PCS";
@@ -40,6 +40,9 @@ namespace Book.UI.produceManager.PCExportReportANSI
 
             this.xrTableCell20.Text = _PCExportReportANSI.CeShiSuLi + this.xrTableCell20.Text;
 
+            this.LbSpecifiction.Text = string.IsNullOrEmpty(_PCExportReportANSI.CSAJiShuBiaoZhun) ? "CSA Z94.3-07" : _PCExportReportANSI.CSAJiShuBiaoZhun;
+            if (_PCExportReportANSI.CSAJiShuBiaoZhun != null && _PCExportReportANSI.CSAJiShuBiaoZhun.Contains("2015"))
+                this.xrLabel121.Text="R7-08-03-R-2";
             this.LbOpticsTestAmount.Text = (_PCExportReportANSI.ShouCeShu1.HasValue ? _PCExportReportANSI.ShouCeShu1.ToString() : "0") + "PCS";
             this.LbOpticsTestAmount.Text += "/" + this.LbOpticsTestAmount.Text;
             this.LbClearTestAmount.Text = (_PCExportReportANSI.ShouCeShu2.HasValue ? _PCExportReportANSI.ShouCeShu2.ToString() : "0") + "PCS";
