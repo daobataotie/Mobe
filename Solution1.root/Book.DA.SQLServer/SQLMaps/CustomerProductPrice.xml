@@ -17,7 +17,7 @@
 
     <update id="UpdateByCustomerProductsId" parameterClass="CustomerProductPrice" >
       <![CDATA[
-      UPDATE CustomerProductPrice SET CustomerId=#CustomerId#,ProductId=#ProductId#,UpdateTime=#UpdateTime# WHERE CustomerProductsId=#CustomerProductsId#
+      UPDATE CustomerProductPrice SET CustomerId=#CustomerId#,UpdateTime=#UpdateTime# WHERE CustomerProductsId=#CustomerProductsId#
       ]]>
     </update>
     <select id="SelectPriceByProductId" resultClass="string" parameterClass="string">

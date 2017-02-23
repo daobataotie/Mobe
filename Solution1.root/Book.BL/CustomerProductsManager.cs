@@ -173,7 +173,7 @@ namespace Book.BL
                 Model.CustomerProductPrice customerProducrPrice = new Book.Model.CustomerProductPrice();
                 customerProducrPrice.CustomerProductPriceId = Guid.NewGuid().ToString();
                 customerProducrPrice.CustomerId = customerProducts.CustomerId;
-                customerProducrPrice.ProductId = customerProducts.ProductId;
+                customerProducrPrice.ProductId = product.ProductId;
                 customerProducrPrice.InsertTime = DateTime.Now;
                 customerProducrPrice.UpdateTime = DateTime.Now;
                 customerProducrPrice.CustomerProductsId = customerProducts.PrimaryKeyId;
@@ -394,7 +394,7 @@ namespace Book.BL
                 //客户产品价格
                 Model.CustomerProductPrice customerProducrPrice = new Book.Model.CustomerProductPrice();
                 customerProducrPrice.CustomerId = customerProducts.CustomerId;
-                customerProducrPrice.ProductId = customerProducts.ProductId;
+                //customerProducrPrice.ProductId = customerProducts.ProductId;
                 customerProducrPrice.UpdateTime = DateTime.Now;
                 customerProducrPrice.CustomerProductsId = customerProducts.PrimaryKeyId;
                 customerProductPriceAccessor.UpdateByCustomerProductsId(customerProducrPrice);
