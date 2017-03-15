@@ -829,7 +829,7 @@
             this.ClientSize = new System.Drawing.Size(878, 493);
             this.Controls.Add(this.layoutControl1);
             this.Name = "EditForm";
-            this.Text = "耳压测试报告";
+            this.Text = "耳压制程测试报告";
             this.Load += new System.EventHandler(this.EditForm_Load);
             this.Controls.SetChildIndex(this.layoutControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

@@ -18,18 +18,18 @@ namespace Book.UI.produceManager.PCEarPressCheck
 
             this.DataSource = PCEarPressCheck.Details.OrderBy(d => d.CheckDate).ToList();
             this.lblCompanyName.Text = BL.Settings.CompanyChineseName;
-            this.lblReportName.Text = Properties.Resources.EarPressReport;
+            this.lblReportName.Text = "耳压制程测试报告";
             //this.lblPrintDate.Text += DateTime.Now.ToString("yyyy-MM-dd");
 
             lblPCEarPressCheckId.Text = PCEarPressCheck.PCEarPressCheckId;
-            lblCheckCount.Text = PCEarPressCheck.PCEarPressCheckCount.HasValue ? PCEarPressCheck.PCEarPressCheckCount.ToString() : "";
+            lblCheckCount.Text = PCEarPressCheck.PCEarPressCheckCount.HasValue ? (PCEarPressCheck.PCEarPressCheckCount.ToString() + (PCEarPressCheck.ProductUnit == null ? "" : PCEarPressCheck.ProductUnit.ToString()) + "/每天") : "";
             lblCheckDate.Text = PCEarPressCheck.PCEarPressCheckDate.HasValue ? PCEarPressCheck.PCEarPressCheckDate.Value.ToShortDateString() : "";
             lblCheckStandard.Text = PCEarPressCheck.PCEarPressCheckStandard;
             lblInvoiceXOQuantity.Text = PCEarPressCheck.InvoiceXOQuantity.HasValue ? PCEarPressCheck.InvoiceXOQuantity.ToString() : "";
             lblInvpiceCusXOId.Text = PCEarPressCheck.InvoiceCusXOId;
             lblProduct.Text = PCEarPressCheck.Product == null ? "" : PCEarPressCheck.Product.ToString();
             lblPronoterHeaderId.Text = PCEarPressCheck.PronoteHeaderId;
-            lblUnit.Text = PCEarPressCheck.ProductUnit == null ? null : PCEarPressCheck.ProductUnit.ToString();
+            //lblUnit.Text = PCEarPressCheck.ProductUnit == null ? null : PCEarPressCheck.ProductUnit.ToString();
             lblAuditEmp.Text = PCEarPressCheck.AuditEmp == null ? null : PCEarPressCheck.AuditEmp.ToString();
             lblEmployee.Text = PCEarPressCheck.Employee == null ? "" : PCEarPressCheck.Employee.ToString();
             RTNote.Rtf = PCEarPressCheck.Note;

@@ -613,6 +613,7 @@ namespace Book.UI.produceManager.PCEarPressCheck
             this.lblUnit.StylePriority.UseTextAlignment = false;
             this.lblUnit.Text = "xtrLabel";
             this.lblUnit.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.lblUnit.Visible = false;
             // 
             // xrLabel9
             // 
@@ -626,6 +627,7 @@ namespace Book.UI.produceManager.PCEarPressCheck
             this.xrLabel9.StylePriority.UseTextAlignment = false;
             this.xrLabel9.Text = "µ¥Î»£º";
             this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel9.Visible = false;
             // 
             // lblCheckCount
             // 

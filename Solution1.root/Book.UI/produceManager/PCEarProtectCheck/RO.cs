@@ -42,7 +42,7 @@ namespace Book.UI.produceManager.PCEarProtectCheck
             this.DataSource = PCEarProtectCheck.Details.OrderBy(d => d.CheckDate).ToList();
 
             this.lblCompanyName.Text = BL.Settings.CompanyChineseName;
-            this.lblDataName.Text = Properties.Resources.PCEarProtectReport;
+            this.lblDataName.Text = "耳护制程坠落测试报告";
             //this.lblPriteDate.Text += DateTime.Now.ToString("yyyy-MM-dd");
 
             this.lblPCClarityCheckID.Text = PCEarProtectCheck.PCEarProtectCheckId;
@@ -52,9 +52,9 @@ namespace Book.UI.produceManager.PCEarProtectCheck
             this.lblCheckStandard.Text = PCEarProtectCheck.CheckStadard;
             this.lblProduct.Text = PCEarProtectCheck.Product == null ? "" : PCEarProtectCheck.Product.ToString();
             this.lblEmployee.Text = PCEarProtectCheck.Employee == null ? "" : PCEarProtectCheck.Employee.ToString();
-            this.lblPCCheckCount.Text = PCEarProtectCheck.CheckCount.HasValue ? PCEarProtectCheck.CheckCount.ToString() : "";
+            this.lblPCCheckCount.Text = PCEarProtectCheck.CheckCount.HasValue ? (PCEarProtectCheck.CheckCount.ToString() + (PCEarProtectCheck.ProductUnit == null ? "" : PCEarProtectCheck.ProductUnit.ToString()) + "/每天") : "";
             this.lblInvoiceXOQuantity.Text = PCEarProtectCheck.InvoiceXOQuantity.HasValue ? PCEarProtectCheck.InvoiceXOQuantity.ToString() : "";
-            this.lblUnit.Text = PCEarProtectCheck.ProductUnit == null ? null : PCEarProtectCheck.ProductUnit.ToString();
+            //this.lblUnit.Text = PCEarProtectCheck.ProductUnit == null ? null : PCEarProtectCheck.ProductUnit.ToString();
             this.lblAuditEmp.Text = PCEarProtectCheck.AuditEmp == null ? null : PCEarProtectCheck.AuditEmp.ToString();
             this.RTNote.Rtf = PCEarProtectCheck.Note;
 
