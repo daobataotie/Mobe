@@ -109,7 +109,7 @@ namespace Book.Model
 
         private BusinessHours businessHours;
 
-        public virtual  BusinessHours BusinessHours
+        public virtual BusinessHours BusinessHours
         {
             get { return businessHours; }
             set { businessHours = value; }
@@ -230,7 +230,7 @@ namespace Book.Model
         {
             get
             {
-                return (this._left1 == null ? 0 : this._left1) - (this._left2 == null ? 0 : this._left2);
+                return Math.Abs(((this._left1 == null ? 0 : this._left1) - (this._left2 == null ? 0 : this._left2)).Value);
             }
             set
             {
@@ -245,7 +245,7 @@ namespace Book.Model
         {
             get
             {
-                return (this._right1 == null ? 0 : this._right1) - (this._right2 == null ? 0 : this._right2);
+                return Math.Abs(((this._right1 == null ? 0 : this._right1) - (this._right2 == null ? 0 : this._right2)).Value);
             }
             set
             {
