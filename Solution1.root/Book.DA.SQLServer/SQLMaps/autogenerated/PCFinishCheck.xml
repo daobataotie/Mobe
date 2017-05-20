@@ -57,6 +57,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="AttrSujiaodaitiebiao" column="AttrSujiaodaitiebiao"/>
       <result property="AttrNeihekuanxing" column="AttrNeihekuanxing"/>
       <result property="AttrChuhuochongji" column="AttrChuhuochongji"/>
+      <result property="AttrCheckStandard" column="AttrCheckStandard"/>
       <result property="PronoteHeader" column="PronoteHeaderID" lazyLoad="false" select="PronoteHeader.select_by_primary_key" />
       <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
@@ -206,7 +207,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AttrSujiaodaikuanxing],
         [AttrSujiaodaitiebiao],
         [AttrNeihekuanxing],
-        [AttrChuhuochongji]
+        [AttrChuhuochongji],
+        [AttrCheckStandard]
         
 			FROM
 				[dbo].[PCFinishCheck]
@@ -311,7 +313,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AttrSujiaodaikuanxing],
         [AttrSujiaodaitiebiao],
         [AttrNeihekuanxing],
-        [AttrChuhuochongji]
+        [AttrChuhuochongji],
+        [AttrCheckStandard]
 			) 
 			VALUES 
 			(
@@ -365,7 +368,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         #AttrSujiaodaikuanxing#,
         #AttrSujiaodaitiebiao#,
         #AttrNeihekuanxing#,
-        #AttrChuhuochongji#
+        #AttrChuhuochongji#,
+        #AttrCheckStandard#
 			) 
              ]]>
     </insert>
@@ -422,7 +426,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AttrSujiaodaikuanxing]=#AttrSujiaodaikuanxing#,
         [AttrSujiaodaitiebiao]=#AttrSujiaodaitiebiao#,
         [AttrNeihekuanxing]=#AttrNeihekuanxing#,
-        [AttrChuhuochongji]=#AttrChuhuochongji#
+        [AttrChuhuochongji]=#AttrChuhuochongji#,
+        [AttrCheckStandard]=#AttrCheckStandard#
 			WHERE
 				[PCFinishCheckID] = #PCFinishCheckID#
                     ]]>

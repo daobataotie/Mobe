@@ -230,8 +230,9 @@ namespace Book.UI.produceManager.PCFinishCheck
             this._PCFC.AttrZMCM = this.radio_AttrZMCM.SelectedIndex;
             this._PCFC.AttrJSSFZQ = this.radio_AttrJSSFZQ.SelectedIndex;
             this._PCFC.AttrJDZRFS = this.radio_AttrJDZRFS.SelectedIndex;
-            this._PCFC.AttrChuhuochongji = this.radio_AttrChuhuoChongji.SelectedIndex;
-            
+            //this._PCFC.AttrChuhuochongji = this.radio_AttrChuhuoChongji.SelectedIndex;
+            this._PCFC.AttrCheckStandard = this.cbe_CheckStandard.SelectedText;
+
             //this._PCFC.AttrCJBZ = this.radio_AttrChanpinjihao.SelectedIndex;
             //this._PCFC.AttrGX = this.radio_AttrQitaPeijianjihao.SelectedIndex;
             //this._PCFC.AttrJPJHZQ = this.radio_AttrErhuzuzhuang.SelectedIndex;
@@ -340,7 +341,8 @@ namespace Book.UI.produceManager.PCFinishCheck
             this.radio_AttrZMCM.SelectedIndex = this._PCFC.AttrZMCM.HasValue ? this._PCFC.AttrZMCM.Value : Def_select;
             this.radio_AttrJSSFZQ.SelectedIndex = this._PCFC.AttrJSSFZQ.HasValue ? this._PCFC.AttrJSSFZQ.Value : Def_select;
             this.radio_AttrJDZRFS.SelectedIndex = this._PCFC.AttrJDZRFS.HasValue ? this._PCFC.AttrJDZRFS.Value : Def_select;
-            this.radio_AttrChuhuoChongji.SelectedIndex = this._PCFC.AttrChuhuochongji.HasValue ? this._PCFC.AttrChuhuochongji.Value : Def_select;
+            //this.radio_AttrChuhuoChongji.SelectedIndex = this._PCFC.AttrChuhuochongji.HasValue ? this._PCFC.AttrChuhuochongji.Value : Def_select;
+            this.cbe_CheckStandard.EditValue = this._PCFC.AttrCheckStandard;
         }
 
         private void txtPCFinishCheckDesc_DoubleClick(object sender, EventArgs e)

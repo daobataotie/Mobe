@@ -1201,6 +1201,14 @@ namespace Book.Model
             set { _AttrChuhuochongji = value; }
         }
 
+        private string _AttrCheckStandard;
+
+        public string AttrCheckStandard
+        {
+            get { return _AttrCheckStandard; }
+            set { _AttrCheckStandard = value; }
+        }
+
         public readonly static string PRO_AttrChanpinyanse = "AttrChanpinyanse";
         public readonly static string PRO_AttrChanpinjihao = "AttrChanpinjihao";
         public readonly static string PRO_AttrQitapeijianjihao = "AttrQitapeijianjihao";
