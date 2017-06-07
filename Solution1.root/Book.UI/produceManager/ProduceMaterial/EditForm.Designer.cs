@@ -644,6 +644,8 @@
             // gridColumn16
             // 
             resources.ApplyResources(this.gridColumn16, "gridColumn16");
+            this.gridColumn16.DisplayFormat.FormatString = "0.##";
+            this.gridColumn16.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn16.FieldName = "DepotStock";
             this.gridColumn16.Name = "gridColumn16";
             // 

@@ -236,6 +236,7 @@
             this.barButtonItem376 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem377 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem354 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem494 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem446 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem80 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem383 = new DevExpress.XtraBars.BarButtonItem();
@@ -306,6 +307,8 @@
             this.barButtonItem481 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem482 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem480 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem495 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem496 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem489 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem490 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem491 = new DevExpress.XtraBars.BarButtonItem();
@@ -654,7 +657,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.barButtonItem494 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -1282,10 +1284,12 @@
             this.barButtonItem491,
             this.barButtonItem492,
             this.barButtonItem493,
-            this.barButtonItem494});
+            this.barButtonItem494,
+            this.barButtonItem495,
+            this.barButtonItem496});
             this.barManager1.LargeImages = this.imageCollection1;
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 656;
+            this.barManager1.MaxItemId = 658;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemComboBox1});
             this.barManager1.StatusBar = this.bar3;
@@ -2717,6 +2721,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem88),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem90),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem92),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem495),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem496),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem489),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.None, false, this.barButtonItem490, false),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem491),
@@ -2967,6 +2973,13 @@
             this.barButtonItem354.Id = 496;
             this.barButtonItem354.Name = "barButtonItem354";
             this.barButtonItem354.Tag = "produceManager.PCExportReportANSI.EditForm";
+            // 
+            // barButtonItem494
+            // 
+            resources.ApplyResources(this.barButtonItem494, "barButtonItem494");
+            this.barButtonItem494.Id = 655;
+            this.barButtonItem494.Name = "barButtonItem494";
+            this.barButtonItem494.Tag = "produceManager.PCExportReportANSI.ANSI2015";
             // 
             // barButtonItem446
             // 
@@ -3521,6 +3534,20 @@
             this.barButtonItem480.Id = 639;
             this.barButtonItem480.Name = "barButtonItem480";
             this.barButtonItem480.Tag = "produceManager.PCExportReportANSI.EarPressEditForm";
+            // 
+            // barButtonItem495
+            // 
+            resources.ApplyResources(this.barButtonItem495, "barButtonItem495");
+            this.barButtonItem495.Id = 656;
+            this.barButtonItem495.Name = "barButtonItem495";
+            this.barButtonItem495.Tag = "produceManager.PCExportReportANSI.XuejingASTMForm";
+            // 
+            // barButtonItem496
+            // 
+            resources.ApplyResources(this.barButtonItem496, "barButtonItem496");
+            this.barButtonItem496.Id = 657;
+            this.barButtonItem496.Name = "barButtonItem496";
+            this.barButtonItem496.Tag = "produceManager.PCExportReportANSI.XuejingENForm";
             // 
             // barButtonItem489
             // 
@@ -6207,13 +6234,6 @@
             // 
             resources.ApplyResources(this.helpProvider1, "helpProvider1");
             // 
-            // barButtonItem494
-            // 
-            resources.ApplyResources(this.barButtonItem494, "barButtonItem494");
-            this.barButtonItem494.Id = 655;
-            this.barButtonItem494.Name = "barButtonItem494";
-            this.barButtonItem494.Tag = "produceManager.PCExportReportANSI.ANSI2015";
-            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -6862,6 +6882,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem491;
         private DevExpress.XtraBars.BarButtonItem barButtonItem492;
         private DevExpress.XtraBars.BarButtonItem barButtonItem493;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem494;        
+        private DevExpress.XtraBars.BarButtonItem barButtonItem494;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem495;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem496;        
     }
 }

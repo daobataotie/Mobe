@@ -4458,6 +4458,18 @@
       <DependentUpon>ANSI2015RO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\XuejingASTMForm.resx">
+      <DependentUpon>XuejingASTMForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\XuejingASTMRO.resx">
+      <DependentUpon>XuejingASTMRO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\XuejingENForm.resx">
+      <DependentUpon>XuejingENForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\XuejingENRO.resx">
+      <DependentUpon>XuejingENRO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCIncomingCheck\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -11331,6 +11343,30 @@
     </Compile>
     <Compile Include="produceManager\PCExportReportANSI\ANSI2015RO.Designer.cs">
       <DependentUpon>ANSI2015RO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\XuejingASTMForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\XuejingASTMForm.designer.cs">
+      <DependentUpon>XuejingASTMForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\XuejingASTMRO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\XuejingASTMRO.designer.cs">
+      <DependentUpon>XuejingASTMRO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\XuejingENForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\XuejingENForm.designer.cs">
+      <DependentUpon>XuejingENForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\XuejingENRO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\XuejingENRO.designer.cs">
+      <DependentUpon>XuejingENRO.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCIncomingCheck\Condition.cs" />
     <Compile Include="produceManager\PCIncomingCheck\ConditionForm.cs">
