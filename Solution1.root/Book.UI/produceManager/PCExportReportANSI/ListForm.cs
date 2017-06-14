@@ -71,7 +71,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
         /// <returns></returns>
         protected override Book.UI.Settings.BasicData.BaseEditForm GetEditForm()
         {
-            if (this.Text.Contains("AS"))
+            if (this.Text.Contains("AS") && !this.Text.Contains("ASTM"))
                 return new ASEditForm();
             else if (this.Text.Contains("CEEN"))
                 return new CEENEditsForm();
