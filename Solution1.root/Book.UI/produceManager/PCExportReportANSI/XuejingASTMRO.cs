@@ -11,7 +11,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
         public XuejingASTMRO()
         {
             InitializeComponent();
-            this.xrPictureBox1.Visible = false;
+            //this.xrPictureBox1.Visible = false;
         }
 
         public XuejingASTMRO(Model.PCExportReportANSI _PCExportReportANSI, int tag)
@@ -21,7 +21,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             {
                 this.xrLabel1.Text = "ALAN    SAFETY    COMPANY.";
                 this.lbl_Signature.Text = new BL.SettingManager().SelectByName("ALANSignature").Count < 1 ? "" : new BL.SettingManager().SelectByName("ALANSignature")[0].SettingCurrentValue;
-                this.xrPictureBox1.Visible = true;
+                //this.xrPictureBox1.Visible = true;
             }
             else if (tag == 2)
             {
@@ -47,9 +47,9 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.TC_Test6.Text = (_PCExportReportANSI.ShouCeShu6.HasValue ? _PCExportReportANSI.ShouCeShu6.ToString() : "0") + "PCS";
             this.TC_Test7.Text = (_PCExportReportANSI.ShouCeShu7.HasValue ? _PCExportReportANSI.ShouCeShu7.ToString() : "0") + "PCS";
             this.TC_Test8.Text = (_PCExportReportANSI.ShouCeShu8.HasValue ? _PCExportReportANSI.ShouCeShu8.ToString() : "0") + "PCS";
-            this.TC_Test9.Text = (_PCExportReportANSI.ShouCeShu9.HasValue ? _PCExportReportANSI.ShouCeShu9.ToString() : "0") + "PCS";
-            this.TC_Test10.Text = (_PCExportReportANSI.ShouCeShu10.HasValue ? _PCExportReportANSI.ShouCeShu10.ToString() : "0") + "PCS";
-            this.TC_Test11.Text = (_PCExportReportANSI.ShouCeShu11.HasValue ? _PCExportReportANSI.ShouCeShu11.ToString() : "0") + "PCS";
+            //this.TC_Test9.Text = (_PCExportReportANSI.ShouCeShu9.HasValue ? _PCExportReportANSI.ShouCeShu9.ToString() : "0") + "PCS";
+            //this.TC_Test10.Text = (_PCExportReportANSI.ShouCeShu10.HasValue ? _PCExportReportANSI.ShouCeShu10.ToString() : "0") + "PCS";
+            //this.TC_Test11.Text = (_PCExportReportANSI.ShouCeShu11.HasValue ? _PCExportReportANSI.ShouCeShu11.ToString() : "0") + "PCS";
 
 
             this.TC_Judge1.Text = (_PCExportReportANSI.PanDing1.HasValue ? _PCExportReportANSI.PanDing1.ToString() : "0") + "PASS";
@@ -60,9 +60,9 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.TC_Judge6.Text = (_PCExportReportANSI.PanDing6.HasValue ? _PCExportReportANSI.PanDing6.ToString() : "0") + "PASS";
             this.TC_Judge7.Text = (_PCExportReportANSI.PanDing7.HasValue ? _PCExportReportANSI.PanDing7.ToString() : "0") + "PASS";
             this.TC_Judge8.Text = (_PCExportReportANSI.PanDing8.HasValue ? _PCExportReportANSI.PanDing8.ToString() : "0") + "PASS";
-            this.TC_Judge9.Text = (_PCExportReportANSI.PanDing9.HasValue ? _PCExportReportANSI.PanDing9.ToString() : "0") + "PASS";
-            this.TC_Judge10.Text = (_PCExportReportANSI.PanDing10.HasValue ? _PCExportReportANSI.PanDing10.ToString() : "0") + "PASS";
-            this.TC_Judge11.Text = (_PCExportReportANSI.PanDing11.HasValue ? _PCExportReportANSI.PanDing11.ToString() : "0") + "PASS";
+            //this.TC_Judge9.Text = (_PCExportReportANSI.PanDing9.HasValue ? _PCExportReportANSI.PanDing9.ToString() : "0") + "PASS";
+            //this.TC_Judge10.Text = (_PCExportReportANSI.PanDing10.HasValue ? _PCExportReportANSI.PanDing10.ToString() : "0") + "PASS";
+            //this.TC_Judge11.Text = (_PCExportReportANSI.PanDing11.HasValue ? _PCExportReportANSI.PanDing11.ToString() : "0") + "PASS";
         }
 
     }

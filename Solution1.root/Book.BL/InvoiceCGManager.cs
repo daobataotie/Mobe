@@ -292,7 +292,8 @@ namespace Book.BL
 
 
                 p.OrderOnWayQuantity = Convert.ToDouble(p.OrderOnWayQuantity) - Convert.ToDouble(detail.InvoiceCGDetailQuantity);
-                p.OrderOnWayQuantity = p.OrderOnWayQuantity < 0 ? 0 : p.OrderOnWayQuantity;
+                //2017年7月24日00:07:10： 可以为负,否则会导致不准
+                //p.OrderOnWayQuantity = p.OrderOnWayQuantity < 0 ? 0 : p.OrderOnWayQuantity;
                 p.ProductNearCGDate = DateTime.Now;
                 if (codetail != null)//单价 以后 在进库单 保存
                     p.NewestCost = codetail.InvoiceCODetailPrice.HasValue ? codetail.InvoiceCODetailPrice.Value : 0;
