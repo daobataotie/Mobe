@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{ECCEF5A5-BC9A-4CA4-9879-A8E1B170F7B6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -3469,9 +3469,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\AtSummon\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\AtSummon\ConditionForm.zh-CHT.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\AtSummon\List.resx">
       <DependentUpon>List.cs</DependentUpon>
@@ -3535,12 +3537,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\AtSummon\RO.resx">
       <DependentUpon>RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\AtSummon\RO1.resx">
       <DependentUpon>RO1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\AtSummon\RO2.resx">
       <DependentUpon>RO2.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\BankBill\BackleToCashForm.resx">
       <DependentUpon>BackleToCashForm.cs</DependentUpon>
@@ -4084,12 +4089,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomsClearance\BGProductDepotOutForm.resx">
       <DependentUpon>BGProductDepotOutForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomsClearance\BGPromptForm.resx">
       <DependentUpon>BGPromptForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomsClearance\BGPromptRO.resx">
       <DependentUpon>BGPromptRO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomsClearance\HandbookRange\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
@@ -4117,6 +4125,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomsClearance\SetBGHandbookEffect.resx">
       <DependentUpon>SetBGHandbookEffect.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Hr\Attendance\AnnualHoliday\ChooseDepartments.resx">
       <DependentUpon>ChooseDepartments.cs</DependentUpon>
@@ -4376,27 +4385,35 @@
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCDoubleImpactCheck\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCDoubleImpactCheck\EditForm.zh-CHT.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCDoubleImpactCheck\RO.resx">
       <DependentUpon>RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCDoubleImpactCheck\RO.zh-CHT.resx">
       <DependentUpon>RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCDoubleImpactCheck\RO1.resx">
       <DependentUpon>RO1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCDoubleImpactCheck\RO1.zh-CHT.resx">
       <DependentUpon>RO1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCDoubleImpactCheck\RO2.resx">
       <DependentUpon>RO2.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCDoubleImpactCheck\RO2.zh-CHT.resx">
       <DependentUpon>RO2.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCEarPressCheck\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
@@ -4412,15 +4429,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\ASRO.zh-CHS.resx">
       <DependentUpon>ASRO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\CSARO.zh-CHS.resx">
       <DependentUpon>CSARO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\JISOutPutFile.resx">
       <DependentUpon>JISOutPutFile.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\JISOutPutFile.zh-CHT.resx">
       <DependentUpon>JISOutPutFile.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\JISRO2.resx">
       <DependentUpon>JISRO2.cs</DependentUpon>
@@ -4460,102 +4481,135 @@
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\XuejingASTMForm.resx">
       <DependentUpon>XuejingASTMForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\XuejingASTMRO.resx">
       <DependentUpon>XuejingASTMRO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\XuejingENForm.resx">
       <DependentUpon>XuejingENForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\XuejingENRO.resx">
       <DependentUpon>XuejingENRO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCIncomingCheck\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCIncomingCheck\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCIncomingCheck\ListForm.resx">
       <DependentUpon>ListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCIncomingCheck\RelationXOForm.resx">
       <DependentUpon>RelationXOForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCIncomingCheck\RO.resx">
       <DependentUpon>RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCIncomingCheck\SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCIncomingCheck\SearchForm.zh-CHT.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\EditForm.zh-CHT.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\ListForm.resx">
       <DependentUpon>ListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\ListForm.zh-CHT.resx">
       <DependentUpon>ListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\RelationXOForm.resx">
       <DependentUpon>RelationXOForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\RelationXOForm.zh-CHT.resx">
       <DependentUpon>RelationXOForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\RO.resx">
       <DependentUpon>RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\RO.zh-CHT.resx">
       <DependentUpon>RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\SearchForm.zh-CHT.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCMaterialCheck\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCMaterialCheck\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCMaterialCheck\ListForm.resx">
       <DependentUpon>ListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCMaterialCheck\RO.resx">
       <DependentUpon>RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCSamplingEar\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCSamplingEar\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCSamplingEar\ListForm.resx">
       <DependentUpon>ListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCSamplingEar\RO.resx">
       <DependentUpon>RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCSampling\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCSampling\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCSampling\ListForm.resx">
       <DependentUpon>ListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCSampling\RO.resx">
       <DependentUpon>RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\ProduceInDepot\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
@@ -4575,9 +4629,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\ProduceOtherMaterial\ChooseForm.resx">
       <DependentUpon>ChooseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\ProduceOtherMaterial\ChooseForm.zh-CHT.resx">
       <DependentUpon>ChooseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\ProduceOtherReturnMaterial\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
@@ -4589,6 +4645,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\ProductOnlineCheck\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\ProductOnlineCheck\Editform.resx">
       <DependentUpon>Editform.cs</DependentUpon>
@@ -4801,9 +4858,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Query\ConditionPCInputCheckForm.resx">
       <DependentUpon>ConditionPCInputCheckForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Query\ConditionPCInputCheckForm.zh-CHT.resx">
       <DependentUpon>ConditionPCInputCheckForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Query\ConditionProductMould.zh-CHT.resx">
       <DependentUpon>ConditionProductMould.cs</DependentUpon>
@@ -12392,6 +12451,12 @@
     </Compile>
     <Compile Include="Settings\BasicData\Products\MaterialCount.Designer.cs">
       <DependentUpon>MaterialCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\BasicData\Products\ProductClassifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\BasicData\Products\ProductClassifyForm.Designer.cs">
+      <DependentUpon>ProductClassifyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\BasicData\Products\ProductConvertMaterial.cs">
       <SubType>Form</SubType>

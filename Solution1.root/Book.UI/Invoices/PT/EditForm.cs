@@ -561,7 +561,8 @@ namespace Book.UI.Invoices.PT
                     detail.ProductId = item.ProductId;
                     detail.InvoicePTDetailQuantity = item.ProduceQuantity;
                     detail.InvoicePTDetailNote = "";
-                    detail.InvoiceProductUnit = detail.Product.DepotUnit.CnName;
+                    if (detail.Product != null)
+                        detail.InvoiceProductUnit = detail.Product.DepotUnit == null ? null : detail.Product.DepotUnit.CnName;
                     detail.DepotPosition = item.DepotPosition;
                     detail.DepotPositionId = item.DepotPositionId;
                     detail.FromInvoiceId = item.ProduceInDepotId;
@@ -593,7 +594,9 @@ namespace Book.UI.Invoices.PT
                         detail.ProductId = item.ProductId;
                         detail.InvoicePTDetailQuantity = item.ProduceInDepotQuantity;
                         detail.InvoicePTDetailNote = "";
-                        detail.InvoiceProductUnit = detail.Product.DepotUnit.CnName;
+                        if (detail.Product != null)
+                            detail.InvoiceProductUnit = detail.Product.DepotUnit == null ? null : detail.Product.DepotUnit.CnName;
+                        //detail.InvoiceProductUnit = detail.Product.DepotUnit.CnName;
                         detail.DepotPosition = item.DepotPosition;
                         detail.DepotPositionId = item.DepotPositionId;
                         detail.FromInvoiceId = item.ProduceOtherInDepotId;
