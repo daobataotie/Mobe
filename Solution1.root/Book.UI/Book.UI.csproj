@@ -9555,6 +9555,10 @@
       <DependentUpon>MaterialCount.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\BasicData\Products\ProductClassifyForm.resx">
+      <DependentUpon>ProductClassifyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings\BasicData\Products\ProductConvertMaterial.resx">
       <DependentUpon>ProductConvertMaterial.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -10089,15 +10093,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\StockLimitations\NoDepotOutProducts.resx">
       <DependentUpon>NoDepotOutProducts.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\StockLimitations\NoDepotOutProducts.zh-CHT.resx">
       <DependentUpon>NoDepotOutProducts.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\StockLimitations\NoDepotOutProductsReport.resx">
       <DependentUpon>NoDepotOutProductsReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\StockLimitations\NoDepotOutProductsReport.zh-CHT.resx">
       <DependentUpon>NoDepotOutProductsReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\StockLimitations\OutStockEditForm.resx">
       <DependentUpon>OutStockEditForm.cs</DependentUpon>

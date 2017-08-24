@@ -1648,6 +1648,15 @@ namespace Book.UI.Properties {
         }
         
         /// <summary>
+        ///   查找类似 关键字不能为空 的本地化字符串。
+        /// </summary>
+        internal static string KeyWordNotNull {
+            get {
+                return ResourceManager.GetString("KeyWordNotNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 客户交易排行 的本地化字符串。
         /// </summary>
         internal static string KHJYPH {

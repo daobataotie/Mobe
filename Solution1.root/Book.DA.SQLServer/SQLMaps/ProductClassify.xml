@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProductClassify" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+
+    <select id="IsExistsKeyWordForInsert" resultClass="bool" parameterClass="string">
+      select case when exists(select * from ProductClassify where KeyWord=#value#)then 1 else 0 end
+    </select>
+
+    <select id="IsExistsKeyWordForUpdate" resultClass="bool" parameterClass="string">
+      <![CDATA[
+      select case when exists(select * from ProductClassify where KeyWord=#KeyWord# and ProductClassifyId<>#ProductClassifyId#)then 1 else 0 end
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

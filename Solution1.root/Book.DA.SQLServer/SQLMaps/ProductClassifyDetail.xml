@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="ProductClassifyDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByHeader" resultMap="ProductClassifyDetailResult" parameterClass="string">
+      select * from ProductClassifyDetail where ProductClassifyId=#value#
+    </select>
+
+    <delete id="DeleteByHeader" parameterClass="string">
+      delete from ProductClassifyDetail where ProductClassifyId=#value#
+    </delete>
+
+    <select id="GetByProductId" resultMap="ProductClassifyDetailResult" parameterClass="string">
+      select * from ProductClassifyDetail where ProductId=#value#
+    </select>
+  </statements>
+</sqlMap>
