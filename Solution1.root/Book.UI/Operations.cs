@@ -744,6 +744,8 @@ namespace Book.UI
 
             //—©ÁRå£”√ENÕ‚‰NàÛ∏Ê
             operations.Add("produceManager.PCExportReportANSI.XuejingENForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCExportReportANSI.XuejingENForm", form); });
+
+            operations.Add("Settings.BasicData.Products.ProductClassifyForm", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.BasicData.Products.ProductClassifyForm", form); });
         }
 
         static Form CreateForm(string formTypeName)

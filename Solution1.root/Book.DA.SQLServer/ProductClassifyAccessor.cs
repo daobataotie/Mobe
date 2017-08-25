@@ -27,8 +27,8 @@ namespace Book.DA.SQLServer
         public bool IsExistsKeyWordForUpdate(Model.ProductClassify productClassify)
         {
             Hashtable ht = new Hashtable();
-            ht.Add("KeyWord", productClassify.ProductClassifyId);
-            ht.Add("ProductClassifyId", productClassify.KeyWord);
+            ht.Add("ProductClassifyId", productClassify.ProductClassifyId);
+            ht.Add("KeyWord", productClassify.KeyWord);
             return sqlmapper.QueryForObject<bool>("ProductClassify.IsExistsKeyWordForUpdate", ht);
         }
     }

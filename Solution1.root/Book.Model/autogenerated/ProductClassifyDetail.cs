@@ -134,5 +134,15 @@ namespace Book.Model
 		
 
 		#endregion
+
+        private string _inumber;
+
+        public string Inumber
+        {
+            get { return _inumber; }
+            set { _inumber = value; }
+        }
+
+        public static string PRO_Inumber = "Inumber";
 	}
 }

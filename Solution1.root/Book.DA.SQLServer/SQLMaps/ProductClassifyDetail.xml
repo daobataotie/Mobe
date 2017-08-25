@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <statements>
     <select id="SelectByHeader" resultMap="ProductClassifyDetailResult" parameterClass="string">
-      select * from ProductClassifyDetail where ProductClassifyId=#value#
+      select * from ProductClassifyDetail where ProductClassifyId=#value# order by Inumber
     </select>
 
     <delete id="DeleteByHeader" parameterClass="string">

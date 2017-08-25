@@ -25,6 +25,8 @@ namespace Book.UI.Settings.BasicData.Products
             this.invalidValueExceptions.Add(Model.ProductClassify.PRO_ProductClassifyDate, new AA(Properties.Resources.DateNotNull, this.dateEdit1));
 
             this.NCCEmployee.Choose = new Employees.ChooseEmployee();
+
+            this.action = "view";
         }
 
         public ProductClassifyForm(Model.ProductClassify ProductClassify)
@@ -51,8 +53,10 @@ namespace Book.UI.Settings.BasicData.Products
         {
             this._productClassify = new Book.Model.ProductClassify();
             this._productClassify.ProductClassifyId = Guid.NewGuid().ToString();
-            this.NCCEmployee.EditValue = BL.V.ActiveOperator.Employee;
-            this.dateEdit1.EditValue = DateTime.Now;
+            //this.NCCEmployee.EditValue = BL.V.ActiveOperator.Employee;
+            //this.dateEdit1.EditValue = DateTime.Now;
+            this._productClassify.Employee = BL.V.ActiveOperator.Employee;
+            this._productClassify.ProductClassifyDate = DateTime.Now;
             this._productClassify.Details = new List<Model.ProductClassifyDetail>();
         }
 
@@ -124,7 +128,7 @@ namespace Book.UI.Settings.BasicData.Products
             {
                 if (this.action == "view")
                 {
-                    this._productClassify = this._manager.Get(this._productClassify.ProductClassifyId);
+                    this._productClassify = this._manager.GetDetail(this._productClassify.ProductClassifyId);
                 }
             }
 
@@ -163,19 +167,22 @@ namespace Book.UI.Settings.BasicData.Products
             switch (this.action)
             {
                 case "insert":
+                    if (this._manager.IsExistsKeyWordForInsert(this._productClassify))
+                        throw new Helper.MessageValueException("关键字：" + this._productClassify.KeyWord + " 已存在");
                     this._manager.Insert(this._productClassify);
                     break;
                 case "update":
+                    if (this._manager.IsExistsKeyWordForUpdate(this._productClassify))
+                        throw new Helper.MessageValueException("关键字：" + this._productClassify.KeyWord + " 已存在");
                     this._manager.Update(this._productClassify);
                     break;
             }
         }
 
-        //protected override DevExpress.XtraReports.UI.XtraReport GetReport()
-        //{
-
-        //}
-
+        protected override DevExpress.XtraReports.UI.XtraReport GetReport()
+        {
+            return new ROProductClassify(this._productClassify);
+        }
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
@@ -186,7 +193,7 @@ namespace Book.UI.Settings.BasicData.Products
                 {
                     if (this._productClassify.Details.Any(D => D.ProductId == item.ProductId))
                     {
-                        MessageBox.Show("此商品已添加", this.Text, MessageBoxButtons.OK);
+                        MessageBox.Show("商品：" + item.ProductName + " 已添加", this.Text, MessageBoxButtons.OK);
                         continue;
                     }
                     else
@@ -199,7 +206,8 @@ namespace Book.UI.Settings.BasicData.Products
                             detail.ProductClassifyId = this._productClassify.ProductClassifyId;
                             detail.ProductId = item.ProductId;
                             detail.Product = item;
-                            this._productClassify.Details.Add();
+                            detail.Inumber = (this._productClassify.Details.Count + 1).ToString();
+                            this._productClassify.Details.Add(detail);
                         }
                         else
                         {
@@ -208,6 +216,7 @@ namespace Book.UI.Settings.BasicData.Products
                         }
                     }
                 }
+                this.gridControl1.RefreshDataSource();
             }
         }
 

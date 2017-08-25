@@ -9567,6 +9567,10 @@
       <DependentUpon>RO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\BasicData\Products\ROProductClassify.resx">
+      <DependentUpon>ROProductClassify.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings\BasicData\ProductUnit\ChooseProductUnitForm.resx">
       <DependentUpon>ChooseProductUnitForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -12477,6 +12481,12 @@
     </Compile>
     <Compile Include="Settings\BasicData\Products\RO.Designer.cs">
       <DependentUpon>RO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\BasicData\Products\ROProductClassify.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings\BasicData\Products\ROProductClassify.Designer.cs">
+      <DependentUpon>ROProductClassify.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\BasicData\ROcustomerlist.cs">
       <SubType>Component</SubType>
