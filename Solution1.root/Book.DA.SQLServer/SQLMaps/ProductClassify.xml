@@ -12,5 +12,9 @@
       select case when exists(select * from ProductClassify where KeyWord=#KeyWord# and ProductClassifyId<>#ProductClassifyId#)then 1 else 0 end
       ]]>
     </select>
+
+    <select id="SelectAllKeyWord" resultClass="string">
+      select KeyWord from ProductClassify
+    </select>
   </statements>
 </sqlMap>

@@ -20,5 +20,6 @@ namespace Book.DA
 
         bool IsExistsKeyWordForUpdate(Model.ProductClassify productClassify);
 
+        IList<string> SelectAllKeyWord();
     }
 }

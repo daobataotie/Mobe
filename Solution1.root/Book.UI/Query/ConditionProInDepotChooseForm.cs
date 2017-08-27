@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Linq;
+using Microsoft.Office.Interop.Excel;
 
 namespace Book.UI.Query
 {
@@ -24,6 +26,7 @@ namespace Book.UI.Query
         //Q51  生產領料單
         private ConditionProInDepotChoose condition;
         BL.PronoteHeaderManager pronoteManager = new BL.PronoteHeaderManager();
+        BL.ProduceInDepotManager produceInDepotManager = new Book.BL.ProduceInDepotManager();
 
         public ConditionProInDepotChooseForm()
         {
@@ -34,6 +37,12 @@ namespace Book.UI.Query
             this.newChooseCustomer2.Choose = new Settings.BasicData.Customs.ChooseCustoms();
             this.dateEdit1.DateTime = DateTime.Now.Date.AddMonths(-1);
             this.dateEdit2.DateTime = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
+
+            IList<string> listKeyWord = new BL.ProductClassifyManager().SelectAllKeyWord();
+            foreach (var item in listKeyWord)
+            {
+                this.checkedComboBoxEdit1.Properties.Items.Add(item);
+            }
         }
 
         public override Condition Condition
@@ -162,5 +171,129 @@ namespace Book.UI.Query
             }
 
         }
+
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            if (this.dateEdit1.EditValue == null || this.dateEdit2.EditValue == null)
+            {
+                MessageBox.Show("请选择日期区间", "提示", MessageBoxButtons.OK);
+                return;
+            }
+            if (this.newChooseWorkHouse.EditValue == null)
+            {
+                MessageBox.Show("请选择部门", "提示", MessageBoxButtons.OK);
+                return;
+            }
+            string selectedItem = this.checkedComboBoxEdit1.Text;
+            if (string.IsNullOrEmpty(selectedItem))
+            {
+                MessageBox.Show("请选择商品关键字", "提示", MessageBoxButtons.OK);
+                return;
+            }
+            string[] tems = selectedItem.Split(',');
+            List<Model.ProduceInDepot> listProduceInDepot = new List<Book.Model.ProduceInDepot>();
+            List<HelpExcel> listHelpExcel = new List<HelpExcel>();
+            foreach (var keyword in tems)
+            {
+                if (!string.IsNullOrEmpty(keyword.Trim()))
+                {
+                    var list = this.produceInDepotManager.SelectExcel(this.dateEdit1.DateTime, this.dateEdit2.DateTime, (this.newChooseWorkHouse.EditValue as Model.WorkHouse).WorkHouseId, keyword);
+                    if (list != null && list.Count > 0)
+                    {
+                        HelpExcel he = new HelpExcel();
+                        he.ProceduresSum = list.Sum(P => P.ProceduresSum);
+                        he.CheckOutSum = list.Sum(P => P.CheckOutSum);
+                        he.ProduceTransferQuantity = list.Sum(P => P.ProduceTransferQuantity);
+                        he.ProduceQuantity = list.Sum(P => P.ProduceQuantity);
+                        he.ProductName = keyword;
+                        listHelpExcel.Add(he);
+
+                        listProduceInDepot.AddRange(list);
+                    }
+                }
+            }
+            if (listProduceInDepot.Count == 0)
+            {
+                MessageBox.Show("无数据", "提示", MessageBoxButtons.OK);
+                return;
+            }
+
+            #region Generate Excel
+
+            Type objClassType = null;
+            objClassType = Type.GetTypeFromProgID("Excel.Application");
+            if (objClassType == null)
+            {
+                MessageBox.Show("本機沒有安裝Excel", "提示！", MessageBoxButtons.OK);
+                return;
+            }
+
+            try
+            {
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Application.Workbooks.Add(true);
+                excel.Cells.ColumnWidth = 12;
+                excel.Rows.RowHeight = 20;
+
+                #region 表頭
+                //excel.get_Range(excel.Cells[1, 1], excel.Cells[1 + dt.Rows.Count, 10]).Borders.LineStyle = XlLineStyle.xlContinuous;
+                //excel.get_Range(excel.Cells[1, 1], excel.Cells[1 + dt.Rows.Count, 10]).HorizontalAlignment = XlHAlign.xlHAlignLeft;
+                excel.get_Range(excel.Cells[1, 2], excel.Cells[1, 2]).ColumnWidth = 40;
+                excel.Cells[1, 1] = "部門";
+                excel.Cells[1, 2] = "商品名稱";
+                excel.Cells[1, 3] = "生產數量";
+                excel.Cells[1, 4] = "良品數量";
+                excel.Cells[1, 5] = "轉生產數量";
+                excel.Cells[1, 6] = "入庫數量";
+                #endregion
+
+                string workHouseName = (this.newChooseWorkHouse.EditValue as Model.WorkHouse).Workhousename;
+                for (int i = 0; i < listHelpExcel.Count; i++)
+                {
+                    excel.Cells[i + 2, 1] = workHouseName;
+                    excel.Cells[i + 2, 2] = listHelpExcel[i].ProductName;
+                    excel.Cells[i + 2, 3] = listHelpExcel[i].ProceduresSum;
+                    excel.Cells[i + 2, 4] = listHelpExcel[i].CheckOutSum;
+                    excel.Cells[i + 2, 5] = listHelpExcel[i].ProduceTransferQuantity;
+                    excel.Cells[i + 2, 6] = listHelpExcel[i].ProduceQuantity;
+
+                }
+
+                excel.Cells[listHelpExcel.Count + 7, 1] = "详细数据：";
+                for (int i = 0; i < listProduceInDepot.Count; i++)
+                {
+                    excel.Cells[listHelpExcel.Count + i + 8, 1] = workHouseName;
+                    excel.Cells[listHelpExcel.Count + i + 8, 2] = listProduceInDepot[i].ProductName;
+                    excel.Cells[listHelpExcel.Count + i + 8, 3] = listProduceInDepot[i].ProceduresSum;
+                    excel.Cells[listHelpExcel.Count + i + 8, 4] = listProduceInDepot[i].CheckOutSum;
+                    excel.Cells[listHelpExcel.Count + i + 8, 5] = listProduceInDepot[i].ProduceTransferQuantity;
+                    excel.Cells[listHelpExcel.Count + i + 8, 6] = listProduceInDepot[i].ProduceQuantity;
+                }
+
+                excel.Visible = true;
+            }
+            catch
+            {
+                MessageBox.Show("Excel未生成完畢，請勿操作，并重新點擊按鈕生成數據！", "提示！", MessageBoxButtons.OK);
+                return;
+            }
+
+            #endregion
+        }
+    }
+
+    internal class HelpExcel
+    {
+        public string Workhousename { get; set; }
+
+        public string ProductName { get; set; }
+
+        public double ProceduresSum { get; set; }
+
+        public double CheckOutSum { get; set; }
+
+        public double ProduceTransferQuantity { get; set; }
+
+        public double ProduceQuantity { get; set; }
     }
 }

@@ -311,6 +311,11 @@ namespace Book.BL
         {
             return accessor.SelectByDateRange(stardate, enddate);
         }
+
+        public IList<Model.ProduceInDepot> SelectExcel(DateTime startDate, DateTime endDate, string workHouseId, string keyWords)
+        {
+            return accessor.SelectExcel(startDate, endDate, workHouseId, keyWords);
+        }
     }
 }
 

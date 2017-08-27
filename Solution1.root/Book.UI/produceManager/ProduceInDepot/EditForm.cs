@@ -682,71 +682,76 @@ namespace Book.UI.produceManager.ProduceInDepot
         //打印月统计表
         private void barBtnPrintMonth_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Query.ConditionProInDepotChooseForm f = new Book.UI.Query.ConditionProInDepotChooseForm();
-            if (f.ShowDialog(this) == DialogResult.OK)
-            {
-                Query.ConditionProInDepotChoose condition = f.Condition as Query.ConditionProInDepotChoose;
-                IList<Model.ProduceInDepotDetail> list = this.produceInDepotDetailManager.Select(condition.StartPronoteHeader, condition.EndPronoteHeader, condition.StartDate, condition.EndDate, condition.Product, condition.WorkHouse, condition.MDepot, condition.MDepotPosition, condition.Id1, condition.Id2, condition.Cusxoid, condition.Customer1, condition.Customer2, condition.ProductState);
-                if (list == null || list.Count <= 0)
-                {
-                    MessageBox.Show("無符合條件數據記錄");
-                }
-                else
-                {
-                    var sumList = from Model.ProduceInDepotDetail item in list
-                                  group item by item.ProductId;
-                    IList<Model.ProduceInDepotDetail> printlist = new List<Model.ProduceInDepotDetail>();
-                    foreach (IGrouping<string, Model.ProduceInDepotDetail> g in sumList)
-                    {
-                        Model.ProduceInDepotDetail d = new Book.Model.ProduceInDepotDetail();
-                        d.ProductId = g.First().ProductId;
-                        d.Product = g.First().Product;
-                        d.ProduceInDepotId = g.First().ProduceInDepotId;
-                        d.ProduceInDepot = g.First().ProduceInDepot;
-                        d.ProceduresSum = (from i in g select i.ProceduresSum).Sum();
-                        d.CheckOutSum = (from i in g select i.CheckOutSum).Sum();
-                        string nocheck = (d.NoHegeQuantity / (d.ProceduresSum.HasValue && d.ProceduresSum != 0 ? d.ProceduresSum : 1)).Value.ToString("0.#%");
-                        d.RejectionRate_1 = nocheck;
-                        d.ProductUnit = g.First().ProductUnit;
-                        d.HeiDian = (from i in g select i.HeiDian).Sum();
-                        d.ZaZhi = (from i in g select i.ZaZhi).Sum();
-                        d.mPaoguanwenti = (from i in g select i.mPaoguanwenti).Sum();
-                        d.mJingdiangudingdian = (from i in g select i.mJingdiangudingdian).Sum();
-                        d.mJingdiangudingdian = (from i in g select i.mJingdiangudingdian).Sum();
-                        d.mWanMocashang = (from i in g select i.mWanMocashang).Sum();
-                        d.mSuoShui = (from i in g select i.mSuoShui).Sum();
-                        d.mHuabancashang = (from i in g select i.mHuabancashang).Sum();
-                        d.mQianghuafangwuxian = (from i in g select i.mQianghuafangwuxian).Sum();
-                        d.mBaiyanHeiYan = (from i in g select i.mBaiyanHeiYan).Sum();
-                        d.HeiDian = (from i in g select i.HeiDian).Sum();
-                        d.mJieHeXianHuiwen = (from i in g select i.mJieHeXianHuiwen).Sum();
-                        d.mYuanliaowenti = (from i in g select i.mYuanliaowenti).Sum();
-                        d.mQiPao = (from i in g select i.mQiPao).Sum();
-                        d.mShechuqita = (from i in g select i.mShechuqita).Sum();
-                        d.mGuaiShouZhuangShang = (from i in g select i.mGuaiShouZhuangShang).Sum();
-                        d.mChaipiancashang = (from i in g select i.mChaipiancashang).Sum();
-                        d.mCaMoSunHua = (from i in g select i.mCaMoSunHua).Sum();
-                        d.mChouliaowenti = (from i in g select i.mChouliaowenti).Sum();
-                        d.mHeidianzazhi = (from i in g select i.mHeidianzazhi).Sum();
-                        d.mQianghuaqiancashang = (from i in g select i.mQianghuaqiancashang).Sum();
-                        d.mKeLimianxu = (from i in g select i.mKeLimianxu).Sum();
-                        d.mLiuheng = (from i in g select i.mLiuheng).Sum();
-                        d.mPengYaodiyao = (from i in g select i.mPengYaodiyao).Sum();
-                        d.mGuohuojizhua = (from i in g select i.mGuohuojizhua).Sum();
-                        d.mYoudian = (from i in g select i.mYoudian).Sum();
-                        d.mChangshangbuliang = (from i in g select i.mChangshangbuliang).Sum();
-                        d.mQianghuaQiTa = (from i in g select i.mQianghuaQiTa).Sum();
-                        d.mZuzhuangcashang = (from i in g select i.mZuzhuangcashang).Sum();
-                        d.mHanyao = (from i in g select i.mHanyao).Sum();
-                        d.mCashang = (from i in g select i.mCashang).Sum();
-                        d.mQianghuahoucashang = (from i in g select i.mQianghuahoucashang).Sum();
+            #region 2017年8月27日22:06:33 不用了
+            //Query.ConditionProInDepotChooseForm f = new Book.UI.Query.ConditionProInDepotChooseForm();
+            //if (f.ShowDialog(this) == DialogResult.OK)
+            //{
+            //    Query.ConditionProInDepotChoose condition = f.Condition as Query.ConditionProInDepotChoose;
+            //    IList<Model.ProduceInDepotDetail> list = this.produceInDepotDetailManager.Select(condition.StartPronoteHeader, condition.EndPronoteHeader, condition.StartDate, condition.EndDate, condition.Product, condition.WorkHouse, condition.MDepot, condition.MDepotPosition, condition.Id1, condition.Id2, condition.Cusxoid, condition.Customer1, condition.Customer2, condition.ProductState);
+            //    if (list == null || list.Count <= 0)
+            //    {
+            //        MessageBox.Show("無符合條件數據記錄");
+            //    }
+            //    else
+            //    {
+            //        var sumList = from Model.ProduceInDepotDetail item in list
+            //                      group item by item.ProductId;
+            //        IList<Model.ProduceInDepotDetail> printlist = new List<Model.ProduceInDepotDetail>();
+            //        foreach (IGrouping<string, Model.ProduceInDepotDetail> g in sumList)
+            //        {
+            //            Model.ProduceInDepotDetail d = new Book.Model.ProduceInDepotDetail();
+            //            d.ProductId = g.First().ProductId;
+            //            d.Product = g.First().Product;
+            //            d.ProduceInDepotId = g.First().ProduceInDepotId;
+            //            d.ProduceInDepot = g.First().ProduceInDepot;
+            //            d.ProceduresSum = (from i in g select i.ProceduresSum).Sum();
+            //            d.CheckOutSum = (from i in g select i.CheckOutSum).Sum();
+            //            string nocheck = (d.NoHegeQuantity / (d.ProceduresSum.HasValue && d.ProceduresSum != 0 ? d.ProceduresSum : 1)).Value.ToString("0.#%");
+            //            d.RejectionRate_1 = nocheck;
+            //            d.ProductUnit = g.First().ProductUnit;
+            //            d.HeiDian = (from i in g select i.HeiDian).Sum();
+            //            d.ZaZhi = (from i in g select i.ZaZhi).Sum();
+            //            d.mPaoguanwenti = (from i in g select i.mPaoguanwenti).Sum();
+            //            d.mJingdiangudingdian = (from i in g select i.mJingdiangudingdian).Sum();
+            //            d.mJingdiangudingdian = (from i in g select i.mJingdiangudingdian).Sum();
+            //            d.mWanMocashang = (from i in g select i.mWanMocashang).Sum();
+            //            d.mSuoShui = (from i in g select i.mSuoShui).Sum();
+            //            d.mHuabancashang = (from i in g select i.mHuabancashang).Sum();
+            //            d.mQianghuafangwuxian = (from i in g select i.mQianghuafangwuxian).Sum();
+            //            d.mBaiyanHeiYan = (from i in g select i.mBaiyanHeiYan).Sum();
+            //            d.HeiDian = (from i in g select i.HeiDian).Sum();
+            //            d.mJieHeXianHuiwen = (from i in g select i.mJieHeXianHuiwen).Sum();
+            //            d.mYuanliaowenti = (from i in g select i.mYuanliaowenti).Sum();
+            //            d.mQiPao = (from i in g select i.mQiPao).Sum();
+            //            d.mShechuqita = (from i in g select i.mShechuqita).Sum();
+            //            d.mGuaiShouZhuangShang = (from i in g select i.mGuaiShouZhuangShang).Sum();
+            //            d.mChaipiancashang = (from i in g select i.mChaipiancashang).Sum();
+            //            d.mCaMoSunHua = (from i in g select i.mCaMoSunHua).Sum();
+            //            d.mChouliaowenti = (from i in g select i.mChouliaowenti).Sum();
+            //            d.mHeidianzazhi = (from i in g select i.mHeidianzazhi).Sum();
+            //            d.mQianghuaqiancashang = (from i in g select i.mQianghuaqiancashang).Sum();
+            //            d.mKeLimianxu = (from i in g select i.mKeLimianxu).Sum();
+            //            d.mLiuheng = (from i in g select i.mLiuheng).Sum();
+            //            d.mPengYaodiyao = (from i in g select i.mPengYaodiyao).Sum();
+            //            d.mGuohuojizhua = (from i in g select i.mGuohuojizhua).Sum();
+            //            d.mYoudian = (from i in g select i.mYoudian).Sum();
+            //            d.mChangshangbuliang = (from i in g select i.mChangshangbuliang).Sum();
+            //            d.mQianghuaQiTa = (from i in g select i.mQianghuaQiTa).Sum();
+            //            d.mZuzhuangcashang = (from i in g select i.mZuzhuangcashang).Sum();
+            //            d.mHanyao = (from i in g select i.mHanyao).Sum();
+            //            d.mCashang = (from i in g select i.mCashang).Sum();
+            //            d.mQianghuahoucashang = (from i in g select i.mQianghuahoucashang).Sum();
 
-                        printlist.Add(d);
-                    }
-                    //ROProuceInDepotDefectRate qsp = new ROProuceInDepotDefectRate(printlist, condition.ProductState, condition.StartDate.Year.ToString() + "年" + condition.StartDate.Month.ToString() + "月" + condition.StartDate.Day.ToString() + "~" + condition.EndDate.Year.ToString() + "年" + condition.EndDate.Month.ToString() + "月" + condition.EndDate.Day.ToString());
-                    //qsp.ShowPreviewDialog();
-                }
-            }
+            //            printlist.Add(d);
+            //        }
+            //        //ROProuceInDepotDefectRate qsp = new ROProuceInDepotDefectRate(printlist, condition.ProductState, condition.StartDate.Year.ToString() + "年" + condition.StartDate.Month.ToString() + "月" + condition.StartDate.Day.ToString() + "~" + condition.EndDate.Year.ToString() + "年" + condition.EndDate.Month.ToString() + "月" + condition.EndDate.Day.ToString());
+            //        //qsp.ShowPreviewDialog();
+            //    }
+            //}
+            #endregion
+
+            Query.ConditionProInDepotChooseForm f = new Book.UI.Query.ConditionProInDepotChooseForm();
+            f.ShowDialog(this);
         }
 
         //设置排列序号

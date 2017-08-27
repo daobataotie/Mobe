@@ -121,5 +121,9 @@ namespace Book.BL
             return accessor.IsExistsKeyWordForUpdate(productClassify);
         }
 
+        public IList<string> SelectAllKeyWord()
+        {
+            return accessor.SelectAllKeyWord();
+        }
     }
 }

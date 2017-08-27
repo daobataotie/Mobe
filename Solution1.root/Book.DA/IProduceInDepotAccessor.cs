@@ -17,6 +17,7 @@ namespace Book.DA
     public partial interface IProduceInDepotAccessor : IAccessor
     {
         IList<Model.ProduceInDepot> SelectByDateRange(DateTime stardate, DateTime enddate);
+        IList<Model.ProduceInDepot> SelectExcel(DateTime startDate, DateTime endDate, string workHouseId, string keyWords);
     }
 }
 

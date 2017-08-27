@@ -22,5 +22,16 @@ namespace Book.Model
             set { details = value; }
         }
 
+        public string Workhousename { get; set; }
+
+        public string ProductName { get; set; }
+
+        public double ProceduresSum { get; set; }
+
+        public double CheckOutSum { get; set; }
+
+        public double ProduceTransferQuantity { get; set; }
+
+        public double ProduceQuantity { get; set; }
     }
 }

@@ -31,5 +31,10 @@ namespace Book.DA.SQLServer
             ht.Add("KeyWord", productClassify.KeyWord);
             return sqlmapper.QueryForObject<bool>("ProductClassify.IsExistsKeyWordForUpdate", ht);
         }
+
+        public IList<string> SelectAllKeyWord()
+        {
+            return sqlmapper.QueryForList<string>("ProductClassify.SelectAllKeyWord", null);
+        }
     }
 }
