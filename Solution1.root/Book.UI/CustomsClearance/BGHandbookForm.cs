@@ -318,7 +318,8 @@ namespace Book.UI.CustomsClearance
                                             if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 3]).Text.ToString() != "")
                                             {
                                                 detail1.Id = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 1]).Text.ToString());
-                                                beeQuantity = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 6]).Text.ToString());
+                                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 6]).Text.ToString() != "")
+                                                    beeQuantity = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 6]).Text.ToString());
                                                 break;
                                             }
                                         }
@@ -336,8 +337,8 @@ namespace Book.UI.CustomsClearance
                                         if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 13]).Text.ToString() != "")
                                             detail1.Lsunhaolv = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 13]).Text.ToString());
 
-                                        detail1.LiLunHaoYongJing = (double)GetDecimal(beeQuantity * decimal.Parse(detail1.LjingQuantity.ToString()), 2);
-                                        detail1.LiLunHaoYongJingSun = (double)GetDecimal(beeQuantity * decimal.Parse(detail1.LjingQuantity.ToString()) / (1 - decimal.Parse(detail1.Lsunhaolv.ToString()) * 0.01M), 2);
+                                        detail1.LiLunHaoYongJing = (double)GetDecimal(beeQuantity * Convert.ToDecimal(detail1.LjingQuantity), 2);
+                                        detail1.LiLunHaoYongJingSun = (double)GetDecimal(beeQuantity * Convert.ToDecimal(detail1.LjingQuantity) / (1 - decimal.Parse(detail1.Lsunhaolv.ToString()) * 0.01M), 2);
 
 
 
@@ -491,6 +492,7 @@ namespace Book.UI.CustomsClearance
                 {
                     BL.V.RollbackTransaction();
                     ec.Close();
+                    string s = ex.TargetSite.ToString();
                     throw ex;
 
                 }
