@@ -16,5 +16,9 @@
     <select id="SelectAllKeyWord" resultClass="string">
       select KeyWord from ProductClassify
     </select>
+
+    <select id="SelectCondtidion" resultMap="ProductClassifyResult" parameterClass="string">
+      select * from ProductClassify where ProductClassifyDate between #startDate# and #endDate# $sql$
+    </select>
   </statements>
 </sqlMap>

@@ -64,9 +64,9 @@ namespace Book.BL
             return accessor.SelectByCondition(startDate, endDate, DepotOutIdStart, DepotOutIdEnd, depotStart, depotEnd);
         }
 
-        public DataTable SelectOutAndInDepot(DateTime startDate, DateTime endDate, string depotStart, string depotEnd, string productNameStart, string productNameEnd, string productCategoryStart, string productCategoryEnd, string ProductIdStart, string ProductIdEnd)
+        public DataTable SelectOutAndInDepot(DateTime startDate, DateTime endDate, string depotStart, string depotEnd, string productCategoryStart, string productCategoryEnd, string ProductIdStart, string ProductIdEnd)
         {
-            return accessor.SelectOutAndInDepot(startDate, endDate, depotStart, depotEnd, productNameStart, productNameEnd, productCategoryStart, productCategoryEnd, ProductIdStart, ProductIdEnd);
+            return accessor.SelectOutAndInDepot(startDate, endDate, depotStart, depotEnd,  productCategoryStart, productCategoryEnd, ProductIdStart, ProductIdEnd);
         }
 
         public IList<Model.DepotOutDetail> SelectByDepotOutId(string id)

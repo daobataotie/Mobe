@@ -228,5 +228,11 @@ namespace Book.UI.Settings.BasicData.Products
                 this.gridControl1.RefreshDataSource();
             }
         }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ListProductClassify f = new ListProductClassify();
+            f.ShowDialog(this);
+        }
     }
 }

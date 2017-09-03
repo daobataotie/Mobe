@@ -745,6 +745,7 @@ namespace Book.UI
             //雪鏡專用EN外銷報告
             operations.Add("produceManager.PCExportReportANSI.XuejingENForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCExportReportANSI.XuejingENForm", form); });
 
+            //商品关键字分类
             operations.Add("Settings.BasicData.Products.ProductClassifyForm", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.BasicData.Products.ProductClassifyForm", form); });
         }
 

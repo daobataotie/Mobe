@@ -51,10 +51,6 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txt_ProductIdStart = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txt_ProductIdEnd = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpProductCategoryEnd.Properties)).BeginInit();
@@ -79,10 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ProductIdStart.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ProductIdEnd.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.SuspendLayout();
             // 
             // simpleButtonOK
@@ -96,8 +88,6 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.txt_ProductIdEnd);
-            this.layoutControl1.Controls.Add(this.txt_ProductIdStart);
             this.layoutControl1.Controls.Add(this.lookUpProductCategoryEnd);
             this.layoutControl1.Controls.Add(this.LookUpProductCategoryStart);
             this.layoutControl1.Controls.Add(this.btn_ProductNameEnd);
@@ -225,12 +215,10 @@
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.layoutControlItem7,
-            this.layoutControlItem8,
-            this.layoutControlItem9,
-            this.layoutControlItem10});
+            this.layoutControlItem8});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(520, 184);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(520, 165);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -255,9 +243,9 @@
             // emptySpaceItem4
             // 
             resources.ApplyResources(this.emptySpaceItem4, "emptySpaceItem4");
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 125);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 100);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(500, 39);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(500, 45);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -314,36 +302,6 @@
             this.layoutControlItem8.Size = new System.Drawing.Size(250, 25);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(80, 14);
             // 
-            // txt_ProductIdStart
-            // 
-            resources.ApplyResources(this.txt_ProductIdStart, "txt_ProductIdStart");
-            this.txt_ProductIdStart.Name = "txt_ProductIdStart";
-            this.txt_ProductIdStart.StyleController = this.layoutControl1;
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.txt_ProductIdStart;
-            resources.ApplyResources(this.layoutControlItem9, "layoutControlItem9");
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 100);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(250, 25);
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(80, 14);
-            // 
-            // txt_ProductIdEnd
-            // 
-            resources.ApplyResources(this.txt_ProductIdEnd, "txt_ProductIdEnd");
-            this.txt_ProductIdEnd.Name = "txt_ProductIdEnd";
-            this.txt_ProductIdEnd.StyleController = this.layoutControl1;
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.txt_ProductIdEnd;
-            resources.ApplyResources(this.layoutControlItem10, "layoutControlItem10");
-            this.layoutControlItem10.Location = new System.Drawing.Point(250, 100);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(250, 25);
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(80, 14);
-            // 
             // OutAndInDepotForm
             // 
             resources.ApplyResources(this, "$this");
@@ -377,10 +335,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ProductIdStart.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ProductIdEnd.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -408,9 +362,5 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private System.Windows.Forms.BindingSource bindingSourceProductCategory;
-        private DevExpress.XtraEditors.TextEdit txt_ProductIdEnd;
-        private DevExpress.XtraEditors.TextEdit txt_ProductIdStart;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
     }
 }

@@ -36,5 +36,16 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForList<string>("ProductClassify.SelectAllKeyWord", null);
         }
+
+        public IList<Model.ProductClassify> SelectCondtidion(DateTime startDate, DateTime endDate, string keyWord)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("startDate", startDate.Date);
+            ht.Add("endDate", endDate.Date.AddDays(1).AddSeconds(-1));
+
+            if (!string.IsNullOrEmpty(keyWord))
+                ht.Add("sql", " and KeyWord='" + keyWord + "'");
+            return sqlmapper.QueryForList<Model.ProductClassify>("ProductClassify.SelectCondtidion", ht);
+        }
     }
 }

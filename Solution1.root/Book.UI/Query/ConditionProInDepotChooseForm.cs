@@ -238,24 +238,26 @@ namespace Book.UI.Query
                 #region 表頭
                 //excel.get_Range(excel.Cells[1, 1], excel.Cells[1 + dt.Rows.Count, 10]).Borders.LineStyle = XlLineStyle.xlContinuous;
                 //excel.get_Range(excel.Cells[1, 1], excel.Cells[1 + dt.Rows.Count, 10]).HorizontalAlignment = XlHAlign.xlHAlignLeft;
-                excel.get_Range(excel.Cells[1, 2], excel.Cells[1, 2]).ColumnWidth = 40;
+                excel.get_Range(excel.Cells[1, 3], excel.Cells[1, 3]).ColumnWidth = 40;
                 excel.Cells[1, 1] = "部門";
-                excel.Cells[1, 2] = "商品名稱";
-                excel.Cells[1, 3] = "生產數量";
-                excel.Cells[1, 4] = "良品數量";
-                excel.Cells[1, 5] = "轉生產數量";
-                excel.Cells[1, 6] = "入庫數量";
+                excel.Cells[1, 2] = "日期";
+                excel.Cells[1, 3] = "商品名稱";
+                excel.Cells[1, 4] = "生產數量";
+                excel.Cells[1, 5] = "良品數量";
+                excel.Cells[1, 6] = "轉生產數量";
+                excel.Cells[1, 7] = "入庫數量";
                 #endregion
 
                 string workHouseName = (this.newChooseWorkHouse.EditValue as Model.WorkHouse).Workhousename;
                 for (int i = 0; i < listHelpExcel.Count; i++)
                 {
                     excel.Cells[i + 2, 1] = workHouseName;
-                    excel.Cells[i + 2, 2] = listHelpExcel[i].ProductName;
-                    excel.Cells[i + 2, 3] = listHelpExcel[i].ProceduresSum;
-                    excel.Cells[i + 2, 4] = listHelpExcel[i].CheckOutSum;
-                    excel.Cells[i + 2, 5] = listHelpExcel[i].ProduceTransferQuantity;
-                    excel.Cells[i + 2, 6] = listHelpExcel[i].ProduceQuantity;
+                    //excel.Cells[i + 2, 2] = "";
+                    excel.Cells[i + 2, 3] = listHelpExcel[i].ProductName;
+                    excel.Cells[i + 2, 4] = listHelpExcel[i].ProceduresSum;
+                    excel.Cells[i + 2, 5] = listHelpExcel[i].CheckOutSum;
+                    excel.Cells[i + 2, 6] = listHelpExcel[i].ProduceTransferQuantity;
+                    excel.Cells[i + 2, 7] = listHelpExcel[i].ProduceQuantity;
 
                 }
 
@@ -263,11 +265,12 @@ namespace Book.UI.Query
                 for (int i = 0; i < listProduceInDepot.Count; i++)
                 {
                     excel.Cells[listHelpExcel.Count + i + 8, 1] = workHouseName;
-                    excel.Cells[listHelpExcel.Count + i + 8, 2] = listProduceInDepot[i].ProductName;
-                    excel.Cells[listHelpExcel.Count + i + 8, 3] = listProduceInDepot[i].ProceduresSum;
-                    excel.Cells[listHelpExcel.Count + i + 8, 4] = listProduceInDepot[i].CheckOutSum;
-                    excel.Cells[listHelpExcel.Count + i + 8, 5] = listProduceInDepot[i].ProduceTransferQuantity;
-                    excel.Cells[listHelpExcel.Count + i + 8, 6] = listProduceInDepot[i].ProduceQuantity;
+                    excel.Cells[listHelpExcel.Count + i + 8, 2] = listProduceInDepot[i].ProduceInDepotDate.HasValue ? listProduceInDepot[i].ProduceInDepotDate.Value.ToString("yyyy-MM-dd") : "";
+                    excel.Cells[listHelpExcel.Count + i + 8, 3] = listProduceInDepot[i].ProductName;
+                    excel.Cells[listHelpExcel.Count + i + 8, 4] = listProduceInDepot[i].ProceduresSum;
+                    excel.Cells[listHelpExcel.Count + i + 8, 5] = listProduceInDepot[i].CheckOutSum;
+                    excel.Cells[listHelpExcel.Count + i + 8, 6] = listProduceInDepot[i].ProduceTransferQuantity;
+                    excel.Cells[listHelpExcel.Count + i + 8, 7] = listProduceInDepot[i].ProduceQuantity;
                 }
 
                 excel.Visible = true;

@@ -21,5 +21,7 @@ namespace Book.DA
         bool IsExistsKeyWordForUpdate(Model.ProductClassify productClassify);
 
         IList<string> SelectAllKeyWord();
+
+        IList<Model.ProductClassify> SelectCondtidion(DateTime startDate, DateTime endDate, string keyWord);
     }
 }

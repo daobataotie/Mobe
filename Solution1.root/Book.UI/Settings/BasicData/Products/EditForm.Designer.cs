@@ -512,6 +512,8 @@ namespace Book.UI.Settings.BasicData.Products
             this.barButtonItemList = new DevExpress.XtraBars.BarButtonItem();
             this.layoutControlItem161 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem18 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.btn_ExportExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem167 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -938,6 +940,7 @@ namespace Book.UI.Settings.BasicData.Products
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem167)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -5496,6 +5499,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             // layoutControl12
             // 
+            this.layoutControl12.Controls.Add(this.btn_ExportExcel);
             this.layoutControl12.Controls.Add(this.calcEditStock1);
             this.layoutControl12.Controls.Add(this.calcEditStock0);
             this.layoutControl12.Controls.Add(this.simpleButtonStock);
@@ -5704,7 +5708,8 @@ namespace Book.UI.Settings.BasicData.Products
             this.layoutControlItem92,
             this.layoutControlItem93,
             this.layoutControlItem95,
-            this.layoutControlItem96});
+            this.layoutControlItem96,
+            this.layoutControlItem167});
             this.layoutControlGroup13.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup13.Name = "Root";
             this.layoutControlGroup13.Size = new System.Drawing.Size(674, 388);
@@ -5726,7 +5731,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem91.Control = this.dateEditStockEnd;
             resources.ApplyResources(this.layoutControlItem91, "layoutControlItem91");
-            this.layoutControlItem91.Location = new System.Drawing.Point(150, 0);
+            this.layoutControlItem91.Location = new System.Drawing.Point(137, 0);
             this.layoutControlItem91.Name = "layoutControlItem91";
             this.layoutControlItem91.Size = new System.Drawing.Size(153, 26);
             this.layoutControlItem91.TextSize = new System.Drawing.Size(52, 14);
@@ -5737,14 +5742,14 @@ namespace Book.UI.Settings.BasicData.Products
             resources.ApplyResources(this.layoutControlItem92, "layoutControlItem92");
             this.layoutControlItem92.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem92.Name = "layoutControlItem92";
-            this.layoutControlItem92.Size = new System.Drawing.Size(150, 26);
+            this.layoutControlItem92.Size = new System.Drawing.Size(137, 26);
             this.layoutControlItem92.TextSize = new System.Drawing.Size(52, 14);
             // 
             // layoutControlItem93
             // 
             this.layoutControlItem93.Control = this.simpleButtonStock;
             resources.ApplyResources(this.layoutControlItem93, "layoutControlItem93");
-            this.layoutControlItem93.Location = new System.Drawing.Point(303, 0);
+            this.layoutControlItem93.Location = new System.Drawing.Point(290, 0);
             this.layoutControlItem93.Name = "layoutControlItem93";
             this.layoutControlItem93.Size = new System.Drawing.Size(56, 26);
             this.layoutControlItem93.TextSize = new System.Drawing.Size(0, 0);
@@ -5755,18 +5760,18 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem95.Control = this.calcEditStock0;
             resources.ApplyResources(this.layoutControlItem95, "layoutControlItem95");
-            this.layoutControlItem95.Location = new System.Drawing.Point(359, 0);
+            this.layoutControlItem95.Location = new System.Drawing.Point(346, 0);
             this.layoutControlItem95.Name = "layoutControlItem95";
-            this.layoutControlItem95.Size = new System.Drawing.Size(148, 26);
+            this.layoutControlItem95.Size = new System.Drawing.Size(118, 26);
             this.layoutControlItem95.TextSize = new System.Drawing.Size(52, 14);
             // 
             // layoutControlItem96
             // 
             this.layoutControlItem96.Control = this.calcEditStock1;
             resources.ApplyResources(this.layoutControlItem96, "layoutControlItem96");
-            this.layoutControlItem96.Location = new System.Drawing.Point(507, 0);
+            this.layoutControlItem96.Location = new System.Drawing.Point(464, 0);
             this.layoutControlItem96.Name = "layoutControlItem96";
-            this.layoutControlItem96.Size = new System.Drawing.Size(147, 26);
+            this.layoutControlItem96.Size = new System.Drawing.Size(123, 26);
             this.layoutControlItem96.TextSize = new System.Drawing.Size(52, 14);
             // 
             // dataLayoutControl1
@@ -5963,6 +5968,24 @@ namespace Book.UI.Settings.BasicData.Products
             this.emptySpaceItem18.Name = "emptySpaceItem18";
             this.emptySpaceItem18.Size = new System.Drawing.Size(654, 23);
             this.emptySpaceItem18.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // btn_ExportExcel
+            // 
+            resources.ApplyResources(this.btn_ExportExcel, "btn_ExportExcel");
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.StyleController = this.layoutControl12;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
+            // layoutControlItem167
+            // 
+            this.layoutControlItem167.Control = this.btn_ExportExcel;
+            resources.ApplyResources(this.layoutControlItem167, "layoutControlItem167");
+            this.layoutControlItem167.Location = new System.Drawing.Point(587, 0);
+            this.layoutControlItem167.Name = "layoutControlItem167";
+            this.layoutControlItem167.Size = new System.Drawing.Size(67, 26);
+            this.layoutControlItem167.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem167.TextToControlDistance = 0;
+            this.layoutControlItem167.TextVisible = false;
             // 
             // EditForm
             // 
@@ -6400,6 +6423,7 @@ namespace Book.UI.Settings.BasicData.Products
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem167)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -6888,5 +6912,7 @@ namespace Book.UI.Settings.BasicData.Products
         private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem169;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem18;
+        private DevExpress.XtraEditors.SimpleButton btn_ExportExcel;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem167;
     }
 }

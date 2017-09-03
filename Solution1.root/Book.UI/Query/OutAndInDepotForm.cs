@@ -64,12 +64,12 @@ namespace Book.UI.Query
             //this.condition.OutDepotIdEnd = this.txt_DepotOutIdEnd.Text;
             this.condition.DepotEnd = this.lookUpEditDepotEnd.EditValue == null ? null : this.lookUpEditDepotEnd.EditValue.ToString();
             this.condition.DepotStart = this.lookUpEditDepotStar.EditValue == null ? null : this.lookUpEditDepotStar.EditValue.ToString();
-            this.condition.ProductNameStart = this.btn_ProductNameStart.Text;
-            this.condition.ProductNameEnd = this.btn_ProductNameEnd.Text;
+            //this.condition.ProductNameStart = this.btn_ProductNameStart.Text;
+            //this.condition.ProductNameEnd = this.btn_ProductNameEnd.Text;
             this.condition.ProduceCategoryStart = this.LookUpProductCategoryStart.EditValue == null ? null : this.LookUpProductCategoryStart.EditValue.ToString();
             this.condition.ProductCategoryEnd = this.lookUpProductCategoryEnd.EditValue == null ? null : this.lookUpProductCategoryEnd.EditValue.ToString();
-            this.condition.ProductIdStart = this.txt_ProductIdStart.Text;
-            this.condition.ProductIdEnd = this.txt_ProductIdEnd.Text;
+            this.condition.ProductIdStart = (this.btn_ProductNameStart.EditValue == null ? "" : (this.btn_ProductNameStart.EditValue as Model.Product).Id);
+            this.condition.ProductIdEnd = (this.btn_ProductNameEnd.EditValue == null ? "" : (this.btn_ProductNameEnd.EditValue as Model.Product).Id);
         }
 
         private void simpleButtonCancel_Click(object sender, EventArgs e)
@@ -81,14 +81,14 @@ namespace Book.UI.Query
         {
             Invoices.ChooseProductForm f = new Book.UI.Invoices.ChooseProductForm();
             if (f.ShowDialog(this) == DialogResult.OK)
-                this.btn_ProductNameStart.Text = (f.SelectedItem as Model.Product).ProductName;
+                this.btn_ProductNameEnd.EditValue = this.btn_ProductNameStart.EditValue = f.SelectedItem as Model.Product;
         }
 
         private void btn_ProductNameEnd_Click(object sender, EventArgs e)
         {
             Invoices.ChooseProductForm f = new Book.UI.Invoices.ChooseProductForm();
             if (f.ShowDialog(this) == DialogResult.OK)
-                this.btn_ProductNameEnd.Text = (f.SelectedItem as Model.Product).ProductName;
+                this.btn_ProductNameEnd.EditValue = f.SelectedItem as Model.Product;
         }
     }
 }

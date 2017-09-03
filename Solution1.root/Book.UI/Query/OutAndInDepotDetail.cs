@@ -23,7 +23,7 @@ namespace Book.UI.Query
             this.lblDateRange.Text = "日期区间：" + condition.StartDate.ToString("yyyy-MM-dd") + "-" + condition.EndDate.ToString("yyyy-MM-dd");
             this.lblPrintDate.Text = "列印日期：" + DateTime.Now.ToString("yyyy-MM-dd");
 
-            DataTable details = this.manager.SelectOutAndInDepot(condition.StartDate, condition.EndDate, condition.DepotStart, condition.DepotEnd, condition.ProductNameStart, condition.ProductNameEnd, condition.ProduceCategoryStart, condition.ProductCategoryEnd, condition.ProductIdStart, condition.ProductIdEnd);
+            DataTable details = this.manager.SelectOutAndInDepot(condition.StartDate, condition.EndDate, condition.DepotStart, condition.DepotEnd, condition.ProduceCategoryStart, condition.ProductCategoryEnd, condition.ProductIdStart, condition.ProductIdEnd);
             if (details == null || details.Rows.Count == 0)
                 throw new Helper.InvalidValueException("无记录");
             this.DataSource = details;

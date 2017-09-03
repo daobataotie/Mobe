@@ -125,5 +125,10 @@ namespace Book.BL
         {
             return accessor.SelectAllKeyWord();
         }
+
+        public IList<Model.ProductClassify> SelectCondtidion(DateTime startDate, DateTime endDate, string keyWord)
+        {
+            return accessor.SelectCondtidion(startDate, endDate, keyWord);
+        }
     }
 }

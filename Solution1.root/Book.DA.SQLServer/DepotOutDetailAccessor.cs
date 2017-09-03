@@ -59,7 +59,7 @@ namespace Book.DA.SQLServer
             return sqlmapper.QueryForList<Model.DepotOutDetail>("DepotOutDetail.SelectByCondition", ht);
         }
 
-        public DataTable SelectOutAndInDepot(DateTime startDate, DateTime endDate, string depotStart, string depotEnd, string productNameStart, string productNameEnd, string productCategoryStart, string productCategoryEnd, string ProductIdStart, string ProductIdEnd)
+        public DataTable SelectOutAndInDepot(DateTime startDate, DateTime endDate, string depotStart, string depotEnd, string productCategoryStart, string productCategoryEnd, string ProductIdStart, string ProductIdEnd)
         {
             StringBuilder sql1 = new StringBuilder();
             StringBuilder sql2 = new StringBuilder();
@@ -79,47 +79,15 @@ namespace Book.DA.SQLServer
                     sql2.Append(" AND do.DepotId IN (SELECT DepotId FROM Depot WHERE Id = '" + (string.IsNullOrEmpty(depotStart) ? depotEnd : depotStart) + "')");
                 }
             }
-            if (!string.IsNullOrEmpty(productNameStart) || !string.IsNullOrEmpty(productNameEnd) || !string.IsNullOrEmpty(productCategoryStart) || !string.IsNullOrEmpty(productCategoryEnd))
+            if (!string.IsNullOrEmpty(productCategoryStart) || !string.IsNullOrEmpty(productCategoryEnd))
             {
                 if (string.IsNullOrEmpty(productCategoryStart) && string.IsNullOrEmpty(productCategoryEnd))
                 {
-                    if (!string.IsNullOrEmpty(productNameStart) && !string.IsNullOrEmpty(productNameEnd))
-                        sql3.Append(" AND dd.ProductId IN (SELECT ProductId FROM Product WHERE ProductName BETWEEN '" + productNameStart + "' AND '" + productNameEnd + "')");
-                    else
-                        sql3.Append(" AND dd.ProductId IN (SELECT ProductId FROM Product WHERE ProductName='" + (string.IsNullOrEmpty(productNameStart) ? productNameEnd : productNameStart) + "')");
+                    sql3.Append("  AND dd.ProductId IN (SELECT ProductId FROM Product WHERE ProductCategoryId IN (SELECT ProductCategoryId FROM ProductCategory WHERE  Id BETWEEN '" + productCategoryStart + "' AND '" + productCategoryEnd + "'))");
                 }
                 else
                 {
-                    if (!string.IsNullOrEmpty(productCategoryStart) && !string.IsNullOrEmpty(productCategoryEnd))
-                    {
-                        if (!string.IsNullOrEmpty(productNameStart) && !string.IsNullOrEmpty(productNameEnd))
-                        {
-                            sql3.Append(" AND dd.ProductId IN (SELECT ProductId FROM Product WHERE ProductName BETWEEN '" + productNameStart + "' AND '" + productNameEnd + "' AND ProductCategoryId IN (SELECT ProductCategoryId FROM ProductCategory WHERE  Id BETWEEN '" + productCategoryStart + "' AND '" + productCategoryEnd + "'))");
-                        }
-                        else if (!string.IsNullOrEmpty(productNameStart) || !string.IsNullOrEmpty(productNameEnd))
-                        {
-                            sql3.Append(" AND dd.ProductId IN (SELECT ProductId FROM Product WHERE ProductName='" + (string.IsNullOrEmpty(productNameStart) ? productNameEnd : productNameStart) + "' AND ProductCategoryId IN (SELECT ProductCategoryId FROM ProductCategory WHERE  Id BETWEEN '" + productCategoryStart + "' AND '" + productCategoryEnd + "'))");
-                        }
-                        else
-                        {
-                            sql3.Append(" AND dd.ProductId IN (SELECT ProductId FROM Product WHERE ProductCategoryId IN (SELECT ProductCategoryId FROM ProductCategory WHERE  Id BETWEEN '" + productCategoryStart + "' AND '" + productCategoryEnd + "'))");
-                        }
-                    }
-                    else
-                    {
-                        if (!string.IsNullOrEmpty(productNameStart) && !string.IsNullOrEmpty(productNameEnd))
-                        {
-                            sql3.Append(" AND dd.ProductId IN (SELECT ProductId FROM Product WHERE ProductName BETWEEN '" + productNameStart + "' AND '" + productNameEnd + "' AND ProductCategoryId IN (SELECT ProductCategoryId FROM ProductCategory WHERE  Id='" + (string.IsNullOrEmpty(productCategoryStart) ? productCategoryEnd : productCategoryStart) + "'))");
-                        }
-                        else if (!string.IsNullOrEmpty(productNameStart) || !string.IsNullOrEmpty(productNameEnd))
-                        {
-                            sql3.Append(" AND dd.ProductId IN (SELECT ProductId FROM Product WHERE ProductName='" + (string.IsNullOrEmpty(productNameStart) ? productNameEnd : productNameStart) + "' AND ProductCategoryId IN (SELECT ProductCategoryId FROM ProductCategory WHERE  Id='" + (string.IsNullOrEmpty(productCategoryStart) ? productCategoryEnd : productCategoryStart) + "'))");
-                        }
-                        else
-                        {
-                            sql3.Append(" AND dd.ProductId IN (SELECT ProductId FROM Product WHERE ProductCategoryId IN (SELECT ProductCategoryId FROM ProductCategory WHERE  Id='" + (string.IsNullOrEmpty(productCategoryStart) ? productCategoryEnd : productCategoryStart) + "'))");
-                        }
-                    }
+                    sql3.Append(" AND dd.ProductId IN (SELECT ProductId FROM Product WHERE ProductCategoryId IN (SELECT ProductCategoryId FROM ProductCategory WHERE  Id='" + (string.IsNullOrEmpty(productCategoryStart) ? productCategoryEnd : productCategoryStart) + "'))");
                 }
             }
             if (!string.IsNullOrEmpty(ProductIdStart) || !string.IsNullOrEmpty(ProductIdEnd))

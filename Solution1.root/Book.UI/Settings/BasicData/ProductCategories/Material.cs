@@ -111,5 +111,11 @@ namespace Book.UI.Settings.BasicData.ProductCategories
         {
             this.Visibles();
         }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ROMaterial ro = new ROMaterial(_materialList);
+            ro.ShowPreviewDialog();
+        }
     }
 }

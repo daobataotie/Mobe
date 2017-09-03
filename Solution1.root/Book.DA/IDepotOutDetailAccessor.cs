@@ -22,7 +22,7 @@ namespace Book.DA
 
         IList<Model.DepotOutDetail> SelectByCondition(DateTime startDate, DateTime endDate, string DepotOutIdStart, string DepotOutIdEnd, string depotStart, string depotEnd);
 
-        DataTable SelectOutAndInDepot(DateTime startDate, DateTime endDate, string depotStart, string depotEnd, string productNameStart, string productNameEnd, string productCategoryStart, string productCategoryEnd, string ProductIdStart, string ProductIdEnd);
+        DataTable SelectOutAndInDepot(DateTime startDate, DateTime endDate, string depotStart, string depotEnd, string productCategoryStart, string productCategoryEnd, string ProductIdStart, string ProductIdEnd);
 
         IList<Model.DepotOutDetail> SelectByDepotOutId(string id);
 

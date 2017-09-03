@@ -2083,6 +2083,7 @@ namespace Book.UI.Settings.BasicData.Products
             this.dateEditStockStart.Properties.Buttons[0].Visible = true;
             this.dateEditStockEnd.Properties.Buttons[0].Visible = true;
             this.simpleButtonStock.Enabled = true;
+            btn_ExportExcel.Enabled = true;
 
             this.nccEmployeeCreator.Enabled = false;
             this.nccEmployeeChange.Enabled = false;
@@ -3358,6 +3359,18 @@ namespace Book.UI.Settings.BasicData.Products
         protected override string tableCode()
         {
             return "Product" + "," + this.product.Id;
+        }
+
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            fileDialog.Filter = "Microsoft Excel(*.xlsx)|*.xlsx";
+            fileDialog.Title = "导出文件名";
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                gridControlStock.ExportToXlsx(fileDialog.FileName);
+                MessageBox.Show("导出成功！", this.Text, MessageBoxButtons.OK);
+            }
         }
     }
 }
