@@ -19,7 +19,7 @@ namespace Book.UI.produceManager.ProduceInDepot
         {
             //Controls
             this.lblCompanyName.Text = BL.Settings.CompanyChineseName;
-            this.lblReportName.Text = Properties.Resources.ProduceInDepot + "列表";
+            this.lblReportName.Text = "商品入库" + "列表";
             this.DataSource = details;
             if (i == 1)
             {

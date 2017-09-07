@@ -26,7 +26,8 @@ namespace Book.UI.produceManager.ProduceInDepot
 
             //CompanyInfo
             this.xrLabelCompanyInfoName.Text = BL.Settings.CompanyChineseName;
-            this.xrLabelDataName.Text = Properties.Resources.ProduceInDepot;
+            //this.xrLabelDataName.Text = Properties.Resources.ProduceInDepot;
+            this.xrLabelDataName.Text = "商品入库";
             this.xrBarCodeId.Text = this.produceInDepot.ProduceInDepotId;
             this.xrLabelPrinDate.Text += DateTime.Now.ToString("yyyy-MM-dd");
             //成品入庫
