@@ -141,8 +141,81 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gridControl1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="simpleButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>679, 343</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonCancel.Name" xml:space="preserve">
+    <value>simpleButtonCancel</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonCancel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonCancel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="simpleButtonOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>577, 344</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonOK.Name" xml:space="preserve">
+    <value>simpleButtonOK</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonOK.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonOK.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonOK.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="simpleButtonNew.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 343</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonNew.Name" xml:space="preserve">
+    <value>simpleButtonNew</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonNew.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonNew.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;simpleButtonNew.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="listBoxControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
+  </data>
+  <data name="listBoxControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 5</value>
+  </data>
+  <data name="listBoxControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 332</value>
+  </data>
+  <data name="listBoxControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;listBoxControl1.Name" xml:space="preserve">
+    <value>listBoxControl1</value>
+  </data>
+  <data name="&gt;&gt;listBoxControl1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;listBoxControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;listBoxControl1.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <metadata name="productCategoryBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>162, 17</value>
+  </metadata>
   <data name="colProductId.Caption" xml:space="preserve">
     <value>商品编号</value>
   </data>
@@ -200,27 +273,6 @@
   <data name="colProductModel.Caption" xml:space="preserve">
     <value>型号</value>
   </data>
-  <data name="gridColumn1.Caption" xml:space="preserve">
-    <value>客户</value>
-  </data>
-  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="gridColumn2.Caption" xml:space="preserve">
-    <value>客户型号</value>
-  </data>
-  <data name="gridColumn2.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="gridColumn2.VisibleIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="gridColumn2.Width" type="System.Int32, mscorlib">
-    <value>79</value>
-  </data>
   <data name="colProductVersion.Caption" xml:space="preserve">
     <value>版本</value>
   </data>
@@ -260,91 +312,27 @@
   <data name="colProductDescription.Width" type="System.Int32, mscorlib">
     <value>202</value>
   </data>
-  <data name="gridColumnChecked.Caption" xml:space="preserve">
-    <value>选择</value>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>客户</value>
   </data>
-  <data name="gridColumnChecked.Visible" type="System.Boolean, mscorlib">
+  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="gridColumnChecked.VisibleIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="gridColumnChecked.Width" type="System.Int32, mscorlib">
-    <value>49</value>
-  </data>
-  <data name="simpleButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>679, 343</value>
-  </data>
-  <data name="&gt;&gt;simpleButtonCancel.Name" xml:space="preserve">
-    <value>simpleButtonCancel</value>
-  </data>
-  <data name="&gt;&gt;simpleButtonCancel.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;simpleButtonCancel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;simpleButtonCancel.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="simpleButtonOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>577, 344</value>
-  </data>
-  <data name="&gt;&gt;simpleButtonOK.Name" xml:space="preserve">
-    <value>simpleButtonOK</value>
-  </data>
-  <data name="&gt;&gt;simpleButtonOK.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;simpleButtonOK.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;simpleButtonOK.ZOrder" xml:space="preserve">
+  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="simpleButtonNew.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 343</value>
+  <data name="gridColumn2.Caption" xml:space="preserve">
+    <value>客户型号</value>
   </data>
-  <data name="&gt;&gt;simpleButtonNew.Name" xml:space="preserve">
-    <value>simpleButtonNew</value>
+  <data name="gridColumn2.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;simpleButtonNew.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="gridColumn2.VisibleIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="&gt;&gt;simpleButtonNew.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="gridColumn2.Width" type="System.Int32, mscorlib">
+    <value>79</value>
   </data>
-  <data name="&gt;&gt;simpleButtonNew.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="listBoxControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="listBoxControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 5</value>
-  </data>
-  <data name="listBoxControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 332</value>
-  </data>
-  <data name="listBoxControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;listBoxControl1.Name" xml:space="preserve">
-    <value>listBoxControl1</value>
-  </data>
-  <data name="&gt;&gt;listBoxControl1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.ListBoxControl, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;listBoxControl1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;listBoxControl1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <metadata name="productCategoryBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>162, 17</value>
-  </metadata>
   <data name="simpleButtonAllPro.Location" type="System.Drawing.Point, System.Drawing">
     <value>566, 2</value>
   </data>
@@ -367,7 +355,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;simpleButtonAllPro.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
+  </data>
+  <data name="gridColumnChecked.Caption" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="gridColumnChecked.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumnChecked.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="gridColumnChecked.Width" type="System.Int32, mscorlib">
+    <value>49</value>
   </data>
   <data name="textEditSeach.Location" type="System.Drawing.Point, System.Drawing">
     <value>256, 4</value>
@@ -388,7 +388,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textEditSeach.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="comboBoxEditSeach.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 4</value>
@@ -422,7 +422,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBoxEditSeach.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="simpleButtonSeach.Location" type="System.Drawing.Point, System.Drawing">
     <value>470, 2</value>
@@ -446,6 +446,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;simpleButtonSeach.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chk_All.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 347</value>
+  </data>
+  <data name="chk_All.Properties.Caption" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="chk_All.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 19</value>
+  </data>
+  <data name="chk_All.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;chk_All.Name" xml:space="preserve">
+    <value>chk_All</value>
+  </data>
+  <data name="&gt;&gt;chk_All.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;chk_All.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chk_All.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

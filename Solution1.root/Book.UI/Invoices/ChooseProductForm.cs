@@ -187,5 +187,20 @@ namespace Book.UI.Invoices
             Cursor.Current = Cursors.Default;
         }
 
+        private void chk_All_CheckedChanged(object sender, EventArgs e)
+        {
+            var list = this.bindingSource1.DataSource as IList<Model.Product>;
+            if (list != null)
+                foreach (var item in list)
+                {
+                    item.Checked = chk_All.Checked;
+
+                    if (chk_All.Checked)
+                        ProductList.Add(item);
+                }
+
+            this.gridControl1.RefreshDataSource();
+        }
+
     }
 }

@@ -55,6 +55,7 @@ namespace Book.UI.Invoices
             this.textEditSeach = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxEditSeach = new DevExpress.XtraEditors.ComboBoxEdit();
             this.simpleButtonSeach = new DevExpress.XtraEditors.SimpleButton();
+            this.chk_All = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -64,6 +65,7 @@ namespace Book.UI.Invoices
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSeach.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditSeach.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_All.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -328,11 +330,19 @@ namespace Book.UI.Invoices
             this.simpleButtonSeach.Name = "simpleButtonSeach";
             this.simpleButtonSeach.Click += new System.EventHandler(this.simpleButtonSeach_Click);
             // 
+            // chk_All
+            // 
+            resources.ApplyResources(this.chk_All, "chk_All");
+            this.chk_All.Name = "chk_All";
+            this.chk_All.Properties.Caption = resources.GetString("chk_All.Properties.Caption");
+            this.chk_All.CheckedChanged += new System.EventHandler(this.chk_All_CheckedChanged);
+            // 
             // ChooseProductForm
             // 
             this.AcceptButton = this.simpleButtonSeach;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chk_All);
             this.Controls.Add(this.simpleButtonSeach);
             this.Controls.Add(this.comboBoxEditSeach);
             this.Controls.Add(this.textEditSeach);
@@ -350,6 +360,7 @@ namespace Book.UI.Invoices
             this.Controls.SetChildIndex(this.textEditSeach, 0);
             this.Controls.SetChildIndex(this.comboBoxEditSeach, 0);
             this.Controls.SetChildIndex(this.simpleButtonSeach, 0);
+            this.Controls.SetChildIndex(this.chk_All, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
@@ -359,6 +370,7 @@ namespace Book.UI.Invoices
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSeach.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditSeach.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_All.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -390,5 +402,6 @@ namespace Book.UI.Invoices
         private DevExpress.XtraEditors.TextEdit textEditSeach;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditSeach;
         private DevExpress.XtraEditors.SimpleButton simpleButtonSeach;
+        private DevExpress.XtraEditors.CheckEdit chk_All;
     }
 }
