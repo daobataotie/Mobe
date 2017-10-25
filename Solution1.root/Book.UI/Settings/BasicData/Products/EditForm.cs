@@ -3011,7 +3011,7 @@ namespace Book.UI.Settings.BasicData.Products
             {
                 if (xtraTabControl1.SelectedTabPage == this.xtraTabPageStock)
                 {
-                    this.gridControlStock.DataSource = this.stockManager.SelectReaderByPro(this.product.ProductId, this.dateEditStockStart.DateTime, this.dateEditStockEnd.DateTime);
+                    //this.gridControlStock.DataSource = this.stockManager.SelectReaderByPro(this.product.ProductId, this.dateEditStockStart.DateTime, this.dateEditStockEnd.DateTime);
 
                 }
             }
@@ -3029,6 +3029,11 @@ namespace Book.UI.Settings.BasicData.Products
             list = list.OrderBy(s => s.InvoiceDate).ToList();
             foreach (var item in list)
             {
+                if (item.InvoiceType == "生產入庫單" && string.IsNullOrEmpty(item.PositionName))
+                {
+                    item.StockCheckBookQuantity = Math.Round(Convert.ToDouble(this.calcEditStock0.EditValue), 4) + Convert.ToDouble(a);
+                    continue;
+                }
                 if (item.InvoiceType == "盤點核准單")
                 {
                     //item.StockCheckBookQuantity = Math.Round(Convert.ToDouble(item.InvoiceQuantity), 4);
