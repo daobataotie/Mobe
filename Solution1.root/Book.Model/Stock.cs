@@ -268,5 +268,7 @@ namespace Book.Model
         /// 客户订单编号
         /// </summary>
         public string CusXOId { get; set; }
+
+        public double? ProduceTransferQuantity { get; set; }
     }
 }

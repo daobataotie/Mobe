@@ -97,48 +97,79 @@ namespace Book.DA.SQLServer
         //ProductState -1全部 0 正常 1非
         public IList<Book.Model.ProduceInDepotDetail> Select(string startPronoteHeader, string endPronoteHeader, DateTime startDate, DateTime endDate, Book.Model.Product product, Book.Model.WorkHouse work, Book.Model.Depot mDepot, Book.Model.DepotPosition mDepotPositioin, string id1, string id2, string cusxoid, Book.Model.Customer customer1, Book.Model.Customer customer2, int ProductState)
         {
-            Hashtable ht = new Hashtable();
-            ht.Add("startpronoteid", string.IsNullOrEmpty(startPronoteHeader) ? null : startPronoteHeader);
-            ht.Add("endpronoteid", string.IsNullOrEmpty(endPronoteHeader) ? null : endPronoteHeader);
-            ht.Add("startdate", startDate);
-            ht.Add("enddate", endDate);
-            ht.Add("productid", product == null ? null : product.ProductId);
-            StringBuilder str = new StringBuilder();
+            //Hashtable ht = new Hashtable();
+            //ht.Add("startpronoteid", string.IsNullOrEmpty(startPronoteHeader) ? null : startPronoteHeader);
+            //ht.Add("endpronoteid", string.IsNullOrEmpty(endPronoteHeader) ? null : endPronoteHeader);
+            //ht.Add("startdate", startDate);
+            //ht.Add("enddate", endDate);
+            //ht.Add("productid", product == null ? null : product.ProductId);
+            //StringBuilder str = new StringBuilder();
+            //if (work != null)
+            //{
+            //    str.Append(" and ProduceInDepotId in(select ProduceInDepotId from ProduceInDepot where WorkHouseId ='" + work.WorkHouseId + "') ");
+            //}
+            //if (mDepotPositioin != null)
+            //{
+            //    str.Append(" and DepotPositionId = '" + mDepotPositioin.DepotPositionId + "'");
+            //}
+            //if (mDepot != null)
+            //{
+            //    str.Append(" and DepotPositionId IN (SELECT DepotPositionId FROM DepotPosition WHERE DepotId = '" + mDepot.DepotId + "')");
+            //}
+            //if (!string.IsNullOrEmpty(id1) && !string.IsNullOrEmpty(id2))
+            //{
+            //    str.Append(" and ProduceInDepotId between '" + id1 + "' and '" + id2 + "' ");
+            //}
+            //if (!string.IsNullOrEmpty(cusxoid))
+            //{
+            //    str.Append(" and PronoteHeaderId in(select PronoteHeaderId from PronoteHeader where InvoiceXOId in (select invoiceId from InvoiceXO where CustomerInvoiceXOId= '" + cusxoid + "'))");
+            //}
+            //if (customer1 != null && customer2 != null)
+            //{
+            //    str.Append(" and PronoteHeaderId in(select PronoteHeaderId from PronoteHeader where InvoiceXOId IN(SELECT invoiceid FROM InvoiceXO WHERE CustomerId IN(SELECT CustomerId FROM Customer WHERE Id BETWEEN  '" + customer1.Id + "' AND '" + customer2.Id + "')))");
+            //}
+            //switch (ProductState)
+            //{
+            //    case 0:
+            //        str.Append(" AND ProductId IN (SELECT Product.ProductId FROM Product WHERE ProductType = '0')");
+            //        break;
+            //    case 1:
+            //        str.Append(" AND ProductId IN (SELECT Product.ProductId FROM Product WHERE ProductType = '1')");
+            //        break;
+            //}
+            //ht.Add("sql", str.ToString());
+            //return sqlmapper.QueryForList<Model.ProduceInDepotDetail>("ProduceInDepotDetail.select_byProduceInDateAndPronote", ht);
+
+            StringBuilder sb = new StringBuilder("select pid.ProduceInDepotId,pi.ProduceInDepotDate as HeaderDate,pid.PronoteHeaderId,p.ProductName,wh.Workhousename,pid.ProceduresSum,pid.ProduceTransferQuantity,pid.ProduceQuantity,pid.ProductUnit,d.DepotName, (select CustomerInvoiceXOId from InvoiceXO where InvoiceId=(select InvoiceXOId from PronoteHeader where PronoteHeaderID=pid.PronoteHeaderId)) as CusXOId  from ProduceInDepotDetail pid left join Product p on p.ProductId=pid.ProductId left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId  left join WorkHouse wh on wh.WorkHouseId=pi.WorkHouseId left join Depot d on d.DepotId=pi.DepotId where pi.ProduceInDepotDate between '" + startDate + "' and '" + endDate + "'");
+
+            if (!string.IsNullOrEmpty(startPronoteHeader) && !string.IsNullOrEmpty(endPronoteHeader))
+                sb.Append(" and pid.PronoteHeaderId between '" + startPronoteHeader + "' and '" + endPronoteHeader + "'");
+            if (product != null)
+                sb.Append("  and pid.ProductId='" + product.ProductId + "'");
             if (work != null)
-            {
-                str.Append(" and ProduceInDepotId in(select ProduceInDepotId from ProduceInDepot where WorkHouseId ='" + work.WorkHouseId + "') ");
-            }
-            if (mDepotPositioin != null)
-            {
-                str.Append(" and DepotPositionId = '" + mDepotPositioin.DepotPositionId + "'");
-            }
+                sb.Append(" and pi.WorkHouseId='" + work.WorkHouseId + "'");
             if (mDepot != null)
-            {
-                str.Append(" and DepotPositionId IN (SELECT DepotPositionId FROM DepotPosition WHERE DepotId = '" + mDepot.DepotId + "')");
-            }
+                sb.Append(" and pi.DepotId='" + mDepot.DepotId + "'");
+            if (mDepotPositioin != null)
+                sb.Append(" and pid.DepotPositionId='" + mDepotPositioin.DepotPositionId + "'");
             if (!string.IsNullOrEmpty(id1) && !string.IsNullOrEmpty(id2))
-            {
-                str.Append(" and ProduceInDepotId between '" + id1 + "' and '" + id2 + "' ");
-            }
+                sb.Append(" and pid.ProduceInDepotId between '" + id1 + "' and '" + id2 + "'");
             if (!string.IsNullOrEmpty(cusxoid))
-            {
-                str.Append(" and PronoteHeaderId in(select PronoteHeaderId from PronoteHeader where InvoiceCusId LIKE '%" + cusxoid + "%')");
-            }
+                sb.Append(" and pid.PronoteHeaderId in(select PronoteHeaderId from PronoteHeader where InvoiceXOId in (select invoiceId from InvoiceXO where CustomerInvoiceXOId= '" + cusxoid + "'))");
             if (customer1 != null && customer2 != null)
-            {
-                str.Append(" and PronoteHeaderId in(select PronoteHeaderId from PronoteHeader where InvoiceXOId IN(SELECT invoiceid FROM InvoiceXO WHERE CustomerId IN(SELECT CustomerId FROM Customer WHERE Id BETWEEN  '" + customer1.Id + "' AND '" + customer2.Id + "')))");
-            }
+                sb.Append(" and pid.PronoteHeaderId in (select PronoteHeaderId from PronoteHeader where InvoiceXOId IN(SELECT invoiceid FROM InvoiceXO WHERE CustomerId IN(SELECT CustomerId FROM Customer WHERE Id BETWEEN  '" + customer1.Id + "' AND '" + customer2.Id + "')))");
             switch (ProductState)
             {
                 case 0:
-                    str.Append(" AND ProductId IN (SELECT Product.ProductId FROM Product WHERE ProductType = '0')");
+                    sb.Append(" AND pid.ProductId IN (SELECT ProductId FROM Product WHERE ProductType = '0')");
                     break;
                 case 1:
-                    str.Append(" AND ProductId IN (SELECT Product.ProductId FROM Product WHERE ProductType = '1')");
+                    sb.Append(" AND pid.ProductId IN (SELECT ProductId FROM Product WHERE ProductType = '1')");
                     break;
             }
-            ht.Add("sql", str.ToString());
-            return sqlmapper.QueryForList<Model.ProduceInDepotDetail>("ProduceInDepotDetail.select_byProduceInDateAndPronote", ht);
+            sb.Append(" order by pid.ProduceInDepotId desc");
+
+            return this.DataReaderBind<Model.ProduceInDepotDetail>(sb.ToString(), null, CommandType.Text);
         }
 
         public double? select_SumPronoteHeaderWorkhouseDateRang(DateTime startdate, DateTime enddate, string PronoteHeaderId, string WorkHouseId)

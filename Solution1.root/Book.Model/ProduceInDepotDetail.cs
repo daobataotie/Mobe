@@ -169,6 +169,10 @@ namespace Book.Model
             get;
         }
 
+        //2017年10月27日23:49:05
+        public string DepotName { get; set; }
+        public DateTime? HeaderDate { get; set; }
+
         public readonly static string PRO_ProInDepotDetailDate = "ProInDepotDetailDate";
 
         public readonly static string PRO_RejectionRate_1 = "RejectionRate_1";

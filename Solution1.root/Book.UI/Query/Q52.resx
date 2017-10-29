@@ -138,10 +138,10 @@
   <data name="xrTableDate.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
     <value>MiddleLeft</value>
   </data>
-  <data name="xrTableProID.Dpi" type="System.Single, mscorlib">
+  <data name="TCPNTId.Dpi" type="System.Single, mscorlib">
     <value>254</value>
   </data>
-  <data name="xrTableProID.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+  <data name="TCPNTId.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
     <value>MiddleLeft</value>
   </data>
   <data name="xrTableProName.Dpi" type="System.Single, mscorlib">
@@ -149,6 +149,15 @@
   </data>
   <data name="xrTableProName.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
     <value>MiddleLeft</value>
+  </data>
+  <data name="TCDepartment.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCProduceQuantity.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="TCTransferQuantity.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableQuanTity.Dpi" type="System.Single, mscorlib">
     <value>254</value>
@@ -166,20 +175,23 @@
     <value>254</value>
   </data>
   <data name="xrTableDepot.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
-    <value>MiddleRight</value>
+    <value>MiddleLeft</value>
   </data>
-  <data name="xrTableDepotPosition.Dpi" type="System.Single, mscorlib">
+  <data name="TCInvoiceCusXOId.Dpi" type="System.Single, mscorlib">
     <value>254</value>
   </data>
-  <data name="xrTableDepotPosition.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
-    <value>MiddleRight</value>
+  <data name="TCInvoiceCusXOId.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
   </data>
   <data name="xrTableRow2.Dpi" type="System.Single, mscorlib">
     <value>254</value>
   </data>
+  <data name="xrTableRow2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="xrTable2.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>1989, 50</value>
+    <value>2610.77124, 50</value>
   </data>
   <data name="Detail.Dpi" type="System.Single, mscorlib">
     <value>254</value>
@@ -191,7 +203,7 @@
     <value>254</value>
   </data>
   <data name="xrTable1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
-    <value>0, 117.999985</value>
+    <value>0, 133.875</value>
   </data>
   <data name="xrTableCell4.Dpi" type="System.Single, mscorlib">
     <value>254</value>
@@ -209,7 +221,7 @@
     <value>254</value>
   </data>
   <data name="xrTableCell1.Text" xml:space="preserve">
-    <value>货品编号</value>
+    <value>PNT号</value>
   </data>
   <data name="xrTableCell5.Dpi" type="System.Single, mscorlib">
     <value>254</value>
@@ -217,11 +229,29 @@
   <data name="xrTableCell5.Text" xml:space="preserve">
     <value>货品名称</value>
   </data>
+  <data name="xrTableCell8.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell8.Text" xml:space="preserve">
+    <value>部门</value>
+  </data>
+  <data name="xrTableCell10.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell10.Text" xml:space="preserve">
+    <value>生产数</value>
+  </data>
+  <data name="xrTableCell6.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell6.Text" xml:space="preserve">
+    <value>转生产数</value>
+  </data>
   <data name="xrTableCell2.Dpi" type="System.Single, mscorlib">
     <value>254</value>
   </data>
   <data name="xrTableCell2.Text" xml:space="preserve">
-    <value>入库数量</value>
+    <value>入库数</value>
   </data>
   <data name="xrTableCell7.Dpi" type="System.Single, mscorlib">
     <value>254</value>
@@ -230,7 +260,7 @@
     <value>单位</value>
   </data>
   <data name="xrTableCell7.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
-    <value>MiddleRight</value>
+    <value>MiddleLeft</value>
   </data>
   <data name="xrTableCell11.Dpi" type="System.Single, mscorlib">
     <value>254</value>
@@ -239,22 +269,22 @@
     <value>库房</value>
   </data>
   <data name="xrTableCell11.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
-    <value>MiddleRight</value>
+    <value>MiddleLeft</value>
   </data>
   <data name="xrTableCell3.Dpi" type="System.Single, mscorlib">
     <value>254</value>
   </data>
   <data name="xrTableCell3.Text" xml:space="preserve">
-    <value>货位</value>
+    <value>订单号码</value>
   </data>
   <data name="xrTableCell3.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
-    <value>MiddleRight</value>
+    <value>MiddleLeft</value>
   </data>
   <data name="xrTableRow1.Dpi" type="System.Single, mscorlib">
     <value>254</value>
   </data>
   <data name="xrTable1.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>1989, 50</value>
+    <value>2610.771, 50</value>
   </data>
   <data name="xrTable1.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
     <value>MiddleLeft</value>
@@ -278,7 +308,7 @@
     <value>254</value>
   </data>
   <data name="xrLabelDates.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
-    <value>1247.02051, 68.0000458</value>
+    <value>1868.79163, 67.99997</value>
   </data>
   <data name="xrLabelDates.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>741.9795, 50.0000076</value>
@@ -299,7 +329,7 @@
     <value>0, 0</value>
   </data>
   <data name="ReportTitle.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>1989, 68</value>
+    <value>2610.771, 68.00001</value>
   </data>
   <data name="ReportTitle.Text" xml:space="preserve">
     <value>ReportTitle</value>
@@ -311,7 +341,7 @@
     <value>254</value>
   </data>
   <data name="PageHeader.HeightF" type="System.Single, mscorlib">
-    <value>168</value>
+    <value>183.875</value>
   </data>
   <data name="ReportName.Dpi" type="System.Single, mscorlib">
     <value>254</value>
@@ -323,7 +353,7 @@
     <value>0, 0</value>
   </data>
   <data name="ReportName.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>1989, 83</value>
+    <value>2610.771, 83</value>
   </data>
   <data name="ReportName.Text" xml:space="preserve">
     <value>ReportName</value>
@@ -353,7 +383,7 @@
     <value>254</value>
   </data>
   <data name="xrPageInfo1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
-    <value>1877.875, 0</value>
+    <value>2512.875, 0</value>
   </data>
   <data name="xrPageInfo1.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>97.895874, 50</value>

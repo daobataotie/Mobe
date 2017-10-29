@@ -182,6 +182,7 @@
             this.newChooseCustomer1.EditValue = null;
             resources.ApplyResources(this.newChooseCustomer1, "newChooseCustomer1");
             this.newChooseCustomer1.Name = "newChooseCustomer1";
+            this.newChooseCustomer1.EditValueChanged += new System.EventHandler(this.newChooseCustomer1_EditValueChanged);
             // 
             // buttonEditid2
             // 

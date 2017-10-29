@@ -112,15 +112,137 @@ namespace Book.UI.produceManager.ProduceInDepot
             if (details != null || details.Count > 0)
             {
                 string RowFilter = this.gridView1.RowFilter;
-                if (this.flag == 1 && RowFilter.Contains("WorkHousename") && RowFilter.Contains("射出"))
+                if (RowFilter.Contains("WorkHousename"))
                 {
-                    details = details.Where(d => d.WorkHousename == "射出").ToList();
-                    new ROList(details, 1).ShowPreviewDialog();
+                    if (RowFilter.Contains("防雾") || RowFilter.Contains("强化"))
+                    {
+                        details = details.Where(d => d.WorkHousename == "强化/防雾").ToList();
+                        ExportExcel(details, "防霧");
+                    }
+                    else if (RowFilter.Contains("验片"))
+                    {
+                        details = details.Where(d => d.WorkHousename == "验片").ToList();
+                        ExportExcel(details, "品檢");
+                    }
+                    else if (RowFilter.Contains("組A(半)"))
+                    {
+                        details = details.Where(d => d.WorkHousename == "組A(半)").ToList();
+                        ExportExcel(details, "組A(半)");
+                    }
+                    else if (RowFilter.Contains("組A"))
+                    {
+                        details = details.Where(d => d.WorkHousename == "組A").ToList();
+                        ExportExcel(details, "組A");
+                    }
                 }
                 else
-                    new ROList(details, 0).ShowPreviewDialog();
+                {
+
+                }
             }
         }
+
+        private void ExportExcel(IList<Model.ProduceInDepotDetail> details, string type)
+        {
+            try
+            {
+                Type objClassType = null;
+                objClassType = Type.GetTypeFromProgID("Excel.Application");
+                if (objClassType == null)
+                {
+                    MessageBox.Show("本機沒有安裝Excel", "提示！", MessageBoxButtons.OK);
+                    return;
+                }
+
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Application.Workbooks.Add(true);
+
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 16]);
+                r.MergeCells = true;//合并单元格
+
+                //Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter = -4108;
+                //Microsoft.Office.Interop.Excel.XlBorderWeight.xlMedium= -4138;
+                //Microsoft.Office.Interop.Excel.XlColorIndex.xlColorIndexAutomatic= -4105;
+
+                switch (type)
+                {
+                    case "防霧":
+                        excel.Cells[1, 1] = "強化/防霧 日報表";
+                        break;
+                    case "品檢":
+                        excel.Cells[1, 1] = "品檢日報表";
+                        break;
+                    case "組A(半)":
+                        excel.Cells[1, 1] = "組裝半成品日報表";
+                        break;
+                    case "組A":
+                        excel.Cells[1, 1] = "組裝成品日報表";
+                        break;
+                }
+                #region Set Header
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 16]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 16]).ColumnWidth = 12;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 2]).ColumnWidth = 20;
+                excel.get_Range(excel.Cells[2, 3], excel.Cells[2, 3]).ColumnWidth = 30;
+                excel.get_Range(excel.Cells[2, 11], excel.Cells[2, 12]).ColumnWidth = 20;
+
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 16]).Interior.Color = 12566463;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 16]).RowHeight = 20;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 16]).Font.Size = 13;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 16]).WrapText = true;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 16]).EntireRow.AutoFit();
+
+                excel.Cells[2, 1] = "入庫日期";
+                excel.Cells[2, 2] = "入庫單號";
+                excel.Cells[2, 3] = "產品名稱";
+                excel.Cells[2, 4] = "公司部門";
+                excel.Cells[2, 5] = "單位";
+                excel.Cells[2, 6] = "生產數量";
+                excel.Cells[2, 7] = "合計生產";
+                excel.Cells[2, 8] = "合計合格";
+                excel.Cells[2, 9] = "合計入庫";
+                excel.Cells[2, 10] = "合計轉生產";
+                excel.Cells[2, 11] = "加工單";
+                excel.Cells[2, 12] = "客戶訂單號";
+                excel.Cells[2, 13] = "生產數量";
+                excel.Cells[2, 14] = "合格數量";
+                excel.Cells[2, 15] = "轉生產數量";
+                excel.Cells[2, 16] = "入庫數量";
+
+                #endregion
+
+                for (int i = 0; i < details.Count; i++)
+                {
+                    excel.Cells[i + 3, 1] = details[i].mProduceInDepotDate.HasValue ? details[i].mProduceInDepotDate.Value.ToString("yyyy-MM-dd") : "";
+                    excel.Cells[i + 3, 2] = details[i].ProduceInDepotId;
+                    excel.Cells[i + 3, 3] = details[i].ProductName;
+                    excel.Cells[i + 3, 4] = details[i].WorkHousename;
+                    excel.Cells[i + 3, 5] = details[i].ProductUnit;
+                    excel.Cells[i + 3, 6] = details[i].PronoteHeaderSum;
+                    excel.Cells[i + 3, 7] = details[i].HeJiProceduresSum;
+                    excel.Cells[i + 3, 8] = details[i].HeJiCheckOutSum;
+                    excel.Cells[i + 3, 9] = details[i].HeJiProduceQuantity;
+                    excel.Cells[i + 3, 10] = details[i].HeJiProduceTransferQuantity;
+                    excel.Cells[i + 3, 11] = details[i].PronoteHeaderId;
+                    excel.Cells[i + 3, 12] = details[i].CusXOId;
+                    excel.Cells[i + 3, 13] = details[i].ProceduresSum;
+                    excel.Cells[i + 3, 14] = details[i].CheckOutSum;
+                    excel.Cells[i + 3, 15] = details[i].ProduceTransferQuantity;
+                    excel.Cells[i + 3, 16] = details[i].ProduceQuantity;
+                }
+
+                excel.Visible = true;//是否打开该Excel文件
+                excel.WindowState = XlWindowState.xlMaximized;
+            }
+            catch
+            {
+                MessageBox.Show("Excel未生成完畢，請勿操作，并重新點擊按鈕生成數據！", "提示！", MessageBoxButtons.OK);
+                return;
+            }
+        }
+
 
         //加工单查看
         private void repositoryItemHyperLinkEdit1_Click(object sender, EventArgs e)

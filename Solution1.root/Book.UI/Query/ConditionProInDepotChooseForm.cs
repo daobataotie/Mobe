@@ -283,6 +283,11 @@ namespace Book.UI.Query
 
             #endregion
         }
+
+        private void newChooseCustomer1_EditValueChanged(object sender, EventArgs e)
+        {
+            this.newChooseCustomer2.EditValue = this.newChooseCustomer1.EditValue;
+        }
     }
 
     internal class HelpExcel
