@@ -18,7 +18,7 @@ namespace Book.UI.Settings.StockLimitations
 
         #endregion
 
-
+        int tag = 0;
         public ChooseOutStockDepot()
         {
             InitializeComponent();
@@ -27,9 +27,22 @@ namespace Book.UI.Settings.StockLimitations
             //this.manager = new BL.DepotOutManager();
         }
 
+        public ChooseOutStockDepot(string invoiceCusId)
+            : this()
+        {
+            this.tag = 1;
+            this.bindingSource1.DataSource = this.depotOutDetailManager.SelectByDateRange(global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, invoiceCusId);
+            this.gridControl1.RefreshDataSource();
+        }
+
         protected override void LoadData()
         {
-            this.bindingSource1.DataSource = this.depotOutDetailManager.SelectByDateRange(this.dateEditStartDate.EditValue == null ? DateTime.Now.AddMonths(-1) : this.dateEditStartDate.DateTime, this.dateEditEndate.EditValue == null ? DateTime.Now : this.dateEditEndate.DateTime, (this.buttonEdit1.EditValue as Model.Product) == null ? "" : (this.buttonEdit1.EditValue as Model.Product).ProductId);
+            if (this.tag == 1)
+            {
+                this.tag = 0;
+                return;
+            }
+            this.bindingSource1.DataSource = this.depotOutDetailManager.SelectByDateRange(this.dateEditStartDate.EditValue == null ? DateTime.Now.AddMonths(-1) : this.dateEditStartDate.DateTime, this.dateEditEndate.EditValue == null ? DateTime.Now : this.dateEditEndate.DateTime, (this.buttonEdit1.EditValue as Model.Product) == null ? "" : (this.buttonEdit1.EditValue as Model.Product).ProductId, this.txt_InvoiceCusID.Text);
             this.gridControl1.RefreshDataSource();
         }
 

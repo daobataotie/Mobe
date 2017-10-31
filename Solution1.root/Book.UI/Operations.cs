@@ -747,6 +747,9 @@ namespace Book.UI
 
             //商品关键字分类
             operations.Add("Settings.BasicData.Products.ProductClassifyForm", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.BasicData.Products.ProductClassifyForm", form); });
+
+            //模具上线检验单
+            operations.Add("produceManager.PCMouldOnlineCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCMouldOnlineCheck.EditForm", form); });
         }
 
         static Form CreateForm(string formTypeName)

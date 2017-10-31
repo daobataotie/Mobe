@@ -45,6 +45,13 @@ namespace Book.UI.produceManager.ProduceOtherCompact
             this.mrsheader=mrsheader;
 
         }
+        public ListForm(string InvoiceCusId)
+            : this()
+        {
+            this.flag = 1;
+            listDetail = (this.manager as BL.ProduceOtherCompactManager).GetByDate(global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, InvoiceCusId, null, null, null);
+            this.bindingSource1.DataSource = listDetail;
+        }
 
         /// <summary>
         /// 重写父类方法

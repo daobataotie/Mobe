@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PCMouldOnlineCheckDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <resultMaps>
+    <resultMap id="PCMouldOnlineCheckDetailSimple" class="PCMouldOnlineCheckDetail">
+      <result property="PCMouldOnlineCheckDetailId" column="PCMouldOnlineCheckDetailId" />
+      <result property="PCMouldOnlineCheckId" column="PCMouldOnlineCheckId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceXOId" column="InvoiceXOId" />
+      <result property="InvoiceCusId" column="InvoiceCusId" />
+      <result property="OnlineDate" column="OnlineDate" />
+      <result property="CheckDate" column="CheckDate" />
+      <result property="Burr" column="Burr" />
+      <result property="Bruise" column="Bruise" />
+      <result property="Shrink" column="Shrink" />
+      <result property="ForColor" column="ForColor" />
+      <result property="Flap" column="Flap" />
+      <result property="SandwichedConfirm" column="SandwichedConfirm" />
+      <result property="Mark" column="Mark" />
+      <result property="Abnormal" column="Abnormal" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo" />
+      <result property="PCMouldOnlineCheck" column="PCMouldOnlineCheckId" lazyLoad="false" select="PCMouldOnlineCheck.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    
+    <delete id="DeleteByHeaderId" parameterClass="string">
+      <![CDATA[
+      delete from PCMouldOnlineCheckDetail where PCMouldOnlineCheckId=#value#
+      ]]>
+    </delete>
+
+    <select id="SelectByCondition" resultMap="PCMouldOnlineCheckDetailSimple" parameterClass="Map">
+      <![CDATA[
+      select * from PCMouldOnlineCheckDetail where 1=1 $sql$
+      ]]>
+    </select>
+
+    <select id="SelectByInvoiceCusId" resultMap="PCMouldOnlineCheckDetailSimple" parameterClass="string">
+      <![CDATA[
+      select * from PCMouldOnlineCheckDetail where InvoiceXOId in (select InvoiceId from InvoiceXO where CustomerInvoiceXOId=#value#)
+      ]]>
+    </select>
+
+    <select id="SelectByHeaderId" resultMap="PCMouldOnlineCheckDetailResult" parameterClass="string">
+      <![CDATA[
+      select *from PCMouldOnlineCheckDetail where PCMouldOnlineCheckId=#value#
+      ]]>
+    </select>
+  </statements>
+</sqlMap>

@@ -11,6 +11,7 @@ namespace Book.UI.Invoices.XS
     public partial class ListForm : BaseListForm
     {
         private Model.InvoiceXO invoiceXO;
+        int tag = 0;
         public ListForm()
         {
             if (!EditForm.isDelete)
@@ -26,6 +27,16 @@ namespace Book.UI.Invoices.XS
             this.invoiceXO = xo;
 
         }
+
+        public ListForm(string InvoiceCusId)
+            : this()
+        {
+            this.tag = 1;
+
+            this.bindingSource1.DataSource = ((BL.InvoiceXSManager)this.invoiceManager).SelectDateRangAndWhere(null, null, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, InvoiceCusId, null, null, null);
+            this.gridControl1.RefreshDataSource();
+        }
+
         private void ListForm_Load(object sender, EventArgs e)
         {
 
@@ -41,6 +52,11 @@ namespace Book.UI.Invoices.XS
         }
         protected override void ShowSearchForm()
         {
+            if (this.tag == 1)
+            {
+                this.tag = 0;
+                return;
+            }
             Query.ConditionXChooseForm f = new Query.ConditionXChooseForm();
             if (f.ShowDialog(this) == DialogResult.OK)
             {

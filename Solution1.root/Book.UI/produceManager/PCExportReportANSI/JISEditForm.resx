@@ -117,9 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>172, 17</value>
-  </metadata>
+  </data>
   <data name="BarBtnCutomerOrder.Caption" xml:space="preserve">
     <value>客户订单</value>
   </data>
@@ -135,9 +136,9 @@
   <data name="barPrintJingPianPinZhi.Caption" xml:space="preserve">
     <value>打印镜片品质</value>
   </data>
-  <metadata name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
-  </metadata>
+  </data>
   <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v10.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -444,7 +445,6 @@
         PiydRVvthbEShq0tdS1YP1XNB1WKv8rxjMwZjD8BORXH707ETOoAAAAASUVORK5CYIIL
 </value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lookUpEditUnit.Location" type="System.Drawing.Point, System.Drawing">
     <value>849, 37</value>
   </data>
@@ -457,9 +457,9 @@
   <data name="lookUpEditUnit.Properties.Columns1" xml:space="preserve">
     <value>单位</value>
   </data>
-  <metadata name="bindingSourceUnit.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="bindingSourceUnit.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>303, 17</value>
-  </metadata>
+  </data>
   <data name="lookUpEditUnit.Properties.NullText" xml:space="preserve">
     <value />
   </data>
@@ -1665,7 +1665,7 @@
     <value>62</value>
   </data>
   <data name="label68.Text" xml:space="preserve">
-    <value>5.3 耐燃性 Ignition</value>
+    <value>5.3 阻燃性 Ignition</value>
   </data>
   <data name="label68.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -1692,7 +1692,7 @@
     <value>61</value>
   </data>
   <data name="label67.Text" xml:space="preserve">
-    <value>8.3 各部位耐燃性试验 Test for ignition of each section</value>
+    <value>8.3 各部位阻燃性试验 Test for ignition of each section</value>
   </data>
   <data name="label67.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -8229,12 +8229,12 @@
   <data name="barButtonItem4.Caption" xml:space="preserve">
     <value>搜索</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
     <value>25</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 14</value>
   </data>

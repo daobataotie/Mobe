@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListForm));
             this.barBtn_Search = new DevExpress.XtraBars.BarButtonItem();
             this.PCOtherCheckId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -39,6 +39,7 @@
             this.Supplier = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PCOtherCheckDesc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -70,7 +71,8 @@
             this.Employee0,
             this.Supplier,
             this.PCOtherCheckDesc,
-            this.gridColumn1});
+            this.gridColumn1,
+            this.gridColumn2});
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsFind.AlwaysVisible = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
@@ -87,9 +89,9 @@
             // 
             // gridControl1
             // 
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             resources.ApplyResources(this.gridControl1, "gridControl1");
             // 
             // barBtn_Search
@@ -155,6 +157,12 @@
             this.gridColumn1.FieldName = "EmployeeName1";
             this.gridColumn1.Name = "gridColumn1";
             // 
+            // gridColumn2
+            // 
+            resources.ApplyResources(this.gridColumn2, "gridColumn2");
+            this.gridColumn2.FieldName = "PCOtherCheckDate";
+            this.gridColumn2.Name = "gridColumn2";
+            // 
             // ListForm
             // 
             resources.ApplyResources(this, "$this");
@@ -181,5 +189,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn Supplier;
         private DevExpress.XtraGrid.Columns.GridColumn PCOtherCheckDesc;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
     }
 }

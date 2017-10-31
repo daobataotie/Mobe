@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCMouldOnlineCheck" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCMouldOnlineCheck" type="Book.Model.PCMouldOnlineCheck, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCMouldOnlineCheckResult" class="PCMouldOnlineCheck">
+      <result property="PCMouldOnlineCheckId" column="PCMouldOnlineCheckId" />
+      <result property="PCMouldOnlineCheckDate" column="PCMouldOnlineCheckDate" />
+      <result property="InsertTime" column="InsertTime" />
+      <result property="UpdateTime" column="UpdateTime" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property ="AuditState" column="AuditState"/>
+      <result property ="AuditEmpId" column="AuditEmpId"/>
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_by_primary_key" />
+      <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCMouldOnlineCheck]
+				WHERE
+				[PCMouldOnlineCheckId] = #PCMouldOnlineCheckId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCMouldOnlineCheck]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="get_first" resultMap="PCMouldOnlineCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCMouldOnlineCheck
+			 
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="get_last" resultMap="PCMouldOnlineCheckResult">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCMouldOnlineCheck
+						
+            order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="get_prev" resultMap="PCMouldOnlineCheckResult" parameterClass="PCMouldOnlineCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCMouldOnlineCheck
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="get_next" resultMap="PCMouldOnlineCheckResult" parameterClass="PCMouldOnlineCheck">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCMouldOnlineCheck
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="has_rows_before" resultClass="bool" parameterClass="PCMouldOnlineCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCMouldOnlineCheck
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="has_rows_after" resultClass="bool" parameterClass="PCMouldOnlineCheck">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCMouldOnlineCheck
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCMouldOnlineCheckResult" parameterClass="PCMouldOnlineCheck">
+      <![CDATA[SELECT
+				[PCMouldOnlineCheckId],
+				[PCMouldOnlineCheckDate],
+				[InsertTime],
+				[UpdateTime],
+				[EmployeeId],
+        [AuditState],
+        [AuditEmpId]
+			FROM
+				[dbo].[PCMouldOnlineCheck]
+			WHERE
+				[PCMouldOnlineCheckId] = #PCMouldOnlineCheckId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCMouldOnlineCheck]
+			WHERE            
+				[PCMouldOnlineCheckId] = #PCMouldOnlineCheckId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCMouldOnlineCheckResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCMouldOnlineCheck]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCMouldOnlineCheck]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCMouldOnlineCheckResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCMouldOnlineCheck]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCMouldOnlineCheck">
+      <![CDATA[ INSERT INTO [dbo].[PCMouldOnlineCheck] 
+			(
+				[PCMouldOnlineCheckId],
+				[PCMouldOnlineCheckDate],
+				[InsertTime],
+				[UpdateTime],
+				[EmployeeId],
+        [AuditState],
+        [AuditEmpId]
+			) 
+			VALUES 
+			(
+				#PCMouldOnlineCheckId#,
+				#PCMouldOnlineCheckDate#,
+				#InsertTime#,
+				#UpdateTime#,
+				#EmployeeId#,
+        #AuditState#,
+        #AuditEmpId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCMouldOnlineCheck">
+      <![CDATA[ 	UPDATE [PCMouldOnlineCheck] SET
+				[PCMouldOnlineCheckDate] = #PCMouldOnlineCheckDate#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#,
+				[EmployeeId] = #EmployeeId#,
+        [AuditState]=#AuditState#,
+        [AuditEmpId]=#AuditEmpId#
+			WHERE
+				[PCMouldOnlineCheckId] = #PCMouldOnlineCheckId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCMouldOnlineCheck]
+				where  PCMouldOnlineCheckId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>

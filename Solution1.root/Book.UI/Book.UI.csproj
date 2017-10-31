@@ -4579,6 +4579,30 @@
       <DependentUpon>RO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCMouldOnlineCheck\EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCMouldOnlineCheck\EditForm.zh-CHT.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCMouldOnlineCheck\ListFrom.resx">
+      <DependentUpon>ListFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCMouldOnlineCheck\ListFrom.zh-CHT.resx">
+      <DependentUpon>ListFrom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCMouldOnlineCheck\Ro.resx">
+      <DependentUpon>Ro.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCMouldOnlineCheck\Ro.zh-CHT.resx">
+      <DependentUpon>Ro.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCSamplingEar\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -11546,6 +11570,24 @@
     </Compile>
     <Compile Include="produceManager\PCMaterialCheck\RO.Designer.cs">
       <DependentUpon>RO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCMouldOnlineCheck\EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCMouldOnlineCheck\EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCMouldOnlineCheck\ListFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCMouldOnlineCheck\ListFrom.Designer.cs">
+      <DependentUpon>ListFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCMouldOnlineCheck\Ro.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCMouldOnlineCheck\Ro.Designer.cs">
+      <DependentUpon>Ro.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCSamplingEar\Condition.cs" />
     <Compile Include="produceManager\PCSamplingEar\ConditionForm.cs">
