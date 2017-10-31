@@ -349,9 +349,9 @@ namespace Book.BL
             return "pnt";
         }
 
-        public IList<Book.Model.PronoteHeader> GetByDate(DateTime startDate, DateTime endDate, Model.Customer customer, string cusxoid, Model.Product product, string PronoteHeaderIdStart, string PronoteHeaderIdEnd, int sourceType, string workhouseIndepot, bool jiean, string proNameKey, string proCusNameKey, string pronoteHeaderIdKey)
+        public IList<Book.Model.PronoteHeader> GetByDate(DateTime startDate, DateTime endDate, Model.Customer customer, string cusxoid, Model.Product product, string PronoteHeaderIdStart, string PronoteHeaderIdEnd, int sourceType, string workhouseIndepot, bool jiean, string proNameKey, string proCusNameKey, string pronoteHeaderIdKey, bool sourcetype0, bool sourcetype4, bool sourcetype5)
         {
-            return accessor.GetByDate(startDate, endDate, customer, cusxoid, product, PronoteHeaderIdStart, PronoteHeaderIdEnd, sourceType, workhouseIndepot, jiean, proNameKey, proCusNameKey, pronoteHeaderIdKey);
+            return accessor.GetByDate(startDate, endDate, customer, cusxoid, product, PronoteHeaderIdStart, PronoteHeaderIdEnd, sourceType, workhouseIndepot, jiean, proNameKey, proCusNameKey, pronoteHeaderIdKey, sourcetype0, sourcetype4, sourcetype5);
         }
 
         public IList<Book.Model.PronoteHeader> Select(string customerStart, string customerEnd, DateTime dateStart, DateTime dateEnd, string CusXOId)
@@ -390,14 +390,14 @@ namespace Book.BL
             accessor.UpdateHeaderIsClse(pronoteheaderid, isclose);
         }
 
-        public IList<Book.Model.PronoteHeader> GetByDateMa(DateTime startDate, DateTime endDate, Model.Customer customer, string cusxoid, Model.Product product, string PronoteHeaderIdStart, string PronoteHeaderIdEnd, int sourcetype, string workhouseIndepot, bool jiean, string proNameKey, string proCusNameKey, string pronoteHeaderIdKey)
+        public IList<Book.Model.PronoteHeader> GetByDateMa(DateTime startDate, DateTime endDate, Model.Customer customer, string cusxoid, Model.Product product, string PronoteHeaderIdStart, string PronoteHeaderIdEnd, int sourcetype, string workhouseIndepot, bool jiean, string proNameKey, string proCusNameKey, string pronoteHeaderIdKey, bool sourcetype0, bool sourcetype4, bool sourcetype5)
         {
-            return accessor.GetByDateMa(startDate, endDate, customer, cusxoid, product, PronoteHeaderIdStart, PronoteHeaderIdEnd, sourcetype, workhouseIndepot, jiean, proNameKey, proCusNameKey, pronoteHeaderIdKey);
+            return accessor.GetByDateMa(startDate, endDate, customer, cusxoid, product, PronoteHeaderIdStart, PronoteHeaderIdEnd, sourcetype, workhouseIndepot, jiean, proNameKey, proCusNameKey, pronoteHeaderIdKey, sourcetype0, sourcetype4, sourcetype5);
         }
 
-        public IList<Book.Model.PronoteHeader> GetByDateZJ(DateTime startDate, DateTime endDate, Model.Customer customer, string cusxoid, Model.Product product, string PronoteHeaderIdStart, string PronoteHeaderIdEnd, int sourcetype, string workhouseIndepot, bool jiean, string proNameKey, string proCusNameKey, string pronoteHeaderIdKey)
+        public IList<Book.Model.PronoteHeader> GetByDateZJ(DateTime startDate, DateTime endDate, Model.Customer customer, string cusxoid, Model.Product product, string PronoteHeaderIdStart, string PronoteHeaderIdEnd, int sourcetype, string workhouseIndepot, bool jiean, string proNameKey, string proCusNameKey, string pronoteHeaderIdKey, bool sourcetype0, bool sourcetype4, bool sourcetype5)
         {
-            return accessor.GetByDateZJ(startDate, endDate, customer, cusxoid, product, PronoteHeaderIdStart, PronoteHeaderIdEnd, sourcetype, workhouseIndepot, jiean, proNameKey, proCusNameKey, pronoteHeaderIdKey);
+            return accessor.GetByDateZJ(startDate, endDate, customer, cusxoid, product, PronoteHeaderIdStart, PronoteHeaderIdEnd, sourcetype, workhouseIndepot, jiean, proNameKey, proCusNameKey, pronoteHeaderIdKey, sourcetype0, sourcetype4, sourcetype5);
         }
         public void UpdateHeaderIsClseByXOId(string InvoiceXOId, bool isclose)
         {

@@ -4603,6 +4603,30 @@
       <DependentUpon>Ro.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\OpticsTest.resx">
+      <DependentUpon>OpticsTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\OpticsTest.zh-CHT.resx">
+      <DependentUpon>OpticsTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\ROOpticsTest.resx">
+      <DependentUpon>ROOpticsTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\ROOpticsTest.zh-CHT.resx">
+      <DependentUpon>ROOpticsTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\subReportGX.resx">
+      <DependentUpon>subReportGX.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\subReportGX.zh-CHT.resx">
+      <DependentUpon>subReportGX.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCSamplingEar\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -4767,24 +4791,24 @@
       <DependentUpon>RODetail.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\ROOpticsTest.resx">
-      <DependentUpon>ROOpticsTest.cs</DependentUpon>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\Back_ROOpticsTest.resx">
+      <DependentUpon>Back_ROOpticsTest.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\ROOpticsTest.zh-CHT.resx">
-      <DependentUpon>ROOpticsTest.cs</DependentUpon>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\Back_ROOpticsTest.zh-CHT.resx">
+      <DependentUpon>Back_ROOpticsTest.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCPGOnlineCheck\ROThicknessTest.zh-CHT.resx">
       <DependentUpon>ROThicknessTest.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\subReportGX.resx">
-      <DependentUpon>subReportGX.cs</DependentUpon>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\Back_subReportGX.resx">
+      <DependentUpon>Back_subReportGX.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\subReportGX.zh-CHT.resx">
-      <DependentUpon>subReportGX.cs</DependentUpon>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\Back_subReportGX.zh-CHT.resx">
+      <DependentUpon>Back_subReportGX.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCPGOnlineCheck\subReportHD.resx">
@@ -6460,12 +6484,12 @@
       <DependentUpon>NewKeyTextEdit.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\OpticsTest.resx">
-      <DependentUpon>OpticsTest.cs</DependentUpon>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\Back_OpticsTest.resx">
+      <DependentUpon>Back_OpticsTest.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\OpticsTest.zh-CHT.resx">
-      <DependentUpon>OpticsTest.cs</DependentUpon>
+    <EmbeddedResource Include="produceManager\PCPGOnlineCheck\Back_OpticsTest.zh-CHT.resx">
+      <DependentUpon>Back_OpticsTest.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCPGOnlineCheck\OpticsTestList.resx">
@@ -11593,6 +11617,24 @@
     <Compile Include="produceManager\PCMouldOnlineCheck\Ro.Designer.cs">
       <DependentUpon>Ro.cs</DependentUpon>
     </Compile>
+    <Compile Include="produceManager\PCPGOnlineCheck\OpticsTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCPGOnlineCheck\OpticsTest.Designer.cs">
+      <DependentUpon>OpticsTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCPGOnlineCheck\ROOpticsTest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCPGOnlineCheck\ROOpticsTest.Designer.cs">
+      <DependentUpon>ROOpticsTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCPGOnlineCheck\subReportGX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCPGOnlineCheck\subReportGX.Designer.cs">
+      <DependentUpon>subReportGX.cs</DependentUpon>
+    </Compile>
     <Compile Include="produceManager\PCSamplingEar\Condition.cs" />
     <Compile Include="produceManager\PCSamplingEar\ConditionForm.cs">
       <SubType>Form</SubType>
@@ -11748,17 +11790,17 @@
     <Compile Include="produceManager\PCExportReportANSI\RODetail.Designer.cs">
       <DependentUpon>RODetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="produceManager\PCPGOnlineCheck\ROOpticsTest.cs">
+    <Compile Include="produceManager\PCPGOnlineCheck\Back_ROOpticsTest.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="produceManager\PCPGOnlineCheck\ROOpticsTest.Designer.cs">
-      <DependentUpon>ROOpticsTest.cs</DependentUpon>
+    <Compile Include="produceManager\PCPGOnlineCheck\Back_ROOpticsTest.Designer.cs">
+      <DependentUpon>Back_ROOpticsTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="produceManager\PCPGOnlineCheck\subReportGX.cs">
+    <Compile Include="produceManager\PCPGOnlineCheck\Back_subReportGX.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="produceManager\PCPGOnlineCheck\subReportGX.Designer.cs">
-      <DependentUpon>subReportGX.cs</DependentUpon>
+    <Compile Include="produceManager\PCPGOnlineCheck\Back_subReportGX.Designer.cs">
+      <DependentUpon>Back_subReportGX.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCPGOnlineCheck\subReportHD.cs">
       <SubType>Component</SubType>
@@ -12233,11 +12275,11 @@
     <Compile Include="produceManager\PCPGOnlineCheck\NewKeyTextEdit.Designer.cs">
       <DependentUpon>NewKeyTextEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="produceManager\PCPGOnlineCheck\OpticsTest.cs">
+    <Compile Include="produceManager\PCPGOnlineCheck\Back_OpticsTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="produceManager\PCPGOnlineCheck\OpticsTest.Designer.cs">
-      <DependentUpon>OpticsTest.cs</DependentUpon>
+    <Compile Include="produceManager\PCPGOnlineCheck\Back_OpticsTest.Designer.cs">
+      <DependentUpon>Back_OpticsTest.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCPGOnlineCheck\OpticsTestList.cs">
       <SubType>Form</SubType>

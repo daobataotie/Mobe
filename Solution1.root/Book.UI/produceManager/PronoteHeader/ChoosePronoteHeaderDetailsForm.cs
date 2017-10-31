@@ -191,13 +191,13 @@ namespace Book.UI.produceManager.PronoteHeader
             }
 
             if (type == 0) //质检
-                DetailList = this.pronoteHeaderManager.GetByDateZJ(startTime, endTime, this.newChooseCustomer.EditValue as Model.Customer, this.textEditCusXOId.Text, this.buttonEditPro1.EditValue as Model.Product, null, null, -1, this.workHouseIndepot == null ? null : this.workHouseIndepot.WorkHouseId, this.checkEdit1.Checked, this.TXTproNameKey.Text, this.TXTproCusNameKey.Text, this.txtpronoteHeaderIdKey.Text);
+                DetailList = this.pronoteHeaderManager.GetByDateZJ(startTime, endTime, this.newChooseCustomer.EditValue as Model.Customer, this.textEditCusXOId.Text, this.buttonEditPro1.EditValue as Model.Product, null, null, -1, this.workHouseIndepot == null ? null : this.workHouseIndepot.WorkHouseId, this.checkEdit1.Checked, this.TXTproNameKey.Text, this.TXTproCusNameKey.Text, this.txtpronoteHeaderIdKey.Text, this.checkEditZizhi.Checked, this.checkEditZizhiZZ.Checked, this.checkEditZizhiBCP.Checked);
             else if (type == 1) //生产入库
-                DetailList = this.pronoteHeaderManager.GetByDate(startTime, endTime, this.newChooseCustomer.EditValue as Model.Customer, this.textEditCusXOId.Text, this.buttonEditPro1.EditValue as Model.Product, null, null, -1, this.workHouseIndepot == null ? null : this.workHouseIndepot.WorkHouseId, this.checkEdit1.Checked, this.TXTproNameKey.Text, this.TXTproCusNameKey.Text, this.txtpronoteHeaderIdKey.Text);
+                DetailList = this.pronoteHeaderManager.GetByDate(startTime, endTime, this.newChooseCustomer.EditValue as Model.Customer, this.textEditCusXOId.Text, this.buttonEditPro1.EditValue as Model.Product, null, null, -1, this.workHouseIndepot == null ? null : this.workHouseIndepot.WorkHouseId, this.checkEdit1.Checked, this.TXTproNameKey.Text, this.TXTproCusNameKey.Text, this.txtpronoteHeaderIdKey.Text, this.checkEditZizhi.Checked, this.checkEditZizhiZZ.Checked, this.checkEditZizhiBCP.Checked);
             else
             {
                 this.workHouseIndepot = this.newChooseWorkHorse.EditValue as Model.WorkHouse;
-                DetailList = this.pronoteHeaderManager.GetByDateMa(startTime, endTime, this.newChooseCustomer.EditValue as Model.Customer, this.textEditCusXOId.Text, this.buttonEditPro1.EditValue as Model.Product, null, null, -1, this.workHouseIndepot == null ? null : this.workHouseIndepot.WorkHouseId, this.checkEdit1.Checked, this.TXTproNameKey.Text, this.TXTproCusNameKey.Text, this.txtpronoteHeaderIdKey.Text);
+                DetailList = this.pronoteHeaderManager.GetByDateMa(startTime, endTime, this.newChooseCustomer.EditValue as Model.Customer, this.textEditCusXOId.Text, this.buttonEditPro1.EditValue as Model.Product, null, null, -1, this.workHouseIndepot == null ? null : this.workHouseIndepot.WorkHouseId, this.checkEdit1.Checked, this.TXTproNameKey.Text, this.TXTproCusNameKey.Text, this.txtpronoteHeaderIdKey.Text, this.checkEditZizhi.Checked, this.checkEditZizhiZZ.Checked, this.checkEditZizhiBCP.Checked);
             }
 
 

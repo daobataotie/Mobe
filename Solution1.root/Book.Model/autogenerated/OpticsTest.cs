@@ -134,6 +134,14 @@ namespace Book.Model
         /// </summary>
         private string _pCFinishCheckId;
 
+        private string _leftLevelJudge;
+
+        private string _rightLevelJudge;
+
+        private string _leftVerticalJudge;
+
+        private string _rightVerticalJudge;
+
         /// <summary>
         /// 品管线上检查详细
         /// </summary>
@@ -503,6 +511,42 @@ namespace Book.Model
         }
 
         /// <summary>
+        /// 水平判定L
+        /// </summary>
+        public string LeftLevelJudge
+        {
+            get { return _leftLevelJudge; }
+            set { _leftLevelJudge = value; }
+        }
+
+        /// <summary>
+        /// 水平判定R
+        /// </summary>
+        public string RightLevelJudge
+        {
+            get { return _rightLevelJudge; }
+            set { _rightLevelJudge = value; }
+        }
+
+        /// <summary>
+        /// 垂直判定L
+        /// </summary>
+        public string LeftVerticalJudge
+        {
+            get { return _leftVerticalJudge; }
+            set { _leftVerticalJudge = value; }
+        }
+
+        /// <summary>
+        /// 垂直判定R
+        /// </summary>
+        public string RightVerticalJudge
+        {
+            get { return _rightVerticalJudge; }
+            set { _rightVerticalJudge = value; }
+        }
+
+        /// <summary>
         /// 品管线上检查详细
         /// </summary>
         public virtual PCPGOnlineCheckDetail PCPGOnlineCheckDetail
@@ -651,6 +695,14 @@ namespace Book.Model
         /// 组装成品检验单编号
         /// </summary>
         public readonly static string PRO_PCFinishCheckId = "PCFinishCheckId";
+
+        public readonly static string PRO_LeftLevelJudge = "LeftLevelJudge";
+
+        public readonly static string PRO_RightLevelJudge = "RightLevelJudge";
+
+        public readonly static string PRO_LeftVerticalJudge = "LeftVerticalJudge";
+
+        public readonly static string PRO_RightVerticalJudge = "RightVerticalJudge";
         #endregion
     }
 }

@@ -25,8 +25,8 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.requireValueExceptions.Add(Model.OpticsTest.PRO_OptiscTestDate, new AA(Properties.Resources.DateIsNull, this.dateEditOpticsDate));
             this.requireValueExceptions.Add(Model.OpticsTest.PRO_MachineName, new AA("機型不能為空", this.comboxMachine));
             this.requireValueExceptions.Add(Model.OpticsTest.PRO_EmployeeId, new AA(Properties.Resources.EmployeeIdNotNull, this.nccEmployee));
-            //this.requireValueExceptions.Add(Model.OpticsTest.PRO_ManualId, new AA("手動編號不能為空!", this.txtManualid));
-            //this.invalidValueExceptions.Add(Model.OpticsTest.PRO_ManualId, new AA("手動編號重複,請重新輸入!", this.txtManualid));
+            this.requireValueExceptions.Add(Model.OpticsTest.PRO_ManualId, new AA("手動編號不能為空!", this.txtManualid));
+            this.invalidValueExceptions.Add(Model.OpticsTest.PRO_ManualId, new AA("手動編號重複,請重新輸入!", this.txtManualid));
 
             this.invalidValueExceptions.Add(Model.OpticsTest.PRO_PCPGOnlineCheckDetailId, new AA("必須先保存本測試所依存的頭表", this.txtManualid));
 
@@ -69,6 +69,9 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this._OpticsTest.RattrA = 180;
             this._OpticsTest.LattrC = 0;
             this._OpticsTest.RattrC = 0;
+
+            this._OpticsTest.Employee = BL.V.ActiveOperator.Employee;
+            this._OpticsTest.EmployeeId = BL.V.ActiveOperator.EmployeeId;
         }
 
         protected override void Delete()
@@ -219,16 +222,21 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
                 this._OpticsTest.LattrC = double.Parse(string.IsNullOrEmpty(this.NewKTxtLc.mTextValue) ? "0" : this.NewKTxtLc.mTextValue);
                 this._OpticsTest.LattrA = double.Parse(string.IsNullOrEmpty(this.NewKTxtLa.mTextValue) ? "0" : this.NewKTxtLa.mTextValue);
                 this._OpticsTest.LinPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtLin.mTextValue) ? "0" : this.NewKTxtLin.mTextValue);
-                this._OpticsTest.LoutPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtLout.mTextValue) ? "0" : this.NewKTxtLout.mTextValue);
+                //this._OpticsTest.LoutPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtLout.mTextValue) ? "0" : this.NewKTxtLout.mTextValue);
                 this._OpticsTest.LupPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtLup.mTextValue) ? "0" : this.NewKTxtLup.mTextValue);
-                this._OpticsTest.LdownPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtLdown.mTextValue) ? "0" : this.NewKTxtLdown.mTextValue);
+                //this._OpticsTest.LdownPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtLdown.mTextValue) ? "0" : this.NewKTxtLdown.mTextValue);
                 this._OpticsTest.RattrS = double.Parse(string.IsNullOrEmpty(this.NewKTxtRs.mTextValue) ? "0" : this.NewKTxtRs.mTextValue);
                 this._OpticsTest.RattrC = double.Parse(string.IsNullOrEmpty(this.NewKTxtRc.mTextValue) ? "0" : this.NewKTxtRc.mTextValue);
                 this._OpticsTest.RattrA = double.Parse(string.IsNullOrEmpty(this.NewKTxtRa.mTextValue) ? "0" : this.NewKTxtRa.mTextValue);
                 this._OpticsTest.RinPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtRin.mTextValue) ? "0" : this.NewKTxtRin.mTextValue);
-                this._OpticsTest.RoutPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtRout.mTextValue) ? "0" : this.NewKTxtRout.mTextValue);
+                //this._OpticsTest.RoutPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtRout.mTextValue) ? "0" : this.NewKTxtRout.mTextValue);
                 this._OpticsTest.RupPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtRup.mTextValue) ? "0" : this.NewKTxtRup.mTextValue);
-                this._OpticsTest.RdowmPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtRdown.mTextValue) ? "0" : this.NewKTxtRdown.mTextValue);
+                //this._OpticsTest.RdowmPSM = double.Parse(string.IsNullOrEmpty(this.NewKTxtRdown.mTextValue) ? "0" : this.NewKTxtRdown.mTextValue);
+
+                this._OpticsTest.LeftLevelJudge = this.cobLLevelJudge.Text;
+                this._OpticsTest.LeftVerticalJudge = this.cobLVerticalJudge.Text;
+                this._OpticsTest.RightLevelJudge = this.cobRLevelJudge.Text;
+                this._OpticsTest.RightVerticalJudge = this.cobRVerticalJudge.Text;
             }
             catch (Exception)
             {
@@ -267,18 +275,25 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.NewKTxtLc.mTextValue = string.Format("{0:0.00}", this._OpticsTest.LattrC.HasValue ? this._OpticsTest.LattrC.Value : 0);
             this.NewKTxtLa.mTextValue = string.Format("{0:0.00}", this._OpticsTest.LattrA.HasValue ? this._OpticsTest.LattrA.Value : 0);
             this.NewKTxtLin.mTextValue = string.Format("{0:0.00}", this._OpticsTest.LinPSM.HasValue ? this._OpticsTest.LinPSM.Value : 0);
-            this.NewKTxtLout.mTextValue = string.Format("{0:0.00}", this._OpticsTest.LoutPSM.HasValue ? this._OpticsTest.LoutPSM.Value : 0);
+            //this.NewKTxtLout.mTextValue = string.Format("{0:0.00}", this._OpticsTest.LoutPSM.HasValue ? this._OpticsTest.LoutPSM.Value : 0);
             this.NewKTxtLup.mTextValue = string.Format("{0:0.00}", this._OpticsTest.LupPSM.HasValue ? this._OpticsTest.LupPSM.Value : 0);
-            this.NewKTxtLdown.mTextValue = string.Format("{0:0.00}", this._OpticsTest.LdownPSM.HasValue ? this._OpticsTest.LdownPSM.Value : 0);
+            //this.NewKTxtLdown.mTextValue = string.Format("{0:0.00}", this._OpticsTest.LdownPSM.HasValue ? this._OpticsTest.LdownPSM.Value : 0);
             this.NewKTxtRs.mTextValue = string.Format("{0:0.00}", this._OpticsTest.RattrS.HasValue ? this._OpticsTest.RattrS.Value : 0);
             this.NewKTxtRc.mTextValue = string.Format("{0:0.00}", this._OpticsTest.RattrC.HasValue ? this._OpticsTest.RattrC.Value : 0);
             this.NewKTxtRa.mTextValue = string.Format("{0:0.00}", this._OpticsTest.RattrA.HasValue ? this._OpticsTest.RattrA.Value : 0);
             this.NewKTxtRin.mTextValue = string.Format("{0:0.00}", this._OpticsTest.RinPSM.HasValue ? this._OpticsTest.RinPSM.Value : 0);
-            this.NewKTxtRout.mTextValue = string.Format("{0:0.00}", this._OpticsTest.RoutPSM.HasValue ? this._OpticsTest.RoutPSM.Value : 0);
+            //this.NewKTxtRout.mTextValue = string.Format("{0:0.00}", this._OpticsTest.RoutPSM.HasValue ? this._OpticsTest.RoutPSM.Value : 0);
             this.NewKTxtRup.mTextValue = string.Format("{0:0.00}", this._OpticsTest.RupPSM.HasValue ? this._OpticsTest.RupPSM.Value : 0);
-            this.NewKTxtRdown.mTextValue = string.Format("{0:0.00}", this._OpticsTest.RdowmPSM.HasValue ? this._OpticsTest.RdowmPSM.Value : 0);
-            this.textEditH.EditValue = string.Format("{0:0.00}", this._OpticsTest.OpticsTestH.HasValue ? this._OpticsTest.OpticsTestH.Value : 0);
-            this.textEditV.EditValue = string.Format("{0:0.00}", this._OpticsTest.OpticsTestV.HasValue ? this._OpticsTest.OpticsTestV.Value : 0);
+            //this.NewKTxtRdown.mTextValue = string.Format("{0:0.00}", this._OpticsTest.RdowmPSM.HasValue ? this._OpticsTest.RdowmPSM.Value : 0);
+            //this.cobLLevelJudge.EditValue = string.IsNullOrEmpty(this._OpticsTest.LeftLevelJudge) ? this.cobLLevelJudge.Text : this._OpticsTest.LeftLevelJudge;
+            //this.cobLVerticalJudge.EditValue = string.IsNullOrEmpty(this._OpticsTest.LeftVerticalJudge) ? this.cobLVerticalJudge.Text : this._OpticsTest.LeftVerticalJudge;
+            //this.cobRLevelJudge.EditValue = string.IsNullOrEmpty(this._OpticsTest.RightLevelJudge) ? this.cobRLevelJudge.Text : this._OpticsTest.RightLevelJudge;
+            //this.cobRVerticalJudge.EditValue = string.IsNullOrEmpty(this._OpticsTest.RightVerticalJudge) ? this.cobRVerticalJudge.Text : this._OpticsTest.RightVerticalJudge;
+
+            this.cobLLevelJudge.EditValue = this._OpticsTest.LeftLevelJudge;
+            this.cobLVerticalJudge.EditValue = this._OpticsTest.LeftVerticalJudge;
+            this.cobRLevelJudge.EditValue = this._OpticsTest.RightLevelJudge;
+            this.cobRVerticalJudge.EditValue = this._OpticsTest.RightVerticalJudge;
 
             base.Refresh();
 
@@ -295,7 +310,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
                     break;
             }
 
-            this.txtOpticsTestId.Properties.ReadOnly = true;
+            this.txtOpticsTestId.Enabled = false;
         }
 
         protected override DevExpress.XtraReports.UI.XtraReport GetReport()

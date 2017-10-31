@@ -176,7 +176,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             resources.ApplyResources(this.TCcsyg, "TCcsyg");
             this.TCcsyg.Name = "TCcsyg";
             this.TCcsyg.StylePriority.UseTextAlignment = false;
-            this.TCcsyg.Weight = 0.66933456689522186;
+            this.TCcsyg.Weight = 0.67761965426312454;
             // 
             // xrTable4
             // 
@@ -243,7 +243,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             resources.ApplyResources(this.TCcsrq, "TCcsrq");
             this.TCcsrq.Name = "TCcsrq";
             this.TCcsrq.StylePriority.UseTextAlignment = false;
-            this.TCcsrq.Weight = 0.66933475009228915;
+            this.TCcsrq.Weight = 0.67761965426312454;
             // 
             // xrTable3
             // 
@@ -357,7 +357,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             // 
             resources.ApplyResources(this.TCrdown, "TCrdown");
             this.TCrdown.Name = "TCrdown";
-            this.TCrdown.Weight = 0.21310639118449262;
+            this.TCrdown.Weight = 0.22061014306043059;
             // 
             // xrTable2
             // 
@@ -392,7 +392,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.xrTableCell16.Name = "xrTableCell16";
             this.xrTableCell16.StylePriority.UseFont = false;
             this.xrTableCell16.StylePriority.UseTextAlignment = false;
-            this.xrTableCell16.Weight = 1.4962482162254895;
+            this.xrTableCell16.Weight = 1.5037516628953509;
             // 
             // xrTable1
             // 
@@ -509,7 +509,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             // 
             resources.ApplyResources(this.xrTableCell3, "xrTableCell3");
             this.xrTableCell3.Name = "xrTableCell3";
-            this.xrTableCell3.Weight = 0.21310639118449262;
+            this.xrTableCell3.Weight = 0.22061014306043059;
             // 
             // TopMargin
             // 

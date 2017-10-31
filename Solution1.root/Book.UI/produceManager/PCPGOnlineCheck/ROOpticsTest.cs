@@ -27,24 +27,21 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             lblTestEmployee.Text = opticsTest.Employee.ToString();
             lblPrintTime.Text += DateTime.Now.ToString("yyyy-MM-dd");
             //lblRemarks.Text=opticsTest.
-            lblLeftA.Text = opticsTest.LattrA.ToString();
-            lblLeftC.Text = opticsTest.LattrC.ToString();
-            lblLeftDOWN.Text = opticsTest.LdownPSM.ToString();
-            lblLeftIN.Text = opticsTest.LinPSM.ToString();
-            lblLeftOUT.Text = opticsTest.LoutPSM.ToString();
-            lblLeftS.Text = opticsTest.LattrS.ToString();
-            lblLeftUP.Text = opticsTest.LupPSM.ToString();
+            lblLeftA.Text = opticsTest.LattrA.Value.ToString("F2");
+            lblLeftC.Text = opticsTest.LattrC.Value.ToString("F2");
+            lblLeftDOWN.Text = opticsTest.LeftVerticalJudge;
+            lblLeftIN.Text = opticsTest.LinPSM.Value.ToString("F2");
+            lblLeftOUT.Text = opticsTest.LeftLevelJudge;
+            lblLeftS.Text = opticsTest.LattrS.Value.ToString("F2");
+            lblLeftUP.Text = opticsTest.LupPSM.Value.ToString("F2");
 
-            lblRightA.Text = opticsTest.RattrA.ToString();
-            lblRightC.Text = opticsTest.RattrC.ToString();
-            lblRightDOWN.Text = opticsTest.RdowmPSM.ToString();
-            lblRightIN.Text = opticsTest.RinPSM.ToString();
-            lblRightOUT.Text = opticsTest.RoutPSM.ToString();
-            lblRightS.Text = opticsTest.RattrS.ToString();
-            lblRightUP.Text = opticsTest.RupPSM.ToString();
-
-            lblOpticsTestH.Text = opticsTest.OpticsTestH.ToString();
-            lblOpticsTestV.Text = opticsTest.OpticsTestV.ToString();
+            lblRightS.Text = opticsTest.RattrS.Value.ToString("F2");
+            lblRightA.Text = opticsTest.RattrA.Value.ToString("F2");
+            lblRightC.Text = opticsTest.RattrC.Value.ToString("F2");
+            lblRightDOWN.Text = opticsTest.RightVerticalJudge;
+            lblRightIN.Text = opticsTest.RinPSM.Value.ToString("F2");
+            lblRightOUT.Text = opticsTest.RightLevelJudge;
+            lblRightUP.Text = opticsTest.RupPSM.Value.ToString("F2");
         }
     }
 }

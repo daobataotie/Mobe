@@ -93,6 +93,12 @@
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.checkEditZizhiZZ = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.checkEditZizhi = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.checkEditZizhiBCP = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TXTproCusNameKey.Properties)).BeginInit();
@@ -134,10 +140,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditZizhiZZ.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditZizhi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditZizhiBCP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.checkEditZizhiBCP);
+            this.layoutControl1.Controls.Add(this.checkEditZizhi);
+            this.layoutControl1.Controls.Add(this.checkEditZizhiZZ);
             this.layoutControl1.Controls.Add(this.newChooseWorkHorse);
             this.layoutControl1.Controls.Add(this.TXTproCusNameKey);
             this.layoutControl1.Controls.Add(this.TXTproNameKey);
@@ -479,19 +494,22 @@
             this.layoutControlItem8,
             this.layoutControlItem10,
             this.layoutControlItem6,
-            this.layoutControlItem20});
+            this.layoutControlItem20,
+            this.layoutControlItem21,
+            this.layoutControlItem22,
+            this.layoutControlItem23});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(738, 432);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(738, 480);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl1;
             resources.ApplyResources(this.layoutControlItem1, "layoutControlItem1");
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 76);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 99);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(718, 310);
+            this.layoutControlItem1.Size = new System.Drawing.Size(718, 335);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
@@ -500,7 +518,7 @@
             // 
             this.layoutControlItem2.Control = this.simpleButton1;
             resources.ApplyResources(this.layoutControlItem2, "layoutControlItem2");
-            this.layoutControlItem2.Location = new System.Drawing.Point(473, 386);
+            this.layoutControlItem2.Location = new System.Drawing.Point(473, 434);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(107, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -511,7 +529,7 @@
             // 
             this.layoutControlItem3.Control = this.simpleButton2;
             resources.ApplyResources(this.layoutControlItem3, "layoutControlItem3");
-            this.layoutControlItem3.Location = new System.Drawing.Point(580, 386);
+            this.layoutControlItem3.Location = new System.Drawing.Point(580, 434);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(138, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -521,7 +539,7 @@
             // emptySpaceItem1
             // 
             resources.ApplyResources(this.emptySpaceItem1, "emptySpaceItem1");
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 405);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 453);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(473, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -694,6 +712,60 @@
             this.layoutControlItem18.TextSize = new System.Drawing.Size(64, 14);
             this.layoutControlItem18.TextToControlDistance = 5;
             // 
+            // checkEditZizhiZZ
+            // 
+            resources.ApplyResources(this.checkEditZizhiZZ, "checkEditZizhiZZ");
+            this.checkEditZizhiZZ.Name = "checkEditZizhiZZ";
+            this.checkEditZizhiZZ.Properties.Caption = resources.GetString("checkEdit2.Properties.Caption1");
+            this.checkEditZizhiZZ.StyleController = this.layoutControl1;
+            // 
+            // layoutControlItem21
+            // 
+            this.layoutControlItem21.Control = this.checkEditZizhiZZ;
+            resources.ApplyResources(this.layoutControlItem21, "layoutControlItem21");
+            this.layoutControlItem21.Location = new System.Drawing.Point(185, 76);
+            this.layoutControlItem21.Name = "layoutControlItem21";
+            this.layoutControlItem21.Size = new System.Drawing.Size(182, 23);
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem21.TextToControlDistance = 0;
+            this.layoutControlItem21.TextVisible = false;
+            // 
+            // checkEditZizhi
+            // 
+            resources.ApplyResources(this.checkEditZizhi, "checkEditZizhi");
+            this.checkEditZizhi.Name = "checkEditZizhi";
+            this.checkEditZizhi.Properties.Caption = resources.GetString("checkEdit3.Properties.Caption");
+            this.checkEditZizhi.StyleController = this.layoutControl1;
+            // 
+            // layoutControlItem22
+            // 
+            this.layoutControlItem22.Control = this.checkEditZizhi;
+            resources.ApplyResources(this.layoutControlItem22, "layoutControlItem22");
+            this.layoutControlItem22.Location = new System.Drawing.Point(0, 76);
+            this.layoutControlItem22.Name = "layoutControlItem22";
+            this.layoutControlItem22.Size = new System.Drawing.Size(185, 23);
+            this.layoutControlItem22.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem22.TextToControlDistance = 0;
+            this.layoutControlItem22.TextVisible = false;
+            // 
+            // checkEditZizhiBCP
+            // 
+            resources.ApplyResources(this.checkEditZizhiBCP, "checkEditZizhiBCP");
+            this.checkEditZizhiBCP.Name = "checkEditZizhiBCP";
+            this.checkEditZizhiBCP.Properties.Caption = resources.GetString("checkEdit2.Properties.Caption");
+            this.checkEditZizhiBCP.StyleController = this.layoutControl1;
+            // 
+            // layoutControlItem23
+            // 
+            this.layoutControlItem23.Control = this.checkEditZizhiBCP;
+            resources.ApplyResources(this.layoutControlItem23, "layoutControlItem23");
+            this.layoutControlItem23.Location = new System.Drawing.Point(367, 76);
+            this.layoutControlItem23.Name = "layoutControlItem23";
+            this.layoutControlItem23.Size = new System.Drawing.Size(351, 23);
+            this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem23.TextToControlDistance = 0;
+            this.layoutControlItem23.TextVisible = false;
+            // 
             // ChoosePronoteHeaderDetailsForm
             // 
             resources.ApplyResources(this, "$this");
@@ -743,6 +815,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditZizhiZZ.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditZizhi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditZizhiBCP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -812,5 +890,11 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
         private Book.UI.Invoices.NewChooseContorl newChooseWorkHorse;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
+        private DevExpress.XtraEditors.CheckEdit checkEditZizhi;
+        private DevExpress.XtraEditors.CheckEdit checkEditZizhiZZ;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem21;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem22;
+        private DevExpress.XtraEditors.CheckEdit checkEditZizhiBCP;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem23;
     }
 }

@@ -35,10 +35,6 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.lblCompanyName = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.lblOpticsTestH = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblOpticsTestV = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblPrintTime = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel39 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblRightDOWN = new DevExpress.XtraReports.UI.XRLabel();
@@ -129,10 +125,6 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.lblOpticsTestH,
-            this.xrLabel12,
-            this.lblOpticsTestV,
-            this.xrLabel10,
             this.lblPrintTime,
             this.xrLabel39,
             this.lblRightDOWN,
@@ -182,42 +174,6 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.xrLabel37});
             resources.ApplyResources(this.PageHeader, "PageHeader");
             this.PageHeader.Name = "PageHeader";
-            // 
-            // lblOpticsTestH
-            // 
-            this.lblOpticsTestH.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            resources.ApplyResources(this.lblOpticsTestH, "lblOpticsTestH");
-            this.lblOpticsTestH.Name = "lblOpticsTestH";
-            this.lblOpticsTestH.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblOpticsTestH.StylePriority.UseBorders = false;
-            this.lblOpticsTestH.StylePriority.UseFont = false;
-            this.lblOpticsTestH.StylePriority.UseTextAlignment = false;
-            // 
-            // xrLabel12
-            // 
-            resources.ApplyResources(this.xrLabel12, "xrLabel12");
-            this.xrLabel12.Name = "xrLabel12";
-            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel12.StylePriority.UseFont = false;
-            this.xrLabel12.StylePriority.UseTextAlignment = false;
-            // 
-            // lblOpticsTestV
-            // 
-            this.lblOpticsTestV.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            resources.ApplyResources(this.lblOpticsTestV, "lblOpticsTestV");
-            this.lblOpticsTestV.Name = "lblOpticsTestV";
-            this.lblOpticsTestV.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblOpticsTestV.StylePriority.UseBorders = false;
-            this.lblOpticsTestV.StylePriority.UseFont = false;
-            this.lblOpticsTestV.StylePriority.UseTextAlignment = false;
-            // 
-            // xrLabel10
-            // 
-            resources.ApplyResources(this.xrLabel10, "xrLabel10");
-            this.xrLabel10.Name = "xrLabel10";
-            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel10.StylePriority.UseFont = false;
-            this.xrLabel10.StylePriority.UseTextAlignment = false;
             // 
             // lblPrintTime
             // 
@@ -744,9 +700,5 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
         private DevExpress.XtraReports.UI.XRLabel xrLabel38;
         private DevExpress.XtraReports.UI.XRLabel xrLabel39;
         private DevExpress.XtraReports.UI.XRLabel lblPrintTime;
-        private DevExpress.XtraReports.UI.XRLabel lblOpticsTestV;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel10;
-        private DevExpress.XtraReports.UI.XRLabel lblOpticsTestH;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel12;
     }
 }

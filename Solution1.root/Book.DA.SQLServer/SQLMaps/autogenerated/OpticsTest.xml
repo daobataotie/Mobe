@@ -30,6 +30,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="EmployeeId" column="EmployeeId" />
       <result property="ManualId" column="ManualId" />
       <result property="PCFinishCheckId" column="PCFinishCheckId"/>
+      <result property="LeftLevelJudge" column="LeftLevelJudge"/>
+      <result property="RightLevelJudge" column="RightLevelJudge"/>
+      <result property="LeftVerticalJudge" column="LeftVerticalJudge"/>
+      <result property="RightVerticalJudge" column="RightVerticalJudge"/>
       <result property="PCPGOnlineCheckDetail" column="PCPGOnlineCheckDetailId" lazyLoad="false" select="PCPGOnlineCheckDetail.select_by_primary_key" />
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
     </resultMap>
@@ -142,7 +146,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[OptiscTestDate],
 				[EmployeeId],
 				[ManualId],
-        [PCFinishCheckId]
+        [PCFinishCheckId],
+        [LeftLevelJudge],
+        [RightLevelJudge],
+        [LeftVerticalJudge],
+        [RightVerticalJudge]  
 			FROM
 				[dbo].[OpticsTest]
 			WHERE
@@ -219,7 +227,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[OptiscTestDate],
 				[EmployeeId],
 				[ManualId],
-        [PCFinishCheckId]
+        [PCFinishCheckId],
+        [LeftLevelJudge],
+        [RightLevelJudge],
+        [LeftVerticalJudge],
+        [RightVerticalJudge] 
 			) 
 			VALUES 
 			(
@@ -246,7 +258,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#OptiscTestDate#,
 				#EmployeeId#,
 				#ManualId#,
-        #PCFinishCheckId#
+        #PCFinishCheckId#,
+        #LeftLevelJudge#,
+        #RightLevelJudge#,
+        #LeftVerticalJudge#,
+        #RightVerticalJudge# 
 			)
              ]]>
     </insert>
@@ -276,7 +292,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[OptiscTestDate] = #OptiscTestDate#,
 				[EmployeeId] = #EmployeeId#,
 				[ManualId] = #ManualId#,
-        [PCFinishCheckId]=#PCFinishCheckId#
+        [PCFinishCheckId]=#PCFinishCheckId#,
+        [LeftLevelJudge]=#LeftLevelJudge#,
+        [RightLevelJudge]=#RightLevelJudge#,
+        [LeftVerticalJudge]=#LeftVerticalJudge#,
+        [RightVerticalJudge]=#RightVerticalJudge# 
 			WHERE
 				[OpticsTestId] = #OpticsTestId#
                     ]]>
