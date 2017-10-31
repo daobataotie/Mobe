@@ -117,15 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>317, 17</value>
-  </metadata>
+  </data>
   <data name="barBtn_Search.Caption" xml:space="preserve">
     <value>查询</value>
   </data>
-  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>172, 17</value>
-  </metadata>
+  </data>
   <data name="PCFinishCheckID.Caption" xml:space="preserve">
     <value>单据编号</value>
   </data>
@@ -217,9 +218,9 @@
   <data name="Employee1.VisibleIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <metadata name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
-  </metadata>
+  </data>
   <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v10.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -441,7 +442,6 @@
         UvBsL/G/Kn/dEGY+q/Rx39d6T2mACqcYViGv0sUO0Tswz336P167ULb7azGbAAAAAElFTkSuQmCCCw==
 </value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="layoutControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>786, 334</value>
   </data>
@@ -472,9 +472,9 @@
   <data name="&gt;&gt;gridControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 14</value>
   </data>
@@ -482,7 +482,7 @@
     <value>786, 409</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>出货验货单选择</value>
+    <value>成品检验单选择</value>
   </data>
   <data name="&gt;&gt;barManager1.Name" xml:space="preserve">
     <value>barManager1</value>

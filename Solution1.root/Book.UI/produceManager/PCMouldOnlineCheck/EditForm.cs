@@ -27,7 +27,7 @@ namespace Book.UI.produceManager.PCMouldOnlineCheck
 
             this.action = "view";
             this.nccEmployee.Choose = new Settings.BasicData.Employees.ChooseEmployee();
-            this.bindingSourceEmployee.DataSource = new BL.EmployeeManager().SelectUseERPer();
+            this.bindingSourceEmployee.DataSource = new BL.EmployeeManager().SelectOnActive();
         }
 
         public EditForm(Model.PCMouldOnlineCheck model)

@@ -317,6 +317,7 @@
             this.barButtonItem487 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem379 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem381 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem498 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem54 = new DevExpress.XtraBars.BarSubItem();
             this.barSubItem33 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem127 = new DevExpress.XtraBars.BarButtonItem();
@@ -658,7 +659,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.barButtonItem498 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -2718,7 +2718,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem333),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem335),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem453),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem457),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.None, false, this.barButtonItem457, false),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem498),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem336),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem355),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem356),
@@ -2741,8 +2742,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem492),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem487),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem379),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem381),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem498)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem381)});
             this.barSubItem53.Name = "barSubItem53";
             // 
             // barButtonItem328
@@ -3610,6 +3610,13 @@
             this.barButtonItem381.Id = 524;
             this.barButtonItem381.Name = "barButtonItem381";
             this.barButtonItem381.Tag = "produceManager.ExportSendMail.MailParameterSet";
+            // 
+            // barButtonItem498
+            // 
+            resources.ApplyResources(this.barButtonItem498, "barButtonItem498");
+            this.barButtonItem498.Id = 659;
+            this.barButtonItem498.Name = "barButtonItem498";
+            this.barButtonItem498.Tag = "produceManager.PCMouldOnlineCheck.EditForm";
             // 
             // barSubItem54
             // 
@@ -6246,13 +6253,6 @@
             // helpProvider1
             // 
             resources.ApplyResources(this.helpProvider1, "helpProvider1");
-            // 
-            // barButtonItem498
-            // 
-            resources.ApplyResources(this.barButtonItem498, "barButtonItem498");
-            this.barButtonItem498.Id = 659;
-            this.barButtonItem498.Name = "barButtonItem498";
-            this.barButtonItem498.Tag = "produceManager.PCMouldOnlineCheck.EditForm";
             // 
             // MainForm
             // 

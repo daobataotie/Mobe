@@ -49,6 +49,8 @@ namespace Book.UI.produceManager.PronoteHeader
             get { return this.bindingSource1.Current as Model.PronoteHeader; }
         }
 
+        public IList<Model.PronoteHeader> SelectItems;
+
         /// <summary>
         /// 1:单选
         /// </summary>
@@ -105,6 +107,8 @@ namespace Book.UI.produceManager.PronoteHeader
             //        produceManager.ProduceInDepot.EditForm._pronotedetails.Add(Pronotedetails);
             //    }
             //}
+            if (DetailList != null)
+                this.SelectItems = DetailList.Where(d => d.Checkeds == true).ToList();
 
             this.DialogResult = DialogResult.OK;
         }
