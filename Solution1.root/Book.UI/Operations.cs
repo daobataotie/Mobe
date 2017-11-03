@@ -684,10 +684,6 @@ namespace Book.UI
             //客户产品价格设置
             operations.Add("Settings.BasicData.Customs.CustomerProductPrice", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.BasicData.Customs.CustomerProductPrice", form); });
 
-            //产品上线检验单
-            operations.Add("produceManager.ProductOnlineCheck.Editform", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.ProductOnlineCheck.Editform", form); });
-
-
             //报关系统
             operations.Add("CustomsClearance.MyRecord.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("CustomsClearance.MyRecord.EditForm", form); });
             operations.Add("CustomsClearance.PassNoteBook.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("CustomsClearance.PassNoteBook.EditForm", form); });
@@ -750,6 +746,12 @@ namespace Book.UI
 
             //模具上线检验单
             operations.Add("produceManager.PCMouldOnlineCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCMouldOnlineCheck.EditForm", form); });
+
+            //产品上线检验单  对应易达的 模具上线检验单
+            operations.Add("produceManager.ProductOnlineCheck.Editform", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.ProductOnlineCheck.Editform", form); });
+
+            //入料检验单(新)
+            operations.Add("produceManager.PCInputCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCInputCheck.EditForm", form); });
         }
 
         static Form CreateForm(string formTypeName)

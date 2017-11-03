@@ -18,7 +18,7 @@ namespace Book.UI.produceManager.PCInputCheck
         {
             foreach (var item in PCInputCheck.GetType().GetProperties())
             {
-                if (item.Name == "Heidian" || item.Name == "Guohuo" || item.Name == "Liaodian" || item.Name == "Wasiqi" || item.Name == "Zazhi" || item.Name == "Qipao" || item.Name == "Guangxue" || item.Name == "Duise" || item.Name == "Chongji" || item.Name == "Nairanceshi" || item.Name == "UVvalue")
+                if (item.Name == "Heidian" || item.Name == "Guohuo" || item.Name == "Liaodian" || item.Name == "Wasiqi" || item.Name == "Zazhi" || item.Name == "Qipao" || item.Name == "Duise" || item.Name == "Chongji" || item.Name == "Nairanceshi" || item.Name == "UVvalue")
                 {
                     if (item.GetValue(PCInputCheck, null) != null)
                         switch (item.GetValue(PCInputCheck, null).ToString())
@@ -37,7 +37,7 @@ namespace Book.UI.produceManager.PCInputCheck
             }
 
             this.lblCompanyName.Text = BL.Settings.CompanyChineseName;
-            //this.lblPrintDate.Text += DateTime.Now.ToString("yyyy-MM-dd");
+            this.lblPrintDate.Text += DateTime.Now.ToString("yyyy-MM-dd");
 
             this.lblPCInputCheckId.Text = PCInputCheck.PCInputCheckId;
             this.lblPCInputCheckDate.Text = PCInputCheck.PCInputCheckDate.Value.ToString("yyyy-MM-dd");
@@ -62,8 +62,7 @@ namespace Book.UI.produceManager.PCInputCheck
             this.TCHeidian.Text = PCInputCheck.Heidian;
             this.TCGuohuo.Text = PCInputCheck.Guohuo;
             this.TCLiaodian.Text = PCInputCheck.Liaodian;
-            //this.TCWasiqi.Text = PCInputCheck.Wasiqi;
-            this.TCGuangxue.Text = PCInputCheck.Guangxue;
+            this.TCWasiqi.Text = PCInputCheck.Wasiqi;
             this.TCZazhi.Text = PCInputCheck.Zazhi;
             this.TCQipao.Text = PCInputCheck.Qipao;
             this.TCDuise.Text = PCInputCheck.Duise;
@@ -83,6 +82,8 @@ namespace Book.UI.produceManager.PCInputCheck
             this.TCToushiEmp.Text = PCInputCheck.ToushiEmployee == null ? null : PCInputCheck.ToushiEmployee.EmployeeName;
 
             this.lblConfirmor.Text = PCInputCheck.Confirmor == null ? null : PCInputCheck.Confirmor.EmployeeName;
+
+            this.lblTestQuantity.Text = PCInputCheck.TestQuantity.Value.ToString("0.##");
         }
     }
 }

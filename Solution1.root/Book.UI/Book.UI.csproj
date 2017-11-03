@@ -4523,6 +4523,14 @@
       <DependentUpon>SearchForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCInputCheck\BackUp_EditForm.resx">
+      <DependentUpon>BackUp_EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCInputCheck\BackUp_EditForm.zh-CHT.resx">
+      <DependentUpon>BackUp_EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -4545,6 +4553,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\RelationXOForm.zh-CHT.resx">
       <DependentUpon>RelationXOForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCInputCheck\BackUp_RO.resx">
+      <DependentUpon>BackUp_RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCInputCheck\BackUp_RO.zh-CHT.resx">
+      <DependentUpon>BackUp_RO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCInputCheck\RO.resx">
@@ -11544,10 +11560,16 @@
     <Compile Include="produceManager\PCIncomingCheck\SearchForm.designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="produceManager\PCInputCheck\BackUp_EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCInputCheck\BackUp_EditForm.designer.cs">
+      <DependentUpon>BackUp_EditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="produceManager\PCInputCheck\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="produceManager\PCInputCheck\EditForm.designer.cs">
+    <Compile Include="produceManager\PCInputCheck\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCInputCheck\ListForm.cs">
@@ -11562,10 +11584,16 @@
     <Compile Include="produceManager\PCInputCheck\RelationXOForm.designer.cs">
       <DependentUpon>RelationXOForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="produceManager\PCInputCheck\BackUp_RO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCInputCheck\BackUp_RO.designer.cs">
+      <DependentUpon>BackUp_RO.cs</DependentUpon>
+    </Compile>
     <Compile Include="produceManager\PCInputCheck\RO.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="produceManager\PCInputCheck\RO.designer.cs">
+    <Compile Include="produceManager\PCInputCheck\RO.Designer.cs">
       <DependentUpon>RO.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCInputCheck\SearchForm.cs">

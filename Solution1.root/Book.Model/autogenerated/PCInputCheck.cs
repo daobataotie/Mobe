@@ -182,6 +182,8 @@ namespace Book.Model
         private string _toushiEmployeeId;
 
         private bool? _IsClosed;
+
+        private decimal? _TestQuantity;
 		
 		/// <summary>
 		/// 员工
@@ -734,6 +736,12 @@ namespace Book.Model
             get { return _IsClosed; }
             set { _IsClosed = value; }
         }
+
+        public decimal? TestQuantity
+        {
+            get { return _TestQuantity; }
+            set { _TestQuantity = value; }
+        }
 	
 		/// <summary>
 		/// 员工
@@ -1067,6 +1075,8 @@ namespace Book.Model
         public readonly static string PRO_InvoiceXOCusId = "InvoiceXOCusId";
 
         public readonly static string PRO_IsClosed = "IsClosed";
+
+        public readonly static string PRO_TestQuantity = "TestQuantity";
 
 		#endregion
 	}

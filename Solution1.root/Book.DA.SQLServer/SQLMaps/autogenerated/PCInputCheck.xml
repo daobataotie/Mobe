@@ -48,6 +48,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property ="Wudu" column="Wudu"/>
       <result property="InvoiceXOCusId" column="InvoiceXOCusId"/>
       <result property ="IsClosed" column="IsClosed"/>
+      <result property="TestQuantity" column="TestQuantity"/>
       <result property="CheckEmployee" column="CheckEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="ChongjiEmployee" column="ChongjiEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="Confirmor" column="ConfirmorId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
@@ -187,8 +188,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AuditEmpId],
         [Wudu],
         [InvoiceXOCusId],
-        [IsClosed]
-        
+        [IsClosed],
+        [TestQuantity]
 			FROM
 				[dbo].[PCInputCheck]
 			WHERE
@@ -283,7 +284,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AuditEmpId],
         [Wudu],
         [InvoiceXOCusId],
-        [IsClosed]
+        [IsClosed],
+        [TestQuantity]
 			) 
 			VALUES 
 			(
@@ -328,7 +330,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         #AuditEmpId#,
         #Wudu#,
         #InvoiceXOCusId#,
-        #IsClosed#
+        #IsClosed#,
+        #TestQuantity#
 			)
              ]]>
     </insert>
@@ -376,7 +379,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AuditEmpId]=#AuditEmpId#,
         [Wudu]=#Wudu#,
         [InvoiceXOCusId]=#InvoiceXOCusId#,
-        [IsClosed]=#IsClosed#
+        [IsClosed]=#IsClosed#,
+        [TestQuantity]=#TestQuantity#
 			WHERE
 				[PCInputCheckId] = #PCInputCheckId#
                     ]]>

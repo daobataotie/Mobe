@@ -15,6 +15,7 @@ namespace Book.UI.produceManager.PCInputCheck
         BL.PCInputCheckManager manager = new Book.BL.PCInputCheckManager();
 
         int LastFlag = 0;
+        int tag = 0;
         public EditForm()
         {
             InitializeComponent();
@@ -68,8 +69,34 @@ namespace Book.UI.produceManager.PCInputCheck
                 LastFlag = 1;
         }
 
+        public EditForm(IList<Model.InvoiceCGDetail> list)
+            : this()
+        {
+            this.AddNew();
+
+            this.btn_InvoiceCGId1.EditValue = list[0].InvoiceId;
+            this.btn_InvoiceCOId1.EditValue = list[0].InvoiceCOId;
+            this.btn_Product.EditValue = list[0].Product;
+            this.nccSupplier.EditValue = list[0].Invoice == null ? null : list[0].Invoice.Supplier;
+            this.cobUnit.EditValue = list[0].InvoiceProductUnit;
+
+            this._PCInputCheck.InvoiceCGId = list[0].InvoiceId;
+            this._PCInputCheck.InvoiceCOId = list[0].InvoiceCOId;
+            this._PCInputCheck.Product = list[0].Product;
+            this._PCInputCheck.Supplier = list[0].Invoice == null ? null : list[0].Invoice.Supplier;
+            this._PCInputCheck.ProductUnit = list[0].InvoiceProductUnit;
+
+            this.LastFlag = 1;
+            this.tag = 1;
+        }
+
         protected override void AddNew()
         {
+            if (this.tag == 1)
+            {
+                this.tag = 0;
+                return;
+            }
             this._PCInputCheck = new Book.Model.PCInputCheck();
             this._PCInputCheck.PCInputCheckId = this.manager.GetId();
             this._PCInputCheck.PCInputCheckDate = DateTime.Now;
@@ -81,7 +108,7 @@ namespace Book.UI.produceManager.PCInputCheck
             this._PCInputCheck.Wasiqi = "0";
             this._PCInputCheck.Zazhi = "0";
             this._PCInputCheck.Qipao = "0";
-            this._PCInputCheck.Guangxue = "0";
+
             this._PCInputCheck.Duise = "0";
             this._PCInputCheck.Chongji = "0";
             this._PCInputCheck.Nairanceshi = "0";
@@ -149,17 +176,15 @@ namespace Book.UI.produceManager.PCInputCheck
                 this._PCInputCheck.TestDate = this.date_Test.DateTime;
             this._PCInputCheck.Quantity = this.spe_Quantity.Value;
             this._PCInputCheck.ProductUnit = this.cobUnit.Text;
-
             this._PCInputCheck.TestEmployeeId = this.nccTestEmployee.EditValue == null ? null : (this.nccTestEmployee.EditValue as Model.Employee).EmployeeId;
             this._PCInputCheck.LotNumber = this.txt_LotNumber.Text;
 
             this._PCInputCheck.Heidian = string.IsNullOrEmpty(this.rdo_Heidian.SelectedIndex.ToString()) ? "0" : this.rdo_Heidian.SelectedIndex.ToString();
             this._PCInputCheck.Guohuo = string.IsNullOrEmpty(this.rdo_Guohuo.SelectedIndex.ToString()) ? "0" : this.rdo_Guohuo.SelectedIndex.ToString();
             this._PCInputCheck.Liaodian = string.IsNullOrEmpty(this.rdo_Liaodian.SelectedIndex.ToString()) ? "0" : this.rdo_Liaodian.SelectedIndex.ToString();
-            //this._PCInputCheck.Wasiqi = this.rdo_Wasiqi.SelectedIndex.ToString();
+            this._PCInputCheck.Wasiqi = string.IsNullOrEmpty(this.rdo_Wasiqi.SelectedIndex.ToString()) ? "0" : this.rdo_Wasiqi.SelectedIndex.ToString();
             this._PCInputCheck.Zazhi = string.IsNullOrEmpty(this.rdo_Zazhi.SelectedIndex.ToString()) ? "0" : this.rdo_Zazhi.SelectedIndex.ToString();
             this._PCInputCheck.Qipao = string.IsNullOrEmpty(this.rdo_Qipao.SelectedIndex.ToString()) ? "0" : this.rdo_Qipao.SelectedIndex.ToString();
-            this._PCInputCheck.Guangxue = string.IsNullOrEmpty(this.rdo_Guangxue.SelectedIndex.ToString()) ? "0" : this.rdo_Guangxue.SelectedIndex.ToString();
             this._PCInputCheck.Duise = string.IsNullOrEmpty(this.rdo_Duise.SelectedIndex.ToString()) ? "0" : this.rdo_Duise.SelectedIndex.ToString();
             this._PCInputCheck.Chongji = string.IsNullOrEmpty(this.rdo_Chongji.SelectedIndex.ToString()) ? "0" : this.rdo_Chongji.SelectedIndex.ToString();
             this._PCInputCheck.Nairanceshi = string.IsNullOrEmpty(this.rdo_Nairan.SelectedIndex.ToString()) ? "0" : this.rdo_Nairan.SelectedIndex.ToString();
@@ -184,6 +209,8 @@ namespace Book.UI.produceManager.PCInputCheck
             this._PCInputCheck.InvoiceCOId = this.btn_InvoiceCOId1.Text + "," + this.btn_InvoiceCOId2.Text + "," + this.btn_InvoiceCOId3.Text;
             this._PCInputCheck.InvoiceCGId = this.btn_InvoiceCGId1.Text + "," + this.btn_InvoiceCGId2.Text + "," + this.btn_InvoiceCGId3.Text;
             this._PCInputCheck.InvoiceXOCusId = this.txt_InvoiceXOCusId.Text;
+
+            this._PCInputCheck.TestQuantity = this.spe_TestQuantity.Value;
 
             switch (this.action)
             {
@@ -222,10 +249,9 @@ namespace Book.UI.produceManager.PCInputCheck
             this.rdo_Heidian.EditValue = string.IsNullOrEmpty(this._PCInputCheck.Heidian) ? "0" : this._PCInputCheck.Heidian;
             this.rdo_Guohuo.EditValue = string.IsNullOrEmpty(this._PCInputCheck.Guohuo) ? "0" : this._PCInputCheck.Guohuo;
             this.rdo_Liaodian.EditValue = string.IsNullOrEmpty(this._PCInputCheck.Liaodian) ? "0" : this._PCInputCheck.Liaodian;
-            //this.rdo_Wasiqi.EditValue = this._PCInputCheck.Wasiqi;
+            this.rdo_Wasiqi.EditValue = string.IsNullOrEmpty(this._PCInputCheck.Wasiqi) ? "0" : this._PCInputCheck.Wasiqi;
             this.rdo_Zazhi.EditValue = string.IsNullOrEmpty(this._PCInputCheck.Zazhi) ? "0" : this._PCInputCheck.Zazhi;
             this.rdo_Qipao.EditValue = string.IsNullOrEmpty(this._PCInputCheck.Qipao) ? "0" : this._PCInputCheck.Qipao;
-            this.rdo_Guangxue.EditValue = string.IsNullOrEmpty(this._PCInputCheck.Guangxue) ? "0" : this._PCInputCheck.Guangxue;
             this.rdo_Duise.EditValue = string.IsNullOrEmpty(this._PCInputCheck.Duise) ? "0" : this._PCInputCheck.Duise;
             this.rdo_Chongji.EditValue = string.IsNullOrEmpty(this._PCInputCheck.Chongji) ? "0" : this._PCInputCheck.Chongji;
             this.rdo_Nairan.EditValue = string.IsNullOrEmpty(this._PCInputCheck.Nairanceshi) ? "0" : this._PCInputCheck.Nairanceshi;
@@ -247,14 +273,16 @@ namespace Book.UI.produceManager.PCInputCheck
             this.nccConfirmor.EditValue = this._PCInputCheck.Confirmor;
             this.txt_InvoiceXOCusId.EditValue = this._PCInputCheck.InvoiceXOCusId;
 
+            this.spe_TestQuantity.EditValue = this._PCInputCheck.TestQuantity;
+
             //采购单，进库单
             string[] coid = string.IsNullOrEmpty(this._PCInputCheck.InvoiceCOId) ? null : this._PCInputCheck.InvoiceCOId.Split(',');
             string[] cgid = string.IsNullOrEmpty(this._PCInputCheck.InvoiceCGId) ? null : this._PCInputCheck.InvoiceCGId.Split(',');
             if (cgid != null)
             {
                 this.btn_InvoiceCGId1.EditValue = cgid[0];
-                this.btn_InvoiceCGId2.EditValue = cgid[1];
-                this.btn_InvoiceCGId3.EditValue = cgid[2];
+                this.btn_InvoiceCGId2.EditValue = cgid.Length > 1 ? cgid[1] : "";
+                this.btn_InvoiceCGId3.EditValue = cgid.Length > 2 ? cgid[2] : "";
             }
             else
             {
@@ -266,8 +294,8 @@ namespace Book.UI.produceManager.PCInputCheck
             if (coid != null)
             {
                 this.btn_InvoiceCOId1.EditValue = coid[0];
-                this.btn_InvoiceCOId2.EditValue = coid[1];
-                this.btn_InvoiceCOId3.EditValue = coid[2];
+                this.btn_InvoiceCOId2.EditValue = coid.Length > 1 ? coid[1] : "";
+                this.btn_InvoiceCOId3.EditValue = coid.Length > 2 ? coid[2] : "";
             }
             else
             {
@@ -339,7 +367,7 @@ namespace Book.UI.produceManager.PCInputCheck
             }
         }
 
-        private void cobUnit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void btn_Product_EditValueChanged(object sender, EventArgs e)
         {
             Model.Product p = this.btn_Product.EditValue as Model.Product;
             if (p != null)
@@ -356,11 +384,32 @@ namespace Book.UI.produceManager.PCInputCheck
                 }
             }
             else
-                this.cobUnit.Properties.Items.Clear();
+                this.cobUnit.Properties.Items.Clear(); 
+        }
+
+        private void cobUnit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //Model.Product p = this.btn_Product.EditValue as Model.Product;
+            //if (p != null)
+            //{
+            //    if (!string.IsNullOrEmpty(p.BasedUnitGroupId))
+            //    {
+            //        BL.ProductUnitManager manager = new Book.BL.ProductUnitManager();
+            //        this.cobUnit.Properties.Items.Clear();
+            //        IList<Model.ProductUnit> unitList = manager.Select(p.BasedUnitGroupId);
+            //        foreach (Model.ProductUnit unit in unitList)
+            //        {
+            //            this.cobUnit.Properties.Items.Add(unit.CnName);
+            //        }
+            //    }
+            //}
+            //else
+            //    this.cobUnit.Properties.Items.Clear();
             if (this.cobUnit.Properties.Items.Count < 1)
             {
                 MessageBox.Show("請先選擇商品！", this.Text, MessageBoxButtons.OK);
             }
+
         }
 
         //#region  选取采购单，改到选取进库单时拉取

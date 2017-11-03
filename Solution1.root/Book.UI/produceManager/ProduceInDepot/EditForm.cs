@@ -461,12 +461,12 @@ namespace Book.UI.produceManager.ProduceInDepot
                 //    detail.PriceRange = this.produceInDepotDetailManager.GetSupplierProductPriceRange(detail.ProductId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse) == null ? null : (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).Workhousename);
 
                 decimal newPrice = 0;
-                newPrice = BL.SupplierProductManager.CountPrice(detail.PriceRange, Convert.ToDouble((e.Value.ToString())));
+                newPrice = BL.SupplierProductManager.CountPrice(detail.PriceRange, Convert.ToDouble((e.Value == null ? "0" : e.Value.ToString())));
                 if (newPrice > 0)
                 {
                     detail.ProduceInDepotPrice = newPrice;
                 }
-                detail.ProduceMoney = detail.ProduceInDepotPrice * decimal.Parse(e.Value.ToString());
+                detail.ProduceMoney = detail.ProduceInDepotPrice * decimal.Parse(e.Value == null ? "0" : e.Value.ToString());
 
                 //decimal price = this.produceInDepotDetailManager.CountPrice(detail.PriceRange, double.Parse(e.Value.ToString()));
                 //if (price != 0)
