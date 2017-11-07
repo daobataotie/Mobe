@@ -160,6 +160,8 @@ namespace Book.Model
         /// </summary>
         public string CusXOId { get; set; }
 
+        public string Machine { get; set; }
+
         public double? SCSL { get; set; }
 
         //价格区间

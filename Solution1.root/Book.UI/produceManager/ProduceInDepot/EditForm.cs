@@ -9,6 +9,7 @@ using DevExpress.XtraEditors;
 using Book.UI.Settings.BasicData.Employees;
 using Book.UI.Invoices;
 using System.Linq;
+using Microsoft.Office.Interop.Excel;
 
 namespace Book.UI.produceManager.ProduceInDepot
 {
@@ -205,8 +206,112 @@ namespace Book.UI.produceManager.ProduceInDepot
 
         protected override DevExpress.XtraReports.UI.XtraReport GetReport()
         {
-            return new RO(produceInDepot.ProduceInDepotId);
+            //return new RO(produceInDepot.ProduceInDepotId);
+            ExportExcel(this.produceInDepot.Details);
+            return null;
         }
+
+        /// <summary>
+        /// 无条件导出
+        /// </summary>
+        /// <param name="details"></param>
+        private void ExportExcel(IList<Model.ProduceInDepotDetail> details)
+        {
+            try
+            {
+                Type objClassType = null;
+                objClassType = Type.GetTypeFromProgID("Excel.Application");
+                if (objClassType == null)
+                {
+                    MessageBox.Show("本機沒有安裝Excel", "提示！", MessageBoxButtons.OK);
+                    return;
+                }
+
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Application.Workbooks.Add(true);
+
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 17]);
+                r.MergeCells = true;//合并单元格
+
+                //Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter = -4108;
+                //Microsoft.Office.Interop.Excel.XlBorderWeight.xlMedium= -4138;
+                //Microsoft.Office.Interop.Excel.XlColorIndex.xlColorIndexAutomatic= -4105;
+
+                excel.Cells[1, 1] = "日報表";
+
+                #region Set Header
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 17]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 17]).ColumnWidth = 12;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 2]).ColumnWidth = 20;
+                excel.get_Range(excel.Cells[2, 3], excel.Cells[2, 3]).ColumnWidth = 30;
+                excel.get_Range(excel.Cells[2, 11], excel.Cells[2, 12]).ColumnWidth = 20;
+
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 17]).Interior.Color = 12566463;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 17]).RowHeight = 20;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 17]).Font.Size = 13;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 17]).WrapText = true;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 17]).EntireRow.AutoFit();
+
+                excel.Cells[2, 1] = "入庫日期";
+                excel.Cells[2, 2] = "入庫單號";
+                excel.Cells[2, 3] = "產品名稱";
+                excel.Cells[2, 4] = "公司部門";
+                excel.Cells[2, 5] = "單位";
+                excel.Cells[2, 6] = "生產數量";
+                excel.Cells[2, 7] = "合計生產";
+                excel.Cells[2, 8] = "合計合格";
+                excel.Cells[2, 9] = "合計入庫";
+                excel.Cells[2, 10] = "合計轉生產";
+                excel.Cells[2, 11] = "加工單";
+                excel.Cells[2, 12] = "客戶訂單號";
+                excel.Cells[2, 13] = "生產數量";
+                excel.Cells[2, 14] = "合格數量";
+                excel.Cells[2, 15] = "轉生產數量";
+                excel.Cells[2, 16] = "入庫數量";
+                excel.Cells[2, 17] = "不良率";
+
+                #endregion
+
+                for (int i = 0; i < details.Count; i++)
+                {
+                    excel.Cells[i + 3, 1] = this.produceInDepot.ProduceInDepotDate.HasValue ? this.produceInDepot.ProduceInDepotDate.Value.ToString("yyyy-MM-dd") : "";
+                    excel.Cells[i + 3, 2] = details[i].ProduceInDepotId;
+                    excel.Cells[i + 3, 3] = details[i].Product.ProductName;
+                    excel.Cells[i + 3, 4] = this.produceInDepot.WorkHouse == null ? null : this.produceInDepot.WorkHouse.Workhousename;
+                    excel.Cells[i + 3, 5] = details[i].ProductUnit;
+                    excel.Cells[i + 3, 6] = details[i].PronoteHeaderSum;
+                    excel.Cells[i + 3, 7] = details[i].HeJiProceduresSum;
+                    excel.Cells[i + 3, 8] = details[i].HeJiCheckOutSum;
+                    excel.Cells[i + 3, 9] = details[i].HeJiProduceQuantity;
+                    excel.Cells[i + 3, 10] = details[i].HeJiProduceTransferQuantity;
+                    excel.Cells[i + 3, 11] = details[i].PronoteHeaderId;
+
+                    Model.PronoteHeader header=pronoteHeaderManager.Get(details[i].PronoteHeaderId);
+                    if (header != null)
+                    {
+                        Model.InvoiceXO xo = invoiceXOManager.Get(header.InvoiceXOId);
+                        if (xo != null)
+                            excel.Cells[i + 3, 12] = xo.CustomerInvoiceXOId;
+                    }
+                    excel.Cells[i + 3, 13] = details[i].ProceduresSum;
+                    excel.Cells[i + 3, 14] = details[i].CheckOutSum;
+                    excel.Cells[i + 3, 15] = details[i].ProduceTransferQuantity;
+                    excel.Cells[i + 3, 16] = details[i].ProduceQuantity;
+                    excel.Cells[i + 3, 17] = details[i].RejectionRate;
+                }
+
+                excel.Visible = true;//是否打开该Excel文件
+                excel.WindowState = XlWindowState.xlMaximized;
+            }
+            catch
+            {
+                MessageBox.Show("Excel未生成完畢，請勿操作，并重新點擊按鈕生成數據！", "提示！", MessageBoxButtons.OK);
+                return;
+            }
+        }
+
 
         protected override void MoveNext()
         {
