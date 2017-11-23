@@ -733,7 +733,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                     produceInDepotDetail.HeJiProceduresSum = this.produceInDepotDetailManager.select_SumbyPronHeaderId(produceInDepotDetail.PronoteHeaderId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).WorkHouseId, produceInDepotDetail.ProductId);
                     produceInDepotDetail.HeJiCheckOutSum = this.produceInDepotDetailManager.select_CheckOutSumByPronHeaderId(produceInDepotDetail.PronoteHeaderId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).WorkHouseId, produceInDepotDetail.ProductId);
                     produceInDepotDetail.ProceduresSum = 0;
-                    produceInDepotDetail.PronoteHeaderSum = Pronote.InvoiceXODetailQuantity;
+                    produceInDepotDetail.PronoteHeaderSum = Pronote.DetailsSum;
                     produceInDepotDetail.CheckOutSum = 0;
                     produceInDepotDetail.RejectionRate = 0;
                     produceInDepotDetail.Inumber = this.produceInDepot.Details.Count + 1;
