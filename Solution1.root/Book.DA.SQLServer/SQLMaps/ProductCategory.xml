@@ -27,5 +27,11 @@
       SELECT ProductCategoryName FROM ProductCategory
       ]]>
     </select>
+
+    <select id="SelectListByFilter" resultMap="ProductCategoryResult" parameterClass="map">
+      <![CDATA[
+      select * from ProductCategory where CategoryLevel=#CategoryLevel# $sql$ order by id
+      ]]>
+    </select>
   </statements>
 </sqlMap>

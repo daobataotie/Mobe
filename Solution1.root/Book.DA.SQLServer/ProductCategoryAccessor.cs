@@ -33,5 +33,29 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForList<string>("ProductCategory.SelectALLName", null);
         }
+
+        public DataTable SelectDTByFilter(string filter)
+        {
+            using (SqlConnection conn = new SqlConnection(sqlmapper.DataSource.ConnectionString))
+            {
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = new SqlCommand(string.Format("select * from ProductCategory {0} order by id", filter), conn);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
+        public IList<Model.ProductCategory> SelectListByFilter(string CategoryLevel, string ProductCategoryParentId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("CategoryLevel", CategoryLevel);
+            if (CategoryLevel != "1")
+            {
+                ht.Add("sql", string.Format(" and ProductCategoryParentId={0}", ProductCategoryParentId));
+            }
+            return sqlmapper.QueryForList<Model.ProductCategory>("ProductCategory.SelectListByFilter", ht);
+        }
     }
 }

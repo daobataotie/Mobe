@@ -43,6 +43,8 @@ namespace Book.Model
 		/// 编号
 		/// </summary>
 		private string _id;
+
+        private int categoryLevel;
 		
 		/// <summary>
 		/// 产品类型
@@ -141,7 +143,13 @@ namespace Book.Model
 			{
 				this._id = value;
 			}
-		}
+        }
+
+        public int CategoryLevel
+        {
+            get { return categoryLevel; }
+            set { categoryLevel = value; }
+        }
 	
 		/// <summary>
 		/// 产品类型
@@ -187,7 +195,8 @@ namespace Book.Model
 		/// 编号
 		/// </summary>
 		public readonly static string PROPERTY_ID = "Id";
-		
+
+        public readonly static string PROPERTY_CategoryLevel = "CategoryLevel";
 
 		#endregion
 	}

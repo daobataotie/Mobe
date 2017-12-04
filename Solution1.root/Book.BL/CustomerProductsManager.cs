@@ -139,6 +139,8 @@ namespace Book.BL
                 product.ProductName = customerProducts.Product.ProductName;
                 //product.ProductCategory = customerProducts.Product.ProductCategory;
                 product.ProductCategoryId = customerProducts.Product.ProductCategoryId;
+                product.ProductCategoryId2 = customerProducts.Product.ProductCategoryId2;
+                product.ProductCategoryId3 = customerProducts.Product.ProductCategoryId3;
                 //    product.BasedUnitGroup = customerProducts.Product.BasedUnitGroup;
                 product.BasedUnitGroupId = customerProducts.Product.BasedUnitGroupId;
                 //  product.BuyUnit = this.product.BuyUnit;

@@ -84,7 +84,6 @@ namespace Book.UI.Settings.BasicData.Products
             this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem35 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -109,6 +108,7 @@ namespace Book.UI.Settings.BasicData.Products
             this.layoutControlItem164 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
@@ -514,6 +514,10 @@ namespace Book.UI.Settings.BasicData.Products
             this.barButtonItemList = new DevExpress.XtraBars.BarButtonItem();
             this.layoutControlItem161 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem18 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.nccProductCategoryTwo = new DevExpress.XtraEditors.ButtonEdit();
+            this.layoutControlItem170 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.nccProductCategoryThree = new DevExpress.XtraEditors.ButtonEdit();
+            this.layoutControlItem171 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -569,7 +573,6 @@ namespace Book.UI.Settings.BasicData.Products
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).BeginInit();
@@ -594,6 +597,7 @@ namespace Book.UI.Settings.BasicData.Products
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem164)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             this.xtraTabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
             this.layoutControl4.SuspendLayout();
@@ -941,6 +945,10 @@ namespace Book.UI.Settings.BasicData.Products
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nccProductCategoryTwo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem170)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nccProductCategoryThree.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem171)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -1054,6 +1062,8 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.nccProductCategoryThree);
+            this.layoutControl1.Controls.Add(this.nccProductCategoryTwo);
             this.layoutControl1.Controls.Add(this.checkEditFang);
             this.layoutControl1.Controls.Add(this.de_UpdateTime);
             this.layoutControl1.Controls.Add(this.textEditVersion);
@@ -1316,6 +1326,7 @@ namespace Book.UI.Settings.BasicData.Products
             this.newChooseContorlProductType.Properties.Mask.SaveLiteral = ((bool)(resources.GetObject("newChooseContorlProductType.Properties.Mask.SaveLiteral")));
             this.newChooseContorlProductType.Properties.Mask.ShowPlaceHolders = ((bool)(resources.GetObject("newChooseContorlProductType.Properties.Mask.ShowPlaceHolders")));
             this.newChooseContorlProductType.Properties.NullValuePrompt = null;
+            this.newChooseContorlProductType.Properties.ReadOnly = true;
             this.newChooseContorlProductType.StyleController = this.layoutControl1;
             this.newChooseContorlProductType.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.newChooseContorlProductType_ButtonClick);
             // 
@@ -1505,7 +1516,6 @@ namespace Book.UI.Settings.BasicData.Products
             this.layoutControlItem26,
             this.layoutControlItem1,
             this.layoutControlItem3,
-            this.layoutControlItem14,
             this.layoutControlItem4,
             this.layoutControlItem7,
             this.layoutControlItem35,
@@ -1529,7 +1539,10 @@ namespace Book.UI.Settings.BasicData.Products
             this.layoutControlItem165,
             this.layoutControlItem164,
             this.emptySpaceItem4,
-            this.emptySpaceItem6});
+            this.emptySpaceItem6,
+            this.layoutControlItem14,
+            this.layoutControlItem170,
+            this.layoutControlItem171});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Size = new System.Drawing.Size(674, 388);
@@ -1539,7 +1552,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem5.Control = this.textEditProductBarCode;
             resources.ApplyResources(this.layoutControlItem5, "layoutControlItem5");
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 78);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 101);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(356, 25);
             this.layoutControlItem5.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -1550,7 +1563,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem16.Control = this.checkEditHomeMade;
             resources.ApplyResources(this.layoutControlItem16, "layoutControlItem16");
-            this.layoutControlItem16.Location = new System.Drawing.Point(202, 230);
+            this.layoutControlItem16.Location = new System.Drawing.Point(202, 253);
             this.layoutControlItem16.Name = "layoutControlItem16";
             this.layoutControlItem16.Size = new System.Drawing.Size(70, 27);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
@@ -1561,7 +1574,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem36.Control = this.radioGroupBarCode;
             resources.ApplyResources(this.layoutControlItem36, "layoutControlItem36");
-            this.layoutControlItem36.Location = new System.Drawing.Point(0, 103);
+            this.layoutControlItem36.Location = new System.Drawing.Point(0, 126);
             this.layoutControlItem36.Name = "layoutControlItem36";
             this.layoutControlItem36.Size = new System.Drawing.Size(355, 27);
             this.layoutControlItem36.TextLocation = DevExpress.Utils.Locations.Top;
@@ -1573,7 +1586,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem10.Control = this.dateEditProductDeadDate;
             resources.ApplyResources(this.layoutControlItem10, "layoutControlItem10");
-            this.layoutControlItem10.Location = new System.Drawing.Point(356, 78);
+            this.layoutControlItem10.Location = new System.Drawing.Point(356, 101);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(298, 25);
             this.layoutControlItem10.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -1584,7 +1597,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem17.Control = this.checkEditOutSourcing;
             resources.ApplyResources(this.layoutControlItem17, "layoutControlItem17");
-            this.layoutControlItem17.Location = new System.Drawing.Point(345, 230);
+            this.layoutControlItem17.Location = new System.Drawing.Point(345, 253);
             this.layoutControlItem17.Name = "layoutControlItem17";
             this.layoutControlItem17.Size = new System.Drawing.Size(71, 27);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
@@ -1595,7 +1608,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem27.Control = this.checkEditConsume;
             resources.ApplyResources(this.layoutControlItem27, "layoutControlItem27");
-            this.layoutControlItem27.Location = new System.Drawing.Point(272, 230);
+            this.layoutControlItem27.Location = new System.Drawing.Point(272, 253);
             this.layoutControlItem27.Name = "layoutControlItem27";
             this.layoutControlItem27.Size = new System.Drawing.Size(73, 27);
             this.layoutControlItem27.TextSize = new System.Drawing.Size(0, 0);
@@ -1606,7 +1619,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem26.Control = this.checkEditTrustOut;
             resources.ApplyResources(this.layoutControlItem26, "layoutControlItem26");
-            this.layoutControlItem26.Location = new System.Drawing.Point(416, 230);
+            this.layoutControlItem26.Location = new System.Drawing.Point(416, 253);
             this.layoutControlItem26.Name = "layoutControlItem26";
             this.layoutControlItem26.Size = new System.Drawing.Size(67, 27);
             this.layoutControlItem26.TextSize = new System.Drawing.Size(0, 0);
@@ -1634,29 +1647,18 @@ namespace Book.UI.Settings.BasicData.Products
             resources.ApplyResources(this.layoutControlItem3, "layoutControlItem3");
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(356, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(356, 25);
             this.layoutControlItem3.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(76, 20);
             this.layoutControlItem3.TextToControlDistance = 5;
-            // 
-            // layoutControlItem14
-            // 
-            this.layoutControlItem14.Control = this.newChooseContorSupplierId;
-            resources.ApplyResources(this.layoutControlItem14, "layoutControlItem14");
-            this.layoutControlItem14.Location = new System.Drawing.Point(356, 26);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(298, 26);
-            this.layoutControlItem14.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(76, 20);
-            this.layoutControlItem14.TextToControlDistance = 5;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.textEditProduceCounty;
             resources.ApplyResources(this.layoutControlItem4, "layoutControlItem4");
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 52);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 76);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(356, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(356, 25);
             this.layoutControlItem4.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(76, 20);
             this.layoutControlItem4.TextToControlDistance = 5;
@@ -1665,9 +1667,9 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem7.Control = this.textEditProductSpecification;
             resources.ApplyResources(this.layoutControlItem7, "layoutControlItem7");
-            this.layoutControlItem7.Location = new System.Drawing.Point(356, 52);
+            this.layoutControlItem7.Location = new System.Drawing.Point(356, 76);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(298, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(298, 25);
             this.layoutControlItem7.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(76, 20);
             this.layoutControlItem7.TextToControlDistance = 5;
@@ -1676,7 +1678,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem35.Control = this.textEditProductBatch;
             resources.ApplyResources(this.layoutControlItem35, "layoutControlItem35");
-            this.layoutControlItem35.Location = new System.Drawing.Point(355, 103);
+            this.layoutControlItem35.Location = new System.Drawing.Point(355, 126);
             this.layoutControlItem35.Name = "layoutControlItem35";
             this.layoutControlItem35.Size = new System.Drawing.Size(299, 27);
             this.layoutControlItem35.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -1690,85 +1692,85 @@ namespace Book.UI.Settings.BasicData.Products
             this.layoutControlItem38.Location = new System.Drawing.Point(356, 0);
             this.layoutControlItem38.Name = "layoutControlItem38";
             this.layoutControlItem38.Size = new System.Drawing.Size(298, 26);
-            this.layoutControlItem38.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem38.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem25
             // 
             this.layoutControlItem25.Control = this.lookUpCJUnit;
             resources.ApplyResources(this.layoutControlItem25, "layoutControlItem25");
-            this.layoutControlItem25.Location = new System.Drawing.Point(222, 155);
+            this.layoutControlItem25.Location = new System.Drawing.Point(222, 178);
             this.layoutControlItem25.Name = "layoutControlItem25";
             this.layoutControlItem25.Size = new System.Drawing.Size(226, 25);
-            this.layoutControlItem25.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem25.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem29
             // 
             this.layoutControlItem29.Control = this.lookUpProduceUnitId;
             resources.ApplyResources(this.layoutControlItem29, "layoutControlItem29");
-            this.layoutControlItem29.Location = new System.Drawing.Point(448, 155);
+            this.layoutControlItem29.Location = new System.Drawing.Point(448, 178);
             this.layoutControlItem29.Name = "layoutControlItem29";
             this.layoutControlItem29.Size = new System.Drawing.Size(206, 25);
-            this.layoutControlItem29.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem29.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.lookUpBasedUnitGroupId;
             resources.ApplyResources(this.layoutControlItem6, "layoutControlItem6");
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 155);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 178);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(222, 25);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.lookUpDepotUnit;
             resources.ApplyResources(this.layoutControlItem15, "layoutControlItem15");
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 180);
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 203);
             this.layoutControlItem15.Name = "layoutControlItem15";
             this.layoutControlItem15.Size = new System.Drawing.Size(222, 25);
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem30
             // 
             this.layoutControlItem30.Control = this.lookUpSellUnit;
             resources.ApplyResources(this.layoutControlItem30, "layoutControlItem30");
-            this.layoutControlItem30.Location = new System.Drawing.Point(222, 180);
+            this.layoutControlItem30.Location = new System.Drawing.Point(222, 203);
             this.layoutControlItem30.Name = "layoutControlItem30";
             this.layoutControlItem30.Size = new System.Drawing.Size(226, 25);
-            this.layoutControlItem30.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem30.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem37
             // 
             this.layoutControlItem37.Control = this.textEditCustomProductName;
             resources.ApplyResources(this.layoutControlItem37, "layoutControlItem37");
-            this.layoutControlItem37.Location = new System.Drawing.Point(301, 205);
+            this.layoutControlItem37.Location = new System.Drawing.Point(300, 228);
             this.layoutControlItem37.Name = "layoutControlItem37";
-            this.layoutControlItem37.Size = new System.Drawing.Size(212, 25);
-            this.layoutControlItem37.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem37.Size = new System.Drawing.Size(177, 25);
+            this.layoutControlItem37.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem39
             // 
             this.layoutControlItem39.Control = this.newChooseContorlCustomer;
             resources.ApplyResources(this.layoutControlItem39, "layoutControlItem39");
-            this.layoutControlItem39.Location = new System.Drawing.Point(0, 205);
+            this.layoutControlItem39.Location = new System.Drawing.Point(0, 228);
             this.layoutControlItem39.Name = "layoutControlItem39";
-            this.layoutControlItem39.Size = new System.Drawing.Size(301, 25);
-            this.layoutControlItem39.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem39.Size = new System.Drawing.Size(300, 25);
+            this.layoutControlItem39.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem33
             // 
             this.layoutControlItem33.Control = this.memoEditProductDescription;
             resources.ApplyResources(this.layoutControlItem33, "layoutControlItem33");
-            this.layoutControlItem33.Location = new System.Drawing.Point(0, 280);
+            this.layoutControlItem33.Location = new System.Drawing.Point(0, 303);
             this.layoutControlItem33.Name = "layoutControlItem33";
-            this.layoutControlItem33.Size = new System.Drawing.Size(654, 63);
-            this.layoutControlItem33.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem33.Size = new System.Drawing.Size(654, 40);
+            this.layoutControlItem33.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem34
             // 
             this.layoutControlItem34.Control = this.textEditProductPlace;
             resources.ApplyResources(this.layoutControlItem34, "layoutControlItem34");
-            this.layoutControlItem34.Location = new System.Drawing.Point(0, 130);
+            this.layoutControlItem34.Location = new System.Drawing.Point(0, 153);
             this.layoutControlItem34.Name = "layoutControlItem34";
             this.layoutControlItem34.Size = new System.Drawing.Size(654, 25);
             this.layoutControlItem34.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -1779,7 +1781,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem40.Control = this.checkEditIsProcess;
             resources.ApplyResources(this.layoutControlItem40, "layoutControlItem40");
-            this.layoutControlItem40.Location = new System.Drawing.Point(483, 230);
+            this.layoutControlItem40.Location = new System.Drawing.Point(483, 253);
             this.layoutControlItem40.Name = "layoutControlItem40";
             this.layoutControlItem40.Size = new System.Drawing.Size(171, 27);
             this.layoutControlItem40.TextSize = new System.Drawing.Size(0, 0);
@@ -1790,10 +1792,10 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem134.Control = this.radioProductType;
             resources.ApplyResources(this.layoutControlItem134, "layoutControlItem134");
-            this.layoutControlItem134.Location = new System.Drawing.Point(0, 230);
+            this.layoutControlItem134.Location = new System.Drawing.Point(0, 253);
             this.layoutControlItem134.Name = "layoutControlItem134";
             this.layoutControlItem134.Size = new System.Drawing.Size(202, 27);
-            this.layoutControlItem134.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem134.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem157
             // 
@@ -1801,41 +1803,41 @@ namespace Book.UI.Settings.BasicData.Products
             resources.ApplyResources(this.layoutControlItem157, "layoutControlItem157");
             this.layoutControlItem157.Location = new System.Drawing.Point(0, 343);
             this.layoutControlItem157.Name = "layoutControlItem157";
-            this.layoutControlItem157.Size = new System.Drawing.Size(255, 25);
-            this.layoutControlItem157.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem157.Size = new System.Drawing.Size(250, 25);
+            this.layoutControlItem157.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem158
             // 
             this.layoutControlItem158.Control = this.nccEmployeeChange;
             resources.ApplyResources(this.layoutControlItem158, "layoutControlItem158");
-            this.layoutControlItem158.Location = new System.Drawing.Point(255, 343);
+            this.layoutControlItem158.Location = new System.Drawing.Point(250, 343);
             this.layoutControlItem158.Name = "layoutControlItem158";
-            this.layoutControlItem158.Size = new System.Drawing.Size(246, 25);
-            this.layoutControlItem158.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem158.Size = new System.Drawing.Size(227, 25);
+            this.layoutControlItem158.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem162
             // 
             this.layoutControlItem162.Control = this.textEditVersion;
             resources.ApplyResources(this.layoutControlItem162, "layoutControlItem162");
-            this.layoutControlItem162.Location = new System.Drawing.Point(513, 205);
+            this.layoutControlItem162.Location = new System.Drawing.Point(477, 228);
             this.layoutControlItem162.Name = "layoutControlItem162";
-            this.layoutControlItem162.Size = new System.Drawing.Size(141, 25);
-            this.layoutControlItem162.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem162.Size = new System.Drawing.Size(177, 25);
+            this.layoutControlItem162.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem163
             // 
             this.layoutControlItem163.Control = this.de_UpdateTime;
             resources.ApplyResources(this.layoutControlItem163, "layoutControlItem163");
-            this.layoutControlItem163.Location = new System.Drawing.Point(501, 343);
+            this.layoutControlItem163.Location = new System.Drawing.Point(477, 343);
             this.layoutControlItem163.Name = "layoutControlItem163";
-            this.layoutControlItem163.Size = new System.Drawing.Size(153, 25);
-            this.layoutControlItem163.TextSize = new System.Drawing.Size(76, 14);
+            this.layoutControlItem163.Size = new System.Drawing.Size(177, 25);
+            this.layoutControlItem163.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem166
             // 
             this.layoutControlItem166.Control = this.checkEditNoQiang;
             resources.ApplyResources(this.layoutControlItem166, "layoutControlItem166");
-            this.layoutControlItem166.Location = new System.Drawing.Point(257, 257);
+            this.layoutControlItem166.Location = new System.Drawing.Point(257, 280);
             this.layoutControlItem166.Name = "layoutControlItem166";
             this.layoutControlItem166.Size = new System.Drawing.Size(397, 23);
             this.layoutControlItem166.TextSize = new System.Drawing.Size(0, 0);
@@ -1846,7 +1848,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem165.Control = this.checkEditFang;
             resources.ApplyResources(this.layoutControlItem165, "layoutControlItem165");
-            this.layoutControlItem165.Location = new System.Drawing.Point(164, 257);
+            this.layoutControlItem165.Location = new System.Drawing.Point(164, 280);
             this.layoutControlItem165.Name = "layoutControlItem165";
             this.layoutControlItem165.Size = new System.Drawing.Size(93, 23);
             this.layoutControlItem165.TextSize = new System.Drawing.Size(0, 0);
@@ -1857,7 +1859,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem164.Control = this.checkEditQiang;
             resources.ApplyResources(this.layoutControlItem164, "layoutControlItem164");
-            this.layoutControlItem164.Location = new System.Drawing.Point(82, 257);
+            this.layoutControlItem164.Location = new System.Drawing.Point(82, 280);
             this.layoutControlItem164.Name = "layoutControlItem164";
             this.layoutControlItem164.Size = new System.Drawing.Size(82, 23);
             this.layoutControlItem164.TextSize = new System.Drawing.Size(0, 0);
@@ -1867,7 +1869,7 @@ namespace Book.UI.Settings.BasicData.Products
             // emptySpaceItem4
             // 
             resources.ApplyResources(this.emptySpaceItem4, "emptySpaceItem4");
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 257);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 280);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
             this.emptySpaceItem4.Size = new System.Drawing.Size(82, 23);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -1875,10 +1877,21 @@ namespace Book.UI.Settings.BasicData.Products
             // emptySpaceItem6
             // 
             resources.ApplyResources(this.emptySpaceItem6, "emptySpaceItem6");
-            this.emptySpaceItem6.Location = new System.Drawing.Point(448, 180);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(448, 203);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
             this.emptySpaceItem6.Size = new System.Drawing.Size(206, 25);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.newChooseContorSupplierId;
+            resources.ApplyResources(this.layoutControlItem14, "layoutControlItem14");
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 51);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(356, 25);
+            this.layoutControlItem14.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(76, 20);
+            this.layoutControlItem14.TextToControlDistance = 5;
             // 
             // xtraTabPage7
             // 
@@ -5987,6 +6000,46 @@ namespace Book.UI.Settings.BasicData.Products
             this.emptySpaceItem18.Size = new System.Drawing.Size(654, 23);
             this.emptySpaceItem18.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // nccProductCategoryTwo
+            // 
+            resources.ApplyResources(this.nccProductCategoryTwo, "nccProductCategoryTwo");
+            this.nccProductCategoryTwo.MenuManager = this.barManager1;
+            this.nccProductCategoryTwo.Name = "nccProductCategoryTwo";
+            this.nccProductCategoryTwo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.nccProductCategoryTwo.Properties.ReadOnly = true;
+            this.nccProductCategoryTwo.StyleController = this.layoutControl1;
+            this.nccProductCategoryTwo.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.nccProductCategoryTwo_ButtonClick);
+            // 
+            // layoutControlItem170
+            // 
+            this.layoutControlItem170.Control = this.nccProductCategoryTwo;
+            resources.ApplyResources(this.layoutControlItem170, "layoutControlItem170");
+            this.layoutControlItem170.Location = new System.Drawing.Point(356, 26);
+            this.layoutControlItem170.Name = "layoutControlItem170";
+            this.layoutControlItem170.Size = new System.Drawing.Size(298, 25);
+            this.layoutControlItem170.TextSize = new System.Drawing.Size(84, 14);
+            // 
+            // nccProductCategoryThree
+            // 
+            resources.ApplyResources(this.nccProductCategoryThree, "nccProductCategoryThree");
+            this.nccProductCategoryThree.MenuManager = this.barManager1;
+            this.nccProductCategoryThree.Name = "nccProductCategoryThree";
+            this.nccProductCategoryThree.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.nccProductCategoryThree.Properties.ReadOnly = true;
+            this.nccProductCategoryThree.StyleController = this.layoutControl1;
+            this.nccProductCategoryThree.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.nccProductCategoryThree_ButtonClick);
+            // 
+            // layoutControlItem171
+            // 
+            this.layoutControlItem171.Control = this.nccProductCategoryThree;
+            resources.ApplyResources(this.layoutControlItem171, "layoutControlItem171");
+            this.layoutControlItem171.Location = new System.Drawing.Point(356, 51);
+            this.layoutControlItem171.Name = "layoutControlItem171";
+            this.layoutControlItem171.Size = new System.Drawing.Size(298, 25);
+            this.layoutControlItem171.TextSize = new System.Drawing.Size(84, 14);
+            // 
             // EditForm
             // 
             resources.ApplyResources(this, "$this");
@@ -6052,7 +6105,6 @@ namespace Book.UI.Settings.BasicData.Products
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem35)).EndInit();
@@ -6077,6 +6129,7 @@ namespace Book.UI.Settings.BasicData.Products
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem164)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             this.xtraTabPage7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
             this.layoutControl4.ResumeLayout(false);
@@ -6424,6 +6477,10 @@ namespace Book.UI.Settings.BasicData.Products
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nccProductCategoryTwo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem170)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nccProductCategoryThree.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem171)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -6914,5 +6971,9 @@ namespace Book.UI.Settings.BasicData.Products
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem18;
         private DevExpress.XtraEditors.SimpleButton btn_ExportExcel;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem167;
+        private DevExpress.XtraEditors.ButtonEdit nccProductCategoryTwo;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem170;
+        private DevExpress.XtraEditors.ButtonEdit nccProductCategoryThree;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem171;
     }
 }
