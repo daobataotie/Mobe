@@ -187,8 +187,30 @@ namespace Book.UI.Settings.BasicData.Products
         {
             flag5 = 1;
 
-            this.listBoxControl1.DataSource = this.productCategoryManager.Select();
-            //  this.WindowState = FormWindowState.Maximized;
+            IList<Model.ProductCategory> listCategory = this.productCategoryManager.Select();
+            List<Model.ProductCategory> firstLevel = listCategory.Where(l => l.CategoryLevel == 1).ToList();
+            List<Model.ProductCategory> secondLevel = listCategory.Where(l => l.CategoryLevel == 2).ToList();
+            List<Model.ProductCategory> thirdLevel = listCategory.Where(l => l.CategoryLevel == 3).ToList();
+
+            foreach (Model.ProductCategory first in firstLevel)
+            {
+                TreeListNode firstNode = this.treeList1.AppendNode(new object[] { first.Id + "-" + first.ProductCategoryName }, null);
+                firstNode.Tag = first;
+
+                List<Model.ProductCategory> list2 = secondLevel.Where(l => l.ProductCategoryParentId == first.ProductCategoryId).ToList();
+                foreach (Model.ProductCategory second in list2)
+                {
+                    TreeListNode secondNode = this.treeList1.AppendNode(new object[] { second.Id + "-" + second.ProductCategoryName }, firstNode);
+                    secondNode.Tag = second;
+
+                    List<Model.ProductCategory> list3 = thirdLevel.Where(l => l.ProductCategoryParentId == second.ProductCategoryId).ToList();
+                    foreach (Model.ProductCategory third in list3)
+                    {
+                        this.treeList1.AppendNode(new object[] { third.Id + "-" + third.ProductCategoryName }, secondNode).Tag = third;
+                    }
+                }
+            }
+
             this.Visibles();
             _ProductProcess.Clear();
 
@@ -3278,36 +3300,36 @@ namespace Book.UI.Settings.BasicData.Products
             }
         }
 
-        private void listBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (flag5 == 1)
-            {
-                flag5 = 0;
-                listBoxControl1.SelectedIndex = -1;
-            }
-            else
-            {
+        //private void listBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (flag5 == 1)
+        //    {
+        //        flag5 = 0;
+        //        listBoxControl1.SelectedIndex = -1;
+        //    }
+        //    else
+        //    {
 
-                if (listBoxControl1.SelectedIndex >= 0)
-                {
-                    SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@productid", SqlDbType.VarChar, 50) };
-                    pars[0].Value = (listBoxControl1.SelectedItem as Model.ProductCategory).ProductCategoryId;
+        //        if (listBoxControl1.SelectedIndex >= 0)
+        //        {
+        //            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@productid", SqlDbType.VarChar, 50) };
+        //            pars[0].Value = (listBoxControl1.SelectedItem as Model.ProductCategory).ProductCategoryId;
 
-                    this.gridControl5.DataSource = productManager.QueryProc("GetProductListByCate", pars, "producttree").Tables[0];
+        //            this.gridControl5.DataSource = productManager.QueryProc("GetProductListByCate", pars, "producttree").Tables[0];
 
-                    cateTemp = listBoxControl1.SelectedItem as Model.ProductCategory;
-                    if (this.action == "insert")
-                    {
+        //            cateTemp = listBoxControl1.SelectedItem as Model.ProductCategory;
+        //            if (this.action == "insert")
+        //            {
 
-                        this.product.ProductCategory = listBoxControl1.SelectedItem as Model.ProductCategory;
-                        this.newChooseContorlProductType.EditValue = this.product.ProductCategory;
-                        this.textEditId.Text = this.productManager.GetNewId(this.product.ProductCategory);
+        //                this.product.ProductCategory = listBoxControl1.SelectedItem as Model.ProductCategory;
+        //                this.newChooseContorlProductType.EditValue = this.product.ProductCategory;
+        //                this.textEditId.Text = this.productManager.GetNewId(this.product.ProductCategory);
 
-                    }
-                }
-            }
-            ;
-        }
+        //            }
+        //        }
+        //    }
+        //    ;
+        //}
 
         //private void checkedComboBoxEditJWeight_EditValueChanged(object sender, EventArgs e)
         //{
@@ -3408,6 +3430,11 @@ namespace Book.UI.Settings.BasicData.Products
                 nccProductCategoryThree.EditValue = f.SelectedItem;
                 this.product.ProductCategory2 = (this.nccProductCategoryThree.EditValue as Model.ProductCategory);
             }
+        }
+
+        private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        {
+
         }
     }
 }
