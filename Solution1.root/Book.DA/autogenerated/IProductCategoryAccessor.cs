@@ -49,6 +49,8 @@ namespace Book.DA
 		Model.ProductCategory GetById(string id);
 		
 		bool ExistsExcept(Model.ProductCategory e);
+
+        bool ExistsExceptDT(string Id, string ProductCategoryId);
 	}
 }
 

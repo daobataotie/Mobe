@@ -519,6 +519,10 @@ namespace Book.Model
         /// </summary>
         private string _materialNum;
 
+        private string _productCategoryId2;
+
+        private string _productCategoryId3;
+
         /// <summary>
         /// 客户
         /// </summary>
@@ -607,6 +611,10 @@ namespace Book.Model
         /// 单位组
         /// </summary>
         private UnitGroup _weightUnitGroup;
+
+        private ProductCategory _productCategory2;
+
+        private ProductCategory _productCategory3;
 
         #endregion
 
@@ -2115,6 +2123,18 @@ namespace Book.Model
             set { _materialNum = value; }
         }
 
+        public string ProductCategoryId2
+        {
+            get { return _productCategoryId2; }
+            set { _productCategoryId2 = value; }
+        }
+
+        public string ProductCategoryId3
+        {
+            get { return _productCategoryId3; }
+            set { _productCategoryId3 = value; }
+        }
+
         /// <summary>
         /// 客户
         /// </summary>
@@ -2430,6 +2450,18 @@ namespace Book.Model
                 this._weightUnitGroup = value;
             }
 
+        }
+
+        public ProductCategory ProductCategory2
+        {
+            get { return _productCategory2; }
+            set { _productCategory2 = value; }
+        }
+
+        public ProductCategory ProductCategory3
+        {
+            get { return _productCategory3; }
+            set { _productCategory3 = value; }
         }
 
         private bool? _isQiangHua;
@@ -2970,6 +3002,10 @@ namespace Book.Model
         /// 原料数量
         /// </summary>
         public readonly static string PRO_MaterialNum = "MaterialNum";
+
+        public readonly static string PRO_ProductCategoryId2 = "ProductCategoryId2";
+
+        public readonly static string PRO_ProductCategoryId3 = "ProductCategoryId3";
         #endregion
     }
 }

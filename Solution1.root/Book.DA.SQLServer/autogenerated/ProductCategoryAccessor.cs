@@ -101,8 +101,14 @@ namespace Book.DA.SQLServer
             paras.Add("oldId", Get(e.ProductCategoryId)==null?null:Get(e.ProductCategoryId).Id);
 			return sqlmapper.QueryForObject<bool>("ProductCategory.existsexcept", paras);
 		}
-		
-		
+
+        public bool ExistsExceptDT(string Id, string ProductCategoryId)
+        {
+            Hashtable paras = new Hashtable();
+            paras.Add("newId", Id);
+            paras.Add("oldId", Get(ProductCategoryId) == null ? null : Get(ProductCategoryId).Id);
+            return sqlmapper.QueryForObject<bool>("ProductCategory.existsexcept", paras);
+        }
 		
 		public bool ExistsPrimary(string id)
 		{			

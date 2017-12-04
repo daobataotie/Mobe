@@ -185,7 +185,6 @@ namespace Book.UI.Settings.BasicData.Products
         /// <param name="e"></param>
         private void EditForm_Load(object sender, EventArgs e)
         {
-
             flag5 = 1;
 
             this.listBoxControl1.DataSource = this.productCategoryManager.Select();
@@ -438,6 +437,8 @@ namespace Book.UI.Settings.BasicData.Products
             this.product.ProductBarCode = this.textEditProductBarCode.Text;
             this.product.ProductBatch = this.textEditProductBatch.Text;
             this.product.ProductCategory = this.newChooseContorlProductType.EditValue as Model.ProductCategory;
+            this.product.ProductCategory2 = this.nccProductCategoryTwo.EditValue as Model.ProductCategory;
+            this.product.ProductCategory3 = this.nccProductCategoryThree.EditValue as Model.ProductCategory;
             //this.product.ProductCategoryId            
             this.product.ProductDescription = this.memoEditProductDescription.Rtf;
 
@@ -871,6 +872,8 @@ namespace Book.UI.Settings.BasicData.Products
             this.textEditProductBarCode.Text = this.product.ProductBarCode;
             this.textEditProductBatch.Text = this.product.ProductBatch;
             this.newChooseContorlProductType.EditValue = this.product.ProductCategory;
+            this.nccProductCategoryTwo.EditValue = this.product.ProductCategory2;
+            this.nccProductCategoryThree.EditValue = this.product.ProductCategory3;
             this.memoEditProductDescription.Rtf = this.product.ProductDescription;
             this.richTextZhengMai.Rtf = this.product.AttrZhengMai;
             this.richTextCeMai.Rtf = this.product.AttrCeMai;
@@ -2135,17 +2138,17 @@ namespace Book.UI.Settings.BasicData.Products
         }
         #endregion
 
-        private void ProductCategoryButtonEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            ProductCategories.ChooseForm f = new ProductCategories.ChooseForm();
-            f.ShowDialog(this);
+        //private void ProductCategoryButtonEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        //{
+        //    ProductCategories.ChooseForm f = new ProductCategories.ChooseForm();
+        //    f.ShowDialog(this);
 
-            if (f.DialogResult == DialogResult.OK && f.SelectedItem != null)
-            {
-                (sender as ButtonEdit).EditValue = f.SelectedItem;
-                //this.textEditId.Text = this.productManager.GetNewId((sender as BaseEdit).EditValue as Model.ProductCategory);
-            }
-        }
+        //    if (f.DialogResult == DialogResult.OK && f.SelectedItem != null)
+        //    {
+        //        (sender as ButtonEdit).EditValue = f.SelectedItem;
+        //        //this.textEditId.Text = this.productManager.GetNewId((sender as BaseEdit).EditValue as Model.ProductCategory);
+        //    }
+        //}
 
         /// <summary>
         /// 自动输入/手工输入
@@ -2326,11 +2329,8 @@ namespace Book.UI.Settings.BasicData.Products
 
         private void newChooseContorlProductType_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-
             if (this.action != "view")
             {
-
-
                 Settings.BasicData.ProductCategories.ChooseForm f = new Settings.BasicData.ProductCategories.ChooseForm();
                 if (f.ShowDialog(this) == DialogResult.OK)
                 {
@@ -3375,6 +3375,38 @@ namespace Book.UI.Settings.BasicData.Products
             {
                 gridControlStock.ExportToXlsx(fileDialog.FileName);
                 MessageBox.Show("导出成功！", this.Text, MessageBoxButtons.OK);
+            }
+        }
+
+        private void nccProductCategoryTwo_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            string s = (this.newChooseContorlProductType.EditValue as Model.ProductCategory) == null ? null : (this.newChooseContorlProductType.EditValue as Model.ProductCategory).ProductCategoryId;
+            if (string.IsNullOrEmpty(s))
+            {
+                MessageBox.Show("请先选择商品类别");
+                return;
+            }
+            Settings.BasicData.ProductCategories.ChooseForm f = new Settings.BasicData.ProductCategories.ChooseForm("2", s);
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                nccProductCategoryTwo.EditValue = f.SelectedItem;
+                this.product.ProductCategory2 = (this.nccProductCategoryTwo.EditValue as Model.ProductCategory);
+            }
+        }
+
+        private void nccProductCategoryThree_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            string s = (this.nccProductCategoryTwo.EditValue as Model.ProductCategory) == null ? null : (this.newChooseContorlProductType.EditValue as Model.ProductCategory).ProductCategoryId;
+            if (string.IsNullOrEmpty(s))
+            {
+                MessageBox.Show("请先选择二级商品类别");
+                return;
+            }
+            Settings.BasicData.ProductCategories.ChooseForm f = new Settings.BasicData.ProductCategories.ChooseForm("3", s);
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                nccProductCategoryThree.EditValue = f.SelectedItem;
+                this.product.ProductCategory2 = (this.nccProductCategoryThree.EditValue as Model.ProductCategory);
             }
         }
     }

@@ -7,14 +7,13 @@ namespace Book.UI.Settings.BasicData.ProductCategories
 {
     public  class ChooseProductCategories:IChoose
     {
-
         private Model.ProductCategory ojb;
 
         #region IChoose 成员
 
         public void MyClick(ref ChooseItem item)
         {
-            ChooseForm  f = new ChooseForm();
+            ChooseForm f = new ChooseForm();
             if (f.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Model.ProductCategory productCaregory = f.SelectedItem as Model.ProductCategory;

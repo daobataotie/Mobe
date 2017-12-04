@@ -141,6 +141,8 @@ namespace Book.BL
             if (product.WeightUnitGroup != null) product.WeightUnitGroupId = product.WeightUnitGroup.UnitGroupId;
 
             if (product.ProductCategory != null) product.ProductCategoryId = product.ProductCategory.ProductCategoryId;
+            if (product.ProductCategory2 != null) product.ProductCategoryId2 = product.ProductCategory2.ProductCategoryId;
+            if (product.ProductCategory3 != null) product.ProductCategoryId3 = product.ProductCategory3.ProductCategoryId;
 
             product.InsertTime = DateTime.Now;
             //product.UpdateTime = DateTime.Now;
@@ -313,6 +315,8 @@ namespace Book.BL
                 //    product.ProductImage3 = pic;
 
                 if (product.ProductCategory != null) product.ProductCategoryId = product.ProductCategory.ProductCategoryId;
+                if (product.ProductCategory2 != null) product.ProductCategoryId2 = product.ProductCategory2.ProductCategoryId;
+                if (product.ProductCategory3 != null) product.ProductCategoryId3 = product.ProductCategory3.ProductCategoryId;
 
                 product.UpdateTime = DateTime.Now;
                 //Model.Product Prdt = product;
@@ -493,7 +497,7 @@ namespace Book.BL
 
 
         }
-       
+
         /// <summary>
         /// 修改不判断 2014年6月18日 优化修改，只修改必须的，其他去掉，增加速度。
         /// </summary>

@@ -8,6 +8,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Book.DA
 {
@@ -20,6 +21,10 @@ namespace Book.DA
         bool ExistsName(string productCategoryName, string ProductCategoryId);
 
         IList<string> SelectALLName();
+
+        DataTable SelectDTByFilter(string filter);
+
+        IList<Model.ProductCategory> SelectListByFilter(string CategoryLevel, string ProductCategoryParentId);
     }
 }
 
