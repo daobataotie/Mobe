@@ -34,7 +34,7 @@ namespace Book.UI.Query
             InitializeComponent();
             this.barEditItem3.EditValue = false;
             this.bindingSourceDepot.DataSource = this.depotManager.Query(" select DepotId,DepotName from Depot order by Id", 30, "depot").Tables[0];
-            this.bindingSourceCategory.DataSource = this.depotManager.Query("select ProductCategoryId,ProductCategoryName,Id from ProductCategory order by Id", 30, "ProductCategory").Tables[0];
+            this.bindingSourceCategory.DataSource = this.depotManager.Query("select ProductCategoryId,ProductCategoryName,Id from ProductCategory where CategoryLevel=1 order by Id", 30, "ProductCategory").Tables[0];
 
         }
 
