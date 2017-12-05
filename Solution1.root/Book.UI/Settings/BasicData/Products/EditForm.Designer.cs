@@ -998,6 +998,7 @@ namespace Book.UI.Settings.BasicData.Products
             this.treeListColumn1});
             resources.ApplyResources(this.treeList1, "treeList1");
             this.treeList1.Name = "treeList1";
+            this.treeList1.OptionsBehavior.Editable = false;
             this.treeList1.OptionsView.ShowColumns = false;
             this.treeList1.OptionsView.ShowIndicator = false;
             this.treeList1.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeList1_FocusedNodeChanged);
@@ -2690,7 +2691,7 @@ namespace Book.UI.Settings.BasicData.Products
             this.emptySpaceItem1});
             this.layoutControlGroup15.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup15.Name = "layoutControlGroup15";
-            this.layoutControlGroup15.Size = new System.Drawing.Size(620, 217);
+            this.layoutControlGroup15.Size = new System.Drawing.Size(620, 224);
             this.layoutControlGroup15.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup15.TextVisible = false;
             // 
@@ -2902,7 +2903,7 @@ namespace Book.UI.Settings.BasicData.Products
             resources.ApplyResources(this.emptySpaceItem1, "emptySpaceItem1");
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 175);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(600, 22);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(600, 29);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // xtraTabPage13
@@ -2939,7 +2940,7 @@ namespace Book.UI.Settings.BasicData.Products
             this.layoutControlItem160});
             this.layoutControlGroup16.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup16.Name = "layoutControlGroup16";
-            this.layoutControlGroup16.Size = new System.Drawing.Size(620, 217);
+            this.layoutControlGroup16.Size = new System.Drawing.Size(620, 224);
             this.layoutControlGroup16.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup16.TextVisible = false;
             // 
@@ -2949,7 +2950,7 @@ namespace Book.UI.Settings.BasicData.Products
             resources.ApplyResources(this.layoutControlItem159, "layoutControlItem159");
             this.layoutControlItem159.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem159.Name = "layoutControlItem159";
-            this.layoutControlItem159.Size = new System.Drawing.Size(299, 197);
+            this.layoutControlItem159.Size = new System.Drawing.Size(299, 204);
             this.layoutControlItem159.TextSize = new System.Drawing.Size(36, 14);
             // 
             // layoutControlItem160
@@ -2958,7 +2959,7 @@ namespace Book.UI.Settings.BasicData.Products
             resources.ApplyResources(this.layoutControlItem160, "layoutControlItem160");
             this.layoutControlItem160.Location = new System.Drawing.Point(299, 0);
             this.layoutControlItem160.Name = "layoutControlItem160";
-            this.layoutControlItem160.Size = new System.Drawing.Size(301, 197);
+            this.layoutControlItem160.Size = new System.Drawing.Size(301, 204);
             this.layoutControlItem160.TextSize = new System.Drawing.Size(36, 14);
             // 
             // spinEditReferenceSellPrice

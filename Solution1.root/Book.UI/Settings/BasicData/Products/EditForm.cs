@@ -187,7 +187,7 @@ namespace Book.UI.Settings.BasicData.Products
         {
             flag5 = 1;
 
-            IList<Model.ProductCategory> listCategory = this.productCategoryManager.Select();
+            IList<Model.ProductCategory> listCategory = this.productCategoryManager.SelectAll();
             List<Model.ProductCategory> firstLevel = listCategory.Where(l => l.CategoryLevel == 1).ToList();
             List<Model.ProductCategory> secondLevel = listCategory.Where(l => l.CategoryLevel == 2).ToList();
             List<Model.ProductCategory> thirdLevel = listCategory.Where(l => l.CategoryLevel == 3).ToList();
@@ -834,7 +834,7 @@ namespace Book.UI.Settings.BasicData.Products
             //else
             if (flag1 != 1)
             {
-                this.textEditId.Text = (string.IsNullOrEmpty(this.product.Id) ? this.product.ProductId : this.product.Id);
+                this.textEditId.Text = (string.IsNullOrEmpty(this.product.Id) ? "" : this.product.Id);
             }
             flag1 = 0;
             this.calcEditMateriaFenPei.Text = this.product.ProduceMaterialDistributioned.HasValue ? this.product.ProduceMaterialDistributioned.Value.ToString() : "0";
@@ -2115,6 +2115,7 @@ namespace Book.UI.Settings.BasicData.Products
             this.de_UpdateTime.Enabled = false;
             this.calcEditStock0.Enabled = false;
             this.calcEditStock1.Enabled = false;
+
         }
 
         protected override bool HasRows()
@@ -2822,21 +2823,22 @@ namespace Book.UI.Settings.BasicData.Products
             }
         }
 
-        /// <summary>
-        /// 複製當前的產品----liuyl
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 複製當前的產品----liuyl
         private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.action = "insert";
 
             Model.Product productCope = new Model.Product();
             productCope.ProductId = Guid.NewGuid().ToString();
-            productCope.Id = this.productManager.GetNewId(this.product.ProductCategory);
+            if (this.product.ProductCategory != null)
+                productCope.Id = this.productManager.GetNewId(this.product.ProductCategory);
             productCope.ProductName = this.product.ProductName;
             productCope.ProductCategory = this.product.ProductCategory;
             productCope.ProductCategoryId = this.product.ProductCategoryId;
+            productCope.ProductCategory2 = this.product.ProductCategory2;
+            productCope.ProductCategoryId2 = this.product.ProductCategoryId2;
+            productCope.ProductCategory3 = this.product.ProductCategory3;
+            productCope.ProductCategoryId3 = this.product.ProductCategoryId3;
             productCope.BasedUnitGroup = this.product.BasedUnitGroup;
             productCope.BasedUnitGroupId = this.product.BasedUnitGroupId;
             productCope.BuyUnit = this.product.BuyUnit;
@@ -2874,9 +2876,9 @@ namespace Book.UI.Settings.BasicData.Products
 
         public static Model.Product _product;
 
+        //搜索
         private void barButtonItemSeach_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
             if (!productManager.HasRows())
             {
                 MessageBox.Show(Properties.Resources.NoData, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -3418,7 +3420,7 @@ namespace Book.UI.Settings.BasicData.Products
 
         private void nccProductCategoryThree_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            string s = (this.nccProductCategoryTwo.EditValue as Model.ProductCategory) == null ? null : (this.newChooseContorlProductType.EditValue as Model.ProductCategory).ProductCategoryId;
+            string s = (this.nccProductCategoryTwo.EditValue as Model.ProductCategory) == null ? null : (this.nccProductCategoryTwo.EditValue as Model.ProductCategory).ProductCategoryId;
             if (string.IsNullOrEmpty(s))
             {
                 MessageBox.Show("请先选择二级商品类别");
@@ -3434,6 +3436,23 @@ namespace Book.UI.Settings.BasicData.Products
 
         private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
+            if (flag5 == 1)
+            {
+                flag5 = 0;
+                return;
+            }
+            else
+            {
+                if (treeList1.FocusedNode != null)
+                {
+                    SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@productid", SqlDbType.VarChar, 50) };
+                    pars[0].Value = (treeList1.FocusedNode.Tag as Model.ProductCategory).ProductCategoryId;
+
+                    this.gridControl5.DataSource = productManager.QueryProc("GetProductListByCate", pars, "producttree").Tables[0];
+
+                    cateTemp = treeList1.FocusedNode.Tag as Model.ProductCategory;
+                }
+            }
 
         }
     }

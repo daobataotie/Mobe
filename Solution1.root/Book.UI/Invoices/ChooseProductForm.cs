@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.XtraTreeList.Nodes;
+using System.Linq;
 
 namespace Book.UI.Invoices
 {
@@ -160,31 +162,31 @@ namespace Book.UI.Invoices
 
         private void ChooseProductForm_Load(object sender, EventArgs e)
         {
-            listBoxControl1.DataSource = (this.manager as BL.ProductCategoryManager).Select();
-            listBoxControl1.SelectedIndex = -1;
-        }
+            //listBoxControl1.DataSource = (this.manager as BL.ProductCategoryManager).Select();
+            //listBoxControl1.SelectedIndex = -1;
+            IList<Model.ProductCategory> listCategory = (this.manager as BL.ProductCategoryManager).SelectAll();
+            List<Model.ProductCategory> firstLevel = listCategory.Where(l => l.CategoryLevel == 1).ToList();
+            List<Model.ProductCategory> secondLevel = listCategory.Where(l => l.CategoryLevel == 2).ToList();
+            List<Model.ProductCategory> thirdLevel = listCategory.Where(l => l.CategoryLevel == 3).ToList();
 
-        private void listBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (flag == 1)
+            foreach (Model.ProductCategory first in firstLevel)
             {
-                flag = 0;
-                return;
-            }
-            else
-            {
-                if (listBoxControl1.SelectedIndex >= 0)
+                TreeListNode firstNode = this.treeList1.AppendNode(new object[] { first.Id + "-" + first.ProductCategoryName }, null);
+                firstNode.Tag = first;
+
+                List<Model.ProductCategory> list2 = secondLevel.Where(l => l.ProductCategoryParentId == first.ProductCategoryId).ToList();
+                foreach (Model.ProductCategory second in list2)
                 {
-                    Model.ProductCategory category = listBoxControl1.SelectedItem as Model.ProductCategory;
-                    if (category != null)
+                    TreeListNode secondNode = this.treeList1.AppendNode(new object[] { second.Id + "-" + second.ProductCategoryName }, firstNode);
+                    secondNode.Tag = second;
+
+                    List<Model.ProductCategory> list3 = thirdLevel.Where(l => l.ProductCategoryParentId == second.ProductCategoryId).ToList();
+                    foreach (Model.ProductCategory third in list3)
                     {
-                        Cursor.Current = Cursors.WaitCursor;
-                        this.bindingSource1.DataSource = this.productManager.Select(category);
+                        this.treeList1.AppendNode(new object[] { third.Id + "-" + third.ProductCategoryName }, secondNode).Tag = third;
                     }
                 }
             }
-            this.gridControl1.RefreshDataSource();
-            Cursor.Current = Cursors.Default;
         }
 
         private void chk_All_CheckedChanged(object sender, EventArgs e)
@@ -200,6 +202,29 @@ namespace Book.UI.Invoices
                 }
 
             this.gridControl1.RefreshDataSource();
+        }
+
+        private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        {
+            if (flag == 1)
+            {
+                flag = 0;
+                return;
+            }
+            else
+            {
+                if (treeList1.FocusedNode != null)
+                {
+                    Model.ProductCategory category = treeList1.FocusedNode.Tag as Model.ProductCategory;
+                    if (category != null)
+                    {
+                        Cursor.Current = Cursors.WaitCursor;
+                        this.bindingSource1.DataSource = this.productManager.Select(category);
+
+                        this.gridControl1.RefreshDataSource();
+                    }
+                }
+            }
         }
 
     }

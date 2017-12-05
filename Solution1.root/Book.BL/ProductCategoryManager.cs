@@ -197,6 +197,15 @@ namespace Book.BL
             return accessor.SelectListByFilter(CategoryLevel, ProductCategoryParentId);
         }
 
+        /// <summary>
+        /// 2017-12-5 ：真正的查询所有，"Select"只查询Level为1的
+        /// </summary>
+        /// <returns></returns>
+        public IList<Model.ProductCategory> SelectAll()
+        {
+            return accessor.SelectAll();
+        }
+
         //protected override string GetInvoiceKind()
         //{
         //    return "ProductCategory";

@@ -25,6 +25,12 @@ namespace Book.DA
         DataTable SelectDTByFilter(string filter);
 
         IList<Model.ProductCategory> SelectListByFilter(string CategoryLevel, string ProductCategoryParentId);
+
+        /// <summary>
+        /// 2017-12-5 ：真正的查询所有，"Select"只查询Level为1的
+        /// </summary>
+        /// <returns></returns>
+        IList<Model.ProductCategory> SelectAll();
     }
 }
 

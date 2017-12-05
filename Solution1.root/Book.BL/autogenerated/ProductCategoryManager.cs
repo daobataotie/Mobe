@@ -80,8 +80,9 @@ namespace Book.BL
 		{
 			return accessor.GetNext(e);
 		}
+
 		/// <summary>
-		/// Select all.
+        /// 2017-12-5 ：只查询“Level”为1的
 		/// </summary>
 		public IList<Model.ProductCategory> Select()
 		{

@@ -30,7 +30,6 @@ namespace Book.UI.Invoices
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseProductForm));
-            this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
             this.productCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colProductId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductCategoryId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,16 +55,18 @@ namespace Book.UI.Invoices
             this.comboBoxEditSeach = new DevExpress.XtraEditors.ComboBoxEdit();
             this.simpleButtonSeach = new DevExpress.XtraEditors.SimpleButton();
             this.chk_All = new DevExpress.XtraEditors.CheckEdit();
+            this.treeList1 = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productCategoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSeach.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditSeach.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_All.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -117,12 +118,6 @@ namespace Book.UI.Invoices
             // simpleButtonNew
             // 
             resources.ApplyResources(this.simpleButtonNew, "simpleButtonNew");
-            // 
-            // listBoxControl1
-            // 
-            resources.ApplyResources(this.listBoxControl1, "listBoxControl1");
-            this.listBoxControl1.Name = "listBoxControl1";
-            this.listBoxControl1.SelectedIndexChanged += new System.EventHandler(this.listBoxControl1_SelectedIndexChanged);
             // 
             // productCategoryBindingSource
             // 
@@ -337,47 +332,63 @@ namespace Book.UI.Invoices
             this.chk_All.Properties.Caption = resources.GetString("chk_All.Properties.Caption");
             this.chk_All.CheckedChanged += new System.EventHandler(this.chk_All_CheckedChanged);
             // 
+            // treeList1
+            // 
+            this.treeList1.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn1});
+            resources.ApplyResources(this.treeList1, "treeList1");
+            this.treeList1.Name = "treeList1";
+            this.treeList1.OptionsBehavior.Editable = false;
+            this.treeList1.OptionsView.ShowColumns = false;
+            this.treeList1.OptionsView.ShowIndicator = false;
+            this.treeList1.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.treeList1_FocusedNodeChanged);
+            // 
+            // treeListColumn1
+            // 
+            resources.ApplyResources(this.treeListColumn1, "treeListColumn1");
+            this.treeListColumn1.FieldName = "ProductCategoryName";
+            this.treeListColumn1.Name = "treeListColumn1";
+            // 
             // ChooseProductForm
             // 
             this.AcceptButton = this.simpleButtonSeach;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.treeList1);
             this.Controls.Add(this.chk_All);
             this.Controls.Add(this.simpleButtonSeach);
             this.Controls.Add(this.comboBoxEditSeach);
             this.Controls.Add(this.textEditSeach);
             this.Controls.Add(this.simpleButtonAllPro);
-            this.Controls.Add(this.listBoxControl1);
             this.Name = "ChooseProductForm";
             this.Load += new System.EventHandler(this.ChooseProductForm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChooseProductForm_FormClosing);
-            this.Controls.SetChildIndex(this.simpleButtonCancel, 0);
-            this.Controls.SetChildIndex(this.simpleButtonOK, 0);
-            this.Controls.SetChildIndex(this.simpleButtonNew, 0);
-            this.Controls.SetChildIndex(this.gridControl1, 0);
-            this.Controls.SetChildIndex(this.listBoxControl1, 0);
             this.Controls.SetChildIndex(this.simpleButtonAllPro, 0);
             this.Controls.SetChildIndex(this.textEditSeach, 0);
             this.Controls.SetChildIndex(this.comboBoxEditSeach, 0);
             this.Controls.SetChildIndex(this.simpleButtonSeach, 0);
             this.Controls.SetChildIndex(this.chk_All, 0);
+            this.Controls.SetChildIndex(this.treeList1, 0);
+            this.Controls.SetChildIndex(this.simpleButtonCancel, 0);
+            this.Controls.SetChildIndex(this.simpleButtonOK, 0);
+            this.Controls.SetChildIndex(this.simpleButtonNew, 0);
+            this.Controls.SetChildIndex(this.gridControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productCategoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSeach.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditSeach.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chk_All.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
         private System.Windows.Forms.BindingSource productCategoryBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colProductId;
         private DevExpress.XtraGrid.Columns.GridColumn colProductCategoryId;
@@ -403,5 +414,7 @@ namespace Book.UI.Invoices
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditSeach;
         private DevExpress.XtraEditors.SimpleButton simpleButtonSeach;
         private DevExpress.XtraEditors.CheckEdit chk_All;
+        private DevExpress.XtraTreeList.TreeList treeList1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
     }
 }

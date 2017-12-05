@@ -35,7 +35,8 @@ namespace Book.DA.SQLServer
 		
 		public IList<Model.ProductCategory> Select()
 		{
-			return this.Select<Model.ProductCategory>();
+            //return this.Select<Model.ProductCategory>();
+            return sqlmapper.QueryForList<Model.ProductCategory>("ProductCategory.SelectLevel1", null);
 		}
 		
 		public IList<Model.ProductCategory> Select(Helper.OrderDescription orderDescription, Helper.PagingDescription pagingDescription)

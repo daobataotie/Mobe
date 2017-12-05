@@ -53,9 +53,18 @@ namespace Book.DA.SQLServer
             ht.Add("CategoryLevel", CategoryLevel);
             if (CategoryLevel != "1")
             {
-                ht.Add("sql", string.Format(" and ProductCategoryParentId={0}", ProductCategoryParentId));
+                ht.Add("sql", string.Format(" and ProductCategoryParentId='{0}'", ProductCategoryParentId));
             }
             return sqlmapper.QueryForList<Model.ProductCategory>("ProductCategory.SelectListByFilter", ht);
+        }
+
+        /// <summary>
+        /// 2017-12-5 ：真正的查询所有，"Select"只查询Level为1的
+        /// </summary>
+        /// <returns></returns>
+        public IList<Model.ProductCategory> SelectAll()
+        {
+            return this.Select<Model.ProductCategory>();
         }
     }
 }

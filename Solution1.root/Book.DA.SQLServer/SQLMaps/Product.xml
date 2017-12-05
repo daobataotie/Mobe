@@ -40,6 +40,8 @@
       <result property="IsCustomerProduct" column="IsCustomerProduct" />
       <result property="ProductDescription" column="ProductDescription" />
       <result property="StocksQuantity" column="StocksQuantity" />
+      <result property="ProductCategoryId2" column="ProductCategoryId2"/>
+      <result property="ProductCategoryId3" column="ProductCategoryId3"/>
     </resultMap>
     <resultMap id="ProductResult3" class="Product">
       <result property="ProductId" column="ProductId" />
@@ -480,7 +482,7 @@ where ProductId = #productid#
       [ProductCategoryId2],
       [ProductCategoryId3]
       from product
-      WHERE  ProductCategoryId = #value# order by Id
+      WHERE  ProductCategoryId = #value# or ProductCategoryId2 = #value# or ProductCategoryId3 = #value# order by Id
     </select>
     <select id="select_byDepot" resultMap="ProductResult" parameterClass="string">
       select *   from product
@@ -558,7 +560,7 @@ where ProductId = #productid#
     </select>
 
     <select id="select_byCategoryTo" resultMap="ProductResult2">
-      SELECT Id,ProductId,ProductName,ProductCategoryId,CustomerProductName,StocksQuantity,ProductDescription,IsCustomerProduct FROM Product  where    ProductCategoryId = #value# order by ProductName
+      SELECT Id,ProductId,ProductName,ProductCategoryId,CustomerProductName,StocksQuantity,ProductDescription,IsCustomerProduct,ProductCategoryId2,ProductCategoryId3 FROM Product  where    ProductCategoryId = #value# order by ProductName
     </select>
     <select id="select_notcustomer" resultMap="ProductResult1">
       select  product.Id,ProductId,ProductName,ProductVersion,product.ProductCategoryId,SupplierId,ProduceUnitId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,CustomerProductName,BasedUnitGroupId,MainUnitId,ProductDescription,CustomerId,ProductCategoryId2,ProductCategoryId3 FROM Product left join ProductCategory
@@ -695,7 +697,7 @@ where ProductId = #productid#
 			]]>
     </update>
     <select id="select_by_primary_key2" resultMap="ProductResult2">
-      SELECT Id,ProductId,ProductName,ProductCategoryId,CustomerProductName,ProductDescription,StocksQuantity,IsCustomerProduct FROM Product  where    ProductCategoryId = #value# order by ProductName
+      SELECT Id,ProductId,ProductName,ProductCategoryId,CustomerProductName,ProductDescription,StocksQuantity,IsCustomerProduct,ProductCategoryId2,ProductCategoryId3 FROM Product  where    ProductCategoryId = #value# order by ProductName
     </select>
     <select id="select_by_primary_key3" resultMap="ProductResultBomPar">
       SELECT Id,ProductId,CustomerId,ProductName,ProductCategoryId,CustomerProductName,ProductDescription,StocksQuantity,IsCustomerProduct,OutSourcing,TrustOut,HomeMade FROM Product  where    ProductId = #value#
