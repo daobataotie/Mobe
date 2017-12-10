@@ -381,7 +381,7 @@ else
 where ProductId = #productid#
 			]]>
     </update>
-    <select id="select_byCategory" resultMap="ProductResultNotZCMai" parameterClass="string">
+    <select id="select_byCategory" resultMap="ProductResultNotZCMai" parameterClass="Map">
       SELECT
       [Id],
       [ProductId],
@@ -482,7 +482,7 @@ where ProductId = #productid#
       [ProductCategoryId2],
       [ProductCategoryId3]
       from product
-      WHERE  ProductCategoryId = #value# or ProductCategoryId2 = #value# or ProductCategoryId3 = #value# order by Id
+      WHERE 1=1 and $sql$
     </select>
     <select id="select_byDepot" resultMap="ProductResult" parameterClass="string">
       select *   from product

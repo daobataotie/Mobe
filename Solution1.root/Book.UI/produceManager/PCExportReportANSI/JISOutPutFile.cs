@@ -185,9 +185,12 @@ namespace Book.UI.produceManager.PCExportReportANSI
 
                         ProduceOtherMaterial.ListForm listform2 = new Book.UI.produceManager.ProduceOtherMaterial.ListForm(invoiceCusId);
                         listform2.Show(this);
+
+                        Settings.StockLimitations.ChooseOutStockDepot listform3 = new Book.UI.Settings.StockLimitations.ChooseOutStockDepot(invoiceCusId);
+                        listform3.Show(this);
                     }
 
-                    else if (name.Contains("生产加工单") || name.Contains("组装半成品日报表"))
+                    else if (name.Contains("生产加工单"))
                     {
                         //PronoteHeader.EditForm pnt = new Book.UI.produceManager.PronoteHeader.EditForm(str);
                         //pnt.Show(this);
@@ -201,7 +204,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
                         listform.Show(this);
                     }
 
-                    else if (name.Contains("生产日报表") || name.Contains("强化/防雾工作日报表") || name.Contains("品检日报表") || name.Contains("成品组装日报表"))
+                    else if (name.Contains("生产日报表") || name.Contains("强化/防雾工作日报表") || name.Contains("品检日报表") || name.Contains("成品组装日报表") || name.Contains("组装半成品日报表"))
                     {
                         ProduceInDepot.ListForm listform = new Book.UI.produceManager.ProduceInDepot.ListForm(invoiceCusId);
                         listform.Show(this);
@@ -239,13 +242,34 @@ namespace Book.UI.produceManager.PCExportReportANSI
                     //    PCFogCheck.ListForm listform = new Book.UI.produceManager.PCFogCheck.ListForm(invoiceCusId);
                     //    listform.Show(this);
                     //}
+                    else if (name.Contains("光谱测试"))
+                    {
+                        //PCFinishCheck.ListForm listform = new Book.UI.produceManager.PCFinishCheck.ListForm(invoiceCusId);
+                        //listform.Show(this);
+                        PronoteHeader.ListForm listform = new Book.UI.produceManager.PronoteHeader.ListForm(invoiceCusId);
+                        listform.Show(this);
+                    }
 
-                    else if (name.Contains("光谱测试") || name.Contains("组装检验日报表") || name.Contains("成品检验单") || name.Contains("出货报告"))
+                    else if (name.Contains("成品检验单"))
                     {
                         PCFinishCheck.ListForm listform = new Book.UI.produceManager.PCFinishCheck.ListForm(invoiceCusId);
                         listform.Show(this);
                         //PronoteHeader.ListForm listform = new Book.UI.produceManager.PronoteHeader.ListForm(invoiceCusId);
                         //listform.Show(this);
+                    }
+
+                    else if (name.Contains("出货报告"))
+                    {
+                        ListForm listform = new ListForm(invoiceCusId, "JIS");
+                        listform.Show(this);
+                    }
+
+                    else if (name.Contains("组装检验日报表"))
+                    {
+                        PCSampling.ListForm listform1 = new Book.UI.produceManager.PCSampling.ListForm(invoiceCusId);
+                        listform1.Show(this);
+                        PCSamplingEar.ListForm listform2 = new Book.UI.produceManager.PCSamplingEar.ListForm(invoiceCusId);
+                        listform2.Show(this);
                     }
 
                     else if (name.Contains("委外加工检验单"))
@@ -307,7 +331,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
                     //    listform2.Show(this);
                     //}
 
-                    else if (name.Contains("出货通知单"))
+                    else if (name.Contains("出货通知单") || name.Contains("出库单"))
                     {
                         //Invoices.XS.EditForm xc = new Book.UI.Invoices.XS.EditForm(str);
                         //xc.Show(this);
@@ -315,13 +339,13 @@ namespace Book.UI.produceManager.PCExportReportANSI
                         listform.Show(this);
                     }
 
-                    else if (name.Contains("出库单"))
-                    {
-                        //Settings.StockLimitations.OutStockEditForm cc = new Book.UI.Settings.StockLimitations.OutStockEditForm(str);
-                        //cc.Show(this);
-                        Settings.StockLimitations.ChooseOutStockDepot f = new Book.UI.Settings.StockLimitations.ChooseOutStockDepot(invoiceCusId);
-                        f.Show(this);
-                    }
+                    //else if (name.Contains("出库单"))
+                    //{
+                    //    //Settings.StockLimitations.OutStockEditForm cc = new Book.UI.Settings.StockLimitations.OutStockEditForm(str);
+                    //    //cc.Show(this);
+                    //    Settings.StockLimitations.ChooseOutStockDepot f = new Book.UI.Settings.StockLimitations.ChooseOutStockDepot(invoiceCusId);
+                    //    f.Show(this);
+                    //}
 
                     //else if (name.Contains("物料检验单"))
                     //{

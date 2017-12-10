@@ -315,8 +315,14 @@ namespace Book.BL
                 //    product.ProductImage3 = pic;
 
                 if (product.ProductCategory != null) product.ProductCategoryId = product.ProductCategory.ProductCategoryId;
-                if (product.ProductCategory2 != null) product.ProductCategoryId2 = product.ProductCategory2.ProductCategoryId;
-                if (product.ProductCategory3 != null) product.ProductCategoryId3 = product.ProductCategory3.ProductCategoryId;
+                if (product.ProductCategory2 != null)
+                    product.ProductCategoryId2 = product.ProductCategory2.ProductCategoryId;
+                else
+                    product.ProductCategoryId2 = null;
+                if (product.ProductCategory3 != null)
+                    product.ProductCategoryId3 = product.ProductCategory3.ProductCategoryId;
+                else
+                    product.ProductCategoryId3 = null;
 
                 product.UpdateTime = DateTime.Now;
                 //Model.Product Prdt = product;

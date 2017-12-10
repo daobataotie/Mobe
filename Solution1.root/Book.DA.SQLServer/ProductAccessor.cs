@@ -78,7 +78,17 @@ namespace Book.DA.SQLServer
 
         public IList<Book.Model.Product> Select(Book.Model.ProductCategory Category)
         {
-            return sqlmapper.QueryForList<Model.Product>("Product.select_byCategory", Category.ProductCategoryId);
+            string str = "";
+            if (Category.CategoryLevel == 1)
+                str = " ProductCategoryId = '" + Category.ProductCategoryId + "' and (productCategoryid2='' or productCategoryid2 is null) and ( productCategoryid3='' or productCategoryid3 is null)";
+            else if (Category.CategoryLevel == 2)
+                str = " productCategoryid2='" + Category.ProductCategoryId + "' and ( productCategoryid3='' or productCategoryid3 is null)";
+            else
+                str = " productCategoryid3='" + Category.ProductCategoryId + "'";
+
+            Hashtable ht = new Hashtable();
+            ht.Add("sql", str);
+            return sqlmapper.QueryForList<Model.Product>("Product.select_byCategory", ht);
         }
         public IList<Book.Model.Product> SelectProductByProductCategoryId(Book.Model.ProductCategory Category)
         {

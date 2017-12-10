@@ -713,7 +713,7 @@ namespace Book.UI.Settings.BasicData.Products
 
         protected override void AddNew()
         {
-            if (cateTemp != null)
+            if (cateTemp != null && cateTemp.CategoryLevel == 1)
             {
                 this.product = new Model.Product();
                 this.product.ProductCategory = cateTemp;
@@ -2390,8 +2390,16 @@ namespace Book.UI.Settings.BasicData.Products
                     //}
                     //  flag2 = 0;
 
-
-
+                    Model.ProductCategory category2 = this.nccProductCategoryTwo.EditValue as Model.ProductCategory;
+                    if (category2 != null)
+                    {
+                        IList<Model.ProductCategory> list2 = productCategoryManager.SelectListByFilter("2", this.product.ProductCategory.ProductCategoryId);
+                        if (!list2.Any(L => L.ProductCategoryId == category2.ProductCategoryId))
+                        {
+                            this.nccProductCategoryTwo.EditValue = null;
+                            this.nccProductCategoryThree.EditValue = null;
+                        }
+                    }
                 }
             }
         }
@@ -3415,6 +3423,16 @@ namespace Book.UI.Settings.BasicData.Products
             {
                 nccProductCategoryTwo.EditValue = f.SelectedItem;
                 this.product.ProductCategory2 = (this.nccProductCategoryTwo.EditValue as Model.ProductCategory);
+
+                Model.ProductCategory category3 = this.nccProductCategoryThree.EditValue as Model.ProductCategory;
+                if (category3 != null)
+                {
+                    IList<Model.ProductCategory> list3 = productCategoryManager.SelectListByFilter("3", this.product.ProductCategory2.ProductCategoryId);
+                    if (!list3.Any(L => L.ProductCategoryId == category3.ProductCategoryId))
+                    {
+                        this.nccProductCategoryThree.EditValue = null;
+                    }
+                }
             }
         }
 
@@ -3446,9 +3464,14 @@ namespace Book.UI.Settings.BasicData.Products
                 if (treeList1.FocusedNode != null)
                 {
                     SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@productid", SqlDbType.VarChar, 50) };
-                    pars[0].Value = (treeList1.FocusedNode.Tag as Model.ProductCategory).ProductCategoryId;
-
-                    this.gridControl5.DataSource = productManager.QueryProc("GetProductListByCate", pars, "producttree").Tables[0];
+                    Model.ProductCategory category = treeList1.FocusedNode.Tag as Model.ProductCategory;
+                    pars[0].Value = category.ProductCategoryId;
+                    if (category.CategoryLevel == 1)
+                        this.gridControl5.DataSource = productManager.QueryProc("GetProductListByCate1", pars, "producttree").Tables[0];
+                    else if (category.CategoryLevel == 2)
+                        this.gridControl5.DataSource = productManager.QueryProc("GetProductListByCate2", pars, "producttree").Tables[0];
+                    else
+                        this.gridControl5.DataSource = productManager.QueryProc("GetProductListByCate3", pars, "producttree").Tables[0];
 
                     cateTemp = treeList1.FocusedNode.Tag as Model.ProductCategory;
                 }
