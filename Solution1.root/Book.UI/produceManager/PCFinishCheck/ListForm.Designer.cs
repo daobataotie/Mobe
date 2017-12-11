@@ -40,6 +40,7 @@
             this.PCFinishCheckInCoiunt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Employee0 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Employee1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -72,7 +73,8 @@
             this.PCFinishCheckCount,
             this.PCFinishCheckInCoiunt,
             this.Employee0,
-            this.Employee1});
+            this.Employee1,
+            this.gridColumn1});
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsFind.AlwaysVisible = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
@@ -165,6 +167,12 @@
             this.Employee1.Name = "Employee1";
             this.Employee1.OptionsColumn.AllowEdit = false;
             // 
+            // gridColumn1
+            // 
+            resources.ApplyResources(this.gridColumn1, "gridColumn1");
+            this.gridColumn1.FieldName = "Product.CustomerProductName";
+            this.gridColumn1.Name = "gridColumn1";
+            // 
             // ListForm
             // 
             resources.ApplyResources(this, "$this");
@@ -192,5 +200,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn PCFinishCheckInCoiunt;
         private DevExpress.XtraGrid.Columns.GridColumn Employee0;
         private DevExpress.XtraGrid.Columns.GridColumn Employee1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

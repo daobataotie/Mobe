@@ -32,7 +32,7 @@ namespace Book.UI.produceManager.PCFinishCheck
             {
                 this.tag = 0;
                 return;
-            }
+            }//CustomerProduct
             this.bindingSource1.DataSource = (this.manager as BL.PCFinishCheckManager).SelectByDateRage(DateTime.Now.AddDays(-7), global::Helper.DateTimeParse.EndDate, null, null, "");
             this.gridView1.GroupPanelText = "默認顯示一周内的記錄";
         }
