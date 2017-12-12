@@ -33,6 +33,7 @@ namespace Book.UI.produceManager.PronoteHeader
             else if (flag ==4)
             {
                 this.xrLabelDataName.Text = Properties.Resources.ZZJiaGong;
+                this.lbl_PageSign.Text = "QR8-06-09-1";
             }
             this.xrLabelPrintDate.Text = this.xrLabelPrintDate.Text + DateTime.Now.ToString("yyyy-MM-dd");
             if (pronoteHeader.WorkHouse != null)

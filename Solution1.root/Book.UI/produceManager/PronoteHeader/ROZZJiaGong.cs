@@ -29,10 +29,13 @@ namespace Book.UI.produceManager.PronoteHeader
             {
                 this.xrLabelDataName.Text = Properties.Resources.GZZhiShi;
 
+                this.xrLabel25.Text = "";
             }
             else if (flag == 4)
             {
                 this.xrLabelDataName.Text = Properties.Resources.ZZJiaGong;
+
+                this.xrLabel25.Text = "";
             }
             this.xrLabelPrintDate.Text = this.xrLabelPrintDate.Text + DateTime.Now.ToString("yyyy-MM-dd");
             if (pronoteHeader.WorkHouse != null)
