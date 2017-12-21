@@ -53,7 +53,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             {
                 comboBoxEdit1.Properties.Items.Add(item.SettingCurrentValue);
             }
-            comboBoxEdit1.SelectedIndex = 0;
+            comboBoxEdit1.SelectedIndex = 1;
         }
 
         int sign = 0;
@@ -124,8 +124,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._PCExportReportANSI.ReportDate = DateTime.Now.Date;
             this._PCExportReportANSI.ExpType = "CSA";
 
-            //var jiShuBiaoZhun = new BL.SettingManager().SelectByName("CSAJiShuBiaoZhun").FirstOrDefault();
-            //this._PCExportReportANSI.CSAJiShuBiaoZhun = jiShuBiaoZhun == null ? "CSA Z94.3-2015" : jiShuBiaoZhun.SettingCurrentValue; 
+            var jiShuBiaoZhun = new BL.SettingManager().SelectByName("CSAJiShuBiaoZhun").Last();
+            this._PCExportReportANSI.CSAJiShuBiaoZhun = jiShuBiaoZhun == null ? "CSA Z94.3-2015" : jiShuBiaoZhun.SettingCurrentValue;
         }
 
         protected override void Delete()
