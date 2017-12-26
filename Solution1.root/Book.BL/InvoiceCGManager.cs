@@ -284,7 +284,7 @@ namespace Book.BL
                         bGHandbookDetail1Manager.UpdateYidingweiru(codetail, 0 - (noArr - codetail.NoArrivalQuantity.Value));
                     }
 
-                    p.OrderOnWayQuantity += codetail.NoArrivalQuantity.Value - noArr;
+                    //p.OrderOnWayQuantity += codetail.NoArrivalQuantity.Value - noArr;
 
                 }
 

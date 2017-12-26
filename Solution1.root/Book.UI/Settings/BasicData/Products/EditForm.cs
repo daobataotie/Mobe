@@ -111,7 +111,7 @@ namespace Book.UI.Settings.BasicData.Products
             this.dateEditcoenddate.DateTime = System.DateTime.Now;
             this.dateEditxostartdate.DateTime = System.DateTime.Now.AddMonths(-3);
             this.dateEditxoenddate.DateTime = System.DateTime.Now;
-            this.dateEditStockStart.DateTime = DateTime.Parse("2000-1-1");
+            this.dateEditStockStart.DateTime = DateTime.Now.Date.AddMonths(-1);
             this.dateEditStockEnd.DateTime = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
 
         }
@@ -2101,8 +2101,8 @@ namespace Book.UI.Settings.BasicData.Products
                 else
                     this.pictureEditPrivew.Image = null;
             }
-            this.dateEditStockStart.Enabled = false; ;
-            this.dateEditStockStart.Properties.ReadOnly = true;
+            //this.dateEditStockStart.Enabled = false;
+            //this.dateEditStockStart.Properties.ReadOnly = true;
             this.dateEditStockEnd.Enabled = true;
             this.dateEditStockEnd.Properties.ReadOnly = false;
             this.dateEditStockStart.Properties.Buttons[0].Visible = true;
