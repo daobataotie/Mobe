@@ -195,11 +195,13 @@ namespace Book.DA.SQLServer
         }
 
         //查询 前生产站转入数量
-        public double? select_TransferSumyPronHeaderWorkHouse(string PronoteHeaderId, string WorkHouseId)
+        public double? select_TransferSumyPronHeaderWorkHouse(string PronoteHeaderId, string WorkHouseId, DateTime? dt)
         {
             Hashtable ht = new Hashtable();
             ht.Add("PronoteHeaderId", PronoteHeaderId);
             ht.Add("WorkHouseId", WorkHouseId);
+            if (dt != null)
+                ht.Add("sql", "and ProduceInDepotId in (select ProduceInDepotId from ProduceInDepot where Year(ProduceInDepotDate)='" + dt.Value.Year + "' and MONTH(ProduceInDepotDate)='" + dt.Value.Month + "' and Day(ProduceInDepotDate)='" + dt.Value.Day + "')");
 
             return sqlmapper.QueryForObject<double>("ProduceInDepotDetail.select_TransferSumyPronHeaderWorkHouse", ht);
         }

@@ -23,6 +23,8 @@ namespace Book.DA
         void UpdateByCustomerProductsId(Model.CustomerProductPrice model);
 
         string SelectPriceByProductId(string ProductId);
+
+        IList<Model.CustomerProductPrice> SelectAll();
     }
 }
 

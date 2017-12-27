@@ -288,7 +288,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                     excel.Cells[i + 3, 10] = details[i].HeJiProduceTransferQuantity;
                     excel.Cells[i + 3, 11] = details[i].PronoteHeaderId;
 
-                    Model.PronoteHeader header=pronoteHeaderManager.Get(details[i].PronoteHeaderId);
+                    Model.PronoteHeader header = pronoteHeaderManager.Get(details[i].PronoteHeaderId);
                     if (header != null)
                     {
                         Model.InvoiceXO xo = invoiceXOManager.Get(header.InvoiceXOId);
@@ -738,8 +738,10 @@ namespace Book.UI.produceManager.ProduceInDepot
                     produceInDepotDetail.RejectionRate = 0;
                     produceInDepotDetail.Inumber = this.produceInDepot.Details.Count + 1;
                     if (newChooseWorkHorseId.EditValue != null)
-                        produceInDepotDetail.beforeTransferQuantity = this.produceInDepotDetailManager.select_TransferSumyPronHeaderWorkHouse(produceInDepotDetail.PronoteHeaderId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).WorkHouseId);
-
+                    {
+                        produceInDepotDetail.beforeTransferQuantity = this.produceInDepotDetailManager.select_TransferSumyPronHeaderWorkHouse(produceInDepotDetail.PronoteHeaderId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).WorkHouseId, DateTime.Now.Date.AddDays(-1));
+                        produceInDepotDetail.HeJiBeforeTransferQuantity = this.produceInDepotDetailManager.select_TransferSumyPronHeaderWorkHouse(produceInDepotDetail.PronoteHeaderId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).WorkHouseId,null);
+                    }
                     //produceInDepotDetail.PriceRange = this.produceInDepotDetailManager.GetSupplierProductPriceRange(produceInDepotDetail.ProductId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).Workhousename);
                     produceInDepotDetail.PriceRange = _SupplierProductManager.GetPriceRangeForSupAndProduct(produceInDepotDetail.Product.SupplierId, produceInDepotDetail.ProductId);
                     produceInDepotDetail.ProduceInDepotPrice = BL.SupplierProductManager.CountPrice(produceInDepotDetail.PriceRange, (double)produceInDepotDetail.ProduceQuantity);

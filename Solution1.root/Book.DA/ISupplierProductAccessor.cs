@@ -35,6 +35,8 @@ namespace Book.DA
         string GetPriceRangeForSupAndProduct(string SupplierId, string ProductId);
 
         System.Data.DataTable SelectALLRefProduct(string ProductId);
+
+        IList<Model.SupplierProduct> SelectAll();
     }
 }
 

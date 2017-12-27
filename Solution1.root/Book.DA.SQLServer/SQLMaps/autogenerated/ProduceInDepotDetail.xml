@@ -70,6 +70,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="mQianghuahoucashang" column="mQianghuahoucashang" />
       <result property="HandbookId" column="HandbookId"/>
       <result property="HandbookProductId" column="HandbookProductId"/>
+      <result property="HeJiBeforeTransferQuantity" column="HeJiBeforeTransferQuantity"/>
       <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
       <result property="Procedures" column="ProceduresId" lazyLoad="false" select="Procedures.select_by_primary_key" />
       <result property="ProduceInDepot" column="ProduceInDepotId" lazyLoad="false" select="ProduceInDepot.select_by_primary_key" />
@@ -166,7 +167,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[mCashang],
 				[mQianghuahoucashang],
         [HandbookId],
-        [HandbookProductId]
+        [HandbookProductId],
+        [HeJiBeforeTransferQuantity]
 			FROM
 				[dbo].[ProduceInDepotDetail]
 			WHERE
@@ -283,7 +285,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[mCashang],
 				[mQianghuahoucashang],
         [HandbookId],
-        [HandbookProductId]
+        [HandbookProductId],
+        [HeJiBeforeTransferQuantity]
 			) 
 			VALUES 
 			(
@@ -350,7 +353,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#mCashang#,
 				#mQianghuahoucashang#,
         #HandbookId#,
-        #HandbookProductId#
+        #HandbookProductId#,
+        #HeJiBeforeTransferQuantity#
 			)
              ]]>
     </insert>
@@ -420,7 +424,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[mCashang] = #mCashang#,
 				[mQianghuahoucashang] = #mQianghuahoucashang#,
         [HandbookId]=#HandbookId#,
-        [HandbookProductId]=#HandbookProductId#
+        [HandbookProductId]=#HandbookProductId#,
+        [HeJiBeforeTransferQuantity]=#HeJiBeforeTransferQuantity#
 			WHERE
 				[ProduceInDepotDetailId] = #ProduceInDepotDetailId#
                     ]]>

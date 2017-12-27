@@ -26,7 +26,7 @@ namespace Book.DA
 
         double? select_CheckOutSumPronoteHeaderWorkhouseDateRang(DateTime startdate, DateTime enddate, string PronoteHeaderId, string WorkHouseId);
         double? select_SumPronoteHeaderWorkhouseDateRang(DateTime startdate, DateTime enddate, string PronoteHeaderId, string WorkHouseId);
-        double? select_TransferSumyPronHeaderWorkHouse(string PronoteHeaderId, string WorkHouseId);
+        double? select_TransferSumyPronHeaderWorkHouse(string PronoteHeaderId, string WorkHouseId, DateTime? dt);
         void DeleteByHeader(Model.ProduceInDepot produceInDepot);
         IList<Book.Model.ProduceInDepotDetail> select_NextbyPronHeaderId(string PronoteHeaderId, string WorkHouseId, string productid, DateTime insertTime);
 

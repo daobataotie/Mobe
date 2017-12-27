@@ -92,5 +92,12 @@ namespace Book.DA.SQLServer
             }
             return null;
         }
+
+        public IList<Model.SupplierProduct> SelectAll()
+        {
+            string sql = "select ProductId,SupplierProductPriceRange from SupplierProduct";
+
+            return this.DataReaderBind<Model.SupplierProduct>(sql, null, CommandType.Text);
+        }
     }
 }

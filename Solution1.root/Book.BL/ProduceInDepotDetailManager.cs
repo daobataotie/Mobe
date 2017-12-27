@@ -121,9 +121,9 @@ namespace Book.BL
             return accessor.select_SumPronoteHeaderWorkhouseDateRang(startdate, enddate, PronoteHeaderId, WorkHouseId);
         }
 
-        public double? select_TransferSumyPronHeaderWorkHouse(string PronoteHeaderId, string WorkHouseId)
+        public double? select_TransferSumyPronHeaderWorkHouse(string PronoteHeaderId, string WorkHouseId, DateTime? dt)
         {
-            return accessor.select_TransferSumyPronHeaderWorkHouse(PronoteHeaderId, WorkHouseId);
+            return accessor.select_TransferSumyPronHeaderWorkHouse(PronoteHeaderId, WorkHouseId, dt);
         }
 
         public IList<Model.ProduceInDepotDetail> Select_ChooseDefectRateCls(DateTime StartDate, DateTime EndDate, string StartProduceInDepotId, string EndProduceInDepotId, Model.Product StartProduct, Model.Product EndProduct, string StartPronoteHeaderId, string EndPronoteHeaderId, Model.WorkHouse StartWorkHouse, Model.WorkHouse EndWorkHouse, Model.Customer StartCustomer, Model.Customer EndCustomer, bool attrJiLuFangShi, bool attrQiangHua, bool attrWuDu, bool attrWuQiangHuaWuDu, int attrProductStates, double RejectionRate, string RejectionRateCompare, bool EnableBLV)

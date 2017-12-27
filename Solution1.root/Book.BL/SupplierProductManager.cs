@@ -151,6 +151,11 @@ namespace Book.BL
             return accessor.mSelect(SupplierId);
         }
         #endregion
+
+        public IList<Model.SupplierProduct> SelectAll()
+        {
+            return accessor.SelectAll();
+        }
     }
 }
 

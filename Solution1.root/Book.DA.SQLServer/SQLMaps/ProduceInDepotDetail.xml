@@ -46,7 +46,7 @@
     </select>
     <select id="select_TransferSumyPronHeaderWorkHouse" resultClass="Double" parameterClass="Map">
       <![CDATA[
-      select isnull(sum(ProduceTransferQuantity),0) from ProduceInDepotDetail where WorkHouseId =#WorkHouseId# and PronoteHeaderId=#PronoteHeaderId#
+      select isnull(sum(ProduceTransferQuantity),0) from ProduceInDepotDetail where WorkHouseId =#WorkHouseId# and PronoteHeaderId=#PronoteHeaderId# $sql$
       ]]>
     </select>
     <delete id="delete_byheader" parameterClass="string">

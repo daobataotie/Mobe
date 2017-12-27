@@ -333,6 +333,8 @@ namespace Book.Model
         /// 手册项号
         /// </summary>
         private string _handbookProductId;
+
+        private double? _heJiBeforeTransferQuantity;
 		
 		/// <summary>
 		/// 库库货位
@@ -776,7 +778,7 @@ namespace Book.Model
 		}
 
 		/// <summary>
-		/// 
+		/// 前一天合计前单位转入
 		/// </summary>
 		public double? beforeTransferQuantity
 		{
@@ -1302,6 +1304,15 @@ namespace Book.Model
             get { return _handbookProductId; }
             set { _handbookProductId = value; }
         }
+
+        /// <summary>
+        /// 总计前单位转入
+        /// </summary>
+        public double? HeJiBeforeTransferQuantity
+        {
+            get { return _heJiBeforeTransferQuantity; }
+            set { _heJiBeforeTransferQuantity = value; }
+        }
 	
 		/// <summary>
 		/// 库库货位
@@ -1676,6 +1687,8 @@ namespace Book.Model
         public readonly static string PRO_HandbookId = "HandbookId";
 
         public readonly static string PRO_HandbookProductId = "HandbookProductId";
+
+        public readonly static string PRO_HeJiBeforeTransferQuantity = "HeJiBeforeTransferQuantity";
 
 		#endregion
 	}

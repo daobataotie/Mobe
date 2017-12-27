@@ -79,6 +79,11 @@ namespace Book.BL
         {
             return accessor.SelectPriceByProductId(ProductId);
         }
+
+        public IList<Model.CustomerProductPrice> SelectAll()
+        {
+            return accessor.SelectAll();
+        }
     }
 }
 

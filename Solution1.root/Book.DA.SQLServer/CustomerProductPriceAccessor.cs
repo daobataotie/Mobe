@@ -40,5 +40,12 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForObject<string>("CustomerProductPrice.SelectPriceByProductId", ProductId);
         }
+
+        public IList<Model.CustomerProductPrice> SelectAll()
+        {
+            string sql = "select ProductId,CustomerProductPriceRage from CustomerProductPrice";
+
+            return this.DataReaderBind<Model.CustomerProductPrice>(sql, null, CommandType.Text);
+        }
     }
 }

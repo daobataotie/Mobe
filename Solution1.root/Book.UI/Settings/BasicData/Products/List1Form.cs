@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Linq;
 
 namespace Book.UI.Settings.BasicData.Products
 {
@@ -23,6 +24,9 @@ namespace Book.UI.Settings.BasicData.Products
     public partial class List1Form : BaseListForm
     {
         DataTable dt = new DataTable();
+        BL.CustomerProductPriceManager cpp = new Book.BL.CustomerProductPriceManager();
+        BL.SupplierProductManager spp = new Book.BL.SupplierProductManager();
+
         public List1Form()
         {
 
@@ -49,7 +53,38 @@ namespace Book.UI.Settings.BasicData.Products
         {
             //this.bindingSource1.DataSource = ((BL.ProductManager)this.manager).Query(" SELECT product.Id,ProductSpecification,ProductName,ProductCategoryName,SupplierFullName ,CustomerProductName,ProductDescription FROM Product left join ProductCategory ca  on ca.ProductCategoryId=Product.ProductCategoryId left join Supplier s on  s.SupplierId=Product.SupplierId  order by  ProductName", 240, "pro").Tables[0];
             //为了查询速度，暂将ProductSpecification，ProductDescription去掉
-            this.bindingSource1.DataSource = this.dt = ((BL.ProductManager)this.manager).Query("SELECT p.ProductId,p.Id,p.ProductName,SupplierFullName ,CustomerProductName,ca.ProductCategoryName,isnull(StocksQuantity,0) StocksQuantity FROM Product p left join ProductCategory ca  on ca.ProductCategoryId=p.ProductCategoryId  left join Supplier s on  s.SupplierId=p.SupplierId order by  ProductName", 240, "pro").Tables[0];
+            this.bindingSource1.DataSource = this.dt = ((BL.ProductManager)this.manager).Query("SELECT p.ProductId,p.Id,p.ProductName,SupplierFullName ,CustomerProductName,ca.ProductCategoryName,isnull(StocksQuantity,0) StocksQuantity,ProductVersion,'' as Price  FROM Product p left join ProductCategory ca  on ca.ProductCategoryId=p.ProductCategoryId  left join Supplier s on  s.SupplierId=p.SupplierId order by  ProductName", 300, "pro").Tables[0];
+
+            IList<Model.CustomerProductPrice> cppList = cpp.SelectAll();
+            IList<Model.SupplierProduct> sppList = spp.SelectAll();
+
+            foreach (DataRow item in this.dt.Rows)
+            {
+                string productId = item["ProductId"].ToString();
+                string PriceRange = string.Empty;
+
+                Model.CustomerProductPrice cPrice = cppList.FirstOrDefault(C => C.ProductId == productId);
+                if (cPrice != null)
+                {
+                    PriceRange = cPrice.CustomerProductPriceRage;
+                    cppList.Remove(cPrice);
+                }
+                else
+                {
+                    Model.SupplierProduct sPrice = sppList.FirstOrDefault(S => S.ProductId == productId);
+                    if (sPrice != null)
+                    {
+                        PriceRange = sPrice.SupplierProductPriceRange;
+                        sppList.Remove(sPrice);
+                    }
+                }
+                string[] PriAndRange = string.IsNullOrEmpty(PriceRange) ? null : PriceRange.Split(',');
+
+                if (PriAndRange != null)
+                {
+                    item["Price"] = (string.IsNullOrEmpty(PriAndRange[0].Split('/')[2]) ? null : PriAndRange[0].Split('/')[2]);
+                }
+            }
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
