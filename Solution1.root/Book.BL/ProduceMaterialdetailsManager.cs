@@ -91,6 +91,11 @@ namespace Book.BL
         {
             return accessor.SelectBycondition2(startDate, endDate, produceMaterialId0, produceMaterialId1, pId0, pId1, departmentId0, departmentId1, PronoteHeaderId0, PronoteHeaderId1, CusInvoiceXOId);
         }
+
+        public double SelectMaterialQty(string productid, DateTime dateTime, string workHouseId, string invoiceXOIds)
+        {
+            return accessor.SelectMaterialQty(productid, dateTime, workHouseId, invoiceXOIds);
+        }
     }
 }
 

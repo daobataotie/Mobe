@@ -61,6 +61,8 @@ namespace Book.DA
         IList<Model.Product> SelectProductsByProductIds(string Productids);
 
         void UpdateSimple(Book.Model.Product product);
+
+        IList<Model.Product> SelectIdAndStock(string categoryId);
     }
 }
 

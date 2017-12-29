@@ -208,5 +208,12 @@ namespace Book.DA.SQLServer
             //ht.Add("pronoteId1", PronoteHeaderId1);
             //return sqlmapper.QueryForList<Model.ProduceMaterial>("ProduceMaterial.selectBycondition", ht);
         }
+
+        public double SelectMaterialQty(string productid, DateTime dateTime, string workHouseId, string invoiceXOIds)
+        {
+            string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate<='" + dateTime + "' and pm.WorkHouseId='" + workHouseId + "' and pm.InvoiceXOId in (" + invoiceXOIds + ")";
+
+            return Convert.ToDouble(this.QueryObject(sql));
+        }
     }
 }

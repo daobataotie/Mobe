@@ -54,6 +54,9 @@ namespace Book.DA
 
         string GetSupplierProductPriceRange(string productId, string WorkHouseName);
 
+        Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds);
+
+        Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
     }
 }
 

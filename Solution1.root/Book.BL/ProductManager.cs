@@ -678,6 +678,10 @@ namespace Book.BL
             return accessor.SelectProductsByProductIds(productids);
         }
 
+        public IList<Model.Product> SelectIdAndStock(string categoryId)
+        {
+            return accessor.SelectIdAndStock(categoryId);
+        }
     }
 }
 

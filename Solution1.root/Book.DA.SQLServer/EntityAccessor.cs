@@ -166,6 +166,12 @@ namespace Book.DA.SQLServer
         {
            return SQLDB.DbHelperSQL.Query(SQLString, Times, tabelName);
         }
+
+        public object QueryObject(string SQLString)
+        {
+            return SQLDB.DbHelperSQL.QueryObject(SQLString);
+        }
+
         public DataSet QueryProc(string procName, SqlParameter[] pars, string tabelName)
         {
             return SQLDB.DbHelperSQL.RunProcedure(procName, pars,tabelName);

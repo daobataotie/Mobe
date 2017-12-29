@@ -159,6 +159,37 @@ namespace Book.BL
         {
             return accessor.GetSupplierProductPriceRange(productId, WorkHouseName);
         }
+
+        //public IList<Model.ProduceInDepotDetail> SelectSceneQuantity(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderId)
+        //{
+        //    return accessor.SelectSceneQuantity(productid, dateTime, workHouseId, pronoteHeaderId);
+        //}
+
+        /// <summary>
+        /// 根据下个生产站查询商品入库详细
+        /// </summary>
+        /// <param name="productid"></param>
+        /// <param name="dateTime"></param>
+        /// <param name="workHouseId"></param>
+        /// <param name="pronoteHeaderIds"></param>
+        /// <returns></returns>
+        public Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
+        {
+            return accessor.SelectByNextWorkhouse(productid, dateTime, workHouseId, pronoteHeaderIds);
+        }
+
+        /// <summary>
+        /// 根据本次生产站查询商品入库详细
+        /// </summary>
+        /// <param name="productid"></param>
+        /// <param name="dateTime"></param>
+        /// <param name="workHouseId"></param>
+        /// <param name="pronoteHeaderIds"></param>
+        /// <returns></returns>
+        public Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
+        {
+            return accessor.SelectByThisWorkhouse(productid, dateTime, workHouseId, pronoteHeaderIds);
+        }
     }
 }
 

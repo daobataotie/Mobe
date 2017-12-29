@@ -1640,5 +1640,29 @@ namespace Book.DA.SQLServer
             ht.Add("WorkHouseid", WorkHouseName);
             return sqlmapper.QueryForObject<string>("ProduceInDepotDetail.GetSupplierProductPriceRange", ht);
         }
+
+        //计算现场数量
+        //public IList<Model.ProduceInDepotDetail> SelectSceneQuantity(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderId)
+        //{
+        //    string sql = "select isnull(pid.ProduceQuantity,0) as ProduceQuantity,isnull(pid.HeJiBeforeTransferQuantity,0) as HeJiBeforeTransferQuantity,isnull(pid.ProceduresSum,0) as ProceduresSum,isnull(pid.CheckOutSum,0) as CheckOutSum,isnull(pid.HeJiBeforeTransferQuantity,0)-isnull(pid.ProceduresSum,0) as SceneQty,isnull(pid.ProceduresSum,0)-isnull(pid.CheckOutSum,0) as AdverseQty from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate<='" + DateTime + "' and pid.WorkHouseId='" + workHouseId + "' and pid.PronoteHeaderId in (" + pronoteHeaderId + ")";
+
+        //    return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
+        //}
+
+        //根据下个生产站查询商品入库详细
+        public Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
+        {
+            string sql = "select sum(isnull(pid.ProduceQuantity,0)) as ProduceQuantity,sum(isnull(pid.HeJiBeforeTransferQuantity,0)) as HeJiBeforeTransferQuantity,sum(isnull(pid.ProceduresSum,0)) as ProceduresSum,sum(isnull(pid.CheckOutSum,0)) as CheckOutSum,sum(isnull(ProduceTransferQuantity,0)) as ProduceTransferQuantity from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate<='" + DateTime + "' and pid.WorkHouseId='" + workHouseId + "' and pid.PronoteHeaderId in (" + pronoteHeaderIds + ")";
+
+            return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text)[0];
+        }
+
+        //根据本次生产站查询商品入库详细
+        public Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
+        {
+            string sql = "select sum(isnull(pid.ProduceQuantity,0)) as ProduceQuantity,sum(isnull(pid.HeJiBeforeTransferQuantity,0)) as HeJiBeforeTransferQuantity,sum(isnull(pid.ProceduresSum,0)) as ProceduresSum,sum(isnull(pid.CheckOutSum,0)) as CheckOutSum,sum(isnull(ProduceTransferQuantity,0)) as ProduceTransferQuantity from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate<='" + DateTime + "' and pi.WorkHouseId='" + workHouseId + "' and pid.PronoteHeaderId in (" + pronoteHeaderIds + ")";
+
+            return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text)[0];
+        }
     }
 }

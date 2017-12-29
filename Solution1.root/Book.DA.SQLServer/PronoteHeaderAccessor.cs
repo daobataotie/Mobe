@@ -361,5 +361,12 @@ namespace Book.DA.SQLServer
 
             // return sqlmapper.QueryForList<Book.Model.PronoteHeader>("PronoteHeader.select_bymrsheader", mrsheader.MRSHeaderId);
         }
+
+        //查询商品对应的未结案加工单
+        public IList<Model.PronoteHeader> SelectNotClosed(string productid)
+        {
+            string sql = "select PronoteHeaderID,InvoiceXOId from PronoteHeader where ProductId='" + productid + "' and IsClose<>1";
+            return this.DataReaderBind<Model.PronoteHeader>(sql, null, CommandType.Text);
+        }
     }
 }

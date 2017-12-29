@@ -4948,6 +4948,10 @@
       <DependentUpon>ConditionProductMould.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Query\ImmediateStock.resx">
+      <DependentUpon>ImmediateStock.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Query\InDepotDetail.resx">
       <DependentUpon>InDepotDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -7466,6 +7470,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Query\ROMRSDetailsList.zh-CHT.resx">
       <DependentUpon>ROMRSDetailsList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\SceneStock.resx">
+      <DependentUpon>SceneStock.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Query\SupplierTransactionsRank.resx">
@@ -11947,6 +11955,12 @@
     <Compile Include="Query\ConditionProductMould.Designer.cs">
       <DependentUpon>ConditionProductMould.cs</DependentUpon>
     </Compile>
+    <Compile Include="Query\ImmediateStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\ImmediateStock.Designer.cs">
+      <DependentUpon>ImmediateStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Query\InDepot.cs" />
     <Compile Include="Query\InDepotDetail.cs">
       <SubType>Component</SubType>
@@ -12534,6 +12548,12 @@
     </Compile>
     <Compile Include="Query\ROMRSDetailsList.Designer.cs">
       <DependentUpon>ROMRSDetailsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\SceneStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\SceneStock.Designer.cs">
+      <DependentUpon>SceneStock.cs</DependentUpon>
     </Compile>
     <Compile Include="Query\SupplierTransactionsRank.cs">
       <SubType>Component</SubType>

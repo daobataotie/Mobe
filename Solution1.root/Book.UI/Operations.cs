@@ -752,6 +752,12 @@ namespace Book.UI
 
             //入料检验单(新)
             operations.Add("produceManager.PCInputCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCInputCheck.EditForm", form); });
+
+            //即时库存(现场版)
+            operations.Add("Query.ImmediateStock", (D1)delegate(System.Windows.Forms.Form form) { M1("Query.ImmediateStock", form); });
+
+            //现场库存
+            operations.Add("Query.SceneStock", (D1)delegate(System.Windows.Forms.Form form) { M1("Query.SceneStock", form); });
         }
 
         static Form CreateForm(string formTypeName)
