@@ -25,6 +25,8 @@ namespace Book.DA
         Model.BomComponentInfo IsExistsIndexOfBom(Model.BomComponentInfo bomcom);
 
         IList<Model.BomComponentInfo> SelectLessInfoByHeaderId(string BomId);
+
+        IList<Model.BomComponentInfo> SelectBomIdAndUseQty(string productIds);
     }
 }
 

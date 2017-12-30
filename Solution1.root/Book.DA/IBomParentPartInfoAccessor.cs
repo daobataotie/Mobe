@@ -37,6 +37,7 @@ namespace Book.DA
 
         Model.BomParentPartInfo Select_ProductId(string productid);
 
+        IList<Model.BomParentPartInfo> SelectProducts(string BomIds);
     }
 }
 

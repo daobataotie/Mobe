@@ -19,7 +19,7 @@ namespace Book.BL
         private static readonly DA.IBomPackageDetailsAccessor bomPackageDetailsAccessor = (DA.IBomPackageDetailsAccessor)Accessors.Get("BomPackageDetailsAccessor");
         private static readonly DA.IBOMProductProcessAccessor bomProductProcessAccessor = (DA.IBOMProductProcessAccessor)Accessors.Get("BOMProductProcessAccessor");
         private static readonly DA.IProductAccessor productAccessor = (DA.IProductAccessor)Accessors.Get("ProductAccessor");
-       // private static readonly DA.IManProcedureAccessor manProcedureAccessor = (DA.IManProcedureAccessor)Accessors.Get("ManProcedureAccessor");
+        // private static readonly DA.IManProcedureAccessor manProcedureAccessor = (DA.IManProcedureAccessor)Accessors.Get("ManProcedureAccessor");
         /// <summary>
         /// Select by primary key.
         /// </summary>		
@@ -104,7 +104,7 @@ namespace Book.BL
 
                 // throw new Helper.InvalidValueException("Id");
             }
-            string sql = " ProductId= '"+ bomParentPartInfo.ProductId+"'";
+            string sql = " ProductId= '" + bomParentPartInfo.ProductId + "'";
             if (this.Exists_Field(sql))
                 throw new Helper.InvalidValueException(Model.BomParentPartInfo.PRO_ProductId);
             bomParentPartInfo.BomId = Guid.NewGuid().ToString();
@@ -367,6 +367,11 @@ namespace Book.BL
         public Model.BomParentPartInfo SelectByProductId(string productid)
         {
             return accessor.Select_ProductId(productid);
+        }
+
+        public IList<Model.BomParentPartInfo> SelectProducts(string BomIds)
+        {
+            return accessor.SelectProducts(BomIds);
         }
     }
 }

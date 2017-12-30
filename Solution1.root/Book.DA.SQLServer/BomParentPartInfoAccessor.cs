@@ -116,8 +116,8 @@ namespace Book.DA.SQLServer
         public DataSet SelectNotContentDataSet()
         {
             return SQLDB.DbHelperSQL.Query("select BomId ,Id,BomVersion,DefaultQuantity,(select employeename from employee e where employeeid=b.EmployeeAddId ) as EmployeeAddName ,(select id from product p where p.productid =b.productid) as  ProId,(select ProductName from product p where p.productid =b.productid) as  ProductName,(select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(select ProductName from product p where p.productid =b.productid) as  ProductName,(select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(SELECT CustomerShortName FROM Customer WHERE Customer.CustomerId=(SELECT customerid FROM product WHERE productid =b.ProductId)) as CustomerName from BomParentPartInfo  b where  b.productid not in(select productid from BomComponentInfo)  order by b.id desc ");
-           // return SQLDB.DbHelperSQL.Query("select BomId ,Id,DefaultQuantity,(select employeename from employee e where employeeid=b.EmployeeAddId ) as EmployeeAddName ,(select id as ProId,ProductName as ProductName,CustomerProductName as CustomerProductName, from product p where p.productid =b.productid)   (select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(SELECT CustomerShortName FROM Customer WHERE Customer.CustomerId=(SELECT customerid FROM product WHERE productid =b.ProductId)) as CustomerName from BomParentPartInfo  b where  b.productid not in(select productid from BomComponentInfo)  order by b.id desc ");
-  
+            // return SQLDB.DbHelperSQL.Query("select BomId ,Id,DefaultQuantity,(select employeename from employee e where employeeid=b.EmployeeAddId ) as EmployeeAddName ,(select id as ProId,ProductName as ProductName,CustomerProductName as CustomerProductName, from product p where p.productid =b.productid)   (select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(SELECT CustomerShortName FROM Customer WHERE Customer.CustomerId=(SELECT customerid FROM product WHERE productid =b.ProductId)) as CustomerName from BomParentPartInfo  b where  b.productid not in(select productid from BomComponentInfo)  order by b.id desc ");
+
         }
 
         /// <summary>
@@ -140,5 +140,11 @@ namespace Book.DA.SQLServer
         }
 
         #endregion
+
+        public IList<Model.BomParentPartInfo> SelectProducts(string BomIds)
+        {
+            string sql = "select BomId,ProductId from BomParentPartInfo where BomId in (" + BomIds + ")";
+            return this.DataReaderBind<Model.BomParentPartInfo>(sql, null, CommandType.Text);
+        }
     }
 }

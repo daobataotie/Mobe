@@ -44,5 +44,11 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForList<Model.BomComponentInfo>("BomComponentInfo.SelectLessInfoByHeaderId", BomId);
         }
+
+        public IList<Model.BomComponentInfo> SelectBomIdAndUseQty(string productIds)
+        {
+            string sql = "select BomId,UseQuantity,ProductId from BomComponentInfo where ProductId in (" + productIds + ")";
+            return this.DataReaderBind<Model.BomComponentInfo>(sql, null, CommandType.Text);
+        }
     }
 }

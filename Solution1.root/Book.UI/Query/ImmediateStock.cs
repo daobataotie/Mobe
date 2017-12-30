@@ -17,6 +17,8 @@ namespace Book.UI.Query
         BL.ProduceInDepotDetailManager produceInDepotDetailManager = new Book.BL.ProduceInDepotDetailManager();
         BL.PronoteHeaderManager pronoteHeaderManager = new Book.BL.PronoteHeaderManager();
         BL.ProduceMaterialdetailsManager produceMaterialdetailsManager = new Book.BL.ProduceMaterialdetailsManager();
+        BL.BomComponentInfoManager bomComponentInfoManager = new Book.BL.BomComponentInfoManager();
+        BL.BomParentPartInfoManager bomParentPartInfoManager = new Book.BL.BomParentPartInfoManager();
 
         public ImmediateStock()
         {
@@ -64,39 +66,61 @@ namespace Book.UI.Query
                 IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectNotClosed(item.ProductId);
                 string pronoteHeaderIds = "'";
                 string invoiceXOIds = "'";
-                foreach (var item in phList)
+                foreach (var ph in phList)
                 {
-                    pronoteHeaderIds += item.PronoteHeaderID + "',";
-                    invoiceXOIds += item.InvoiceXOId + "',";
+                    pronoteHeaderIds += ph.PronoteHeaderID + "',";
+                    invoiceXOIds += ph.InvoiceXOId + "',";
                 }
-                pronoteHeaderIds.TrimEnd(',');
-                invoiceXOIds.TrimEnd(',');
+                pronoteHeaderIds = pronoteHeaderIds.TrimEnd(',');
+                invoiceXOIds = invoiceXOIds.TrimEnd(',');
 
                 //计算所有转入 验片 部门的数量
                 Model.ProduceInDepotDetail pidYanpianIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateTime.AddSeconds(-1), "yanpian", pronoteHeaderIds);
-                double yanpianTransferIn = pidYanpianIn.ProduceTransferQuantity;
+                double? yanpianTransferIn = pidYanpianIn.ProduceTransferQuantity;
 
                 //计算 验片 部门的生产数量
                 Model.ProduceInDepotDetail pidYanpianOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateTime.AddSeconds(-1), "yanpian", pronoteHeaderIds);
-                double yanpianProcedures = pidYanpianOut.ProceduresSum; 
+                double? yanpianProcedures = pidYanpianOut.ProceduresSum;
 
                 //yanpianTransferIn-yanpianProcedures
                 #endregion
 
 
 
-                #region 组装:合计前单位转入+ 合计领料单领出 - 合计出库数量（合计转生产到其他部门，成品入库数量换算后扣减数量）
-                //领到 组装 部门的数量
+                #region 组装现场:合计前单位转入+ 合计领料单领出 - 合计出库数量（合计转生产到其他部门，成品入库数量换算后扣减数量）
+                //领到 组装现场 部门的数量
                 double materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, dateTime.AddSeconds(-1), "zuzhuang", invoiceXOIds);
-                //计算所有转入 组装 部门的数量
+                //计算所有转入 组装现场 部门的数量
                 Model.ProduceInDepotDetail pidZuzhuangIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateTime.AddSeconds(-1), "zuzhuang", pronoteHeaderIds);
-                double zuzhuangTransferIn = pidZuzhuangIn.ProduceTransferQuantity;
+                double? zuzhuangTransferIn = pidZuzhuangIn.ProduceTransferQuantity;
 
-                //计算 组装 部门转入其他部门的数量
+                //计算 组装现场 部门转入其他部门的数量
                 Model.ProduceInDepotDetail pidZuzhuangOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateTime.AddSeconds(-1), "zuzhuang", pronoteHeaderIds);
-                double zuzhuangTransferOut = pidZuzhuangOut.ProduceTransferQuantity;
+                double? zuzhuangTransferOut = pidZuzhuangOut.ProduceTransferQuantity;
 
-                //zuzhuangTransferIn+materialQty-zuzhuangTransferOut
+
+                #region 查询商品对应的所有母件 入库 扣减
+
+                Dictionary<string, double> parentProductDic = new Dictionary<string, double>();
+
+                GetParentProductInfo(item.ProductId, parentProductDic);
+
+                string proIds = "'";
+                foreach (var str in parentProductDic.Keys)
+                {
+                    proIds += str + "',";
+                }
+                proIds.TrimEnd(',');
+                IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateTime.AddSeconds(-1), "成品入库", pronoteHeaderIds);
+                double deductionQty = 0;
+                foreach (var pid in pids)
+                {
+                    deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];
+                }
+
+                #endregion
+
+                //zuzhuangTransferIn+materialQty-zuzhuangTransferOut-deductionQty
 
 
                 //double zuzhuangBeforeQty = pidZuzhuang.HeJiBeforeTransferQuantity;
@@ -105,11 +129,46 @@ namespace Book.UI.Query
                 //double zuzhuangCheckQty = pidZuzhuang.CheckOutSum;
                 //double zuzhuangSceneQty = pidZuzhuang.SceneQty;
                 //double zuzhuangAdverseQty = pidZuzhuang.AdverseQty;
-                
+
                 #endregion
                 #endregion
             }
 
+        }
+
+        private void GetParentProductInfo(string productId, Dictionary<string, double> parentProductDic)
+        {
+            IList<Model.BomComponentInfo> bomComponentList = bomComponentInfoManager.SelectBomIdAndUseQty(productId);
+            if (bomComponentList == null || bomComponentList.Count == 0)
+                return;
+
+            string bomIds = "'";
+            foreach (var component in bomComponentList)
+            {
+                bomIds += component.BomId + "',";
+            }
+            bomIds = bomIds.TrimEnd(',');
+
+            IList<Model.BomParentPartInfo> bomParentList = bomParentPartInfoManager.SelectProducts(bomIds);
+            string productIds = "'";
+            foreach (var parent in bomParentList)
+            {
+                productIds += parent.ProductId + "',";
+
+                Model.BomComponentInfo comInfo = bomComponentList.First(C => C.BomId == parent.BomId);
+
+                if (!parentProductDic.Keys.Contains(parent.ProductId))
+                {
+                    double value = Convert.ToDouble(comInfo.UseQuantity);
+                    if (parentProductDic.Keys.Contains(comInfo.ProductId))
+                        value = value * parentProductDic[comInfo.ProductId];
+
+                    parentProductDic.Add(parent.ProductId, value);
+                }
+            }
+            productIds = productIds.TrimEnd(',');
+
+            GetParentProductInfo(productIds, parentProductDic);   //递归调用
         }
     }
 }
