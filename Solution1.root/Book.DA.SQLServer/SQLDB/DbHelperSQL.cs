@@ -554,7 +554,9 @@ namespace Book.DA.SQLServer.SQLDB
                 {
                     connection.Open();
                     SqlCommand cmd = new SqlCommand(SQLString, connection);
-                    return cmd.ExecuteScalar();
+                    object obj = cmd.ExecuteScalar();
+                    obj = ((obj is DBNull) ? null : obj);
+                    return obj;
                 }
                 catch (System.Data.SqlClient.SqlException ex)
                 {

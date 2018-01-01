@@ -365,7 +365,7 @@ namespace Book.DA.SQLServer
         //查询商品对应的未结案加工单
         public IList<Model.PronoteHeader> SelectNotClosed(string productid)
         {
-            string sql = "select PronoteHeaderID,InvoiceXOId from PronoteHeader where ProductId='" + productid + "' and IsClose<>1";
+            string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.ProductId='" + productid + "' and ph.IsClose<>1";
             return this.DataReaderBind<Model.PronoteHeader>(sql, null, CommandType.Text);
         }
     }

@@ -23,5 +23,11 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForObject<bool>("WorkHouse.ExistsWorkHouseCode", WorkHouseCode);
         }
+
+        public string SelectWorkHouseIdByName(string name)
+        {
+            string sql = "select WorkHouseId from WorkHouse where Workhousename='" + name + "'";
+            return Convert.ToString(this.QueryObject(sql));
+        }
     }
 }

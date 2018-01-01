@@ -86,10 +86,15 @@ namespace Book.BL
         {
             return "whRule";
         }
-        
+
         protected override string GetInvoiceKind()
         {
             return "WH";
+        }
+
+        public string SelectWorkHouseIdByName(string name)
+        {
+            return accessor.SelectWorkHouseIdByName(name);
         }
     }
 }

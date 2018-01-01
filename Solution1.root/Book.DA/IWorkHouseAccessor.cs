@@ -17,6 +17,8 @@ namespace Book.DA
     public partial interface IWorkHouseAccessor : IAccessor
     {
         bool ExistsWorkHouseCode(string WorkHouseCode);
+
+        string SelectWorkHouseIdByName(string name);
     }
 }
 

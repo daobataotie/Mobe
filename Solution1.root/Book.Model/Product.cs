@@ -6,6 +6,7 @@
 //
 //------------------------------------------------------------------------------
 using System;
+using System.Collections.Generic;
 namespace Book.Model
 {
     /// <summary>
@@ -17,13 +18,13 @@ namespace Book.Model
         public Product()
         {
         }
-        public Product(string productid ,string id ,string name,string productDescription )
+        public Product(string productid, string id, string name, string productDescription)
         {
             this.ProductId = productid;
             this.Id = id;
             this.ProductName = name;
             this.ProductDescription = productDescription;
-        
+
         }
         private System.Collections.Generic.IList<Product> details;
 
@@ -114,7 +115,7 @@ namespace Book.Model
             get { return _productProcessDescription; }
             set { _productProcessDescription = value; }
         }
-        private int  _indexs;
+        private int _indexs;
 
         public int Indexs
         {
@@ -125,7 +126,7 @@ namespace Book.Model
 
         public string ProceProductId
         {
-            get { return _proceProductId;}
+            get { return _proceProductId; }
             set { _proceProductId = value; }
         }
         /// <summary>
@@ -155,6 +156,7 @@ namespace Book.Model
                 this._checked = value;
             }
         }
+
         //public string  ProductTreeName
         //{
         //    get { 
@@ -164,6 +166,43 @@ namespace Book.Model
 
         //  }
 
+
+        #region 2017年12月31日14:34:55
+
+        public string ProductCategoryName2 { get; set; }
+
+        public string ProductCategoryName3 { get; set; }
+
+        public double InQty { get; set; }
+
+        public double OutQty { get; set; }
+
+        public double InitialQty { get; set; }
+
+        public double XianchangYanpian { get; set; }
+
+        public double XianchangZuzhuang { get; set; }
+
+        public double XianchangTotal
+        {
+            get
+            {
+                return XianchangYanpian + XianchangZuzhuang;
+            }
+        }
+
+        public double TotalQty
+        {
+            get
+            {
+                return Convert.ToDouble(this.StocksQuantity) + XianchangTotal;
+            }
+        }
+
+        public string CustomerInvoiceXOId { get; set; }
+
+        public Dictionary<string, string> MaterialDic { get; set; }
+        #endregion
 
     }
 }

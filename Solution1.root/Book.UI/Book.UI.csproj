@@ -7472,10 +7472,6 @@
       <DependentUpon>ROMRSDetailsList.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Query\SceneStock.resx">
-      <DependentUpon>SceneStock.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Query\SupplierTransactionsRank.resx">
       <DependentUpon>SupplierTransactionsRank.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -7522,6 +7518,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Query\OutAndInDepotForm.zh-CHT.resx">
       <DependentUpon>OutAndInDepotForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\SceneStock.resx">
+      <DependentUpon>SceneStock.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ROStockPrompt.resx">
@@ -12549,12 +12549,6 @@
     <Compile Include="Query\ROMRSDetailsList.Designer.cs">
       <DependentUpon>ROMRSDetailsList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Query\SceneStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Query\SceneStock.Designer.cs">
-      <DependentUpon>SceneStock.cs</DependentUpon>
-    </Compile>
     <Compile Include="Query\SupplierTransactionsRank.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -12592,6 +12586,12 @@
       <DependentUpon>OutAndInDepotForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Query\OutAndInDepot.cs" />
+    <Compile Include="Query\SceneStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\SceneStock.Designer.cs">
+      <DependentUpon>SceneStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="ROStockPrompt.cs">
       <SubType>Component</SubType>
     </Compile>
