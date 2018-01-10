@@ -361,9 +361,9 @@ namespace Book.UI.produceManager.PCExportReportANSI
 
             //获取ANSI,Finish质检统计记录
             //Model.PCExportReportANSI mPCExpANSI = this._pcExpANSIManager.SelectForExpANSI(xod.Invoice.CustomerInvoiceXOId, xod.Product.ProductId);
-            Model.PCExportReportANSIDetail mPCExpANSIDet = new BL.PCExportReportANSIDetailManager().SelectForExpANSIDetailsSUM(xod.Invoice.CustomerInvoiceXOId, xod.Product.ProductId);
-            if (mPCExpANSIDet != null)
-            {
+            //Model.PCExportReportANSIDetail mPCExpANSIDet = new BL.PCExportReportANSIDetailManager().SelectForExpANSIDetailsSUM(xod.Invoice.CustomerInvoiceXOId, xod.Product.ProductId);
+            //if (mPCExpANSIDet != null)
+            //{
                 //测试数量
                 //this._pcExpANSI.AmountTest = mPCExpANSI.mCountANSI;
 
@@ -408,33 +408,33 @@ namespace Book.UI.produceManager.PCExportReportANSI
 
                 this._pcExpANSI.ShouCeShu1 = this._pcExpANSI.ShouCeShu2 = this._pcExpANSI.ShouCeShu3 = this._pcExpANSI.ShouCeShu4 = this._pcExpANSI.ShouCeShu5 = this._pcExpANSI.ShouCeShu6 = this._pcExpANSI.ShouCeShu7 = this._pcExpANSI.ShouCeShu8 = this._pcExpANSI.ShouCeShu9 = this._pcExpANSI.ShouCeShu10 = this._pcExpANSI.ShouCeShu11 = this._pcExpANSI.ShouCeShu12 = this._pcExpANSI.AmountTest;
 
-                this._pcExpANSI.PanDing0 = mPCExpANSIDet.pMSJY;
-                this._pcExpANSI.QuYangShu1 = mPCExpANSIDet.qQXD;
-                this._pcExpANSI.PanDing1 = mPCExpANSIDet.pQXD;
-                this._pcExpANSI.QuYangShu2 = mPCExpANSIDet.qLJPHDS;
-                this._pcExpANSI.PanDing2 = mPCExpANSIDet.pLJPHDS;
-                this._pcExpANSI.QuYangShu3 = mPCExpANSIDet.qKJGTSL;
-                this._pcExpANSI.PanDing3 = mPCExpANSIDet.pKJGTSL;
-                this._pcExpANSI.QuYangShu4 = mPCExpANSIDet.qZWXTSL;
-                this._pcExpANSI.PanDing4 = mPCExpANSIDet.pZWXTSL;
-                this._pcExpANSI.QuYangShu5 = mPCExpANSIDet.qQMDS;
-                this._pcExpANSI.PanDing5 = mPCExpANSIDet.pQMDS;
-                this._pcExpANSI.QuYangShu6 = mPCExpANSIDet.qSGDS;
-                this._pcExpANSI.PanDing6 = mPCExpANSIDet.pSGDS;
-                this._pcExpANSI.QuYangShu7 = mPCExpANSIDet.qGSCJCS;
-                this._pcExpANSI.PanDing7 = mPCExpANSIDet.pGSCJCS;
-                this._pcExpANSI.QuYangShu8 = mPCExpANSIDet.qYZZLZJCS;
-                this._pcExpANSI.PanDing8 = mPCExpANSIDet.pYZZLZJCS;
-                this._pcExpANSI.QuYangShu9 = mPCExpANSIDet.qJPCTSC;
-                this._pcExpANSI.PanDing9 = mPCExpANSIDet.pJPCTSC;
-                this._pcExpANSI.QuYangShu10 = mPCExpANSIDet.qWDCS;
-                this._pcExpANSI.PanDing10 = mPCExpANSIDet.pWDCS;
-                this._pcExpANSI.QuYangShu11 = mPCExpANSIDet.qNRXCS;
-                this._pcExpANSI.PanDing11 = mPCExpANSIDet.pNRXCS;
-                this._pcExpANSI.QuYangShu12 = mPCExpANSIDet.qCSAQXD;
-                this._pcExpANSI.PanDingShu12 = mPCExpANSIDet.pCSAQXD;
+                //this._pcExpANSI.PanDing0 = mPCExpANSIDet.pMSJY;
+                //this._pcExpANSI.QuYangShu1 = mPCExpANSIDet.qQXD;
+                //this._pcExpANSI.PanDing1 = mPCExpANSIDet.pQXD;
+                //this._pcExpANSI.QuYangShu2 = mPCExpANSIDet.qLJPHDS;
+                //this._pcExpANSI.PanDing2 = mPCExpANSIDet.pLJPHDS;
+                //this._pcExpANSI.QuYangShu3 = mPCExpANSIDet.qKJGTSL;
+                //this._pcExpANSI.PanDing3 = mPCExpANSIDet.pKJGTSL;
+                //this._pcExpANSI.QuYangShu4 = mPCExpANSIDet.qZWXTSL;
+                //this._pcExpANSI.PanDing4 = mPCExpANSIDet.pZWXTSL;
+                //this._pcExpANSI.QuYangShu5 = mPCExpANSIDet.qQMDS;
+                //this._pcExpANSI.PanDing5 = mPCExpANSIDet.pQMDS;
+                //this._pcExpANSI.QuYangShu6 = mPCExpANSIDet.qSGDS;
+                //this._pcExpANSI.PanDing6 = mPCExpANSIDet.pSGDS;
+                //this._pcExpANSI.QuYangShu7 = mPCExpANSIDet.qGSCJCS;
+                //this._pcExpANSI.PanDing7 = mPCExpANSIDet.pGSCJCS;
+                //this._pcExpANSI.QuYangShu8 = mPCExpANSIDet.qYZZLZJCS;
+                //this._pcExpANSI.PanDing8 = mPCExpANSIDet.pYZZLZJCS;
+                //this._pcExpANSI.QuYangShu9 = mPCExpANSIDet.qJPCTSC;
+                //this._pcExpANSI.PanDing9 = mPCExpANSIDet.pJPCTSC;
+                //this._pcExpANSI.QuYangShu10 = mPCExpANSIDet.qWDCS;
+                //this._pcExpANSI.PanDing10 = mPCExpANSIDet.pWDCS;
+                //this._pcExpANSI.QuYangShu11 = mPCExpANSIDet.qNRXCS;
+                //this._pcExpANSI.PanDing11 = mPCExpANSIDet.pNRXCS;
+                //this._pcExpANSI.QuYangShu12 = mPCExpANSIDet.qCSAQXD;
+                //this._pcExpANSI.PanDingShu12 = mPCExpANSIDet.pCSAQXD;
                 #endregion
-            }
+            //}
             this.InitControls();
         }
 
