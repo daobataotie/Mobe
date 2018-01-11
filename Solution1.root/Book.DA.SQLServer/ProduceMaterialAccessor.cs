@@ -133,7 +133,6 @@ namespace Book.DA.SQLServer
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT  w.Workhousename as WorkhouseName,p.*  ");
             sql.Append(", (SELECT ProductName+'{'+CustomerProductName+'}' FROM Product WHERE Product.ProductId = (SELECT PronoteHeader.ProductId FROM PronoteHeader WHERE PronoteHeader.PronoteHeaderID = p.InvoiceId)) AS ParenProductName");
-            sql.Append(", (SELECT CustomerInvoiceXOId FROM InvoiceXO WHERE InvoiceXO.InvoiceId = p.InvoiceXOId) AS CusXOId");
             sql.Append(", (SELECT  EmployeeName FROM employee where employee.employeeid=p.Employee0Id) as Employee0Name, (select  EmployeeName from employee where employee.employeeid=p.Employee1Id) as Employee1Name,(SELECT  EmployeeName FROM employee where employee.employeeid=p.Employee2Id) as Employee2Name");
             sql.Append(", (SELECT  CustomerInvoiceXOId FROM invoiceXO where invoiceXO.invoiceId=p.InvoiceXOId) as CusXOId ");
             //sql.Append(" ,");
