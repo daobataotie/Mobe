@@ -125,6 +125,8 @@ namespace Book.UI.produceManager.PronoteHeader
             return (EditForm)type.Assembly.CreateInstance(type.FullName, false, System.Reflection.BindingFlags.CreateInstance, null, new object[] { args[0], sourceType }, null, null);
         }
 
+
+        //多条件查询
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ConditionPronoteHeaderChooseForm f = new ConditionPronoteHeaderChooseForm();

@@ -206,9 +206,9 @@ namespace Book.UI.produceManager.ProduceInDepot
 
         protected override DevExpress.XtraReports.UI.XtraReport GetReport()
         {
-            //return new RO(produceInDepot.ProduceInDepotId);
-            ExportExcel(this.produceInDepot.Details);
-            return null;
+            return new RO(produceInDepot.ProduceInDepotId);
+            
+            //return null;
         }
 
         /// <summary>
@@ -1250,6 +1250,11 @@ namespace Book.UI.produceManager.ProduceInDepot
                 this.produceInDepot.ProduceInDepotId = this.produceInDepotManager.GetId(this.dateEditProduceInDepotDate.DateTime);
                 this.textEditProduceInDepotId.Text = this.produceInDepot.ProduceInDepotId;
             }
+        }
+
+        private void bar_ExportExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ExportExcel(this.produceInDepot.Details);
         }
     }
 }

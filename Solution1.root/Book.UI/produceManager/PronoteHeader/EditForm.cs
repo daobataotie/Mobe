@@ -1309,6 +1309,7 @@ namespace Book.UI.produceManager.PronoteHeader
 
         }
 
+        //搜索
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
@@ -1480,6 +1481,7 @@ namespace Book.UI.produceManager.PronoteHeader
             #endregion
         }
 
+        //条件打印
         private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             //produceManager.PronoteHeader.RO3 f = new RO3(pronoteHeader.PronoteHeaderID, FlagIsProcee);
@@ -1488,7 +1490,8 @@ namespace Book.UI.produceManager.PronoteHeader
             //连打
             try
             {
-                Query.ConditionPronoteHeaderChooseForm f2 = new Book.UI.Query.ConditionPronoteHeaderChooseForm(this.FlagIsProcee);
+                //Query.ConditionPronoteHeaderChooseForm f2 = new Book.UI.Query.ConditionPronoteHeaderChooseForm(this.FlagIsProcee);
+                Query.ConditionPronoteHeaderChooseForm f2 = new Book.UI.Query.ConditionPronoteHeaderChooseForm();
                 if (f2.ShowDialog(this) == DialogResult.OK)
                 {
 

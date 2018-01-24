@@ -78,5 +78,11 @@ namespace Book.UI.Invoices.XS
                 return this.gridView1;
             }
         }
+
+        protected override void LoadInvoices(DateTime datetime1, DateTime datetime2)
+        {
+            if (tag == 0)
+                base.LoadInvoices(datetime1, datetime2);
+        }
     }
 }

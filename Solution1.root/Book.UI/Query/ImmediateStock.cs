@@ -257,9 +257,10 @@ namespace Book.UI.Query
                     foreach (var pro in item)
                     {
                         excel.Cells[row, 1] = pro.ProductName;
-                        excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
+                        //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
+                        excel.Cells[row, 2] = pro.StocksQuantity;
                         excel.Cells[row, 3] = pro.XianchangTotal;
-                        excel.Cells[row, 4] = pro.StocksQuantity;
+                        excel.Cells[row, 4] = pro.StocksQuantity + pro.XianchangTotal;
 
                         col = 6;
                         foreach (var dic in pro.MaterialDic)
@@ -281,9 +282,10 @@ namespace Book.UI.Query
                     foreach (var pro in item)
                     {
                         excel.Cells[row, 1] = pro.ProductName;
-                        excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
+                        //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
+                        excel.Cells[row, 2] = pro.StocksQuantity;
                         excel.Cells[row, 3] = pro.XianchangTotal;
-                        excel.Cells[row, 4] = pro.StocksQuantity;
+                        excel.Cells[row, 4] = pro.StocksQuantity + pro.XianchangTotal;
 
                         col = 6;
                         foreach (var dic in pro.MaterialDic)
@@ -305,9 +307,10 @@ namespace Book.UI.Query
                     foreach (var pro in item)
                     {
                         excel.Cells[row, 1] = pro.ProductName;
-                        excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
+                        //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
+                        excel.Cells[row, 2] = pro.StocksQuantity;
                         excel.Cells[row, 3] = pro.XianchangTotal;
-                        excel.Cells[row, 4] = pro.StocksQuantity;
+                        excel.Cells[row, 4] = pro.StocksQuantity + pro.XianchangTotal;
 
                         col = 6;
                         foreach (var dic in pro.MaterialDic)
