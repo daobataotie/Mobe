@@ -2102,7 +2102,7 @@ namespace Book.UI.Settings.BasicData.Products
                     this.pictureEditPrivew.Image = null;
             }
             //this.dateEditStockStart.Enabled = false;
-            //this.dateEditStockStart.Properties.ReadOnly = true;
+            this.dateEditStockStart.Properties.ReadOnly = false;
             this.dateEditStockEnd.Enabled = true;
             this.dateEditStockEnd.Properties.ReadOnly = false;
             this.dateEditStockStart.Properties.Buttons[0].Visible = true;
