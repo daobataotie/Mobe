@@ -30,6 +30,6 @@ namespace Book.DA
         void UpdateHeaderIsClseByXOId(string InvoiceXOId, bool isclose);
         IList<Book.Model.PronoteHeader> Select(IList<string> ids);
 
-        IList<Model.PronoteHeader> SelectNotClosed(string productid);
+        IList<Model.PronoteHeader> SelectByProductId(string productid);
     }
 }

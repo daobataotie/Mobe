@@ -363,9 +363,10 @@ namespace Book.DA.SQLServer
         }
 
         //查询商品对应的未结案加工单
-        public IList<Model.PronoteHeader> SelectNotClosed(string productid)
+        public IList<Model.PronoteHeader> SelectByProductId(string productid)
         {
-            string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.ProductId='" + productid + "' and ph.IsClose<>1";
+            string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.ProductId='" + productid + "' and ph.IsClose<>1";  //这里还是要查询未结案的商品，已结案的应该是订单完成，在现场没有残留
+            //string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.ProductId='" + productid + "'";
             return this.DataReaderBind<Model.PronoteHeader>(sql, null, CommandType.Text);
         }
     }

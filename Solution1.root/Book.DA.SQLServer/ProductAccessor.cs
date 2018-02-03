@@ -338,9 +338,9 @@ namespace Book.DA.SQLServer
         {
             string sql = string.Empty;
             if (string.IsNullOrEmpty(categoryId))
-                sql = "select ProductId,ProductName,isnull(StocksQuantity,0) as StocksQuantity,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId ";
+                sql = "select p.id,ProductId,ProductName,ProductVersion,isnull(StocksQuantity,0) as StocksQuantity,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId ";
             else
-                sql = "select ProductId,ProductName,isnull(StocksQuantity,0) as StocksQuantity,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId  where pc1.ProductCategoryId='" + categoryId + "'";
+                sql = "select p.id,ProductId,ProductName,ProductVersion,isnull(StocksQuantity,0) as StocksQuantity,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId  where pc1.ProductCategoryId='" + categoryId + "'";
 
             return this.DataReaderBind<Model.Product>(sql, null, CommandType.Text);
         }

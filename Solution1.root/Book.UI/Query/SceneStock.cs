@@ -67,6 +67,8 @@ namespace Book.UI.Query
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
+            resultList.Clear();
+
             DateTime dateTime = global::Helper.DateTimeParse.EndDate;
             IList<Model.Product> listProduct = productManager.SelectIdAndStock(this.lue_ProductCategory.EditValue == null ? null : this.lue_ProductCategory.EditValue.ToString());
 
@@ -84,7 +86,7 @@ namespace Book.UI.Query
                 #region 现场数量
 
                 //查询商品对应的未结案加工单
-                IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectNotClosed(item.ProductId);
+                IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(item.ProductId);
                 if (phList == null || phList.Count == 0)
                     continue;
                 foreach (var phGroup in phList.GroupBy(P => P.CustomerInvoiceXOId))
@@ -149,7 +151,7 @@ namespace Book.UI.Query
                     double deductionQty = 0;
                     if (!string.IsNullOrEmpty(proIds))
                     {
-                        IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateTime.AddSeconds(-1), workHouseChengpinZuzhuang, pronoteHeaderIds);
+                        IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateTime.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
                         foreach (var pid in pids)
                         {
                             deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];
@@ -164,13 +166,14 @@ namespace Book.UI.Query
 
                     #endregion
 
-                    resultList.Add(new Book.Model.Product() { ProductName = item.ProductName, CustomerInvoiceXOId = phGroup.Key, XianchangYanpian = item.XianchangYanpian, XianchangZuzhuang = item.XianchangZuzhuang });
+                    resultList.Add(new Book.Model.Product() { Id = item.Id, ProductVersion = item.ProductVersion, ProductName = item.ProductName, CustomerInvoiceXOId = phGroup.Key, XianchangYanpian = item.XianchangYanpian, XianchangZuzhuang = item.XianchangZuzhuang });
                 }
 
                 #endregion
             }
 
             this.bindingSourceProduct.DataSource = resultList;
+            this.gridControl1.RefreshDataSource();
         }
 
 
@@ -178,7 +181,7 @@ namespace Book.UI.Query
         {
             if (resultList == null || resultList.Count == 0)
             {
-                MessageBox.Show("无数据！","提示",MessageBoxButtons.OK);
+                MessageBox.Show("无数据！", "提示", MessageBoxButtons.OK);
                 return;
             }
 

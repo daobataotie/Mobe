@@ -78,6 +78,7 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDetail)).BeginInit();
@@ -115,6 +116,10 @@
             // imageCollection1
             // 
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
+            // 
+            // bar1
+            // 
+            this.bar1.OptionsBar.UseWholeRow = true;
             // 
             // barManager2
             // 
@@ -519,6 +524,7 @@
             this.Controls.SetChildIndex(this.barDockControl4, 0);
             this.Controls.SetChildIndex(this.barDockControl3, 0);
             this.Controls.SetChildIndex(this.layoutControl1, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDetail)).EndInit();

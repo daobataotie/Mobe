@@ -112,7 +112,7 @@ namespace Book.UI.Query
 
                 #region 验片：合计前单位转入 - 合计生产数量（包含合计合格数量，合计不良品）
                 //查询商品对应的未结案加工单
-                IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectNotClosed(item.ProductId);
+                IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(item.ProductId);
                 if (phList == null || phList.Count == 0)
                     continue;
                 string pronoteHeaderIds = "";
@@ -172,7 +172,7 @@ namespace Book.UI.Query
                 double deductionQty = 0;
                 if (!string.IsNullOrEmpty(proIds))
                 {
-                    IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateTime.AddSeconds(-1), workHouseChengpinZuzhuang, pronoteHeaderIds);
+                    IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateTime.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
                     foreach (var pid in pids)
                     {
                         deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];

@@ -1665,9 +1665,9 @@ namespace Book.DA.SQLServer
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text)[0];
         }
 
-        public IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
+        public IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateTime, string workHouseId, string incoiceXOId)
         {
-            string sql = "select sum(isnull(ProduceQuantity,0)) as ProduceQuantity,pid.ProductId from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId in (" + productids + ") and pi.WorkHouseId='" + workHouseId + "' and pi.ProduceInDepotDate<='" + dateTime + "' and pid.PronoteHeaderId in (" + pronoteHeaderIds + ") group by pid.ProductId ";
+            string sql = "select sum(isnull(ProduceQuantity,0)) as ProduceQuantity,pid.ProductId from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId in (" + productids + ") and pi.WorkHouseId='" + workHouseId + "' and pi.ProduceInDepotDate<='" + dateTime + "'  and pid.PronoteHeaderId in (select PronoteHeaderId from PronoteHeader where InvoiceXOId in (" + incoiceXOId + "))  group by pid.ProductId ";
 
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
         }

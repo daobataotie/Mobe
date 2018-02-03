@@ -410,9 +410,9 @@ namespace Book.BL
             return accessor.Select(ids);
         }
 
-        public IList<Model.PronoteHeader> SelectNotClosed(string productid)
+        public IList<Model.PronoteHeader> SelectByProductId(string productid)
         {
-            return accessor.SelectNotClosed(productid);
+            return accessor.SelectByProductId(productid);
         }
     }
 }

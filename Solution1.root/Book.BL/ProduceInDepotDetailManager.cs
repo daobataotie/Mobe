@@ -191,9 +191,9 @@ namespace Book.BL
             return accessor.SelectByThisWorkhouse(productid, dateTime, workHouseId, pronoteHeaderIds);
         }
 
-        public IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
+        public IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateTime, string workHouseId, string invoiceXOIds)
         {
-            return accessor.SelectIndepotQty(productids, dateTime, workHouseId, pronoteHeaderIds);
+            return accessor.SelectIndepotQty(productids, dateTime, workHouseId, invoiceXOIds);
         }
     }
 }
