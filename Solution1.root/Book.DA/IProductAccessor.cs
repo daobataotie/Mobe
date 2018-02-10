@@ -63,6 +63,8 @@ namespace Book.DA
         void UpdateSimple(Book.Model.Product product);
 
         IList<Model.Product> SelectIdAndStock(string categoryId);
+
+        IList<Model.Product> SelectProductIdAndName();
     }
 }
 

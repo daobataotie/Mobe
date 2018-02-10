@@ -345,6 +345,13 @@ namespace Book.DA.SQLServer
             return this.DataReaderBind<Model.Product>(sql, null, CommandType.Text);
         }
 
+        public IList<Model.Product> SelectProductIdAndName()
+        {
+            string sql = "select ProductId,ProductName from Product ";
+
+            return this.DataReaderBind<Model.Product>(sql, null, CommandType.Text);
+        }
+
         #endregion
 
         #region /*CdmiN--2011年9月29日16:05:38*/ 更新product表,使其与stock表中数据对应

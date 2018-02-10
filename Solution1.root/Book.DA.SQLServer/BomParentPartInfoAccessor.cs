@@ -146,5 +146,13 @@ namespace Book.DA.SQLServer
             string sql = "select BomId,ProductId from BomParentPartInfo where BomId in (" + BomIds + ")";
             return this.DataReaderBind<Model.BomParentPartInfo>(sql, null, CommandType.Text);
         }
+
+        public string SelectBomIdByProductId(string productId)
+        {
+            string sql = "select Top 1 BomId from BomParentPartInfo where productId = '" + productId + "' and Status=0";
+            object value=this.QueryObject(sql);
+
+            return (value == null ? "" : value.ToString());
+        }
     }
 }

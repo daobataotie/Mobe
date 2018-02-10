@@ -40,7 +40,7 @@ namespace Book.Model
 		private string _productGuige;
 		
 		/// <summary>
-		/// 数量
+		/// 入库数量
 		/// </summary>
 		private double? _produceQuantity;
 		
@@ -135,12 +135,12 @@ namespace Book.Model
 		private double? _invoiceQuantity;
 		
 		/// <summary>
-		/// 
+		/// 生产数量
 		/// </summary>
 		private double? _proceduresSum;
 		
 		/// <summary>
-		/// 
+		/// 合格数量
 		/// </summary>
 		private double? _checkOutSum;
 		

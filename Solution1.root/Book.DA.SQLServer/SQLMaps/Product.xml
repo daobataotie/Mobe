@@ -362,6 +362,18 @@
     <select id="select_datatable">
       select * from product
     </select>
+    <select id="Select_ProductResult5" resultMap="ProductResult5" parameterClass="Product">
+      select
+      Id,
+      ProductId,
+      ProductName,
+      StocksQuantity,
+      NetWeight,
+      MaterialIds,
+      MaterialNum
+      from product
+      WHERE [ProductId] = #ProductId#
+    </select>
     <update id="update_cost1" parameterClass="Map">
       <![CDATA[
 			update product set  ProductStandardCost = 

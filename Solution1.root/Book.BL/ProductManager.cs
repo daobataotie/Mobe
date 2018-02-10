@@ -682,6 +682,11 @@ namespace Book.BL
         {
             return accessor.SelectIdAndStock(categoryId);
         }
+
+        public IList<Model.Product> SelectProductIdAndName()
+        {
+            return accessor.SelectProductIdAndName();
+        }
     }
 }
 

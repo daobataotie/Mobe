@@ -758,6 +758,9 @@ namespace Book.UI
 
             //现场库存
             operations.Add("Query.SceneStock", (D1)delegate(System.Windows.Forms.Form form) { M1("Query.SceneStock", form); });
+
+            //区间查询入库单/换算原料
+            operations.Add("produceManager.ProduceInDepot.CountMaterialForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.ProduceInDepot.CountMaterialForm", form); });
         }
 
         static Form CreateForm(string formTypeName)

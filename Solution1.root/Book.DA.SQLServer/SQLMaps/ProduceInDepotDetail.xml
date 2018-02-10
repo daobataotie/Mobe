@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <sqlMap namespace="ProduceInDepotDetail" xmlns="http://ibatis.apache.org/mapping"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  
+ 
   <statements>
     <select id="select_byProduceInDepotId" resultMap="ProduceInDepotDetailResult" parameterClass="string">
       select * from ProduceInDepotDetail where ProduceInDepotId=#value# ORDER BY Inumber ASC
@@ -136,5 +136,6 @@
       ]]>
 
     </select>
+
   </statements>
 </sqlMap>

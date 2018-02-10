@@ -195,6 +195,21 @@ namespace Book.BL
         {
             return accessor.SelectIndepotQty(productids, dateTime, workHouseId, invoiceXOIds);
         }
+
+        public IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd)
+        {
+            return accessor.SelectAllByDateRange(dateStart, dateEnd);
+        }
+
+        public IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd)
+        {
+            return accessor.SelectShechuByDateRange(dateStart, dateEnd);
+        }
+
+        public IList<Model.ProduceInDepotDetail> SelectYanpianByDateRange(DateTime dateStart, DateTime dateEnd)
+        {
+            return accessor.SelectYanpianByDateRange(dateStart, dateEnd);
+        }
     }
 }
 

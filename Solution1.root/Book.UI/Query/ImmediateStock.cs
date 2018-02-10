@@ -101,7 +101,7 @@ namespace Book.UI.Query
                     //0 出，1 入，3 盘点     2 调拨，库存不变
                     panQty = Convert.ToDouble(stockList.Where(I => I.InvoiceTypeIndex == 3).Sum(S => S.InvoiceQuantity - S.StockCheckBookQuantity));
                     outQty = Convert.ToDouble(stockList.Where(I => I.InvoiceTypeIndex == 0).Sum(S => S.InvoiceQuantity)); //出库数量
-                    inQty = Convert.ToDouble(stockList.Where(I => I.InvoiceTypeIndex == 1).Sum(S => S.InvoiceQuantity));  //入库数量
+                    inQty = Convert.ToDouble(stockList.Where(I => I.InvoiceTypeIndex == 1 && !string.IsNullOrEmpty(I.PositionName)).Sum(S => S.InvoiceQuantity));  //入库数量
 
                     item.StocksQuantity = item.StocksQuantity + outQty - inQty - panQty;
                 }
@@ -148,7 +148,7 @@ namespace Book.UI.Query
                 if (!string.IsNullOrEmpty(invoiceXOIds))
                     materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds);
                 //计算所有转入 组装现场 部门的数量
-                Model.ProduceInDepotDetail pidZuzhuangIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
+                Model.ProduceInDepotDetail pidZuzhuangIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang, null);   //转入组装现场时没有加工单
                 double zuzhuangTransferIn = Convert.ToDouble(pidZuzhuangIn.ProduceTransferQuantity);
 
                 //计算 组装现场 部门转入其他部门的数量
@@ -216,24 +216,25 @@ namespace Book.UI.Query
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 4]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 5]);
                 r.MergeCells = true;//合并单元格
 
-                excel.Cells.ColumnWidth = 25;
-                excel.Cells[1, 1] = "商品即时库存(" + this.dateEdit1.DateTime + ")";
+                excel.Cells.ColumnWidth = 10;
+                excel.Cells[1, 1] = "商品即时库存(" + this.dateEdit1.DateTime.ToString("yyyy-MM-dd") + ")";
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
                 //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
-                excel.get_Range(excel.Cells[1, 4], excel.Cells[1, 4]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[1, 5], excel.Cells[1, 5]).HorizontalAlignment = -4108;
 
                 excel.Cells[2, 1] = "商品名称";
                 excel.Cells[2, 2] = "仓库数量";
-                excel.Cells[2, 3] = "现场数量";
-                excel.Cells[2, 4] = "总数";
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 4]).Interior.Color = "12566463";
+                excel.Cells[2, 3] = "验片现场";
+                excel.Cells[2, 4] = "组装现场";
+                excel.Cells[2, 5] = "总数";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 5 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "12566463";
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 50;
 
-                int col = 6;
+                int col = 7;
                 //原料
                 foreach (var item in listProduct[0].MaterialDic)
                 {
@@ -250,19 +251,19 @@ namespace Book.UI.Query
 
                 foreach (var item in haveThreeCategoryPro.GroupBy(P => P.ProductCategoryName3))
                 {
-                    excel.Cells[row, 1] = item.Key;
-                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 1]).Interior.Color = "255";    //红色
-                    row++;
+                    SetExcelFormat(excel, ref col, ref row, item);
 
                     foreach (var pro in item)
                     {
                         excel.Cells[row, 1] = pro.ProductName;
                         //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
                         excel.Cells[row, 2] = pro.StocksQuantity;
-                        excel.Cells[row, 3] = pro.XianchangTotal;
-                        excel.Cells[row, 4] = pro.StocksQuantity + pro.XianchangTotal;
+                        //excel.Cells[row, 3] = pro.XianchangTotal;
+                        excel.Cells[row, 3] = pro.XianchangYanpian;
+                        excel.Cells[row, 4] = pro.XianchangZuzhuang;
+                        excel.Cells[row, 5] = pro.TotalQty;
 
-                        col = 6;
+                        col = 7;
                         foreach (var dic in pro.MaterialDic)
                         {
                             excel.Cells[row, col++] = dic.Value;
@@ -275,19 +276,22 @@ namespace Book.UI.Query
 
                 foreach (var item in haveTwoCategoryPro.GroupBy(P => P.ProductCategoryName2))
                 {
-                    excel.Cells[row, 1] = item.Key;
-                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 1]).Interior.Color = "255";    //红色
-                    row++;
+                    //excel.Cells[row, 1] = item.Key;
+                    //excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 1]).Interior.Color = "255";    //红色
+                    //row++;
+                    SetExcelFormat(excel, ref col, ref row, item);
 
                     foreach (var pro in item)
                     {
                         excel.Cells[row, 1] = pro.ProductName;
                         //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
                         excel.Cells[row, 2] = pro.StocksQuantity;
-                        excel.Cells[row, 3] = pro.XianchangTotal;
-                        excel.Cells[row, 4] = pro.StocksQuantity + pro.XianchangTotal;
+                        //excel.Cells[row, 3] = pro.XianchangTotal;
+                        excel.Cells[row, 3] = pro.XianchangYanpian;
+                        excel.Cells[row, 4] = pro.XianchangZuzhuang;
+                        excel.Cells[row, 5] = pro.TotalQty;
 
-                        col = 6;
+                        col = 7;
                         foreach (var dic in pro.MaterialDic)
                         {
                             excel.Cells[row, col++] = dic.Value;
@@ -300,19 +304,22 @@ namespace Book.UI.Query
 
                 foreach (var item in haveOneCategoryPro.GroupBy(P => P.ProductCategoryName))
                 {
-                    excel.Cells[row, 1] = item.Key;
-                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 1]).Interior.Color = "255";    //红色
-                    row++;
+                    //excel.Cells[row, 1] = item.Key;
+                    //excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 1]).Interior.Color = "255";    //红色
+                    //row++;
+                    SetExcelFormat(excel, ref col, ref row, item);
 
                     foreach (var pro in item)
                     {
                         excel.Cells[row, 1] = pro.ProductName;
                         //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
                         excel.Cells[row, 2] = pro.StocksQuantity;
-                        excel.Cells[row, 3] = pro.XianchangTotal;
-                        excel.Cells[row, 4] = pro.StocksQuantity + pro.XianchangTotal;
+                        //excel.Cells[row, 3] = pro.XianchangTotal;
+                        excel.Cells[row, 3] = pro.XianchangYanpian;
+                        excel.Cells[row, 4] = pro.XianchangZuzhuang;
+                        excel.Cells[row, 5] = pro.TotalQty;
 
-                        col = 6;
+                        col = 7;
                         foreach (var dic in pro.MaterialDic)
                         {
                             excel.Cells[row, col++] = dic.Value;
@@ -331,6 +338,26 @@ namespace Book.UI.Query
                 MessageBox.Show("Excel未生成完畢，請勿操作，并重新點擊按鈕生成數據！", "提示！", MessageBoxButtons.OK);
                 return;
             }
+        }
+
+        private void SetExcelFormat(Microsoft.Office.Interop.Excel.Application excel, ref int col, ref int row, IGrouping<string, Book.Model.Product> item)
+        {
+            excel.Cells[row, 1] = item.Key;
+            excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 5 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "255";    //红色
+            excel.get_Range(excel.Cells[row, 2], excel.Cells[row, 2]).Formula = string.Format("=SUM(B{0}:B{1})", row + 1, row + item.Count());
+            excel.get_Range(excel.Cells[row, 3], excel.Cells[row, 3]).Formula = string.Format("=SUM(C{0}:C{1})", row + 1, row + item.Count());
+            excel.get_Range(excel.Cells[row, 4], excel.Cells[row, 4]).Formula = string.Format("=SUM(D{0}:D{1})", row + 1, row + item.Count());
+            excel.get_Range(excel.Cells[row, 5], excel.Cells[row, 5]).Formula = string.Format("=SUM(E{0}:E{1})", row + 1, row + item.Count());
+
+            col = 7;
+            foreach (var ec in listProduct[0].MaterialDic)
+            {
+                string excelColumnName = CountExcelColumnName(col);
+                excel.get_Range(excel.Cells[row, col], excel.Cells[row, col]).Formula = string.Format("=SUM({2}{0}:{2}{1})", row + 1, row + item.Count(), excelColumnName);
+                col++;
+            }
+
+            row++;
         }
 
         private void ConvertMaterial()
@@ -362,6 +389,26 @@ namespace Book.UI.Query
                             pro.MaterialDic[model.MaterialCategoryName] = value.ToString("0.####");
                         }
                     }
+                }
+            }
+        }
+
+        private static string CountExcelColumnName(int i)
+        {
+            string str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            if (i <= 26)
+                return str.ToCharArray()[i - 1].ToString();
+            else
+            {
+                int count = (int)Math.Floor(Convert.ToDecimal(i / 26));
+                if (i % 26 == 0)
+                {
+                    return str.ToCharArray()[count - 2].ToString() + "Z";
+                }
+                else
+                {
+                    return str.ToCharArray()[count - 1].ToString() + str.ToCharArray()[i % 26 - 1].ToString();
                 }
             }
         }

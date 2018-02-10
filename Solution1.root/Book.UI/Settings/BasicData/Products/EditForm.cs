@@ -2899,6 +2899,7 @@ namespace Book.UI.Settings.BasicData.Products
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 this.product = f.SelectedItem as Model.Product;
+                this.product = this.productManager.Get(this.product.ProductId);
                 this.action = "view";
                 this.Refresh();
                 GC.Collect();

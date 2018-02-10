@@ -373,6 +373,11 @@ namespace Book.BL
         {
             return accessor.SelectProducts(BomIds);
         }
+
+        public string SelectBomIdByProductId(string productId)
+        {
+            return accessor.SelectBomIdByProductId(productId);
+        }
     }
 }
 

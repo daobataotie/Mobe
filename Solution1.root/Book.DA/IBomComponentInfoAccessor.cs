@@ -27,6 +27,8 @@ namespace Book.DA
         IList<Model.BomComponentInfo> SelectLessInfoByHeaderId(string BomId);
 
         IList<Model.BomComponentInfo> SelectBomIdAndUseQty(string productIds);
+
+        IList<Model.BomComponentInfo> SelectProductIdAndUseQty(string bomId);
     }
 }
 

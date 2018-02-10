@@ -202,6 +202,18 @@ namespace Book.Model
         public string CustomerInvoiceXOId { get; set; }
 
         public Dictionary<string, string> MaterialDic { get; set; }
+
+        public double ShengChan { get; set; }
+
+        public double Hege { get; set; }
+
+        public double ShechuHege { get; set; }
+
+        public double YanpianHege { get; set; }
+
+        public double TotalHege { get { return ShechuHege + YanpianHege; } }
+
+        public Dictionary<string, string> ZijianDic { get; set; }
         #endregion
 
     }

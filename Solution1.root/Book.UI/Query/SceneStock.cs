@@ -130,7 +130,7 @@ namespace Book.UI.Query
                         materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds);
 
                     //计算所有转入 组装现场 部门的数量
-                    Model.ProduceInDepotDetail pidZuzhuangIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
+                    Model.ProduceInDepotDetail pidZuzhuangIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);  //计算即时现场库存时不用区分订单，不需要加工单号，查询所有即可，这里要区分订单，所以要加上加工单号
                     double zuzhuangTransferIn = Convert.ToDouble(pidZuzhuangIn.ProduceTransferQuantity);
 
                     //计算 组装现场 部门转入其他部门的数量

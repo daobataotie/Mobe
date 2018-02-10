@@ -1649,10 +1649,17 @@ namespace Book.DA.SQLServer
         //    return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
         //}
 
+
         //根据下个生产站查询商品入库详细
         public Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
         {
-            string sql = "select sum(isnull(pid.ProduceQuantity,0)) as ProduceQuantity,sum(isnull(pid.HeJiBeforeTransferQuantity,0)) as HeJiBeforeTransferQuantity,sum(isnull(pid.ProceduresSum,0)) as ProceduresSum,sum(isnull(pid.CheckOutSum,0)) as CheckOutSum,sum(isnull(ProduceTransferQuantity,0)) as ProduceTransferQuantity from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate<='" + dateTime + "' and pid.WorkHouseId='" + workHouseId + "' and pid.PronoteHeaderId in (" + pronoteHeaderIds + ")";
+            string sql = "";
+            if (pronoteHeaderIds == null)    //入到组装现场的没有选择加工单，所以没有加工单号
+            {
+                sql = "select sum(isnull(pid.ProduceQuantity,0)) as ProduceQuantity,sum(isnull(pid.HeJiBeforeTransferQuantity,0)) as HeJiBeforeTransferQuantity,sum(isnull(pid.ProceduresSum,0)) as ProceduresSum,sum(isnull(pid.CheckOutSum,0)) as CheckOutSum,sum(isnull(ProduceTransferQuantity,0)) as ProduceTransferQuantity from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate<='" + dateTime + "' and pid.WorkHouseId='" + workHouseId + "'";
+            }
+            else
+                sql = "select sum(isnull(pid.ProduceQuantity,0)) as ProduceQuantity,sum(isnull(pid.HeJiBeforeTransferQuantity,0)) as HeJiBeforeTransferQuantity,sum(isnull(pid.ProceduresSum,0)) as ProceduresSum,sum(isnull(pid.CheckOutSum,0)) as CheckOutSum,sum(isnull(ProduceTransferQuantity,0)) as ProduceTransferQuantity from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate<='" + dateTime + "' and pid.WorkHouseId='" + workHouseId + "' and pid.PronoteHeaderId in (" + pronoteHeaderIds + ")";
 
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text)[0];
         }
@@ -1668,6 +1675,30 @@ namespace Book.DA.SQLServer
         public IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateTime, string workHouseId, string incoiceXOId)
         {
             string sql = "select sum(isnull(ProduceQuantity,0)) as ProduceQuantity,pid.ProductId from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId in (" + productids + ") and pi.WorkHouseId='" + workHouseId + "' and pi.ProduceInDepotDate<='" + dateTime + "'  and pid.PronoteHeaderId in (select PronoteHeaderId from PronoteHeader where InvoiceXOId in (" + incoiceXOId + "))  group by pid.ProductId ";
+
+            return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
+        }
+
+        //计算所有射出部门的生产数量
+        public IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd)
+        {
+            string sql = "select a.*,p.ProductName,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum  from (select pid.ProductId, SUM(ProceduresSum) as ShengChan from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='1537e0b6-0ac8-43ea-a300-e121518d3f26' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and ProceduresSum<>0 group by pid.ProductId) a left join Product p on a.ProductId=p.ProductId left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId";
+
+            return this.DataReaderBind<Model.Product>(sql, null, CommandType.Text);
+        }
+
+        //计算单独在“射出”部门的合格数量（生产部门是射出，并且下个生产站不能是“强化/防雾”，“验片”） 
+        public IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd)
+        {
+            string sql = "select pid.ProductId, SUM(CheckOutSum) as CheckOutSum from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='1537e0b6-0ac8-43ea-a300-e121518d3f26' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and  (pid.WorkHouseId is null or pid.WorkHouseId not in ('2521761d-1e0c-4f23-89bc-fa40bf0fc66f','c3e6b2fc-d869-4cb1-b007-ec8dde0c87e5')) group by pid.ProductId";
+
+            return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
+        }
+
+        //计算经“强化/防雾”“验片”后的合格数量（生产部门是“验片”,此处抓验片的生产数量做合格数量） 
+        public IList<Model.ProduceInDepotDetail> SelectYanpianByDateRange(DateTime dateStart, DateTime dateEnd)
+        {
+            string sql = "select pid.ProductId, SUM(ProceduresSum) as CheckOutSum from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='c3e6b2fc-d869-4cb1-b007-ec8dde0c87e5' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' group by pid.ProductId";
 
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
         }

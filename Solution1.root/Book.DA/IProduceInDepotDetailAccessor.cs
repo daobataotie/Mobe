@@ -59,6 +59,12 @@ namespace Book.DA
         Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds);
 
         IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateTime, string workHouseId, string invoiceXOIds);
+
+        IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd);
+
+        IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd);
+
+        IList<Model.ProduceInDepotDetail> SelectYanpianByDateRange(DateTime dateStart, DateTime dateEnd);
     }
 }
 

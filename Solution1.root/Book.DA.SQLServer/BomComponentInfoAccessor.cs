@@ -50,5 +50,12 @@ namespace Book.DA.SQLServer
             string sql = "select BomId,UseQuantity,ProductId from BomComponentInfo where ProductId in (" + productIds + ")";
             return this.DataReaderBind<Model.BomComponentInfo>(sql, null, CommandType.Text);
         }
+
+        public IList<Model.BomComponentInfo> SelectProductIdAndUseQty(string bomId)
+        {
+            //string sql = "select bom.ProductId,bom.UseQuantity,p.ProductName from BomComponentInfo bom left join Product p on bom.ProductId=p.ProductId where bom.BomId='" + bomId + "' and bom.UseQuantity>0";
+            string sql = "select ProductId,UseQuantity from BomComponentInfo where BomId='" + bomId + "' and UseQuantity>0";
+            return this.DataReaderBind<Model.BomComponentInfo>(sql, null, CommandType.Text);
+        }
     }
 }

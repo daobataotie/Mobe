@@ -143,5 +143,7 @@ namespace Book.Model
         /// 是否为包材
         /// </summary>
         public bool isBaoCai { get; set; }
+
+        public string ProductName { get; set; }
     }
 }

@@ -4675,6 +4675,10 @@
       <DependentUpon>RO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\ProduceInDepot\CountMaterialForm.resx">
+      <DependentUpon>CountMaterialForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\ProduceInDepot\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -11736,6 +11740,12 @@
     </Compile>
     <Compile Include="produceManager\PCSampling\RO.Designer.cs">
       <DependentUpon>RO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\ProduceInDepot\CountMaterialForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\ProduceInDepot\CountMaterialForm.Designer.cs">
+      <DependentUpon>CountMaterialForm.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\ProduceInDepot\EditForm.cs">
       <SubType>Form</SubType>
