@@ -64,8 +64,8 @@ namespace Book.DA.SQLServer
             StringBuilder sql1 = new StringBuilder();
             StringBuilder sql2 = new StringBuilder();
             StringBuilder sql3 = new StringBuilder();
-            sql1.Append("SELECT di.DepotInDate AS Date,di.DepotInId AS InvoiceId,(SELECT Id FROM DepotPosition WHERE DepotPosition.DepotPositionId=dd.DepotPositionId) AS DepotPositionName,(SELECT DepotName FROM Depot WHERE Depot.DepotId=di.DepotId) AS DepotName,(SELECT ProductName FROM Product WHERE Product.ProductId=dd.ProductId) AS ProductName,dd.ProductUnit AS ProductUnit,isnull(dd.DepotInQuantity,0) AS Quantity FROM DepotInDetail dd LEFT JOIN DepotIn di ON di.DepotInId = dd.DepotInId WHERE di.DepotInDate BETWEEN '" + startDate + "' AND '" + endDate + "' ");
-            sql2.Append("SELECT do.DepotOutDate AS Date,do.DepotOutId AS InvoiceId,(SELECT Id FROM DepotPosition WHERE DepotPosition.DepotPositionId=dd.DepotPositionId) AS DepotPositionName,(SELECT DepotName FROM Depot WHERE Depot.DepotId=do.DepotId) AS DepotName,(SELECT ProductName FROM Product WHERE Product.ProductId=dd.ProductId) AS ProductName,dd.ProductUnit AS ProductUnit,(0-isnull(dd.DepotOutDetailQuantity,0))AS Quantity FROM DepotOutDetail dd LEFT JOIN DepotOut do ON do.DepotOutId = dd.DepotOutId WHERE do.DepotOutDate BETWEEN '" + startDate + "' AND '" + endDate + "'");
+            sql1.Append("SELECT di.DepotInDate AS Date,di.DepotInId AS InvoiceId,(SELECT Id FROM DepotPosition WHERE DepotPosition.DepotPositionId=dd.DepotPositionId) AS DepotPositionName,(SELECT DepotName FROM Depot WHERE Depot.DepotId=di.DepotId) AS DepotName,p.ProductName,pc1.ProductCategoryName as ProductCategoryName1,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,dd.ProductUnit AS ProductUnit,isnull(dd.DepotInQuantity,0) AS Quantity FROM DepotInDetail dd LEFT JOIN DepotIn di ON di.DepotInId = dd.DepotInId left join Product p on dd.ProductId=p.ProductId left join ProductCategory pc1 on pc1.ProductCategoryId=p.ProductCategoryId left join ProductCategory pc2 on pc2.ProductCategoryId=p.ProductCategoryId2 left join ProductCategory pc3 on pc3.ProductCategoryId=p.ProductCategoryId3 WHERE di.DepotInDate BETWEEN '" + startDate + "' AND '" + endDate + "' ");
+            sql2.Append("SELECT do.DepotOutDate AS Date,do.DepotOutId AS InvoiceId,(SELECT Id FROM DepotPosition WHERE DepotPosition.DepotPositionId=dd.DepotPositionId) AS DepotPositionName,(SELECT DepotName FROM Depot WHERE Depot.DepotId=do.DepotId) AS DepotName,p.ProductName,pc1.ProductCategoryName as ProductCategoryName1,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,dd.ProductUnit AS ProductUnit,(0-isnull(dd.DepotOutDetailQuantity,0))AS Quantity FROM DepotOutDetail dd LEFT JOIN DepotOut do ON do.DepotOutId = dd.DepotOutId left join Product p on dd.ProductId=p.ProductId left join ProductCategory pc1 on pc1.ProductCategoryId=p.ProductCategoryId left join ProductCategory pc2 on pc2.ProductCategoryId=p.ProductCategoryId2 left join ProductCategory pc3 on pc3.ProductCategoryId=p.ProductCategoryId3 WHERE do.DepotOutDate BETWEEN '" + startDate + "' AND '" + endDate + "'");
             if (!string.IsNullOrEmpty(depotStart) || !string.IsNullOrEmpty(depotEnd))
             {
                 if (!string.IsNullOrEmpty(depotStart) && !string.IsNullOrEmpty(depotEnd))
@@ -93,9 +93,9 @@ namespace Book.DA.SQLServer
             if (!string.IsNullOrEmpty(ProductIdStart) || !string.IsNullOrEmpty(ProductIdEnd))
             {
                 if (!string.IsNullOrEmpty(ProductIdStart) && !string.IsNullOrEmpty(ProductIdEnd))
-                    sql3.Append(" AND dd.ProductId IN(SELECT ProductId FROM Product WHERE Id BETWEEN '" + ProductIdStart + "' AND '" + ProductIdEnd + "')");
+                    sql3.Append(" AND p.Id BETWEEN '" + ProductIdStart + "' AND '" + ProductIdEnd + "'");
                 else
-                    sql3.Append(" AND dd.ProductId IN(SELECT ProductId FROM Product WHERE Id= '" + (string.IsNullOrEmpty(ProductIdStart) ? ProductIdEnd : ProductIdStart) + "')");
+                    sql3.Append(" AND p.Id= '" + (string.IsNullOrEmpty(ProductIdStart) ? ProductIdEnd : ProductIdStart) + "'");
             }
 
             string sql = sql1.ToString() + sql3.ToString() + " UNION All " + sql2.ToString() + sql3.ToString() + " ORDER BY InvoiceId,Date";

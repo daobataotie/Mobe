@@ -51,6 +51,10 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btn_ExportExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpProductCategoryEnd.Properties)).BeginInit();
@@ -75,6 +79,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // simpleButtonOK
@@ -96,6 +103,7 @@
             this.layoutControl1.Controls.Add(this.lookUpEditDepotStar);
             this.layoutControl1.Controls.Add(this.date_End);
             this.layoutControl1.Controls.Add(this.date_Start);
+            this.layoutControl1.Controls.Add(this.btn_ExportExcel);
             resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(48, 143, 250, 350);
@@ -215,7 +223,10 @@
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.layoutControlItem7,
-            this.layoutControlItem8});
+            this.layoutControlItem8,
+            this.layoutControlItem9,
+            this.emptySpaceItem1,
+            this.emptySpaceItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(520, 165);
@@ -228,24 +239,24 @@
             resources.ApplyResources(this.layoutControlItem1, "layoutControlItem1");
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(250, 25);
+            this.layoutControlItem1.Size = new System.Drawing.Size(251, 25);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(80, 14);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.date_End;
             resources.ApplyResources(this.layoutControlItem2, "layoutControlItem2");
-            this.layoutControlItem2.Location = new System.Drawing.Point(250, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(251, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(250, 25);
+            this.layoutControlItem2.Size = new System.Drawing.Size(249, 25);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(80, 14);
             // 
             // emptySpaceItem4
             // 
             resources.ApplyResources(this.emptySpaceItem4, "emptySpaceItem4");
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 100);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(250, 119);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(500, 45);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(250, 26);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -254,16 +265,16 @@
             resources.ApplyResources(this.layoutControlItem5, "layoutControlItem5");
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(250, 25);
+            this.layoutControlItem5.Size = new System.Drawing.Size(251, 25);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(80, 14);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.lookUpEditDepotEnd;
             resources.ApplyResources(this.layoutControlItem6, "layoutControlItem6");
-            this.layoutControlItem6.Location = new System.Drawing.Point(250, 25);
+            this.layoutControlItem6.Location = new System.Drawing.Point(251, 25);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(250, 25);
+            this.layoutControlItem6.Size = new System.Drawing.Size(249, 25);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(80, 14);
             // 
             // layoutControlItem3
@@ -272,16 +283,16 @@
             resources.ApplyResources(this.layoutControlItem3, "layoutControlItem3");
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(250, 25);
+            this.layoutControlItem3.Size = new System.Drawing.Size(251, 25);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(80, 14);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btn_ProductNameEnd;
             resources.ApplyResources(this.layoutControlItem4, "layoutControlItem4");
-            this.layoutControlItem4.Location = new System.Drawing.Point(250, 50);
+            this.layoutControlItem4.Location = new System.Drawing.Point(251, 50);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(250, 25);
+            this.layoutControlItem4.Size = new System.Drawing.Size(249, 25);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(80, 14);
             // 
             // layoutControlItem7
@@ -290,17 +301,51 @@
             resources.ApplyResources(this.layoutControlItem7, "layoutControlItem7");
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 75);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(250, 25);
+            this.layoutControlItem7.Size = new System.Drawing.Size(251, 25);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(80, 14);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.lookUpProductCategoryEnd;
             resources.ApplyResources(this.layoutControlItem8, "layoutControlItem8");
-            this.layoutControlItem8.Location = new System.Drawing.Point(250, 75);
+            this.layoutControlItem8.Location = new System.Drawing.Point(251, 75);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(250, 25);
+            this.layoutControlItem8.Size = new System.Drawing.Size(249, 25);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(80, 14);
+            // 
+            // btn_ExportExcel
+            // 
+            resources.ApplyResources(this.btn_ExportExcel, "btn_ExportExcel");
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.StyleController = this.layoutControl1;
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.btn_ExportExcel;
+            resources.ApplyResources(this.layoutControlItem9, "layoutControlItem9");
+            this.layoutControlItem9.Location = new System.Drawing.Point(141, 119);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(109, 26);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextToControlDistance = 0;
+            this.layoutControlItem9.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            resources.ApplyResources(this.emptySpaceItem1, "emptySpaceItem1");
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 100);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(500, 19);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem2
+            // 
+            resources.ApplyResources(this.emptySpaceItem2, "emptySpaceItem2");
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 119);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(141, 26);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // OutAndInDepotForm
             // 
@@ -335,6 +380,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -362,5 +410,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private System.Windows.Forms.BindingSource bindingSourceProductCategory;
+        private DevExpress.XtraEditors.SimpleButton btn_ExportExcel;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }
