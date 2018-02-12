@@ -54,7 +54,7 @@ namespace Book.DA.SQLServer
         public IList<Model.BomComponentInfo> SelectProductIdAndUseQty(string bomId)
         {
             //string sql = "select bom.ProductId,bom.UseQuantity,p.ProductName from BomComponentInfo bom left join Product p on bom.ProductId=p.ProductId where bom.BomId='" + bomId + "' and bom.UseQuantity>0";
-            string sql = "select ProductId,UseQuantity from BomComponentInfo where BomId='" + bomId + "' and UseQuantity>0";
+            string sql = "select bom.ProductId,UseQuantity from BomComponentInfo bom left join Product p on p.ProductId=bom.ProductId where BomId='" + bomId + "' and UseQuantity>0 and p.ProductCategoryId<>'14dd04b7-b42e-4e7a-817f-00c397fc9ab9'"; //原料不需要 色母/色粉
             return this.DataReaderBind<Model.BomComponentInfo>(sql, null, CommandType.Text);
         }
     }

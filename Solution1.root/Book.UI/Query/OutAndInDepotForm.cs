@@ -153,7 +153,7 @@ namespace Book.UI.Query
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]);
                 r.MergeCells = true;//合并单元格
 
                 excel.Cells.ColumnWidth = 20;
@@ -161,17 +161,18 @@ namespace Book.UI.Query
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
                 //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
-                excel.get_Range(excel.Cells[1, 7], excel.Cells[1, 7]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[1, 8], excel.Cells[1, 8]).HorizontalAlignment = -4108;
 
-                excel.Cells[2, 1] = "日期";
-                excel.Cells[2, 2] = "单据编号";
-                excel.Cells[2, 3] = "库房";
-                excel.Cells[2, 4] = "商品名称";
-                excel.Cells[2, 5] = "单位";
-                excel.Cells[2, 6] = "货位";
-                excel.Cells[2, 7] = "异动数量";
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 7]).Interior.Color = "12566463";
-                excel.get_Range(excel.Cells[2, 4], excel.Cells[2, 4]).ColumnWidth = 50;
+                excel.Cells[2, 1] = "单据类型";
+                excel.Cells[2, 2] = "日期";
+                excel.Cells[2, 3] = "单据编号";
+                excel.Cells[2, 4] = "库房";
+                excel.Cells[2, 5] = "商品名称";
+                excel.Cells[2, 6] = "单位";
+                excel.Cells[2, 7] = "货位";
+                excel.Cells[2, 8] = "异动数量";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 8]).Interior.Color = "12566463";
+                excel.get_Range(excel.Cells[2, 5], excel.Cells[2, 5]).ColumnWidth = 50;
 
 
                 DataRow[] dtHaveThreeCategory = dt.Select("ProductCategoryName3 is not null");
@@ -196,7 +197,7 @@ namespace Book.UI.Query
                 }
 
                 excel.Cells[row, 1] = "总计:";
-                excel.get_Range(excel.Cells[row, 7], excel.Cells[row, 7]).Formula = string.Format("=SUM(G3:G{0})", row - 1);//设置求和公式
+                excel.get_Range(excel.Cells[row, 8], excel.Cells[row, 8]).Formula = string.Format("=SUM(H3:H{0})", row - 1);//设置求和公式
 
                 excel.Visible = true;//是否打开该Excel文件
                 excel.WindowState = Microsoft.Office.Interop.Excel.XlWindowState.xlMaximized;
@@ -217,13 +218,14 @@ namespace Book.UI.Query
 
             foreach (var dr in item)
             {
-                excel.Cells[row, 1] = dr["Date"].ToString();
-                excel.Cells[row, 2] = dr["InvoiceId"];
-                excel.Cells[row, 3] = dr["DepotName"];
-                excel.Cells[row, 4] = dr["ProductName"];
-                excel.Cells[row, 5] = dr["ProductUnit"];
-                excel.Cells[row, 6] = dr["DepotPositionName"];
-                excel.Cells[row, 7] = dr["Quantity"].ToString();
+                excel.Cells[row, 1] = dr["InvoiceType"];
+                excel.Cells[row, 2] = dr["Date"].ToString();
+                excel.Cells[row, 3] = dr["InvoiceId"];
+                excel.Cells[row, 4] = dr["DepotName"];
+                excel.Cells[row, 5] = dr["ProductName"];
+                excel.Cells[row, 6] = dr["ProductUnit"];
+                excel.Cells[row, 7] = dr["DepotPositionName"];
+                excel.Cells[row, 8] = dr["Quantity"].ToString();
 
                 row++;
             }

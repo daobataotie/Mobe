@@ -140,7 +140,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                         if (model != null)
                         {
                             double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * pro.TotalHege;
-                            pro.MaterialDic[model.MaterialCategoryName] = value.ToString("0.####");
+                            pro.MaterialDic[model.MaterialCategoryName] = (value / 1000).ToString("0.####");  //换算KG
                         }
                     }
                 }
@@ -175,7 +175,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                 excel.Cells[2, 1] = "商品名称";
                 excel.Cells[2, 2] = "生产数量";
                 excel.Cells[2, 3] = "射出合格";
-                excel.Cells[2, 4] = "验片合格";
+                excel.Cells[2, 4] = "验片生产";
                 excel.Cells[2, 5] = "总合格";
                 excel.Cells[2, 7] = "毛重";
                 excel.Cells[2, 7 + Header.Count + 2] = "净重";

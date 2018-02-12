@@ -386,7 +386,7 @@ namespace Book.UI.Query
                         if (model != null)
                         {
                             double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * pro.TotalQty;
-                            pro.MaterialDic[model.MaterialCategoryName] = value.ToString("0.####");
+                            pro.MaterialDic[model.MaterialCategoryName] = (value / 1000).ToString("0.####");
                         }
                     }
                 }
