@@ -48,7 +48,7 @@ namespace Book.BL
                 throw new ArgumentException();
 
             invoice.InsertTime = DateTime.Now;
-            invoice.UpdateTime = DateTime.Now;            
+            invoice.UpdateTime = DateTime.Now;
             _Insert((Model.InvoiceHZ)invoice);
         }
 
@@ -78,7 +78,7 @@ namespace Book.BL
 
         #endregion
 
-        private void _TurnNull(Model.InvoiceHZ invoice) 
+        private void _TurnNull(Model.InvoiceHZ invoice)
         {
             invoice.InvoiceStatus = (int)Helper.InvoiceStatus.Null;
             _Update(invoice);
@@ -128,22 +128,22 @@ namespace Book.BL
         private void _Insert(Model.InvoiceHZ invoice)
         {
             _ValidateForInsert(invoice);
-            if (invoice.Supplier!=null)
-            invoice.SupplierId = invoice.Supplier.SupplierId;
+            if (invoice.Supplier != null)
+                invoice.SupplierId = invoice.Supplier.SupplierId;
             // 库房
             //invoice.DepotId = invoice.Depot.DepotId;
             //经手人
-            if(invoice.Employee0!=null)
-            invoice.Employee0Id = invoice.Employee0.EmployeeId;
+            if (invoice.Employee0 != null)
+                invoice.Employee0Id = invoice.Employee0.EmployeeId;
             //录单人
-            if(invoice.Employee1!=null)
-            invoice.Employee1Id = invoice.Employee1.EmployeeId;
+            if (invoice.Employee1 != null)
+                invoice.Employee1Id = invoice.Employee1.EmployeeId;
 
             if ((Helper.InvoiceStatus)invoice.InvoiceStatus.Value == Helper.InvoiceStatus.Normal)
             {
                 //过账人
-                if(invoice.Employee2!=null)
-                invoice.Employee2Id = invoice.Employee2.EmployeeId;
+                if (invoice.Employee2 != null)
+                    invoice.Employee2Id = invoice.Employee2.EmployeeId;
                 //过账时间
                 invoice.InvoiceGZTime = DateTime.Now;
             }
@@ -162,7 +162,7 @@ namespace Book.BL
                     throw new Exception("商品不為空");
                 }
 
-                detail.InvoiceId = invoice.InvoiceId;               
+                detail.InvoiceId = invoice.InvoiceId;
                 invoiceHZDetailAccessor.Insert(detail);
             }
             //影响库存
@@ -171,7 +171,7 @@ namespace Book.BL
                 foreach (Model.InvoiceHZDetail detail in invoice.Details)
                 {
                     if (detail.Product == null || string.IsNullOrEmpty(detail.Product.ProductId)) continue;
-                  
+
                     //if (detail.InvoiceProductUnit == detail.Product.ProductOuterPackagingUnit)
                     //{
                     //    p.ProductCurrentCGPrice = detail.InvoiceHZDetailPrice / Convert.ToDecimal(p.ProductBaseUnitRelationship.Value) / Convert.ToDecimal(p.ProductInnerUnitRelationship.Value);
@@ -192,21 +192,21 @@ namespace Book.BL
 
                     //stockAccessor.Increment(invoice.Depot, p, hzQuantity.Value);
                     //更新产品信息
-                    Model.Product pro = detail.Product;                   
-                    pro.StocksQuantity += detail.InvoiceHZDetailQuantity;
+                    Model.Product pro = detail.Product;
+                    pro.StocksQuantity = Convert.ToDouble(pro.StocksQuantity) + detail.InvoiceHZDetailQuantity;
                     productAccessor.Update(pro);
                     stockAccessor.Increment(detail.DepotPosition, detail.Product, detail.InvoiceHZDetailQuantity);
-                  
+
                 }
             }
         }
 
         private void _Update(Model.InvoiceHZ invoice)
         {
-            invoice.UpdateTime = DateTime.Now;           
+            invoice.UpdateTime = DateTime.Now;
             //invoice.DepotId = invoice.Depot.DepotId;
-            if(invoice.Employee0!=null)
-            invoice.Employee0Id = invoice.Employee0.EmployeeId;
+            if (invoice.Employee0 != null)
+                invoice.Employee0Id = invoice.Employee0.EmployeeId;
 
             Model.InvoiceHZ invoiceOriginal = this.Get(invoice.InvoiceId);
 
@@ -282,8 +282,8 @@ namespace Book.BL
 
 
                                 //更新产品信息
-                                Model.Product pro = detail.Product;                           
-                                pro.StocksQuantity-= detail.InvoiceHZDetailQuantity;
+                                Model.Product pro = detail.Product;
+                                pro.StocksQuantity -= detail.InvoiceHZDetailQuantity;
                                 productAccessor.Update(pro);
                                 //修改货位库存。
                                 stockAccessor.Decrement(detail.DepotPosition, pro, detail.InvoiceHZDetailQuantity);

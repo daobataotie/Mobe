@@ -189,6 +189,7 @@ namespace Book.BL
                 if (oldDetail.Product == null || oldDetail.Product.ProductId == null) continue;
                 oldDetail.DepotPosition = depotPositionAccessor.Get(oldDetail.DepotPositionId);
                 stockAccessor.Decrement(oldDetail.DepotPosition, oldDetail.Product, oldDetail.ProduceQuantity);
+                productAccessor.UpdateProduct_Stock(oldDetail.Product);
             }
         }
 

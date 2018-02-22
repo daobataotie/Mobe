@@ -244,6 +244,7 @@ namespace Book.BL
                                 //}
                                 //productAccessor.UpdateCost1(detail.Product, 0, -quantity);
                                 stockAccessor.Decrement(detail.DepotPosition, detail.Product, detail.InvoiceBYDetailQuantity);
+                                productAccessor.UpdateProduct_Stock(detail.Product);
                             }
                             break;
                     }
@@ -301,6 +302,7 @@ namespace Book.BL
                    // productAccessor.UpdateCost1(detail.Product, 0, quantity);
 
                    stockAccessor.Increment(detail.DepotPosition, detail.Product,detail.InvoiceBYDetailQuantity);
+                   productAccessor.UpdateProduct_Stock(detail.Product);
                 }
             }
         }
