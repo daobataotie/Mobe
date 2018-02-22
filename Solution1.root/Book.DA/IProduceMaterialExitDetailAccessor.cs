@@ -20,6 +20,7 @@ namespace Book.DA
         IList<Book.Model.ProduceMaterialExitDetail> Select(string houseid, DateTime startDate, DateTime endDate);
         IList<Model.ProduceMaterialExitDetail> SelectBycondition(DateTime starDate, DateTime endDate, string produceMaterialExitId0, string produceMaterialExitId1, Model.Product pId0, Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1);
         void Delete(Model.ProduceMaterialExit produceMaterialExit);
+        double SelectSumQtyFromZuzhuang(string productId, DateTime date, string workHouseId);
     }
 }
 

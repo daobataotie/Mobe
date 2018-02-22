@@ -19,38 +19,44 @@ namespace Book.DA.SQLServer
     /// </summary>
     public partial class ProduceMaterialExitDetailAccessor : EntityAccessor, IProduceMaterialExitDetailAccessor
     {
-      public     IList<Model.ProduceMaterialExitDetail> Select(Model.ProduceMaterialExit ProduceMaterialExit)
-      {
-          return sqlmapper.QueryForList<Model.ProduceMaterialExitDetail>("ProduceMaterialExitDetail.select_byProduceExitMaterialId", ProduceMaterialExit.ProduceMaterialExitId);        
-      }
-      public IList<Book.Model.ProduceMaterialExitDetail> Select(string houseid, DateTime startDate, DateTime endDate)
-      {
-          Hashtable ht = new Hashtable();
-          ht.Add("houseid", houseid);
-          ht.Add("startDate", startDate);
-          ht.Add("enddate", endDate);
-          return sqlmapper.QueryForList<Model.ProduceMaterialExitDetail>("ProduceMaterialExitDetail.SelectByHouseDates", ht);
-      }
+        public IList<Model.ProduceMaterialExitDetail> Select(Model.ProduceMaterialExit ProduceMaterialExit)
+        {
+            return sqlmapper.QueryForList<Model.ProduceMaterialExitDetail>("ProduceMaterialExitDetail.select_byProduceExitMaterialId", ProduceMaterialExit.ProduceMaterialExitId);
+        }
+        public IList<Book.Model.ProduceMaterialExitDetail> Select(string houseid, DateTime startDate, DateTime endDate)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("houseid", houseid);
+            ht.Add("startDate", startDate);
+            ht.Add("enddate", endDate);
+            return sqlmapper.QueryForList<Model.ProduceMaterialExitDetail>("ProduceMaterialExitDetail.SelectByHouseDates", ht);
+        }
 
-      public IList<Model.ProduceMaterialExitDetail> SelectBycondition(DateTime starDate, DateTime endDate, string produceMaterialExitId0, string produceMaterialExitId1, Model.Product pId0, Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1)
-      {
-          Hashtable ht = new Hashtable();
-          ht.Add("starDate", starDate);
-          ht.Add("endDate", endDate);
-          ht.Add("produceMaterialExitId0", produceMaterialExitId0);
-          ht.Add("produceMaterialExitId1", produceMaterialExitId1);
-          ht.Add("pId0", pId0 == null ? null : pId0.ProductName);
-          ht.Add("pId1", pId1 == null ? null : pId1.ProductName);
-          ht.Add("dId0", departmentId0);
-          ht.Add("dId1", departmentId1);
-          ht.Add("pronoteId0", PronoteHeaderId0);
-          ht.Add("pronoteId1", PronoteHeaderId1);
-          return sqlmapper.QueryForList<Model.ProduceMaterialExitDetail>("ProduceMaterialExitDetail.selectByCondition", ht);
-      }
-      public void Delete(Model.ProduceMaterialExit produceMaterialExit)
-      {
-          sqlmapper.Delete("ProduceMaterialExitDetail.delete_byheader", produceMaterialExit.ProduceMaterialExitId);
-      }
-        
+        public IList<Model.ProduceMaterialExitDetail> SelectBycondition(DateTime starDate, DateTime endDate, string produceMaterialExitId0, string produceMaterialExitId1, Model.Product pId0, Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("starDate", starDate);
+            ht.Add("endDate", endDate);
+            ht.Add("produceMaterialExitId0", produceMaterialExitId0);
+            ht.Add("produceMaterialExitId1", produceMaterialExitId1);
+            ht.Add("pId0", pId0 == null ? null : pId0.ProductName);
+            ht.Add("pId1", pId1 == null ? null : pId1.ProductName);
+            ht.Add("dId0", departmentId0);
+            ht.Add("dId1", departmentId1);
+            ht.Add("pronoteId0", PronoteHeaderId0);
+            ht.Add("pronoteId1", PronoteHeaderId1);
+            return sqlmapper.QueryForList<Model.ProduceMaterialExitDetail>("ProduceMaterialExitDetail.selectByCondition", ht);
+        }
+        public void Delete(Model.ProduceMaterialExit produceMaterialExit)
+        {
+            sqlmapper.Delete("ProduceMaterialExitDetail.delete_byheader", produceMaterialExit.ProduceMaterialExitId);
+        }
+
+        public double SelectSumQtyFromZuzhuang(string productId, DateTime date, string workHouseId)
+        {
+            string sql = "select sum(ISNULL(ped.ProduceQuantity,0)) from ProduceMaterialExitDetail ped left join ProduceMaterialExit pe on ped.ProduceMaterialExitId=pe.ProduceMaterialExitId where ped.ProductId='" + productId + "' and pe.ProduceExitMaterialDate<'" + date + "' and pe.WorkHouseId='" + workHouseId + "'";
+
+            return Convert.ToDouble(this.QueryObject(sql));
+        }
     }
 }

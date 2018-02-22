@@ -23,6 +23,7 @@ namespace Book.UI.Query
         BL.WorkHouseManager workHouseManager = new Book.BL.WorkHouseManager();
         BL.MaterialManager materialManager = new Book.BL.MaterialManager();
         IList<Model.Product> listProduct;
+        BL.ProduceMaterialExitDetailManager produceMaterialExitDetailManager = new Book.BL.ProduceMaterialExitDetailManager();
 
         public ImmediateStock()
         {
@@ -143,6 +144,7 @@ namespace Book.UI.Query
 
 
                 #region 组装现场:合计前单位转入+ 合计领料单领出 - 合计出库数量（合计转生产到其他部门，成品入库数量换算后扣减数量）
+                //2018年2月22日13:18:54： 组装现场:合计前单位转入+ 合计领料单领出 - 合计出库数量（合计转生产到其他部门，成品入库数量换算后扣减数量）- 生产退料（从组装现场退的）
                 //领到 组装现场 部门的数量
                 double materialQty = 0;
                 if (!string.IsNullOrEmpty(invoiceXOIds))
@@ -154,6 +156,9 @@ namespace Book.UI.Query
                 //计算 组装现场 部门转入其他部门的数量
                 Model.ProduceInDepotDetail pidZuzhuangOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
                 double zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
+
+                //计算 从组装现场退回的 生产退料
+                double exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang);
 
 
                 #region 查询商品对应的所有母件 入库 扣减
@@ -181,7 +186,8 @@ namespace Book.UI.Query
 
                 #endregion
 
-                double zuzhuangXianchang = zuzhuangTransferIn + materialQty - zuzhuangTransferOut - deductionQty;
+                //double zuzhuangXianchang = zuzhuangTransferIn + materialQty - zuzhuangTransferOut - deductionQty;
+                double zuzhuangXianchang = zuzhuangTransferIn + materialQty - zuzhuangTransferOut - deductionQty - exitQty;
                 zuzhuangXianchang = zuzhuangXianchang < 0 ? 0 : zuzhuangXianchang;
 
                 item.XianchangZuzhuang = zuzhuangXianchang;

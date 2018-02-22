@@ -29,7 +29,8 @@ namespace Book.BL
             //
             // todo:add other logic here
             //
-            accessor.Delete(produceExitMaterialId);
+            Model.ProduceMaterialExit model = this.Get(produceExitMaterialId);
+            this.Delete(model);
         }
 
         /// <summary>
