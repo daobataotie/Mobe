@@ -8,6 +8,7 @@
 using System;
 using System.Text;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Book.BL
 {
@@ -686,6 +687,11 @@ namespace Book.BL
         public IList<Model.Product> SelectProductIdAndName()
         {
             return accessor.SelectProductIdAndName();
+        }
+
+        public DataTable SelectProductCategoryByProductIds(string productIds)
+        {
+            return accessor.SelectProductCategoryByProductIds(productIds);
         }
     }
 }

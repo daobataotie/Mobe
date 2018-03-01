@@ -157,7 +157,7 @@ namespace Book.UI.Query
                 r.MergeCells = true;//合并单元格
 
                 excel.Cells.ColumnWidth = 20;
-                excel.Cells[1, 1] = "商品进出仓明细(" + this.condition.StartDate.ToString("yyyy-MM-dd") + this.condition.EndDate.ToString("yyyy-MM-dd") + ")";
+                excel.Cells[1, 1] = "商品进出仓明细(" + this.condition.StartDate.ToString("yyyy-MM-dd") + " ~ " + this.condition.EndDate.ToString("yyyy-MM-dd") + ")";
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
                 //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");

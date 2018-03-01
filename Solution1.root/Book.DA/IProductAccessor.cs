@@ -8,6 +8,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Book.DA
 {
@@ -65,6 +66,8 @@ namespace Book.DA
         IList<Model.Product> SelectIdAndStock(string categoryId);
 
         IList<Model.Product> SelectProductIdAndName();
+
+        DataTable SelectProductCategoryByProductIds(string productIds);
     }
 }
 

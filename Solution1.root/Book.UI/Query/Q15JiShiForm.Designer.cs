@@ -57,6 +57,7 @@
             this.repositoryItemRichTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -77,7 +78,8 @@
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btn_ExportExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -116,6 +118,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             this.SuspendLayout();
             // 
             // bar1
@@ -124,6 +127,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.btn_ExportExcel);
             this.layoutControl1.Controls.Add(this.labelControl1);
             this.layoutControl1.Controls.Add(this.checkEditShowZeroProduct);
             this.layoutControl1.Controls.Add(this.btn_MaterialCount);
@@ -168,7 +172,7 @@
             // 
             this.btn_MaterialCount.Location = new System.Drawing.Point(605, 62);
             this.btn_MaterialCount.Name = "btn_MaterialCount";
-            this.btn_MaterialCount.Size = new System.Drawing.Size(206, 22);
+            this.btn_MaterialCount.Size = new System.Drawing.Size(139, 22);
             this.btn_MaterialCount.StyleController = this.layoutControl1;
             this.btn_MaterialCount.TabIndex = 14;
             this.btn_MaterialCount.Text = "原料换算";
@@ -474,11 +478,19 @@
             this.gridColumn9.VisibleIndex = 5;
             this.gridColumn9.Width = 38;
             // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "已定未入";
+            this.gridColumn11.FieldName = "OrderOnWayQuantity";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 8;
+            // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(815, 62);
+            this.simpleButton1.Location = new System.Drawing.Point(748, 62);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(199, 22);
+            this.simpleButton1.Size = new System.Drawing.Size(130, 22);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 5;
             this.simpleButton1.Text = "查询";
@@ -502,7 +514,8 @@
             this.layoutControlItem2,
             this.layoutControlItem16,
             this.layoutControlItem17,
-            this.layoutControlItem18});
+            this.layoutControlItem18,
+            this.layoutControlItem19});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1026, 530);
@@ -616,9 +629,9 @@
             // 
             this.layoutControlItem2.Control = this.simpleButton1;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(803, 50);
+            this.layoutControlItem2.Location = new System.Drawing.Point(736, 50);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(203, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(134, 26);
             this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextToControlDistance = 0;
@@ -630,7 +643,7 @@
             this.layoutControlItem16.CustomizationFormText = "layoutControlItem16";
             this.layoutControlItem16.Location = new System.Drawing.Point(593, 50);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(210, 26);
+            this.layoutControlItem16.Size = new System.Drawing.Size(143, 26);
             this.layoutControlItem16.Text = "layoutControlItem16";
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextToControlDistance = 0;
@@ -711,13 +724,27 @@
             this.layoutControlItem14.TextSize = new System.Drawing.Size(72, 14);
             this.layoutControlItem14.TextToControlDistance = 5;
             // 
-            // gridColumn11
+            // btn_ExportExcel
             // 
-            this.gridColumn11.Caption = "已定未入";
-            this.gridColumn11.FieldName = "OrderOnWayQuantity";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 8;
+            this.btn_ExportExcel.Location = new System.Drawing.Point(882, 62);
+            this.btn_ExportExcel.Name = "btn_ExportExcel";
+            this.btn_ExportExcel.Size = new System.Drawing.Size(132, 22);
+            this.btn_ExportExcel.StyleController = this.layoutControl1;
+            this.btn_ExportExcel.TabIndex = 17;
+            this.btn_ExportExcel.Text = "导出Excel";
+            this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
+            // 
+            // layoutControlItem19
+            // 
+            this.layoutControlItem19.Control = this.btn_ExportExcel;
+            this.layoutControlItem19.CustomizationFormText = "layoutControlItem19";
+            this.layoutControlItem19.Location = new System.Drawing.Point(870, 50);
+            this.layoutControlItem19.Name = "layoutControlItem19";
+            this.layoutControlItem19.Size = new System.Drawing.Size(136, 26);
+            this.layoutControlItem19.Text = "layoutControlItem19";
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem19.TextToControlDistance = 0;
+            this.layoutControlItem19.TextVisible = false;
             // 
             // Q15JiShiForm
             // 
@@ -766,6 +793,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -821,5 +849,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraEditors.SimpleButton btn_ExportExcel;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
     }
 }

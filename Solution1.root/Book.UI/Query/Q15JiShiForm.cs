@@ -17,6 +17,7 @@ namespace Book.UI.Query
         private BL.DepotPositionManager depotPositionMananger = new BL.DepotPositionManager();
         private BL.DepotManager depotManager = new BL.DepotManager();
         private DataTable dt = new DataTable();
+        private BL.ProductManager productManager = new Book.BL.ProductManager();
         public Q15JiShiForm()
         {
             InitializeComponent();
@@ -129,7 +130,7 @@ namespace Book.UI.Query
             dt.DefaultView.Sort = "spid,Quantity asc";
             dt = dt.DefaultView.ToTable();
             DataRow[] dr = dt.Select("Quantity<>'0'");
-            if (!this.checkEditShowZeroProduct.Checked && dr.Count()>0)
+            if (!this.checkEditShowZeroProduct.Checked && dr.Count() > 0)
                 dt = dr.CopyToDataTable();
             this.gridControl1.DataSource = dt;
             this.labelControl1.Text = dt.Rows.Count.ToString() + " 项";
@@ -197,6 +198,50 @@ namespace Book.UI.Query
         private void LookUpProductCategoryStart_EditValueChanged(object sender, EventArgs e)
         {
             this.lookUpProductCategoryEnd.EditValue = this.LookUpProductCategoryStart.EditValue;
+        }
+
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                MessageBox.Show("无数据", "提示", MessageBoxButtons.OK);
+                return;
+            }
+            string productIDs = "(";
+
+
+            DataTable excelDT = new DataTable();
+            excelDT.Columns.Add("ProductId", typeof(string));
+            excelDT.Columns.Add("Quantity", typeof(string));
+            excelDT.Columns.Add("ProductCategoryName1", typeof(string));
+            excelDT.Columns.Add("ProductCategoryName2", typeof(string));
+            excelDT.Columns.Add("ProductCategoryName3", typeof(string));
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                if (i == 0 || dt.Rows[i]["productid"].ToString() != dt.Rows[i - 1]["productid"].ToString())
+                {
+                    excelDT.Rows.Add(dt.Rows[i]["productid"].ToString(), dt.Rows[i]["Quantity"].ToString());
+                    productIDs = "'" + dt.Rows[i]["productid"].ToString() + "',";
+                }
+                else
+                {
+                    excelDT.Rows[i - 1]["Quantity"] = Convert.ToDouble(excelDT.Rows[i - 1]["Quantity"]) + Convert.ToDouble(excelDT.Rows[i]["Quantity"]);
+                }
+            }
+
+            productIDs = productIDs.TrimEnd(',') + ")";
+            DataTable dtCategory = productManager.SelectProductCategoryByProductIds(productIDs);
+
+            excelDT.AsEnumerable().ToList().ForEach(P =>
+            {
+                DataRow dr = dtCategory.AsEnumerable().First(D => D.Field<string>("ProductId") == P.Field<string>("productid"));
+                P["ProductCategoryName1"] = dr["ProductCategoryName1"];
+                P["ProductCategoryName2"] = dr["ProductCategoryName2"];
+                P["ProductCategoryName3"] = dr["ProductCategoryName3"];
+            });
+
+            string s = "";
         }
     }
 }

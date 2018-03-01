@@ -352,6 +352,16 @@ namespace Book.DA.SQLServer
             return this.DataReaderBind<Model.Product>(sql, null, CommandType.Text);
         }
 
+        public DataTable SelectProductCategoryByProductIds(string productIds)
+        {
+            string sql = "select p.ProductId,pc1.ProductCategoryName as ProductCategoryName1,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3 from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId where ProductId in " + productIds + "";
+
+            SqlDataAdapter sda = new SqlDataAdapter(sql, sqlmapper.DataSource.ConnectionString);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt;
+        }
+
         #endregion
 
         #region /*CdmiN--2011年9月29日16:05:38*/ 更新product表,使其与stock表中数据对应
