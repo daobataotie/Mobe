@@ -212,6 +212,8 @@ namespace Book.UI.Query
 
             DataTable excelDT = new DataTable();
             excelDT.Columns.Add("ProductId", typeof(string));
+            excelDT.Columns.Add("Id", typeof(string));
+            excelDT.Columns.Add("ProductName", typeof(string));
             excelDT.Columns.Add("Quantity", typeof(string));
             excelDT.Columns.Add("ProductCategoryName1", typeof(string));
             excelDT.Columns.Add("ProductCategoryName2", typeof(string));
@@ -221,12 +223,12 @@ namespace Book.UI.Query
             {
                 if (i == 0 || dt.Rows[i]["productid"].ToString() != dt.Rows[i - 1]["productid"].ToString())
                 {
-                    excelDT.Rows.Add(dt.Rows[i]["productid"].ToString(), dt.Rows[i]["Quantity"].ToString());
-                    productIDs = "'" + dt.Rows[i]["productid"].ToString() + "',";
+                    excelDT.Rows.Add(dt.Rows[i]["productid"].ToString(), dt.Rows[i]["spid"].ToString(), dt.Rows[i]["productName"].ToString(), dt.Rows[i]["Quantity"].ToString());
+                    productIDs += "'" + dt.Rows[i]["productid"].ToString() + "',";
                 }
                 else
                 {
-                    excelDT.Rows[i - 1]["Quantity"] = Convert.ToDouble(excelDT.Rows[i - 1]["Quantity"]) + Convert.ToDouble(excelDT.Rows[i]["Quantity"]);
+                    excelDT.Rows[excelDT.Rows.Count - 1]["Quantity"] = Convert.ToDouble(excelDT.Rows[excelDT.Rows.Count - 1]["Quantity"]) + Convert.ToDouble(dt.Rows[i]["Quantity"]);
                 }
             }
 
@@ -241,7 +243,84 @@ namespace Book.UI.Query
                 P["ProductCategoryName3"] = dr["ProductCategoryName3"];
             });
 
-            string s = "";
+            DataRow[] dtHaveThreeCategory = excelDT.Select("ProductCategoryName3 is not null");
+            DataRow[] dtHaveTwoCategory = excelDT.Select("ProductCategoryName3 is null and ProductCategoryName2 is not null");
+            DataRow[] dtHaveOneCategory = excelDT.Select("ProductCategoryName2 is null and ProductCategoryName3 is null");
+
+
+            try
+            {
+                Type objClassType = null;
+                objClassType = Type.GetTypeFromProgID("Excel.Application");
+                if (objClassType == null)
+                {
+                    MessageBox.Show("本機沒有安裝Excel", "提示！", MessageBoxButtons.OK);
+                    return;
+                }
+
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Application.Workbooks.Add(true);
+
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 3]);
+                r.MergeCells = true;//合并单元格
+
+                excel.Cells.ColumnWidth = 20;
+                excel.Cells[1, 1] = "商品即时库存(" + this.dateEdit1.DateTime.ToString("yyyy-MM-dd") + ")";
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
+                excel.get_Range(excel.Cells[1, 3], excel.Cells[1, 3]).HorizontalAlignment = -4108;
+
+                excel.Cells[2, 1] = "商品编号";
+                excel.Cells[2, 2] = "商品名称";
+                excel.Cells[2, 3] = "即时库存";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 3]).Interior.Color = "12566463";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 2]).ColumnWidth = 50;
+                int row = 3;
+
+                foreach (var item in dtHaveThreeCategory.AsEnumerable().GroupBy(F => F.Field<string>("ProductCategoryName3")))
+                {
+                    SetExcelFormat(excel, ref  row, item);
+                }
+
+                foreach (var item in dtHaveTwoCategory.AsEnumerable().GroupBy(F => F.Field<string>("ProductCategoryName2")))
+                {
+                    SetExcelFormat(excel, ref  row, item);
+                }
+
+                foreach (var item in dtHaveOneCategory.AsEnumerable().GroupBy(F => F.Field<string>("ProductCategoryName1")))
+                {
+                    SetExcelFormat(excel, ref row, item);
+                }
+
+                excel.Cells[row, 1] = "总计:";
+                excel.get_Range(excel.Cells[row, 8], excel.Cells[row, 8]).Formula = string.Format("=SUM(H3:H{0})", row - 1);//设置求和公式
+
+                excel.Visible = true;//是否打开该Excel文件
+                excel.WindowState = Microsoft.Office.Interop.Excel.XlWindowState.xlMaximized;
+            }
+            catch
+            {
+                MessageBox.Show("Excel未生成完畢，請勿操作，并重新點擊按鈕生成數據！", "提示！", MessageBoxButtons.OK);
+                return;
+            }
+        }
+
+        private void SetExcelFormat(Microsoft.Office.Interop.Excel.Application excel, ref int row, IGrouping<string, DataRow> item)
+        {
+            excel.Cells[row, 1] = item.Key;
+            excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 1]).Interior.Color = "255";
+
+            row++;
+
+            foreach (var dr in item)
+            {
+                excel.Cells[row, 1] = dr["Id"];
+                excel.Cells[row, 2] = dr["ProductName"];
+                excel.Cells[row, 3] = dr["Quantity"].ToString();
+
+                row++;
+            }
+            row++;
         }
     }
 }
