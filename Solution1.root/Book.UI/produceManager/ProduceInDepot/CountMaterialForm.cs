@@ -140,7 +140,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                         if (model != null)
                         {
                             double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * pro.TotalHege;
-                            pro.MaterialDic[model.MaterialCategoryName] = (value / 1000).ToString("0.####");  //换算KG
+                            pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");  //换算KG
                         }
                     }
                 }

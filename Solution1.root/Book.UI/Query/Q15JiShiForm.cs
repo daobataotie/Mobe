@@ -18,6 +18,7 @@ namespace Book.UI.Query
         private BL.DepotManager depotManager = new BL.DepotManager();
         private DataTable dt = new DataTable();
         private BL.ProductManager productManager = new Book.BL.ProductManager();
+        BL.MaterialManager materialManager = new Book.BL.MaterialManager();
         public Q15JiShiForm()
         {
             InitializeComponent();
@@ -209,44 +210,61 @@ namespace Book.UI.Query
             }
             string productIDs = "(";
 
+            List<Model.Product> list = new List<Book.Model.Product>();
 
-            DataTable excelDT = new DataTable();
-            excelDT.Columns.Add("ProductId", typeof(string));
-            excelDT.Columns.Add("Id", typeof(string));
-            excelDT.Columns.Add("ProductName", typeof(string));
-            excelDT.Columns.Add("Quantity", typeof(string));
-            excelDT.Columns.Add("ProductCategoryName1", typeof(string));
-            excelDT.Columns.Add("ProductCategoryName2", typeof(string));
-            excelDT.Columns.Add("ProductCategoryName3", typeof(string));
+            //DataTable excelDT = new DataTable();
+            //excelDT.Columns.Add("ProductId", typeof(string));
+            //excelDT.Columns.Add("Id", typeof(string));
+            //excelDT.Columns.Add("ProductName", typeof(string));
+            //excelDT.Columns.Add("Quantity", typeof(string));
+            //excelDT.Columns.Add("ProductCategoryName1", typeof(string));
+            //excelDT.Columns.Add("ProductCategoryName2", typeof(string));
+            //excelDT.Columns.Add("ProductCategoryName3", typeof(string));
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 if (i == 0 || dt.Rows[i]["productid"].ToString() != dt.Rows[i - 1]["productid"].ToString())
                 {
-                    excelDT.Rows.Add(dt.Rows[i]["productid"].ToString(), dt.Rows[i]["spid"].ToString(), dt.Rows[i]["productName"].ToString(), dt.Rows[i]["Quantity"].ToString());
+                    //excelDT.Rows.Add(dt.Rows[i]["productid"].ToString(), dt.Rows[i]["spid"].ToString(), dt.Rows[i]["productName"].ToString(), dt.Rows[i]["Quantity"].ToString());
+                    list.Add(new Model.Product() { ProductId = dt.Rows[i]["productid"].ToString(), Id = dt.Rows[i]["spid"].ToString(), ProductName = dt.Rows[i]["productName"].ToString(), StocksQuantity = Convert.ToDouble(dt.Rows[i]["Quantity"]) });
                     productIDs += "'" + dt.Rows[i]["productid"].ToString() + "',";
                 }
                 else
                 {
-                    excelDT.Rows[excelDT.Rows.Count - 1]["Quantity"] = Convert.ToDouble(excelDT.Rows[excelDT.Rows.Count - 1]["Quantity"]) + Convert.ToDouble(dt.Rows[i]["Quantity"]);
+                    //excelDT.Rows[excelDT.Rows.Count - 1]["Quantity"] = Convert.ToDouble(excelDT.Rows[excelDT.Rows.Count - 1]["Quantity"]) + Convert.ToDouble(dt.Rows[i]["Quantity"]);
+                    Model.Product pro = list.First(P => P.ProductId == dt.Rows[i]["productid"].ToString());
+                    pro.StocksQuantity = Convert.ToDouble(pro.StocksQuantity) + Convert.ToDouble(dt.Rows[i]["Quantity"]);
                 }
             }
 
             productIDs = productIDs.TrimEnd(',') + ")";
             DataTable dtCategory = productManager.SelectProductCategoryByProductIds(productIDs);
 
-            excelDT.AsEnumerable().ToList().ForEach(P =>
+            //excelDT.AsEnumerable().ToList().ForEach(P =>
+            //{
+            //    DataRow dr = dtCategory.AsEnumerable().First(D => D.Field<string>("ProductId") == P.Field<string>("productid"));
+            //    P["ProductCategoryName1"] = dr["ProductCategoryName1"];
+            //    P["ProductCategoryName2"] = dr["ProductCategoryName2"];
+            //    P["ProductCategoryName3"] = dr["ProductCategoryName3"];
+            //});
+            list.ForEach(Product =>
             {
-                DataRow dr = dtCategory.AsEnumerable().First(D => D.Field<string>("ProductId") == P.Field<string>("productid"));
-                P["ProductCategoryName1"] = dr["ProductCategoryName1"];
-                P["ProductCategoryName2"] = dr["ProductCategoryName2"];
-                P["ProductCategoryName3"] = dr["ProductCategoryName3"];
+                DataRow dr = dtCategory.AsEnumerable().First(D => D.Field<string>("ProductId") == Product.ProductId);
+                Product.ProductCategoryName = dr["ProductCategoryName1"].ToString();
+                Product.ProductCategoryName2 = dr["ProductCategoryName2"].ToString();
+                Product.ProductCategoryName3 = dr["ProductCategoryName3"].ToString();
+                Product.MaterialIds = dr["MaterialIds"].ToString();
+                Product.MaterialNum = dr["MaterialNum"].ToString();
             });
 
-            DataRow[] dtHaveThreeCategory = excelDT.Select("ProductCategoryName3 is not null");
-            DataRow[] dtHaveTwoCategory = excelDT.Select("ProductCategoryName3 is null and ProductCategoryName2 is not null");
-            DataRow[] dtHaveOneCategory = excelDT.Select("ProductCategoryName2 is null and ProductCategoryName3 is null");
+            //DataRow[] dtHaveThreeCategory = excelDT.Select("ProductCategoryName3 is not null");
+            //DataRow[] dtHaveTwoCategory = excelDT.Select("ProductCategoryName3 is null and ProductCategoryName2 is not null");
+            //DataRow[] dtHaveOneCategory = excelDT.Select("ProductCategoryName2 is null and ProductCategoryName3 is null");
+            List<Model.Product> listHaveThreeCategory = list.Where(P => !string.IsNullOrEmpty(P.ProductCategoryName3)).ToList();
+            List<Model.Product> listHaveTwoCategory = list.Where(P => !string.IsNullOrEmpty(P.ProductCategoryName2) && string.IsNullOrEmpty(P.ProductCategoryName3)).ToList();
+            List<Model.Product> listHaveOneCategory = list.Where(P => string.IsNullOrEmpty(P.ProductCategoryName2) && string.IsNullOrEmpty(P.ProductCategoryName3)).ToList();
 
+            ConvertMaterial(list);
 
             try
             {
@@ -277,23 +295,30 @@ namespace Book.UI.Query
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 2]).ColumnWidth = 50;
                 int row = 3;
 
-                foreach (var item in dtHaveThreeCategory.AsEnumerable().GroupBy(F => F.Field<string>("ProductCategoryName3")))
+                int col = 5;
+                //原料
+                foreach (var item in list[0].MaterialDic)
+                {
+                    excel.Cells[2, col++] = item.Key;
+                }
+
+                foreach (var item in listHaveThreeCategory.GroupBy(P => P.ProductCategoryName3))
                 {
                     SetExcelFormat(excel, ref  row, item);
                 }
 
-                foreach (var item in dtHaveTwoCategory.AsEnumerable().GroupBy(F => F.Field<string>("ProductCategoryName2")))
+                foreach (var item in listHaveTwoCategory.GroupBy(P => P.ProductCategoryName2))
                 {
                     SetExcelFormat(excel, ref  row, item);
                 }
 
-                foreach (var item in dtHaveOneCategory.AsEnumerable().GroupBy(F => F.Field<string>("ProductCategoryName1")))
+                foreach (var item in listHaveOneCategory.GroupBy(P => P.ProductCategoryName))
                 {
                     SetExcelFormat(excel, ref row, item);
                 }
 
                 excel.Cells[row, 1] = "总计:";
-                excel.get_Range(excel.Cells[row, 8], excel.Cells[row, 8]).Formula = string.Format("=SUM(H3:H{0})", row - 1);//设置求和公式
+                excel.get_Range(excel.Cells[row, 3], excel.Cells[row, 3]).Formula = string.Format("=SUM(C3:C{0})", row - 1);//设置求和公式
 
                 excel.Visible = true;//是否打开该Excel文件
                 excel.WindowState = Microsoft.Office.Interop.Excel.XlWindowState.xlMaximized;
@@ -305,22 +330,61 @@ namespace Book.UI.Query
             }
         }
 
-        private void SetExcelFormat(Microsoft.Office.Interop.Excel.Application excel, ref int row, IGrouping<string, DataRow> item)
+        private void SetExcelFormat(Microsoft.Office.Interop.Excel.Application excel, ref int row, IGrouping<string, Model.Product> item)
         {
             excel.Cells[row, 1] = item.Key;
             excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 1]).Interior.Color = "255";
 
             row++;
 
-            foreach (var dr in item)
+            foreach (var pro in item)
             {
-                excel.Cells[row, 1] = dr["Id"];
-                excel.Cells[row, 2] = dr["ProductName"];
-                excel.Cells[row, 3] = dr["Quantity"].ToString();
+                excel.Cells[row, 1] = pro.Id;
+                excel.Cells[row, 2] = pro.ProductName;
+                excel.Cells[row, 3] = pro.StocksQuantity;
+
+                int col = 5;
+                foreach (var dic in pro.MaterialDic)
+                {
+                    excel.Cells[row, col++] = dic.Value;
+                }
 
                 row++;
             }
             row++;
+        }
+
+        private void ConvertMaterial(List<Model.Product> list)
+        {
+            IList<string> str = materialManager.SelectMaterialCategory();
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+
+
+            foreach (var pro in list)
+            {
+                pro.MaterialDic = new Dictionary<string, string>();
+                foreach (var item in str)
+                {
+                    pro.MaterialDic.Add(item, "0");
+                }
+
+
+                if (!string.IsNullOrEmpty(pro.MaterialIds))
+                {
+                    string[] materialIds = pro.MaterialIds.Split(',');
+                    string[] materialnums = pro.MaterialNum.Split(',');
+
+                    for (int i = 0; i < materialIds.Length; i++)
+                    {
+                        Model.Material model = materialManager.Get(materialIds[i]);
+                        if (model != null)
+                        {
+                            double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * Convert.ToDouble(pro.StocksQuantity);
+                            pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -354,7 +354,7 @@ namespace Book.DA.SQLServer
 
         public DataTable SelectProductCategoryByProductIds(string productIds)
         {
-            string sql = "select p.ProductId,pc1.ProductCategoryName as ProductCategoryName1,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3 from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId where ProductId in " + productIds + "";
+            string sql = "select p.MaterialIds,p.MaterialNum,p.ProductId,pc1.ProductCategoryName as ProductCategoryName1,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3 from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId where ProductId in " + productIds + "";
 
             SqlDataAdapter sda = new SqlDataAdapter(sql, sqlmapper.DataSource.ConnectionString);
             DataTable dt = new DataTable();
