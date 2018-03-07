@@ -396,6 +396,14 @@ namespace Book.BL
                                     bGHandbookDetail1Manager.UpdateYidingweiru(detail, 0 - detail.NoArrivalQuantity.Value);
                                 }
                                 //  invoiceCODetailAccessor.Update(detail);
+                                //更改物料需求，删除采购单已生成采购单的状态
+                                Model.MRSdetails model;
+                                model = MRSdetailsManager.Get(detail.MRSdetailId);
+                                if (model != null)
+                                {
+                                    model.ArrangeDesc = string.Empty;
+                                    MRSdetailsManager.Update(model);
+                                }
                             }
                             break;
 

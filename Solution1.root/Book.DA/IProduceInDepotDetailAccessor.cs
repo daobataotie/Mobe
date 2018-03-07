@@ -65,6 +65,9 @@ namespace Book.DA
         IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd);
 
         IList<Model.ProduceInDepotDetail> SelectYanpianByDateRange(DateTime dateStart, DateTime dateEnd);
+
+        IList<Model.ProduceInDepotDetail> SelectQianghuaByDateRange(DateTime dateStart, DateTime dateEnd);
+
     }
 }
 

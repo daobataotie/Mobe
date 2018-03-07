@@ -141,7 +141,7 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "验片生产数量";
+            this.gridColumn4.Caption = "片生产数量";
             this.gridColumn4.FieldName = "YanpianHege";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;

@@ -12,7 +12,7 @@ namespace Book.UI.produceManager.ProduceInDepot
         private BL.ProduceInDepotDetailManager ProduceInDepotDetailManager = new Book.BL.ProduceInDepotDetailManager();
 
         private Model.ProduceInDepot produceInDepot;
-        public RO(string produceInDepotId)
+        public RO(string produceInDepotId, int i)
         {
             InitializeComponent();
             this.produceInDepot = this.ProduceInDepotManager.Get(produceInDepotId);
@@ -27,7 +27,10 @@ namespace Book.UI.produceManager.ProduceInDepot
             //CompanyInfo
             this.xrLabelCompanyInfoName.Text = BL.Settings.CompanyChineseName;
             //this.xrLabelDataName.Text = Properties.Resources.ProduceInDepot;
-            this.xrLabelDataName.Text = "商品入库";
+            if (i == 1)
+                this.xrLabelDataName.Text = "商品入库";
+            else
+                this.xrLabelDataName.Text = "成品入库";
             this.xrBarCodeId.Text = this.produceInDepot.ProduceInDepotId;
             this.xrLabelPrinDate.Text += DateTime.Now.ToString("yyyy-MM-dd");
             //成品入庫

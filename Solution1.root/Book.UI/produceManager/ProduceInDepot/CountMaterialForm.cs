@@ -42,7 +42,10 @@ namespace Book.UI.produceManager.ProduceInDepot
 
             list = detailManager.SelectAllByDateRange(dateStart, dateEnd);
             IList<Model.ProduceInDepotDetail> listShechu = detailManager.SelectShechuByDateRange(dateStart, dateEnd);
-            IList<Model.ProduceInDepotDetail> listYanpian = detailManager.SelectYanpianByDateRange(dateStart, dateEnd);
+
+            //2018年3月8日00:42:22 有验片生产数量改为强化防雾生产数量
+            //IList<Model.ProduceInDepotDetail> listYanpian = detailManager.SelectYanpianByDateRange(dateStart, dateEnd);
+            IList<Model.ProduceInDepotDetail> listYanpian = detailManager.SelectQianghuaByDateRange(dateStart, dateEnd);
 
             foreach (var item in list)
             {
@@ -175,7 +178,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                 excel.Cells[2, 1] = "商品名称";
                 excel.Cells[2, 2] = "生产数量";
                 excel.Cells[2, 3] = "射出合格";
-                excel.Cells[2, 4] = "验片生产";
+                excel.Cells[2, 4] = "片生产数量";
                 excel.Cells[2, 5] = "总合格";
                 excel.Cells[2, 7] = "毛重";
                 excel.Cells[2, 7 + Header.Count + 2] = "净重";

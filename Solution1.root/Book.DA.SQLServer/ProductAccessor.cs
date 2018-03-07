@@ -80,7 +80,11 @@ namespace Book.DA.SQLServer
         {
             string str = "";
             if (Category.CategoryLevel == 1)
-                str = " ProductCategoryId = '" + Category.ProductCategoryId + "' and (productCategoryid2='' or productCategoryid2 is null) and ( productCategoryid3='' or productCategoryid3 is null)";
+            {
+                //str = " ProductCategoryId = '" + Category.ProductCategoryId + "' and (productCategoryid2='' or productCategoryid2 is null) and ( productCategoryid3='' or productCategoryid3 is null)";
+                //点击大类，显示该类别下所有商品
+                str = " ProductCategoryId = '" + Category.ProductCategoryId+"'";
+            }
             else if (Category.CategoryLevel == 2)
                 str = " productCategoryid2='" + Category.ProductCategoryId + "' and ( productCategoryid3='' or productCategoryid3 is null)";
             else

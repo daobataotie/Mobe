@@ -317,9 +317,6 @@ namespace Book.UI.Query
                     SetExcelFormat(excel, ref row, item);
                 }
 
-                excel.Cells[row, 1] = "总计:";
-                excel.get_Range(excel.Cells[row, 3], excel.Cells[row, 3]).Formula = string.Format("=SUM(C3:C{0})", row - 1);//设置求和公式
-
                 excel.Visible = true;//是否打开该Excel文件
                 excel.WindowState = Microsoft.Office.Interop.Excel.XlWindowState.xlMaximized;
             }
@@ -334,6 +331,7 @@ namespace Book.UI.Query
         {
             excel.Cells[row, 1] = item.Key;
             excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 1]).Interior.Color = "255";
+            excel.get_Range(excel.Cells[row, 3], excel.Cells[row, 3]).Formula = string.Format("=SUM(C{0}:C{1})", row + 1, row + item.Count());
 
             row++;
 

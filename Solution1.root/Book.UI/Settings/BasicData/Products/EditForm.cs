@@ -3453,6 +3453,7 @@ namespace Book.UI.Settings.BasicData.Products
             }
         }
 
+        //点击商品类型，加载商品
         private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
             if (flag5 == 1)
@@ -3468,7 +3469,11 @@ namespace Book.UI.Settings.BasicData.Products
                     Model.ProductCategory category = treeList1.FocusedNode.Tag as Model.ProductCategory;
                     pars[0].Value = category.ProductCategoryId;
                     if (category.CategoryLevel == 1)
-                        this.gridControl5.DataSource = productManager.QueryProc("GetProductListByCate1", pars, "producttree").Tables[0];
+                    {
+                        //this.gridControl5.DataSource = productManager.QueryProc("GetProductListByCate1", pars, "producttree").Tables[0];
+                        //点击大类，显示该类别下所有商品
+                        this.gridControl5.DataSource = productManager.QueryProc("GetProductListByCate", pars, "producttree").Tables[0];
+                    }
                     else if (category.CategoryLevel == 2)
                         this.gridControl5.DataSource = productManager.QueryProc("GetProductListByCate2", pars, "producttree").Tables[0];
                     else

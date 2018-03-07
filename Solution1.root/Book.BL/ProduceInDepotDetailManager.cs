@@ -210,6 +210,11 @@ namespace Book.BL
         {
             return accessor.SelectYanpianByDateRange(dateStart, dateEnd);
         }
+
+        public IList<Model.ProduceInDepotDetail> SelectQianghuaByDateRange(DateTime dateStart, DateTime dateEnd)
+        {
+            return accessor.SelectQianghuaByDateRange(dateStart, dateEnd);
+        }
     }
 }
 

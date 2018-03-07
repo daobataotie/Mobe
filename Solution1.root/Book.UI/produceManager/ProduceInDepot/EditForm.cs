@@ -206,9 +206,15 @@ namespace Book.UI.produceManager.ProduceInDepot
 
         protected override DevExpress.XtraReports.UI.XtraReport GetReport()
         {
-            return new RO(produceInDepot.ProduceInDepotId);
-            
+            return new RO(produceInDepot.ProduceInDepotId, 1);
+
             //return null;
+        }
+
+        private void bar_PrintIndepot_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            RO r = new RO(produceInDepot.ProduceInDepotId, 2);
+            r.ShowPreviewDialog();
         }
 
         /// <summary>
@@ -740,7 +746,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                     if (newChooseWorkHorseId.EditValue != null)
                     {
                         produceInDepotDetail.beforeTransferQuantity = this.produceInDepotDetailManager.select_TransferSumyPronHeaderWorkHouse(produceInDepotDetail.PronoteHeaderId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).WorkHouseId, DateTime.Now.Date.AddDays(-1));
-                        produceInDepotDetail.HeJiBeforeTransferQuantity = this.produceInDepotDetailManager.select_TransferSumyPronHeaderWorkHouse(produceInDepotDetail.PronoteHeaderId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).WorkHouseId,null);
+                        produceInDepotDetail.HeJiBeforeTransferQuantity = this.produceInDepotDetailManager.select_TransferSumyPronHeaderWorkHouse(produceInDepotDetail.PronoteHeaderId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).WorkHouseId, null);
                     }
                     //produceInDepotDetail.PriceRange = this.produceInDepotDetailManager.GetSupplierProductPriceRange(produceInDepotDetail.ProductId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).Workhousename);
                     produceInDepotDetail.PriceRange = _SupplierProductManager.GetPriceRangeForSupAndProduct(produceInDepotDetail.Product.SupplierId, produceInDepotDetail.ProductId);
@@ -1256,6 +1262,7 @@ namespace Book.UI.produceManager.ProduceInDepot
         {
             ExportExcel(this.produceInDepot.Details);
         }
+
     }
 }
 

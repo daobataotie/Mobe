@@ -1702,5 +1702,13 @@ namespace Book.DA.SQLServer
 
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
         }
+
+        //计算“强化/防雾”的生产数量
+        public IList<Model.ProduceInDepotDetail> SelectQianghuaByDateRange(DateTime dateStart, DateTime dateEnd)
+        {
+            string sql = "select pid.ProductId, SUM(ProceduresSum) as CheckOutSum from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='2521761d-1e0c-4f23-89bc-fa40bf0fc66f' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' group by pid.ProductId";
+
+            return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
+        }
     }
 }
