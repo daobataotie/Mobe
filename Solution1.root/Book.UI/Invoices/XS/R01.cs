@@ -27,7 +27,8 @@ namespace Book.UI.Invoices.XS
 
             //CompanyInfo
             this.xrLabelCompanyInfoName.Text = BL.Settings.CompanyChineseName;
-            this.xrLabelData.Text = Properties.Resources.InvoiceXS;
+            //this.xrLabelData.Text = Properties.Resources.InvoiceXS;
+            this.xrLabelData.Text = "出库单";
             this.xrLabelPrintDate.Text += DateTime.Now.ToString("yyyy-MM-dd");
             //客户信息
             this.xrLabelCustomer.Text = this.invoice.Customer.CustomerShortName;

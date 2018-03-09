@@ -20,7 +20,7 @@ namespace Book.UI.produceManager.PCSamplingEar
             this.DataSource = PCSamplingEar.Details;
 
             this.lblCompanyName.Text = BL.Settings.CompanyChineseName;
-            this.lbl_ReportName.Text = "品管抽检日报表(耳护类)";
+            this.lbl_ReportName.Text = "组装检验日报表(耳护类)";
             //this.lbl_PrintDate.Text += DateTime.Now.ToString("yyyy-MM-dd");
             this.lbl_PCSamplingEarId.Text = PCSamplingEar.PCSamplingEarId;
             this.lbl_PCSamplingEarDate.Text = PCSamplingEar.PCSamplingEarDate.Value.ToString("yyyy-MM-dd");

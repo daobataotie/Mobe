@@ -279,7 +279,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                 switch (type)
                 {
                     case "防霧":
-                        excel.Cells[1, 1] = "強化/防霧 日報表";
+                        excel.Cells[1, 1] = "強化/防霧 工作日報表";
                         break;
                     case "品檢":
                         excel.Cells[1, 1] = "品檢日報表";
