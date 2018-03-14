@@ -22,12 +22,12 @@
       <result property="MRSHeaderId" column="MRSHeaderId" />
       <result property="MRSdetailssum" column="MRSdetailssum" />
       <result property="MRSdetailsdes" column="MRSdetailsdes" />
-      <!--<result property="MPSheaderId" column="MPSheaderId" />-->
+      <result property="MPSheaderId" column="MPSheaderId" />
       <result property="ProductUnit" column="ProductUnit" />
       <result property="MRSdetailsQuantity" column="MRSdetailsQuantity" />
       <!--<result property="MRSHasSingleSum" column="MRSHasSingleSum" />
-      <result property="MPSDate" column="MPSDate" />
-      <result property="MPSdetailsId" column="MPSdetailsId" />-->
+      <result property="MPSDate" column="MPSDate" />-->
+      <result property="MPSdetailsId" column="MPSdetailsId" />
       <result property="MadeProductId" column="MadeProductId" />
       <result property="DetailsFlag" column="DetailsFlag" />
       <result property="Inumber" column="Inumber" />
@@ -58,7 +58,7 @@
     <select id="select_byMRSheaderId" resultMap="MRSdetailsAndProductFPSLsumResult" parameterClass="string">
       <!--SELECT ProductId,MRSHeaderId,SUM(MRSdetailssum) MRSdetailssum,HandbookId,HandbookProductId,ProductUnit,MPSheaderId,SUM(MRSdetailsQuantity) MRSdetailsQuantity,max(MPSDate) MPSDate from MRSdetails where MRSheaderId=#value# GROUP BY ProductId,ProductUnit,MRSHeaderId,MPSheaderId-->
       <![CDATA[
-      SELECT MRSdetailsId,ProductId,MRSHeaderId,MRSdetailssum,MRSdetailsdes,ProductUnit,MRSdetailsQuantity,MadeProductId, Inumber,JiaoHuoDate,ArrangeDesc,BeforePackageProductId,SupplierId,WorkHouseNextId,DetailsFlag,HandbookId,HandbookProductId,(select ProductName+'{'+CustomerProductName+'}' from product p where p.productid=MRSdetails.MadeProductId) as MadeProductName,(SELECT (ProduceMaterialDistributioned+OtherMaterialDistributioned) FROM Product WHERE Product.ProductId = MRSdetails.ProductId) AS ProductFPSLsum FROM MRSdetails WHERE MRSHeaderId=#value:varchar# order by Inumber
+      SELECT MPSheaderId,MPSdetailsId,MRSdetailsId,ProductId,MRSHeaderId,MRSdetailssum,MRSdetailsdes,ProductUnit,MRSdetailsQuantity,MadeProductId, Inumber,JiaoHuoDate,ArrangeDesc,BeforePackageProductId,SupplierId,WorkHouseNextId,DetailsFlag,HandbookId,HandbookProductId,(select ProductName+'{'+CustomerProductName+'}' from product p where p.productid=MRSdetails.MadeProductId) as MadeProductName,(SELECT (ProduceMaterialDistributioned+OtherMaterialDistributioned) FROM Product WHERE Product.ProductId = MRSdetails.ProductId) AS ProductFPSLsum FROM MRSdetails WHERE MRSHeaderId=#value:varchar# order by Inumber
       ]]>
       <!--select * from dbo.MRSdetails m  LEFT join Supplier s on s.SupplierId in(select SupplierId from product where product.productid=m.productid OR SupplierId IS null) WHERE MRSHeaderId=#value# order by s.id-->
     </select>

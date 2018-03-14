@@ -68,9 +68,16 @@ namespace Book.UI.Query
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
+            if (this.date_Start.EditValue == null)
+            {
+                MessageBox.Show("请先选择起始日期", "提示", MessageBoxButtons.OK);
+                return;
+            }
+
             resultList.Clear();
 
-            DateTime dateTime = global::Helper.DateTimeParse.EndDate;
+            DateTime dateStart = this.date_Start.DateTime.Date;
+            DateTime dateEnd = global::Helper.DateTimeParse.EndDate;
             IList<Model.Product> listProduct = productManager.SelectIdAndStock(this.lue_ProductCategory.EditValue == null ? null : this.lue_ProductCategory.EditValue.ToString());
 
             string workHouseYanpian = workHouseManager.SelectWorkHouseIdByName("验片");
@@ -108,11 +115,11 @@ namespace Book.UI.Query
                     #region 验片：合计前单位转入 - 合计生产数量（包含合计合格数量，合计不良品）
 
                     //计算所有转入 验片 部门的数量
-                    Model.ProduceInDepotDetail pidYanpianIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateTime.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
+                    Model.ProduceInDepotDetail pidYanpianIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateStart,dateEnd.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
                     double yanpianTransferIn = Convert.ToDouble(pidYanpianIn.ProduceTransferQuantity);
 
                     //计算 验片 部门的生产数量
-                    Model.ProduceInDepotDetail pidYanpianOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateTime.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
+                    Model.ProduceInDepotDetail pidYanpianOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateStart, dateEnd.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
                     double yanpianProcedures = Convert.ToDouble(pidYanpianOut.ProceduresSum);
                     double yanpianBuliang = Convert.ToDouble(pidYanpianOut.ProceduresSum - pidYanpianOut.CheckOutSum);
 
@@ -129,18 +136,18 @@ namespace Book.UI.Query
                     //领到 组装现场 部门的数量
                     double materialQty = 0;
                     if (!string.IsNullOrEmpty(invoiceXOIds))
-                        materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds);
+                        materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, dateStart, dateEnd.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds);
 
                     //计算所有转入 组装现场 部门的数量
-                    Model.ProduceInDepotDetail pidZuzhuangIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);  //计算即时现场库存时不用区分订单，不需要加工单号，查询所有即可，这里要区分订单，所以要加上加工单号
+                    Model.ProduceInDepotDetail pidZuzhuangIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateStart, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);  //计算即时现场库存时不用区分订单，不需要加工单号，查询所有即可，这里要区分订单，所以要加上加工单号
                     double zuzhuangTransferIn = Convert.ToDouble(pidZuzhuangIn.ProduceTransferQuantity);
 
                     //计算 组装现场 部门转入其他部门的数量
-                    Model.ProduceInDepotDetail pidZuzhuangOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
+                    Model.ProduceInDepotDetail pidZuzhuangOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateStart, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
                     double zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
 
                     //计算 从组装现场退回的 生产退料
-                    double exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, dateTime.AddSeconds(-1), workHouseZuzhuang);
+                    double exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, dateStart, dateEnd.AddSeconds(-1), workHouseZuzhuang);
 
 
                     #region 查询商品对应的所有母件 入库 扣减
@@ -156,7 +163,7 @@ namespace Book.UI.Query
                     double deductionQty = 0;
                     if (!string.IsNullOrEmpty(proIds))
                     {
-                        IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateTime.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
+                        IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateStart, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
                         foreach (var pid in pids)
                         {
                             deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];

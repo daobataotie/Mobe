@@ -1651,30 +1651,30 @@ namespace Book.DA.SQLServer
 
 
         //根据下个生产站查询商品入库详细
-        public Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
+        public Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string pronoteHeaderIds)
         {
             string sql = "";
             if (pronoteHeaderIds == null)    //入到组装现场的没有选择加工单，所以没有加工单号
             {
-                sql = "select sum(isnull(pid.ProduceQuantity,0)) as ProduceQuantity,sum(isnull(pid.HeJiBeforeTransferQuantity,0)) as HeJiBeforeTransferQuantity,sum(isnull(pid.ProceduresSum,0)) as ProceduresSum,sum(isnull(pid.CheckOutSum,0)) as CheckOutSum,sum(isnull(ProduceTransferQuantity,0)) as ProduceTransferQuantity from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate<='" + dateTime + "' and pid.WorkHouseId='" + workHouseId + "'";
+                sql = "select sum(isnull(pid.ProduceQuantity,0)) as ProduceQuantity,sum(isnull(pid.HeJiBeforeTransferQuantity,0)) as HeJiBeforeTransferQuantity,sum(isnull(pid.ProceduresSum,0)) as ProceduresSum,sum(isnull(pid.CheckOutSum,0)) as CheckOutSum,sum(isnull(ProduceTransferQuantity,0)) as ProduceTransferQuantity from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and pid.WorkHouseId='" + workHouseId + "'";
             }
             else
-                sql = "select sum(isnull(pid.ProduceQuantity,0)) as ProduceQuantity,sum(isnull(pid.HeJiBeforeTransferQuantity,0)) as HeJiBeforeTransferQuantity,sum(isnull(pid.ProceduresSum,0)) as ProceduresSum,sum(isnull(pid.CheckOutSum,0)) as CheckOutSum,sum(isnull(ProduceTransferQuantity,0)) as ProduceTransferQuantity from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate<='" + dateTime + "' and pid.WorkHouseId='" + workHouseId + "' and pid.PronoteHeaderId in (" + pronoteHeaderIds + ")";
+                sql = "select sum(isnull(pid.ProduceQuantity,0)) as ProduceQuantity,sum(isnull(pid.HeJiBeforeTransferQuantity,0)) as HeJiBeforeTransferQuantity,sum(isnull(pid.ProceduresSum,0)) as ProceduresSum,sum(isnull(pid.CheckOutSum,0)) as CheckOutSum,sum(isnull(ProduceTransferQuantity,0)) as ProduceTransferQuantity from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and pid.WorkHouseId='" + workHouseId + "' and pid.PronoteHeaderId in (" + pronoteHeaderIds + ")";
 
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text)[0];
         }
 
         //根据本次生产站查询商品入库详细
-        public Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
+        public Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string pronoteHeaderIds)
         {
-            string sql = "select sum(isnull(pid.ProduceQuantity,0)) as ProduceQuantity,sum(isnull(pid.HeJiBeforeTransferQuantity,0)) as HeJiBeforeTransferQuantity,sum(isnull(pid.ProceduresSum,0)) as ProceduresSum,sum(isnull(pid.CheckOutSum,0)) as CheckOutSum,sum(isnull(ProduceTransferQuantity,0)) as ProduceTransferQuantity from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate<='" + dateTime + "' and pi.WorkHouseId='" + workHouseId + "' and pid.PronoteHeaderId in (" + pronoteHeaderIds + ")";
+            string sql = "select sum(isnull(pid.ProduceQuantity,0)) as ProduceQuantity,sum(isnull(pid.HeJiBeforeTransferQuantity,0)) as HeJiBeforeTransferQuantity,sum(isnull(pid.ProceduresSum,0)) as ProceduresSum,sum(isnull(pid.CheckOutSum,0)) as CheckOutSum,sum(isnull(ProduceTransferQuantity,0)) as ProduceTransferQuantity from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId='" + productid + "' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and pi.WorkHouseId='" + workHouseId + "' and pid.PronoteHeaderId in (" + pronoteHeaderIds + ")";
 
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text)[0];
         }
 
-        public IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateTime, string workHouseId, string incoiceXOId)
+        public IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateStart, DateTime dateEnd, string workHouseId, string incoiceXOId)
         {
-            string sql = "select sum(isnull(ProduceQuantity,0)) as ProduceQuantity,pid.ProductId from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId in (" + productids + ") and pi.WorkHouseId='" + workHouseId + "' and pi.ProduceInDepotDate<='" + dateTime + "'  and pid.PronoteHeaderId in (select PronoteHeaderId from PronoteHeader where InvoiceXOId in (" + incoiceXOId + "))  group by pid.ProductId ";
+            string sql = "select sum(isnull(ProduceQuantity,0)) as ProduceQuantity,pid.ProductId from ProduceInDepotDetail pid left join ProduceInDepot pi on pi.ProduceInDepotId=pid.ProduceInDepotId where pid.ProductId in (" + productids + ") and pi.WorkHouseId='" + workHouseId + "' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "'  and pid.PronoteHeaderId in (select PronoteHeaderId from PronoteHeader where InvoiceXOId in (" + incoiceXOId + "))  group by pid.ProductId ";
 
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
         }

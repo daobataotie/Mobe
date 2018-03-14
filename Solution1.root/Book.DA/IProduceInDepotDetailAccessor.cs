@@ -54,11 +54,11 @@ namespace Book.DA
 
         string GetSupplierProductPriceRange(string productId, string WorkHouseName);
 
-        Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds);
+        Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string pronoteHeaderIds);
 
-        Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds);
+        Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string pronoteHeaderIds);
 
-        IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateTime, string workHouseId, string invoiceXOIds);
+        IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds);
 
         IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd);
 

@@ -43,11 +43,13 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.bindingSourceProductCategory = new System.Windows.Forms.BindingSource(this.components);
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.date_End = new DevExpress.XtraEditors.DateEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.bindingSourceProduct = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,16 +61,16 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.date_Start = new DevExpress.XtraEditors.DateEdit();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProductCategory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -78,13 +80,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_Start.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_Start.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.date_Start);
             this.layoutControl1.Controls.Add(this.btn_Search);
             this.layoutControl1.Controls.Add(this.lue_ProductCategory);
-            this.layoutControl1.Controls.Add(this.dateEdit1);
+            this.layoutControl1.Controls.Add(this.date_End);
             this.layoutControl1.Controls.Add(this.gridControl1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 39);
@@ -106,7 +112,7 @@
             // 
             // lue_ProductCategory
             // 
-            this.lue_ProductCategory.Location = new System.Drawing.Point(341, 12);
+            this.lue_ProductCategory.Location = new System.Drawing.Point(405, 12);
             this.lue_ProductCategory.MenuManager = this.barManager1;
             this.lue_ProductCategory.Name = "lue_ProductCategory";
             this.lue_ProductCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -118,7 +124,7 @@
             this.lue_ProductCategory.Properties.DisplayMember = "ProductCategoryName";
             this.lue_ProductCategory.Properties.NullText = "";
             this.lue_ProductCategory.Properties.ValueMember = "ProductCategoryId";
-            this.lue_ProductCategory.Size = new System.Drawing.Size(297, 21);
+            this.lue_ProductCategory.Size = new System.Drawing.Size(233, 21);
             this.lue_ProductCategory.StyleController = this.layoutControl1;
             this.lue_ProductCategory.TabIndex = 6;
             // 
@@ -201,19 +207,19 @@
             this.imageCollection1.ImageSize = new System.Drawing.Size(24, 24);
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
             // 
-            // dateEdit1
+            // date_End
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(76, 12);
-            this.dateEdit1.MenuManager = this.barManager1;
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.date_End.EditValue = null;
+            this.date_End.Location = new System.Drawing.Point(241, 12);
+            this.date_End.MenuManager = this.barManager1;
+            this.date_End.Name = "date_End";
+            this.date_End.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.date_End.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEdit1.Size = new System.Drawing.Size(197, 21);
-            this.dateEdit1.StyleController = this.layoutControl1;
-            this.dateEdit1.TabIndex = 5;
+            this.date_End.Size = new System.Drawing.Size(96, 21);
+            this.date_End.StyleController = this.layoutControl1;
+            this.date_End.TabIndex = 5;
             // 
             // gridControl1
             // 
@@ -241,6 +247,15 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "商品编号";
+            this.gridColumn8.FieldName = "Id";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 0;
+            this.gridColumn8.Width = 140;
+            // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "商品";
@@ -249,6 +264,15 @@
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 1;
             this.gridColumn1.Width = 227;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "版本";
+            this.gridColumn7.FieldName = "ProductVersion";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 2;
+            this.gridColumn7.Width = 48;
             // 
             // gridColumn2
             // 
@@ -309,7 +333,8 @@
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.layoutControlItem5});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(860, 504);
@@ -331,21 +356,21 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.dateEdit1;
+            this.layoutControlItem2.Control = this.date_End;
             this.layoutControlItem2.CustomizationFormText = "日期：";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(165, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(265, 26);
-            this.layoutControlItem2.Text = "日期：";
+            this.layoutControlItem2.Size = new System.Drawing.Size(164, 26);
+            this.layoutControlItem2.Text = "查询日期：";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.lue_ProductCategory;
             this.layoutControlItem3.CustomizationFormText = "商品类别：";
-            this.layoutControlItem3.Location = new System.Drawing.Point(265, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(329, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(365, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(301, 26);
             this.layoutControlItem3.Text = "商品类别：";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -361,23 +386,29 @@
             this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
             // 
-            // gridColumn7
+            // date_Start
             // 
-            this.gridColumn7.Caption = "版本";
-            this.gridColumn7.FieldName = "ProductVersion";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 2;
-            this.gridColumn7.Width = 48;
+            this.date_Start.EditValue = null;
+            this.date_Start.Location = new System.Drawing.Point(76, 12);
+            this.date_Start.MenuManager = this.barManager1;
+            this.date_Start.Name = "date_Start";
+            this.date_Start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.date_Start.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.date_Start.Size = new System.Drawing.Size(97, 21);
+            this.date_Start.StyleController = this.layoutControl1;
+            this.date_Start.TabIndex = 8;
             // 
-            // gridColumn8
+            // layoutControlItem5
             // 
-            this.gridColumn8.Caption = "商品编号";
-            this.gridColumn8.FieldName = "Id";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 0;
-            this.gridColumn8.Width = 140;
+            this.layoutControlItem5.Control = this.date_Start;
+            this.layoutControlItem5.CustomizationFormText = "起始日期：";
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(165, 26);
+            this.layoutControlItem5.Text = "起始日期：";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(60, 14);
             // 
             // ImmediateStock
             // 
@@ -397,8 +428,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProductCategory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -408,6 +439,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_Start.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.date_Start.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -429,7 +463,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit date_End;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.LookUpEdit lue_ProductCategory;
         private System.Windows.Forms.BindingSource bindingSourceProductCategory;
@@ -445,5 +479,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraEditors.DateEdit date_Start;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }

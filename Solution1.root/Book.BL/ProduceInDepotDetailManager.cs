@@ -173,9 +173,9 @@ namespace Book.BL
         /// <param name="workHouseId"></param>
         /// <param name="pronoteHeaderIds"></param>
         /// <returns></returns>
-        public Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
+        public Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string pronoteHeaderIds)
         {
-            return accessor.SelectByNextWorkhouse(productid, dateTime, workHouseId, pronoteHeaderIds);
+            return accessor.SelectByNextWorkhouse(productid, dateStart, dateEnd, workHouseId, pronoteHeaderIds);
         }
 
         /// <summary>
@@ -186,14 +186,14 @@ namespace Book.BL
         /// <param name="workHouseId"></param>
         /// <param name="pronoteHeaderIds"></param>
         /// <returns></returns>
-        public Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateTime, string workHouseId, string pronoteHeaderIds)
+        public Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string pronoteHeaderIds)
         {
-            return accessor.SelectByThisWorkhouse(productid, dateTime, workHouseId, pronoteHeaderIds);
+            return accessor.SelectByThisWorkhouse(productid, dateStart, dateEnd, workHouseId, pronoteHeaderIds);
         }
 
-        public IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateTime, string workHouseId, string invoiceXOIds)
+        public IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds)
         {
-            return accessor.SelectIndepotQty(productids, dateTime, workHouseId, invoiceXOIds);
+            return accessor.SelectIndepotQty(productids, dateStart, dateEnd, workHouseId, invoiceXOIds);
         }
 
         public IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd)
