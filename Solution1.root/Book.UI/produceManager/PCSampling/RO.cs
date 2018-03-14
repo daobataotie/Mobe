@@ -20,7 +20,7 @@ namespace Book.UI.produceManager.PCSampling
             this.DataSource = PCSampling.Details;
 
             this.lblCompanyName.Text = BL.Settings.CompanyChineseName;
-            this.lbl_ReportName.Text = "品管抽检日报表";
+            this.lbl_ReportName.Text = "组装检验日报表";
             //this.lbl_PrintDate.Text += DateTime.Now.ToString("yyyy-MM-dd");
             this.lbl_PCSamplingId.Text = PCSampling.PCSamplingId;
             this.lbl_PCSamplingCheckDate.Text = PCSampling.PCSamplingDate.Value.ToString("yyyy-MM-dd");
