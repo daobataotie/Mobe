@@ -173,9 +173,9 @@ namespace Book.BL
         /// <param name="workHouseId"></param>
         /// <param name="pronoteHeaderIds"></param>
         /// <returns></returns>
-        public Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string pronoteHeaderIds)
+        public Model.ProduceInDepotDetail SelectByNextWorkhouse(string productid, DateTime dateEnd, string workHouseId, string pronoteHeaderIds)
         {
-            return accessor.SelectByNextWorkhouse(productid, dateStart, dateEnd, workHouseId, pronoteHeaderIds);
+            return accessor.SelectByNextWorkhouse(productid, dateEnd, workHouseId, pronoteHeaderIds);
         }
 
         /// <summary>
@@ -186,14 +186,19 @@ namespace Book.BL
         /// <param name="workHouseId"></param>
         /// <param name="pronoteHeaderIds"></param>
         /// <returns></returns>
-        public Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string pronoteHeaderIds)
+        public Model.ProduceInDepotDetail SelectByThisWorkhouse(string productid, DateTime dateEnd, string workHouseId, string pronoteHeaderIds)
         {
-            return accessor.SelectByThisWorkhouse(productid, dateStart, dateEnd, workHouseId, pronoteHeaderIds);
+            return accessor.SelectByThisWorkhouse(productid, dateEnd, workHouseId, pronoteHeaderIds);
         }
 
-        public IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds)
+        public IList<Model.ProduceInDepotDetail> SelectTransZuZhuangXianChang(string productid, DateTime dateEnd, string workHouseId, string pronoteHeaderIds)
         {
-            return accessor.SelectIndepotQty(productids, dateStart, dateEnd, workHouseId, invoiceXOIds);
+            return accessor.SelectTransZuZhuangXianChang(productid, dateEnd, workHouseId, pronoteHeaderIds);
+        }
+
+        public IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateEnd, string workHouseId, string invoiceXOIds)
+        {
+            return accessor.SelectIndepotQty(productids, dateEnd, workHouseId, invoiceXOIds);
         }
 
         public IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd)

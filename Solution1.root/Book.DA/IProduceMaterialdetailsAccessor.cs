@@ -29,7 +29,7 @@ namespace Book.DA
         IList<Model.ProduceMaterialdetails> SelectForDistributioned(string productid, DateTime InsertTime);
         IList<Model.ProduceMaterialdetails> SelectBycondition2(DateTime startDate, DateTime endDate, string produceMaterialId0, string produceMaterialId1, Book.Model.Product pId0, Book.Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1, string CusInvoiceXOId);
 
-        double SelectMaterialQty(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds);
+        double SelectMaterialQty(string productid, DateTime dateEnd, string workHouseId, string invoiceXOIds);
     }
 }
 

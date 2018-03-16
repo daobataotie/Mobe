@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImmediateStock));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.btn_Search = new DevExpress.XtraEditors.SimpleButton();
-            this.lue_ProductCategory = new DevExpress.XtraEditors.LookUpEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barExportExcel = new DevExpress.XtraBars.BarButtonItem();
@@ -42,6 +40,8 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
+            this.btn_Search = new DevExpress.XtraEditors.SimpleButton();
+            this.lue_ProductCategory = new DevExpress.XtraEditors.LookUpEdit();
             this.bindingSourceProductCategory = new System.Windows.Forms.BindingSource(this.components);
             this.date_End = new DevExpress.XtraEditors.DateEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -61,13 +61,11 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.date_Start = new DevExpress.XtraEditors.DateEdit();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProductCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties)).BeginInit();
@@ -80,14 +78,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.date_Start.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.date_Start.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.date_Start);
             this.layoutControl1.Controls.Add(this.btn_Search);
             this.layoutControl1.Controls.Add(this.lue_ProductCategory);
             this.layoutControl1.Controls.Add(this.date_End);
@@ -99,34 +93,6 @@
             this.layoutControl1.Size = new System.Drawing.Size(860, 504);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // btn_Search
-            // 
-            this.btn_Search.Location = new System.Drawing.Point(642, 12);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(206, 22);
-            this.btn_Search.StyleController = this.layoutControl1;
-            this.btn_Search.TabIndex = 7;
-            this.btn_Search.Text = "查询";
-            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
-            // lue_ProductCategory
-            // 
-            this.lue_ProductCategory.Location = new System.Drawing.Point(405, 12);
-            this.lue_ProductCategory.MenuManager = this.barManager1;
-            this.lue_ProductCategory.Name = "lue_ProductCategory";
-            this.lue_ProductCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lue_ProductCategory.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "编号"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ProductCategoryName", "名称")});
-            this.lue_ProductCategory.Properties.DataSource = this.bindingSourceProductCategory;
-            this.lue_ProductCategory.Properties.DisplayMember = "ProductCategoryName";
-            this.lue_ProductCategory.Properties.NullText = "";
-            this.lue_ProductCategory.Properties.ValueMember = "ProductCategoryId";
-            this.lue_ProductCategory.Size = new System.Drawing.Size(233, 21);
-            this.lue_ProductCategory.StyleController = this.layoutControl1;
-            this.lue_ProductCategory.TabIndex = 6;
             // 
             // barManager1
             // 
@@ -207,17 +173,45 @@
             this.imageCollection1.ImageSize = new System.Drawing.Size(24, 24);
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
             // 
+            // btn_Search
+            // 
+            this.btn_Search.Location = new System.Drawing.Point(642, 12);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.Size = new System.Drawing.Size(206, 22);
+            this.btn_Search.StyleController = this.layoutControl1;
+            this.btn_Search.TabIndex = 7;
+            this.btn_Search.Text = "查询";
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+            // 
+            // lue_ProductCategory
+            // 
+            this.lue_ProductCategory.Location = new System.Drawing.Point(274, 12);
+            this.lue_ProductCategory.MenuManager = this.barManager1;
+            this.lue_ProductCategory.Name = "lue_ProductCategory";
+            this.lue_ProductCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_ProductCategory.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "编号"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ProductCategoryName", "名称")});
+            this.lue_ProductCategory.Properties.DataSource = this.bindingSourceProductCategory;
+            this.lue_ProductCategory.Properties.DisplayMember = "ProductCategoryName";
+            this.lue_ProductCategory.Properties.NullText = "";
+            this.lue_ProductCategory.Properties.ValueMember = "ProductCategoryId";
+            this.lue_ProductCategory.Size = new System.Drawing.Size(364, 21);
+            this.lue_ProductCategory.StyleController = this.layoutControl1;
+            this.lue_ProductCategory.TabIndex = 6;
+            // 
             // date_End
             // 
             this.date_End.EditValue = null;
-            this.date_End.Location = new System.Drawing.Point(241, 12);
+            this.date_End.Location = new System.Drawing.Point(76, 12);
             this.date_End.MenuManager = this.barManager1;
             this.date_End.Name = "date_End";
             this.date_End.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date_End.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.date_End.Size = new System.Drawing.Size(96, 21);
+            this.date_End.Size = new System.Drawing.Size(130, 21);
             this.date_End.StyleController = this.layoutControl1;
             this.date_End.TabIndex = 5;
             // 
@@ -333,8 +327,7 @@
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5});
+            this.layoutControlItem4});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(860, 504);
@@ -358,9 +351,9 @@
             // 
             this.layoutControlItem2.Control = this.date_End;
             this.layoutControlItem2.CustomizationFormText = "日期：";
-            this.layoutControlItem2.Location = new System.Drawing.Point(165, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(164, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(198, 26);
             this.layoutControlItem2.Text = "查询日期：";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -368,9 +361,9 @@
             // 
             this.layoutControlItem3.Control = this.lue_ProductCategory;
             this.layoutControlItem3.CustomizationFormText = "商品类别：";
-            this.layoutControlItem3.Location = new System.Drawing.Point(329, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(198, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(301, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(432, 26);
             this.layoutControlItem3.Text = "商品类别：";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -386,30 +379,6 @@
             this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
             // 
-            // date_Start
-            // 
-            this.date_Start.EditValue = null;
-            this.date_Start.Location = new System.Drawing.Point(76, 12);
-            this.date_Start.MenuManager = this.barManager1;
-            this.date_Start.Name = "date_Start";
-            this.date_Start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.date_Start.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.date_Start.Size = new System.Drawing.Size(97, 21);
-            this.date_Start.StyleController = this.layoutControl1;
-            this.date_Start.TabIndex = 8;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.date_Start;
-            this.layoutControlItem5.CustomizationFormText = "起始日期：";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(165, 26);
-            this.layoutControlItem5.Text = "起始日期：";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(60, 14);
-            // 
             // ImmediateStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -424,9 +393,9 @@
             this.Text = "即时库存(现场版)";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProductCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties)).EndInit();
@@ -439,9 +408,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.date_Start.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.date_Start.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -479,7 +445,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
-        private DevExpress.XtraEditors.DateEdit date_Start;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }
