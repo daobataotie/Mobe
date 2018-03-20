@@ -146,5 +146,10 @@ namespace Book.DA.SQLServer
             ht.Add("HandbookProductId", handbookProductId);
             return sqlmapper.QueryForObject<double>("InvoiceXODetail.SumOrderQuantityByHandbook", ht);
         }
+
+        public IList<string> SelectProductIDs(string PronoteHeaderId)
+        {
+            return sqlmapper.QueryForList<string>("InvoiceXODetail.SelectProductIDs", PronoteHeaderId);
+        }
     }
 }

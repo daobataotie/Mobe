@@ -43,7 +43,7 @@ namespace Book.UI.produceManager.ProduceInDepot
             list = detailManager.SelectAllByDateRange(dateStart, dateEnd);
             IList<Model.ProduceInDepotDetail> listShechu = detailManager.SelectShechuByDateRange(dateStart, dateEnd);
 
-            //2018年3月8日00:42:22 有验片生产数量改为强化防雾生产数量
+            //2018年3月8日00:42:22 验片生产数量改为强化防雾生产数量
             //IList<Model.ProduceInDepotDetail> listYanpian = detailManager.SelectYanpianByDateRange(dateStart, dateEnd);
             IList<Model.ProduceInDepotDetail> listYanpian = detailManager.SelectQianghuaByDateRange(dateStart, dateEnd);
 

@@ -70,6 +70,7 @@ namespace Book.DA
 
         IList<Model.ProduceInDepotDetail> SelectQianghuaByDateRange(DateTime dateStart, DateTime dateEnd);
 
+        string SelectCustomerProductNameByPronoteHeaderId(string pronoteHeaderId);
     }
 }
 

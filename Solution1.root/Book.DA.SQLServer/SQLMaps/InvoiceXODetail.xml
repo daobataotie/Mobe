@@ -63,5 +63,11 @@
       SELECT isnull(sum(InvoiceXODetailQuantity),0) FROM InvoiceXODetail WHERE HandbookId=#HandbookId# AND HandbookProductId=#HandbookProductId#
       ]]>
     </select>
+
+    <select id="SelectProductIDs" parameterClass="string" resultClass="string">
+      <![CDATA[
+      select ProductId from InvoiceXODetail where InvoiceId=(select InvoiceXOId from PronoteHeader where PronoteHeaderID=#value#)
+      ]]>
+    </select>
   </statements>
 </sqlMap>

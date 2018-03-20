@@ -374,5 +374,13 @@ namespace Book.DA.SQLServer
             sqlmapper.Update("Product.update_stock", pro.ProductId);
         }
         #endregion
+
+        public string SelectCustomerProductNameByProductIds(string productIds)
+        {
+            string sql = "select CustomerProductName+',' from Product where ProductId in (" + productIds + ") for xml path('')";
+            object value = this.QueryObject(sql);
+
+            return (value == null ? "" : value.ToString());
+        }
     }
 }

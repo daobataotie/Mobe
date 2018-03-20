@@ -108,6 +108,11 @@ namespace Book.BL
         {
             return accessor.SumOrderQuantityByHandbook(handbookId, handbookProductId);
         }
+
+        public IList<string> SelectProductIDs(string PronoteHeaderId)
+        {
+            return accessor.SelectProductIDs(PronoteHeaderId);
+        }
     }
 }
 

@@ -220,6 +220,11 @@ namespace Book.BL
         {
             return accessor.SelectQianghuaByDateRange(dateStart, dateEnd);
         }
+
+        public string SelectCustomerProductNameByPronoteHeaderId(string pronoteHeaderId)
+        {
+            return accessor.SelectCustomerProductNameByPronoteHeaderId(pronoteHeaderId);
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <sqlMap namespace="ProduceInDepotDetail" xmlns="http://ibatis.apache.org/mapping"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
- 
+
   <statements>
     <select id="select_byProduceInDepotId" resultMap="ProduceInDepotDetailResult" parameterClass="string">
       select * from ProduceInDepotDetail where ProduceInDepotId=#value# ORDER BY Inumber ASC
@@ -137,5 +137,10 @@
 
     </select>
 
+    <select id="SelectCustomerProductNameByPronoteHeaderId" resultClass="string" parameterClass="string">
+      <![CDATA[
+      select CustomerProductName from Product where ProductId=(select ProductId from MPSdetails where MPSdetailsId =(select MPSdetailsId from MRSdetails where MRSdetailsId = (select MRSdetailsId from PronoteHeader where PronoteHeaderID=#value#)))
+      ]]>
+    </select>
   </statements>
 </sqlMap>

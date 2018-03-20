@@ -16,6 +16,11 @@ namespace Book.UI.produceManager.ProduceInDepot
     {
         int tag = 0;
         int flag = 0;
+        BL.BomComponentInfoManager bomComponentInfoManager = new Book.BL.BomComponentInfoManager();
+        BL.BomParentPartInfoManager bomParentPartInfoManager = new Book.BL.BomParentPartInfoManager();
+        BL.InvoiceXODetailManager invoiceXODetailManager = new Book.BL.InvoiceXODetailManager();
+        BL.ProductManager productManager = new Book.BL.ProductManager();
+
         public ListForm()
         {
             if (!EditForm.isDelete)
@@ -117,9 +122,14 @@ namespace Book.UI.produceManager.ProduceInDepot
                 {
                     string condition = RowFilter.Substring(RowFilter.IndexOf("'") + 1, RowFilter.LastIndexOf("'") - RowFilter.IndexOf("'") - 2);
                     //if (RowFilter.Contains("防雾") || RowFilter.Contains("强化"))
-                    if ("强化/防雾".StartsWith(condition))
+                    //if ("强化/防雾".StartsWith(condition))
+                    //{
+                    //    details = details.Where(d => d.WorkHousename == "强化/防雾").ToList();
+                    //    ExportExcel(details, "防霧");
+                    //}
+                    if ("防霧".StartsWith(condition))
                     {
-                        details = details.Where(d => d.WorkHousename == "强化/防雾").ToList();
+                        details = details.Where(d => d.WorkHousename == "防霧").ToList();
                         ExportExcel(details, "防霧");
                     }
                     //else if (RowFilter.Contains("验片"))
@@ -269,7 +279,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 16]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 17]);
                 r.MergeCells = true;//合并单元格
 
                 //Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter = -4108;
@@ -294,35 +304,59 @@ namespace Book.UI.produceManager.ProduceInDepot
                 #region Set Header
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
-                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 16]).HorizontalAlignment = -4108;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 16]).ColumnWidth = 12;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 17]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 17]).ColumnWidth = 12;
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 2]).ColumnWidth = 20;
-                excel.get_Range(excel.Cells[2, 3], excel.Cells[2, 3]).ColumnWidth = 30;
+                excel.get_Range(excel.Cells[2, 3], excel.Cells[2, 3]).ColumnWidth = 40;
                 excel.get_Range(excel.Cells[2, 11], excel.Cells[2, 12]).ColumnWidth = 20;
 
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 16]).Interior.Color = 12566463;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 16]).RowHeight = 20;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 16]).Font.Size = 13;
-                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 16]).WrapText = true;
-                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 16]).EntireRow.AutoFit();
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 17]).Interior.Color = 12566463;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 17]).RowHeight = 20;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 17]).Font.Size = 13;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 17]).WrapText = true;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 17]).EntireRow.AutoFit();
 
                 excel.Cells[2, 1] = "入庫日期";
                 excel.Cells[2, 2] = "入庫單號";
                 excel.Cells[2, 3] = "產品名稱";
-                excel.Cells[2, 4] = "公司部門";
-                excel.Cells[2, 5] = "單位";
-                excel.Cells[2, 6] = "生產數量";
-                excel.Cells[2, 7] = "合計生產";
-                excel.Cells[2, 8] = "合計合格";
-                excel.Cells[2, 9] = "合計入庫";
-                excel.Cells[2, 10] = "合計轉生產";
-                excel.Cells[2, 11] = "加工單";
-                excel.Cells[2, 12] = "客戶訂單號";
-                excel.Cells[2, 13] = "生產數量";
-                excel.Cells[2, 14] = "合格數量";
-                excel.Cells[2, 15] = "轉生產數量";
-                excel.Cells[2, 16] = "入庫數量";
+                excel.Cells[2, 4] = "型號";
+                excel.Cells[2, 5] = "公司部門";
+                excel.Cells[2, 6] = "單位";
+                excel.Cells[2, 7] = "生產數量";
+                excel.Cells[2, 8] = "合計生產";
+                excel.Cells[2, 9] = "合計合格";
+                excel.Cells[2, 10] = "合計入庫";
+                excel.Cells[2, 11] = "合計轉生產";
+                excel.Cells[2, 12] = "加工單";
+                excel.Cells[2, 13] = "客戶訂單號";
+                excel.Cells[2, 14] = "生產數量";
+                excel.Cells[2, 15] = "合格數量";
+                excel.Cells[2, 16] = "轉生產數量";
+                excel.Cells[2, 17] = "入庫數量";
 
+                #endregion
+
+                #region 取商品對應的母件型號
+                foreach (var item in details)
+                {
+                    if (string.IsNullOrEmpty(item.CustomerProductName))
+                    {
+                        //item.CustomerProductName = (this.manager as BL.ProduceInDepotDetailManager).SelectCustomerProductNameByPronoteHeaderId(item.PronoteHeaderId);  如果一个订单里面多个商品同时用到某个子件，在物料需求里面该子件会合并计算为一笔，其实它对应有多个主件
+                        List<string> invoiceProductIds = this.invoiceXODetailManager.SelectProductIDs(item.PronoteHeaderId).ToList();
+                        List<string> parentProductIds = new List<string>();
+                        this.GetParentProductInfo("'" + item.ProductId + "'", parentProductIds);
+                        IEnumerable<string> productIds = invoiceProductIds.Intersect(parentProductIds);
+
+                        string pIds = "";
+                        foreach (var p in productIds)
+                        {
+                            pIds += "'" + p + "',";
+                        }
+                        pIds = pIds.TrimEnd(',');
+
+                        item.CustomerProductName = this.productManager.SelectCustomerProductNameByProductIds(pIds).TrimEnd(',');
+                    }
+                }
                 #endregion
 
                 for (int i = 0; i < details.Count; i++)
@@ -330,19 +364,20 @@ namespace Book.UI.produceManager.ProduceInDepot
                     excel.Cells[i + 3, 1] = details[i].mProduceInDepotDate.HasValue ? details[i].mProduceInDepotDate.Value.ToString("yyyy-MM-dd") : "";
                     excel.Cells[i + 3, 2] = details[i].ProduceInDepotId;
                     excel.Cells[i + 3, 3] = details[i].ProductName;
-                    excel.Cells[i + 3, 4] = details[i].WorkHousename;
-                    excel.Cells[i + 3, 5] = details[i].ProductUnit;
-                    excel.Cells[i + 3, 6] = details[i].PronoteHeaderSum;
-                    excel.Cells[i + 3, 7] = details[i].HeJiProceduresSum;
-                    excel.Cells[i + 3, 8] = details[i].HeJiCheckOutSum;
-                    excel.Cells[i + 3, 9] = details[i].HeJiProduceQuantity;
-                    excel.Cells[i + 3, 10] = details[i].HeJiProduceTransferQuantity;
-                    excel.Cells[i + 3, 11] = details[i].PronoteHeaderId;
-                    excel.Cells[i + 3, 12] = details[i].CusXOId;
-                    excel.Cells[i + 3, 13] = details[i].ProceduresSum;
-                    excel.Cells[i + 3, 14] = details[i].CheckOutSum;
-                    excel.Cells[i + 3, 15] = details[i].ProduceTransferQuantity;
-                    excel.Cells[i + 3, 16] = details[i].ProduceQuantity;
+                    excel.Cells[i + 3, 4] = details[i].CustomerProductName;
+                    excel.Cells[i + 3, 5] = details[i].WorkHousename;
+                    excel.Cells[i + 3, 6] = details[i].ProductUnit;
+                    excel.Cells[i + 3, 7] = details[i].PronoteHeaderSum;
+                    excel.Cells[i + 3, 8] = details[i].HeJiProceduresSum;
+                    excel.Cells[i + 3, 9] = details[i].HeJiCheckOutSum;
+                    excel.Cells[i + 3, 10] = details[i].HeJiProduceQuantity;
+                    excel.Cells[i + 3, 11] = details[i].HeJiProduceTransferQuantity;
+                    excel.Cells[i + 3, 12] = details[i].PronoteHeaderId;
+                    excel.Cells[i + 3, 13] = details[i].CusXOId;
+                    excel.Cells[i + 3, 14] = details[i].ProceduresSum;
+                    excel.Cells[i + 3, 15] = details[i].CheckOutSum;
+                    excel.Cells[i + 3, 16] = details[i].ProduceTransferQuantity;
+                    excel.Cells[i + 3, 17] = details[i].ProduceQuantity;
                 }
 
                 excel.Visible = true;//是否打开该Excel文件
@@ -449,6 +484,39 @@ namespace Book.UI.produceManager.ProduceInDepot
             }
         }
 
+        private void GetParentProductInfo(string productId, List<string> parentProductIds)
+        {
+            IList<Model.BomComponentInfo> bomComponentList = bomComponentInfoManager.SelectBomIdAndUseQty(productId);
+            if (bomComponentList == null || bomComponentList.Count == 0)
+                return;
+
+            string bomIds = "";
+            foreach (var component in bomComponentList)
+            {
+                bomIds += "'" + component.BomId + "',";
+            }
+            bomIds = bomIds.TrimEnd(',');
+
+            IList<Model.BomParentPartInfo> bomParentList = bomParentPartInfoManager.SelectProducts(bomIds);
+            string productIds = "";
+
+            #region 新版，一个子件没母件引用N次，叠加计算
+            foreach (var comInfo in bomComponentList)
+            {
+                Model.BomParentPartInfo parent = bomParentList.First(P => P.BomId == comInfo.BomId);
+                productIds += "'" + parent.ProductId + "',";
+
+                if (!parentProductIds.Contains(parent.ProductId))
+                {
+                    parentProductIds.Add(parent.ProductId);
+                }
+            }
+            #endregion
+
+            productIds = productIds.TrimEnd(',');
+
+            GetParentProductInfo(productIds, parentProductIds);   //递归调用
+        }
 
         //加工单查看
         private void repositoryItemHyperLinkEdit1_Click(object sender, EventArgs e)

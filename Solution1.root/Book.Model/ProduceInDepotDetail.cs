@@ -176,6 +176,9 @@ namespace Book.Model
         public string DepotName { get; set; }
         public DateTime? HeaderDate { get; set; }
 
+        //2018年3月14日20:32:57,生产入库要导出的Excel里面包含 型号，该型号取入库商品对应的母件型号
+        public string CustomerProductName { get; set; }
+
         public readonly static string PRO_ProInDepotDetailDate = "ProInDepotDetailDate";
 
         public readonly static string PRO_RejectionRate_1 = "RejectionRate_1";

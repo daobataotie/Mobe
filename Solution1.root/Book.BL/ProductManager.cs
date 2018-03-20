@@ -693,6 +693,11 @@ namespace Book.BL
         {
             return accessor.SelectProductCategoryByProductIds(productIds);
         }
+
+        public string SelectCustomerProductNameByProductIds(string productIds)
+        {
+            return accessor.SelectCustomerProductNameByProductIds(productIds);
+        }
     }
 }
 

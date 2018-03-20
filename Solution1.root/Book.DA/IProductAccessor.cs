@@ -68,6 +68,8 @@ namespace Book.DA
         IList<Model.Product> SelectProductIdAndName();
 
         DataTable SelectProductCategoryByProductIds(string productIds);
+
+        string SelectCustomerProductNameByProductIds(string productIds);
     }
 }
 
