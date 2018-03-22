@@ -62,7 +62,12 @@ namespace Book.UI.produceManager.PronoteHeader
             {
 
                 this.xrLabelProductName.Text = pronoteHeader.Product.ProductName;
-                this.xrLabelCustomerProductName.Text = pronoteHeader.Product.CustomerProductName;
+
+                if (string.IsNullOrEmpty(pronoteHeader.Product.CustomerProductName))
+                    this.xrLabelCustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(pronoteHeader.PronoteHeaderID, pronoteHeader.ProductId);
+                else
+                    this.xrLabelCustomerProductName.Text = pronoteHeader.Product.CustomerProductName;
+
                 this.xrRichTextProDesc.Rtf = this.pronoteHeader.Product.ProductDescription;
             }
             Model.InvoiceXO xo = new BL.InvoiceXOManager().Get(this.pronoteHeader.InvoiceXOId);

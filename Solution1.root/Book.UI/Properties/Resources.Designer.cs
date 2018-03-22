@@ -2409,7 +2409,7 @@ namespace Book.UI.Properties {
         }
         
         /// <summary>
-        ///   查找类似 模具上线检验单 的本地化字符串。
+        ///   查找类似 模具上线检查表 的本地化字符串。
         /// </summary>
         internal static string ProductOnlineCheck {
             get {

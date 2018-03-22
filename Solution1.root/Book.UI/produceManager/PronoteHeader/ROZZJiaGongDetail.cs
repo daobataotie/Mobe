@@ -30,6 +30,9 @@ namespace Book.UI.produceManager.PronoteHeader
                 detail.MRSDetails = this.mrsdetailManager.Get(detail.MRSdetailsId);
                 if (detail.MRSDetails != null)
                     detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
+
+                if (string.IsNullOrEmpty(detail.CustomerProductName))
+                    detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail.PronoteHeaderID, detail.ProductId);
             }
             this.DataSource = list;
             this.xrLabelDataName.Text = Properties.Resources.Pronotedetails;
@@ -62,6 +65,9 @@ namespace Book.UI.produceManager.PronoteHeader
                 detail.MRSDetails = this.mrsdetailManager.Get(detail.MRSdetailsId);
                 if (detail.MRSDetails != null)
                     detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
+
+                if (string.IsNullOrEmpty(detail.CustomerProductName))
+                    detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail.PronoteHeaderID, detail.ProductId);
             }
             this.DataSource = list;
             this.xrLabelDataName.Text = Properties.Resources.Pronotedetails;

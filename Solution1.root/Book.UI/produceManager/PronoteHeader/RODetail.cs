@@ -29,7 +29,12 @@ namespace Book.UI.produceManager.PronoteHeader
                 if (detail.MRSDetails != null)
                     detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
                 if (!string.IsNullOrEmpty(detail.ProductId))
+                {
                     detail.Product = new BL.ProductManager().Get(detail.ProductId);
+
+                    if (string.IsNullOrEmpty(detail.CustomerProductName))
+                        detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail.PronoteHeaderID, detail.ProductId);
+                }
             }
             this.DataSource = list;
 
@@ -96,7 +101,11 @@ namespace Book.UI.produceManager.PronoteHeader
                 if (detail.MRSDetails != null)
                     detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
                 if (!string.IsNullOrEmpty(detail.ProductId))
+                {
                     detail.Product = new BL.ProductManager().Get(detail.ProductId);
+                    if (string.IsNullOrEmpty(detail.CustomerProductName))
+                        detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail.PronoteHeaderID, detail.ProductId);
+                }
             }
             this.DataSource = list;
 

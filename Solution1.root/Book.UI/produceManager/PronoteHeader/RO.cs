@@ -17,7 +17,7 @@ namespace Book.UI.produceManager.PronoteHeader
         private System.Collections.Generic.IList<Model.PronoteMachine> machineList = new System.Collections.Generic.List<Model.PronoteMachine>();
         private BL.PronoteMachineManager pronoteMachineManager = new BL.PronoteMachineManager();
         BL.MRSdetailsManager mRSDetailsManager = new BL.MRSdetailsManager();
-        public RO(string pronoteHeaderId, int flag)  
+        public RO(string pronoteHeaderId, int flag)
         {
             InitializeComponent();
             this.pronoteHeader = this.pronoteHeaderManager.GetDetails(pronoteHeaderId);
@@ -30,7 +30,7 @@ namespace Book.UI.produceManager.PronoteHeader
                 this.xrLabelDataName.Text = Properties.Resources.GZZhiShi;
 
             }
-            else if (flag ==4)
+            else if (flag == 4)
             {
                 this.xrLabelDataName.Text = Properties.Resources.ZZJiaGong;
                 this.lbl_PageSign.Text = "QR8-06-09-1";
@@ -61,14 +61,18 @@ namespace Book.UI.produceManager.PronoteHeader
             }
             if (pronoteHeader.Product != null)
             {
-
                 this.xrLabelProductName.Text = pronoteHeader.Product.ProductName;
-                this.xrLabelCustomerProductName.Text = pronoteHeader.Product.CustomerProductName;
+
+                if (string.IsNullOrEmpty(pronoteHeader.Product.CustomerProductName))
+                    this.xrLabelCustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(pronoteHeader.PronoteHeaderID, pronoteHeader.ProductId);
+                else
+                    this.xrLabelCustomerProductName.Text = pronoteHeader.Product.CustomerProductName;
+
                 this.xrRichTextProDesc.Rtf = this.pronoteHeader.Product.ProductDescription;
-                if (this.pronoteHeader.Product.AttrZhengMai!=null)
-                this.RichTextZhengMai.Rtf = this.pronoteHeader.Product.AttrZhengMai;
+                if (this.pronoteHeader.Product.AttrZhengMai != null)
+                    this.RichTextZhengMai.Rtf = this.pronoteHeader.Product.AttrZhengMai;
                 if (this.pronoteHeader.Product.AttrCeMai != null)
-                this.RichTextCeMai.Rtf = this.pronoteHeader.Product.AttrCeMai;
+                    this.RichTextCeMai.Rtf = this.pronoteHeader.Product.AttrCeMai;
 
             }
             Model.InvoiceXO xo = new BL.InvoiceXOManager().Get(this.pronoteHeader.InvoiceXOId);
