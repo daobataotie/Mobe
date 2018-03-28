@@ -26,11 +26,11 @@ namespace Book.DA
         IList<Book.Model.InvoiceXODetail> select_XOnotInMps();
         IList<Model.InvoiceXODetail> SelectByDateRangeAndPid(string productid, DateTime startdate, DateTime enddate);
         IList<Model.InvoiceXODetail> SelectByHeaderProRang(Model.InvoiceXO invoecexo, Model.Product product1, Model.Product product2, bool isclose);
-        IList<Model.InvoiceXODetail> Select(Model.Customer customer1, Model.Customer customer2, DateTime startDate, DateTime endDate, DateTime yjrq1, DateTime yjrq2, Model.Employee employee1, Model.Employee employee2, string xoid1, string xoid2, string cusxoidkey, Model.Product product, Model.Product product2, bool isclose, bool mpsIsClose, int orderColumn, int orderType,bool detailFlag);
+        IList<Model.InvoiceXODetail> Select(Model.Customer customer1, Model.Customer customer2, DateTime startDate, DateTime endDate, DateTime yjrq1, DateTime yjrq2, Model.Employee employee1, Model.Employee employee2, string xoid1, string xoid2, string cusxoidkey, Model.Product product, Model.Product product2, bool isclose, bool mpsIsClose, int orderColumn, int orderType, bool detailFlag);
         void UpdateProofUnitPrice(Model.InvoiceXODetail e);
         double SumOrderQuantityByHandbook(string handbookId, string handbookProductId);
 
-        IList<string> SelectProductIDs(string PronoteHeaderId);
+        IList<string> SelectProductIDs(string PronoteHeaderId, string handbookProductId);
     }
 }
 

@@ -3,16 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <statements>
     <select id="select_by_invoiceid" resultMap="InvoiceXODetailResult" parameterClass="string">
-		SELECT *
-		FROM
-		[dbo].[InvoiceXODetail]
-		WHERE invoiceid = #InvoiceId# $sql$ order by Inumber
-	</select>
+      SELECT *
+      FROM
+      [dbo].[InvoiceXODetail]
+      WHERE invoiceid = #InvoiceId# $sql$ order by Inumber
+    </select>
     <delete id="delete_by_invoiceid" parameterClass="string">
-		delete
-		from dbo.InvoiceXODetail
-		where invoiceid=#value# 
-	</delete>
+      delete
+      from dbo.InvoiceXODetail
+      where invoiceid=#value#
+    </delete>
     <select id="select_by_InvoiceXODetailId" resultMap="InvoiceXODetailResult" parameterClass="string">
       select InvoiceXODetailQuantity from InvoiceXODetail  where InvoiceXODetailId=#value#
     </select>
@@ -66,7 +66,13 @@
 
     <select id="SelectProductIDs" parameterClass="string" resultClass="string">
       <![CDATA[
-      select ProductId from InvoiceXODetail where InvoiceId=(select InvoiceXOId from PronoteHeader where PronoteHeaderID=#value#)
+      select ProductId from InvoiceXODetail where InvoiceId=(select InvoiceXOId from PronoteHeader where PronoteHeaderID=#value#) 
+      ]]>
+    </select>
+
+    <select id="SelectProductIDsWithHandbookProductId" parameterClass="Map" resultClass="string">
+      <![CDATA[
+      select ProductId from InvoiceXODetail where InvoiceId=(select InvoiceXOId from PronoteHeader where PronoteHeaderID=#PronoteHeaderID#) and HandbookProductId=#HandbookProductId#
       ]]>
     </select>
   </statements>

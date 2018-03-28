@@ -333,7 +333,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                     if (string.IsNullOrEmpty(item.CustomerProductName))
                     {
                         //item.CustomerProductName = (this.manager as BL.ProduceInDepotDetailManager).SelectCustomerProductNameByPronoteHeaderId(item.PronoteHeaderId);  如果一个订单里面多个商品同时用到某个子件，在物料需求里面该子件会合并计算为一笔，其实它对应有多个主件
-                        item.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(item.PronoteHeaderId, item.ProductId);
+                        item.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(item.PronoteHeaderId, item.ProductId, item.HandbookProductId);
                     }
                 }
                 #endregion

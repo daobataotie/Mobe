@@ -18,9 +18,10 @@ namespace Book.UI.produceManager
         /// <param name="pronoteHeaderId">加工单号</param>
         /// <param name="productId">商品编号</param>
         /// <returns></returns>
-        internal string GetCustomerProductNameByPronoteHeaderId(string pronoteHeaderId, string productId)
+        internal string GetCustomerProductNameByPronoteHeaderId(string pronoteHeaderId, string productId, string handbookProductId)
         {
-            List<string> invoiceProductIds = invoiceXODetailManager.SelectProductIDs(pronoteHeaderId).ToList();
+            List<string> invoiceProductIds = invoiceXODetailManager.SelectProductIDs(pronoteHeaderId, handbookProductId).ToList();
+
             List<string> parentProductIds = new List<string>();
             GetParentProductInfo("'" + productId + "'", parentProductIds);
             IEnumerable<string> productIds = invoiceProductIds.Intersect(parentProductIds);
@@ -32,7 +33,7 @@ namespace Book.UI.produceManager
             }
             pIds = pIds.TrimEnd(',');
 
-            if (string.IsNullOrEmpty(pIds))
+            if (string.IsNullOrEmpty(pIds))   //有些商品是通过 + 上去的，没有对应订单里面的商品
                 return null;
             return productManager.SelectCustomerProductNameByProductIds(pIds).TrimEnd(',');
         }

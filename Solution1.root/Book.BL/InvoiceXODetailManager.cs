@@ -109,9 +109,9 @@ namespace Book.BL
             return accessor.SumOrderQuantityByHandbook(handbookId, handbookProductId);
         }
 
-        public IList<string> SelectProductIDs(string PronoteHeaderId)
+        public IList<string> SelectProductIDs(string PronoteHeaderId, string handbookProductId)
         {
-            return accessor.SelectProductIDs(PronoteHeaderId);
+            return accessor.SelectProductIDs(PronoteHeaderId, handbookProductId);
         }
     }
 }
