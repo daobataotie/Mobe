@@ -1263,6 +1263,20 @@ namespace Book.UI.produceManager.ProduceInDepot
             ExportExcel(this.produceInDepot.Details);
         }
 
+        private void newChooseWorkHorseId_EditValueChanged(object sender, EventArgs e)
+        {
+            if (newChooseWorkHorseId.EditValue != null)
+            {
+                foreach (var item in this.produceInDepot.Details)
+                {
+                    item.beforeTransferQuantity = this.produceInDepotDetailManager.select_TransferSumyPronHeaderWorkHouse(item.PronoteHeaderId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).WorkHouseId, DateTime.Now.Date.AddDays(-1));
+                    item.HeJiBeforeTransferQuantity = this.produceInDepotDetailManager.select_TransferSumyPronHeaderWorkHouse(item.PronoteHeaderId, (this.newChooseWorkHorseId.EditValue as Model.WorkHouse).WorkHouseId, null);
+                }
+
+                this.gridControl1.RefreshDataSource();
+            }
+        }
+
     }
 }
 
