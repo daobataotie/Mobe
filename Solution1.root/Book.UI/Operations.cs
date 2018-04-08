@@ -761,6 +761,9 @@ namespace Book.UI
 
             //区间查询入库单/换算原料
             operations.Add("produceManager.ProduceInDepot.CountMaterialForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.ProduceInDepot.CountMaterialForm", form); });
+
+            //进出仓明细（Excel版）
+            operations.Add("Query.OutAndInDepotForExcelForm", (D1)delegate(System.Windows.Forms.Form form) { M1("Query.OutAndInDepotForExcelForm", form); });
         }
 
         static Form CreateForm(string formTypeName)

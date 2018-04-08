@@ -4968,6 +4968,10 @@
       <DependentUpon>InDepotForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Query\OutAndInDepotForExcelForm.resx">
+      <DependentUpon>OutAndInDepotForExcelForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Query\OutDepotDetail.zh-CHT.resx">
       <DependentUpon>OutDepotDetail.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -11984,6 +11988,12 @@
     </Compile>
     <Compile Include="Query\InDepotForm.Designer.cs">
       <DependentUpon>InDepotForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\OutAndInDepotForExcelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\OutAndInDepotForExcelForm.Designer.cs">
+      <DependentUpon>OutAndInDepotForExcelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Query\OutDepot.cs" />
     <Compile Include="Query\OutDepotForm.cs">

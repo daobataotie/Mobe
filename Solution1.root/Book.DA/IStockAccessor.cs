@@ -56,6 +56,8 @@ namespace Book.DA
         double SelectJiShidistributioned(string productId, DateTime startDate, DateTime endDate);
 
         System.Data.DataTable SelectProductNoDepotout(double years, string productCategoryId);
+
+        IList<Model.StockSeach> SelectOutAndInDepot(DateTime startDate, DateTime endDate, string startProductCategory, string endProductCategory);
     }
 }
 

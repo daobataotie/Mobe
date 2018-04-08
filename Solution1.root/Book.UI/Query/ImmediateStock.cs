@@ -330,9 +330,6 @@ namespace Book.UI.Query
 
                 foreach (var item in haveTwoCategoryPro.GroupBy(P => P.ProductCategoryName2))
                 {
-                    //excel.Cells[row, 1] = item.Key;
-                    //excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 1]).Interior.Color = "255";    //红色
-                    //row++;
                     SetExcelFormat(excel, ref col, ref row, item);
 
                     foreach (var pro in item)
@@ -358,9 +355,6 @@ namespace Book.UI.Query
 
                 foreach (var item in haveOneCategoryPro.GroupBy(P => P.ProductCategoryName))
                 {
-                    //excel.Cells[row, 1] = item.Key;
-                    //excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 1]).Interior.Color = "255";    //红色
-                    //row++;
                     SetExcelFormat(excel, ref col, ref row, item);
 
                     foreach (var pro in item)

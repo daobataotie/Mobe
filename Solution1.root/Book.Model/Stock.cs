@@ -270,5 +270,13 @@ namespace Book.Model
         public string CusXOId { get; set; }
 
         public double? ProduceTransferQuantity { get; set; }
+
+        public string ProductName { get; set; }
+
+        public string ProductCategoryName1 { get; set; }
+
+        public string ProductCategoryName2 { get; set; }
+
+        public string ProductCategoryName3 { get; set; }
     }
 }
