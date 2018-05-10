@@ -462,7 +462,7 @@ namespace Book.UI
             operations.Add("invoices.cg.edit-detail", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ROInvoiceCGlist", new Book.UI.Query.ConditionCOChooseForm()); });
 
 
-            operations.Add("invoices.xs.edit-detail", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ROInvoiceXSlist", new Book.UI.Query.ConditionXChooseForm()); });
+            operations.Add("invoices.xs.edit-detail", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ROInvoiceXSlist2", new Book.UI.Query.ConditionXChooseForm()); });
 
 
 

@@ -4996,6 +4996,14 @@
       <DependentUpon>ROInvoiceCGlistBiao.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Query\ROInvoiceXSlist2.resx">
+      <DependentUpon>ROInvoiceXSlist2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\ROInvoiceXSlist2.zh-CHT.resx">
+      <DependentUpon>ROInvoiceXSlist2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Query\ROInvoiceXSlistBiao.resx">
       <DependentUpon>ROInvoiceXSlistBiao.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -7464,12 +7472,12 @@
       <DependentUpon>ROInvoiceCO_1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Query\ROInvoiceXSlist.resx">
-      <DependentUpon>ROInvoiceXSlist.cs</DependentUpon>
+    <EmbeddedResource Include="Query\ROInvoiceXSlist_BackUp.resx">
+      <DependentUpon>ROInvoiceXSlist_BackUp.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Query\ROInvoiceXSlist.zh-CHT.resx">
-      <DependentUpon>ROInvoiceXSlist.cs</DependentUpon>
+    <EmbeddedResource Include="Query\ROInvoiceXSlist_BackUp.zh-CHT.resx">
+      <DependentUpon>ROInvoiceXSlist_BackUp.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Query\ROMRSDetailsList.resx">
@@ -12014,6 +12022,12 @@
     <Compile Include="Query\Q15JiShiForm.Designer.cs">
       <DependentUpon>Q15JiShiForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Query\ROInvoiceXSlist2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Query\ROInvoiceXSlist2.Designer.cs">
+      <DependentUpon>ROInvoiceXSlist2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Query\ROInvoiceXSlistBiao.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -12558,11 +12572,11 @@
     <Compile Include="Query\ROInvoiceCO_1.Designer.cs">
       <DependentUpon>ROInvoiceCO_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Query\ROInvoiceXSlist.cs">
+    <Compile Include="Query\ROInvoiceXSlist_BackUp.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Query\ROInvoiceXSlist.Designer.cs">
-      <DependentUpon>ROInvoiceXSlist.cs</DependentUpon>
+    <Compile Include="Query\ROInvoiceXSlist_BackUp.Designer.cs">
+      <DependentUpon>ROInvoiceXSlist_BackUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Query\ROMRSDetailsList.cs">
       <SubType>Component</SubType>
