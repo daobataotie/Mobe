@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ANSI2015));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.memoTrans = new DevExpress.XtraEditors.MemoEdit();
             this.spe_Panding17 = new DevExpress.XtraEditors.SpinEdit();
             this.spe_Panding16 = new DevExpress.XtraEditors.SpinEdit();
             this.spe_Panding14 = new DevExpress.XtraEditors.SpinEdit();
@@ -158,12 +159,12 @@
             this.BarBtnSearch = new DevExpress.XtraBars.BarButtonItem();
             this.barPrintAlan = new DevExpress.XtraBars.BarButtonItem();
             this.barPrintPPE = new DevExpress.XtraBars.BarButtonItem();
-            this.memoTrans = new DevExpress.XtraEditors.MemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoTrans.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spe_Panding17.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spe_Panding16.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spe_Panding14.Properties)).BeginInit();
@@ -226,7 +227,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem106)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoTrans.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -369,6 +369,12 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Name = "panel1";
+            // 
+            // memoTrans
+            // 
+            resources.ApplyResources(this.memoTrans, "memoTrans");
+            this.memoTrans.MenuManager = this.barManager1;
+            this.memoTrans.Name = "memoTrans";
             // 
             // spe_Panding17
             // 
@@ -1349,12 +1355,6 @@
             this.barPrintPPE.Name = "barPrintPPE";
             this.barPrintPPE.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barPrintPPE_ItemClick);
             // 
-            // memoTrans
-            // 
-            resources.ApplyResources(this.memoTrans, "memoTrans");
-            this.memoTrans.MenuManager = this.barManager1;
-            this.memoTrans.Name = "memoTrans";
-            // 
             // ANSI2015
             // 
             resources.ApplyResources(this, "$this");
@@ -1367,6 +1367,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memoTrans.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spe_Panding17.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spe_Panding16.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spe_Panding14.Properties)).EndInit();
@@ -1429,7 +1430,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem106)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoTrans.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
