@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AssemblySiteDifference" xmlns="http://ibatis.apache.org/mapping" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <alias>
+        <typeAlias alias="AssemblySiteDifference" type="Book.Model.AssemblySiteDifference, Book.Model" />
+    </alias>
+    <resultMaps>                                    
+        <resultMap id="AssemblySiteDifferenceResult" class="AssemblySiteDifference">
+			<result property="AssemblySiteDifferenceId" column="AssemblySiteDifferenceId" />
+			<result property="AssemblySiteInventoryId" column="AssemblySiteInventoryId" />
+			<result property="InvoiceDate" column="InvoiceDate" />
+			<result property="EmployeeId" column="EmployeeId" />
+			<result property="Note" column="Note" />
+			<result property="InsertTime" column="InsertTime" />
+			<result property="UpdateTime" column="UpdateTime" />
+		<result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_by_primary_key" />        </resultMap>
+    </resultMaps>
+		
+    <statements>
+		<select id="has_rows_of" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AssemblySiteDifference]
+				WHERE
+				[AssemblySiteDifferenceId] = #AssemblySiteDifferenceId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="has_rows" resultClass="bool">
+			<![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AssemblySiteDifference]
+ 								
+				) then 1 else 0 end
+                ]]>
+		</select>
+		<select id="get_first" resultMap="AssemblySiteDifferenceResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AssemblySiteDifference
+			 
+			order by InsertTime 
+			]]>
+		</select>
+		<select id="get_last" resultMap="AssemblySiteDifferenceResult">
+			<![CDATA[
+			select top 1 *
+			from dbo.AssemblySiteDifference
+						
+            order by InsertTime desc
+			]]>
+            
+		</select>
+		<select id="get_prev" resultMap="AssemblySiteDifferenceResult" parameterClass="AssemblySiteDifference">
+			<![CDATA[
+			select top 1 *
+			from dbo.AssemblySiteDifference
+			where InsertTime < #InsertTime#	
+            			          
+            order by InsertTime desc
+			]]>
+		</select>
+		<select id="get_next" resultMap="AssemblySiteDifferenceResult" parameterClass="AssemblySiteDifference">
+			<![CDATA[
+			select top 1 *
+			from dbo.AssemblySiteDifference
+			where InsertTime > #InsertTime#	
+                			                   
+            order by InsertTime
+			]]>
+		</select>
+		
+		<select id="has_rows_before" resultClass="bool" parameterClass="AssemblySiteDifference">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AssemblySiteDifference
+				where InsertTime < #InsertTime#
+                			                   
+				) then 1 else 0 end
+			]]>
+		</select>
+		
+		<select id="has_rows_after" resultClass="bool" parameterClass="AssemblySiteDifference">
+			<![CDATA[
+			select case when exists(
+				select * 
+				from dbo.AssemblySiteDifference
+				where InsertTime > #InsertTime#
+                			          
+         
+				) then 1 else 0 end
+			]]>
+		</select>
+		<!-- select by primary key -->
+        <select id="select_by_primary_key" resultMap="AssemblySiteDifferenceResult" parameterClass="AssemblySiteDifference">
+			<![CDATA[SELECT
+				[AssemblySiteDifferenceId],
+				[AssemblySiteInventoryId],
+				[InvoiceDate],
+				[EmployeeId],
+				[Note],
+				[InsertTime],
+				[UpdateTime]
+			FROM
+				[dbo].[AssemblySiteDifference]
+			WHERE
+				[AssemblySiteDifferenceId] = #AssemblySiteDifferenceId#
+                			          
+         		]]>
+        </select>
+		
+		<!-- delete -->
+        <delete id="delete" parameterClass="string">
+				<![CDATA[                
+                DELETE FROM [dbo].[AssemblySiteDifference]
+			WHERE            
+				[AssemblySiteDifferenceId] = #AssemblySiteDifferenceId#
+                    		]]>
+        </delete>
+
+		<!-- select all -->
+        <select id="select_all" resultMap="AssemblySiteDifferenceResult" >
+			<![CDATA[SELECT *
+			FROM 
+				[dbo].[AssemblySiteDifference]
+                			                   
+  ORDER BY InsertTime DESC  
+			]]>
+        </select>
+        
+		<select id="count_all" resultClass="int">
+		<![CDATA[	select count(*)
+			from 
+				[dbo].[AssemblySiteDifference]
+                			          
+         ]]>
+		</select>
+		
+		<select id="select_all_with_paging" resultMap="AssemblySiteDifferenceResult">
+        <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AssemblySiteDifference]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+		</select>
+		
+		<!-- insert -->
+        <insert id="insert" parameterClass="AssemblySiteDifference">
+			 <![CDATA[ INSERT INTO [dbo].[AssemblySiteDifference] 
+			(
+				[AssemblySiteDifferenceId],
+				[AssemblySiteInventoryId],
+				[InvoiceDate],
+				[EmployeeId],
+				[Note],
+				[InsertTime],
+				[UpdateTime]
+			) 
+			VALUES 
+			(
+				#AssemblySiteDifferenceId#,
+				#AssemblySiteInventoryId#,
+				#InvoiceDate#,
+				#EmployeeId#,
+				#Note#,
+				#InsertTime#,
+				#UpdateTime#
+			)
+             ]]>
+        </insert>
+		
+		<!-- update -->
+        <update id="update" parameterClass="AssemblySiteDifference">
+		 <![CDATA[ 	UPDATE [AssemblySiteDifference] SET
+				[AssemblySiteInventoryId] = #AssemblySiteInventoryId#,
+				[InvoiceDate] = #InvoiceDate#,
+				[EmployeeId] = #EmployeeId#,
+				[Note] = #Note#,
+				[InsertTime] = #InsertTime#,
+				[UpdateTime] = #UpdateTime#
+			WHERE
+				[AssemblySiteDifferenceId] = #AssemblySiteDifferenceId#
+                    ]]>
+        </update>
+		<select id="existsPrimary" resultClass="bool" parameterClass="string">
+			<![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AssemblySiteDifference]
+				where  AssemblySiteDifferenceId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+		</select>
+		
+    </statements>
+</sqlMap>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AssemblySiteDifferenceDetai" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <delete id="DeleteByHeaderId" parameterClass="string">
+      delete from AssemblySiteDifferenceDetai where AssemblySiteDifferenceId=#value#
+    </delete>
+
+    <select id="SelectByHeaderId" parameterClass="string" resultMap="AssemblySiteDifferenceDetaiResult">
+      select * from AssemblySiteDifferenceDetai where AssemblySiteDifferenceId=#value#
+    </select>
+
+    <select id="SelectByDateRage" parameterClass="Map" resultMap="AssemblySiteDifferenceDetaiResult">
+      select * from AssemblySiteDifferenceDetai where AssemblySiteDifferenceId in (select AssemblySiteDifferenceId from AssemblySiteDifference where InvoiceDate between #startDate# and #endDate#) and (ProductId=#ProductId# or #ProductId#='')
+    </select>
+  </statements>
+</sqlMap>

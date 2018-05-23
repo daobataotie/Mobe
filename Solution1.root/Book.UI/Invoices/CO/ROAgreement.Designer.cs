@@ -94,6 +94,7 @@ namespace Book.UI.Invoices.CO
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblAddress = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
@@ -223,7 +224,7 @@ namespace Book.UI.Invoices.CO
             // lbl_ReportName
             // 
             this.lbl_ReportName.Dpi = 254F;
-            this.lbl_ReportName.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ReportName.Font = new System.Drawing.Font("新細明體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ReportName.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.lbl_ReportName.Name = "lbl_ReportName";
             this.lbl_ReportName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -418,6 +419,7 @@ namespace Book.UI.Invoices.CO
             // ReportFooter
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel12,
             this.xrLine2,
             this.lblCustomerTel,
             this.lblCustomerAddress,
@@ -446,7 +448,7 @@ namespace Book.UI.Invoices.CO
             this.lblAddress,
             this.xrLabel4});
             this.ReportFooter.Dpi = 254F;
-            this.ReportFooter.HeightF = 907.2293F;
+            this.ReportFooter.HeightF = 1002.479F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrLine2
@@ -760,6 +762,17 @@ namespace Book.UI.Invoices.CO
             this.xrLabel4.Text = "2. 交货地点：";
             this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
+            // xrLabel12
+            // 
+            this.xrLabel12.Dpi = 254F;
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(1720F, 944.0593F);
+            this.xrLabel12.Name = "xrLabel12";
+            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(254F, 58.42F);
+            this.xrLabel12.StylePriority.UseTextAlignment = false;
+            this.xrLabel12.Text = "QR8-04-01-1";
+            this.xrLabel12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
             // ROAgreement
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -770,7 +783,7 @@ namespace Book.UI.Invoices.CO
             this.PageHeader,
             this.ReportFooter});
             this.Dpi = 254F;
-            this.Font = new System.Drawing.Font("PMingLiU", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("新細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margins = new System.Drawing.Printing.Margins(80, 80, 80, 80);
             this.PageHeight = 2794;
             this.PageWidth = 2159;
@@ -852,5 +865,6 @@ namespace Book.UI.Invoices.CO
         private DevExpress.XtraReports.UI.XRLabel lblSupplierAddress;
         private DevExpress.XtraReports.UI.XRLabel lblSupplierName;
         private DevExpress.XtraReports.UI.XRLine xrLine2;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel12;
     }
 }

@@ -215,5 +215,12 @@ namespace Book.DA.SQLServer
 
             return Convert.ToDouble(this.QueryObject(sql));
         }
+
+        public double SelectMaterialQty(string productid, DateTime dateEnd, string workHouseId)
+        {
+            string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID left join InvoiceXO xo on pm.InvoiceXOId=xo.InvoiceId where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate <= '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "' and xo.IsClose <>1";
+
+            return Convert.ToDouble(this.QueryObject(sql));
+        }
     }
 }

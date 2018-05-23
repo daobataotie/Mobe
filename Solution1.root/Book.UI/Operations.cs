@@ -764,6 +764,15 @@ namespace Book.UI
 
             //进出仓明细（Excel版）
             operations.Add("Query.OutAndInDepotForExcelForm", (D1)delegate(System.Windows.Forms.Form form) { M1("Query.OutAndInDepotForExcelForm", form); });
+
+            //组装现场盘点录入
+            operations.Add("Settings.StockLimitations.AssemblySiteInventoryForm", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.StockLimitations.AssemblySiteInventoryForm", form); });
+
+             //组装现场盘点差异
+            operations.Add("Settings.StockLimitations.AssemblySiteDifferenceForm", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.StockLimitations.AssemblySiteDifferenceForm", form); });
+
+            //AS2017外销报告
+            operations.Add("produceManager.PCExportReportANSI.ASEditForm2017", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCExportReportANSI.ASEditForm2017", form); });
         }
 
         static Form CreateForm(string formTypeName)

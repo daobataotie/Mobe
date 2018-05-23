@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="AssemblySiteDifferenceDetai" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="AssemblySiteDifferenceDetai" type="Book.Model.AssemblySiteDifferenceDetai, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="AssemblySiteDifferenceDetaiResult" class="AssemblySiteDifferenceDetai">
+      <result property="AssemblySiteDifferenceDetaiId" column="AssemblySiteDifferenceDetaiId" />
+      <result property="AssemblySiteDifferenceId" column="AssemblySiteDifferenceId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="ActualQuantity" column="ActualQuantity" />
+      <result property="TheoryQuantity" column="TheoryQuantity" />
+      <result property="AssemblySiteDifference" column="AssemblySiteDifferenceId" lazyLoad="false" select="AssemblySiteDifference.select_by_primary_key"/>
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AssemblySiteDifferenceDetai]
+				WHERE
+				[AssemblySiteDifferenceDetaiId] = #AssemblySiteDifferenceDetaiId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[AssemblySiteDifferenceDetai]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="AssemblySiteDifferenceDetaiResult" parameterClass="AssemblySiteDifferenceDetai">
+      <![CDATA[SELECT
+				[AssemblySiteDifferenceDetaiId],
+				[AssemblySiteDifferenceId],
+				[ProductId],
+				[ActualQuantity],
+				[TheoryQuantity]
+			FROM
+				[dbo].[AssemblySiteDifferenceDetai]
+			WHERE
+				[AssemblySiteDifferenceDetaiId] = #AssemblySiteDifferenceDetaiId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[AssemblySiteDifferenceDetai]
+			WHERE            
+				[AssemblySiteDifferenceDetaiId] = #AssemblySiteDifferenceDetaiId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="AssemblySiteDifferenceDetaiResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[AssemblySiteDifferenceDetai]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[AssemblySiteDifferenceDetai]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="AssemblySiteDifferenceDetaiResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[AssemblySiteDifferenceDetai]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="AssemblySiteDifferenceDetai">
+      <![CDATA[ INSERT INTO [dbo].[AssemblySiteDifferenceDetai] 
+			(
+				[AssemblySiteDifferenceDetaiId],
+				[AssemblySiteDifferenceId],
+				[ProductId],
+				[ActualQuantity],
+				[TheoryQuantity]
+			) 
+			VALUES 
+			(
+				#AssemblySiteDifferenceDetaiId#,
+				#AssemblySiteDifferenceId#,
+				#ProductId#,
+				#ActualQuantity#,
+				#TheoryQuantity#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="AssemblySiteDifferenceDetai">
+      <![CDATA[ 	UPDATE [AssemblySiteDifferenceDetai] SET
+				[AssemblySiteDifferenceId] = #AssemblySiteDifferenceId#,
+				[ProductId] = #ProductId#,
+				[ActualQuantity] = #ActualQuantity#,
+				[TheoryQuantity] = #TheoryQuantity#
+			WHERE
+				[AssemblySiteDifferenceDetaiId] = #AssemblySiteDifferenceDetaiId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[AssemblySiteDifferenceDetai]
+				where  AssemblySiteDifferenceDetaiId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>

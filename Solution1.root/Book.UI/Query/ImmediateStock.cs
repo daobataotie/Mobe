@@ -180,23 +180,27 @@ namespace Book.UI.Query
 
 
 
-                #region 组装现场:合计前单位转入+ 合计领料单领出 - 合计出库数量（合计转生产到其他部门，成品入库数量换算后扣减数量）
+                #region 组装现场:合计前单位转入+ 合计领料单领出 - 合计出库数量（合计转生产到其他部门，成品入库数量换算后扣减数量）                         2018年5月22日21:48:44,这边修改的时候对应到“组装现场盘点差异”也要修改
+
                 //2018年2月22日13:18:54： 组装现场:合计前单位转入+ 合计领料单领出 - 合计出库数量（合计转生产到其他部门，成品入库数量换算后扣减数量）- 生产退料（从组装现场退的）
                 //领到 组装现场 部门的数量
                 double materialQty = 0;
-                if (!string.IsNullOrEmpty(invoiceXOIds))
-                    materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds);
+                //if (!string.IsNullOrEmpty(invoiceXOIds))
+                //    materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds);
+                //2018年5月17日00:34:42 只要是未结案的订单领到组装现场的都计入
+                materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+
                 //计算所有转入 组装现场 部门的数量
                 //Model.ProduceInDepotDetail pidZuzhuangIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId,  dateEnd.AddSeconds(-1), workHouseZuzhuang, null);   //转入组装现场时没有加工单
                 //double zuzhuangTransferIn = Convert.ToDouble(pidZuzhuangIn.ProduceTransferQuantity);
                 IList<Model.ProduceInDepotDetail> pidZuzhuangIn = produceInDepotDetailManager.SelectTransZuZhuangXianChang(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
                 double zuzhuangTransferIn = pidZuzhuangIn.Sum(P => P.ProduceTransferQuantity).Value;
-                string xoIDs = "";
-                foreach (string xoid in pidZuzhuangIn.Select(D => D.InvoiceXOId).Distinct())
-                {
-                    xoIDs += "'" + xoid + "',";
-                }
-                xoIDs = xoIDs.TrimEnd(',');
+                //string xoIDs = "";
+                //foreach (string xoid in pidZuzhuangIn.Select(D => D.InvoiceXOId).Distinct())
+                //{
+                //    xoIDs += "'" + xoid + "',";
+                //}
+                //xoIDs = xoIDs.TrimEnd(',');
 
                 //计算 组装现场 部门转入其他部门的数量
                 Model.ProduceInDepotDetail pidZuzhuangOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
@@ -208,7 +212,8 @@ namespace Book.UI.Query
 
                 #region 查询商品对应的所有母件 入库 扣减
                 double deductionQty = 0;
-                if (!string.IsNullOrEmpty(xoIDs))
+                //if (!string.IsNullOrEmpty(xoIDs))
+                if (!string.IsNullOrEmpty(invoiceXOIds))
                 {
                     Dictionary<string, double> parentProductDic = new Dictionary<string, double>();
 
@@ -223,8 +228,8 @@ namespace Book.UI.Query
 
                     if (!string.IsNullOrEmpty(proIds))
                     {
-                        //IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
-                        IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, xoIDs); //对应转到组装现场的生产入库单的客户订单，如果订单不在范围内，母件入库不扣减
+                        IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
+                        //IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, xoIDs); //对应转到组装现场的生产入库单的客户订单，如果订单不在范围内，母件入库不扣减
                         foreach (var pid in pids)
                         {
                             deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];
@@ -270,7 +275,7 @@ namespace Book.UI.Query
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 5]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 6]);
                 r.MergeCells = true;//合并单元格
 
                 excel.Cells.ColumnWidth = 10;
@@ -278,17 +283,19 @@ namespace Book.UI.Query
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
                 //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
-                excel.get_Range(excel.Cells[1, 5], excel.Cells[1, 5]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 6]).HorizontalAlignment = -4108;
 
-                excel.Cells[2, 1] = "商品名称";
-                excel.Cells[2, 2] = "仓库数量";
-                excel.Cells[2, 3] = "验片现场";
-                excel.Cells[2, 4] = "组装现场";
-                excel.Cells[2, 5] = "总数";
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 5 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "12566463";
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 50;
+                excel.Cells[2, 1] = "商品编号";
+                excel.Cells[2, 2] = "商品名称";
+                excel.Cells[2, 3] = "仓库数量";
+                excel.Cells[2, 4] = "验片现场";
+                excel.Cells[2, 5] = "组装现场";
+                excel.Cells[2, 6] = "总数";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 6 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "12566463";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 25;
+                excel.get_Range(excel.Cells[2, 2], excel.Cells[2, 2]).ColumnWidth = 50;
 
-                int col = 7;
+                int col = 8;
                 //原料
                 foreach (var item in listProduct[0].MaterialDic)
                 {
@@ -309,15 +316,16 @@ namespace Book.UI.Query
 
                     foreach (var pro in item)
                     {
-                        excel.Cells[row, 1] = pro.ProductName;
+                        excel.Cells[row, 1] = pro.Id;
+                        excel.Cells[row, 2] = pro.ProductName;
                         //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
-                        excel.Cells[row, 2] = pro.StocksQuantity;
+                        excel.Cells[row, 3] = pro.StocksQuantity;
                         //excel.Cells[row, 3] = pro.XianchangTotal;
-                        excel.Cells[row, 3] = pro.XianchangYanpian;
-                        excel.Cells[row, 4] = pro.XianchangZuzhuang;
-                        excel.Cells[row, 5] = pro.TotalQty;
+                        excel.Cells[row, 4] = pro.XianchangYanpian;
+                        excel.Cells[row, 5] = pro.XianchangZuzhuang;
+                        excel.Cells[row, 6] = pro.TotalQty;
 
-                        col = 7;
+                        col = 8;
                         foreach (var dic in pro.MaterialDic)
                         {
                             excel.Cells[row, col++] = dic.Value;
@@ -334,15 +342,16 @@ namespace Book.UI.Query
 
                     foreach (var pro in item)
                     {
-                        excel.Cells[row, 1] = pro.ProductName;
+                        excel.Cells[row, 1] = pro.Id;
+                        excel.Cells[row, 2] = pro.ProductName;
                         //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
-                        excel.Cells[row, 2] = pro.StocksQuantity;
+                        excel.Cells[row, 3] = pro.StocksQuantity;
                         //excel.Cells[row, 3] = pro.XianchangTotal;
-                        excel.Cells[row, 3] = pro.XianchangYanpian;
-                        excel.Cells[row, 4] = pro.XianchangZuzhuang;
-                        excel.Cells[row, 5] = pro.TotalQty;
+                        excel.Cells[row, 4] = pro.XianchangYanpian;
+                        excel.Cells[row, 5] = pro.XianchangZuzhuang;
+                        excel.Cells[row, 6] = pro.TotalQty;
 
-                        col = 7;
+                        col = 8;
                         foreach (var dic in pro.MaterialDic)
                         {
                             excel.Cells[row, col++] = dic.Value;
@@ -359,15 +368,16 @@ namespace Book.UI.Query
 
                     foreach (var pro in item)
                     {
-                        excel.Cells[row, 1] = pro.ProductName;
+                        excel.Cells[row, 1] = pro.Id;
+                        excel.Cells[row, 2] = pro.ProductName;
                         //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
-                        excel.Cells[row, 2] = pro.StocksQuantity;
+                        excel.Cells[row, 3] = pro.StocksQuantity;
                         //excel.Cells[row, 3] = pro.XianchangTotal;
-                        excel.Cells[row, 3] = pro.XianchangYanpian;
-                        excel.Cells[row, 4] = pro.XianchangZuzhuang;
-                        excel.Cells[row, 5] = pro.TotalQty;
+                        excel.Cells[row, 4] = pro.XianchangYanpian;
+                        excel.Cells[row, 5] = pro.XianchangZuzhuang;
+                        excel.Cells[row, 6] = pro.TotalQty;
 
-                        col = 7;
+                        col = 8;
                         foreach (var dic in pro.MaterialDic)
                         {
                             excel.Cells[row, col++] = dic.Value;
@@ -391,13 +401,13 @@ namespace Book.UI.Query
         private void SetExcelFormat(Microsoft.Office.Interop.Excel.Application excel, ref int col, ref int row, IGrouping<string, Book.Model.Product> item)
         {
             excel.Cells[row, 1] = item.Key;
-            excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 5 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "255";    //红色
-            excel.get_Range(excel.Cells[row, 2], excel.Cells[row, 2]).Formula = string.Format("=SUM(B{0}:B{1})", row + 1, row + item.Count());
+            excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 6 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "255";    //红色
             excel.get_Range(excel.Cells[row, 3], excel.Cells[row, 3]).Formula = string.Format("=SUM(C{0}:C{1})", row + 1, row + item.Count());
             excel.get_Range(excel.Cells[row, 4], excel.Cells[row, 4]).Formula = string.Format("=SUM(D{0}:D{1})", row + 1, row + item.Count());
             excel.get_Range(excel.Cells[row, 5], excel.Cells[row, 5]).Formula = string.Format("=SUM(E{0}:E{1})", row + 1, row + item.Count());
+            excel.get_Range(excel.Cells[row, 6], excel.Cells[row, 6]).Formula = string.Format("=SUM(F{0}:F{1})", row + 1, row + item.Count());
 
-            col = 7;
+            col = 8;
             foreach (var ec in listProduct[0].MaterialDic)
             {
                 string excelColumnName = CountExcelColumnName(col);

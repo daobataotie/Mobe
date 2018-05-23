@@ -4427,8 +4427,24 @@
       <DependentUpon>RO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\ASEditForm2017.resx">
+      <DependentUpon>ASEditForm2017.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\ASEditForm2017.zh-CHT.resx">
+      <DependentUpon>ASEditForm2017.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\ASRO.zh-CHS.resx">
       <DependentUpon>ASRO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\ASRO2017.resx">
+      <DependentUpon>ASRO2017.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\ASRO2017.zh-CHT.resx">
+      <DependentUpon>ASRO2017.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\CSARO.zh-CHS.resx">
@@ -10107,6 +10123,18 @@
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\StockLimitations\AssemblySiteDifferenceRO.resx">
+      <DependentUpon>AssemblySiteDifferenceRO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\StockLimitations\AssemblySiteInventoryForm.resx">
+      <DependentUpon>AssemblySiteInventoryForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\StockLimitations\AssemblySiteInventorySearchForm.resx">
+      <DependentUpon>AssemblySiteInventorySearchForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings\StockLimitations\ChooseDepotIn.resx">
       <DependentUpon>ChooseDepotIn.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -10353,6 +10381,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\StockLimitations\ViewOutInRecord.resx">
       <DependentUpon>ViewOutInRecord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\StockLimitations\AssemblySiteInventoryList.resx">
+      <DependentUpon>AssemblySiteInventoryList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\StockLimitations\AssemblySiteInventoryList.zh-CHT.resx">
+      <DependentUpon>AssemblySiteInventoryList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\StockLimitations\AssemblySiteDifferenceForm.resx">
+      <DependentUpon>AssemblySiteDifferenceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\StockLimitations\AssemblySiteDifferenceList.resx">
+      <DependentUpon>AssemblySiteDifferenceList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\StockLimitations\AssemblySiteDifferenceList.zh-CHT.resx">
+      <DependentUpon>AssemblySiteDifferenceList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\StockLimitations\AssemblySiteInventoryRO.resx">
+      <DependentUpon>AssemblySiteInventoryRO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="setwcfadd.resx">
@@ -11503,6 +11555,18 @@
     </Compile>
     <Compile Include="produceManager\PCEarPressCheck\RO.Designer.cs">
       <DependentUpon>RO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\ASEditForm2017.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\ASEditForm2017.Designer.cs">
+      <DependentUpon>ASEditForm2017.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\ASRO2017.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\ASRO2017.designer.cs">
+      <DependentUpon>ASRO2017.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCExportReportANSI\JISOutPutFile.cs">
       <SubType>Form</SubType>
@@ -12782,6 +12846,24 @@
     <Compile Include="Settings\ProduceManager\BomManagerForm2.Designer.cs">
       <DependentUpon>BomManagerForm2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteDifferenceRO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteDifferenceRO.Designer.cs">
+      <DependentUpon>AssemblySiteDifferenceRO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteInventoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteInventoryForm.Designer.cs">
+      <DependentUpon>AssemblySiteInventoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteInventorySearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteInventorySearchForm.Designer.cs">
+      <DependentUpon>AssemblySiteInventorySearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\StockLimitations\ChooseDepotIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -12817,6 +12899,30 @@
     </Compile>
     <Compile Include="Settings\StockLimitations\ViewOutInRecord.Designer.cs">
       <DependentUpon>ViewOutInRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteInventoryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteInventoryList.Designer.cs">
+      <DependentUpon>AssemblySiteInventoryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteDifferenceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteDifferenceForm.Designer.cs">
+      <DependentUpon>AssemblySiteDifferenceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteDifferenceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteDifferenceList.Designer.cs">
+      <DependentUpon>AssemblySiteDifferenceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteInventoryRO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings\StockLimitations\AssemblySiteInventoryRO.Designer.cs">
+      <DependentUpon>AssemblySiteInventoryRO.cs</DependentUpon>
     </Compile>
     <Compile Include="setwcfadd.cs">
       <SubType>Form</SubType>

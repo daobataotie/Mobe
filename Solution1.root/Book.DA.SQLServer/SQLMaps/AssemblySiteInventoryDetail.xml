@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="AssemblySiteInventoryDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <delete id="DeleteByHeaderId" parameterClass="string">
+      delete from AssemblySiteInventoryDetail where AssemblySiteInventoryId=#value#
+    </delete>
+
+    <select id="SelectByHeaderId" resultMap="AssemblySiteInventoryDetailResult" parameterClass="string">
+      select * from AssemblySiteInventoryDetail where AssemblySiteInventoryId=#value#
+    </select>
+
+    <select id="SelectByDateRage" resultMap="AssemblySiteInventoryDetailResult"  parameterClass="Map">
+      select * from AssemblySiteInventoryDetail where AssemblySiteInventoryId in (select AssemblySiteInventoryId from AssemblySiteInventory where InvoiceDate between #startDate# and #endDate#  $sql$) and (ProductId =#ProductId# or #ProductId#='') order by AssemblySiteInventoryId
+    </select>
+
+  </statements>
+</sqlMap>

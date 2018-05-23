@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="TopMargin.HeightF" type="System.Single, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="BottomMargin.HeightF" type="System.Single, mscorlib">
+    <value>51</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="xrLabel2.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 61.0658836</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xrLabel2.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>2855.35327, 59.4550629</value>
+  </data>
+  <data name="xrLabel1.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>2855.35327, 61.06588</value>
+  </data>
+  <data name="xrLabel1.Text" xml:space="preserve">
+    <value>ASWAN  INTERNATIONAL CORP.</value>
+  </data>
+  <data name="ReportHeader.HeightF" type="System.Single, mscorlib">
+    <value>120.52095</value>
+  </data>
+  <data name="CheckPriHOut.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckPriHOut.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1007.3186, 416.3472</value>
+  </data>
+  <data name="CheckPriHOut.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>44.58313, 74.07822</value>
+  </data>
+  <data name="CheckPriHIn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckPriHIn.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1007.31836, 352.6357</value>
+  </data>
+  <data name="CheckPriHIn.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>44.583374, 63.71161</value>
+  </data>
+  <data name="CheckPriVDwn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckPriVDwn.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1200.38086, 416.34964</value>
+  </data>
+  <data name="CheckPriVDwn.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>44.2698975, 74.07825</value>
+  </data>
+  <data name="CheckPriVUp.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckPriVUp.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1200.38086, 352.6357</value>
+  </data>
+  <data name="CheckPriVUp.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>44.2697754, 63.7115479</value>
+  </data>
+  <data name="xrLabel11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel11.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>695.112366, 1295.85437</value>
+  </data>
+  <data name="xrLabel11.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>1554.07568, 219.9972</value>
+  </data>
+  <data name="xrLabel11.Text" xml:space="preserve">
+    <value>Within 2 min of removal from the oven, commence testing the eye protector for C3.2.3 / C3.2.6 / C3.3.1 / C3.2.8. The maximum time for which the protector may be out of the oven for testing shall be 5 min. It shall then be returned to the oven for a minimum of 15 min before again being withdrawn.測試標的應於移出烤箱兩分鐘內開始依表序進行相關光學及衝擊測試且測試時間不超過五分 鐘。超過五分鐘後，測試標的應再以相同溫度條件再置入烤箱15分鐘後繼續前次測試順序。重覆此測試方式直至完成所有表列測 試項目為止。</value>
+  </data>
+  <assembly alias="DevExpress.Data.v10.2" name="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="xrLabel11.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="xrLabel10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel10.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1581.5863, 1132.31116</value>
+  </data>
+  <data name="xrLabel10.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>667.6022, 163.543213</value>
+  </data>
+  <data name="xrLabel10.Text" xml:space="preserve">
+    <value>Low and medium impact testing and penetration resistance testing shall be carried out on the same protector. 低/中速衝擊產品需於同一支上先作落 球再作中速衝擊。</value>
+  </data>
+  <data name="xrLabel10.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="xrLabel9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel9.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1581.5863, 641.5582</value>
+  </data>
+  <data name="xrLabel9.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>195.500488, 490.7528</value>
+  </data>
+  <data name="xrLabel9.Text" xml:space="preserve">
+    <value>A spherical steel ball 22 ±0.5 mm in diameter having a mass of approxim ately 42 ± 0.5 g. Drop the ball from a free height of 1.800 ± 0.005 m</value>
+  </data>
+  <data name="xrLabel9.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="xrLabel8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel8.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1703.29675, 351.999817</value>
+  </data>
+  <data name="xrLabel8.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>73.79004, 139.91394</value>
+  </data>
+  <data name="xrLabel8.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="xrLabel8.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="CheckLow.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckLow.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1668.899, 351.999817</value>
+  </data>
+  <data name="CheckLow.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>34.3977051, 139.91394</value>
+  </data>
+  <data name="xrLabel5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel5.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1581.5863, 352.004028</value>
+  </data>
+  <data name="xrLabel5.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>87.31262, 139.909424</value>
+  </data>
+  <data name="lbl_OrderQuantity.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 10pt, style=Bold, Underline</value>
+  </data>
+  <data name="lbl_OrderQuantity.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 123.060722</value>
+  </data>
+  <data name="lbl_OrderQuantity.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>814.9167, 45.1908264</value>
+  </data>
+  <data name="lbl_OrderQuantity.Text" xml:space="preserve">
+    <value>ORDER QTY:</value>
+  </data>
+  <data name="lbl_OrderQuantity.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="xrLabel4.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1446.64929, 1545.60059</value>
+  </data>
+  <data name="xrLabel4.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>271.8993, 47.8369141</value>
+  </data>
+  <data name="xrLabel4.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="xrLabel3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 10pt, style=Bold</value>
+  </data>
+  <data name="xrLabel3.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1237.63, 1545.60059</value>
+  </data>
+  <data name="xrLabel3.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>209.019287, 47.8369141</value>
+  </data>
+  <data name="xrLabel3.Text" xml:space="preserve">
+    <value>Verified by:</value>
+  </data>
+  <data name="xrLabel3.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="lbl6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl6.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1244.65088, 418.678833</value>
+  </data>
+  <data name="lbl6.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>39.9998779, 58.4199524</value>
+  </data>
+  <data name="lbl6.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="lbl5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl5.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1244.65076, 357.927277</value>
+  </data>
+  <data name="lbl5.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>40, 58.4199829</value>
+  </data>
+  <data name="lbl5.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="lbl4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl4.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1051.90186, 418.678833</value>
+  </data>
+  <data name="lbl4.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>40, 58.41992</value>
+  </data>
+  <data name="lbl4.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="lbl3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl3.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1051.90186, 357.927246</value>
+  </data>
+  <data name="lbl3.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>40, 58.4199524</value>
+  </data>
+  <data name="lbl3.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrTable3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrTable3.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2.64583588, 211.9999</value>
+  </data>
+  <data name="xrTableCell31.Text" xml:space="preserve">
+    <value>Test Date      測試日期</value>
+  </data>
+  <data name="xrTableCell34.Text" xml:space="preserve">
+    <value>Model No.      型號</value>
+  </data>
+  <data name="xrTableCell35.Text" xml:space="preserve">
+    <value>Product Batch No.             生產序號</value>
+  </data>
+  <data name="xrTableCell32.Text" xml:space="preserve">
+    <value>Q'ty    Tested       測試數量</value>
+  </data>
+  <data name="xrTableCell38.Text" xml:space="preserve">
+    <value>Visual           Test        外觀檢查</value>
+  </data>
+  <data name="xrTableCell43.Text" xml:space="preserve">
+    <value>Thermal         Stability             耐熱性測試</value>
+  </data>
+  <data name="xrTableCell37.Text" xml:space="preserve">
+    <value>Prismatic   Power                       菱鏡度測試</value>
+  </data>
+  <data name="xrTableCell39.Text" xml:space="preserve">
+    <value>Refractive   Power          光學測試</value>
+  </data>
+  <data name="xrTableCell36.Text" xml:space="preserve">
+    <value>Haze             霧度測試</value>
+  </data>
+  <data name="xrTableCell47.Text" xml:space="preserve">
+    <value>Low Impact 低速衝擊       (落球)</value>
+  </data>
+  <data name="xrTableCell41.Text" xml:space="preserve">
+    <value>Medium  Impact       中速衝擊</value>
+  </data>
+  <data name="xrTableCell40.Text" xml:space="preserve">
+    <value>High  Impact      高速衝擊</value>
+  </data>
+  <data name="xrTableCell44.Text" xml:space="preserve">
+    <value>Extra High   Impact           超高速衝擊</value>
+  </data>
+  <data name="xrTableCell45.Text" xml:space="preserve">
+    <value>Penetration              Test              穿透測試</value>
+  </data>
+  <data name="xrTableCell42.Text" xml:space="preserve">
+    <value>Resistance To Ignition   阻燃測試</value>
+  </data>
+  <data name="xrTableCell46.Text" xml:space="preserve">
+    <value>Resistance  To Corrosion  耐蝕測試</value>
+  </data>
+  <data name="xrTableCell33.Text" xml:space="preserve">
+    <value>Markings        記號</value>
+  </data>
+  <data name="xrTable3.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>2853.89551, 140</value>
+  </data>
+  <data name="xrTable3.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrTable2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrTable2.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2.64582825, 566.7359</value>
+  </data>
+  <data name="xrTableCell20.Text" xml:space="preserve">
+    <value>App.T</value>
+  </data>
+  <data name="xrTableCell29.Text" xml:space="preserve">
+    <value>App.E &amp; App.G</value>
+  </data>
+  <data name="xrTableCell30.Text" xml:space="preserve">
+    <value>App.F</value>
+  </data>
+  <data name="xrTableCell21.Text" xml:space="preserve">
+    <value>App.H</value>
+  </data>
+  <data name="xrTableCell49.Text" xml:space="preserve">
+    <value>App.K</value>
+  </data>
+  <data name="xrTableCell22.Text" xml:space="preserve">
+    <value>App.M</value>
+  </data>
+  <data name="xrTableCell23.Text" xml:space="preserve">
+    <value>App.N</value>
+  </data>
+  <data name="xrTableCell24.Text" xml:space="preserve">
+    <value>App.O</value>
+  </data>
+  <data name="xrTableCell25.Text" xml:space="preserve">
+    <value>App.P</value>
+  </data>
+  <data name="xrTableCell26.Text" xml:space="preserve">
+    <value>App.Q</value>
+  </data>
+  <data name="xrTable2.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>2853.89526, 74.82239</value>
+  </data>
+  <data name="xrTable2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrTable1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrTable1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2.64582825, 491.913544</value>
+  </data>
+  <data name="xrTableCell4.Text" xml:space="preserve">
+    <value>(C 3.2.1)</value>
+  </data>
+  <data name="xrTableCell8.Text" xml:space="preserve">
+    <value>(C 3.2.10)</value>
+  </data>
+  <data name="xrTableCell7.Text" xml:space="preserve">
+    <value>(C 3.2.3)</value>
+  </data>
+  <data name="xrTableCell48.Text" xml:space="preserve">
+    <value>(C3.2.6)</value>
+  </data>
+  <data name="xrTableCell11.Text" xml:space="preserve">
+    <value>(C 3.3.1)</value>
+  </data>
+  <data name="xrTableCell10.Text" xml:space="preserve">
+    <value>(C 3.3.2)</value>
+  </data>
+  <data name="xrTableCell9.Text" xml:space="preserve">
+    <value>(C 3.3.3)</value>
+  </data>
+  <data name="xrTableCell12.Text" xml:space="preserve">
+    <value>(C 3.2.8)</value>
+  </data>
+  <data name="xrTableCell3.Text" xml:space="preserve">
+    <value>(C 3.2.9)</value>
+  </data>
+  <data name="xrTableCell13.Text" xml:space="preserve">
+    <value>(C 3.2.11)</value>
+  </data>
+  <data name="xrTable1.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>2853.89526, 74.82239</value>
+  </data>
+  <data name="xrTable1.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel31.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>775.227661, 79.58655</value>
+  </data>
+  <data name="xrLabel87.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel87.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2249.18921, 641.5583</value>
+  </data>
+  <data name="xrLabel87.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>159.87085, 874.2933</value>
+  </data>
+  <data name="lbl14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl14.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2806.27051, 351.9999</value>
+  </data>
+  <data name="lbl14.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>50.270752, 139.913788</value>
+  </data>
+  <data name="lbl14.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel95.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel95.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2714.94629, 351.9999</value>
+  </data>
+  <data name="xrLabel95.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>56.92578, 139.913849</value>
+  </data>
+  <data name="lbl13.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl13.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2659.26782, 351.9999</value>
+  </data>
+  <data name="lbl13.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>55.6784668, 139.913849</value>
+  </data>
+  <data name="lbl13.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel93.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel93.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2549.50684, 351.9999</value>
+  </data>
+  <data name="xrLabel93.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>70.07446, 139.913849</value>
+  </data>
+  <data name="lbl12.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl12.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2499.507, 351.999817</value>
+  </data>
+  <data name="lbl12.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>50, 139.91394</value>
+  </data>
+  <data name="lbl12.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel90.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel90.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2409.05957, 351.999817</value>
+  </data>
+  <data name="xrLabel90.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>52.1130371, 139.91394</value>
+  </data>
+  <data name="lbl11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl11.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2349.14624, 351.999817</value>
+  </data>
+  <data name="lbl11.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>59.91333, 139.91394</value>
+  </data>
+  <data name="lbl11.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel88.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel88.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2249.18872, 351.9999</value>
+  </data>
+  <data name="xrLabel88.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>59.91333, 139.913849</value>
+  </data>
+  <data name="lbl10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl10.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2177.7522, 351.999817</value>
+  </data>
+  <data name="lbl10.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>71.43652, 139.91394</value>
+  </data>
+  <data name="lbl10.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel85.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel85.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2077.9917, 351.999817</value>
+  </data>
+  <data name="xrLabel85.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>65.36389, 139.91394</value>
+  </data>
+  <data name="lbl9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl9.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2019.95618, 351.999817</value>
+  </data>
+  <data name="lbl9.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>58.0350342, 139.91394</value>
+  </data>
+  <data name="lbl9.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel80.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel80.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1926.852, 351.999817</value>
+  </data>
+  <data name="xrLabel80.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>58.2084961, 139.91394</value>
+  </data>
+  <data name="lbl8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl8.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1872.17175, 351.999817</value>
+  </data>
+  <data name="lbl8.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>54.6802979, 139.91394</value>
+  </data>
+  <data name="lbl8.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel34.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel34.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1777.08679, 352.004028</value>
+  </data>
+  <data name="xrLabel34.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>60.08496, 139.909424</value>
+  </data>
+  <data name="lbl7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl7.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1530.71118, 352.001862</value>
+  </data>
+  <data name="lbl7.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>50.8751221, 139.9108</value>
+  </data>
+  <data name="lbl7.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel29.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel29.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1436.066, 352.001678</value>
+  </data>
+  <data name="xrLabel29.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>52.31372, 139.91098</value>
+  </data>
+  <data name="lbl2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl2.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>832.6951, 352.001678</value>
+  </data>
+  <data name="lbl2.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>82.019165, 139.911865</value>
+  </data>
+  <data name="lbl2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel27.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel27.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>695.112366, 351.999817</value>
+  </data>
+  <data name="xrLabel27.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>97.8959961, 139.911438</value>
+  </data>
+  <data name="lbl1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lbl1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>638.928955, 352.004028</value>
+  </data>
+  <data name="lbl1.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>56.18341, 139.909668</value>
+  </data>
+  <data name="lbl1.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrLabel6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel6.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>551.0109, 351.9999</value>
+  </data>
+  <data name="xrLabel6.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>52.91797, 139.911346</value>
+  </data>
+  <data name="xrLabel83.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2535.08325, 1683.81885</value>
+  </data>
+  <data name="xrLabel83.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>306.916748, 48.0568848</value>
+  </data>
+  <data name="xrLabel83.Text" xml:space="preserve">
+    <value>QR8-10-04-1</value>
+  </data>
+  <data name="xrLabel81.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1754.188, 1543.3783</value>
+  </data>
+  <data name="xrLabel81.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>545.041748, 47.836792</value>
+  </data>
+  <data name="xrLabel81.Text" xml:space="preserve">
+    <value>Approved by &amp; Date:</value>
+  </data>
+  <data name="xrLabel81.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="LbTester.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>121.708214, 1545.60059</value>
+  </data>
+  <data name="LbTester.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>1078.67261, 47.8369141</value>
+  </data>
+  <data name="xrLabel79.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2.64583325, 1545.60059</value>
+  </data>
+  <data name="xrLabel79.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>119.062393, 47.8369141</value>
+  </data>
+  <data name="xrLabel79.Text" xml:space="preserve">
+    <value>Tester:</value>
+  </data>
+  <data name="xrLabel78.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel78.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2714.94629, 641.5583</value>
+  </data>
+  <data name="xrLabel78.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>141.594727, 874.293152</value>
+  </data>
+  <data name="xrLabel77.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel77.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2549.507, 641.5583</value>
+  </data>
+  <data name="xrLabel77.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>165.438965, 874.293152</value>
+  </data>
+  <data name="xrLabel76.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel76.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2409.05957, 641.5583</value>
+  </data>
+  <data name="xrLabel76.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>140.447021, 874.2951</value>
+  </data>
+  <data name="xrLabel76.Text" xml:space="preserve">
+    <value>650+/-20℃ 5+/-0.5s
+No parts
+(headband   &amp; foam included)
+shall ignite or continue to glow
+after 
+removal of
+steel Rod.</value>
+  </data>
+  <data name="xrLabel75.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel75.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1777.08679, 641.5582</value>
+  </data>
+  <data name="xrLabel75.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>472.102173, 490.7528</value>
+  </data>
+  <data name="xrLabel74.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel74.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1284.65088, 641.5582</value>
+  </data>
+  <data name="xrLabel74.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>161.998413, 654.296</value>
+  </data>
+  <data name="xrLabel73.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel73.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>914.714355, 641.5582</value>
+  </data>
+  <data name="xrLabel73.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>369.936279, 654.296</value>
+  </data>
+  <data name="xrLabel72.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel72.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>695.1124, 641.5582</value>
+  </data>
+  <data name="xrLabel72.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>219.601868, 654.296143</value>
+  </data>
+  <data name="xrLabel72.Text" xml:space="preserve">
+    <value>Mounted on the support, and in the asworn position in the oven for 30mins The temperature of the oven throughout this period shall be maintained at 60 ±2°C. Protector shall with no physical distortion when removed from oven</value>
+  </data>
+  <data name="xrLabel71.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel71.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>551.0109, 641.558044</value>
+  </data>
+  <data name="xrLabel71.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>144.1015, 874.2934</value>
+  </data>
+  <data name="xrLabel70.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel70.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>420.1779, 641.558044</value>
+  </data>
+  <data name="xrLabel70.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>130.832977, 874.2935</value>
+  </data>
+  <data name="xrLabel69.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel69.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>283.104, 641.558044</value>
+  </data>
+  <data name="xrLabel69.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>137.073883, 874.295349</value>
+  </data>
+  <data name="xrLabel68.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel68.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>163.847885, 641.558044</value>
+  </data>
+  <data name="xrLabel68.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>119.256119, 874.2934</value>
+  </data>
+  <data name="xrLabel67.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel67.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2.64583325, 641.5582</value>
+  </data>
+  <data name="xrLabel67.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>161.202026, 874.2932</value>
+  </data>
+  <data name="xrLabel59.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel59.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1446.65, 641.5582</value>
+  </data>
+  <data name="xrLabel59.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>134.936035, 654.296</value>
+  </data>
+  <data name="CheckIgnition.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckIgnition.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2461.17285, 351.999817</value>
+  </data>
+  <data name="CheckIgnition.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>38.33423, 139.91394</value>
+  </data>
+  <data name="CheckMarkings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckMarkings.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2771.872, 351.9999</value>
+  </data>
+  <data name="CheckMarkings.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>34.3955078, 139.913849</value>
+  </data>
+  <data name="CheckCorrosion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckCorrosion.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2619.5813, 352</value>
+  </data>
+  <data name="CheckCorrosion.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>39.6865234, 139.913727</value>
+  </data>
+  <data name="CheckPemer.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckPemer.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2309.102, 351.999817</value>
+  </data>
+  <data name="CheckPemer.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>40.04419, 139.91394</value>
+  </data>
+  <data name="CheckExtraHigh.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckExtraHigh.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2143.35571, 352.004028</value>
+  </data>
+  <data name="CheckExtraHigh.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>34.39624, 139.909729</value>
+  </data>
+  <data name="CheckHigh.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckHigh.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1985.06055, 351.999817</value>
+  </data>
+  <data name="CheckHigh.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>34.895752, 139.91394</value>
+  </data>
+  <data name="CheckMdeium.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckMdeium.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1837.17175, 352.000061</value>
+  </data>
+  <data name="CheckMdeium.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>35, 139.913422</value>
+  </data>
+  <data name="CheckScatter.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckScatter.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1488.37976, 351.999817</value>
+  </data>
+  <data name="CheckScatter.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>42.3311768, 139.913879</value>
+  </data>
+  <data name="LbRefractive.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="LbRefractive.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1284.65088, 352.001678</value>
+  </data>
+  <data name="LbRefractive.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>151.415527, 139.909576</value>
+  </data>
+  <data name="xrLabel35.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel35.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1091.90173, 416.3472</value>
+  </data>
+  <data name="xrLabel35.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>108.479126, 75.56656</value>
+  </data>
+  <data name="lb.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="lb.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>914.7145, 416.349</value>
+  </data>
+  <data name="lb.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>92.6040039, 75.5621948</value>
+  </data>
+  <data name="xrLabel33.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel33.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>1091.90161, 351.999817</value>
+  </data>
+  <data name="xrLabel33.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>108.479248, 64.34738</value>
+  </data>
+  <data name="xrLabel32.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="xrLabel32.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>914.7143, 351.9999</value>
+  </data>
+  <data name="xrLabel32.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>92.6040649, 64.34735</value>
+  </data>
+  <data name="CheckThermal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckThermal.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>793.0083, 351.999817</value>
+  </data>
+  <data name="CheckThermal.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>39.68689, 139.913727</value>
+  </data>
+  <data name="CheckVisual.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="CheckVisual.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>603.9289, 351.9999</value>
+  </data>
+  <data name="CheckVisual.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>35, 139.913849</value>
+  </data>
+  <data name="LbQtyTest.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="LbQtyTest.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>420.1779, 352.001678</value>
+  </data>
+  <data name="LbQtyTest.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>130.833038, 139.911774</value>
+  </data>
+  <data name="LbBatchNo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="LbBatchNo.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>283.104, 351.9999</value>
+  </data>
+  <data name="LbBatchNo.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>137.073914, 139.913849</value>
+  </data>
+  <data name="LbModelNo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="LbModelNo.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>163.847885, 352.002258</value>
+  </data>
+  <data name="LbModelNo.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>119.256149, 139.911438</value>
+  </data>
+  <data name="LbTestDate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>新細明體, 9pt</value>
+  </data>
+  <data name="LbTestDate.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2.64583325, 352.001678</value>
+  </data>
+  <data name="LbTestDate.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>161.202026, 139.912018</value>
+  </data>
+  <data name="xrLabel13.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2146.26978, 160.102386</value>
+  </data>
+  <data name="xrLabel13.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>709.0835, 45.190918</value>
+  </data>
+  <data name="xrLabel13.Text" xml:space="preserve">
+    <value>Tested against AS/NZS 1337.1:2010 Version</value>
+  </data>
+  <data name="xrLabel7.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2334.1228, 62.2065544</value>
+  </data>
+  <data name="xrLabel7.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>521.2295, 45.190834</value>
+  </data>
+  <data name="xrLabel7.Text" xml:space="preserve">
+    <value>Issue date : Jan, 2017 </value>
+  </data>
+  <data name="LbOrderNo.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 62.2065544</value>
+  </data>
+  <data name="LbOrderNo.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>814.9167, 45.190834</value>
+  </data>
+  <data name="LbOrderNo.Text" xml:space="preserve">
+    <value>ORDER NO:</value>
+  </data>
+  <data name="LbBuyer.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>0, 0</value>
+  </data>
+  <data name="LbBuyer.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>814.9167, 42.5450058</value>
+  </data>
+  <data name="LbBuyer.Text" xml:space="preserve">
+    <value>BUYER:</value>
+  </data>
+  <data name="xrPictureBox1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAI4AAAAgCAIAAABLidfBAAAABGdBTUEAALGPC/xhBQAAA2tJREFUaEPt
+        WVuSwjAM41w9UM/T0/QyHIYlbR62LCemwwKdqf6IX5KVwM7s7XHhJLisOg0uq06Dy6rTYGzVfZ2nm8S0
+        3HMoivtSOrxe+89Y58zMwecJZ0Z2cOBVtUVXvCDAVM9rjnwdRBjBR80SlMzc0BfgYbPoMn7Eq9F7yviW
+        U3ZNEauoqIAEUTev7cNHxXuIvagPXytJym4p8FvliBptXBnVvy/fwMirb5AUnMj4kVUdRV0xwqjNU/z8
+        cxAEE75DMm+bDx9YBQIUOmpk2Zb2c48KYG7kD5LsWiUETMtq3pcnR/lrnBrc1/DtLonvWOrrTumKgaaE
+        mK6cRcf3rBLdU2cY5o1jIqATh+lfQEpe8D4AM7nrlMPTrYnrEpmkm2+VnLAVmqtH2WliQadw86gOqtwr
+        Xev4GAc4rVOtUudVESFVL+lSQdLMswqHJEQk6Zw9QZyNzPVGqToI5hibHALOcmtVopFmxMlYQJcOEQ6O
+        VWyMHWQa6uu+h8UZMUq19CfJSohtRYYZm8URLdV5OUceqjKVHdEFEdzsE9QqtXHBAJx4QnfEeCqtZ2S4
+        zhcJrFGBVYsnG9TiOrDFhKhhlHPEqZx3QJfvYYWyCjsFIHURIvWIjIZ0kcF2X8LUFwu6b4JjThU2uVqX
+        HNGFEUaiWRXcAUI0xQ7lvmeySYLPu0VwLTtyPMoyaBWZJSg2mLF+/yO6TIiRyFbxNiFU0thDq9mjlUI/
+        2e4mxz2e8wIBunAD0o574N8QyD+my1GrUV6VtwPAtCyWdF5Lb16O1SMzTiYzLnucs0wxHB6yirSTPBRw
+        ACDXHdOFAU5C/FZhgaOWcN4zTcBY2DraJpleDkwz/X8mma3rKkJWuSwcsF03pJHHdMU2X62KOZvg7asv
+        RHckPQSeVCkdO6GKitNvIIRDDjv0uVUSni6ockh4v1U9zoxPyifSG6Chr2lPpITgUNmBDXsCMgyHgb9l
+        /NbaENyL36DLY75ZRes7MPm3aVoo/x1sBTRVJFJOchHIEQsGGp6AtXYLWvfC0ak+pEseujSSVbp6LDFB
+        EIUC3Y25VCHV2sTWSMRKCWXZ+sVE1Aldlk8IoiVVcsf6A7pKTYe4+LPiggd1+9Iy1cHI53fhsioC9YQk
+        PmVTwmVVEMat2HfsG3FZdRpcVp0Gl1UnwePxB5K4acfdd1GYAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="xrPictureBox1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2443.66675, 1543.3783</value>
+  </data>
+  <data name="lbl_Signature.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>2392.33252, 1628.04468</value>
+  </data>
+  <data name="lbl_Signature.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>463.019775, 55.77417</value>
+  </data>
+  <data name="PageHeader.HeightF" type="System.Single, mscorlib">
+    <value>1752.1875</value>
+  </data>
+</root>

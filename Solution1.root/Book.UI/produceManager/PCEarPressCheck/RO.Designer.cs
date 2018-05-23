@@ -944,7 +944,7 @@ namespace Book.UI.produceManager.PCEarPressCheck
             this.xrLabel12.SizeF = new System.Drawing.SizeF(220.7922F, 53.1283F);
             this.xrLabel12.StylePriority.UseFont = false;
             this.xrLabel12.StylePriority.UseTextAlignment = false;
-            this.xrLabel12.Text = "W-06¸½±í19";
+            this.xrLabel12.Text = "QW-06¸½±í40";
             this.xrLabel12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // PageFooter

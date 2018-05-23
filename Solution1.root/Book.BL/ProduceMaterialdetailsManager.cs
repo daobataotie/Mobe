@@ -96,6 +96,11 @@ namespace Book.BL
         {
             return accessor.SelectMaterialQty(productid, dateEnd, workHouseId, invoiceXOIds);
         }
+
+        public double SelectMaterialQty(string productid, DateTime dateEnd, string workHouseId)
+        {
+            return accessor.SelectMaterialQty(productid, dateEnd, workHouseId);
+        }
     }
 }
 

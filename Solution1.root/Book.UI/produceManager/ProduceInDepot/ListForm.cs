@@ -281,15 +281,19 @@ namespace Book.UI.produceManager.ProduceInDepot
                 {
                     case "防霧":
                         excel.Cells[1, 1] = "強化/防霧 工作日報表";
+                        excel.Cells[3 + details.Count, 17] = "QR8-06-05-1";
                         break;
                     case "品檢":
                         excel.Cells[1, 1] = "品檢日報表";
+                        excel.Cells[3 + details.Count, 17] = "QR8-03-01-1";
                         break;
                     case "組A(半)":
                         excel.Cells[1, 1] = "組裝半成品日報表";
+                        excel.Cells[3 + details.Count, 17] = "QR8-03-02-1";
                         break;
                     case "組A":
                         excel.Cells[1, 1] = "成品组装日报表";
+                        excel.Cells[3 + details.Count, 17] = "QR8-03-03-1";
                         break;
                 }
                 #region Set Header
@@ -396,6 +400,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                 //Microsoft.Office.Interop.Excel.XlColorIndex.xlColorIndexAutomatic= -4105;
 
                 excel.Cells[1, 1] = "日報表";
+                excel.Cells[3 + details.Count, 17] = "QR8-06-03-1";
 
                 #region Set Header
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;

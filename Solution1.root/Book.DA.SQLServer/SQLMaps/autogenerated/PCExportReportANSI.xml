@@ -113,11 +113,19 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property ="CeShiSuLi" column="CeShiSuLi"/>
       <result property ="ApprovalDate" column="ApprovalDate"/>
       <result property="CSAJiShuBiaoZhun" column="CSAJiShuBiaoZhun"/>
+      <result property="LowImpact" column="LowImpact"/>
+      <result property="EmployeeId2" column="EmployeeId2"/>
+      <result property="EmployeeId3" column="EmployeeId3"/>
+      <result property="EmployeeId4" column="EmployeeId4"/>
+      <result property="IsShowGX2" column="IsShowGX2"/>
       <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
       <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="ProductUnit" column="ProductUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key"/>
+      <result property="Employee2" column="EmployeeId2" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee3" column="EmployeeId3" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="Employee4" column="EmployeeId4" lazyLoad="false" select="Employee.select_SimpleEmployee" />
     </resultMap>
   </resultMaps>
 
@@ -311,7 +319,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [ProductUnitId],
         [CeShiSuLi],
         [ApprovalDate],
-        [CSAJiShuBiaoZhun]
+        [CSAJiShuBiaoZhun],
+        [LowImpact],
+        [EmployeeId2],
+        [EmployeeId3],
+        [EmployeeId4],
+        [IsShowGX2]
 			FROM
 				[dbo].[PCExportReportANSI]
 			WHERE
@@ -471,7 +484,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [ProductUnitId],
         [CeShiSuLi],
         [ApprovalDate],
-        [CSAJiShuBiaoZhun]
+        [CSAJiShuBiaoZhun],
+        [LowImpact],
+        [EmployeeId2],
+        [EmployeeId3],
+        [EmployeeId4],
+        [IsShowGX2]
 			) 
 			VALUES 
 			(
@@ -581,7 +599,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         #ProductUnitId#,
         #CeShiSuLi#,
         #ApprovalDate#,
-        #CSAJiShuBiaoZhun#
+        #CSAJiShuBiaoZhun#,
+        #LowImpact#,
+        #EmployeeId2#,
+        #EmployeeId3#,
+        #EmployeeId4#,
+        #IsShowGX2#
 			)
              ]]>
     </insert>
@@ -694,7 +717,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [ProductUnitId] = #ProductUnitId#,
         [CeShiSuLi]=#CeShiSuLi#,
         [ApprovalDate]=#ApprovalDate#,
-        [CSAJiShuBiaoZhun]=#CSAJiShuBiaoZhun#
+        [CSAJiShuBiaoZhun]=#CSAJiShuBiaoZhun#,
+        [LowImpact] = #LowImpact#,
+        [EmployeeId2]=#EmployeeId2#,
+        [EmployeeId3]=#EmployeeId3#,
+        [EmployeeId4]=#EmployeeId4#,
+        [IsShowGX2]=#IsShowGX2#
 			WHERE
 				[ExportReportId] = #ExportReportId#
                     ]]>
