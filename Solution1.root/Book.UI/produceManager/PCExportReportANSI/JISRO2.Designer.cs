@@ -262,7 +262,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.xrLabel3.SizeF = new System.Drawing.SizeF(254F, 58.42F);
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.StylePriority.UseTextAlignment = false;
-            this.xrLabel3.Text = "R7¨C08¨C03¨CR";
+            this.xrLabel3.Text = "QW-06 ¸½¼þ¶þ";
             this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel163
