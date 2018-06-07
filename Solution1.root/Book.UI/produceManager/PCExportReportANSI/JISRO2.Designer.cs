@@ -32,8 +32,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.lbl_Signature = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel163 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel164 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel160 = new DevExpress.XtraReports.UI.XRLabel();
@@ -64,8 +62,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.xrLabel183 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel184 = new DevExpress.XtraReports.UI.XRLabel();
             this.lbFinJudgeIM = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel191 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel189 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel190 = new DevExpress.XtraReports.UI.XRLabel();
@@ -150,8 +146,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.lbl_Signature,
-            this.xrLabel3,
             this.xrLabel163,
             this.xrLabel164,
             this.xrLabel160,
@@ -182,8 +176,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.xrLabel183,
             this.xrLabel184,
             this.lbFinJudgeIM,
-            this.xrLabel5,
-            this.xrLine1,
             this.xrLabel191,
             this.xrLabel189,
             this.xrLabel190,
@@ -239,31 +231,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.xrLabel132,
             this.lbFinTestHCOSTE});
             this.PageHeader.Dpi = 254F;
-            this.PageHeader.HeightF = 1928.813F;
+            this.PageHeader.HeightF = 1741.17F;
             this.PageHeader.Name = "PageHeader";
-            // 
-            // lbl_Signature
-            // 
-            this.lbl_Signature.Dpi = 254F;
-            this.lbl_Signature.LocationFloat = new DevExpress.Utils.PointFloat(1595.438F, 1791.123F);
-            this.lbl_Signature.Name = "lbl_Signature";
-            this.lbl_Signature.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lbl_Signature.SizeF = new System.Drawing.SizeF(457.5625F, 58.42004F);
-            this.lbl_Signature.StylePriority.UseTextAlignment = false;
-            this.lbl_Signature.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrLabel3
-            // 
-            this.xrLabel3.Dpi = 254F;
-            this.xrLabel3.Font = new System.Drawing.Font("新細明體", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(1780.646F, 1870.392F);
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(254F, 58.42F);
-            this.xrLabel3.StylePriority.UseFont = false;
-            this.xrLabel3.StylePriority.UseTextAlignment = false;
-            this.xrLabel3.Text = "QW-06 附件二";
-            this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel163
             // 
@@ -711,30 +680,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.lbFinJudgeIM.StylePriority.UseTextAlignment = false;
             this.lbFinJudgeIM.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
-            // xrLabel5
-            // 
-            this.xrLabel5.Dpi = 254F;
-            this.xrLabel5.Font = new System.Drawing.Font("新細明體", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(1651F, 1693.545F);
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(341.8136F, 58.42017F);
-            this.xrLabel5.StylePriority.UseFont = false;
-            this.xrLabel5.StylePriority.UseTextAlignment = false;
-            this.xrLabel5.Text = "APPROVED  BY：";
-            this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrLine1
-            // 
-            this.xrLine1.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
-            this.xrLine1.Dpi = 254F;
-            this.xrLine1.LineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.xrLine1.LineWidth = 3;
-            this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(1691.187F, 1767.417F);
-            this.xrLine1.Name = "xrLine1";
-            this.xrLine1.SizeF = new System.Drawing.SizeF(301.627F, 13.229F);
-            this.xrLine1.StylePriority.UseBorderDashStyle = false;
-            // 
             // xrLabel191
             // 
             this.xrLabel191.Dpi = 254F;
@@ -769,7 +714,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.xrLabel190.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel190.SizeF = new System.Drawing.SizeF(346.6042F, 47.625F);
             this.xrLabel190.StylePriority.UseTextAlignment = false;
-            this.xrLabel190.Text = "W-06附件二";
+            this.xrLabel190.Text = "QW-06 附件二";
             this.xrLabel190.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // lbFinJudgeMfpac
@@ -1600,8 +1545,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
         private DevExpress.XtraReports.UI.XRLabel xrLabel183;
         private DevExpress.XtraReports.UI.XRLabel xrLabel184;
         private DevExpress.XtraReports.UI.XRLabel lbFinJudgeIM;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel5;
-        private DevExpress.XtraReports.UI.XRLine xrLine1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel191;
         private DevExpress.XtraReports.UI.XRLabel xrLabel189;
         private DevExpress.XtraReports.UI.XRLabel xrLabel190;
@@ -1656,7 +1599,5 @@ namespace Book.UI.produceManager.PCExportReportANSI
         private DevExpress.XtraReports.UI.XRLabel lbFinJudgeHCOSTE;
         private DevExpress.XtraReports.UI.XRLabel xrLabel132;
         private DevExpress.XtraReports.UI.XRLabel lbFinTestHCOSTE;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
-        private DevExpress.XtraReports.UI.XRLabel lbl_Signature;
     }
 }

@@ -151,31 +151,36 @@ namespace Book.UI.Query
                 #region 验片：合计前单位转入 - 合计生产数量（包含合计合格数量，合计不良品）
                 //查询商品对应的未结案加工单
                 IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(item.ProductId);
-                if (phList == null || phList.Count == 0)
-                    continue;
+                //if (phList == null || phList.Count == 0)
+                //    continue;
+
                 string pronoteHeaderIds = "";
                 string invoiceXOIds = "";
-                foreach (var ph in phList)
+
+                if (phList != null && phList.Count > 0)
                 {
-                    pronoteHeaderIds += "'" + ph.PronoteHeaderID + "',";
-                    invoiceXOIds += "'" + ph.InvoiceXOId + "',";
+                    foreach (var ph in phList)
+                    {
+                        pronoteHeaderIds += "'" + ph.PronoteHeaderID + "',";
+                        invoiceXOIds += "'" + ph.InvoiceXOId + "',";
+                    }
+                    pronoteHeaderIds = pronoteHeaderIds.TrimEnd(',');
+                    invoiceXOIds = invoiceXOIds.TrimEnd(',');
+
+                    //计算所有转入 验片 部门的数量
+                    Model.ProduceInDepotDetail pidYanpianIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateEnd.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
+                    double yanpianTransferIn = Convert.ToDouble(pidYanpianIn.ProduceTransferQuantity);
+
+                    //计算 验片 部门的生产数量
+                    Model.ProduceInDepotDetail pidYanpianOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateEnd.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
+                    double yanpianProcedures = Convert.ToDouble(pidYanpianOut.ProceduresSum);
+                    double yanpianBuliang = Convert.ToDouble(pidYanpianOut.ProceduresSum - pidYanpianOut.CheckOutSum);
+
+                    double yanpianXianchang = yanpianTransferIn - yanpianProcedures;
+                    yanpianXianchang = yanpianXianchang < 0 ? 0 : yanpianXianchang;
+
+                    item.XianchangYanpian = yanpianXianchang;
                 }
-                pronoteHeaderIds = pronoteHeaderIds.TrimEnd(',');
-                invoiceXOIds = invoiceXOIds.TrimEnd(',');
-
-                //计算所有转入 验片 部门的数量
-                Model.ProduceInDepotDetail pidYanpianIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateEnd.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
-                double yanpianTransferIn = Convert.ToDouble(pidYanpianIn.ProduceTransferQuantity);
-
-                //计算 验片 部门的生产数量
-                Model.ProduceInDepotDetail pidYanpianOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateEnd.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
-                double yanpianProcedures = Convert.ToDouble(pidYanpianOut.ProceduresSum);
-                double yanpianBuliang = Convert.ToDouble(pidYanpianOut.ProceduresSum - pidYanpianOut.CheckOutSum);
-
-                double yanpianXianchang = yanpianTransferIn - yanpianProcedures;
-                yanpianXianchang = yanpianXianchang < 0 ? 0 : yanpianXianchang;
-
-                item.XianchangYanpian = yanpianXianchang;
                 #endregion
 
 
@@ -193,51 +198,58 @@ namespace Book.UI.Query
                 //计算所有转入 组装现场 部门的数量
                 //Model.ProduceInDepotDetail pidZuzhuangIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId,  dateEnd.AddSeconds(-1), workHouseZuzhuang, null);   //转入组装现场时没有加工单
                 //double zuzhuangTransferIn = Convert.ToDouble(pidZuzhuangIn.ProduceTransferQuantity);
-                IList<Model.ProduceInDepotDetail> pidZuzhuangIn = produceInDepotDetailManager.SelectTransZuZhuangXianChang(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
-                double zuzhuangTransferIn = pidZuzhuangIn.Sum(P => P.ProduceTransferQuantity).Value;
-                //string xoIDs = "";
-                //foreach (string xoid in pidZuzhuangIn.Select(D => D.InvoiceXOId).Distinct())
-                //{
-                //    xoIDs += "'" + xoid + "',";
-                //}
-                //xoIDs = xoIDs.TrimEnd(',');
-
-                //计算 组装现场 部门转入其他部门的数量
-                Model.ProduceInDepotDetail pidZuzhuangOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
-                double zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
-
-                //计算 从组装现场退回的 生产退料
-                double exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
-
-
-                #region 查询商品对应的所有母件 入库 扣减
+                double zuzhuangTransferIn = 0;
+                double zuzhuangTransferOut = 0;
+                double exitQty = 0;
                 double deductionQty = 0;
-                //if (!string.IsNullOrEmpty(xoIDs))
-                if (!string.IsNullOrEmpty(invoiceXOIds))
+
+                if (phList != null && phList.Count > 0)
                 {
-                    Dictionary<string, double> parentProductDic = new Dictionary<string, double>();
+                    IList<Model.ProduceInDepotDetail> pidZuzhuangIn = produceInDepotDetailManager.SelectTransZuZhuangXianChang(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
+                    zuzhuangTransferIn = pidZuzhuangIn.Sum(P => P.ProduceTransferQuantity).Value;
+                    //string xoIDs = "";
+                    //foreach (string xoid in pidZuzhuangIn.Select(D => D.InvoiceXOId).Distinct())
+                    //{
+                    //    xoIDs += "'" + xoid + "',";
+                    //}
+                    //xoIDs = xoIDs.TrimEnd(',');
 
-                    GetParentProductInfo("'" + item.ProductId + "'", parentProductDic);
+                    //计算 组装现场 部门转入其他部门的数量
+                    Model.ProduceInDepotDetail pidZuzhuangOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
+                     zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
 
-                    string proIds = "";
-                    foreach (var str in parentProductDic.Keys)
+                    //计算 从组装现场退回的 生产退料
+                    exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+
+
+                    #region 查询商品对应的所有母件 入库 扣减
+                    //if (!string.IsNullOrEmpty(xoIDs))
+                    if (!string.IsNullOrEmpty(invoiceXOIds))
                     {
-                        proIds += "'" + str + "',";
-                    }
-                    proIds = proIds.TrimEnd(',');
+                        Dictionary<string, double> parentProductDic = new Dictionary<string, double>();
 
-                    if (!string.IsNullOrEmpty(proIds))
-                    {
-                        IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
-                        //IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, xoIDs); //对应转到组装现场的生产入库单的客户订单，如果订单不在范围内，母件入库不扣减
-                        foreach (var pid in pids)
+                        GetParentProductInfo("'" + item.ProductId + "'", parentProductDic);
+
+                        string proIds = "";
+                        foreach (var str in parentProductDic.Keys)
                         {
-                            deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];
+                            proIds += "'" + str + "',";
+                        }
+                        proIds = proIds.TrimEnd(',');
+
+                        if (!string.IsNullOrEmpty(proIds))
+                        {
+                            IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
+                            //IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, xoIDs); //对应转到组装现场的生产入库单的客户订单，如果订单不在范围内，母件入库不扣减
+                            foreach (var pid in pids)
+                            {
+                                deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];
+                            }
                         }
                     }
-                }
 
-                #endregion
+                    #endregion
+                }
 
                 //double zuzhuangXianchang = zuzhuangTransferIn + materialQty - zuzhuangTransferOut - deductionQty;
                 double zuzhuangXianchang = zuzhuangTransferIn + materialQty - zuzhuangTransferOut - deductionQty - exitQty;
@@ -246,6 +258,7 @@ namespace Book.UI.Query
                 item.XianchangZuzhuang = zuzhuangXianchang;
 
                 #endregion
+
                 #endregion
             }
 

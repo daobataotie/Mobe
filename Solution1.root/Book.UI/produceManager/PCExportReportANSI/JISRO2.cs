@@ -12,16 +12,16 @@ namespace Book.UI.produceManager.PCExportReportANSI
         {
             InitializeComponent();
 
-            if (tag == 1)
-            {
-                this.lbl_Signature.Text = new BL.SettingManager().SelectByName("ALANSignature").Count < 1 ? "" : new BL.SettingManager().SelectByName("ALANSignature")[0].SettingCurrentValue;
-            }
-            else if (tag == 2)
-            {
-                this.lbl_Signature.Text = new BL.SettingManager().SelectByName("PPESignature").Count < 1 ? "" : new BL.SettingManager().SelectByName("PPESignature")[0].SettingCurrentValue;
-            }
-            else if (tag == 0)
-                this.lbl_Signature.Text = new BL.SettingManager().SelectByName("ASWANSignature").Count < 1 ? "" : new BL.SettingManager().SelectByName("ASWANSignature")[0].SettingCurrentValue;
+            //if (tag == 1)
+            //{
+            //    this.lbl_Signature.Text = new BL.SettingManager().SelectByName("ALANSignature").Count < 1 ? "" : new BL.SettingManager().SelectByName("ALANSignature")[0].SettingCurrentValue;
+            //}
+            //else if (tag == 2)
+            //{
+            //    this.lbl_Signature.Text = new BL.SettingManager().SelectByName("PPESignature").Count < 1 ? "" : new BL.SettingManager().SelectByName("PPESignature")[0].SettingCurrentValue;
+            //}
+            //else if (tag == 0)
+            //    this.lbl_Signature.Text = new BL.SettingManager().SelectByName("ASWANSignature").Count < 1 ? "" : new BL.SettingManager().SelectByName("ASWANSignature")[0].SettingCurrentValue;
 
             string[] test = new string[8];
             double[] number = new double[8] { _PCExportReportANSI.ShouCeShu11.Value, _PCExportReportANSI.ShouCeShu12.Value, _PCExportReportANSI.ShouCeShu13.Value, _PCExportReportANSI.ShouCeShu14.Value, _PCExportReportANSI.ShouCeShu15.Value, _PCExportReportANSI.ShouCeShu16.Value, _PCExportReportANSI.ShouCeShu17.Value, _PCExportReportANSI.ShouCeShu18.Value };
