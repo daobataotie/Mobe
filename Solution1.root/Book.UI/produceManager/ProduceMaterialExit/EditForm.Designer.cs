@@ -62,6 +62,9 @@
             this.bindingSourceDepotPosition = new System.Windows.Forms.BindingSource(this.components);
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.bindingSourceDepot = new System.Windows.Forms.BindingSource(this.components);
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
@@ -92,8 +95,7 @@
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barBtnSearch = new DevExpress.XtraBars.BarButtonItem();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -141,6 +143,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -296,7 +299,8 @@
             this.repositoryItemLookUpEdit2,
             this.repositoryItemComboBox1,
             this.repositoryItemLookUpEdit3,
-            this.repositoryItemComboBox2});
+            this.repositoryItemComboBox2,
+            this.repositoryItemCheckEdit1});
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -314,7 +318,8 @@
             this.gridColumn5,
             this.gridColumn1,
             this.gridColumn8,
-            this.gridColumn9});
+            this.gridColumn9,
+            this.gridColumn10});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -425,6 +430,25 @@
             resources.ApplyResources(this.gridColumn1, "gridColumn1");
             this.gridColumn1.FieldName = "DetailDesc";
             this.gridColumn1.Name = "gridColumn1";
+            // 
+            // gridColumn8
+            // 
+            resources.ApplyResources(this.gridColumn8, "gridColumn8");
+            this.gridColumn8.FieldName = "HandbookId";
+            this.gridColumn8.Name = "gridColumn8";
+            // 
+            // gridColumn9
+            // 
+            resources.ApplyResources(this.gridColumn9, "gridColumn9");
+            this.gridColumn9.FieldName = "HandbookProductId";
+            this.gridColumn9.Name = "gridColumn9";
+            // 
+            // gridColumn10
+            // 
+            resources.ApplyResources(this.gridColumn10, "gridColumn10");
+            this.gridColumn10.ColumnEdit = this.repositoryItemCheckEdit1;
+            this.gridColumn10.FieldName = "IsCountStock";
+            this.gridColumn10.Name = "gridColumn10";
             // 
             // repositoryItemLookUpEdit2
             // 
@@ -715,17 +739,11 @@
             this.barBtnSearch.Name = "barBtnSearch";
             this.barBtnSearch.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSearch_ItemClick);
             // 
-            // gridColumn8
+            // repositoryItemCheckEdit1
             // 
-            resources.ApplyResources(this.gridColumn8, "gridColumn8");
-            this.gridColumn8.FieldName = "HandbookId";
-            this.gridColumn8.Name = "gridColumn8";
-            // 
-            // gridColumn9
-            // 
-            resources.ApplyResources(this.gridColumn9, "gridColumn9");
-            this.gridColumn9.FieldName = "HandbookProductId";
-            this.gridColumn9.Name = "gridColumn9";
+            resources.ApplyResources(this.repositoryItemCheckEdit1, "repositoryItemCheckEdit1");
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            this.repositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
             // 
             // EditForm
             // 
@@ -782,6 +800,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -852,5 +871,7 @@
         private DevExpress.XtraBars.BarButtonItem barBtnSearch;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
     }
 }

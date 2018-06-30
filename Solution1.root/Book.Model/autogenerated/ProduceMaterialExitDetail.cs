@@ -385,5 +385,18 @@ namespace Book.Model
 
 
 		#endregion
+
+        private bool? _isCountStock;
+
+        /// <summary>
+        /// 不计算库存
+        /// </summary>
+        public bool? IsCountStock
+        {
+            get { return _isCountStock; }
+            set { _isCountStock = value; }
+        }
+
+        public static string PRO_IsCountStock = "IsCountStock";
 	}
 }

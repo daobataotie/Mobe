@@ -79,6 +79,10 @@ namespace Book.BL
                     continue;
                 produceMaterialExitDetail.ProduceMaterialExitId = produceMaterialExit.ProduceMaterialExitId;
                 detailsAccessor.Insert(produceMaterialExitDetail);
+
+                if (produceMaterialExitDetail.IsCountStock.HasValue && produceMaterialExitDetail.IsCountStock.Value)            //不计算库存
+                    continue;
+
                 stockAccessor.Increment(depotPositionAccessor.Get(produceMaterialExitDetail.DepotPositionId), produceMaterialExitDetail.Product, produceMaterialExitDetail.ProduceQuantity);
                 productAccessor.UpdateProduct_Stock(produceMaterialExitDetail.Product);
             }
@@ -186,7 +190,7 @@ namespace Book.BL
         {
             foreach (Model.ProduceMaterialExitDetail oldDetail in ProduceMaterialExit.Detail)
             {
-                if (oldDetail.Product == null || oldDetail.Product.ProductId == null) continue;
+                if (oldDetail.Product == null || oldDetail.Product.ProductId == null || (oldDetail.IsCountStock.HasValue && oldDetail.IsCountStock.Value)) continue;
                 oldDetail.DepotPosition = depotPositionAccessor.Get(oldDetail.DepotPositionId);
                 stockAccessor.Decrement(oldDetail.DepotPosition, oldDetail.Product, oldDetail.ProduceQuantity);
                 productAccessor.UpdateProduct_Stock(oldDetail.Product);

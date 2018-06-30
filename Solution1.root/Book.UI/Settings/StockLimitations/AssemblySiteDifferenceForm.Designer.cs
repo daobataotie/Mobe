@@ -56,6 +56,7 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bar_Search = new DevExpress.XtraBars.BarButtonItem();
             this.bar_ChooseInvoice = new DevExpress.XtraBars.BarButtonItem();
+            this.bar_ExportExcel = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -82,8 +83,9 @@
             // 
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bar_Search,
-            this.bar_ChooseInvoice});
-            this.barManager1.MaxItemId = 18;
+            this.bar_ChooseInvoice,
+            this.bar_ExportExcel});
+            this.barManager1.MaxItemId = 19;
             // 
             // imageCollection1
             // 
@@ -93,7 +95,8 @@
             // 
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_Search),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_ChooseInvoice)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_ChooseInvoice),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_ExportExcel)});
             this.bar1.OptionsBar.UseWholeRow = true;
             // 
             // layoutControl1
@@ -109,17 +112,17 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(587, 321, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(927, 450);
+            this.layoutControl1.Size = new System.Drawing.Size(980, 450);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // txt_ID2
             // 
-            this.txt_ID2.Location = new System.Drawing.Point(320, 12);
+            this.txt_ID2.Location = new System.Drawing.Point(334, 12);
             this.txt_ID2.MenuManager = this.barManager1;
             this.txt_ID2.Name = "txt_ID2";
             this.txt_ID2.Properties.ReadOnly = true;
-            this.txt_ID2.Size = new System.Drawing.Size(168, 21);
+            this.txt_ID2.Size = new System.Drawing.Size(182, 21);
             this.txt_ID2.StyleController = this.layoutControl1;
             this.txt_ID2.TabIndex = 11;
             // 
@@ -128,29 +131,29 @@
             this.txt_Note.Location = new System.Drawing.Point(76, 37);
             this.txt_Note.MenuManager = this.barManager1;
             this.txt_Note.Name = "txt_Note";
-            this.txt_Note.Size = new System.Drawing.Size(839, 21);
+            this.txt_Note.Size = new System.Drawing.Size(892, 21);
             this.txt_Note.StyleController = this.layoutControl1;
             this.txt_Note.TabIndex = 8;
             // 
             // ncc_Employee
             // 
             this.ncc_Employee.EditValue = null;
-            this.ncc_Employee.Location = new System.Drawing.Point(739, 12);
+            this.ncc_Employee.Location = new System.Drawing.Point(778, 12);
             this.ncc_Employee.Name = "ncc_Employee";
-            this.ncc_Employee.Size = new System.Drawing.Size(176, 21);
+            this.ncc_Employee.Size = new System.Drawing.Size(190, 21);
             this.ncc_Employee.TabIndex = 7;
             // 
             // date_Difference
             // 
             this.date_Difference.EditValue = null;
-            this.date_Difference.Location = new System.Drawing.Point(556, 12);
+            this.date_Difference.Location = new System.Drawing.Point(584, 12);
             this.date_Difference.MenuManager = this.barManager1;
             this.date_Difference.Name = "date_Difference";
             this.date_Difference.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date_Difference.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.date_Difference.Size = new System.Drawing.Size(115, 21);
+            this.date_Difference.Size = new System.Drawing.Size(126, 21);
             this.date_Difference.StyleController = this.layoutControl1;
             this.date_Difference.TabIndex = 6;
             // 
@@ -160,7 +163,7 @@
             this.txt_ID.MenuManager = this.barManager1;
             this.txt_ID.Name = "txt_ID";
             this.txt_ID.Properties.ReadOnly = true;
-            this.txt_ID.Size = new System.Drawing.Size(176, 21);
+            this.txt_ID.Size = new System.Drawing.Size(190, 21);
             this.txt_ID.StyleController = this.layoutControl1;
             this.txt_ID.TabIndex = 5;
             // 
@@ -171,7 +174,7 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(903, 376);
+            this.gridControl1.Size = new System.Drawing.Size(956, 376);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1,
@@ -279,7 +282,7 @@
             this.layoutControlItem8});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(927, 450);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(980, 450);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
@@ -290,7 +293,7 @@
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(907, 380);
+            this.layoutControlItem1.Size = new System.Drawing.Size(960, 380);
             this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextToControlDistance = 0;
@@ -302,7 +305,7 @@
             this.layoutControlItem2.CustomizationFormText = "编号：";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(244, 25);
+            this.layoutControlItem2.Size = new System.Drawing.Size(258, 25);
             this.layoutControlItem2.Text = "编号：";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -310,9 +313,9 @@
             // 
             this.layoutControlItem3.Control = this.date_Difference;
             this.layoutControlItem3.CustomizationFormText = "盘点日期：";
-            this.layoutControlItem3.Location = new System.Drawing.Point(480, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(508, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(183, 25);
+            this.layoutControlItem3.Size = new System.Drawing.Size(194, 25);
             this.layoutControlItem3.Text = "盘点日期：";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -320,9 +323,9 @@
             // 
             this.layoutControlItem4.Control = this.ncc_Employee;
             this.layoutControlItem4.CustomizationFormText = "盘点员：";
-            this.layoutControlItem4.Location = new System.Drawing.Point(663, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(702, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(244, 25);
+            this.layoutControlItem4.Size = new System.Drawing.Size(258, 25);
             this.layoutControlItem4.Text = "盘点员：";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -332,7 +335,7 @@
             this.layoutControlItem5.CustomizationFormText = "备注：";
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(907, 25);
+            this.layoutControlItem5.Size = new System.Drawing.Size(960, 25);
             this.layoutControlItem5.Text = "备注：";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -340,9 +343,9 @@
             // 
             this.layoutControlItem8.Control = this.txt_ID2;
             this.layoutControlItem8.CustomizationFormText = "盘点单号：";
-            this.layoutControlItem8.Location = new System.Drawing.Point(244, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(258, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(236, 25);
+            this.layoutControlItem8.Size = new System.Drawing.Size(250, 25);
             this.layoutControlItem8.Text = "盘点单号：";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -360,11 +363,18 @@
             this.bar_ChooseInvoice.Name = "bar_ChooseInvoice";
             this.bar_ChooseInvoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_ChooseInvoice_ItemClick);
             // 
+            // bar_ExportExcel
+            // 
+            this.bar_ExportExcel.Caption = "导出Excel";
+            this.bar_ExportExcel.Id = 18;
+            this.bar_ExportExcel.Name = "bar_ExportExcel";
+            this.bar_ExportExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_ExportExcel_ItemClick);
+            // 
             // AssemblySiteDifferenceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 497);
+            this.ClientSize = new System.Drawing.Size(980, 497);
             this.Controls.Add(this.layoutControl1);
             this.Name = "AssemblySiteDifferenceForm";
             this.Text = "组装现场盘点差异";
@@ -421,5 +431,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraBars.BarButtonItem bar_ChooseInvoice;
+        private DevExpress.XtraBars.BarButtonItem bar_ExportExcel;
     }
 }

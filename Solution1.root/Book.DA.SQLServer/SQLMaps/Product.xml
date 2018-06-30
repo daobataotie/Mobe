@@ -242,6 +242,8 @@
       <result property="IsQiangHua" column="IsQiangHua"/>
       <result property="IsFangWu" column="IsFangWu"/>
       <result property="IsNoQiangFang" column="IsNoQiangFang"/>
+      <result property="MaterialIds" column="MaterialIds"/>
+      <result property="MaterialNum" column="MaterialNum"/>
       <result property="ProductCategoryId2" column="ProductCategoryId2"/>
       <result property="ProductCategoryId3" column="ProductCategoryId3"/>
       <result property="ProductCategory" column="ProductCategoryId" lazyLoad="false" select="ProductCategory.select_by_primary_key" />
@@ -304,6 +306,8 @@
       IsQiangHua,
       IsFangWu,
       IsNoQiangFang,
+      MaterialIds,
+      MaterialNum,
       ProductCategoryId2,
       ProductCategoryId3
       from product

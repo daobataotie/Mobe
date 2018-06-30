@@ -216,9 +216,18 @@ namespace Book.DA.SQLServer
             return Convert.ToDouble(this.QueryObject(sql));
         }
 
+        //查询未结案订单领到组装现场的数量
         public double SelectMaterialQty(string productid, DateTime dateEnd, string workHouseId)
         {
             string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID left join InvoiceXO xo on pm.InvoiceXOId=xo.InvoiceId where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate <= '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "' and xo.IsClose <>1";
+
+            return Convert.ToDouble(this.QueryObject(sql));
+        }
+
+        //查询所有领到组装现场的数量
+        public double SelectMaterialQtyAll(string productid, DateTime dateEnd, string workHouseId)
+        {
+            string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate <= '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "'";
 
             return Convert.ToDouble(this.QueryObject(sql));
         }

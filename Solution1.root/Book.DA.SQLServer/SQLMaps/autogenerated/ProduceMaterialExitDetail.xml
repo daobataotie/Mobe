@@ -19,6 +19,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="ProductioinBatch" column="ProductioinBatch" />
       <result property="HandbookId" column="HandbookId"/>
       <result property="HandbookProductId" column="HandbookProductId"/>
+      <result property="IsCountStock" column="IsCountStock"/>
       <result property="ProduceMaterialExit" column="ProduceMaterialExitId" lazyLoad="false" select="ProduceMaterialExit.select_by_primary_key" />
       <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
       <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
@@ -63,7 +64,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[DepotPositionId],
 				[ProductioinBatch],
         [HandbookId],
-        [HandbookProductId]
+        [HandbookProductId],
+        [IsCountStock]
 			FROM
 				[dbo].[ProduceMaterialExitDetail]
 			WHERE
@@ -129,7 +131,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[DepotPositionId],
 				[ProductioinBatch],
         [HandbookId],
-        [HandbookProductId]
+        [HandbookProductId],
+        [IsCountStock]
 			) 
 			VALUES 
 			(
@@ -145,7 +148,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#DepotPositionId#,
 				#ProductioinBatch#,
         #HandbookId#,
-        #HandbookProductId#
+        #HandbookProductId#,
+        #IsCountStock#
 			)
              ]]>
     </insert>
@@ -164,7 +168,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[DepotPositionId] = #DepotPositionId#,
 				[ProductioinBatch] = #ProductioinBatch#,
         [HandbookId]=#HandbookId#,
-        [HandbookProductId]=#HandbookProductId#
+        [HandbookProductId]=#HandbookProductId#,
+        [IsCountStock]=#IsCountStock#
 			WHERE
 				[ProduceMaterialExitDetailId] = #ProduceMaterialExitDetailId#
                     ]]>

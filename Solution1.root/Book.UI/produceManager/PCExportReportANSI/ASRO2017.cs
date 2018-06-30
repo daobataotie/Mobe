@@ -50,11 +50,11 @@ namespace Book.UI.produceManager.PCExportReportANSI
             if (_PCExportReportANSI.IsShowGX2.HasValue && _PCExportReportANSI.IsShowGX2.Value)
             {
                 //this.LbRefractive.Text = _PCExportReportANSI.RefractivePower.HasValue ? "(" + _PCExportReportANSI.RefractivePower.Value.ToString("0.00") + ") 2" : "(0.00) 2";
-                this.LbRefractive.Text = (_PCExportReportANSI.RefractivePower.HasValue && _PCExportReportANSI.RefractivePower.Value != 0) ? "(" + _PCExportReportANSI.RefractivePower.Value.ToString("0.00") + ") 2" : "2";
+                this.LbRefractive.Text = (_PCExportReportANSI.RefractivePower.HasValue && _PCExportReportANSI.RefractivePower.Value != 0.0) ? "(" + _PCExportReportANSI.RefractivePower.Value.ToString("0.00") + ") 2" : "2";
             }
             else
             {
-                this.LbRefractive.Text = (_PCExportReportANSI.RefractivePower.HasValue && _PCExportReportANSI.RefractivePower.Value != 0) ? _PCExportReportANSI.RefractivePower.Value.ToString("0.00") : "";
+                this.LbRefractive.Text = (_PCExportReportANSI.RefractivePower.HasValue && _PCExportReportANSI.RefractivePower.Value != 0.0) ? _PCExportReportANSI.RefractivePower.Value.ToString("0.00") : "";
                 //this.LbRefractive.Text = _PCExportReportANSI.RefractivePower.HasValue ? _PCExportReportANSI.RefractivePower.Value.ToString("0.00") : "";
             }
             this.CheckScatter.Checked = _PCExportReportANSI.ScatterLight.HasValue ? _PCExportReportANSI.ScatterLight.Value : false;

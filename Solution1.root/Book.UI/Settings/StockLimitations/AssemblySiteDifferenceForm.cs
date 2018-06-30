@@ -21,7 +21,9 @@ namespace Book.UI.Settings.StockLimitations
         private BL.WorkHouseManager workHouseManager = new Book.BL.WorkHouseManager();
         private BL.BomComponentInfoManager bomComponentInfoManager = new Book.BL.BomComponentInfoManager();
         private BL.BomParentPartInfoManager bomParentPartInfoManager = new Book.BL.BomParentPartInfoManager();
+        BL.MaterialManager materialManager = new Book.BL.MaterialManager();
         int isLast = 0;
+        string workHouseYanpian = null;
         string workHouseZuzhuang = null;
         string workHouseChengpinZuzhuang = null;
 
@@ -31,7 +33,7 @@ namespace Book.UI.Settings.StockLimitations
             InitializeComponent();
 
             this.invalidValueExceptions.Add(Model.AssemblySiteDifference.PRO_AssemblySiteInventoryId, new AA("请选择一笔组装现场盘点录入单", this.txt_ID2));
-
+            workHouseYanpian = workHouseManager.SelectWorkHouseIdByName("验片");
             workHouseZuzhuang = workHouseManager.SelectWorkHouseIdByName("组装现场仓");
             workHouseChengpinZuzhuang = workHouseManager.SelectWorkHouseIdByName("成品组装");
 
@@ -257,17 +259,40 @@ namespace Book.UI.Settings.StockLimitations
         private decimal CountSiteQuantity(string productId, DateTime dateEnd)
         {
             IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(productId);
-            if (phList == null || phList.Count == 0)
-                return 0;
+            //if (phList == null || phList.Count == 0)
+            //    return 0;
             string pronoteHeaderIds = "";
             string invoiceXOIds = "";
-            foreach (var ph in phList)
+
+            #region 验片：合计前单位转入 - 合计生产数量（包含合计合格数量，合计不良品）
+            double yanpianTransferIn = 0;
+            double yanpianProcedures = 0;
+            double yanpianBuliang = 0;
+            double yanpianXianchang = 0;
+
+            if (phList != null && phList.Count > 0)
             {
-                pronoteHeaderIds += "'" + ph.PronoteHeaderID + "',";
-                invoiceXOIds += "'" + ph.InvoiceXOId + "',";
+                foreach (var ph in phList)
+                {
+                    pronoteHeaderIds += "'" + ph.PronoteHeaderID + "',";
+                    invoiceXOIds += "'" + ph.InvoiceXOId + "',";
+                }
+                pronoteHeaderIds = pronoteHeaderIds.TrimEnd(',');
+                invoiceXOIds = invoiceXOIds.TrimEnd(',');
+
+                //计算所有转入 验片 部门的数量
+                Model.ProduceInDepotDetail pidYanpianIn = produceInDepotDetailManager.SelectByNextWorkhouse(productId, dateEnd.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
+                yanpianTransferIn = Convert.ToDouble(pidYanpianIn.ProduceTransferQuantity);
+
+                //计算 验片 部门的生产数量
+                Model.ProduceInDepotDetail pidYanpianOut = produceInDepotDetailManager.SelectByThisWorkhouse(productId, dateEnd.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
+                yanpianProcedures = Convert.ToDouble(pidYanpianOut.ProceduresSum);
+                yanpianBuliang = Convert.ToDouble(pidYanpianOut.ProceduresSum - pidYanpianOut.CheckOutSum);
+
+                yanpianXianchang = yanpianTransferIn - yanpianProcedures;
+                yanpianXianchang = yanpianXianchang < 0 ? 0 : yanpianXianchang;
             }
-            pronoteHeaderIds = pronoteHeaderIds.TrimEnd(',');
-            invoiceXOIds = invoiceXOIds.TrimEnd(',');
+            #endregion
 
             #region 组装现场:合计前单位转入+ 合计领料单领出 - 合计出库数量（合计转生产到其他部门，成品入库数量换算后扣减数量）- 生产退料（从组装现场退的）
             //领到 组装现场 部门的数量
@@ -275,59 +300,73 @@ namespace Book.UI.Settings.StockLimitations
 
             materialQty = produceMaterialdetailsManager.SelectMaterialQty(productId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
 
-            IList<Model.ProduceInDepotDetail> pidZuzhuangIn = produceInDepotDetailManager.SelectTransZuZhuangXianChang(productId, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
-            double zuzhuangTransferIn = pidZuzhuangIn.Sum(P => P.ProduceTransferQuantity).Value;
-            //string xoIDs = "";
-            //foreach (string xoid in pidZuzhuangIn.Select(D => D.InvoiceXOId).Distinct())
-            //{
-            //    xoIDs += "'" + xoid + "',";
-            //}
-            //xoIDs = xoIDs.TrimEnd(',');
-
-            //计算 组装现场 部门转入其他部门的数量
-            Model.ProduceInDepotDetail pidZuzhuangOut = produceInDepotDetailManager.SelectByThisWorkhouse(productId, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
-            double zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
-
-            //计算 从组装现场退回的 生产退料
-            double exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(productId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
-
-
-            #region 查询商品对应的所有母件 入库 扣减
+            double zuzhuangTransferIn = 0;
+            double zuzhuangTransferOut = 0;
+            double exitQty = 0;
             double deductionQty = 0;
-            //if (!string.IsNullOrEmpty(xoIDs))
-            if (!string.IsNullOrEmpty(invoiceXOIds))
+
+            if (phList != null && phList.Count > 0)
             {
-                Dictionary<string, double> parentProductDic = new Dictionary<string, double>();
+                //foreach (var ph in phList)
+                //{
+                //    pronoteHeaderIds += "'" + ph.PronoteHeaderID + "',";
+                //    invoiceXOIds += "'" + ph.InvoiceXOId + "',";
+                //}
+                //pronoteHeaderIds = pronoteHeaderIds.TrimEnd(',');
+                //invoiceXOIds = invoiceXOIds.TrimEnd(',');
 
-                GetParentProductInfo("'" + productId + "'", parentProductDic);
+                IList<Model.ProduceInDepotDetail> pidZuzhuangIn = produceInDepotDetailManager.SelectTransZuZhuangXianChang(productId, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
+                zuzhuangTransferIn = pidZuzhuangIn.Sum(P => P.ProduceTransferQuantity).Value;
+                //string xoIDs = "";
+                //foreach (string xoid in pidZuzhuangIn.Select(D => D.InvoiceXOId).Distinct())
+                //{
+                //    xoIDs += "'" + xoid + "',";
+                //}
+                //xoIDs = xoIDs.TrimEnd(',');
 
-                string proIds = "";
-                foreach (var str in parentProductDic.Keys)
+                //计算 组装现场 部门转入其他部门的数量
+                Model.ProduceInDepotDetail pidZuzhuangOut = produceInDepotDetailManager.SelectByThisWorkhouse(productId, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
+                zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
+
+                //计算 从组装现场退回的 生产退料
+                exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(productId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+
+
+                #region 查询商品对应的所有母件 入库 扣减
+                //if (!string.IsNullOrEmpty(xoIDs))
+                if (!string.IsNullOrEmpty(invoiceXOIds))
                 {
-                    proIds += "'" + str + "',";
-                }
-                proIds = proIds.TrimEnd(',');
+                    Dictionary<string, double> parentProductDic = new Dictionary<string, double>();
 
-                if (!string.IsNullOrEmpty(proIds))
-                {
-                    IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
-                    //IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, xoIDs); //对应转到组装现场的生产入库单的客户订单，如果订单不在范围内，母件入库不扣减
-                    foreach (var pid in pids)
+                    GetParentProductInfo("'" + productId + "'", parentProductDic);
+
+                    string proIds = "";
+                    foreach (var str in parentProductDic.Keys)
                     {
-                        deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];
+                        proIds += "'" + str + "',";
+                    }
+                    proIds = proIds.TrimEnd(',');
+
+                    if (!string.IsNullOrEmpty(proIds))
+                    {
+                        IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
+                        //IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, xoIDs); //对应转到组装现场的生产入库单的客户订单，如果订单不在范围内，母件入库不扣减
+                        foreach (var pid in pids)
+                        {
+                            deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];
+                        }
                     }
                 }
+
+                #endregion
             }
-
-            #endregion
-
             //double zuzhuangXianchang = zuzhuangTransferIn + materialQty - zuzhuangTransferOut - deductionQty;
             double zuzhuangXianchang = zuzhuangTransferIn + materialQty - zuzhuangTransferOut - deductionQty - exitQty;
             zuzhuangXianchang = zuzhuangXianchang < 0 ? 0 : zuzhuangXianchang;
 
             #endregion
 
-            return (decimal)zuzhuangXianchang;
+            return (decimal)zuzhuangXianchang + (decimal)yanpianXianchang;
         }
 
         private void GetParentProductInfo(string productId, Dictionary<string, double> parentProductDic)
@@ -374,6 +413,217 @@ namespace Book.UI.Settings.StockLimitations
             productIds = productIds.TrimEnd(',');
 
             GetParentProductInfo(productIds, parentProductDic);   //递归调用
+        }
+
+        private void bar_ExportExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (this.action != "view" || this._assemblySiteDifference.Details == null || this._assemblySiteDifference.Details.Count < 1)
+                return;
+
+            try
+            {
+                Type objClassType = null;
+                objClassType = Type.GetTypeFromProgID("Excel.Application");
+                if (objClassType == null)
+                {
+                    MessageBox.Show("本機沒有安裝Excel", "提示！", MessageBoxButtons.OK);
+                    return;
+                }
+
+                ConvertMaterial();   //计算原料净重
+
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Application.Workbooks.Add(true);
+
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]);
+                r.MergeCells = true;//合并单元格
+
+                excel.Cells.ColumnWidth = 10;
+                excel.Cells[1, 1] = "组装现场盘点差异(" + this.date_Difference.DateTime.ToString("yyyy-MM-dd") + ")";
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
+                //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).HorizontalAlignment = -4108;
+
+                excel.Cells[2, 1] = "商品编号";
+                excel.Cells[2, 2] = "商品名称";
+                excel.Cells[2, 3] = "客户型号";
+                excel.Cells[2, 4] = "版本";
+                excel.Cells[2, 5] = "盘点数量";
+                excel.Cells[2, 6] = "理论数量";
+                excel.Cells[2, 7] = "差异";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 7 + 1 + this._assemblySiteDifference.Details[0].Product.MaterialDic.Keys.Count]).Interior.Color = "12566463";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 25;
+                excel.get_Range(excel.Cells[2, 2], excel.Cells[2, 2]).ColumnWidth = 50;
+
+                int col = 9;
+                //原料
+                foreach (var item in this._assemblySiteDifference.Details[0].Product.MaterialDic)
+                {
+                    excel.Cells[2, col++] = item.Key;
+                }
+
+                List<Model.AssemblySiteDifferenceDetai> haveThreeCategoryPro = this._assemblySiteDifference.Details.Where(P => P.Product.ProductCategory3 != null).ToList();
+                List<Model.AssemblySiteDifferenceDetai> haveTwoCategoryPro = this._assemblySiteDifference.Details.Where(P => P.Product.ProductCategory2 != null && P.Product.ProductCategory3 == null).ToList();
+                List<Model.AssemblySiteDifferenceDetai> haveOneCategoryPro = this._assemblySiteDifference.Details.Where(P => P.Product.ProductCategory2 == null && P.Product.ProductCategory3 == null).ToList();
+
+                int row = 3;
+
+                foreach (var item in haveThreeCategoryPro.GroupBy(P => P.Product.ProductCategory3.ProductCategoryName))
+                {
+                    SetExcelFormat(excel, ref col, ref row, item);
+
+                    foreach (var pro in item)
+                    {
+                        excel.Cells[row, 1] = pro.Product.Id;
+                        excel.Cells[row, 2] = pro.Product.ProductName;
+                        excel.Cells[row, 3] = pro.Product.CustomerProductName;
+                        excel.Cells[row, 4] = pro.Product.ProductVersion;
+                        excel.Cells[row, 5] = pro.ActualQuantity;
+                        excel.Cells[row, 6] = pro.TheoryQuantity;
+                        excel.Cells[row, 7] = pro.DiffQty;
+
+                        col = 9;
+                        foreach (var dic in pro.Product.MaterialDic)
+                        {
+                            excel.Cells[row, col++] = dic.Value;
+                        }
+
+                        row++;
+                    }
+                    row++;
+                }
+
+                foreach (var item in haveTwoCategoryPro.GroupBy(P => P.Product.ProductCategory2.ProductCategoryName))
+                {
+                    SetExcelFormat(excel, ref col, ref row, item);
+
+                    foreach (var pro in item)
+                    {
+                        excel.Cells[row, 1] = pro.Product.Id;
+                        excel.Cells[row, 2] = pro.Product.ProductName;
+                        excel.Cells[row, 3] = pro.Product.CustomerProductName;
+                        excel.Cells[row, 4] = pro.Product.ProductVersion;
+                        excel.Cells[row, 5] = pro.ActualQuantity;
+                        excel.Cells[row, 6] = pro.TheoryQuantity;
+                        excel.Cells[row, 7] = pro.DiffQty;
+
+                        col = 9;
+                        foreach (var dic in pro.Product.MaterialDic)
+                        {
+                            excel.Cells[row, col++] = dic.Value;
+                        }
+
+                        row++;
+                    }
+                    row++;
+                }
+
+                foreach (var item in haveOneCategoryPro.GroupBy(P => P.Product.ProductCategory.ProductCategoryName))
+                {
+                    SetExcelFormat(excel, ref col, ref row, item);
+
+                    foreach (var pro in item)
+                    {
+                        excel.Cells[row, 1] = pro.Product.Id;
+                        excel.Cells[row, 2] = pro.Product.ProductName;
+                        excel.Cells[row, 3] = pro.Product.CustomerProductName;
+                        excel.Cells[row, 4] = pro.Product.ProductVersion;
+                        excel.Cells[row, 5] = pro.ActualQuantity;
+                        excel.Cells[row, 6] = pro.TheoryQuantity;
+                        excel.Cells[row, 7] = pro.DiffQty;
+
+                        col = 9;
+                        foreach (var dic in pro.Product.MaterialDic)
+                        {
+                            excel.Cells[row, col++] = dic.Value;
+                        }
+
+                        row++;
+                    }
+                    row++;
+                }
+
+                excel.Visible = true;//是否打开该Excel文件
+                excel.WindowState = Microsoft.Office.Interop.Excel.XlWindowState.xlMaximized;
+            }
+            catch
+            {
+                MessageBox.Show("Excel未生成完畢，請勿操作，并重新點擊按鈕生成數據！", "提示！", MessageBoxButtons.OK);
+                return;
+            }
+        }
+
+        private void SetExcelFormat(Microsoft.Office.Interop.Excel.Application excel, ref int col, ref int row, IGrouping<string, Book.Model.AssemblySiteDifferenceDetai> item)
+        {
+            excel.Cells[row, 1] = item.Key;
+            excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 7 + 1 + this._assemblySiteDifference.Details[0].Product.MaterialDic.Keys.Count]).Interior.Color = "255";    //红色
+            excel.get_Range(excel.Cells[row, 5], excel.Cells[row, 5]).Formula = string.Format("=SUM(E{0}:E{1})", row + 1, row + item.Count());
+            excel.get_Range(excel.Cells[row, 6], excel.Cells[row, 6]).Formula = string.Format("=SUM(F{0}:F{1})", row + 1, row + item.Count());
+            excel.get_Range(excel.Cells[row, 7], excel.Cells[row, 7]).Formula = string.Format("=SUM(G{0}:G{1})", row + 1, row + item.Count());
+
+            col = 9;
+            foreach (var ec in this._assemblySiteDifference.Details[0].Product.MaterialDic)
+            {
+                string excelColumnName = CountExcelColumnName(col);
+                excel.get_Range(excel.Cells[row, col], excel.Cells[row, col]).Formula = string.Format("=SUM({2}{0}:{2}{1})", row + 1, row + item.Count(), excelColumnName);
+                col++;
+            }
+
+            row++;
+        }
+
+        private static string CountExcelColumnName(int i)
+        {
+            string str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            if (i <= 26)
+                return str.ToCharArray()[i - 1].ToString();
+            else
+            {
+                int count = (int)Math.Floor(Convert.ToDecimal(i / 26));
+                if (i % 26 == 0)
+                {
+                    return str.ToCharArray()[count - 2].ToString() + "Z";
+                }
+                else
+                {
+                    return str.ToCharArray()[count - 1].ToString() + str.ToCharArray()[i % 26 - 1].ToString();
+                }
+            }
+        }
+
+        private void ConvertMaterial()
+        {
+            IList<string> str = materialManager.SelectMaterialCategory();
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+
+            foreach (var detail in this._assemblySiteDifference.Details)
+            {
+                var pro = detail.Product;
+                pro.MaterialDic = new Dictionary<string, string>();
+                foreach (var item in str)
+                {
+                    pro.MaterialDic.Add(item, "0");
+                }
+
+
+                if (!string.IsNullOrEmpty(pro.MaterialIds))
+                {
+                    string[] materialIds = pro.MaterialIds.Split(',');
+                    string[] materialnums = pro.MaterialNum.Split(',');
+
+                    for (int i = 0; i < materialIds.Length; i++)
+                    {
+                        Model.Material model = materialManager.Get(materialIds[i]);
+                        if (model != null)
+                        {
+                            double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * Convert.ToDouble(detail.DiffQty);
+                            pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");
+                        }
+                    }
+                }
+            }
         }
     }
 }

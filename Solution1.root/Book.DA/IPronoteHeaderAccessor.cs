@@ -31,5 +31,7 @@ namespace Book.DA
         IList<Book.Model.PronoteHeader> Select(IList<string> ids);
 
         IList<Model.PronoteHeader> SelectByProductId(string productid);
+
+        IList<Model.PronoteHeader> SelectByProductIdAll(string productid);
     }
 }

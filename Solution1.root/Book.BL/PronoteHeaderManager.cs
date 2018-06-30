@@ -414,6 +414,11 @@ namespace Book.BL
         {
             return accessor.SelectByProductId(productid);
         }
+
+        public IList<Model.PronoteHeader> SelectByProductIdAll(string productid)
+        {
+            return accessor.SelectByProductIdAll(productid);
+        }
     }
 }
 
