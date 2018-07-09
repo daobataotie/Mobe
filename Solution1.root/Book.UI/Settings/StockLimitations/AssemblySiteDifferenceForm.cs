@@ -258,11 +258,14 @@ namespace Book.UI.Settings.StockLimitations
 
         private decimal CountSiteQuantity(string productId, DateTime dateEnd)
         {
-            IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(productId);
+            //  2018年7月3日22:17:36 改：只查询2018.1.1 之后的订单
+            DateTime startDate = new DateTime(2018, 1, 1);
+            IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(startDate, productId);
             //if (phList == null || phList.Count == 0)
             //    return 0;
             string pronoteHeaderIds = "";
             string invoiceXOIds = "";
+            string allInvoiceXOIds = "";
 
             #region 验片：合计前单位转入 - 合计生产数量（包含合计合格数量，合计不良品）
             double yanpianTransferIn = 0;
@@ -278,7 +281,7 @@ namespace Book.UI.Settings.StockLimitations
                     invoiceXOIds += "'" + ph.InvoiceXOId + "',";
                 }
                 pronoteHeaderIds = pronoteHeaderIds.TrimEnd(',');
-                invoiceXOIds = invoiceXOIds.TrimEnd(',');
+                allInvoiceXOIds = invoiceXOIds = invoiceXOIds.TrimEnd(',');
 
                 //计算所有转入 验片 部门的数量
                 Model.ProduceInDepotDetail pidYanpianIn = produceInDepotDetailManager.SelectByNextWorkhouse(productId, dateEnd.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
@@ -298,7 +301,23 @@ namespace Book.UI.Settings.StockLimitations
             //领到 组装现场 部门的数量
             double materialQty = 0;
 
-            materialQty = produceMaterialdetailsManager.SelectMaterialQty(productId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+            //materialQty = produceMaterialdetailsManager.SelectMaterialQty(productId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+            //2018年7月9日23:07:51 领料单所包含的未结案订单号码拉出来，用于查询母件入库扣减
+            System.Data.DataTable dt = produceMaterialdetailsManager.SelectMaterialQty(productId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    materialQty += Convert.ToDouble(dr["Materialprocessum"].ToString());
+
+                    if (!invoiceXOIds.Contains(dr["InvoiceId"].ToString()))
+                    {
+                        allInvoiceXOIds = "'" + dr["InvoiceId"].ToString() + "'," + allInvoiceXOIds;
+                    }
+                }
+                allInvoiceXOIds = allInvoiceXOIds.TrimEnd(',');
+            }
+
 
             double zuzhuangTransferIn = 0;
             double zuzhuangTransferOut = 0;
@@ -329,12 +348,13 @@ namespace Book.UI.Settings.StockLimitations
                 zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
 
                 //计算 从组装现场退回的 生产退料
-                exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(productId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+                exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(productId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
 
 
                 #region 查询商品对应的所有母件 入库 扣减
                 //if (!string.IsNullOrEmpty(xoIDs))
-                if (!string.IsNullOrEmpty(invoiceXOIds))
+                //if (!string.IsNullOrEmpty(invoiceXOIds))
+                if (!string.IsNullOrEmpty(allInvoiceXOIds))
                 {
                     Dictionary<string, double> parentProductDic = new Dictionary<string, double>();
 
@@ -349,8 +369,8 @@ namespace Book.UI.Settings.StockLimitations
 
                     if (!string.IsNullOrEmpty(proIds))
                     {
-                        IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
-                        //IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, xoIDs); //对应转到组装现场的生产入库单的客户订单，如果订单不在范围内，母件入库不扣减
+                        IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, allInvoiceXOIds);
+
                         foreach (var pid in pids)
                         {
                             deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];

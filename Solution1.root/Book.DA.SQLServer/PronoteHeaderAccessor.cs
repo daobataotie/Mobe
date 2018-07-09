@@ -362,10 +362,10 @@ namespace Book.DA.SQLServer
             // return sqlmapper.QueryForList<Book.Model.PronoteHeader>("PronoteHeader.select_bymrsheader", mrsheader.MRSHeaderId);
         }
 
-        //查询商品对应的未结案加工单
-        public IList<Model.PronoteHeader> SelectByProductId(string productid)
+        //查询商品对应的未结案加工单        2018年7月3日22:17:36 改：只查询2017.10.1 之后的订单
+        public IList<Model.PronoteHeader> SelectByProductId(DateTime startDate, string productid)
         {
-            string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.ProductId='" + productid + "' and ph.IsClose<>1";  //这里还是要查询未结案的商品，已结案的应该是订单完成，在现场没有残留
+            string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.PronoteDate>='" + startDate + "' and ph.ProductId='" + productid + "' and ph.IsClose<>1";  //这里还是要查询未结案的商品，已结案的应该是订单完成，在现场没有残留
             //string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.ProductId='" + productid + "'";
             return this.DataReaderBind<Model.PronoteHeader>(sql, null, CommandType.Text);
         }

@@ -52,7 +52,14 @@ namespace Book.DA.SQLServer
             sqlmapper.Delete("ProduceMaterialExitDetail.delete_byheader", produceMaterialExit.ProduceMaterialExitId);
         }
 
-        public double SelectSumQtyFromZuzhuang(string productId, DateTime dateEnd, string workHouseId)
+        public double SelectSumQtyFromZuzhuang(string productId, DateTime dateStart, DateTime dateEnd, string workHouseId)
+        {
+            string sql = "select sum(ISNULL(ped.ProduceQuantity,0)) from ProduceMaterialExitDetail ped left join ProduceMaterialExit pe on ped.ProduceMaterialExitId=pe.ProduceMaterialExitId where ped.ProductId='" + productId + "' and pe.ProduceExitMaterialDate between '" + dateStart + "' and '" + dateEnd + "' and pe.WorkHouseId='" + workHouseId + "'";
+
+            return Convert.ToDouble(this.QueryObject(sql));
+        }
+
+        public double SelectSumQtyFromZuzhuangAll(string productId, DateTime dateEnd, string workHouseId)
         {
             string sql = "select sum(ISNULL(ped.ProduceQuantity,0)) from ProduceMaterialExitDetail ped left join ProduceMaterialExit pe on ped.ProduceMaterialExitId=pe.ProduceMaterialExitId where ped.ProductId='" + productId + "' and pe.ProduceExitMaterialDate <='" + dateEnd + "' and pe.WorkHouseId='" + workHouseId + "'";
 

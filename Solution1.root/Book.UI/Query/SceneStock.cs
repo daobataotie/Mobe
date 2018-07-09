@@ -115,8 +115,9 @@ namespace Book.UI.Query
 
                 #region 现场数量
 
-                //查询商品对应的未结案加工单
-                IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(item.ProductId);
+                //查询商品对应的未结案加工单       2018年7月3日22:17:36 改：只查询2018.1.1 之后的订单
+                DateTime startDate = new DateTime(2018, 1, 1);
+                IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(startDate, item.ProductId);
                 if (phList == null || phList.Count == 0)
                     continue;
                 foreach (var phGroup in phList.GroupBy(P => P.CustomerInvoiceXOId))
@@ -177,7 +178,7 @@ namespace Book.UI.Query
                     double zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
 
                     //计算 从组装现场退回的 生产退料
-                    double exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+                    double exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
 
 
                     #region 查询商品对应的所有母件 入库 扣减

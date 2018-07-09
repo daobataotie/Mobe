@@ -8,6 +8,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Book.DA
 {
@@ -31,7 +32,7 @@ namespace Book.DA
 
         double SelectMaterialQty(string productid, DateTime dateEnd, string workHouseId, string invoiceXOIds);
 
-        double SelectMaterialQty(string productid, DateTime dateEnd, string workHouseId);
+        DataTable SelectMaterialQty(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId);
 
         double SelectMaterialQtyAll(string productid, DateTime dateEnd, string workHouseId);
     }

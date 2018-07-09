@@ -410,9 +410,9 @@ namespace Book.BL
             return accessor.Select(ids);
         }
 
-        public IList<Model.PronoteHeader> SelectByProductId(string productid)
+        public IList<Model.PronoteHeader> SelectByProductId(DateTime startDate, string productid)
         {
-            return accessor.SelectByProductId(productid);
+            return accessor.SelectByProductId(startDate, productid);
         }
 
         public IList<Model.PronoteHeader> SelectByProductIdAll(string productid)

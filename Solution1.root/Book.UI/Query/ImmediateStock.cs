@@ -149,13 +149,15 @@ namespace Book.UI.Query
                 #region 现场数量  这边改动，其他两个地方也要对应修改(1,Book.UI.Query.SceneStock   2,Book.UI.Settings.StockLimitations.AssemblySiteDifferenceForm)
 
                 #region 验片：合计前单位转入 - 合计生产数量（包含合计合格数量，合计不良品）
-                //查询商品对应的未结案加工单
-                IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(item.ProductId);
+                //查询商品对应的未结案加工单    2018年7月3日22:17:36 改：只查询2018.1.1 之后的订单
+                DateTime startDate = new DateTime(2018, 1, 1);
+                IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(startDate, item.ProductId);
                 //if (phList == null || phList.Count == 0)
                 //    continue;
 
                 string pronoteHeaderIds = "";
                 string invoiceXOIds = "";
+                string allInvoiceXOIds = "";
 
                 if (phList != null && phList.Count > 0)
                 {
@@ -165,7 +167,7 @@ namespace Book.UI.Query
                         invoiceXOIds += "'" + ph.InvoiceXOId + "',";
                     }
                     pronoteHeaderIds = pronoteHeaderIds.TrimEnd(',');
-                    invoiceXOIds = invoiceXOIds.TrimEnd(',');
+                    allInvoiceXOIds = invoiceXOIds = invoiceXOIds.TrimEnd(',');
 
                     //计算所有转入 验片 部门的数量
                     Model.ProduceInDepotDetail pidYanpianIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId, dateEnd.AddSeconds(-1), workHouseYanpian, pronoteHeaderIds);
@@ -192,8 +194,24 @@ namespace Book.UI.Query
                 double materialQty = 0;
                 //if (!string.IsNullOrEmpty(invoiceXOIds))
                 //    materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds);
-                //2018年5月17日00:34:42 只要是未结案的订单领到组装现场的都计入
-                materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+                //2018年5月17日00:34:42 只要是未结案的订单领到组装现场的都计入     2018年7月3日22:17:36 改：只查询2017.10.1 之后的订单
+                //materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+                //2018年7月9日23:07:51 领料单所包含的未结案订单号码拉出来，用于查询母件入库扣减
+                System.Data.DataTable dt = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        materialQty += Convert.ToDouble(dr["Materialprocessum"].ToString());
+
+                        if (!invoiceXOIds.Contains(dr["InvoiceId"].ToString()))
+                        {
+                            allInvoiceXOIds = "'" + dr["InvoiceId"].ToString() + "'," + allInvoiceXOIds;
+                        }
+                    }
+                    allInvoiceXOIds = allInvoiceXOIds.TrimEnd(',');
+                }
+
 
                 //计算所有转入 组装现场 部门的数量
                 //Model.ProduceInDepotDetail pidZuzhuangIn = produceInDepotDetailManager.SelectByNextWorkhouse(item.ProductId,  dateEnd.AddSeconds(-1), workHouseZuzhuang, null);   //转入组装现场时没有加工单
@@ -216,15 +234,16 @@ namespace Book.UI.Query
 
                     //计算 组装现场 部门转入其他部门的数量
                     Model.ProduceInDepotDetail pidZuzhuangOut = produceInDepotDetailManager.SelectByThisWorkhouse(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang, pronoteHeaderIds);
-                     zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
+                    zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
 
                     //计算 从组装现场退回的 生产退料
-                    exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+                    exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
 
 
                     #region 查询商品对应的所有母件 入库 扣减
                     //if (!string.IsNullOrEmpty(xoIDs))
-                    if (!string.IsNullOrEmpty(invoiceXOIds))
+                    //if (!string.IsNullOrEmpty(invoiceXOIds))
+                    if (!string.IsNullOrEmpty(allInvoiceXOIds))
                     {
                         Dictionary<string, double> parentProductDic = new Dictionary<string, double>();
 
@@ -239,8 +258,12 @@ namespace Book.UI.Query
 
                         if (!string.IsNullOrEmpty(proIds))
                         {
-                            IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
                             //IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, xoIDs); //对应转到组装现场的生产入库单的客户订单，如果订单不在范围内，母件入库不扣减
+                            //IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
+
+                            //2018年7月9日23:21:00
+                            IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, allInvoiceXOIds);
+
                             foreach (var pid in pids)
                             {
                                 deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];
@@ -599,7 +622,7 @@ namespace Book.UI.Query
                     zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
 
                     //计算 从组装现场退回的 生产退料
-                    exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+                    exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuangAll(item.ProductId, dateEnd.AddSeconds(-1), workHouseZuzhuang);
 
 
                     #region 查询商品对应的所有母件 入库 扣减

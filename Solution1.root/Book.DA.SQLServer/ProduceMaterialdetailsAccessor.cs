@@ -217,11 +217,17 @@ namespace Book.DA.SQLServer
         }
 
         //查询未结案订单领到组装现场的数量
-        public double SelectMaterialQty(string productid, DateTime dateEnd, string workHouseId)
+        public DataTable SelectMaterialQty(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId)
         {
-            string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID left join InvoiceXO xo on pm.InvoiceXOId=xo.InvoiceId where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate <= '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "' and xo.IsClose <>1";
+            //string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID left join InvoiceXO xo on pm.InvoiceXOId=xo.InvoiceId where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate between '" + dateStart + "' and '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "' and xo.IsClose <>1";
+            //return Convert.ToDouble(this.QueryObject(sql));
 
-            return Convert.ToDouble(this.QueryObject(sql));
+            string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum,xo.InvoiceId from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID left join InvoiceXO xo on pm.InvoiceXOId=xo.InvoiceId where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate between '" + dateStart + "' and '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "' and xo.IsClose <>1 group by xo.InvoiceId ";
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(sql, sqlmapper.DataSource.ConnectionString);
+            sda.Fill(dt);
+            return dt;
         }
 
         //查询所有领到组装现场的数量

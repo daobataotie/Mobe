@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Linq;
 
 namespace Book.UI.Settings.StockLimitations
 {
@@ -13,6 +14,7 @@ namespace Book.UI.Settings.StockLimitations
     {
         private Model.AssemblySiteInventory _assemblySiteInventory;
         private BL.AssemblySiteInventoryManager manager = new Book.BL.AssemblySiteInventoryManager();
+        BL.MaterialManager materialManager = new Book.BL.MaterialManager();
         int isLast = 0;
 
         public AssemblySiteInventoryForm()
@@ -243,6 +245,206 @@ namespace Book.UI.Settings.StockLimitations
         {
             AssemblySiteDifferenceForm f = new AssemblySiteDifferenceForm(this._assemblySiteInventory);
             f.ShowDialog(this);
+        }
+
+        private void bar_ExportExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (this.action != "view" || this._assemblySiteInventory.Details == null || this._assemblySiteInventory.Details.Count < 1)
+                return;
+
+            try
+            {
+                Type objClassType = null;
+                objClassType = Type.GetTypeFromProgID("Excel.Application");
+                if (objClassType == null)
+                {
+                    MessageBox.Show("本機沒有安裝Excel", "提示！", MessageBoxButtons.OK);
+                    return;
+                }
+
+                ConvertMaterial();   //计算原料净重
+
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Application.Workbooks.Add(true);
+
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1,5]);
+                r.MergeCells = true;//合并单元格
+
+                excel.Cells.ColumnWidth = 10;
+                excel.Cells[1, 1] = "组装现场盘点差异(" + this.date_Inventory.DateTime.ToString("yyyy-MM-dd") + ")";
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
+                //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 5]).HorizontalAlignment = -4108;
+
+                excel.Cells[2, 1] = "商品编号";
+                excel.Cells[2, 2] = "商品名称";
+                excel.Cells[2, 3] = "客户型号";
+                excel.Cells[2, 4] = "版本";
+                excel.Cells[2, 5] = "盘点数量";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 5 + 1 + this._assemblySiteInventory.Details[0].Product.MaterialDic.Keys.Count]).Interior.Color = "12566463";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 25;
+                excel.get_Range(excel.Cells[2, 2], excel.Cells[2, 2]).ColumnWidth = 50;
+
+                int col = 7;
+                //原料
+                foreach (var item in this._assemblySiteInventory.Details[0].Product.MaterialDic)
+                {
+                    excel.Cells[2, col++] = item.Key;
+                }
+
+                List<Model.AssemblySiteInventoryDetail> haveThreeCategoryPro = this._assemblySiteInventory.Details.Where(P => P.Product.ProductCategory3 != null).ToList();
+                List<Model.AssemblySiteInventoryDetail> haveTwoCategoryPro = this._assemblySiteInventory.Details.Where(P => P.Product.ProductCategory2 != null && P.Product.ProductCategory3 == null).ToList();
+                List<Model.AssemblySiteInventoryDetail> haveOneCategoryPro = this._assemblySiteInventory.Details.Where(P => P.Product.ProductCategory2 == null && P.Product.ProductCategory3 == null).ToList();
+
+                int row = 3;
+
+                foreach (var item in haveThreeCategoryPro.GroupBy(P => P.Product.ProductCategory3.ProductCategoryName))
+                {
+                    SetExcelFormat(excel, ref col, ref row, item);
+
+                    foreach (var pro in item)
+                    {
+                        excel.Cells[row, 1] = pro.Product.Id;
+                        excel.Cells[row, 2] = pro.Product.ProductName;
+                        excel.Cells[row, 3] = pro.Product.CustomerProductName;
+                        excel.Cells[row, 4] = pro.Product.ProductVersion;
+                        excel.Cells[row, 5] = pro.Quantity;
+
+                        col = 7;
+                        foreach (var dic in pro.Product.MaterialDic)
+                        {
+                            excel.Cells[row, col++] = dic.Value;
+                        }
+
+                        row++;
+                    }
+                    row++;
+                }
+
+                foreach (var item in haveTwoCategoryPro.GroupBy(P => P.Product.ProductCategory2.ProductCategoryName))
+                {
+                    SetExcelFormat(excel, ref col, ref row, item);
+
+                    foreach (var pro in item)
+                    {
+                        excel.Cells[row, 1] = pro.Product.Id;
+                        excel.Cells[row, 2] = pro.Product.ProductName;
+                        excel.Cells[row, 3] = pro.Product.CustomerProductName;
+                        excel.Cells[row, 4] = pro.Product.ProductVersion;
+                        excel.Cells[row, 5] = pro.Quantity;
+
+                        col =7;
+                        foreach (var dic in pro.Product.MaterialDic)
+                        {
+                            excel.Cells[row, col++] = dic.Value;
+                        }
+
+                        row++;
+                    }
+                    row++;
+                }
+
+                foreach (var item in haveOneCategoryPro.GroupBy(P => P.Product.ProductCategory.ProductCategoryName))
+                {
+                    SetExcelFormat(excel, ref col, ref row, item);
+
+                    foreach (var pro in item)
+                    {
+                        excel.Cells[row, 1] = pro.Product.Id;
+                        excel.Cells[row, 2] = pro.Product.ProductName;
+                        excel.Cells[row, 3] = pro.Product.CustomerProductName;
+                        excel.Cells[row, 4] = pro.Product.ProductVersion;
+                        excel.Cells[row, 5] = pro.Quantity;
+
+                        col = 7;
+                        foreach (var dic in pro.Product.MaterialDic)
+                        {
+                            excel.Cells[row, col++] = dic.Value;
+                        }
+
+                        row++;
+                    }
+                    row++;
+                }
+
+                excel.Visible = true;//是否打开该Excel文件
+                excel.WindowState = Microsoft.Office.Interop.Excel.XlWindowState.xlMaximized;
+            }
+            catch
+            {
+                MessageBox.Show("Excel未生成完畢，請勿操作，并重新點擊按鈕生成數據！", "提示！", MessageBoxButtons.OK);
+                return;
+            }
+        }
+        private void SetExcelFormat(Microsoft.Office.Interop.Excel.Application excel, ref int col, ref int row, IGrouping<string, Book.Model.AssemblySiteInventoryDetail> item)
+        {
+            excel.Cells[row, 1] = item.Key;
+            excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 5 + 1 + this._assemblySiteInventory.Details[0].Product.MaterialDic.Keys.Count]).Interior.Color = "255";    //红色
+            excel.get_Range(excel.Cells[row, 5], excel.Cells[row, 5]).Formula = string.Format("=SUM(E{0}:E{1})", row + 1, row + item.Count());
+
+            col = 7;
+            foreach (var ec in this._assemblySiteInventory.Details[0].Product.MaterialDic)
+            {
+                string excelColumnName = CountExcelColumnName(col);
+                excel.get_Range(excel.Cells[row, col], excel.Cells[row, col]).Formula = string.Format("=SUM({2}{0}:{2}{1})", row + 1, row + item.Count(), excelColumnName);
+                col++;
+            }
+
+            row++;
+        }
+
+        private static string CountExcelColumnName(int i)
+        {
+            string str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            if (i <= 26)
+                return str.ToCharArray()[i - 1].ToString();
+            else
+            {
+                int count = (int)Math.Floor(Convert.ToDecimal(i / 26));
+                if (i % 26 == 0)
+                {
+                    return str.ToCharArray()[count - 2].ToString() + "Z";
+                }
+                else
+                {
+                    return str.ToCharArray()[count - 1].ToString() + str.ToCharArray()[i % 26 - 1].ToString();
+                }
+            }
+        }
+
+        private void ConvertMaterial()
+        {
+            IList<string> str = materialManager.SelectMaterialCategory();
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+
+            foreach (var detail in this._assemblySiteInventory.Details)
+            {
+                var pro = detail.Product;
+                pro.MaterialDic = new Dictionary<string, string>();
+                foreach (var item in str)
+                {
+                    pro.MaterialDic.Add(item, "0");
+                }
+
+
+                if (!string.IsNullOrEmpty(pro.MaterialIds))
+                {
+                    string[] materialIds = pro.MaterialIds.Split(',');
+                    string[] materialnums = pro.MaterialNum.Split(',');
+
+                    for (int i = 0; i < materialIds.Length; i++)
+                    {
+                        Model.Material model = materialManager.Get(materialIds[i]);
+                        if (model != null)
+                        {
+                            double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * Convert.ToDouble(detail.Quantity);
+                            pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");
+                        }
+                    }
+                }
+            }
         }
     }
 }
