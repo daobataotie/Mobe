@@ -151,7 +151,7 @@ namespace Book.UI.Query
                 #region 验片：合计前单位转入 - 合计生产数量（包含合计合格数量，合计不良品）
                 //查询商品对应的未结案加工单    2018年7月3日22:17:36 改：只查询2018.1.1 之后的订单
                 DateTime startDate = new DateTime(2018, 1, 1);
-                IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(startDate, item.ProductId);
+                IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(startDate, dateEnd.AddSeconds(-1), item.ProductId);
                 //if (phList == null || phList.Count == 0)
                 //    continue;
 

@@ -260,7 +260,7 @@ namespace Book.UI.Settings.StockLimitations
         {
             //  2018年7月3日22:17:36 改：只查询2018.1.1 之后的订单
             DateTime startDate = new DateTime(2018, 1, 1);
-            IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(startDate, productId);
+            IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(startDate, dateEnd.AddSeconds(-1), productId);
             //if (phList == null || phList.Count == 0)
             //    return 0;
             string pronoteHeaderIds = "";

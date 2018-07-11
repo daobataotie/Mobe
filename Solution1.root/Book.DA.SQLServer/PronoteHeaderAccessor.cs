@@ -362,11 +362,14 @@ namespace Book.DA.SQLServer
             // return sqlmapper.QueryForList<Book.Model.PronoteHeader>("PronoteHeader.select_bymrsheader", mrsheader.MRSHeaderId);
         }
 
-        //查询商品对应的未结案加工单        2018年7月3日22:17:36 改：只查询2017.10.1 之后的订单
-        public IList<Model.PronoteHeader> SelectByProductId(DateTime startDate, string productid)
+        //查询商品对应的未结案加工单        2018年7月3日22:17:36 改：只查询2018.1.1 之后的订单
+        public IList<Model.PronoteHeader> SelectByProductId(DateTime startDate, DateTime endDate, string productid)
         {
-            string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.PronoteDate>='" + startDate + "' and ph.ProductId='" + productid + "' and ph.IsClose<>1";  //这里还是要查询未结案的商品，已结案的应该是订单完成，在现场没有残留
+            //string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.PronoteDate>='" + startDate + "' and ph.ProductId='" + productid + "' and ph.IsClose<>1 and xo.IsClose<>1";  //这里还是要查询未结案的商品，已结案的应该是订单完成，在现场没有残留
             //string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.ProductId='" + productid + "'";
+
+            //2018年7月11日17:40:27：结案之后查询，预结案之前某个时间点查询不一样，加上结案时间做判断
+            string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.PronoteDate>='" + startDate + "' and ph.ProductId='" + productid + "' and (ph.IsClose<>1 and xo.IsClose<>1) or (ph.IsClose=1 and ph.JieAnDate>'" + endDate + "')";
             return this.DataReaderBind<Model.PronoteHeader>(sql, null, CommandType.Text);
         }
 

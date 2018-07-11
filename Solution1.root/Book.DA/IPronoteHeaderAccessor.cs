@@ -30,7 +30,7 @@ namespace Book.DA
         void UpdateHeaderIsClseByXOId(string InvoiceXOId, bool isclose);
         IList<Book.Model.PronoteHeader> Select(IList<string> ids);
 
-        IList<Model.PronoteHeader> SelectByProductId(DateTime startDate, string productid);
+        IList<Model.PronoteHeader> SelectByProductId(DateTime startDate, DateTime endDate, string productid);
 
         IList<Model.PronoteHeader> SelectByProductIdAll(string productid);
     }
