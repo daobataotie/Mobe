@@ -32,7 +32,7 @@ namespace Book.DA
 
         double SelectMaterialQty(string productid, DateTime dateEnd, string workHouseId, string invoiceXOIds);
 
-        DataTable SelectMaterialQty(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId);
+        DataTable SelectMaterialQty(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds);
 
         double SelectMaterialQtyAll(string productid, DateTime dateEnd, string workHouseId);
     }

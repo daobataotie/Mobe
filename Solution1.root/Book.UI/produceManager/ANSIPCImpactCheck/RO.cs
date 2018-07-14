@@ -30,7 +30,7 @@ namespace Book.UI.produceManager
             {
                 this.lblDataName.Text = Properties.Resources.JISCheck;
                 this.headTCZhuiQiu.Text = "‰‹Çò44g";
-                this.xrLabel13.Text = "QW-06¸½±í5";
+                this.xrLabel13.Text = "QW-06 ¸½±í 5";
             }
             else
                 this.lblDataName.Text = Properties.Resources.ANSIPCImpactCheck;

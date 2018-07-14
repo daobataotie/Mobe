@@ -303,7 +303,7 @@ namespace Book.UI.Settings.StockLimitations
 
             //materialQty = produceMaterialdetailsManager.SelectMaterialQty(productId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
             //2018年7月9日23:07:51 领料单所包含的未结案订单号码拉出来，用于查询母件入库扣减
-            System.Data.DataTable dt = produceMaterialdetailsManager.SelectMaterialQty(productId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+            System.Data.DataTable dt = produceMaterialdetailsManager.SelectMaterialQty(productId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds);
             if (dt != null && dt.Rows.Count > 0)
             {
                 foreach (DataRow dr in dt.Rows)

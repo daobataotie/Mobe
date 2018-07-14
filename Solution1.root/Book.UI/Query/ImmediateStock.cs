@@ -197,7 +197,7 @@ namespace Book.UI.Query
                 //2018年5月17日00:34:42 只要是未结案的订单领到组装现场的都计入     2018年7月3日22:17:36 改：只查询2017.10.1 之后的订单
                 //materialQty = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
                 //2018年7月9日23:07:51 领料单所包含的未结案订单号码拉出来，用于查询母件入库扣减
-                System.Data.DataTable dt = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+                System.Data.DataTable dt = produceMaterialdetailsManager.SelectMaterialQty(item.ProductId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds);
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     foreach (DataRow dr in dt.Rows)

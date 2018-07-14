@@ -98,9 +98,9 @@ namespace Book.BL
             return accessor.SelectMaterialQty(productid, dateEnd, workHouseId, invoiceXOIds);
         }
 
-        public DataTable SelectMaterialQty(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId)
+        public DataTable SelectMaterialQty(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds)
         {
-            return accessor.SelectMaterialQty(productid, dateStart, dateEnd, workHouseId);
+            return accessor.SelectMaterialQty(productid, dateStart, dateEnd, workHouseId, invoiceXOIds);
         }
 
         public double SelectMaterialQtyAll(string productid, DateTime dateEnd, string workHouseId)

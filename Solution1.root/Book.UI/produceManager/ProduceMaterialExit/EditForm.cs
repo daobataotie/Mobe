@@ -103,11 +103,12 @@ namespace Book.UI.produceManager.ProduceMaterialExit
             {
                 this._produceMaterialExit.DepotId = this._produceMaterialExit.Depot.DepotId;
             }
+            this._produceMaterialExit.PronoteHeaderID = this.tEtPronoteHeaderId.Text;
             this._produceMaterialExit.CustomerInvoiceXOId = this.textEditCustomerXOId.Text;
             this._produceMaterialExit.AuditState = this.saveAuditState;
             if (!this.gridView1.PostEditor() || !this.gridView1.UpdateCurrentRow())
                 return;
-            
+
             switch (this.action)
             {
                 case "insert":
@@ -117,7 +118,7 @@ namespace Book.UI.produceManager.ProduceMaterialExit
                     this.produceMaterialExitManager.Update(this._produceMaterialExit);
                     break;
             }
-           
+
         }
 
         protected override void Delete()
