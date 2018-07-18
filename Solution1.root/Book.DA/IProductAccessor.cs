@@ -70,6 +70,8 @@ namespace Book.DA
         DataTable SelectProductCategoryByProductIds(string productIds);
 
         string SelectCustomerProductNameByProductIds(string productIds);
+
+        double SelectStocksQuantityByStock(string productId);
     }
 }
 

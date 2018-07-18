@@ -845,5 +845,10 @@ where ProductId = #productid#
       SELECT Id,ProductId,ProductName,StocksQuantity,NetWeight,MaterialIds,MaterialNum FROM Product WHERE 1=1 $sql$
       ]]>
     </select>
+    <select id="SelectStocksQuantityByStock" resultClass="double" parameterClass="string">
+      <![CDATA[
+      select ISNULL(sum(stockquantity1),0) from Stock where ProductId=#value#
+      ]]>
+    </select>
   </statements>
 </sqlMap>
