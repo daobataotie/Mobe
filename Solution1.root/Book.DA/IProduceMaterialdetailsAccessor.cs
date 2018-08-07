@@ -35,6 +35,8 @@ namespace Book.DA
         DataTable SelectMaterialQty(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds);
 
         double SelectMaterialQtyAll(string productid, DateTime dateEnd, string workHouseId);
+
+        IList<Model.ProduceMaterialdetails> SelectMaterialsByProductIds(string productids, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds);
     }
 }
 

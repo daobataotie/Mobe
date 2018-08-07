@@ -211,6 +211,9 @@ namespace Book.DA.SQLServer
 
         public double SelectMaterialQty(string productid, DateTime dateEnd, string workHouseId, string invoiceXOIds)
         {
+            if (string.IsNullOrEmpty(invoiceXOIds))
+                invoiceXOIds = "''";
+
             string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate <= '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "' and pm.InvoiceXOId in (" + invoiceXOIds + ")";
 
             return Convert.ToDouble(this.QueryObject(sql));
@@ -221,6 +224,9 @@ namespace Book.DA.SQLServer
         {
             //string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID left join InvoiceXO xo on pm.InvoiceXOId=xo.InvoiceId where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate between '" + dateStart + "' and '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "' and xo.IsClose <>1";
             //return Convert.ToDouble(this.QueryObject(sql));
+
+            if (string.IsNullOrEmpty(invoiceXOIds))
+                invoiceXOIds = "''";
 
             string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum,xo.InvoiceId from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID left join InvoiceXO xo on pm.InvoiceXOId=xo.InvoiceId where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate between '" + dateStart + "' and '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "' and (xo.IsClose <>1 or pm.InvoiceXOId in (" + invoiceXOIds + ")) group by xo.InvoiceId ";
 
@@ -236,6 +242,16 @@ namespace Book.DA.SQLServer
             string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate <= '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "'";
 
             return Convert.ToDouble(this.QueryObject(sql));
+        }
+
+        public IList<Model.ProduceMaterialdetails> SelectMaterialsByProductIds(string productids, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds)
+        {
+            if (string.IsNullOrEmpty(invoiceXOIds))
+                invoiceXOIds = "''";
+
+            string sql = "select pmd.ProductId,sum(isnull(pmd.Materialprocessum,0))  as  Materialprocessum  from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID left join InvoiceXO xo on pm.InvoiceXOId=xo.InvoiceId where pmd.ProductId in (" + productids + ") and pm.ProduceMaterialDate between '" + dateStart + "' and '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "' and (pm.InvoiceXOId in (" + invoiceXOIds + ")) group by pmd.ProductId";
+
+            return this.DataReaderBind<Model.ProduceMaterialdetails>(sql, null, CommandType.Text);
         }
     }
 }

@@ -108,6 +108,10 @@ namespace Book.BL
             return accessor.SelectMaterialQtyAll(productid, dateEnd, workHouseId);
         }
 
+        public IList<Model.ProduceMaterialdetails> SelectMaterialsByProductIds(string productids, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds)
+        {
+            return accessor.SelectMaterialsByProductIds(productids, dateStart, dateEnd, workHouseId, invoiceXOIds);
+        }
     }
 }
 

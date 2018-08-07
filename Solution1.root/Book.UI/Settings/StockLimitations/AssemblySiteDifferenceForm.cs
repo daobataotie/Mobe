@@ -348,7 +348,7 @@ namespace Book.UI.Settings.StockLimitations
                 zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
 
                 //计算 从组装现场退回的 生产退料
-                exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(productId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+                exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(productId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang, allInvoiceXOIds);
 
 
                 #region 查询商品对应的所有母件 入库 扣减
@@ -375,6 +375,29 @@ namespace Book.UI.Settings.StockLimitations
                         {
                             deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];
                         }
+
+
+                        //2018年8月1日22:51:32  对应的母件领到组装现场的数量
+                        List<Model.ProduceMaterialdetails> pmds = produceMaterialdetailsManager.SelectMaterialsByProductIds(proIds, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds).ToList();
+                        foreach (var pmd in pmds)
+                        {
+                            //如果母件有领料，对应抵消入库扣减
+                            if (pids.Any(P => P.ProductId == pmd.ProductId))
+                            {
+                                deductionQty -= pmd.Materialprocessum.HasValue ? pmd.Materialprocessum.Value : 0;
+                            }
+                            else
+                            {
+                                Dictionary<string, double> fatherDic = new Dictionary<string, double>();
+                                GetParentProductInfo("'" + pmd.ProductId + "'", fatherDic);
+                                if (pids.Any(P => fatherDic.Keys.Contains(P.ProductId)))
+                                {
+                                    deductionQty -= pmd.Materialprocessum.HasValue ? pmd.Materialprocessum.Value : 0;
+                                }
+                            }
+                        }
+
+                        deductionQty = deductionQty < 0 ? 0 : deductionQty;
                     }
                 }
 

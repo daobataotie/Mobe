@@ -137,7 +137,7 @@
             // gridColumn10
             // 
             resources.ApplyResources(this.gridColumn10, "gridColumn10");
-            this.gridColumn10.FieldNameSortGroup = "ProductSpecification";
+            this.gridColumn10.FieldName = "Product.CustomerProductName";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             // 

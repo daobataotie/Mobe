@@ -83,7 +83,7 @@ namespace Book.UI.produceManager.PCInputCheck
 
             this.lblConfirmor.Text = PCInputCheck.Confirmor == null ? null : PCInputCheck.Confirmor.EmployeeName;
 
-            this.lblTestQuantity.Text = PCInputCheck.TestQuantity.Value.ToString("0.##");
+            this.lblTestQuantity.Text = PCInputCheck.TestQuantity.HasValue ? PCInputCheck.TestQuantity.Value.ToString("0.##") : "";
         }
     }
 }

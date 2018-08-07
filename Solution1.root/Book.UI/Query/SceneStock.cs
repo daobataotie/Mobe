@@ -178,7 +178,7 @@ namespace Book.UI.Query
                     double zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
 
                     //计算 从组装现场退回的 生产退料
-                    double exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+                    double exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang, xoIDs);
 
 
                     #region 查询商品对应的所有母件 入库 扣减

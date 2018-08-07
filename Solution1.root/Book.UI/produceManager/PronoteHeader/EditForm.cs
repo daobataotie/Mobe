@@ -251,6 +251,7 @@ namespace Book.UI.produceManager.PronoteHeader
             if (this.pronoteHeader.DetailProcedures.Count == 0)
             {
                 Model.PronoteProceduresDetail detail = new Book.Model.PronoteProceduresDetail();
+                detail.PronoteProceduresDetailId = Guid.NewGuid().ToString();
                 this.pronoteHeader.DetailProcedures.Add(detail);
                 this.bindingSourceProcedures.Position = this.bindingSourceProcedures.IndexOf(detail);
             }

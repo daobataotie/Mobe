@@ -74,7 +74,7 @@ namespace Book.UI.Query
             //} 
             #endregion
 
-            #region 新版，一个子件没母件引用N次，叠加计算
+            #region 新版，一个子件被母件引用N次，叠加计算
             foreach (var comInfo in bomComponentList)
             {
                 Model.BomParentPartInfo parent = bomParentList.First(P => P.BomId == comInfo.BomId);
@@ -109,6 +109,11 @@ namespace Book.UI.Query
             if (this.date_End.EditValue == null)
             {
                 MessageBox.Show("请先选择查询日期", "提示", MessageBoxButtons.OK);
+                return;
+            }
+            if (this.lue_ProductCategory.EditValue == null)
+            {
+                MessageBox.Show("请先选择商品类别", "提示", MessageBoxButtons.OK);
                 return;
             }
 
@@ -237,7 +242,7 @@ namespace Book.UI.Query
                     zuzhuangTransferOut = Convert.ToDouble(pidZuzhuangOut.ProduceTransferQuantity);
 
                     //计算 从组装现场退回的 生产退料
-                    exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang);
+                    exitQty = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuang(item.ProductId, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang, allInvoiceXOIds);
 
 
                     #region 查询商品对应的所有母件 入库 扣减
@@ -261,13 +266,36 @@ namespace Book.UI.Query
                             //IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, xoIDs); //对应转到组装现场的生产入库单的客户订单，如果订单不在范围内，母件入库不扣减
                             //IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, invoiceXOIds);
 
-                            //2018年7月9日23:21:00
+                            //2018年7月9日23:21:00  加上领料单对应的订单
                             IList<Model.ProduceInDepotDetail> pids = produceInDepotDetailManager.SelectIndepotQty(proIds, dateEnd.AddSeconds(-1), workHouseChengpinZuzhuang, allInvoiceXOIds);
 
                             foreach (var pid in pids)
                             {
                                 deductionQty += Convert.ToDouble(pid.ProduceQuantity) * parentProductDic[pid.ProductId];
                             }
+
+
+                            //2018年8月1日22:51:32  对应的母件领到组装现场的数量
+                            List<Model.ProduceMaterialdetails> pmds = produceMaterialdetailsManager.SelectMaterialsByProductIds(proIds, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds).ToList();
+                            foreach (var pmd in pmds)
+                            {
+                                //如果母件有领料，对应抵消入库扣减
+                                if (pids.Any(P => P.ProductId == pmd.ProductId))
+                                {
+                                    deductionQty -= pmd.Materialprocessum.HasValue ? pmd.Materialprocessum.Value : 0;
+                                }
+                                else
+                                {
+                                    Dictionary<string, double> fatherDic = new Dictionary<string, double>();
+                                    GetParentProductInfo("'" + pmd.ProductId + "'", fatherDic);
+                                    if (pids.Any(P => fatherDic.Keys.Contains(P.ProductId)))
+                                    {
+                                        deductionQty -= pmd.Materialprocessum.HasValue ? pmd.Materialprocessum.Value : 0;
+                                    }
+                                }
+                            }
+
+                            deductionQty = deductionQty < 0 ? 0 : deductionQty;
                         }
                     }
 

@@ -1277,6 +1277,20 @@ namespace Book.UI.produceManager.ProduceInDepot
             }
         }
 
+        private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            if (e.Column.Name == "gridColumn6")
+            {
+                //string pronoteHeaderid = (this.bindingSourceDetails.Current as Model.ProduceInDepotDetail).PronoteHeaderId;
+                Model.PronoteHeader d = new BL.PronoteHeaderManager().Get(e.CellValue.ToString());
+                if (d != null)
+                {
+                    PronoteHeader.EditForm f = new Book.UI.produceManager.PronoteHeader.EditForm(d);
+                    f.ShowDialog();
+                }
+            }
+        }
+
     }
 }
 

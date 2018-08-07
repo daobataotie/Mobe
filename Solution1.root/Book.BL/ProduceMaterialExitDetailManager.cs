@@ -70,9 +70,9 @@ namespace Book.BL
             accessor.Delete(produceMaterialExit);
         }
 
-        public double SelectSumQtyFromZuzhuang(string productId, DateTime dateStart, DateTime dateEnd, string workHouseId)
+        public double SelectSumQtyFromZuzhuang(string productId, DateTime dateStart, DateTime dateEnd, string workHouseId, string allInvoiceXOIds)
         {
-            return accessor.SelectSumQtyFromZuzhuang(productId, dateStart, dateEnd, workHouseId);
+            return accessor.SelectSumQtyFromZuzhuang(productId, dateStart, dateEnd, workHouseId, allInvoiceXOIds);
         }
 
         public double SelectSumQtyFromZuzhuangAll(string productId, DateTime dateEnd, string workHouseId)
