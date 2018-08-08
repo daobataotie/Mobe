@@ -36,6 +36,8 @@ namespace Book.UI.produceManager.PCImpactCheck
             this.lblCheckStandard.Text = _pcic.mCheckStandard;      //ÖÊ¼ì±ê×¼
             this.lblInvoiceXOQuantity.Text = _pcic.InvoiceXOQuantity.HasValue ? _pcic.InvoiceXOQuantity.Value.ToString() : "";
             this.lbl_ProuductUnit.Text = _pcic.ProductUnit == null ? "" : _pcic.ProductUnit.ToString();
+            this.lbl_CustomerProductName.Text = _pcic.Product == null ? "" : _pcic.Product.CustomerProductName;
+
             //Details
             this.TCattrDate.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_attrDate, "{0:yyyy-MM-dd HH:mm:dd}");
             this.TCattrGlassUpL.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_AttrGlassUpLDis);

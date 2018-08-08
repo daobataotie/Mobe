@@ -125,6 +125,8 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.lblCompanyName = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_CustomerProductName = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -516,6 +518,8 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lbl_CustomerProductName,
+            this.xrLabel14,
             this.lbl_ProductUnit,
             this.xrLabel3,
             this.lblPCDoubleImpactCheckCount,
@@ -999,6 +1003,24 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             resources.ApplyResources(this.ReportHeader, "ReportHeader");
             this.ReportHeader.Name = "ReportHeader";
             // 
+            // xrLabel14
+            // 
+            resources.ApplyResources(this.xrLabel14, "xrLabel14");
+            this.xrLabel14.Name = "xrLabel14";
+            this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel14.StylePriority.UseFont = false;
+            this.xrLabel14.StylePriority.UseTextAlignment = false;
+            // 
+            // lbl_CustomerProductName
+            // 
+            this.lbl_CustomerProductName.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            resources.ApplyResources(this.lbl_CustomerProductName, "lbl_CustomerProductName");
+            this.lbl_CustomerProductName.Name = "lbl_CustomerProductName";
+            this.lbl_CustomerProductName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_CustomerProductName.StylePriority.UseBorders = false;
+            this.lbl_CustomerProductName.StylePriority.UseFont = false;
+            this.lbl_CustomerProductName.StylePriority.UseTextAlignment = false;
+            // 
             // RO1
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1122,5 +1144,7 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
         private DevExpress.XtraReports.UI.XRTableCell TC30Left;
         private DevExpress.XtraReports.UI.XRTableCell TC30Right;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell18;
+        private DevExpress.XtraReports.UI.XRLabel lbl_CustomerProductName;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel14;
     }
 }

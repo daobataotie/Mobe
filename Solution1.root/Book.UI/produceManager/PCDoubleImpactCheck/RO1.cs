@@ -72,6 +72,8 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.lblInvoiceXOQuantity.Text = _pcdic.InvoiceXOQuantity.HasValue ? _pcdic.InvoiceXOQuantity.ToString() : "";
             this.lblPCDoubleImpactCheckCount.Text = _pcdic.PCDoubleImpactCheckCount.HasValue ? _pcdic.PCDoubleImpactCheckCount.ToString() : "";
             this.lbl_ProductUnit.Text = _pcdic.ProductUnit == null ? "" : _pcdic.ProductUnit.ToString();
+            this.lbl_CustomerProductName.Text = _pcdic.Product == null ? "" : _pcdic.Product.CustomerProductName;
+
             //Details
             #region 更改详细显示
             foreach (Model.PCDoubleImpactCheckDetail detail in details)

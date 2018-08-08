@@ -1836,7 +1836,7 @@ namespace Book.Model
         }
 
         /// <summary>
-        /// 
+        /// 客户型号
         /// </summary>
         public string CustomerProductName
         {

@@ -84,6 +84,8 @@ namespace Book.UI.produceManager.PCImpactCheck
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.lblCompanyInfoName = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.lbl_CustomerProductName = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.lbl_ProuductUnit = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
@@ -686,6 +688,8 @@ namespace Book.UI.produceManager.PCImpactCheck
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lbl_CustomerProductName,
+            this.xrLabel10,
             this.lbl_ProuductUnit,
             this.xrLabel5,
             this.xrLabel6,
@@ -710,6 +714,22 @@ namespace Book.UI.produceManager.PCImpactCheck
             this.lblDataName});
             resources.ApplyResources(this.PageHeader, "PageHeader");
             this.PageHeader.Name = "PageHeader";
+            // 
+            // lbl_CustomerProductName
+            // 
+            resources.ApplyResources(this.lbl_CustomerProductName, "lbl_CustomerProductName");
+            this.lbl_CustomerProductName.Name = "lbl_CustomerProductName";
+            this.lbl_CustomerProductName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_CustomerProductName.StylePriority.UseFont = false;
+            this.lbl_CustomerProductName.StylePriority.UseTextAlignment = false;
+            // 
+            // xrLabel10
+            // 
+            resources.ApplyResources(this.xrLabel10, "xrLabel10");
+            this.xrLabel10.Name = "xrLabel10";
+            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel10.StylePriority.UseFont = false;
+            this.xrLabel10.StylePriority.UseTextAlignment = false;
             // 
             // lbl_ProuductUnit
             // 
@@ -1273,5 +1293,7 @@ namespace Book.UI.produceManager.PCImpactCheck
         private DevExpress.XtraReports.UI.XRLabel xrTBanBie;
         private DevExpress.XtraReports.UI.XRLabel xrLabel8;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
+        private DevExpress.XtraReports.UI.XRLabel lbl_CustomerProductName;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel10;
     }
 }

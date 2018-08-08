@@ -53,6 +53,8 @@ namespace Book.UI.produceManager
             this.lblPCCheckCount.Text = ANSIPCIC.ANSIPCImpactCheckCount.HasValue ? ANSIPCIC.ANSIPCImpactCheckCount.ToString() : "";
             this.lblInvoiceXOQuantity.Text = ANSIPCIC.InvoiceXOQuantity.HasValue ? ANSIPCIC.InvoiceXOQuantity.ToString() : "";
             this.lblUnit.Text = ANSIPCIC.Unit == null ? null : ANSIPCIC.Unit.ToString();
+            this.lbl_CustomerProductName.Text = ANSIPCIC.Product == null ? "" : ANSIPCIC.Product.CustomerProductName;
+
             //Details
             #region ¸ü¸ÄÏêÏ¸ÏÔÊ¾
             foreach (Model.ANSIPCImpactCheckDetail detail in details)
