@@ -1276,6 +1276,7 @@ namespace Book.UI.Invoices.XO
             }
         }
 
+        //½á°¸
         private void barButtonItemJieAn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (this.invoice == null) return;
@@ -1296,7 +1297,11 @@ namespace Book.UI.Invoices.XO
             {
                 BL.V.BeginTransaction();
                 // invoice.InvoiceCPBH = null;
-                this.invoice.JieAnDate = DateTime.Now;
+                if (this.invoice.IsClose.HasValue && this.invoice.IsClose.Value)
+                    this.invoice.JieAnDate = DateTime.Now;
+                else
+                    this.invoice.JieAnDate = null;
+
                 this.invoiceManager.UpdateAccess(this.invoice);
                 new BL.PronoteHeaderManager().UpdateHeaderIsClseByXOId(this.invoice.InvoiceId, true);
                 BL.V.CommitTransaction();

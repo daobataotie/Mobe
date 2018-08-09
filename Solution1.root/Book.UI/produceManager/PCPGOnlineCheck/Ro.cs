@@ -51,6 +51,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             else
                 this.lblFromInvoiceIDText.Text = "¼Ó¹¤†Î¾ŽÌ–";
             this.RichTextProductDesc.Rtf = pcpgoc.Product == null ? "" : pcpgoc.Product.ProductDescription;
+            this.lbl_CustomerProductName.Text = pcpgoc.Product == null ? "" : pcpgoc.Product.CustomerProductName;
 
             //Detail
             this.TCPCPGOnlineCheckId.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_PCPGOnlineCheckId);
@@ -59,7 +60,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.TCattrExterior.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrExterior);
             this.TCattrQiangHuaMo.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrQiangHuaMo);
             //this.TCattrQiangHuaMoYingdu.DataBindings.Add("Text",this.DataSource,Model.PCPGOnlineCheckDetail.PRO_attrQiangHuaMoYingDu);
-            this.TCFangWuMo.DataBindings.Add("Text",this.DataSource,Model.PCPGOnlineCheckDetail.PRO_attrFangWuMo);
+            this.TCFangWuMo.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrFangWuMo);
             //this.TCattrFangWuMoYingDu.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrFangWuMoYingDu);
             this.TCattrGaoDiJiaoL.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrGaoDiJiaoL);
             this.TCattrGaoDiJiaoR.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrGaoDiJiaoR);

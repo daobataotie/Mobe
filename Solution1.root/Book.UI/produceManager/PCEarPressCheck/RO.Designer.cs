@@ -100,6 +100,8 @@ namespace Book.UI.produceManager.PCEarPressCheck
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_CustomerProductName = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -473,6 +475,8 @@ namespace Book.UI.produceManager.PCEarPressCheck
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lbl_CustomerProductName,
+            this.xrLabel13,
             this.xrTable1,
             this.lblUnit,
             this.xrLabel9,
@@ -662,7 +666,7 @@ namespace Book.UI.produceManager.PCEarPressCheck
             this.lblProduct.LocationFloat = new DevExpress.Utils.PointFloat(285.75F, 280.6699F);
             this.lblProduct.Name = "lblProduct";
             this.lblProduct.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblProduct.SizeF = new System.Drawing.SizeF(1606.479F, 47.83661F);
+            this.lblProduct.SizeF = new System.Drawing.SizeF(957.7916F, 47.83661F);
             this.lblProduct.StylePriority.UseFont = false;
             this.lblProduct.StylePriority.UseTextAlignment = false;
             this.lblProduct.Text = "xtrLabel";
@@ -967,6 +971,32 @@ namespace Book.UI.produceManager.PCEarPressCheck
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
             this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
+            // xrLabel13
+            // 
+            this.xrLabel13.Dpi = 254F;
+            this.xrLabel13.Font = new System.Drawing.Font("新細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(1286.333F, 280.6699F);
+            this.xrLabel13.Name = "xrLabel13";
+            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel13.SizeF = new System.Drawing.SizeF(280.4584F, 47.83662F);
+            this.xrLabel13.StylePriority.UseFont = false;
+            this.xrLabel13.StylePriority.UseTextAlignment = false;
+            this.xrLabel13.Text = "客户型号：";
+            this.xrLabel13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // lbl_CustomerProductName
+            // 
+            this.lbl_CustomerProductName.Dpi = 254F;
+            this.lbl_CustomerProductName.Font = new System.Drawing.Font("新細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_CustomerProductName.LocationFloat = new DevExpress.Utils.PointFloat(1572.083F, 280.6699F);
+            this.lbl_CustomerProductName.Name = "lbl_CustomerProductName";
+            this.lbl_CustomerProductName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_CustomerProductName.SizeF = new System.Drawing.SizeF(320.1459F, 47.83662F);
+            this.lbl_CustomerProductName.StylePriority.UseFont = false;
+            this.lbl_CustomerProductName.StylePriority.UseTextAlignment = false;
+            this.lbl_CustomerProductName.Text = "xtrLabel";
+            this.lbl_CustomerProductName.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
             // RO
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1066,5 +1096,7 @@ namespace Book.UI.produceManager.PCEarPressCheck
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell15;
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
+        private DevExpress.XtraReports.UI.XRLabel lbl_CustomerProductName;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel13;
     }
 }

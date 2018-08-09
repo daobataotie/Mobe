@@ -378,13 +378,24 @@ namespace Book.BL
                 flag += detail.DetailsFlag.Value;
             }
             if (flag == 0)
+            {
                 invoiceXO.InvoiceFlag = 0;
+
+                invoiceXO.IsClose = false;
+                invoiceXO.JieAnDate = null;
+            }
             else if (flag < list.Count * 2)
+            {
                 invoiceXO.InvoiceFlag = 1;
+
+                invoiceXO.IsClose = false;
+                invoiceXO.JieAnDate = null;
+            }
             else if (flag == list.Count * 2)
             {
                 invoiceXO.InvoiceFlag = 2;
                 invoiceXO.IsClose = true;
+                invoiceXO.JieAnDate = DateTime.Now;
                 new BL.PronoteHeaderManager().UpdateHeaderIsClseByXOId(invoiceXO.InvoiceId, true);
             }
             accessor.Update(invoiceXO);

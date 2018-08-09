@@ -41,6 +41,8 @@ namespace Book.UI.produceManager.PCFogCheck
             this.lblInvoiceXOQuantity.Text = mPCFogC.InvoiceXOQuantity.HasValue ? mPCFogC.InvoiceXOQuantity.ToString() : "";
             this.ChkIsPassWuDu.Checked = mPCFogC.IsFogPassing.HasValue ? mPCFogC.IsFogPassing.Value : false;
             this.lbl_productunit.Text = mPCFogC.ProductUnit == null ? "" : mPCFogC.ProductUnit.ToString();
+            this.lbl_CustomerProductName.Text = mPCFogC.Product == null ? "" : mPCFogC.Product.CustomerProductName;
+
             //Details
             this.TCChkPassL.DataBindings.Add("Checked", this.DataSource, Model.PCFogCheckDetail.PRO_PassingL);
             this.TCChkPassR.DataBindings.Add("Checked", this.DataSource, Model.PCFogCheckDetail.PRO_PassingR);

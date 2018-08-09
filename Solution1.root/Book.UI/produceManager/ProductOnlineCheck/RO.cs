@@ -40,6 +40,7 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             this.lblCheckNum.Text = model.CheckNum == null ? "" : model.CheckNum.Value.ToString("0.##");
             this.lblPassNum.Text = model.PassNum == null ? "" : model.PassNum.Value.ToString("0.##");
             this.lblProductUnit.Text = model.ProductUnit;
+            this.lbl_CustomerProductName.Text = model.Product == null ? null : model.Product.CustomerProductName;
 
             foreach (Model.ProductOnlineCheckDetail detail in model.Detail)
             {

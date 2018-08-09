@@ -232,7 +232,7 @@ namespace Book.UI.produceManager.PronoteHeader
             this.DialogResult = DialogResult.OK;
         }
 
-
+        //结案
         private void repositoryItemHyperLinkEdit1_Click(object sender, EventArgs e)
         {
             if ((this.bindingSource1.Current as Model.PronoteHeader).IsClose.Value)

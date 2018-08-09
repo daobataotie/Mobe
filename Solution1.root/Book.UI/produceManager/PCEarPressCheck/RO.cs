@@ -33,7 +33,7 @@ namespace Book.UI.produceManager.PCEarPressCheck
             lblAuditEmp.Text = PCEarPressCheck.AuditEmp == null ? null : PCEarPressCheck.AuditEmp.ToString();
             lblEmployee.Text = PCEarPressCheck.Employee == null ? "" : PCEarPressCheck.Employee.ToString();
             RTNote.Rtf = PCEarPressCheck.Note;
-
+            this.lbl_CustomerProductName.Text = PCEarPressCheck.Product == null ? "" : PCEarPressCheck.Product.CustomerProductName;
 
             TCDate.DataBindings.Add("Text", this.DataSource, Model.PCEarPressCheckDetail.PRO_CheckDate, "{0:yyyy-MM-dd}");
             TCHeadBound.DataBindings.Add("Text", this.DataSource, Model.PCEarPressCheckDetail.PRO_HeadBand);

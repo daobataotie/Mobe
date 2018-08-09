@@ -57,6 +57,7 @@ namespace Book.UI.produceManager.PCEarProtectCheck
             //this.lblUnit.Text = PCEarProtectCheck.ProductUnit == null ? null : PCEarProtectCheck.ProductUnit.ToString();
             this.lblAuditEmp.Text = PCEarProtectCheck.AuditEmp == null ? null : PCEarProtectCheck.AuditEmp.ToString();
             this.RTNote.Rtf = PCEarProtectCheck.Note;
+            this.lbl_CustomerProductName.Text = PCEarProtectCheck.Product == null ? "" : PCEarProtectCheck.Product.CustomerProductName;
 
             this.TCDate.DataBindings.Add("Text", this.DataSource, Model.PCEarProtectCheckDetail.PRO_CheckDate, "{0:yyyy-MM-dd}");
             //this.TCProductName.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_ProductName);

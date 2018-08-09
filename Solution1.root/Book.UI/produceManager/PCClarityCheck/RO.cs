@@ -57,6 +57,7 @@ namespace Book.UI.produceManager.PCClarityCheck
             this.lblUnit.Text = PCClarityCheck.ProductUnit == null ? null : PCClarityCheck.ProductUnit.ToString();
             this.lblAuditEmp.Text = PCClarityCheck.AuditEmp == null ? null : PCClarityCheck.AuditEmp.ToString();
             this.RTNote.Rtf = PCClarityCheck.Note;
+            this.lbl_CustomerProductName.Text = PCClarityCheck.Product == null ? "" : PCClarityCheck.Product.CustomerProductName;
 
             this.TCDate.DataBindings.Add("Text", this.DataSource, Model.PCClarityCheckDetail.PRO_CheckDate, "{0:yyyy-MM-dd HH:mm:ss}");
             this.TCLeftD1.DataBindings.Add("Text", this.DataSource, Model.PCClarityCheckDetail.PRO_Left1);

@@ -1661,6 +1661,7 @@ namespace Book.UI.produceManager.PronoteHeader
             }
         }
 
+        //结案
         private void barButtonItemJieAn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (this.pronoteHeader == null) return;
