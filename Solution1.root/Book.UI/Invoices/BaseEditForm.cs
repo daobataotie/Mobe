@@ -524,8 +524,10 @@ namespace Book.UI.Invoices
             }
         }
 
+        //ÐÞ¸Ä
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            this.Refresh();
             this.action = "update";
             this.Refresh();
         }
@@ -547,6 +549,7 @@ namespace Book.UI.Invoices
         {
             try
             {
+                this.Refresh();
                 this.TurnNull();
             }
             catch (Helper.RequireValueException ex)

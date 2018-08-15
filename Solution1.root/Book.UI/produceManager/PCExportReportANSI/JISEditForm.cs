@@ -37,6 +37,13 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.newChooseContorlAuditEmp.Choose = new Settings.BasicData.Employees.ChooseEmployee();
             this.bindingSourceUnit.DataSource = (new BL.ProductUnitManager()).Select(); ;
             this.action = "view";
+
+            var jiShuBiaoZhun = new BL.SettingManager().SelectByName("JISJiShuBiaoZhun");
+            foreach (var item in jiShuBiaoZhun)
+            {
+                comboBoxEdit1.Properties.Items.Add(item.SettingCurrentValue);
+            }
+            comboBoxEdit1.SelectedIndex = 0;
         }
         int sign = 0;
         public JISEditForm(Model.PCExportReportANSI mPCExpANSI)
@@ -130,6 +137,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._PCExportReportANSI.InvoiceCusXOId = this.TxtCustomersId.Text == null ? null : this.TxtCustomersId.Text.ToString();
             this._PCExportReportANSI.Customer = (this.NccCustomer.EditValue as Model.Customer);
             this._PCExportReportANSI.ReportDate = this.DateReportDate.EditValue == null ? DateTime.Now : this.DateReportDate.DateTime;
+            this._PCExportReportANSI.CSAJiShuBiaoZhun = this.comboBoxEdit1.SelectedText;
 
             if (this._PCExportReportANSI.Customer != null)
             {
@@ -299,6 +307,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.newChooseContorlAuditEmp.EditValue = this._PCExportReportANSI.AuditEmp;
             this.txt_AuditState.EditValue = this.GetAuditName(this._PCExportReportANSI.AuditState);
             this.lookUpEditUnit.EditValue = this._PCExportReportANSI.ProductUnitId;
+
+            this.comboBoxEdit1.Text = string.IsNullOrEmpty(this._PCExportReportANSI.CSAJiShuBiaoZhun) ? "JIS T8147:2016" : this._PCExportReportANSI.CSAJiShuBiaoZhun;
         }
 
         //列印
@@ -306,9 +316,27 @@ namespace Book.UI.produceManager.PCExportReportANSI
         {
             tag = 0;
             bool canSave = (DialogResult.OK == MessageBox.Show("是否將打印文件上傳至服務器(pdf格式)", "操作提示", MessageBoxButtons.OKCancel));
-            JISRO r = new JISRO(this._PCExportReportANSI, tag);
-            JISRO2 r2 = new JISRO2(this._PCExportReportANSI, tag);
-            //r.ShowPreviewDialog();
+            //JISRO r = new JISRO(this._PCExportReportANSI, tag);
+            //JISRO2 r2 = new JISRO2(this._PCExportReportANSI, tag);
+            ////r.ShowPreviewDialog();
+            //if (canSave)
+            //{
+            //    if (this._PCExportReportANSI != null && !string.IsNullOrEmpty(this._PCExportReportANSI.ExportReportId))
+            //    {
+            //        string sfdir = this._ServerSavePath + "\\" + this._PCExportReportANSI.ExportReportId;
+            //        try
+            //        {
+            //            System.IO.Directory.CreateDirectory(sfdir);
+            //            r.ExportToPdf(sfdir + "\\" + this._PCExportReportANSI.ExportReportId + ".pdf");
+            //            MessageBox.Show("文件已導出為pdf格式上傳至服務器");
+            //        }
+            //        catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            //    }
+            //}
+            //r.ShowPreview();
+            //r2.ShowPreview();
+
+            JISRO1 r = new JISRO1(this._PCExportReportANSI, tag);
             if (canSave)
             {
                 if (this._PCExportReportANSI != null && !string.IsNullOrEmpty(this._PCExportReportANSI.ExportReportId))
@@ -324,7 +352,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
                 }
             }
             r.ShowPreview();
-            r2.ShowPreview();
+
             return null;
         }
 
@@ -351,65 +379,65 @@ namespace Book.UI.produceManager.PCExportReportANSI
 
             //if (_PCExportReportANSIDetail != null)
             //{
-                #region 测试数量、合格数量
+            #region 测试数量、合格数量
 
-                //受测数量默认为订单数量的1/500,无条件进位，最大为12
-                int Orderamount = int.Parse(this._PCExportReportANSI.Amount.HasValue ? this._PCExportReportANSI.Amount.ToString() : "0");
-                double MustCheck = 0;
+            //受测数量默认为订单数量的1/500,无条件进位，最大为12
+            int Orderamount = int.Parse(this._PCExportReportANSI.Amount.HasValue ? this._PCExportReportANSI.Amount.ToString() : "0");
+            double MustCheck = 0;
 
-                if (Orderamount < 500)
-                    MustCheck = 1;
-                else
-                    MustCheck = Orderamount % 500 == 0 ? Orderamount / 500 : Orderamount / 500 + 1;
+            if (Orderamount < 500)
+                MustCheck = 1;
+            else
+                MustCheck = Orderamount % 500 == 0 ? Orderamount / 500 : Orderamount / 500 + 1;
 
-                this._PCExportReportANSI.AmountTest = MustCheck > 12 ? 12 : MustCheck;//受测数量12个，无条件进位
+            this._PCExportReportANSI.AmountTest = MustCheck > 12 ? 12 : MustCheck;//受测数量12个，无条件进位
 
-                this._PCExportReportANSI.ShouCeShu1 = this._PCExportReportANSI.ShouCeShu2 = this._PCExportReportANSI.ShouCeShu3 = this._PCExportReportANSI.ShouCeShu4 = this._PCExportReportANSI.ShouCeShu5 = this._PCExportReportANSI.ShouCeShu6 = this._PCExportReportANSI.ShouCeShu7 = this._PCExportReportANSI.ShouCeShu8 = this._PCExportReportANSI.ShouCeShu9 = this._PCExportReportANSI.ShouCeShu10 = this._PCExportReportANSI.ShouCeShu11 = this._PCExportReportANSI.ShouCeShu12 = this._PCExportReportANSI.ShouCeShu13 = this._PCExportReportANSI.ShouCeShu14 = this._PCExportReportANSI.ShouCeShu15 = this._PCExportReportANSI.ShouCeShu16 = this._PCExportReportANSI.ShouCeShu17 = this._PCExportReportANSI.ShouCeShu18 = this._PCExportReportANSI.ShouCeShu19 = this._PCExportReportANSI.ShouCeShu20 = this._PCExportReportANSI.ShouCeShu21 = this._PCExportReportANSI.AmountTest;
+            this._PCExportReportANSI.ShouCeShu1 = this._PCExportReportANSI.ShouCeShu2 = this._PCExportReportANSI.ShouCeShu3 = this._PCExportReportANSI.ShouCeShu4 = this._PCExportReportANSI.ShouCeShu5 = this._PCExportReportANSI.ShouCeShu6 = this._PCExportReportANSI.ShouCeShu7 = this._PCExportReportANSI.ShouCeShu8 = this._PCExportReportANSI.ShouCeShu9 = this._PCExportReportANSI.ShouCeShu10 = this._PCExportReportANSI.ShouCeShu11 = this._PCExportReportANSI.ShouCeShu12 = this._PCExportReportANSI.ShouCeShu13 = this._PCExportReportANSI.ShouCeShu14 = this._PCExportReportANSI.ShouCeShu15 = this._PCExportReportANSI.ShouCeShu16 = this._PCExportReportANSI.ShouCeShu17 = this._PCExportReportANSI.ShouCeShu18 = this._PCExportReportANSI.ShouCeShu19 = this._PCExportReportANSI.ShouCeShu20 = this._PCExportReportANSI.ShouCeShu21 = this._PCExportReportANSI.AmountTest;
+            _PCExportReportANSI.PanDing1 = _PCExportReportANSI.PanDing2 = _PCExportReportANSI.PanDing3 = _PCExportReportANSI.PanDing4 = _PCExportReportANSI.PanDing5 = _PCExportReportANSI.PanDing6 = _PCExportReportANSI.PanDing7 = _PCExportReportANSI.PanDing8 = _PCExportReportANSI.PanDing9 = _PCExportReportANSI.PanDing10 = _PCExportReportANSI.PanDing11 = _PCExportReportANSI.PanDingShu12 = _PCExportReportANSI.PanDingShu13 = _PCExportReportANSI.PanDingShu14 = _PCExportReportANSI.PanDingShu15 = _PCExportReportANSI.PanDingShu16 = _PCExportReportANSI.PanDingShu17 = _PCExportReportANSI.PanDingShu18 = _PCExportReportANSI.PanDingShu19 = _PCExportReportANSI.PanDingShu20 = _PCExportReportANSI.PanDingShu21 = this._PCExportReportANSI.AmountTest;
+            //this._PCExportReportANSI.PanDing1 = _PCExportReportANSIDetail.pJISJPWG;
+            //this._PCExportReportANSI.QuYangShu1 = _PCExportReportANSIDetail.qJISJPWG;
+            //this._PCExportReportANSI.PanDing2 = _PCExportReportANSIDetail.pJISJPLJD;
+            //this._PCExportReportANSI.QuYangShu2 = _PCExportReportANSIDetail.qJISJPLJD;
+            //this._PCExportReportANSI.PanDing3 = _PCExportReportANSIDetail.pJISJPQGD;
+            //this._PCExportReportANSI.QuYangShu3 = _PCExportReportANSIDetail.qJISJPQGD;
+            //this._PCExportReportANSI.PanDing4 = _PCExportReportANSIDetail.pJISJPSGD;
+            //this._PCExportReportANSI.QuYangShu4 = _PCExportReportANSIDetail.qJISJPSGD;
+            //this._PCExportReportANSI.PanDing5 = _PCExportReportANSIDetail.pJISJPTGL;
+            //this._PCExportReportANSI.QuYangShu5 = _PCExportReportANSIDetail.qJISJPTGL;
+            //this._PCExportReportANSI.PanDing6 = _PCExportReportANSIDetail.pJISJPNCCX;
+            //this._PCExportReportANSI.QuYangShu6 = _PCExportReportANSIDetail.qJISJPNCCX;
+            //this._PCExportReportANSI.PanDing7 = _PCExportReportANSIDetail.pJISJPBMNMHDK;
+            //this._PCExportReportANSI.QuYangShu7 = _PCExportReportANSIDetail.qJISJPBMNMHDK;
+            //this._PCExportReportANSI.PanDing8 = _PCExportReportANSIDetail.pJISJPNREX;
+            //this._PCExportReportANSI.QuYangShu8 = _PCExportReportANSIDetail.qJISJPNREX;
+            //this._PCExportReportANSI.PanDing9 = _PCExportReportANSIDetail.pJISJPNSX; ;
+            //this._PCExportReportANSI.QuYangShu9 = _PCExportReportANSIDetail.qJISJPNSX;
+            //this._PCExportReportANSI.PanDing10 = _PCExportReportANSIDetail.pJISJPNRAX;
+            //this._PCExportReportANSI.QuYangShu10 = _PCExportReportANSIDetail.qJISJPNRAX;
+            //this._PCExportReportANSI.PanDing11 = _PCExportReportANSIDetail.pJISWCPWG;
+            //this._PCExportReportANSI.QuYangShu11 = _PCExportReportANSIDetail.qJISWCPWG;
+            //this._PCExportReportANSI.PanDingShu12 = _PCExportReportANSIDetail.pJISWCPNCCX;
+            //this._PCExportReportANSI.QuYangShu12 = _PCExportReportANSIDetail.qJISWCPNCCX;
+            //this._PCExportReportANSI.PanDingShu13 = _PCExportReportANSIDetail.pJISWCPJMXDYSY;
+            //this._PCExportReportANSI.QuYangShu13 = _PCExportReportANSIDetail.qJISWCPJMXDYSY;
+            //this._PCExportReportANSI.PanDingShu14 = _PCExportReportANSIDetail.pJISWCPJMXDESY;
+            //this._PCExportReportANSI.QuYangShu14 = _PCExportReportANSIDetail.qJISWCPJMXDESY;
+            //this._PCExportReportANSI.PanDingShu15 = _PCExportReportANSIDetail.pJISWCPTDQD;
+            //this._PCExportReportANSI.QuYangShu15 = _PCExportReportANSIDetail.qJISWCPTDQD;
+            //this._PCExportReportANSI.PanDingShu16 = _PCExportReportANSIDetail.pJISWCPNXDX;
+            //this._PCExportReportANSI.QuYangShu16 = _PCExportReportANSIDetail.qJISWCPNXDX;
+            //this._PCExportReportANSI.PanDingShu17 = _PCExportReportANSIDetail.pJISWCPGZ;
+            //this._PCExportReportANSI.QuYangShu17 = _PCExportReportANSIDetail.qJISWCPGZ;
+            //this._PCExportReportANSI.PanDingShu18 = _PCExportReportANSIDetail.pJISWCPCL;
+            //this._PCExportReportANSI.QuYangShu18 = _PCExportReportANSIDetail.qJISWCPCL;
+            //this._PCExportReportANSI.PanDingShu19 = _PCExportReportANSIDetail.pJISWCPJHBS;
+            //this._PCExportReportANSI.QuYangShu19 = _PCExportReportANSIDetail.qJISWCPJHBS;
+            //this._PCExportReportANSI.PanDingShu20 = _PCExportReportANSIDetail.pJISWCPBZSJH;
+            //this._PCExportReportANSI.QuYangShu20 = _PCExportReportANSIDetail.qJISWCPBZSJH;
+            //this._PCExportReportANSI.PanDingShu21 = _PCExportReportANSIDetail.pJISWCPSYSC; ;
+            //this._PCExportReportANSI.QuYangShu21 = _PCExportReportANSIDetail.qJISWCPSYSC;
 
-                //this._PCExportReportANSI.PanDing1 = _PCExportReportANSIDetail.pJISJPWG;
-                //this._PCExportReportANSI.QuYangShu1 = _PCExportReportANSIDetail.qJISJPWG;
-                //this._PCExportReportANSI.PanDing2 = _PCExportReportANSIDetail.pJISJPLJD;
-                //this._PCExportReportANSI.QuYangShu2 = _PCExportReportANSIDetail.qJISJPLJD;
-                //this._PCExportReportANSI.PanDing3 = _PCExportReportANSIDetail.pJISJPQGD;
-                //this._PCExportReportANSI.QuYangShu3 = _PCExportReportANSIDetail.qJISJPQGD;
-                //this._PCExportReportANSI.PanDing4 = _PCExportReportANSIDetail.pJISJPSGD;
-                //this._PCExportReportANSI.QuYangShu4 = _PCExportReportANSIDetail.qJISJPSGD;
-                //this._PCExportReportANSI.PanDing5 = _PCExportReportANSIDetail.pJISJPTGL;
-                //this._PCExportReportANSI.QuYangShu5 = _PCExportReportANSIDetail.qJISJPTGL;
-                //this._PCExportReportANSI.PanDing6 = _PCExportReportANSIDetail.pJISJPNCCX;
-                //this._PCExportReportANSI.QuYangShu6 = _PCExportReportANSIDetail.qJISJPNCCX;
-                //this._PCExportReportANSI.PanDing7 = _PCExportReportANSIDetail.pJISJPBMNMHDK;
-                //this._PCExportReportANSI.QuYangShu7 = _PCExportReportANSIDetail.qJISJPBMNMHDK;
-                //this._PCExportReportANSI.PanDing8 = _PCExportReportANSIDetail.pJISJPNREX;
-                //this._PCExportReportANSI.QuYangShu8 = _PCExportReportANSIDetail.qJISJPNREX;
-                //this._PCExportReportANSI.PanDing9 = _PCExportReportANSIDetail.pJISJPNSX; ;
-                //this._PCExportReportANSI.QuYangShu9 = _PCExportReportANSIDetail.qJISJPNSX;
-                //this._PCExportReportANSI.PanDing10 = _PCExportReportANSIDetail.pJISJPNRAX;
-                //this._PCExportReportANSI.QuYangShu10 = _PCExportReportANSIDetail.qJISJPNRAX;
-                //this._PCExportReportANSI.PanDing11 = _PCExportReportANSIDetail.pJISWCPWG;
-                //this._PCExportReportANSI.QuYangShu11 = _PCExportReportANSIDetail.qJISWCPWG;
-                //this._PCExportReportANSI.PanDingShu12 = _PCExportReportANSIDetail.pJISWCPNCCX;
-                //this._PCExportReportANSI.QuYangShu12 = _PCExportReportANSIDetail.qJISWCPNCCX;
-                //this._PCExportReportANSI.PanDingShu13 = _PCExportReportANSIDetail.pJISWCPJMXDYSY;
-                //this._PCExportReportANSI.QuYangShu13 = _PCExportReportANSIDetail.qJISWCPJMXDYSY;
-                //this._PCExportReportANSI.PanDingShu14 = _PCExportReportANSIDetail.pJISWCPJMXDESY;
-                //this._PCExportReportANSI.QuYangShu14 = _PCExportReportANSIDetail.qJISWCPJMXDESY;
-                //this._PCExportReportANSI.PanDingShu15 = _PCExportReportANSIDetail.pJISWCPTDQD;
-                //this._PCExportReportANSI.QuYangShu15 = _PCExportReportANSIDetail.qJISWCPTDQD;
-                //this._PCExportReportANSI.PanDingShu16 = _PCExportReportANSIDetail.pJISWCPNXDX;
-                //this._PCExportReportANSI.QuYangShu16 = _PCExportReportANSIDetail.qJISWCPNXDX;
-                //this._PCExportReportANSI.PanDingShu17 = _PCExportReportANSIDetail.pJISWCPGZ;
-                //this._PCExportReportANSI.QuYangShu17 = _PCExportReportANSIDetail.qJISWCPGZ;
-                //this._PCExportReportANSI.PanDingShu18 = _PCExportReportANSIDetail.pJISWCPCL;
-                //this._PCExportReportANSI.QuYangShu18 = _PCExportReportANSIDetail.qJISWCPCL;
-                //this._PCExportReportANSI.PanDingShu19 = _PCExportReportANSIDetail.pJISWCPJHBS;
-                //this._PCExportReportANSI.QuYangShu19 = _PCExportReportANSIDetail.qJISWCPJHBS;
-                //this._PCExportReportANSI.PanDingShu20 = _PCExportReportANSIDetail.pJISWCPBZSJH;
-                //this._PCExportReportANSI.QuYangShu20 = _PCExportReportANSIDetail.qJISWCPBZSJH;
-                //this._PCExportReportANSI.PanDingShu21 = _PCExportReportANSIDetail.pJISWCPSYSC; ;
-                //this._PCExportReportANSI.QuYangShu21 = _PCExportReportANSIDetail.qJISWCPSYSC;
-
-                #endregion
+            #endregion
             //}
             this.InitControls();
         }
@@ -468,8 +496,26 @@ namespace Book.UI.produceManager.PCExportReportANSI
         {
             tag = 2;
             bool canSave = (DialogResult.OK == MessageBox.Show("是否將打印文件上傳至服務器(pdf格式)", "操作提示", MessageBoxButtons.OKCancel));
-            JISRO r = new JISRO(this._PCExportReportANSI, tag);
-            JISRO2 r2 = new JISRO2(this._PCExportReportANSI, tag);
+            //JISRO r = new JISRO(this._PCExportReportANSI, tag);
+            //JISRO2 r2 = new JISRO2(this._PCExportReportANSI, tag);
+            //if (canSave)
+            //{
+            //    if (this._PCExportReportANSI != null && !string.IsNullOrEmpty(this._PCExportReportANSI.ExportReportId))
+            //    {
+            //        string sfdir = this._ServerSavePath + "\\" + this._PCExportReportANSI.ExportReportId;
+            //        try
+            //        {
+            //            System.IO.Directory.CreateDirectory(sfdir);
+            //            r.ExportToPdf(sfdir + "\\" + this._PCExportReportANSI.ExportReportId + ".pdf");
+            //            MessageBox.Show("文件已導出為pdf格式上傳至服務器");
+            //        }
+            //        catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            //    }
+            //}
+            //r.ShowPreview();
+            //r2.ShowPreview();
+
+            JISRO1 r = new JISRO1(this._PCExportReportANSI, tag);
             if (canSave)
             {
                 if (this._PCExportReportANSI != null && !string.IsNullOrEmpty(this._PCExportReportANSI.ExportReportId))
@@ -485,15 +531,32 @@ namespace Book.UI.produceManager.PCExportReportANSI
                 }
             }
             r.ShowPreview();
-            r2.ShowPreview();
         }
 
         private void barPrintAlan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             tag = 1;
             bool canSave = (DialogResult.OK == MessageBox.Show("是否將打印文件上傳至服務器(pdf格式)", "操作提示", MessageBoxButtons.OKCancel));
-            JISRO r = new JISRO(this._PCExportReportANSI, tag);
-            JISRO2 r2 = new JISRO2(this._PCExportReportANSI, tag);
+            //JISRO r = new JISRO(this._PCExportReportANSI, tag);
+            //JISRO2 r2 = new JISRO2(this._PCExportReportANSI, tag);
+            //if (canSave)
+            //{
+            //    if (this._PCExportReportANSI != null && !string.IsNullOrEmpty(this._PCExportReportANSI.ExportReportId))
+            //    {
+            //        string sfdir = this._ServerSavePath + "\\" + this._PCExportReportANSI.ExportReportId;
+            //        try
+            //        {
+            //            System.IO.Directory.CreateDirectory(sfdir);
+            //            r.ExportToPdf(sfdir + "\\" + this._PCExportReportANSI.ExportReportId + ".pdf");
+            //            MessageBox.Show("文件已導出為pdf格式上傳至服務器");
+            //        }
+            //        catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            //    }
+            //}
+            //r.ShowPreview();
+            //r2.ShowPreview();
+
+            JISRO1 r = new JISRO1(this._PCExportReportANSI, tag);
             if (canSave)
             {
                 if (this._PCExportReportANSI != null && !string.IsNullOrEmpty(this._PCExportReportANSI.ExportReportId))
@@ -509,7 +572,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
                 }
             }
             r.ShowPreview();
-            r2.ShowPreview();
         }
 
         private void barPrintJingPianPinZhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -535,5 +597,97 @@ namespace Book.UI.produceManager.PCExportReportANSI
             r.ShowPreview();
             r2.ShowPreview();
         }
+
+        #region 判定数量自动等同测试数量
+        private void spinlensTestApp_EditValueChanged(object sender, EventArgs e)
+        {
+            spinlensJudgeApp.EditValue = spinlensTestApp.EditValue;
+        }
+
+        private void spinlensTestPri_EditValueChanged(object sender, EventArgs e)
+        {
+            spinlensJudgePri.EditValue = spinlensTestPri.EditValue;
+        }
+
+        private void spinlensTestRef_EditValueChanged(object sender, EventArgs e)
+        {
+            spinlensJudgeRef.EditValue = spinlensTestRef.EditValue;
+        }
+
+        private void spinlensTestAti_EditValueChanged(object sender, EventArgs e)
+        {
+            spinlensJudgeAti.EditValue = spinlensTestAti.EditValue;
+        }
+
+        private void spinlensTestTran_EditValueChanged(object sender, EventArgs e)
+        {
+            spinlensJudgeTran.EditValue = spinlensTestTran.EditValue;
+        }
+
+        private void spinlensTestShock_EditValueChanged(object sender, EventArgs e)
+        {
+            spinlensJudgeShock.EditValue = spinlensTestShock.EditValue;
+        }
+
+        private void spinlensTestSfr_EditValueChanged(object sender, EventArgs e)
+        {
+            spinlensJudgeSfr.EditValue = spinlensTestSfr.EditValue;
+        }
+
+        private void spinlensTestSAET_EditValueChanged(object sender, EventArgs e)
+        {
+            spinlensJudgeSAET.EditValue = spinlensTestSAET.EditValue;
+        }
+
+        private void spinlensTestRTC_EditValueChanged(object sender, EventArgs e)
+        {
+            spinlensJudgeRTC.EditValue = spinlensTestRTC.EditValue;
+        }
+
+        private void spinlensTestIgn_EditValueChanged(object sender, EventArgs e)
+        {
+            spinlensJudgeIgn.EditValue = spinlensTestIgn.EditValue;
+        }
+
+        private void spinFinTestApp_EditValueChanged(object sender, EventArgs e)
+        {
+            spinFinJudgeApp.EditValue = spinFinTestApp.EditValue;
+        }
+
+        private void spinFinTestShock_EditValueChanged(object sender, EventArgs e)
+        {
+            spinFinJudgeShock.EditValue = spinFinTestShock.EditValue;
+        }
+
+        private void spinFinTestHCOSTE_EditValueChanged(object sender, EventArgs e)
+        {
+            spinFinJudgeHCOSTE.EditValue = spinFinTestHCOSTE.EditValue;
+        }
+
+        private void spinFinTestHCOS_EditValueChanged(object sender, EventArgs e)
+        {
+            spinFinJudgeHCOS.EditValue = spinFinTestHCOS.EditValue;
+        }
+
+        private void spinFinTestSOHAS_EditValueChanged(object sender, EventArgs e)
+        {
+            spinFinJudgeSOHAS.EditValue = spinFinTestSOHAS.EditValue;
+        }
+
+        private void spinFinTestSFD_EditValueChanged(object sender, EventArgs e)
+        {
+            spinFinJudgeSFD.EditValue = spinFinTestSFD.EditValue;
+        }
+
+        private void spinFinTestMfpro_EditValueChanged(object sender, EventArgs e)
+        {
+            spinFinJudgeMfpro.EditValue = spinFinTestMfpro.EditValue;
+        }
+
+        private void spinFinTestMfpac_EditValueChanged(object sender, EventArgs e)
+        {
+            spinFinJudgeMfpac.EditValue = spinFinTestMfpac.EditValue;
+        } 
+        #endregion
     }
 }

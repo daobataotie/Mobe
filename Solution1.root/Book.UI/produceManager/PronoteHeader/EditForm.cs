@@ -369,7 +369,7 @@ namespace Book.UI.produceManager.PronoteHeader
                     this.barButtonItem1.Enabled = false;
                     this.barButtonItem3.Enabled = false;
                     //this.gridView1.OptionsBehavior.Editable = false;
-                    this.gridView2.OptionsBehavior.Editable = false;
+                    //this.gridView2.OptionsBehavior.Editable = false;
                     this.gridView3.OptionsBehavior.Editable = false;
                     this.barButtonItemMaterial.Enabled = true;
                     break;
@@ -379,6 +379,7 @@ namespace Book.UI.produceManager.PronoteHeader
 
 
             this.textEditPronoteHeaderID.Properties.ReadOnly = true;
+            this.btn_MakeProduceMateria.Enabled = true;
             //if (this.pronoteHeader.IsBuildMaterial == null || !this.pronoteHeader.IsBuildMaterial.Value)
             //    this.barButtonItemMaterial.Caption = Properties.Resources.IsBuildMaterial;
             //else
@@ -1707,6 +1708,25 @@ namespace Book.UI.produceManager.PronoteHeader
             else
                 this.barButtonItemJieAn.Caption = "結案";
             this.barButtonItemJieAn.Enabled = this.action == "view" ? true : false;
+        }
+
+        private void btn_MakeProduceMateria_Click(object sender, EventArgs e)
+        {
+            if (this.pronoteHeader.IsClose.HasValue && this.pronoteHeader.IsClose.Value)
+            {
+                MessageBox.Show("已結案，不能生成領料單", this.Text, MessageBoxButtons.OK);
+                return;
+            }
+
+            IList<Model.PronotedetailsMaterial> detail = this.pronoteHeader.DetailsMaterial.Where(n => n.Checkeds == true).ToList();
+            if (detail == null || detail.Count() == 0)
+            {
+                MessageBox.Show("請選擇需要生成的商品！", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            ProduceMaterial.EditForm form = new Book.UI.produceManager.ProduceMaterial.EditForm(detail);
+            //MainForm f = new MainForm();
+            form.Show(this);
         }
     }
 }

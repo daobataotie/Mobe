@@ -380,6 +380,7 @@ namespace Book.UI.produceManager.MRSHeader
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.textEditType.Properties.ReadOnly = true;
             this.simpleButtonProduceMaterial.Enabled = true;
+            this.btn_MakeProduceMaterial.Enabled = true;
             //colDepotDistributed.OptionsColumn.AllowEdit = false;
             //if (this.mrsheader.SourceType == "1")
             //{
@@ -756,6 +757,30 @@ namespace Book.UI.produceManager.MRSHeader
             this.gridControl1.RefreshDataSource();
         }
 
+        //生成领料单
+        private void btn_MakeProduceMaterial_Click(object sender, EventArgs e)
+        {
+            IList<Model.MRSdetails> invoices = this.mrsheader.Details.Where(n => n.CheckSign == true).ToList();
+            if (invoices == null || invoices.Count() == 0)
+            {
+                MessageBox.Show("沒有要生成的數據！", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            ProduceMaterial.EditForm form = new Book.UI.produceManager.ProduceMaterial.EditForm(invoices);
+            //MainForm f = new MainForm();
+            form.ShowDialog(this);
+
+            //foreach (var item in invoices)
+            //{
+            //    item.MaterialDesc = "已生成領料單";
+            //    this.mrsdetailManager.Update(item);
+            //    item.CheckSign = false;
+            //}
+            this.bindingSourceDetails.DataSource = this.mrsheader.Details = this.mrsdetailManager.Select(this.mrsheader);
+            this.gridControl1.RefreshDataSource();
+        }
+
         //查看领料单
         private void simpleButtonProduceMaterial_Click(object sender, EventArgs e)
         {
@@ -949,6 +974,8 @@ namespace Book.UI.produceManager.MRSHeader
                                     pronoteProceduresDetail.ProceduresNo = technologydetails.TechnologydetailsNo;
                                     pronoteProceduresDetail.ProceduresId = technologydetails.ProceduresId;
                                     pronoteProceduresDetail.WorkHouseId = technologydetails.WorkHouseId;
+                                    if (tedetail.IndexOf(technologydetails) == 0)
+                                        pronoteProceduresDetail.PronoteProceduresDate = _mrsdetail.JiaoHuoDate;
                                     if (technologydetails.Procedures != null)
                                     {
                                         pronoteProceduresDetail.IsOtherProduceOther = technologydetails.IsOtherProduceOther;

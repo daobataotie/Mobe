@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BottomMargin.HeightF" type="System.Single, mscorlib">
+    <value>0.624961853</value>
+  </data>
+  <data name="xrLabel1.Text" xml:space="preserve">
+    <value>TEST REPORT</value>
+  </data>
+  <data name="xrTableCell17.Text" xml:space="preserve">
+    <value>b)1)稜鏡度 Prismatic power</value>
+  </data>
+  <data name="xrTableCell18.Text" xml:space="preserve">
+    <value>8.1b)1)稜鏡度Test for Prismatic power</value>
+  </data>
+  <data name="xrTableCell19.Text" xml:space="preserve">
+    <value>INSPEC 雷射測試儀</value>
+  </data>
+  <data name="xrTableCell20.Text" xml:space="preserve">
+    <value>不得超過0.16cm/m</value>
+  </data>
+  <data name="xrTableCell130.Text" xml:space="preserve">
+    <value>應附於產品</value>
+  </data>
+  <data name="xrTableCell131.Text" xml:space="preserve">
+    <value>目視</value>
+  </data>
+  <data name="xrTableCell134.Text" xml:space="preserve">
+    <value>a)清潔或消毒方式b)使用時注意事項c)維修方式d)其他事項</value>
+  </data>
+  <data name="xrTableCell135.Text" xml:space="preserve">
+    <value>參照開發設計資料</value>
+  </data>
+  <data name="xrTableCell133.Text" xml:space="preserve">
+    <value>10.記號標示 Marking</value>
+  </data>
+  <data name="xrTableCell126.Text" xml:space="preserve">
+    <value>10.2包裝上記號 Marking for packaging</value>
+  </data>
+  <data name="xrTableCell127.Text" xml:space="preserve">
+    <value>目視</value>
+  </data>
+  <data name="xrTableCell128.Text" xml:space="preserve">
+    <value>a)標磚名稱b)劃分標示c)生產者名稱或名稱簡化英文字母d)生產年月日或DOM</value>
+  </data>
+  <data name="xrTableCell120.Text" xml:space="preserve">
+    <value>10.1記號標示 Marking for product</value>
+  </data>
+  <data name="xrTableCell121.Text" xml:space="preserve">
+    <value>目視</value>
+  </data>
+  <data name="xrTableCell122.Text" xml:space="preserve">
+    <value>製造商之名稱或英文簡化字母名稱應永久固定之方式印于鏡片尚且不會妨礙視線處</value>
+  </data>
+  <data name="xrTableCell118.Text" xml:space="preserve">
+    <value>1.觸及皮膚之部分不應造成皮膚不適或傷害 2.材料本身的強度與彈性應符合使用</value>
+  </data>
+  <data name="xrTableCell119.Text" xml:space="preserve">
+    <value>參照開發設計資料</value>
+  </data>
+  <data name="xrTableCell109.Text" xml:space="preserve">
+    <value>6,構造 Construction</value>
+  </data>
+  <data name="xrTableCell112.Text" xml:space="preserve">
+    <value>1.容易使用 不易損壞 2.使用時不會有不舒適感 3.使用者不會因使用此護具而行動受到限制 4.不可有特別之角度或不平滑而令使用者受傷 5.各部位應可被更換</value>
+  </data>
+  <data name="xrTableCell113.Text" xml:space="preserve">
+    <value>參照開發設計資料</value>
+  </data>
+  <data name="xrTableCell105.Text" xml:space="preserve">
+    <value>消毒劑</value>
+  </data>
+  <data name="xrTableCell106.Text" xml:space="preserve">
+    <value>經測試后不應有可見之損傷</value>
+  </data>
+  <data name="xrTableCell97.Text" xml:space="preserve">
+    <value>d)頭帶強度測試 Strength of headband attached section</value>
+  </data>
+  <data name="xrTableCell98.Text" xml:space="preserve">
+    <value>8.4d)頭帶強度測試Test for Strength of headband attached section</value>
+  </data>
+  <data name="xrTableCell99.Text" xml:space="preserve">
+    <value>頭帶拉伸測試機</value>
+  </data>
+  <data name="xrTableCell100.Text" xml:space="preserve">
+    <value>不可有裂開或脫離之情形</value>
+  </data>
+  <data name="xrTableCell96.Text" xml:space="preserve">
+    <value>c)緊密性、把持性測試 Holding characteristics of spectacle tpe eye-protectors</value>
+  </data>
+  <data name="xrTableCell86.Text" xml:space="preserve">
+    <value>8.4c2)緊密性試驗 第二次試驗 Test for holding</value>
+  </data>
+  <data name="xrTableCell87.Text" xml:space="preserve">
+    <value>中梁吊掛測試機</value>
+  </data>
+  <data name="xrTableCell88.Text" xml:space="preserve">
+    <value>8.4c1)緊密性試驗 第一次試驗 Test for holding</value>
+  </data>
+  <data name="xrTableCell89.Text" xml:space="preserve">
+    <value>鏡腳拉伸測試機</value>
+  </data>
+  <data name="xrTableCell90.Text" xml:space="preserve">
+    <value>框變形時鏡片不應脫出鏡溝凹槽</value>
+  </data>
+  <data name="xrTableCell81.Text" xml:space="preserve">
+    <value>b)耐衝擊性 Shock resistance</value>
+  </data>
+  <data name="xrTableCell83.Text" xml:space="preserve">
+    <value>落球測試機</value>
+  </data>
+  <data name="xrTableCell84.Text" xml:space="preserve">
+    <value>鏡片邊緣不應有缺口、傷痕或脫框</value>
+  </data>
+  <data name="xrTableCell75.Text" xml:space="preserve">
+    <value>a)外觀 Appearance</value>
+  </data>
+  <data name="xrTableCell76.Text" xml:space="preserve">
+    <value>8.4a)外觀 Test for Appearance</value>
+  </data>
+  <data name="xrTableCell77.Text" xml:space="preserve">
+    <value>目視</value>
+  </data>
+  <data name="xrTableCell78.Text" xml:space="preserve">
+    <value>不應有缺陷、裂縫、骯髒 同時各部門組裝組合製造應完美</value>
+  </data>
+  <data name="xrTableCell69.Text" xml:space="preserve">
+    <value>5.3阻燃性 Ignition</value>
+  </data>
+  <data name="xrTableCell70.Text" xml:space="preserve">
+    <value>8.3 各部位阻燃性試驗 Test for ignition of each section</value>
+  </data>
+  <data name="xrTableCell71.Text" xml:space="preserve">
+    <value>阻燃測試機</value>
+  </data>
+  <data name="xrTableCell72.Text" xml:space="preserve">
+    <value>不可有起火現象 但護目鏡貼臉部份的軟墊不在此限</value>
+  </data>
+  <data name="xrTableCell63.Text" xml:space="preserve">
+    <value>5.2 耐蝕性 Resistance to corrosion</value>
+  </data>
+  <data name="xrTableCell64.Text" xml:space="preserve">
+    <value>8.2耐蝕性  Test for Resistance to corrosion</value>
+  </data>
+  <data name="xrTableCell65.Text" xml:space="preserve">
+    <value>食鹽水、碼錶</value>
+  </data>
+  <data name="xrTableCell66.Text" xml:space="preserve">
+    <value>金屬部份不能有腐蝕現象</value>
+  </data>
+  <data name="xrTableCell56.Text" xml:space="preserve">
+    <value>8.1e)表面耐磨耗抵抗 Test for Surface friction resistance</value>
+  </data>
+  <data name="xrTableCell57.Text" xml:space="preserve">
+    <value>落砂測試機</value>
+  </data>
+  <data name="xrTableCell58.Text" xml:space="preserve">
+    <value>鏡片經400公克落砂後清潔以霧度計測之不可超過8%</value>
+  </data>
+  <data name="xrTableCell43.Text" xml:space="preserve">
+    <value>U-4100 光譜分析儀</value>
+  </data>
+  <data name="xrTableCell44.Text" xml:space="preserve">
+    <value>光譜儀要測380nm至780nm 測得結果不得小於85%</value>
+  </data>
+  <data name="xrLabel6.Text" xml:space="preserve">
+    <value>5.1鏡片(lens and eyepiece)</value>
+  </data>
+  <data name="xrLabel18.Text" xml:space="preserve">
+    <value>台南廠</value>
+  </data>
+  <data name="lblTestStandard.Text" xml:space="preserve">
+    <value>JIS T8147:2003</value>
+  </data>
+  <assembly alias="DevExpress.Data.v10.2" name="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="lblTestStandard.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>BottomLeft</value>
+  </data>
+  <data name="xrLabel15.Text" xml:space="preserve">
+    <value>SPECIFICATION(測試標準):</value>
+  </data>
+  <data name="xrLabel13.Text" xml:space="preserve">
+    <value>REPORT DATE(測試報告日期):</value>
+  </data>
+  <data name="xrLabel11.Text" xml:space="preserve">
+    <value>TECHNICIAN(執行測試員):</value>
+  </data>
+  <data name="xrLabel9.Text" xml:space="preserve">
+    <value>AMOUNT(訂單數量):</value>
+  </data>
+  <data name="xrLabel7.Text" xml:space="preserve">
+    <value>PRODUCT(產品品名):</value>
+  </data>
+  <data name="xrLabel4.Text" xml:space="preserve">
+    <value>BUYER(客戶):</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="LbOrderId.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+    <value>288.395874, 0</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xrLabel2.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>288.395844, 58.4200058</value>
+  </data>
+  <data name="xrLabel2.Text" xml:space="preserve">
+    <value>P.O  #(訂單號碼):</value>
+  </data>
+  <data name="xrTableCell8.Text" xml:space="preserve">
+    <value>品質要求項目
+(5 Quality)</value>
+  </data>
+  <data name="xrTableCell9.Text" xml:space="preserve">
+    <value>檢測方法(9 Test)</value>
+  </data>
+  <data name="xrTableCell10.Text" xml:space="preserve">
+    <value>檢測設備(Equipment)</value>
+  </data>
+  <data name="xrTableCell11.Text" xml:space="preserve">
+    <value>品質要求(Criterion)</value>
+  </data>
+  <data name="xrLabel24.Text" xml:space="preserve">
+    <value>測試結果(Test Result)</value>
+  </data>
+  <data name="xrTableCell13.Text" xml:space="preserve">
+    <value>檢測比例
+(%)頻率(max 12pcs)</value>
+  </data>
+  <data name="xrTableCell14.Text" xml:space="preserve">
+    <value>檢測誰/受測數(Qty)</value>
+  </data>
+  <data name="xrTableCell7.Text" xml:space="preserve">
+    <value>a)外觀 Appearance</value>
+  </data>
+  <data name="xrTableCell4.Text" xml:space="preserve">
+    <value>8.1a)外觀試驗 Test for appearance</value>
+  </data>
+  <data name="xrTableCell2.Text" xml:space="preserve">
+    <value>目視</value>
+  </data>
+  <data name="xrTableCell5.Text" xml:space="preserve">
+    <value>鏡片邊緣5mm之內的部份不可有阻礙視覺之處，如氣泡、刮傷、黑點、細紋、雜質、破洞、模具痕、刮痕</value>
+  </data>
+  <data name="xrTableCell23.Text" xml:space="preserve">
+    <value>b)2)曲光度Refractive power</value>
+  </data>
+  <data name="xrTableCell26.Text" xml:space="preserve">
+    <value>任何方向應再0m-1±0.12m-1   </value>
+  </data>
+  <data name="xrTableCell32.Text" xml:space="preserve">
+    <value>40mm直徑範圍內選擇4點(其中一點為光學中心)任兩點之間相差0.12-1之內</value>
+  </data>
+  <data name="xrTableCell35.Text" xml:space="preserve">
+    <value>d)耐衝擊性 Shock resistance</value>
+  </data>
+  <data name="xrTableCell36.Text" xml:space="preserve">
+    <value>8.1d)耐衝擊性 Test for Shock resistance</value>
+  </data>
+  <data name="xrTableCell37.Text" xml:space="preserve">
+    <value>落球測試機</value>
+  </data>
+  <data name="xrTableCell38.Text" xml:space="preserve">
+    <value>鐵球不可穿透或受測片不可被打裂成兩片或多片(若僅有裂痕應可接受  但不應發生)</value>
+  </data>
+  <data name="xrTableCell49.Text" xml:space="preserve">
+    <value>f)耐熱性 Stability at elevated temperature</value>
+  </data>
+  <data name="xrTableCell50.Text" xml:space="preserve">
+    <value>8.1f)耐熱性 Test for Stability at elevated temperature</value>
+  </data>
+  <data name="xrTableCell51.Text" xml:space="preserve">
+    <value>烤箱、碼錶</value>
+  </data>
+  <data name="xrTableCell52.Text" xml:space="preserve">
+    <value>經測試後鏡片不能有明顯變形  且光學要符合5.1b要求</value>
+  </data>
+</root>

@@ -128,6 +128,8 @@
             this.barBtnSomeParmSearch = new DevExpress.XtraBars.BarButtonItem();
             this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btn_MakeProduceMaterial = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem28 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -188,6 +190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -229,6 +232,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.btn_MakeProduceMaterial);
             this.layoutControl1.Controls.Add(this.EmpAudit);
             this.layoutControl1.Controls.Add(this.simplePronoteHeaderQuery);
             this.layoutControl1.Controls.Add(this.textEditAuditState);
@@ -796,7 +800,8 @@
             this.layoutControlItem17,
             this.layoutControlItem10,
             this.layoutControlItem26,
-            this.layoutControlItem27});
+            this.layoutControlItem27,
+            this.layoutControlItem28});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1021, 487);
@@ -955,7 +960,7 @@
             resources.ApplyResources(this.layoutControlItem8, "layoutControlItem8");
             this.layoutControlItem8.Location = new System.Drawing.Point(791, 366);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(210, 52);
+            this.layoutControlItem8.Size = new System.Drawing.Size(210, 26);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextToControlDistance = 0;
             this.layoutControlItem8.TextVisible = false;
@@ -1092,6 +1097,24 @@
             this.layoutControlItem25.TextSize = new System.Drawing.Size(60, 14);
             this.layoutControlItem25.TextToControlDistance = 5;
             // 
+            // btn_MakeProduceMaterial
+            // 
+            resources.ApplyResources(this.btn_MakeProduceMaterial, "btn_MakeProduceMaterial");
+            this.btn_MakeProduceMaterial.Name = "btn_MakeProduceMaterial";
+            this.btn_MakeProduceMaterial.StyleController = this.layoutControl1;
+            this.btn_MakeProduceMaterial.Click += new System.EventHandler(this.btn_MakeProduceMaterial_Click);
+            // 
+            // layoutControlItem28
+            // 
+            this.layoutControlItem28.Control = this.btn_MakeProduceMaterial;
+            resources.ApplyResources(this.layoutControlItem28, "layoutControlItem28");
+            this.layoutControlItem28.Location = new System.Drawing.Point(791, 392);
+            this.layoutControlItem28.Name = "layoutControlItem28";
+            this.layoutControlItem28.Size = new System.Drawing.Size(210, 26);
+            this.layoutControlItem28.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem28.TextToControlDistance = 0;
+            this.layoutControlItem28.TextVisible = false;
+            // 
             // EditForm
             // 
             resources.ApplyResources(this, "$this");
@@ -1160,6 +1183,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1264,5 +1288,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private DevExpress.XtraEditors.SimpleButton btn_MakeProduceMaterial;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem28;
     }
 }

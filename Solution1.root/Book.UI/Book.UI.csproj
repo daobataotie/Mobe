@@ -4459,6 +4459,14 @@
       <DependentUpon>JISOutPutFile.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\JISRO1.resx">
+      <DependentUpon>JISRO1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\JISRO1.zh-CHT.resx">
+      <DependentUpon>JISRO1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\JISRO2.resx">
       <DependentUpon>JISRO2.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -11573,6 +11581,12 @@
     </Compile>
     <Compile Include="produceManager\PCExportReportANSI\JISOutPutFile.designer.cs">
       <DependentUpon>JISOutPutFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\JISRO1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\JISRO1.Designer.cs">
+      <DependentUpon>JISRO1.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCExportReportANSI\JISRO2.cs">
       <SubType>Component</SubType>

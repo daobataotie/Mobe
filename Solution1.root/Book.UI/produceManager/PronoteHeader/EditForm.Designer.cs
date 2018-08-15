@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditForm));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btn_MakeProduceMateria = new DevExpress.XtraEditors.SimpleButton();
             this.txt_HandBookProductId = new DevExpress.XtraEditors.TextEdit();
             this.txt_HandBookId = new DevExpress.XtraEditors.TextEdit();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
@@ -43,12 +44,11 @@
             this.textEditPiHao = new DevExpress.XtraEditors.TextEdit();
             this.textEditBeforepPackage = new DevExpress.XtraEditors.TextEdit();
             this.newChooseWorkHouse = new Book.UI.Invoices.NewChooseContorl();
-            this.Button_Remove = new DevExpress.XtraEditors.SimpleButton();
-            this.Button_Add = new DevExpress.XtraEditors.SimpleButton();
             this.textEditXOId = new DevExpress.XtraEditors.TextEdit();
             this.newChooseCustomer = new Book.UI.Invoices.NewChooseContorl();
             this.textEditCustomProName = new DevExpress.XtraEditors.TextEdit();
             this.textEditMRP = new DevExpress.XtraEditors.TextEdit();
+            this.Button_Remove = new DevExpress.XtraEditors.SimpleButton();
             this.buttonEditProId = new DevExpress.XtraEditors.ButtonEdit();
             this.labelProName = new DevExpress.XtraEditors.TextEdit();
             this.newChooseEmployee0 = new Book.UI.Invoices.NewChooseContorl();
@@ -57,6 +57,7 @@
             this.textEditUnit = new DevExpress.XtraEditors.TextEdit();
             this.textEditPronotedesc = new DevExpress.XtraEditors.MemoEdit();
             this.dateEditPronoteDte = new DevExpress.XtraEditors.DateEdit();
+            this.Button_Add = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.bindingSourceMaterial = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -143,6 +144,7 @@
             this.layoutControlItem30 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem31 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem32 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem33 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSourceDetails = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceProductId = new System.Windows.Forms.BindingSource(this.components);
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -160,6 +162,8 @@
             this.barBtnMaterialExit = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemJieAn = new DevExpress.XtraBars.BarButtonItem();
             this.layoutControlItem29 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -238,6 +242,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProductId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -246,6 +251,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -286,6 +292,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.btn_MakeProduceMateria);
             this.layoutControl1.Controls.Add(this.txt_HandBookProductId);
             this.layoutControl1.Controls.Add(this.txt_HandBookId);
             this.layoutControl1.Controls.Add(this.dateEdit1);
@@ -296,12 +303,11 @@
             this.layoutControl1.Controls.Add(this.textEditPiHao);
             this.layoutControl1.Controls.Add(this.textEditBeforepPackage);
             this.layoutControl1.Controls.Add(this.newChooseWorkHouse);
-            this.layoutControl1.Controls.Add(this.Button_Remove);
-            this.layoutControl1.Controls.Add(this.Button_Add);
             this.layoutControl1.Controls.Add(this.textEditXOId);
             this.layoutControl1.Controls.Add(this.newChooseCustomer);
             this.layoutControl1.Controls.Add(this.textEditCustomProName);
             this.layoutControl1.Controls.Add(this.textEditMRP);
+            this.layoutControl1.Controls.Add(this.Button_Remove);
             this.layoutControl1.Controls.Add(this.buttonEditProId);
             this.layoutControl1.Controls.Add(this.labelProName);
             this.layoutControl1.Controls.Add(this.newChooseEmployee0);
@@ -310,6 +316,7 @@
             this.layoutControl1.Controls.Add(this.textEditUnit);
             this.layoutControl1.Controls.Add(this.textEditPronotedesc);
             this.layoutControl1.Controls.Add(this.dateEditPronoteDte);
+            this.layoutControl1.Controls.Add(this.Button_Add);
             this.layoutControl1.Controls.Add(this.gridControl2);
             this.layoutControl1.Controls.Add(this.textEditPronoteHeaderID);
             this.layoutControl1.Controls.Add(this.gridControl3);
@@ -317,6 +324,13 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(47, 255, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
+            // 
+            // btn_MakeProduceMateria
+            // 
+            resources.ApplyResources(this.btn_MakeProduceMateria, "btn_MakeProduceMateria");
+            this.btn_MakeProduceMateria.Name = "btn_MakeProduceMateria";
+            this.btn_MakeProduceMateria.StyleController = this.layoutControl1;
+            this.btn_MakeProduceMateria.Click += new System.EventHandler(this.btn_MakeProduceMateria_Click);
             // 
             // txt_HandBookProductId
             // 
@@ -393,20 +407,6 @@
             resources.ApplyResources(this.newChooseWorkHouse, "newChooseWorkHouse");
             this.newChooseWorkHouse.Name = "newChooseWorkHouse";
             // 
-            // Button_Remove
-            // 
-            resources.ApplyResources(this.Button_Remove, "Button_Remove");
-            this.Button_Remove.Name = "Button_Remove";
-            this.Button_Remove.StyleController = this.layoutControl1;
-            this.Button_Remove.Click += new System.EventHandler(this.Button_Remove_Click);
-            // 
-            // Button_Add
-            // 
-            resources.ApplyResources(this.Button_Add, "Button_Add");
-            this.Button_Add.Name = "Button_Add";
-            this.Button_Add.StyleController = this.layoutControl1;
-            this.Button_Add.Click += new System.EventHandler(this.Button_Add_Click);
-            // 
             // textEditXOId
             // 
             resources.ApplyResources(this.textEditXOId, "textEditXOId");
@@ -433,6 +433,13 @@
             this.textEditMRP.MenuManager = this.barManager1;
             this.textEditMRP.Name = "textEditMRP";
             this.textEditMRP.StyleController = this.layoutControl1;
+            // 
+            // Button_Remove
+            // 
+            resources.ApplyResources(this.Button_Remove, "Button_Remove");
+            this.Button_Remove.Name = "Button_Remove";
+            this.Button_Remove.StyleController = this.layoutControl1;
+            this.Button_Remove.Click += new System.EventHandler(this.Button_Remove_Click);
             // 
             // buttonEditProId
             // 
@@ -463,7 +470,7 @@
             this.calcEditQuantity.MenuManager = this.barManager1;
             this.calcEditQuantity.Name = "calcEditQuantity";
             this.calcEditQuantity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("calcEditQuantity.Properties.Buttons"))), resources.GetString("calcEditQuantity.Properties.Buttons1"), ((int)(resources.GetObject("calcEditQuantity.Properties.Buttons2"))), ((bool)(resources.GetObject("calcEditQuantity.Properties.Buttons3"))), ((bool)(resources.GetObject("calcEditQuantity.Properties.Buttons4"))), ((bool)(resources.GetObject("calcEditQuantity.Properties.Buttons5"))), ((DevExpress.XtraEditors.ImageLocation)(resources.GetObject("calcEditQuantity.Properties.Buttons6"))), null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, resources.GetString("calcEditQuantity.Properties.Buttons7"), null, null, ((bool)(resources.GetObject("calcEditQuantity.Properties.Buttons8"))))});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("calcEditQuantity.Properties.Buttons"))), resources.GetString("calcEditQuantity.Properties.Buttons1"), ((int)(resources.GetObject("calcEditQuantity.Properties.Buttons2"))), ((bool)(resources.GetObject("calcEditQuantity.Properties.Buttons3"))), ((bool)(resources.GetObject("calcEditQuantity.Properties.Buttons4"))), ((bool)(resources.GetObject("calcEditQuantity.Properties.Buttons5"))), ((DevExpress.XtraEditors.ImageLocation)(resources.GetObject("calcEditQuantity.Properties.Buttons6"))), null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, resources.GetString("calcEditQuantity.Properties.Buttons7"), null, null, ((bool)(resources.GetObject("calcEditQuantity.Properties.Buttons8"))))});
             this.calcEditQuantity.Properties.DisplayFormat.FormatString = "0.####";
             this.calcEditQuantity.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.calcEditQuantity.Properties.EditFormat.FormatString = "0.####";
@@ -501,6 +508,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateEditPronoteDte.StyleController = this.layoutControl1;
             // 
+            // Button_Add
+            // 
+            resources.ApplyResources(this.Button_Add, "Button_Add");
+            this.Button_Add.Name = "Button_Add";
+            this.Button_Add.StyleController = this.layoutControl1;
+            this.Button_Add.Click += new System.EventHandler(this.Button_Add_Click);
+            // 
             // gridControl2
             // 
             this.gridControl2.DataSource = this.bindingSourceMaterial;
@@ -509,7 +523,8 @@
             this.gridControl2.Name = "gridControl2";
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHyperLinkEdit5,
-            this.repositoryItemRichTextEdit2});
+            this.repositoryItemRichTextEdit2,
+            this.repositoryItemCheckEdit2});
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
@@ -517,6 +532,7 @@
             // 
             this.gridView2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn25,
             this.gridColumn24,
             this.gridColumnProductId,
             this.gridColumnName,
@@ -539,6 +555,7 @@
             resources.ApplyResources(this.gridColumn24, "gridColumn24");
             this.gridColumn24.FieldName = "Inumber";
             this.gridColumn24.Name = "gridColumn24";
+            this.gridColumn24.OptionsColumn.AllowEdit = false;
             // 
             // gridColumnProductId
             // 
@@ -574,6 +591,7 @@
             resources.ApplyResources(this.gridColumn2, "gridColumn2");
             this.gridColumn2.FieldName = "ProductUnit";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             // 
             // gridColumnMPSquantity
             // 
@@ -602,6 +620,7 @@
             this.gridColumn8.ColumnEdit = this.repositoryItemRichTextEdit2;
             this.gridColumn8.FieldName = "ProductDesc";
             this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
             // 
             // repositoryItemRichTextEdit2
             // 
@@ -777,7 +796,7 @@
             // 
             resources.ApplyResources(this.repositoryItemButtonEdit1, "repositoryItemButtonEdit1");
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), resources.GetString("repositoryItemButtonEdit1.Buttons1"), ((int)(resources.GetObject("repositoryItemButtonEdit1.Buttons2"))), ((bool)(resources.GetObject("repositoryItemButtonEdit1.Buttons3"))), ((bool)(resources.GetObject("repositoryItemButtonEdit1.Buttons4"))), ((bool)(resources.GetObject("repositoryItemButtonEdit1.Buttons5"))), ((DevExpress.XtraEditors.ImageLocation)(resources.GetObject("repositoryItemButtonEdit1.Buttons6"))), null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, resources.GetString("repositoryItemButtonEdit1.Buttons7"), null, null, ((bool)(resources.GetObject("repositoryItemButtonEdit1.Buttons8"))))});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), resources.GetString("repositoryItemButtonEdit1.Buttons1"), ((int)(resources.GetObject("repositoryItemButtonEdit1.Buttons2"))), ((bool)(resources.GetObject("repositoryItemButtonEdit1.Buttons3"))), ((bool)(resources.GetObject("repositoryItemButtonEdit1.Buttons4"))), ((bool)(resources.GetObject("repositoryItemButtonEdit1.Buttons5"))), ((DevExpress.XtraEditors.ImageLocation)(resources.GetObject("repositoryItemButtonEdit1.Buttons6"))), null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, resources.GetString("repositoryItemButtonEdit1.Buttons7"), null, null, ((bool)(resources.GetObject("repositoryItemButtonEdit1.Buttons8"))))});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.repositoryItemButtonEdit1.Click += new System.EventHandler(this.repositoryItemButtonEdit1_Click);
@@ -956,7 +975,8 @@
             this.layoutControlItem28,
             this.layoutControlItem30,
             this.layoutControlItem31,
-            this.layoutControlItem32});
+            this.layoutControlItem32,
+            this.layoutControlItem33});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1026, 516);
@@ -1097,7 +1117,7 @@
             resources.ApplyResources(this.layoutControlItem18, "layoutControlItem18");
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 281);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(188, 26);
+            this.layoutControlItem18.Size = new System.Drawing.Size(134, 26);
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextToControlDistance = 0;
             this.layoutControlItem18.TextVisible = false;
@@ -1106,9 +1126,9 @@
             // 
             this.layoutControlItem19.Control = this.Button_Remove;
             resources.ApplyResources(this.layoutControlItem19, "layoutControlItem19");
-            this.layoutControlItem19.Location = new System.Drawing.Point(188, 281);
+            this.layoutControlItem19.Location = new System.Drawing.Point(134, 281);
             this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(195, 26);
+            this.layoutControlItem19.Size = new System.Drawing.Size(137, 26);
             this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem19.TextToControlDistance = 0;
             this.layoutControlItem19.TextVisible = false;
@@ -1116,9 +1136,9 @@
             // emptySpaceItem2
             // 
             resources.ApplyResources(this.emptySpaceItem2, "emptySpaceItem2");
-            this.emptySpaceItem2.Location = new System.Drawing.Point(383, 281);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(413, 281);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(623, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(593, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem20
@@ -1234,6 +1254,17 @@
             this.layoutControlItem32.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem32.TextSize = new System.Drawing.Size(50, 20);
             this.layoutControlItem32.TextToControlDistance = 5;
+            // 
+            // layoutControlItem33
+            // 
+            this.layoutControlItem33.Control = this.btn_MakeProduceMateria;
+            resources.ApplyResources(this.layoutControlItem33, "layoutControlItem33");
+            this.layoutControlItem33.Location = new System.Drawing.Point(271, 281);
+            this.layoutControlItem33.Name = "layoutControlItem33";
+            this.layoutControlItem33.Size = new System.Drawing.Size(142, 26);
+            this.layoutControlItem33.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem33.TextToControlDistance = 0;
+            this.layoutControlItem33.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
@@ -1357,6 +1388,19 @@
             this.layoutControlItem29.TextSize = new System.Drawing.Size(51, 14);
             this.layoutControlItem29.TextToControlDistance = 5;
             // 
+            // gridColumn25
+            // 
+            resources.ApplyResources(this.gridColumn25, "gridColumn25");
+            this.gridColumn25.ColumnEdit = this.repositoryItemCheckEdit2;
+            this.gridColumn25.FieldName = "Checkeds";
+            this.gridColumn25.Name = "gridColumn25";
+            // 
+            // repositoryItemCheckEdit2
+            // 
+            resources.ApplyResources(this.repositoryItemCheckEdit2, "repositoryItemCheckEdit2");
+            this.repositoryItemCheckEdit2.Name = "repositoryItemCheckEdit2";
+            this.repositoryItemCheckEdit2.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            // 
             // EditForm
             // 
             resources.ApplyResources(this, "$this");
@@ -1443,6 +1487,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProductId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
@@ -1451,6 +1496,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1585,5 +1631,9 @@
         private DevExpress.XtraEditors.TextEdit txt_HandBookId;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem31;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem32;
+        private DevExpress.XtraEditors.SimpleButton btn_MakeProduceMateria;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem33;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit2;
     }
 }

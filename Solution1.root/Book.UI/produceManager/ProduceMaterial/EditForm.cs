@@ -117,6 +117,201 @@ namespace Book.UI.produceManager.ProduceMaterial
                 LastFlag = 1;
         }
 
+        int tag = 0;
+        public EditForm(IList<Model.MRSdetails> List)
+            : this()
+        {
+            this.action = "insert";
+            this.AddNew();
+            this.tag = 1;
+
+            string xoid = string.Empty;
+
+            if (List[0].MPSheaderId != null)
+            {
+                xoid = new BL.MPSheaderManager().Get(List[0].MPSheaderId).InvoiceXOId;
+            }
+            else if (List[0].MRSHeader.MPSheaderId != null)
+                xoid = new BL.MPSheaderManager().Get(List[0].MRSHeader.MPSheaderId) == null ? null : new BL.MPSheaderManager().Get(List[0].MRSHeader.MPSheaderId).InvoiceXOId;
+            this.comboBoxEdit1.SelectedIndex = 1;
+            this.textEditPronoteHeaderID.EditValue = List[0].MRSHeaderId;
+            if (!string.IsNullOrEmpty(xoid))
+            {
+                Model.InvoiceXO invoiceXO = this.invoiceXOManager.Get(xoid);
+                if (invoiceXO != null)
+                {
+                    this.textEditCustomerXOId.Text = invoiceXO.CustomerInvoiceXOId;
+                    this.textEditPiHao.Text = invoiceXO.CustomerLotNumber;
+                    //this.calcEditInvoiceSum.Text = invoiceXO.Details.Where(w => w.ProductId == List[0].MadeProductId).ToList().First().InvoiceXODetailQuantity.Value.ToString("f0");
+                }
+                this._produceMaterial.InvoiceXOId = xoid;
+            }
+            else
+                this.textEditCustomerXOId.Text = string.Empty;
+            //this._produceMaterial.WorkHouse = List[0].WorkHouseNext;
+            //this.textEditProduct.Text = string.IsNullOrEmpty(List[0].Product.CustomerProductName) ? List[0].Product.ProductName : List[0].Product.ProductName + "{" + List[0].Product.CustomerProductName + "}";
+            this._produceMaterial.Details.Clear();
+
+            IList<Model.ProduceMaterialdetails> dtlist = new List<Model.ProduceMaterialdetails>();
+            Model.ProduceMaterialdetails produceMaterialdetails;
+            for (int i = 0; i < List.Count; i++)
+            {
+                Model.MRSdetails mRSdetails = List[i];
+
+                produceMaterialdetails = new Book.Model.ProduceMaterialdetails();
+                //produceMaterialdetails.Inumber = this._produceMaterial.Details.Count + 1;
+                produceMaterialdetails.ProduceMaterialdetailsID = Guid.NewGuid().ToString();
+                produceMaterialdetails.MRSHeaderId = mRSdetails.MRSHeaderId;
+                produceMaterialdetails.MRSdetailsId = mRSdetails.MRSdetailsId;
+                produceMaterialdetails.Product = mRSdetails.Product;
+                produceMaterialdetails.ProductId = mRSdetails.Product.ProductId;
+                produceMaterialdetails.ProductStock = mRSdetails.Product.StocksQuantity;
+                produceMaterialdetails.ProductUnit = mRSdetails.ProductUnit;
+
+                if (!mRSdetails.Product.ProduceMaterialDistributioned.HasValue)
+                    mRSdetails.Product.ProduceMaterialDistributioned = 0;
+                if (!mRSdetails.Product.OtherMaterialDistributioned.HasValue)
+                    mRSdetails.Product.OtherMaterialDistributioned = 0;
+                produceMaterialdetails.Distributioned = mRSdetails.Product.ProduceMaterialDistributioned + mRSdetails.Product.OtherMaterialDistributioned;
+                produceMaterialdetails.ProductSpecification = mRSdetails.Product.ProductSpecification;
+                //produceMaterialdetails.NextWorkHouse = mRSdetails.WorkHouseNext;
+                //produceMaterialdetails.NextWorkHouseId = mRSdetails.WorkHouseNextId;
+                //if (mRSdetails.MRSHeader.SourceType == "1")             //外购
+                //    produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailsQuantity;
+                //else
+                //{
+                //    if (mRSdetails.Product.StocksQuantity - mRSdetails.Product.ProduceMaterialDistributioned > mRSdetails.MRSdetailsQuantity)
+                //    {
+                //        if (string.IsNullOrEmpty(mRSdetails.Product.SunhaoRage))
+                //            produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailsQuantity;
+                //        else
+                //        {
+                //            string[] sunhaolist = mRSdetails.Product.SunhaoRage.Split(',');
+                //            string[] numlist1;
+                //            string[] numlist2;
+                //            string[] numlist3;
+                //            if (sunhaolist != null && sunhaolist.Length > 0)
+                //            {
+                //                numlist1 = sunhaolist[0].Split('/');
+                //                numlist2 = sunhaolist[1].Split('/');
+                //                numlist3 = sunhaolist[2].Split('/');
+                //                if (mRSdetails.MRSdetailsQuantity >= Convert.ToDouble(numlist1[0]) && mRSdetails.MRSdetailsQuantity <= Convert.ToDouble(numlist1[1]))
+                //                    produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailsQuantity * (1 + Convert.ToDouble(numlist1[2]) / 100);
+                //                else if (mRSdetails.MRSdetailsQuantity >= Convert.ToDouble(numlist2[0]) && mRSdetails.MRSdetailsQuantity <= Convert.ToDouble(numlist2[1]))
+                //                    produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailsQuantity * (1 + Convert.ToDouble(numlist2[2]) / 100);
+                //                else if (mRSdetails.MRSdetailsQuantity >= Convert.ToDouble(numlist3[0]) && mRSdetails.MRSdetailsQuantity <= Convert.ToDouble(numlist3[1]))
+                //                    produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailsQuantity * (1 + Convert.ToDouble(numlist3[2]) / 100);
+                //            }
+                //        }
+                //    }
+                //    else
+                //        produceMaterialdetails.Materialprocessum = Convert.ToDouble(mRSdetails.Product.StocksQuantity) - Convert.ToDouble(mRSdetails.Product.ProduceMaterialDistributioned);
+                //}
+                produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailssum;     //修改：领料数量=需求数量
+                //produceMaterialdetails.Materialprocesedsum = PronoteMaterial.DetailsSum;                   
+                produceMaterialdetails.ProduceMaterialID = this._produceMaterial.ProduceMaterialID;
+                produceMaterialdetails.MPSDetailsSum = mRSdetails.MRSdetailsQuantity;
+                //produceMaterialdetails.InvoiceXOId = this.produceMaterial.pro;
+                //produceMaterialdetails.InvoiceXODetailId = Pronotedetails.InvoiceXODetailId;
+                dtlist.Add(produceMaterialdetails);
+
+            }
+            int count = 1;
+            this._produceMaterial.Details = (from p in dtlist
+                                             group p by new { p.ProductId, p.ProductUnit } into pm
+                                             select new Model.ProduceMaterialdetails()
+                                             {
+                                                 ProduceMaterialdetailsID = pm.First().ProduceMaterialdetailsID,
+                                                 Inumber = count++,
+                                                 MRSHeaderId = pm.First().MRSHeaderId,
+                                                 MRSdetailsId = pm.First().MRSdetailsId,
+                                                 Product = pm.First().Product,
+                                                 ProductId = pm.First().ProductId,
+                                                 ProductStock = pm.First().ProductStock,
+                                                 ProductUnit = pm.First().ProductUnit,
+                                                 Distributioned = pm.First().Distributioned,
+                                                 ProductSpecification = pm.First().Product.ProductSpecification,
+                                                 Materialprocessum = (from m in pm select m.Materialprocessum).Sum(),
+                                                 ProduceMaterialID = this._produceMaterial.ProduceMaterialID,
+                                                 MPSDetailsSum = pm.First().MPSDetailsSum,
+                                                 //NextWorkHouseId = pm.First().NextWorkHouseId,
+                                                 //NextWorkHouse = pm.First().NextWorkHouse
+                                             }).ToList<Model.ProduceMaterialdetails>();
+            this.bindingSourceDetails.DataSource = this._produceMaterial.Details;
+
+            this._produceMaterial.SourceType = this.comboBoxEdit1.SelectedIndex;
+            this._produceMaterial.InvoiceId = this.textEditPronoteHeaderID.Text;
+        }
+
+        public EditForm(IList<Model.PronotedetailsMaterial> list)
+            : this()
+        {
+            this.action = "insert";
+            this.AddNew();
+            this.tag = 1;
+
+            this.calcEditInvoiceSum.Value = 0;
+            string xoid = list[0].PronoteHeader.InvoiceXOId;
+            this.textEditPronoteHeaderID.Text = list[0].PronoteHeaderID;
+            this.textEditProduct.Text = string.IsNullOrEmpty(list[0].Product.CustomerProductName) ? list[0].Product.ProductName : list[0].Product.ProductName + "{" + list[0].Product.CustomerProductName + "}";
+            this._produceMaterial.InvoiceXOId = xoid;
+            this.comboBoxEdit1.SelectedIndex = 0;
+            //this.com
+            if (!string.IsNullOrEmpty(xoid))
+            {
+                Model.InvoiceXO invoiceXO = this.invoiceXOManager.Get(xoid);
+                if (invoiceXO != null)
+                {
+                    this.textEditCustomerXOId.Text = invoiceXO.CustomerInvoiceXOId;
+
+                    Model.MRSdetails mrsdetail = new BL.MRSdetailsManager().Get(list[0].PronoteHeader.MRSdetailsId);
+                    if (mrsdetail != null && invoiceXO.Details != null && invoiceXO.Details.Count > 0)
+                    {
+                        foreach (Model.InvoiceXODetail detail in invoiceXO.Details)
+                        {
+                            if (detail.ProductId == mrsdetail.MadeProductId)
+                                this.calcEditInvoiceSum.Text = detail.InvoiceXODetailQuantity.Value.ToString("f0");
+                        }
+                    }
+                }
+            }
+            else
+                this.textEditCustomerXOId.Text = string.Empty;
+            this._produceMaterial.Details.Clear();
+            foreach (Model.PronotedetailsMaterial PronoteMaterial in list)
+            {
+                Model.ProduceMaterialdetails produceMaterialdetails = new Book.Model.ProduceMaterialdetails();
+                produceMaterialdetails.Inumber = this._produceMaterial.Details.Count + 1;
+                produceMaterialdetails.ProduceMaterialdetailsID = Guid.NewGuid().ToString();
+                produceMaterialdetails.PronoteHeaderID = PronoteMaterial.PronoteHeaderID;
+                produceMaterialdetails.PronotedetailsID = PronoteMaterial.PronotedetailsMaterialId;
+                if (PronoteMaterial.Product != null)
+                {
+                    produceMaterialdetails.Product = PronoteMaterial.Product;
+                    produceMaterialdetails.ProductId = PronoteMaterial.Product.ProductId;
+                    produceMaterialdetails.ProductStock = PronoteMaterial.Product.StocksQuantity;
+
+                    if (!PronoteMaterial.Product.ProduceMaterialDistributioned.HasValue)
+                        PronoteMaterial.Product.ProduceMaterialDistributioned = 0;
+                    if (!PronoteMaterial.Product.OtherMaterialDistributioned.HasValue)
+                        PronoteMaterial.Product.OtherMaterialDistributioned = 0;
+                    produceMaterialdetails.Distributioned = PronoteMaterial.Product.ProduceMaterialDistributioned + PronoteMaterial.Product.OtherMaterialDistributioned;
+                    produceMaterialdetails.ProductSpecification = PronoteMaterial.Product.ProductSpecification;
+                }
+                produceMaterialdetails.ProductUnit = PronoteMaterial.ProductUnit;
+                produceMaterialdetails.Materialprocessum = PronoteMaterial.PronoteQuantity;
+                //produceMaterialdetails.Materialprocesedsum = PronoteMaterial.DetailsSum;
+
+                produceMaterialdetails.ProduceMaterialID = this._produceMaterial.ProduceMaterialID;
+                //produceMaterialdetails.InvoiceXOId = this.produceMaterial.pro;
+                //produceMaterialdetails.InvoiceXODetailId = Pronotedetails.InvoiceXODetailId;
+                this._produceMaterial.Details.Add(produceMaterialdetails);
+
+            }
+            this._produceMaterial.SourceType = this.comboBoxEdit1.SelectedIndex;
+            this._produceMaterial.InvoiceId = this.textEditPronoteHeaderID.Text;
+        }
+
         protected override string AuditKeyId()
         {
             return Model.ProduceMaterial.PRO_ProduceMaterialID;
@@ -399,6 +594,11 @@ namespace Book.UI.produceManager.ProduceMaterial
 
         protected override void AddNew()
         {
+            if (this.tag == 1)
+            {
+                this.tag = 0; return;
+            }
+
             this.bindingSourceDepotPositionId.DataSource = null;
             if (this._pronoteHeader == null)
             {
