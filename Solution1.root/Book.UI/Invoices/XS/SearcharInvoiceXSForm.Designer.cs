@@ -385,7 +385,7 @@
             // gridXSCustomer
             // 
             resources.ApplyResources(this.gridXSCustomer, "gridXSCustomer");
-            this.gridXSCustomer.FieldName = "XSCustomerId";
+            this.gridXSCustomer.FieldName = "xocustomer";
             this.gridXSCustomer.Name = "gridXSCustomer";
             // 
             // gridColumn6

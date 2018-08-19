@@ -54,9 +54,24 @@ namespace Book.DA.SQLServer
 
         public double SelectSumQtyFromZuzhuang(string productId, DateTime dateStart, DateTime dateEnd, string workHouseId, string allInvoiceXOIds)
         {
+            if (string.IsNullOrEmpty(allInvoiceXOIds))
+                allInvoiceXOIds = "''";
+
             string sql = "select sum(ISNULL(ped.ProduceQuantity,0)) from ProduceMaterialExitDetail ped left join ProduceMaterialExit pe on ped.ProduceMaterialExitId=pe.ProduceMaterialExitId where ped.ProductId='" + productId + "' and pe.ProduceExitMaterialDate between '" + dateStart + "' and '" + dateEnd + "' and pe.WorkHouseId='" + workHouseId + "' and pe.customerinvoicexoid in (select CustomerInvoiceXOId from invoicexo where InvoiceId in (" + allInvoiceXOIds + "))";
 
             return Convert.ToDouble(this.QueryObject(sql));
+        }
+
+        public IList<Model.ProduceMaterialExitDetail> SelectSumQtyFromZuzhuangByPros(string productIds, DateTime dateStart, DateTime dateEnd, string workHouseId, string allInvoiceXOIds)
+        {
+            if (string.IsNullOrEmpty(allInvoiceXOIds))
+                allInvoiceXOIds = "''";
+
+            //string sql = "select sum(ISNULL(ped.ProduceQuantity,0)) from ProduceMaterialExitDetail ped left join ProduceMaterialExit pe on ped.ProduceMaterialExitId=pe.ProduceMaterialExitId where ped.ProductId in (" + productIds + ") and pe.ProduceExitMaterialDate between '" + dateStart + "' and '" + dateEnd + "' and pe.WorkHouseId='" + workHouseId + "' and pe.customerinvoicexoid in (select CustomerInvoiceXOId from invoicexo where InvoiceId in (" + allInvoiceXOIds + "))";
+
+            string sql = "select  ped.ProductId,sum(ISNULL(ped.ProduceQuantity,0)) as ProduceQuantity from ProduceMaterialExitDetail ped left join ProduceMaterialExit pe on ped.ProduceMaterialExitId=pe.ProduceMaterialExitId where ped.ProductId in (" + productIds + ") and pe.ProduceExitMaterialDate between '" + dateStart + "' and '" + dateEnd + "' and pe.WorkHouseId='" + workHouseId + "' and pe.customerinvoicexoid in (select CustomerInvoiceXOId from invoicexo where InvoiceId in (" + allInvoiceXOIds + ")) group by ped.ProductId";
+
+            return this.DataReaderBind<Model.ProduceMaterialExitDetail>(sql, null, CommandType.Text);
         }
 
         public double SelectSumQtyFromZuzhuangAll(string productId, DateTime dateEnd, string workHouseId)

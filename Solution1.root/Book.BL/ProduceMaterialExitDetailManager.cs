@@ -75,6 +75,11 @@ namespace Book.BL
             return accessor.SelectSumQtyFromZuzhuang(productId, dateStart, dateEnd, workHouseId, allInvoiceXOIds);
         }
 
+        public IList<Model.ProduceMaterialExitDetail> SelectSumQtyFromZuzhuangByPros(string productIds, DateTime dateStart, DateTime dateEnd, string workHouseId, string allInvoiceXOIds)
+        {
+            return accessor.SelectSumQtyFromZuzhuangByPros(productIds, dateStart, dateEnd, workHouseId, allInvoiceXOIds);
+        }
+
         public double SelectSumQtyFromZuzhuangAll(string productId, DateTime dateEnd, string workHouseId)
         {
             return accessor.SelectSumQtyFromZuzhuangAll(productId, dateEnd, workHouseId);

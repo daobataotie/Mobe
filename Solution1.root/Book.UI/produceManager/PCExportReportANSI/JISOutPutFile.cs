@@ -166,7 +166,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
                     }
 
                     //else if (name.Contains("入料检验单") || name.Contains("材质证明") || name.Contains("原物料采购订单"))
-                    else if (name.Contains("入料检验单") || name.Contains("物料采购订单"))
+                    else if (name.Contains("入料检验单"))
                     {
                         PCIncomingCheck.RelationXOForm f = new Book.UI.produceManager.PCIncomingCheck.RelationXOForm(invoiceCusId);
                         if (f._relationXO == null)
@@ -177,7 +177,15 @@ namespace Book.UI.produceManager.PCExportReportANSI
                         else
                             f.Show(this);
                     }
-
+                    else if (name.Contains("物料采购订单"))
+                    {
+                        //Invoices.CO.EditForm co = new Book.UI.Invoices.CO.EditForm(str);
+                        //co.Show(this);
+                        Invoices.CO.ListForm listform = new Book.UI.Invoices.CO.ListForm(invoiceCusId);
+                        listform.Show(this);
+                        PCOtherCheck.ListForm listform2 = new Book.UI.produceManager.PCOtherCheck.ListForm(invoiceCusId);
+                        listform2.Show(this);
+                    }
                     else if (name.Contains("领料单"))
                     {
                         ProduceMaterial.ListForm listform = new Book.UI.produceManager.ProduceMaterial.ListForm(invoiceCusId);

@@ -378,13 +378,13 @@ namespace Book.UI.Settings.StockLimitations
 
 
                         //2018年8月1日22:51:32  对应的母件领到组装现场的数量
-                        List<Model.ProduceMaterialdetails> pmds = produceMaterialdetailsManager.SelectMaterialsByProductIds(proIds, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang, invoiceXOIds).ToList();
+                        List<Model.ProduceMaterialdetails> pmds = produceMaterialdetailsManager.SelectMaterialsByProductIds(proIds, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang, allInvoiceXOIds).ToList();
                         foreach (var pmd in pmds)
                         {
                             //如果母件有领料，对应抵消入库扣减
                             if (pids.Any(P => P.ProductId == pmd.ProductId))
                             {
-                                deductionQty -= pmd.Materialprocessum.HasValue ? pmd.Materialprocessum.Value : 0;
+                                deductionQty -= pmd.Materialprocessum.HasValue ? pmd.Materialprocessum.Value * parentProductDic[pmd.ProductId] : 0;
                             }
                             else
                             {
@@ -392,12 +392,19 @@ namespace Book.UI.Settings.StockLimitations
                                 GetParentProductInfo("'" + pmd.ProductId + "'", fatherDic);
                                 if (pids.Any(P => fatherDic.Keys.Contains(P.ProductId)))
                                 {
-                                    deductionQty -= pmd.Materialprocessum.HasValue ? pmd.Materialprocessum.Value : 0;
+                                    deductionQty -= pmd.Materialprocessum.HasValue ? pmd.Materialprocessum.Value * parentProductDic[pmd.ProductId] * fatherDic[pids.First(P => fatherDic.Keys.Contains(P.ProductId)).ProductId] : 0;
                                 }
                             }
                         }
 
                         deductionQty = deductionQty < 0 ? 0 : deductionQty;
+
+                        //2018年8月16日11:26:19  对应的母件退料，组装现场数量扣减
+                        List<Model.ProduceMaterialExitDetail> pmeds = produceMaterialExitDetailManager.SelectSumQtyFromZuzhuangByPros(proIds, startDate, dateEnd.AddSeconds(-1), workHouseZuzhuang, allInvoiceXOIds).ToList();
+                        foreach (var pmed in pmeds)
+                        {
+                            exitQty += pmed.ProduceQuantity.Value * parentProductDic[pmed.ProductId];
+                        }
                     }
                 }
 
