@@ -53,7 +53,14 @@ namespace Book.UI.produceManager
             this.lblPCCheckCount.Text = ANSIPCIC.ANSIPCImpactCheckCount.HasValue ? ANSIPCIC.ANSIPCImpactCheckCount.ToString() : "";
             this.lblInvoiceXOQuantity.Text = ANSIPCIC.InvoiceXOQuantity.HasValue ? ANSIPCIC.InvoiceXOQuantity.ToString() : "";
             this.lblUnit.Text = ANSIPCIC.Unit == null ? null : ANSIPCIC.Unit.ToString();
-            this.lbl_CustomerProductName.Text = ANSIPCIC.Product == null ? "" : ANSIPCIC.Product.CustomerProductName;
+            //this.lbl_CustomerProductName.Text = ANSIPCIC.Product == null ? "" : ANSIPCIC.Product.CustomerProductName;
+            if (ANSIPCIC.Product != null)
+            {
+                if (string.IsNullOrEmpty(ANSIPCIC.Product.CustomerProductName))
+                    this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(ANSIPCIC.PronoteHeaderId, ANSIPCIC.ProductId);
+                else
+                    this.lbl_CustomerProductName.Text = ANSIPCIC.Product.CustomerProductName;
+            }
 
             //Details
             #region ¸ü¸ÄÏêÏ¸ÏÔÊ¾

@@ -11,6 +11,17 @@ namespace Book.UI.produceManager
         BL.BomParentPartInfoManager bomParentPartInfoManager = new Book.BL.BomParentPartInfoManager();
         BL.InvoiceXODetailManager invoiceXODetailManager = new Book.BL.InvoiceXODetailManager();
         BL.ProductManager productManager = new Book.BL.ProductManager();
+        BL.PronoteHeaderManager pronoteHeaderManager = new Book.BL.PronoteHeaderManager();
+
+        internal string GetCustomerProductNameByPronoteHeaderId(string pronoteHeaderId, string productId)
+        {
+            Model.PronoteHeader ph = pronoteHeaderManager.Get(pronoteHeaderId);
+            if (ph != null)
+            {
+                return this.GetCustomerProductNameByPronoteHeaderId(pronoteHeaderId, productId, ph.HandbookProductId);
+            }
+            return "";
+        }
 
         /// <summary>
         /// 获取该商品对应的母件的商品型号(如果同一笔订单里面多个母件都引用该子件，计算物料需求时该子件用量将合并为一笔，因此要带出所有母件的型号)

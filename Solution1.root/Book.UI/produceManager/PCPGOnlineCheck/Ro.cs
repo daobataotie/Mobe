@@ -51,7 +51,15 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             else
                 this.lblFromInvoiceIDText.Text = "¼Ó¹¤†Î¾ŽÌ–";
             this.RichTextProductDesc.Rtf = pcpgoc.Product == null ? "" : pcpgoc.Product.ProductDescription;
-            this.lbl_CustomerProductName.Text = pcpgoc.Product == null ? "" : pcpgoc.Product.CustomerProductName;
+            //this.lbl_CustomerProductName.Text = pcpgoc.Product == null ? "" : pcpgoc.Product.CustomerProductName;
+            if (pcpgoc.Product != null)
+            {
+                if (string.IsNullOrEmpty(pcpgoc.Product.CustomerProductName))
+                    this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(pcpgoc.FromPCId, pcpgoc.ProductId);
+                else
+                    this.lbl_CustomerProductName.Text = pcpgoc.Product.CustomerProductName;
+            }
+
 
             //Detail
             this.TCPCPGOnlineCheckId.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_PCPGOnlineCheckId);

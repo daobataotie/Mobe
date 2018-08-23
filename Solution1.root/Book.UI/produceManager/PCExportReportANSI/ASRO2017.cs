@@ -50,11 +50,11 @@ namespace Book.UI.produceManager.PCExportReportANSI
             if (_PCExportReportANSI.IsShowGX2.HasValue && _PCExportReportANSI.IsShowGX2.Value)
             {
                 //this.LbRefractive.Text = _PCExportReportANSI.RefractivePower.HasValue ? "(" + _PCExportReportANSI.RefractivePower.Value.ToString("0.00") + ") 2" : "(0.00) 2";
-                this.LbRefractive.Text = (_PCExportReportANSI.RefractivePower.HasValue && _PCExportReportANSI.RefractivePower.Value != 0.0) ? "(" + _PCExportReportANSI.RefractivePower.Value.ToString("0.00") + ") 2" : "2";
+                this.LbRefractive.Text = (_PCExportReportANSI.RefractivePower.HasValue && _PCExportReportANSI.RefractivePower.Value != 0.0) ? "(" + _PCExportReportANSI.RefractivePower.Value.ToString("0.00") + ") 2" : "0.00";
             }
             else
             {
-                this.LbRefractive.Text = (_PCExportReportANSI.RefractivePower.HasValue && _PCExportReportANSI.RefractivePower.Value != 0.0) ? _PCExportReportANSI.RefractivePower.Value.ToString("0.00") : "";
+                this.LbRefractive.Text = (_PCExportReportANSI.RefractivePower.HasValue && _PCExportReportANSI.RefractivePower.Value != 0.0) ? _PCExportReportANSI.RefractivePower.Value.ToString("0.00") : "0.00";
                 //this.LbRefractive.Text = _PCExportReportANSI.RefractivePower.HasValue ? _PCExportReportANSI.RefractivePower.Value.ToString("0.00") : "";
             }
             this.CheckScatter.Checked = _PCExportReportANSI.ScatterLight.HasValue ? _PCExportReportANSI.ScatterLight.Value : false;
@@ -68,7 +68,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.CheckMarkings.Checked = _PCExportReportANSI.Markings.HasValue ? _PCExportReportANSI.Markings.Value : false;
             this.LbTester.Text = (_PCExportReportANSI.Employee == null ? null : _PCExportReportANSI.Employee.ToString()) + (_PCExportReportANSI.Employee2 == null ? null : " / " + _PCExportReportANSI.Employee2.ToString()) + (_PCExportReportANSI.Employee3 == null ? null : " / " + _PCExportReportANSI.Employee3.ToString()) + (_PCExportReportANSI.Employee4 == null ? null : " / " + _PCExportReportANSI.Employee4.ToString());
             this.xrLabel4.Text = _PCExportReportANSI.AuditEmp == null ? null : _PCExportReportANSI.AuditEmp.ToString();
-
+            this.xrLabel4.Text += " " + (_PCExportReportANSI.ReportDate.HasValue ? _PCExportReportANSI.ReportDate.Value.ToString("yyyy-MM-dd") : "");
+            //this.lbl_ApproverdDate.Text = _PCExportReportANSI.ReportDate.HasValue ? _PCExportReportANSI.ReportDate.Value.ToString("yyyy-MM-dd") : "";
             //对外观，加热，坐标等判定新增的 测试数量
 
             this.lbl1.Text = _PCExportReportANSI.ShouCeShu4.HasValue ? _PCExportReportANSI.ShouCeShu4.Value.ToString() : "";

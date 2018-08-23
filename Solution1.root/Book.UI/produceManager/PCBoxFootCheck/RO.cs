@@ -70,6 +70,13 @@ namespace Book.UI.produceManager.PCBoxFootCheck
                 this.lblCheckNum.Text = model.CheckNum.ToString();
                 this.lblPassNum.Text = model.PassNum.ToString();
                 this.lblProductUnit.Text = model.ProductUnit;
+                if (model.Product != null)
+                {
+                    if (string.IsNullOrEmpty(model.Product.CustomerProductName))
+                        this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(model.PronoteHeaderId, model.ProductId);
+                    else
+                        this.lbl_CustomerProductName.Text = model.Product.CustomerProductName;
+                }
 
                 //this.DataSource = model;
                 //this.TCFlap.DataBindings.Add("Text", this.DataSource, Model.PCBoxFootCheck.PRO_Flap);

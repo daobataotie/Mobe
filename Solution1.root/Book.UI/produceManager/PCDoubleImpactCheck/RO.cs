@@ -72,7 +72,14 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.lblInvoiceXOQuantity.Text = _pcdic.InvoiceXOQuantity.HasValue ? _pcdic.InvoiceXOQuantity.ToString() : "";
             this.lblPCDoubleImpactCheckCount.Text = _pcdic.PCDoubleImpactCheckCount.HasValue ? _pcdic.PCDoubleImpactCheckCount.ToString() : "";
             this.lbl_productunit.Text = _pcdic.ProductUnit == null ? "" : _pcdic.ProductUnit.ToString();
-            this.lbl_CustomerProductName.Text = _pcdic.Product == null ? "" : _pcdic.Product.CustomerProductName;
+            //this.lbl_CustomerProductName.Text = _pcdic.Product == null ? "" : _pcdic.Product.CustomerProductName;
+            if (_pcdic.Product != null)
+            {
+                if (string.IsNullOrEmpty(_pcdic.Product.CustomerProductName))
+                    this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(_pcdic.PronoteHeaderId, _pcdic.ProductId);
+                else
+                    this.lbl_CustomerProductName.Text = _pcdic.Product.CustomerProductName;
+            }
 
             //Details
             #region ¸ü¸ÄÏêÏ¸ÏÔÊ¾

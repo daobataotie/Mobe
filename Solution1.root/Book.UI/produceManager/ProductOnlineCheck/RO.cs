@@ -40,7 +40,14 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             this.lblCheckNum.Text = model.CheckNum == null ? "" : model.CheckNum.Value.ToString("0.##");
             this.lblPassNum.Text = model.PassNum == null ? "" : model.PassNum.Value.ToString("0.##");
             this.lblProductUnit.Text = model.ProductUnit;
-            this.lbl_CustomerProductName.Text = model.Product == null ? null : model.Product.CustomerProductName;
+            //this.lbl_CustomerProductName.Text = model.Product == null ? null : model.Product.CustomerProductName;
+            if (model.Product != null)
+            {
+                if (string.IsNullOrEmpty(model.Product.CustomerProductName))
+                    this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(model.PronoteHeaderId, model.ProductId);
+                else
+                    this.lbl_CustomerProductName.Text = model.Product.CustomerProductName;
+            }
 
             foreach (Model.ProductOnlineCheckDetail detail in model.Detail)
             {
