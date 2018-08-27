@@ -421,6 +421,12 @@ namespace Book.UI.produceManager.ProduceMaterial
 
         protected override void Delete()
         {
+            if (this.produceMaterialManager.IsDepotOut(this._produceMaterial.ProduceMaterialID))
+            {
+                MessageBox.Show("已出倉，請勿删除！", this.Text, MessageBoxButtons.OK);
+                return;
+            }
+
             if (this._produceMaterial == null)
                 return;
             if (MessageBox.Show(Properties.Resources.ConfirmToDelete, this.Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
