@@ -97,10 +97,15 @@ namespace Book.UI.produceManager.PCExportReportANSI
         protected override Book.UI.Settings.BasicData.BaseEditForm GetEditForm(object[] args)
         {
             Type type;
-            if (this.Text.Contains("AS") && !this.Text.Contains("ASTM"))
+            if (this.Text.Contains("AS") && !this.Text.Contains("ASTM") && !this.Text.Contains("2017"))
             {
                 type = typeof(ASEditForm);
                 return (ASEditForm)type.Assembly.CreateInstance(type.FullName, false, System.Reflection.BindingFlags.CreateInstance, null, args, null, null);
+            }
+            else if (this.Text.Contains("AS") && this.Text.Contains("2017"))
+            {
+                type = typeof(ASEditForm2017);
+                return (ASEditForm2017)type.Assembly.CreateInstance(type.FullName, false, System.Reflection.BindingFlags.CreateInstance, null, args, null, null);
             }
             else if (this.Text.Contains("CEEN"))
             {

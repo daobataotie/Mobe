@@ -45,6 +45,8 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.lbl_CompanyName = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.lbl_CustomerProductName = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblProductUnit = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblPassNum = new DevExpress.XtraReports.UI.XRLabel();
@@ -81,8 +83,6 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lbl_CustomerProductName = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -168,14 +168,14 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             resources.ApplyResources(this.TC_ZhePian, "TC_ZhePian");
             this.TC_ZhePian.Name = "TC_ZhePian";
             this.TC_ZhePian.StylePriority.UseTextAlignment = false;
-            this.TC_ZhePian.Weight = 0.33460278509371955;
+            this.TC_ZhePian.Weight = 0.39422390958034031;
             // 
             // TC_Exception
             // 
             resources.ApplyResources(this.TC_Exception, "TC_Exception");
             this.TC_Exception.Name = "TC_Exception";
             this.TC_Exception.StylePriority.UseTextAlignment = false;
-            this.TC_Exception.Weight = 0.50616684865848394;
+            this.TC_Exception.Weight = 0.44654572417186317;
             // 
             // TopMargin
             // 
@@ -229,6 +229,20 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             this.lbl_Id});
             resources.ApplyResources(this.PageHeader, "PageHeader");
             this.PageHeader.Name = "PageHeader";
+            // 
+            // lbl_CustomerProductName
+            // 
+            resources.ApplyResources(this.lbl_CustomerProductName, "lbl_CustomerProductName");
+            this.lbl_CustomerProductName.Name = "lbl_CustomerProductName";
+            this.lbl_CustomerProductName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_CustomerProductName.StylePriority.UseTextAlignment = false;
+            // 
+            // xrLabel13
+            // 
+            resources.ApplyResources(this.xrLabel13, "xrLabel13");
+            this.xrLabel13.Name = "xrLabel13";
+            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel13.StylePriority.UseTextAlignment = false;
             // 
             // lblProductUnit
             // 
@@ -353,14 +367,14 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             resources.ApplyResources(this.xrTableCell6, "xrTableCell6");
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
-            this.xrTableCell6.Weight = 0.87689582142713551;
+            this.xrTableCell6.Weight = 1.0331453312938694;
             // 
             // xrTableCell7
             // 
             resources.ApplyResources(this.xrTableCell7, "xrTableCell7");
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
-            this.xrTableCell7.Weight = 1.3265155312009984;
+            this.xrTableCell7.Weight = 1.1702660213342646;
             // 
             // lbl_ProductName
             // 
@@ -498,20 +512,6 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
-            // 
-            // xrLabel13
-            // 
-            resources.ApplyResources(this.xrLabel13, "xrLabel13");
-            this.xrLabel13.Name = "xrLabel13";
-            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel13.StylePriority.UseTextAlignment = false;
-            // 
-            // lbl_CustomerProductName
-            // 
-            resources.ApplyResources(this.lbl_CustomerProductName, "lbl_CustomerProductName");
-            this.lbl_CustomerProductName.Name = "lbl_CustomerProductName";
-            this.lbl_CustomerProductName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lbl_CustomerProductName.StylePriority.UseTextAlignment = false;
             // 
             // RO
             // 
