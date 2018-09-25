@@ -169,13 +169,13 @@ namespace Book.UI.produceManager.PCExportReportANSI
                     else if (name.Contains("入料检验单"))
                     {
                         PCIncomingCheck.RelationXOForm f = new Book.UI.produceManager.PCIncomingCheck.RelationXOForm(invoiceCusId);
-                        if (f._relationXO == null)
-                        {
-                            MessageBox.Show("无记录！", this.Text, MessageBoxButtons.OK);
-                            return;
-                        }
-                        else
-                            f.Show(this);
+                        //if (f._relationXO == null)       //不管有没有数据，这个窗口都要出来，往里面添加数据
+                        //{
+                        //    MessageBox.Show("无记录！", this.Text, MessageBoxButtons.OK);
+                        //    return;
+                        //}
+                        //else
+                        f.Show(this);
                     }
                     else if (name.Contains("物料采购订单"))
                     {
