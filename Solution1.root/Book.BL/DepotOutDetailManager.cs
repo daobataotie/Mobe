@@ -66,7 +66,7 @@ namespace Book.BL
 
         public DataTable SelectOutAndInDepot(DateTime startDate, DateTime endDate, string depotStart, string depotEnd, string productCategoryStart, string productCategoryEnd, string ProductIdStart, string ProductIdEnd)
         {
-            return accessor.SelectOutAndInDepot(startDate, endDate, depotStart, depotEnd,  productCategoryStart, productCategoryEnd, ProductIdStart, ProductIdEnd);
+            return accessor.SelectOutAndInDepot(startDate, endDate, depotStart, depotEnd, productCategoryStart, productCategoryEnd, ProductIdStart, ProductIdEnd);
         }
 
         public IList<Model.DepotOutDetail> SelectByDepotOutId(string id)
@@ -74,9 +74,9 @@ namespace Book.BL
             return accessor.SelectByDepotOutId(id);
         }
 
-        public IList<Model.DepotOutDetail> SelectByDateRange(DateTime startDate, DateTime endDate, string productid, string invoiceCusId)
+        public IList<Model.DepotOutDetail> SelectByDateRange(DateTime startDate, DateTime endDate, string productid, string invoiceCusId, string depotId)
         {
-            return accessor.SelectByDateRange(startDate, endDate, productid, invoiceCusId);
+            return accessor.SelectByDateRange(startDate, endDate, productid, invoiceCusId, depotId);
         }
     }
 }

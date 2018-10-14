@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{ECCEF5A5-BC9A-4CA4-9879-A8E1B170F7B6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -7564,6 +7564,10 @@
       <DependentUpon>SceneStock.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Query\MaterialOutAndInDepotForExcelForm.resx">
+      <DependentUpon>MaterialOutAndInDepotForExcelForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="ROStockPrompt.resx">
       <DependentUpon>ROStockPrompt.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -12716,6 +12720,12 @@
     </Compile>
     <Compile Include="Query\SceneStock.Designer.cs">
       <DependentUpon>SceneStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\MaterialOutAndInDepotForExcelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\MaterialOutAndInDepotForExcelForm.Designer.cs">
+      <DependentUpon>MaterialOutAndInDepotForExcelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ROStockPrompt.cs">
       <SubType>Component</SubType>

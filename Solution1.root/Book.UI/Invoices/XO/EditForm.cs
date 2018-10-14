@@ -1365,7 +1365,7 @@ namespace Book.UI.Invoices.XO
 
         private void newChooseCustomer2_EditValueChanged(object sender, EventArgs e)
         {
-            if (this.newChooseCustomer2.EditValue != null && this.action != "view")
+            if (this.newChooseCustomer2.EditValue != null)
             {
                 productlook = this.productManager.SelectProductByCustomer(newChooseCustomer2.EditValue as Model.Customer);
                 this.bindingSourceproduct.DataSource = productlook;

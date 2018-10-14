@@ -24,5 +24,7 @@ namespace Book.Model
         }
 
         public string ProductName { get; set; }
+
+        public double? DepotInQuantity { get; set; }
     }
 }

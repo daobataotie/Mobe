@@ -111,7 +111,7 @@ namespace Book.DA.SQLServer
             return sqlmapper.QueryForList<Model.DepotOutDetail>("DepotOutDetail.SelectByDepotOutId", id);
         }
 
-        public IList<Model.DepotOutDetail> SelectByDateRange(DateTime startDate, DateTime endDate, string productid, string invoiceCusId)
+        public IList<Model.DepotOutDetail> SelectByDateRange(DateTime startDate, DateTime endDate, string productid, string invoiceCusId, string depotId)
         {
             //StringBuilder sql = new StringBuilder("select d.DepotOutId,d.DepotOutDate,d.SourceType,d.InvioiceId,dd.DepotOutDetailQuantity,e.EmployeeName,p.ProductName,dp.Id from DepotOutDetail dd left join DepotOut d on dd.DepotOutId=d.DepotOutId left join Employee e on e.EmployeeId=d.EmployeeId left join DepotPosition dp on dp.DepotPositionId=dd.DepotPositionId left join Product p on p.ProductId=dd.ProductId where 1=1");
             StringBuilder sql = new StringBuilder("select d.DepotOutId,d.DepotOutDate,d.SourceType,d.InvioiceId,dd.DepotOutDetailQuantity,e.EmployeeName,p.ProductName,dp.Id,(isnull(xo.CustomerInvoiceXOId,'')+isnull(xo2.CustomerInvoiceXOId,'')) as invoiceCusId from DepotOutDetail dd left join DepotOut d on dd.DepotOutId=d.DepotOutId left join Employee e on e.EmployeeId=d.EmployeeId left join DepotPosition dp on dp.DepotPositionId=dd.DepotPositionId left join Product p on p.ProductId=dd.ProductId left join ProduceMaterial pm on d.InvioiceId=pm.ProduceMaterialID left join InvoiceXO xo on pm.InvoiceXOId=xo.InvoiceId Left join ProduceOtherMaterial pom on d.InvioiceId=pom.ProduceOtherMaterialId left join ProduceOtherCompact poc on pom.ProduceOtherCompactId=poc.ProduceOtherCompactId left join InvoiceXO xo2 on poc.InvoiceXOId=xo2.InvoiceId where 1=1");
@@ -120,6 +120,9 @@ namespace Book.DA.SQLServer
                 sql.Append(" And dd.ProductId='" + productid + "'");
             if (!string.IsNullOrEmpty(invoiceCusId))
                 sql.Append(" And (isnull(xo.CustomerInvoiceXOId,'')+isnull(xo2.CustomerInvoiceXOId,'')) ='" + invoiceCusId + "'");
+            if (!string.IsNullOrEmpty(depotId))
+                sql.Append(" and  d.DepotId='" + depotId + "'");
+
             sql.Append(" order by DepotOutId desc");
             return DataReaderBind<Model.DepotOutDetail>(sql.ToString(), null, CommandType.Text);
         }

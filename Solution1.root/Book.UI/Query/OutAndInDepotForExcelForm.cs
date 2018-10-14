@@ -24,6 +24,7 @@ namespace Book.UI.Query
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 this.btn_StartCategory.EditValue = f.SelectedItem;
+                this.btn_EndCategory.EditValue = f.SelectedItem;
             }
         }
 

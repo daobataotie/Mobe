@@ -26,7 +26,7 @@ namespace Book.DA
 
         IList<Model.DepotOutDetail> SelectByDepotOutId(string id);
 
-        IList<Model.DepotOutDetail> SelectByDateRange(DateTime startDate, DateTime endDate, string productid, string invoiceCusId);
+        IList<Model.DepotOutDetail> SelectByDateRange(DateTime startDate, DateTime endDate, string productid, string invoiceCusId ,string depotId);
     }
 }
 
