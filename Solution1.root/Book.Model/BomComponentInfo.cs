@@ -145,5 +145,9 @@ namespace Book.Model
         public bool isBaoCai { get; set; }
 
         public string ProductName { get; set; }
+
+        public string ReportInumber { get; set; }
+
+        public readonly static string PRO_ReportInumber = "ReportInumber";
     }
 }

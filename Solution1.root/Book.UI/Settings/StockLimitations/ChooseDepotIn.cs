@@ -66,5 +66,29 @@ namespace Book.UI.Settings.StockLimitations
             this._depotIn = this.bindingSourceDepotIn.Current as Model.DepotIn;
             this.DialogResult = DialogResult.OK;
         }
+
+        private void btn_ExportExcel_Click(object sender, EventArgs e)
+        {
+            IList<Model.DepotIn> list = this.bindingSourceDepotIn.DataSource as IList<Model.DepotIn>;
+            if (list == null || list.Count < 1)
+            {
+                MessageBox.Show("无数据！", this.Text, MessageBoxButtons.OK);
+                return;
+            }
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Title = "选择保存路径";
+            sfd.AddExtension = true;
+            sfd.DefaultExt = ".xlsx";
+            sfd.Filter = "Excel文件(*.xlsx)|*.xlsx";
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                this.gridView1.OptionsPrint.AutoWidth = true;
+
+                this.gridView1.ExportToXlsx(sfd.FileName, new DevExpress.XtraPrinting.XlsxExportOptions { ShowGridLines = true });
+
+                MessageBox.Show("导出成功！", this.Text);
+            }
+        }
     }
 }

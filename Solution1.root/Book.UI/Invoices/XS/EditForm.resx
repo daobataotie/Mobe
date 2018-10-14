@@ -126,13 +126,13 @@
   <data name="barButtonItemInvoice.Caption" xml:space="preserve">
     <value>Invoice</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>194, 17</value>
-  </data>
-  <data name="defaultLookAndFeel1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  </metadata>
+  <metadata name="defaultLookAndFeel1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </data>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnPlus.Location" type="System.Drawing.Point, System.Drawing">
     <value>309, 265</value>
   </data>
@@ -174,7 +174,7 @@
     <value>False</value>
   </data>
   <data name="textEditOtherChargeNote.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 21</value>
+    <value>427, 21</value>
   </data>
   <data name="textEditOtherChargeNote.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -207,7 +207,7 @@
     <value>False</value>
   </data>
   <data name="textEditOtherChargeMoneyset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
+    <value>143, 22</value>
   </data>
   <data name="textEditOtherChargeMoneyset.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -225,10 +225,10 @@
     <value>6</value>
   </data>
   <data name="EmpAudit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>776, 367</value>
+    <value>812, 367</value>
   </data>
   <data name="EmpAudit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 21</value>
+    <value>166, 21</value>
   </data>
   <data name="EmpAudit.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -249,10 +249,10 @@
     <value>0</value>
   </data>
   <data name="calcInvoiceAllowance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>401, 67</value>
+    <value>330, 67</value>
   </data>
   <data name="calcInvoiceAllowance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 21</value>
+    <value>209, 21</value>
   </data>
   <data name="calcInvoiceAllowance.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -270,7 +270,7 @@
     <value>8</value>
   </data>
   <data name="textEditAuditState.Location" type="System.Drawing.Point, System.Drawing">
-    <value>601, 367</value>
+    <value>602, 367</value>
   </data>
   <data name="textEditAuditState.Properties.AutoHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -285,7 +285,7 @@
     <value>False</value>
   </data>
   <data name="textEditAuditState.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 21</value>
+    <value>152, 21</value>
   </data>
   <data name="textEditAuditState.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -303,7 +303,7 @@
     <value>9</value>
   </data>
   <data name="calcEditInvoiceTotalset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>810, 341</value>
+    <value>812, 341</value>
   </data>
   <data name="calcEditInvoiceTotalset.Properties.AutoHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -318,7 +318,7 @@
     <value>False</value>
   </data>
   <data name="calcEditInvoiceTotalset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 22</value>
+    <value>166, 22</value>
   </data>
   <data name="calcEditInvoiceTotalset.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -638,13 +638,13 @@
     <value>16</value>
   </data>
   <data name="comboBoxConveyanceMethodId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>686, 67</value>
+    <value>602, 67</value>
   </data>
   <data name="comboBoxConveyanceMethodId.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
     <value>Combo</value>
   </data>
   <data name="comboBoxConveyanceMethodId.Size" type="System.Drawing.Size, System.Drawing">
-    <value>292, 21</value>
+    <value>376, 21</value>
   </data>
   <data name="comboBoxConveyanceMethodId.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -662,10 +662,10 @@
     <value>17</value>
   </data>
   <data name="newChooseXScustomer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>332, 367</value>
+    <value>335, 42</value>
   </data>
   <data name="newChooseXScustomer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 21</value>
+    <value>204, 21</value>
   </data>
   <data name="newChooseXScustomer.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -706,14 +706,14 @@
   <data name="lookUpEditFreightCompany.Properties.Columns5" xml:space="preserve">
     <value>名稱</value>
   </data>
-  <data name="bindingSourceCompany.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="bindingSourceCompany.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>325, 17</value>
-  </data>
+  </metadata>
   <data name="lookUpEditFreightCompany.Properties.NullText" xml:space="preserve">
     <value />
   </data>
   <data name="lookUpEditFreightCompany.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 21</value>
+    <value>171, 21</value>
   </data>
   <data name="lookUpEditFreightCompany.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -752,10 +752,10 @@
     <value>20</value>
   </data>
   <data name="textEditSongHuoAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>711, 42</value>
+    <value>854, 42</value>
   </data>
   <data name="textEditSongHuoAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>267, 21</value>
+    <value>124, 21</value>
   </data>
   <data name="textEditSongHuoAddress.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -773,10 +773,10 @@
     <value>21</value>
   </data>
   <data name="buttonEditDepot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>687, 17</value>
+    <value>602, 17</value>
   </data>
   <data name="buttonEditDepot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>291, 21</value>
+    <value>376, 21</value>
   </data>
   <data name="buttonEditDepot.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -797,7 +797,7 @@
     <value>101, 42</value>
   </data>
   <data name="buttonEditCompany.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 21</value>
+    <value>171, 21</value>
   </data>
   <data name="buttonEditCompany.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -815,10 +815,10 @@
     <value>23</value>
   </data>
   <data name="buttonEditEmployee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>406, 42</value>
+    <value>602, 42</value>
   </data>
   <data name="buttonEditEmployee.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 21</value>
+    <value>164, 21</value>
   </data>
   <data name="buttonEditEmployee.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -840,10 +840,10 @@
     <value>Off</value>
   </data>
   <data name="textEditInvoiceId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>406, 17</value>
+    <value>335, 17</value>
   </data>
   <data name="textEditInvoiceId.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 21</value>
+    <value>204, 21</value>
   </data>
   <data name="textEditInvoiceId.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -867,7 +867,7 @@
     <value>Combo</value>
   </data>
   <data name="dateEditInvoiceDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 21</value>
+    <value>171, 21</value>
   </data>
   <data name="dateEditInvoiceDate.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -884,9 +884,9 @@
   <data name="&gt;&gt;dateEditInvoiceDate.ZOrder" xml:space="preserve">
     <value>26</value>
   </data>
-  <data name="bindingSourceDetail.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="bindingSourceDetail.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>519, 17</value>
-  </data>
+  </metadata>
   <data name="gridControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 115</value>
   </data>
@@ -1019,9 +1019,9 @@
   <data name="repositoryItemLookUpEdit1.Columns5" xml:space="preserve">
     <value>库存</value>
   </data>
-  <data name="bindingSourceDepotPosition.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="bindingSourceDepotPosition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>875, 17</value>
-  </data>
+  </metadata>
   <data name="repositoryItemLookUpEdit1.NullText" xml:space="preserve">
     <value />
   </data>
@@ -1391,17 +1391,17 @@
   <data name="layoutControlItem32.Text" xml:space="preserve">
     <value>其他费用说明:</value>
   </data>
-  <data name="layoutControlItem10.CustomizationFormText" xml:space="preserve">
-    <value>出货客户:</value>
-  </data>
-  <data name="layoutControlItem10.Text" xml:space="preserve">
-    <value>出货客户：</value>
-  </data>
   <data name="layoutControlItem19.CustomizationFormText" xml:space="preserve">
     <value>送货地址:</value>
   </data>
   <data name="layoutControlItem19.Text" xml:space="preserve">
     <value>送货地址:</value>
+  </data>
+  <data name="layoutControlItem10.CustomizationFormText" xml:space="preserve">
+    <value>出货客户:</value>
+  </data>
+  <data name="layoutControlItem10.Text" xml:space="preserve">
+    <value>出货客户：</value>
   </data>
   <data name="layoutControlGroup1.Text" xml:space="preserve">
     <value>Root</value>
@@ -1427,9 +1427,9 @@
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="bindingSourceProduct.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="bindingSourceProduct.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>691, 17</value>
-  </data>
+  </metadata>
   <data name="emptySpaceItem5.CustomizationFormText" xml:space="preserve">
     <value>emptySpaceItem5</value>
   </data>
@@ -1442,9 +1442,9 @@
   <data name="emptySpaceItem8.Text" xml:space="preserve">
     <value>emptySpaceItem8</value>
   </data>
-  <data name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1097, 17</value>
-  </data>
+  </metadata>
   <data name="repositoryItemGridLookUpEdit1.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
     <value>Combo</value>
   </data>
@@ -1514,12 +1514,12 @@
   <data name="layoutControlItem31.Text" xml:space="preserve">
     <value>其他费用:</value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>83</value>
-  </data>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 14</value>
   </data>
@@ -1763,6 +1763,12 @@
   <data name="&gt;&gt;gridColumn5.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;gridColumn6.Name" xml:space="preserve">
+    <value>gridColumn6</value>
+  </data>
+  <data name="&gt;&gt;gridColumn6.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;repositoryItemSpinEdit2.Name" xml:space="preserve">
     <value>repositoryItemSpinEdit2</value>
   </data>
@@ -1919,16 +1925,16 @@
   <data name="&gt;&gt;layoutControlItem32.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem10.Name" xml:space="preserve">
-    <value>layoutControlItem10</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItem10.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;layoutControlItem19.Name" xml:space="preserve">
     <value>layoutControlItem19</value>
   </data>
   <data name="&gt;&gt;layoutControlItem19.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem10.Name" xml:space="preserve">
+    <value>layoutControlItem10</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem10.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;bindingSourceProduct.Name" xml:space="preserve">
@@ -2062,12 +2068,6 @@
   </data>
   <data name="&gt;&gt;barButtonItemInvoice.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;gridColumn6.Name" xml:space="preserve">
-    <value>gridColumn6</value>
-  </data>
-  <data name="&gt;&gt;gridColumn6.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>EditForm</value>

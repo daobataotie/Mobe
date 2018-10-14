@@ -57,5 +57,10 @@ namespace Book.DA.SQLServer
             string sql = "select bom.ProductId,UseQuantity from BomComponentInfo bom left join Product p on p.ProductId=bom.ProductId where BomId='" + bomId + "' and UseQuantity>0 and p.ProductCategoryId<>'14dd04b7-b42e-4e7a-817f-00c397fc9ab9'"; //原料不需要 色母/色粉
             return this.DataReaderBind<Model.BomComponentInfo>(sql, null, CommandType.Text);
         }
+
+        public IList<Book.Model.BomComponentInfo> SelectByProductId(string bomId)
+        {
+            return sqlmapper.QueryForList<Model.BomComponentInfo>("BomComponentInfo.SelectByProductId", bomId);
+        }
     }
 }

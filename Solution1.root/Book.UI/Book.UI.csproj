@@ -10063,6 +10063,18 @@
       <DependentUpon>MaterialXR.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ProduceManager\ROBOM.resx">
+      <DependentUpon>ROBOM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ProduceManager\ROBOMPackage.resx">
+      <DependentUpon>ROBOMPackage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ProduceManager\ROBOMProcess.resx">
+      <DependentUpon>ROBOMProcess.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings\ProduceManager\Techonlogy\ChooseMachineForm.resx">
       <DependentUpon>ChooseMachineForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -12859,6 +12871,24 @@
     </Compile>
     <Compile Include="Settings\ProduceManager\BomManagerForm2.Designer.cs">
       <DependentUpon>BomManagerForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ProduceManager\ROBOM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings\ProduceManager\ROBOM.Designer.cs">
+      <DependentUpon>ROBOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ProduceManager\ROBOMPackage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings\ProduceManager\ROBOMPackage.Designer.cs">
+      <DependentUpon>ROBOMPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ProduceManager\ROBOMProcess.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings\ProduceManager\ROBOMProcess.Designer.cs">
+      <DependentUpon>ROBOMProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\StockLimitations\AssemblySiteDifferenceRO.cs">
       <SubType>Component</SubType>

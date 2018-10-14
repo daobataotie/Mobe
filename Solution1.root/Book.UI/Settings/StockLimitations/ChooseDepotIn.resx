@@ -124,8 +124,33 @@
     <value>开始日期：</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_ExportExcel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>594, 62</value>
+  </data>
+  <data name="btn_ExportExcel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 44</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btn_ExportExcel.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="btn_ExportExcel.Text" xml:space="preserve">
+    <value>导出Excel</value>
+  </data>
+  <data name="&gt;&gt;btn_ExportExcel.Name" xml:space="preserve">
+    <value>btn_ExportExcel</value>
+  </data>
+  <data name="&gt;&gt;btn_ExportExcel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btn_ExportExcel.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;btn_ExportExcel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="lookUpEditDepot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 87</value>
+    <value>76, 86</value>
   </data>
   <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="lookUpEditDepot.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
@@ -150,9 +175,8 @@
     <value />
   </data>
   <data name="lookUpEditDepot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 21</value>
+    <value>243, 21</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lookUpEditDepot.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
@@ -166,13 +190,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;lookUpEditDepot.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="btn_Cancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>465, 314</value>
+    <value>539, 396</value>
   </data>
   <data name="btn_Cancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 22</value>
+    <value>144, 22</value>
   </data>
   <data name="btn_Cancel.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -190,13 +214,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btn_Cancel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="btn_OK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>333, 314</value>
+    <value>386, 396</value>
   </data>
   <data name="btn_OK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="btn_OK.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -214,13 +238,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btn_OK.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="newChooseSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>370, 87</value>
+    <value>387, 86</value>
   </data>
   <data name="newChooseSupplier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 21</value>
+    <value>203, 21</value>
   </data>
   <data name="newChooseSupplier.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -235,13 +259,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;newChooseSupplier.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="newChooseEmployee0.Location" type="System.Drawing.Point, System.Drawing">
-    <value>370, 63</value>
+    <value>387, 62</value>
   </data>
   <data name="newChooseEmployee0.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 21</value>
+    <value>203, 21</value>
   </data>
   <data name="newChooseEmployee0.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -256,13 +280,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;newChooseEmployee0.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="newChooseEmployee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 63</value>
+    <value>76, 62</value>
   </data>
   <data name="newChooseEmployee.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 21</value>
+    <value>243, 21</value>
   </data>
   <data name="newChooseEmployee.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -277,13 +301,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;newChooseEmployee.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="txt_DepotInId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>370, 38</value>
+    <value>387, 37</value>
   </data>
   <data name="txt_DepotInId.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 21</value>
+    <value>203, 21</value>
   </data>
   <data name="txt_DepotInId.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -298,13 +322,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txt_DepotInId.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="btne_Product.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 38</value>
+    <value>76, 37</value>
   </data>
   <data name="btne_Product.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 21</value>
+    <value>243, 21</value>
   </data>
   <data name="btne_Product.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -319,16 +343,16 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btne_Product.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="date_End.Location" type="System.Drawing.Point, System.Drawing">
-    <value>302, 12</value>
+    <value>387, 12</value>
   </data>
   <data name="date_End.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
     <value>Combo</value>
   </data>
   <data name="date_End.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 21</value>
+    <value>203, 21</value>
   </data>
   <data name="date_End.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -343,37 +367,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;date_End.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="btn_Serach.Location" type="System.Drawing.Point, System.Drawing">
-    <value>460, 12</value>
-  </data>
-  <data name="btn_Serach.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
-  </data>
-  <data name="btn_Serach.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="btn_Serach.Text" xml:space="preserve">
-    <value>查询</value>
-  </data>
-  <data name="&gt;&gt;btn_Serach.Name" xml:space="preserve">
-    <value>btn_Serach</value>
-  </data>
-  <data name="&gt;&gt;btn_Serach.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btn_Serach.Parent" xml:space="preserve">
-    <value>layoutControl1</value>
-  </data>
-  <data name="&gt;&gt;btn_Serach.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
   <metadata name="bindingSourceDepotIn.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="gridControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 112</value>
+    <value>12, 111</value>
   </data>
   <data name="gridColumn1.Caption" xml:space="preserve">
     <value>编号</value>
@@ -384,6 +384,9 @@
   <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="gridColumn1.Width" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
   <data name="gridColumn2.Caption" xml:space="preserve">
     <value>日期</value>
   </data>
@@ -392,6 +395,9 @@
   </data>
   <data name="gridColumn2.VisibleIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="gridColumn2.Width" type="System.Int32, mscorlib">
+    <value>81</value>
   </data>
   <data name="gridColumn3.Caption" xml:space="preserve">
     <value>操作员</value>
@@ -402,6 +408,9 @@
   <data name="gridColumn3.VisibleIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="gridColumn3.Width" type="System.Int32, mscorlib">
+    <value>63</value>
+  </data>
   <data name="gridColumn4.Caption" xml:space="preserve">
     <value>入库人</value>
   </data>
@@ -410,6 +419,9 @@
   </data>
   <data name="gridColumn4.VisibleIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="gridColumn4.Width" type="System.Int32, mscorlib">
+    <value>63</value>
   </data>
   <data name="gridColumn5.Caption" xml:space="preserve">
     <value>库房</value>
@@ -420,6 +432,9 @@
   <data name="gridColumn5.VisibleIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
+  <data name="gridColumn5.Width" type="System.Int32, mscorlib">
+    <value>92</value>
+  </data>
   <data name="gridColumn6.Caption" xml:space="preserve">
     <value>供应商</value>
   </data>
@@ -429,8 +444,11 @@
   <data name="gridColumn6.VisibleIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
+  <data name="gridColumn6.Width" type="System.Int32, mscorlib">
+    <value>103</value>
+  </data>
   <data name="gridColumn7.Caption" xml:space="preserve">
-    <value>描述</value>
+    <value>商品名称</value>
   </data>
   <data name="gridColumn7.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -438,8 +456,11 @@
   <data name="gridColumn7.VisibleIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
+  <data name="gridColumn7.Width" type="System.Int32, mscorlib">
+    <value>158</value>
+  </data>
   <data name="gridControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>576, 198</value>
+    <value>671, 281</value>
   </data>
   <data name="gridControl1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -463,7 +484,7 @@
     <value>Combo</value>
   </data>
   <data name="date_Start.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 21</value>
+    <value>243, 21</value>
   </data>
   <data name="date_Start.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -479,6 +500,30 @@
   </data>
   <data name="&gt;&gt;date_Start.ZOrder" xml:space="preserve">
     <value>15</value>
+  </data>
+  <data name="btn_Serach.Location" type="System.Drawing.Point, System.Drawing">
+    <value>594, 12</value>
+  </data>
+  <data name="btn_Serach.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 46</value>
+  </data>
+  <data name="btn_Serach.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="btn_Serach.Text" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="&gt;&gt;btn_Serach.Name" xml:space="preserve">
+    <value>btn_Serach</value>
+  </data>
+  <data name="&gt;&gt;btn_Serach.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btn_Serach.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;btn_Serach.ZOrder" xml:space="preserve">
+    <value>16</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -532,12 +577,6 @@
   <data name="layoutControlItem8.Text" xml:space="preserve">
     <value>入库人：</value>
   </data>
-  <data name="layoutControlItem11.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem11</value>
-  </data>
-  <data name="layoutControlItem11.Text" xml:space="preserve">
-    <value>layoutControlItem11</value>
-  </data>
   <data name="layoutControlItem10.CustomizationFormText" xml:space="preserve">
     <value>供应商：</value>
   </data>
@@ -568,11 +607,23 @@
   <data name="layoutControlItem9.Text" xml:space="preserve">
     <value>库房：</value>
   </data>
+  <data name="layoutControlItem11.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem11</value>
+  </data>
+  <data name="layoutControlItem11.Text" xml:space="preserve">
+    <value>layoutControlItem11</value>
+  </data>
+  <data name="layoutControlItem14.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem14</value>
+  </data>
+  <data name="layoutControlItem14.Text" xml:space="preserve">
+    <value>layoutControlItem14</value>
+  </data>
   <data name="layoutControlGroup1.Text" xml:space="preserve">
     <value>layoutControlGroup1</value>
   </data>
   <data name="layoutControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>600, 348</value>
+    <value>695, 430</value>
   </data>
   <data name="layoutControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -599,7 +650,7 @@
     <value>7, 14</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>600, 348</value>
+    <value>695, 430</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>查询条件</value>
@@ -752,6 +803,12 @@
     <value>layoutControlItem9</value>
   </data>
   <data name="&gt;&gt;layoutControlItem9.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem14.Name" xml:space="preserve">
+    <value>layoutControlItem14</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem14.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

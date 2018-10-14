@@ -33,5 +33,9 @@
       
       ]]>
     </select>
+
+    <select id="SelectByProductId" resultMap="BomComponentInfoResult" parameterClass="string">
+      select * from BomComponentInfo where BomId =(select BomId from BomParentPartInfo where ProductId=#value#) order by IndexOfBom
+    </select>
   </statements>
 </sqlMap>

@@ -22,5 +22,7 @@ namespace Book.Model
             get { return details; }
             set { details = value; }
         }
+
+        public string ProductName { get; set; }
     }
 }
