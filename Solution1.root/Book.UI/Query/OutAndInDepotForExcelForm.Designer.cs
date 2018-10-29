@@ -218,7 +218,7 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(258, 25);
-            this.layoutControlItem1.Text = "其实商品类别：";
+            this.layoutControlItem1.Text = "起始商品类别：";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem2

@@ -168,6 +168,7 @@
             this.barButtonItem500 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem501 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem504 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem506 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem49 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem189 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem195 = new DevExpress.XtraBars.BarButtonItem();
@@ -667,7 +668,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.barButtonItem506 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
@@ -2433,6 +2433,13 @@
             this.barButtonItem504.Id = 666;
             this.barButtonItem504.Name = "barButtonItem504";
             this.barButtonItem504.Tag = "Settings.StockLimitations.AssemblySiteInventoryForm";
+            // 
+            // barButtonItem506
+            // 
+            resources.ApplyResources(this.barButtonItem506, "barButtonItem506");
+            this.barButtonItem506.Id = 668;
+            this.barButtonItem506.Name = "barButtonItem506";
+            this.barButtonItem506.Tag = "Settings.StockLimitations.AssemblySiteDifferenceForm";
             // 
             // barSubItem49
             // 
@@ -6334,13 +6341,6 @@
             // helpProvider1
             // 
             resources.ApplyResources(this.helpProvider1, "helpProvider1");
-            // 
-            // barButtonItem506
-            // 
-            resources.ApplyResources(this.barButtonItem506, "barButtonItem506");
-            this.barButtonItem506.Id = 668;
-            this.barButtonItem506.Name = "barButtonItem506";
-            this.barButtonItem506.Tag = "Settings.StockLimitations.AssemblySiteDifferenceForm";
             // 
             // MainForm
             // 

@@ -10,296 +10,296 @@
 using System;
 namespace Book.Model
 {
-	public partial class PCPGOnlineCheck
-	{
-		#region Data
+    public partial class PCPGOnlineCheck
+    {
+        #region Data
 
-		/// <summary>
-		/// 
-		/// </summary>
-		private string _pCPGOnlineCheckId;
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private string _employeeId;
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private string _customerId;
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private DateTime? _insertTime;
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private DateTime? _updateTime;
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private DateTime? _pCPGOnlineCheckDate;
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private string _pCPGOnlineCheckDesc;
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private int? _pCPGOnlineCheckType;
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private string _invoiceCusXOId;
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private string _fromPCId;
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private string _productId;
-		
-		/// <summary>
-		/// 客户订单数量
-		/// </summary>
-		private double? _invoiceXOQuantity;
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		private string _workHouseId;
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _pCPGOnlineCheckId;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _employeeId;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _customerId;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private DateTime? _insertTime;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private DateTime? _updateTime;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private DateTime? _pCPGOnlineCheckDate;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _pCPGOnlineCheckDesc;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private int? _pCPGOnlineCheckType;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _invoiceCusXOId;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _fromPCId;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _productId;
+
+        /// <summary>
+        /// 客户订单数量
+        /// </summary>
+        private double? _invoiceXOQuantity;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _workHouseId;
 
         private int? _auditState;
 
         private string _auditEmpId;
 
         private Employee _auditEmp;
-		
-		/// <summary>
-		/// 产品
-		/// </summary>
-		private Product _product;
-		/// <summary>
-		/// 客户
-		/// </summary>
-		private Customer _customer;
-		/// <summary>
-		/// 员工
-		/// </summary>
-		private Employee _employee;
-		/// <summary>
-		/// 工作中心
-		/// </summary>
-		private WorkHouse _workHouse;
-		 
-		#endregion
-		
-		#region Properties
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public string PCPGOnlineCheckId
-		{
-			get 
-			{
-				return this._pCPGOnlineCheckId;
-			}
-			set 
-			{
-				this._pCPGOnlineCheckId = value;
-			}
-		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public string EmployeeId
-		{
-			get 
-			{
-				return this._employeeId;
-			}
-			set 
-			{
-				this._employeeId = value;
-			}
-		}
+        /// <summary>
+        /// 产品
+        /// </summary>
+        private Product _product;
+        /// <summary>
+        /// 客户
+        /// </summary>
+        private Customer _customer;
+        /// <summary>
+        /// 员工
+        /// </summary>
+        private Employee _employee;
+        /// <summary>
+        /// 工作中心
+        /// </summary>
+        private WorkHouse _workHouse;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public string CustomerId
-		{
-			get 
-			{
-				return this._customerId;
-			}
-			set 
-			{
-				this._customerId = value;
-			}
-		}
+        #endregion
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? InsertTime
-		{
-			get 
-			{
-				return this._insertTime;
-			}
-			set 
-			{
-				this._insertTime = value;
-			}
-		}
+        #region Properties
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? UpdateTime
-		{
-			get 
-			{
-				return this._updateTime;
-			}
-			set 
-			{
-				this._updateTime = value;
-			}
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PCPGOnlineCheckId
+        {
+            get
+            {
+                return this._pCPGOnlineCheckId;
+            }
+            set
+            {
+                this._pCPGOnlineCheckId = value;
+            }
+        }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? PCPGOnlineCheckDate
-		{
-			get 
-			{
-				return this._pCPGOnlineCheckDate;
-			}
-			set 
-			{
-				this._pCPGOnlineCheckDate = value;
-			}
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public string EmployeeId
+        {
+            get
+            {
+                return this._employeeId;
+            }
+            set
+            {
+                this._employeeId = value;
+            }
+        }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public string PCPGOnlineCheckDesc
-		{
-			get 
-			{
-				return this._pCPGOnlineCheckDesc;
-			}
-			set 
-			{
-				this._pCPGOnlineCheckDesc = value;
-			}
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public string CustomerId
+        {
+            get
+            {
+                return this._customerId;
+            }
+            set
+            {
+                this._customerId = value;
+            }
+        }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public int? PCPGOnlineCheckType
-		{
-			get 
-			{
-				return this._pCPGOnlineCheckType;
-			}
-			set 
-			{
-				this._pCPGOnlineCheckType = value;
-			}
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? InsertTime
+        {
+            get
+            {
+                return this._insertTime;
+            }
+            set
+            {
+                this._insertTime = value;
+            }
+        }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public string InvoiceCusXOId
-		{
-			get 
-			{
-				return this._invoiceCusXOId;
-			}
-			set 
-			{
-				this._invoiceCusXOId = value;
-			}
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? UpdateTime
+        {
+            get
+            {
+                return this._updateTime;
+            }
+            set
+            {
+                this._updateTime = value;
+            }
+        }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public string FromPCId
-		{
-			get 
-			{
-				return this._fromPCId;
-			}
-			set 
-			{
-				this._fromPCId = value;
-			}
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime? PCPGOnlineCheckDate
+        {
+            get
+            {
+                return this._pCPGOnlineCheckDate;
+            }
+            set
+            {
+                this._pCPGOnlineCheckDate = value;
+            }
+        }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public string ProductId
-		{
-			get 
-			{
-				return this._productId;
-			}
-			set 
-			{
-				this._productId = value;
-			}
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PCPGOnlineCheckDesc
+        {
+            get
+            {
+                return this._pCPGOnlineCheckDesc;
+            }
+            set
+            {
+                this._pCPGOnlineCheckDesc = value;
+            }
+        }
 
-		/// <summary>
-		/// 客户订单数量
-		/// </summary>
-		public double? InvoiceXOQuantity
-		{
-			get 
-			{
-				return this._invoiceXOQuantity;
-			}
-			set 
-			{
-				this._invoiceXOQuantity = value;
-			}
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? PCPGOnlineCheckType
+        {
+            get
+            {
+                return this._pCPGOnlineCheckType;
+            }
+            set
+            {
+                this._pCPGOnlineCheckType = value;
+            }
+        }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public string WorkHouseId
-		{
-			get 
-			{
-				return this._workHouseId;
-			}
-			set 
-			{
-				this._workHouseId = value;
-			}
-		}
+        /// <summary>
+        /// 
+        /// </summary>
+        public string InvoiceCusXOId
+        {
+            get
+            {
+                return this._invoiceCusXOId;
+            }
+            set
+            {
+                this._invoiceCusXOId = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string FromPCId
+        {
+            get
+            {
+                return this._fromPCId;
+            }
+            set
+            {
+                this._fromPCId = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ProductId
+        {
+            get
+            {
+                return this._productId;
+            }
+            set
+            {
+                this._productId = value;
+            }
+        }
+
+        /// <summary>
+        /// 客户订单数量
+        /// </summary>
+        public double? InvoiceXOQuantity
+        {
+            get
+            {
+                return this._invoiceXOQuantity;
+            }
+            set
+            {
+                this._invoiceXOQuantity = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string WorkHouseId
+        {
+            get
+            {
+                return this._workHouseId;
+            }
+            set
+            {
+                this._workHouseId = value;
+            }
+        }
         public int? AuditState
         {
             get
@@ -337,136 +337,154 @@ namespace Book.Model
             }
 
         }
-	
-		/// <summary>
-		/// 产品
-		/// </summary>
-		public virtual Product Product
-		{
-			get
-			{
-				return this._product;
-			}
-			set
-			{
-				this._product = value;
-			}
-			
-		}
-		/// <summary>
-		/// 客户
-		/// </summary>
-		public virtual Customer Customer
-		{
-			get
-			{
-				return this._customer;
-			}
-			set
-			{
-				this._customer = value;
-			}
-			
-		}
-		/// <summary>
-		/// 员工
-		/// </summary>
-		public virtual Employee Employee
-		{
-			get
-			{
-				return this._employee;
-			}
-			set
-			{
-				this._employee = value;
-			}
-			
-		}
-		/// <summary>
-		/// 工作中心
-		/// </summary>
-		public virtual WorkHouse WorkHouse
-		{
-			get
-			{
-				return this._workHouse;
-			}
-			set
-			{
-				this._workHouse = value;
-			}
-			
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_PCPGOnlineCheckId = "PCPGOnlineCheckId";
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_EmployeeId = "EmployeeId";
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_CustomerId = "CustomerId";
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_InsertTime = "InsertTime";
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_UpdateTime = "UpdateTime";
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_PCPGOnlineCheckDate = "PCPGOnlineCheckDate";
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_PCPGOnlineCheckDesc = "PCPGOnlineCheckDesc";
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_PCPGOnlineCheckType = "PCPGOnlineCheckType";
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_InvoiceCusXOId = "InvoiceCusXOId";
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_FromPCId = "FromPCId";
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_ProductId = "ProductId";
-		
-		/// <summary>
-		/// 客户订单数量
-		/// </summary>
-		public readonly static string PRO_InvoiceXOQuantity = "InvoiceXOQuantity";
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		public readonly static string PRO_WorkHouseId = "WorkHouseId";
+
+        /// <summary>
+        /// 产品
+        /// </summary>
+        public virtual Product Product
+        {
+            get
+            {
+                return this._product;
+            }
+            set
+            {
+                this._product = value;
+            }
+
+        }
+        /// <summary>
+        /// 客户
+        /// </summary>
+        public virtual Customer Customer
+        {
+            get
+            {
+                return this._customer;
+            }
+            set
+            {
+                this._customer = value;
+            }
+
+        }
+        /// <summary>
+        /// 员工
+        /// </summary>
+        public virtual Employee Employee
+        {
+            get
+            {
+                return this._employee;
+            }
+            set
+            {
+                this._employee = value;
+            }
+
+        }
+        /// <summary>
+        /// 工作中心
+        /// </summary>
+        public virtual WorkHouse WorkHouse
+        {
+            get
+            {
+                return this._workHouse;
+            }
+            set
+            {
+                this._workHouse = value;
+            }
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_PCPGOnlineCheckId = "PCPGOnlineCheckId";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_EmployeeId = "EmployeeId";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_CustomerId = "CustomerId";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_InsertTime = "InsertTime";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_UpdateTime = "UpdateTime";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_PCPGOnlineCheckDate = "PCPGOnlineCheckDate";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_PCPGOnlineCheckDesc = "PCPGOnlineCheckDesc";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_PCPGOnlineCheckType = "PCPGOnlineCheckType";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_InvoiceCusXOId = "InvoiceCusXOId";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_FromPCId = "FromPCId";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_ProductId = "ProductId";
+
+        /// <summary>
+        /// 客户订单数量
+        /// </summary>
+        public readonly static string PRO_InvoiceXOQuantity = "InvoiceXOQuantity";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public readonly static string PRO_WorkHouseId = "WorkHouseId";
 
         public readonly static string PRO_AuditState = "AuditState";
 
         public readonly static string PRO_AuditEmpId = "AuditEmpId";
 
-		#endregion
-	}
+        #endregion
+
+        private string _invoiceXOId;
+
+        public string InvoiceXOId
+        {
+            get { return _invoiceXOId; }
+            set { _invoiceXOId = value; }
+        }
+
+        private InvoiceXO _invoiceXO;
+
+        public InvoiceXO InvoiceXO
+        {
+            get { return _invoiceXO; }
+            set { _invoiceXO = value; }
+        }
+
+        public static string PRO_InvoiceXOId = "InvoiceXOId";
+    }
 }

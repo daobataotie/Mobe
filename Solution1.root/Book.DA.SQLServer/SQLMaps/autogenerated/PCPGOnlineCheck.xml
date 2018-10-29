@@ -20,12 +20,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="InvoiceXOQuantity" column="InvoiceXOQuantity" />
       <result property="WorkHouseId" column="WorkHouseId" />
       <result property="AuditState" column="AuditState" />
-      <result property="AuditEmpId" column="AuditEmpId" /> 
+      <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="InvoiceXOId" column="InvoiceXOId"/>
       <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
       <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="WorkHouse" column="WorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
       <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo"/>
     </resultMap>
   </resultMaps>
 
@@ -127,7 +129,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[InvoiceXOQuantity],
 				[WorkHouseId],
         [AuditState],
-        [AuditEmpId]
+        [AuditEmpId],
+        [InvoiceXOId]
         
 			FROM
 				[dbo].[PCPGOnlineCheck]
@@ -196,7 +199,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[InvoiceXOQuantity],
 				[WorkHouseId],
         [AuditState],
-        [AuditEmpId]
+        [AuditEmpId],
+        [InvoiceXOId]
 			) 
 			VALUES 
 			(
@@ -214,7 +218,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#InvoiceXOQuantity#,
 				#WorkHouseId#,
         #AuditState#,
-        #AuditEmpId#
+        #AuditEmpId#,
+        #InvoiceXOId#
 			)
              ]]>
     </insert>
@@ -235,7 +240,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[InvoiceXOQuantity] = #InvoiceXOQuantity#,
 				[WorkHouseId] = #WorkHouseId#,
         [AuditState]=#AuditState#,        
-        [AuditEmpId]=#AuditEmpId#
+        [AuditEmpId]=#AuditEmpId#,
+        [InvoiceXOId]=#InvoiceXOId#
 			WHERE
 				[PCPGOnlineCheckId] = #PCPGOnlineCheckId#
                     ]]>

@@ -55,12 +55,12 @@ namespace Book.DA.SQLServer
 
 
 
-            StringBuilder sql = new StringBuilder("SELECT PCPGOnlineCheckId,PCPGOnlineCheckDate,InvoiceCusXOId,(SELECT EmployeeName FROM Employee WHERE Employee.EmployeeId = PCPGOnlineCheck.EmployeeId) AS EmployeeName,(SELECT ProductName FROM Product WHERE Product.ProductId = PCPGOnlineCheck.ProductId) AS ProductName,(SELECT Customer.CustomerShortName FROM Customer WHERE Customer.CustomerId = PCPGOnlineCheck.CustomerId) AS CustomerShortName,(SELECT Convert(varchar(30),PCPGOnlineCheckDetailDate,120)+'.' FROM PCPGOnlineCheckDetail WHERE PCPGOnlineCheckDetail.PCPGOnlineCheckId=PCPGOnlineCheck.PCPGOnlineCheckId FOR xml path('')) AS DescTime FROM PCPGOnlineCheck WHERE 1 = 1 ");
+            StringBuilder sql = new StringBuilder("SELECT PCPGOnlineCheckId,PCPGOnlineCheckDate,xo.CustomerInvoiceXOId as InvoiceCusXOId,(SELECT EmployeeName FROM Employee WHERE Employee.EmployeeId = PCPGOnlineCheck.EmployeeId) AS EmployeeName,(SELECT ProductName FROM Product WHERE Product.ProductId = PCPGOnlineCheck.ProductId) AS ProductName,(SELECT Customer.CustomerShortName FROM Customer WHERE Customer.CustomerId = PCPGOnlineCheck.CustomerId) AS CustomerShortName,(SELECT Convert(varchar(30),PCPGOnlineCheckDetailDate,120)+'.' FROM PCPGOnlineCheckDetail WHERE PCPGOnlineCheckDetail.PCPGOnlineCheckId=PCPGOnlineCheck.PCPGOnlineCheckId FOR xml path('')) AS DescTime FROM PCPGOnlineCheck left join InvoiceXO xo on PCPGOnlineCheck.InvoiceXOId=xo.InvoiceId WHERE 1 = 1 ");
             sql.Append(" AND PCPGOnlineCheckDate BETWEEN @StartDate AND @EndDate");
             if (customer != null)
                 sql.Append(" AND CustomerId = @CustomerId");
             if (!string.IsNullOrEmpty(CusXOId))
-                sql.Append(" AND InvoiceCusXOId like @InvoiceCusXOId");
+                sql.Append(" AND xo.CustomerInvoiceXOId like @InvoiceCusXOId");
             if (product != null)
                 sql.Append(" AND PCPGOnlineCheck.ProductId=@ProductId");
             if (!string.IsNullOrEmpty(StartPronoteHeader) && !string.IsNullOrEmpty(EndPronoteHeader))

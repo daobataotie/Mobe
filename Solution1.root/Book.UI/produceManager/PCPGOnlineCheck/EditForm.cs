@@ -193,7 +193,8 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.txtPCPGOnlineCheckId.Text = this._pcpgoc.PCPGOnlineCheckId;
             this.txtPCImpactCheckDesc.Text = this._pcpgoc.PCPGOnlineCheckDesc;
             this.DE_PCPGOnlineCheckDate.EditValue = this._pcpgoc.PCPGOnlineCheckDate.Value;
-            this.txtInvoiceCusXOId.Text = this._pcpgoc.InvoiceCusXOId;
+            //this.txtInvoiceCusXOId.Text = this._pcpgoc.InvoiceCusXOId;
+            this.txtInvoiceCusXOId.Text = this._pcpgoc.InvoiceXO == null ? "" : this._pcpgoc.InvoiceXO.CustomerInvoiceXOId;
             this.layoutDanJuBianHao.Text = this._pcpgoc.PCPGOnlineCheckType < 0 ? "加工單編號:" : "委外單編號:";
             this.txtDatnJuBianHao.Text = this._pcpgoc.FromPCId;
             this.nccCHCustomer.EditValue = this._pcpgoc.Customer;
@@ -327,14 +328,19 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
                     this._pcpgoc.InvoiceCusXOId = SelectModel.InvoiceCusId;
                     this._pcpgoc.FromPCId = SelectModel.PronoteHeaderID;
                     if (SelectModel.InvoiceXOId != null)
-                        this._pcpgoc.Customer = new BL.InvoiceXOManager().Get(SelectModel.InvoiceXOId).xocustomer;
+                    {
+                        Model.InvoiceXO xo = new BL.InvoiceXOManager().Get(SelectModel.InvoiceXOId);
+                        this._pcpgoc.Customer = xo.xocustomer;
+                        this._pcpgoc.InvoiceXOId = SelectModel.InvoiceXOId;
+                        this.txtInvoiceCusXOId.Text = xo.CustomerInvoiceXOId;
+                    }
                     this._pcpgoc.CustomerId = this._pcpgoc.Customer == null ? "" : this._pcpgoc.CustomerId;
                     this._pcpgoc.Product = new BL.ProductManager().Get(SelectModel.ProductId);
                     this._pcpgoc.ProductId = SelectModel.ProductId;
                     this._pcpgoc.InvoiceXOQuantity = SelectModel.InvoiceXODetailQuantity;
 
                     //Controls
-                    this.txtInvoiceCusXOId.Text = this._pcpgoc.InvoiceCusXOId;
+                    //this.txtInvoiceCusXOId.Text = this._pcpgoc.InvoiceCusXOId;
                     this.nccCHCustomer.EditValue = this._pcpgoc.Customer;
                     this.txtDatnJuBianHao.Text = this._pcpgoc.FromPCId;
                     this.txtCheckStandard.Text = this._pcpgoc.Customer == null ? "" : this._pcpgoc.Customer.CheckedStandard;
@@ -383,8 +389,11 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
                 this._pcpgoc.Product = f.key[0].Product;
                 this._pcpgoc.ProductId = f.key[0].ProductId;
 
+                this._pcpgoc.InvoiceXOId = OtherCompact.InvoiceXOId;
+                this.txtInvoiceCusXOId.Text = OtherCompact.InvoiceXO == null ? "" : OtherCompact.InvoiceXO.CustomerInvoiceXOId;
+
                 //对控件进行赋值
-                this.txtInvoiceCusXOId.Text = OtherCompact.InvoiceXOId;
+                //this.txtInvoiceCusXOId.Text = OtherCompact.InvoiceXOId;
                 this.nccCHCustomer.EditValue = this._pcpgoc.Customer;
                 this.txtDatnJuBianHao.Text = OtherCompact.ProduceOtherCompactId;
                 this.txtCheckStandard.Text = this._pcpgoc.Customer == null ? "" : this._pcpgoc.Customer.CheckedStandard;

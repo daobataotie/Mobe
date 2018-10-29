@@ -511,7 +511,7 @@ namespace Book.UI.produceManager.ProduceMaterialExit
                     produceMaterialExitDetail.Product = pronoteMaterial.Product;
                     produceMaterialExitDetail.Inumber = this._produceMaterialExit.Detail.Count + 1;
                     produceMaterialExitDetail.ProductId = pronoteMaterial.ProductId;
-
+                 
                     produceMaterialExitDetail.HandbookId = pronoteMaterial.PronoteHeader.HandbookId;
                     produceMaterialExitDetail.HandbookProductId = pronoteMaterial.PronoteHeader.HandbookProductId;
 

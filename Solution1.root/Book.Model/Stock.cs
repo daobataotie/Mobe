@@ -278,5 +278,6 @@ namespace Book.Model
         public string ProductCategoryName2 { get; set; }
 
         public string ProductCategoryName3 { get; set; }
+
     }
 }
