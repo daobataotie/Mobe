@@ -80,6 +80,8 @@ namespace Book.UI.Settings.StockLimitations
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.txt_ParentProduct = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -230,6 +232,8 @@ namespace Book.UI.Settings.StockLimitations
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel16,
+            this.txt_ParentProduct,
             this.xrLabel11,
             this.xrLabelWorkHouse,
             this.xrLabelInvoiceEmp0,
@@ -473,6 +477,22 @@ namespace Book.UI.Settings.StockLimitations
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
             // 
+            // txt_ParentProduct
+            // 
+            resources.ApplyResources(this.txt_ParentProduct, "txt_ParentProduct");
+            this.txt_ParentProduct.Name = "txt_ParentProduct";
+            this.txt_ParentProduct.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.txt_ParentProduct.StylePriority.UseFont = false;
+            this.txt_ParentProduct.StylePriority.UseTextAlignment = false;
+            // 
+            // xrLabel16
+            // 
+            resources.ApplyResources(this.xrLabel16, "xrLabel16");
+            this.xrLabel16.Name = "xrLabel16";
+            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel16.StylePriority.UseFont = false;
+            this.xrLabel16.StylePriority.UseTextAlignment = false;
+            // 
             // OutStockReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -548,5 +568,7 @@ namespace Book.UI.Settings.StockLimitations
         private DevExpress.XtraReports.UI.XRTableCell TCInvoiceId;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel16;
+        private DevExpress.XtraReports.UI.XRLabel txt_ParentProduct;
     }
 }

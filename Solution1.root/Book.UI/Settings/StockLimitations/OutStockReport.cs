@@ -94,6 +94,7 @@ namespace Book.UI.Settings.StockLimitations
                     }
                 }
             }
+            this.txt_ParentProduct.Text = DepotOut.ParentProduct;
             //this.xrLabelXqlu.Text = DepotOut.SourceType;
             this.xrLabeldescription.Text = DepotOut.description;
             //this.xrLabelXgdj.Text = DepotOut.InvioiceId;

@@ -73,6 +73,8 @@ namespace Book.Model
 
         private string _auditEmpId;
 
+        private string _parentProduct;
+
         private Employee _auditEmp;
 		
 		/// <summary>
@@ -269,6 +271,13 @@ namespace Book.Model
             }
         }
 
+        public string ParentProduct
+        {
+            get { return _parentProduct; }
+            set { _parentProduct = value; }
+        }
+
+
         public virtual string AuditEmpId
         {
             get
@@ -398,6 +407,8 @@ namespace Book.Model
         public readonly static string PRO_AuditState = "AuditState";
 
         public readonly static string PRO_AuditEmpId = "AuditEmpId";
+
+        public readonly static string PRO_ParentProduct = "ParentProduct";
 
 		#endregion
 	}

@@ -28,6 +28,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="SourceTYpe" column="SourceTYpe"/>
       <result property="InvoiceId" column="InvoiceId"/>
       <result property="HasOutQuantity" column="HasOutQuantity"/>
+      <result property="Pihao" column="Pihao"/>
       <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
       <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
       <result property="DepotOut" column="DepotOutId" lazyLoad="false" select="DepotOut.select_by_primary_key" />
@@ -81,7 +82,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [HandbookProductId],
         [SourceTYpe],
         [InvoiceId],
-        [HasOutQuantity]
+        [HasOutQuantity],
+        [Pihao]
 			FROM
 				[dbo].[DepotOutDetail]
 			WHERE
@@ -156,7 +158,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [HandbookProductId],
         [SourceTYpe],
         [InvoiceId],
-        [HasOutQuantity]
+        [HasOutQuantity],
+        [Pihao]
 			) 
 			VALUES 
 			(
@@ -181,7 +184,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         #HandbookProductId#,
         #SourceTYpe#,
         #InvoiceId#,
-        #HasOutQuantity#
+        #HasOutQuantity#,
+        #Pihao#
 			)
              ]]>
     </insert>
@@ -209,7 +213,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [HandbookProductId]=#HandbookProductId#,
         [SourceTYpe]=#SourceTYpe#,
         [InvoiceId]=#InvoiceId#,
-        [HasOutQuantity]=#HasOutQuantity#
+        [HasOutQuantity]=#HasOutQuantity#,
+        [Pihao]=#Pihao#
 			WHERE
 				[DepotOutDetailId] = #DepotOutDetailId#
                     ]]>

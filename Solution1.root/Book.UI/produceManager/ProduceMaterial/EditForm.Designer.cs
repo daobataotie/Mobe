@@ -770,7 +770,6 @@
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(245, 25);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(76, 14);
-            this.layoutControlItem7.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem12
             // 
@@ -842,21 +841,19 @@
             // 
             this.layoutControlItem15.Control = this.comboBoxEdit1;
             resources.ApplyResources(this.layoutControlItem15, "layoutControlItem15");
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 50);
+            this.layoutControlItem15.Location = new System.Drawing.Point(447, 50);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(478, 25);
+            this.layoutControlItem15.Size = new System.Drawing.Size(272, 25);
             this.layoutControlItem15.TextSize = new System.Drawing.Size(76, 14);
-            this.layoutControlItem15.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.textEditPronoteHeaderID;
             resources.ApplyResources(this.layoutControlItem6, "layoutControlItem6");
-            this.layoutControlItem6.Location = new System.Drawing.Point(478, 50);
+            this.layoutControlItem6.Location = new System.Drawing.Point(719, 50);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(478, 25);
+            this.layoutControlItem6.Size = new System.Drawing.Size(237, 25);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(76, 14);
-            this.layoutControlItem6.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem10
             // 
@@ -864,7 +861,7 @@
             resources.ApplyResources(this.layoutControlItem10, "layoutControlItem10");
             this.layoutControlItem10.Location = new System.Drawing.Point(447, 25);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(271, 25);
+            this.layoutControlItem10.Size = new System.Drawing.Size(509, 25);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(76, 14);
             // 
             // layoutControlItem18
@@ -880,11 +877,10 @@
             // 
             this.layoutControlItem13.Control = this.textEditProduct;
             resources.ApplyResources(this.layoutControlItem13, "layoutControlItem13");
-            this.layoutControlItem13.Location = new System.Drawing.Point(718, 25);
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(238, 25);
+            this.layoutControlItem13.Size = new System.Drawing.Size(447, 25);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(76, 14);
-            this.layoutControlItem13.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // emptySpaceItem2
             // 

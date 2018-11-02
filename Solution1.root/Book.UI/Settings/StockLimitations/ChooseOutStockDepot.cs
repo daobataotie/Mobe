@@ -88,5 +88,14 @@ namespace Book.UI.Settings.StockLimitations
             }
         }
 
+        public override void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            Model.DepotOutDetail detail = this.bindingSource1.Current as Model.DepotOutDetail;
+            if (detail != null)
+            {
+                OutStockEditForm f = new OutStockEditForm(detail.DepotOutId);
+                f.Show(this);
+            }
+        }
     }
 }

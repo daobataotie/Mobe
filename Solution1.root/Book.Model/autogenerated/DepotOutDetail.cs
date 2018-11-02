@@ -129,6 +129,8 @@ namespace Book.Model
         /// </summary>
         private DateTime? _Date;
 
+        private string _pihao;
+
         /// <summary>
         /// 库库货位
         /// </summary>
@@ -455,6 +457,12 @@ namespace Book.Model
             set { _Date = value; }
         }
 
+        public string Pihao
+        {
+            get { return _pihao; }
+            set { _pihao = value; }
+        }
+
         /// <summary>
         /// 库库货位
         /// </summary>
@@ -599,6 +607,8 @@ namespace Book.Model
         public readonly static string PRO_InvoiceId = "InvoiceId";
 
         public readonly static string PRO_HasOutQuantity = "HasOutQuantity";
+
+        public readonly static string PRO_Pihao = "Pihao";
 
         #endregion
     }

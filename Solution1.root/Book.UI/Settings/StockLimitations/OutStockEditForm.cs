@@ -39,6 +39,7 @@ namespace Book.UI.Settings.StockLimitations
         BL.InvoiceCGDetailManager cgdetailManager = new Book.BL.InvoiceCGDetailManager();
         Model.DepotOutDetail _outDetail = new Book.Model.DepotOutDetail();
 
+        int flag = 0;
         public OutStockEditForm()
         {
             InitializeComponent();
@@ -61,6 +62,14 @@ namespace Book.UI.Settings.StockLimitations
             //string sql = "SELECT productid,id,productname,CustomerProductName FROM product";
             //this.bindingSourceProduct.DataSource = this._productManager.DataReaderBind<Model.Product>(sql, null, CommandType.Text);
             // this.bindingSourceProduct.DataSource = this._productManager.GetProduct();
+            this.action = "view";
+        }
+
+        public OutStockEditForm(string id)
+            : this()
+        {
+            this._depotOut = this._depotOutManager.GetDetails(id);
+            this.flag = 1;
             this.action = "view";
         }
 
@@ -109,8 +118,8 @@ namespace Book.UI.Settings.StockLimitations
                 this._depotOut.Employee = this.newChooseContorlEmployee.EditValue as Model.Employee;
                 this._depotOut.EmployeeId = this._depotOut.Employee.EmployeeId;
             }
-            //this._depotOut.SourceType = this.textBoxSourceType.Text;
-            //this._depotOut.InvioiceId = this.textBoxInvioiceId.Text;
+            this._depotOut.SourceType = this.textBoxSourceType.Text;
+            this._depotOut.InvioiceId = this.textBoxInvioiceId.Text;
             if (this.lookUpEditDepotId.EditValue != null)
             {
                 this._depotOut.Depot = new BL.DepotManager().Get(this.lookUpEditDepotId.EditValue.ToString());
@@ -134,6 +143,7 @@ namespace Book.UI.Settings.StockLimitations
             //    this._depotOut.ProductCategory = this.ProductCategoryButtonEdit.EditValue as Model.ProductCategory;
             //    this._depotOut.ProductCategoryId = this._depotOut.ProductCategory.ProductCategoryId;
             //}
+            this._depotOut.ParentProduct = this.txt_ParentProduct.Text;
 
             if (!this.gridView1.PostEditor() || !this.gridView1.UpdateCurrentRow())
                 return;
@@ -180,8 +190,8 @@ namespace Book.UI.Settings.StockLimitations
 
             textBoxDepotOutId.Text = this._depotOut.DepotOutId;
             this.newChooseContorlEmployee.EditValue = this._depotOut.Employee;
-            //this.textBoxSourceType.Text = this._depotOut.SourceType;
-            //this.textBoxInvioiceId.Text = this._depotOut.InvioiceId;
+            this.textBoxSourceType.Text = this._depotOut.SourceType;
+            this.textBoxInvioiceId.Text = this._depotOut.InvioiceId;
 
             if (this._depotOut.SourceType == "領料單")
             {
@@ -266,6 +276,8 @@ namespace Book.UI.Settings.StockLimitations
             this.newChooseContorlAuditEmp.EditValue = this._depotOut.AuditEmp;
             this.txt_AuditState.EditValue = this.GetAuditName(this._depotOut.AuditState);
 
+            this.txt_ParentProduct.Text = this._depotOut.ParentProduct;
+
             switch (this.action)
             {
                 case "insert":
@@ -284,7 +296,7 @@ namespace Book.UI.Settings.StockLimitations
                     this.barButtonItem4.Enabled = false;
                     break;
             }
-
+            this.txt_ParentProduct.Properties.ReadOnly = true;
         }
 
         protected override void MoveNext()
@@ -312,6 +324,10 @@ namespace Book.UI.Settings.StockLimitations
 
         protected override void MoveLast()
         {
+            if (this.flag == 1)
+            {
+                this.flag = 0; return;
+            }
             this._depotOut = this._depotOutManager.Get(this._depotOutManager.GetLast() == null ? "" : this._depotOutManager.GetLast().DepotOutId);
         }
 
@@ -754,6 +770,8 @@ namespace Book.UI.Settings.StockLimitations
             //    this.textEditCostumeXOId.Text = InvoiceXO == null ? "" : InvoiceXO.CustomerInvoiceXOId;
             //}
 
+            this.textBoxSourceType.Text = "領料單";
+            this.textBoxInvioiceId.Text = _produceMaterial.Details[0].ProduceMaterialID;
             this._depotOut.SourceType = "領料單";
             //this.textBoxInvioiceId.Text =
             this._depotOut.InvioiceId = _produceMaterial.Details[0].ProduceMaterialID;
@@ -766,6 +784,20 @@ namespace Book.UI.Settings.StockLimitations
                 if (ProduceMaterial.WorkHouse != null)
                     this.newChooseWorkHouse.EditValue = ProduceMaterial.WorkHouse;
             }
+            if (!string.IsNullOrEmpty(_produceMaterial.Details[0].ProduceMaterial.InvoiceId))
+            {
+                Model.PronoteHeader pronoteHeader = this.pronoteHeaderManager.Get(_produceMaterial.Details[0].ProduceMaterial.InvoiceId);
+                if (pronoteHeader != null)
+                {
+                    if (pronoteHeader.Product != null)
+                        this.txt_ParentProduct.Text = string.IsNullOrEmpty(pronoteHeader.Product.CustomerProductName) ? pronoteHeader.Product.ProductName : pronoteHeader.Product.ProductName + "{" + pronoteHeader.Product.CustomerProductName + "}";
+
+                }
+                else
+                    this.txt_ParentProduct.Text = "";
+            }
+            else
+                this.txt_ParentProduct.Text = "";
 
             this.newChooseInvoiceEmployee0.EditValue = _produceMaterial.Details[0].ProduceMaterial.Employee0;
             //this.newChooseWorkHouse.EditValue = _produceMaterial.WorkHouse;
@@ -790,6 +822,7 @@ namespace Book.UI.Settings.StockLimitations
                         this._depotOutDetail.HandbookProductId = item.HandbookProductId;
                         this._depotOutDetail.SourceTYpe = "領料單";
                         this._depotOutDetail.InvoiceId = item.ProduceMaterialID;
+                        this._depotOutDetail.Pihao = item.Pihao;
                         if (global::Helper.DateTimeParse.DateTimeEquls(this._depotOutDetail.CGDate, new DateTime()))
                         {
                             this._depotOutDetail.CGDate = null;
@@ -839,6 +872,7 @@ namespace Book.UI.Settings.StockLimitations
                     this._depotOutDetail.ProductUnit = item.ProductUnit;
                     this._depotOutDetail.ProduceMaterialdetailsID = item.ProduceMaterialdetailsID;
                     this._depotOutDetail.InvoiceXOId = item.InvoiceXOId;
+                    this._depotOutDetail.Pihao = item.Pihao;
                     //this._depotOutDetail.CurrentDepotQuantity = stock.StockQuantity1 - this._depotOutDetail.DepotOutDetailQuantity; //this.stockManager.GetTheCount1OfProductByProductId(item.Product, this._depotManager.Get(this.lookUpEditDepotId.EditValue.ToString()));
                     this._depotOutDetail.CurrentStockQuantity = (item.Product == null ? 0 : item.Product.StocksQuantity) - this._depotOutDetail.DepotOutDetailQuantity;
                     this._depotOutDetail.DepotPositionDesc = "0";
@@ -869,6 +903,8 @@ namespace Book.UI.Settings.StockLimitations
             if (_ProduceOtherMaterial.Details.Count == 0) return;
             //this._depotOut.Details.Clear();
 
+            this.textBoxSourceType.Text = "委外領料單";
+            this.textBoxInvioiceId.Text = _ProduceOtherMaterial.Details[0].ProduceOtherMaterialId;
             this._depotOut.SourceType = "委外領料單";
             //this.textBoxInvioiceId.Text = 
             this._depotOut.InvioiceId = _ProduceOtherMaterial.Details[0].ProduceOtherMaterialId;
@@ -911,6 +947,7 @@ namespace Book.UI.Settings.StockLimitations
                         _depotOutDetail.HandbookProductId = item.HandbookProductId;
                         _depotOutDetail.SourceTYpe = "委外領料單";
                         _depotOutDetail.InvoiceId = item.ProduceOtherMaterialId;
+                        this._depotOutDetail.Pihao = item.PiHao;
                         if (global::Helper.DateTimeParse.DateTimeEquls(this._depotOutDetail.CGDate, new DateTime()))
                         {
                             this._depotOutDetail.CGDate = null;

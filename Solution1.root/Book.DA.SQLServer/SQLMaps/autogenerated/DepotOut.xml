@@ -19,6 +19,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="InvioiceEmployee0Id" column="InvioiceEmployee0Id" />
       <result property="AuditState" column="AuditState" />
       <result property="AuditEmpId" column="AuditEmpId" />
+      <result property="ParentProduct" column="ParentProduct"/>
       <result property="InvioiceEmployee0" column="InvioiceEmployee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="Depot" column="DepotId" lazyLoad="false" select="Depot.select_by_primary_key" />
@@ -111,8 +112,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       [ProductCategoryId],
       [InvioiceEmployee0Id],
       [AuditState],
-      [AuditEmpId]
-
+      [AuditEmpId],
+      [ParentProduct]
       FROM
       [dbo].[DepotOut]
       WHERE
@@ -169,7 +170,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       [ProductCategoryId],
       [InvioiceEmployee0Id],
       [AuditState],
-      [AuditEmpId]
+      [AuditEmpId],
+      [ParentProduct]
       )
       VALUES
       (
@@ -185,7 +187,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       #ProductCategoryId#,
       #InvioiceEmployee0Id#,
       #AuditState#,
-      #AuditEmpId#
+      #AuditEmpId#,
+      #ParentProduct#
       )
     </insert>
 
@@ -203,7 +206,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       [ProductCategoryId] = #ProductCategoryId#,
       [InvioiceEmployee0Id] = #InvioiceEmployee0Id#,
       [AuditState]=#AuditState#,
-      [AuditEmpId]=#AuditEmpId#
+      [AuditEmpId]=#AuditEmpId#,
+      [ParentProduct]=#ParentProduct#
       WHERE
       [DepotOutId] = #DepotOutId#
     </update>

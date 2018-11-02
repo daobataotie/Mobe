@@ -322,8 +322,7 @@ namespace Book.UI.produceManager.ProduceMaterial
             return this._produceMaterial.AuditState.HasValue ? this._produceMaterial.AuditState.Value : 0;
         }
 
-        protected override string
-            tableCode()
+        protected override string tableCode()
         {
             return "ProduceMaterial" + "," + this._produceMaterial.ProduceMaterialID;
         }
@@ -332,10 +331,10 @@ namespace Book.UI.produceManager.ProduceMaterial
         {
             //if (this._TempIsChuCangupdate)
             //    throw new Helper.InvalidValueException(Model.ProduceMaterialdetails.PRO_Materialprocesedsum);
-            this._produceMaterial.InvoiceId = this.invoiceId;
+            this._produceMaterial.InvoiceId = this.textEditPronoteHeaderID.Text; 
             this._produceMaterial.ProduceMaterialID = this.textEditProduceMaterialID.Text;
             this._produceMaterial.ProduceMaterialdesc = this.textEditProduceMaterialdesc.Text;
-            //this._produceMaterial.SourceType = this.comboBoxEdit1.SelectedIndex;
+            this._produceMaterial.SourceType = this.comboBoxEdit1.SelectedIndex;
             this._produceMaterial.WorkHouse = this.newChooseWorkHorseId.EditValue as Model.WorkHouse;
             this._produceMaterial.AuditState = this.saveAuditState;
             if (this._produceMaterial.WorkHouse != null)
@@ -466,11 +465,11 @@ namespace Book.UI.produceManager.ProduceMaterial
             this.textEditProduceMaterialID.Text = this._produceMaterial.ProduceMaterialID;
             this.textEditProduceMaterialdesc.Text = this._produceMaterial.ProduceMaterialdesc;
             this.newChooseWorkHorseId.EditValue = this._produceMaterial.WorkHouse;
-            //this.comboBoxEdit1.SelectedIndex = this._produceMaterial.SourceType.HasValue ? this._produceMaterial.SourceType.Value : -1;
-            if (this._produceMaterial.SourceType == null && !string.IsNullOrEmpty(this._produceMaterial.InvoiceId))
-            {
-                this.comboBoxEdit1.SelectedIndex = 0;
-            }
+            this.comboBoxEdit1.SelectedIndex = this._produceMaterial.SourceType.HasValue ? this._produceMaterial.SourceType.Value : -1;
+            //if (this._produceMaterial.SourceType == null && !string.IsNullOrEmpty(this._produceMaterial.InvoiceId))
+            //{
+            //    this.comboBoxEdit1.SelectedIndex = 0;
+            //}
 
             if (global::Helper.DateTimeParse.DateTimeEquls(this._produceMaterial.ProduceMaterialDate, global::Helper.DateTimeParse.NullDate))
             {
@@ -486,18 +485,29 @@ namespace Book.UI.produceManager.ProduceMaterial
             this.textEditAuditState.Text = this.GetAuditName(this._produceMaterial.AuditState);
             //this.textEditInvoiceXO.Text = this.produceMaterial.InvoiceXO;
             //this.newChooseContorlDepot.EditValue = this.produceMaterial.Depot;
-            //this.textEditPronoteHeaderID.Text = this._produceMaterial.InvoiceId;
+            this.textEditPronoteHeaderID.Text = this._produceMaterial.InvoiceId;
             this.newChooseEmployee0.EditValue = this._produceMaterial.Employee0;
             if (!string.IsNullOrEmpty(this._produceMaterial.InvoiceId))
             {
                 Model.PronoteHeader pronoteHeader = this.PronoteHeaderManager.Get(this._produceMaterial.InvoiceId);
                 if (pronoteHeader != null)
                 {
-                    //if (pronoteHeader.Product != null)
-                    //this.textEditProduct.Text = string.IsNullOrEmpty(pronoteHeader.Product.CustomerProductName) ? pronoteHeader.Product.ProductName : pronoteHeader.Product.ProductName + "{" + pronoteHeader.Product.CustomerProductName + "}";
+                    if (pronoteHeader.Product != null)
+                        this.textEditProduct.Text = string.IsNullOrEmpty(pronoteHeader.Product.CustomerProductName) ? pronoteHeader.Product.ProductName : pronoteHeader.Product.ProductName + "{" + pronoteHeader.Product.CustomerProductName + "}";
 
                     // this.textEditXOId.Text = pronoteHeader.InvoiceXOId;
+                    this.calcEditInvoiceSum.EditValue = pronoteHeader.InvoiceXODetailQuantity;
                 }
+                else
+                {
+                    this.textEditProduct.EditValue = null;
+                    this.calcEditInvoiceSum.EditValue = null;
+                }
+            }
+            else
+            {
+                this.textEditProduct.EditValue = null;
+                this.calcEditInvoiceSum.EditValue = null;
             }
             if (!string.IsNullOrEmpty(this._produceMaterial.InvoiceXOId))
             {
@@ -545,6 +555,8 @@ namespace Book.UI.produceManager.ProduceMaterial
             //this.newChooseEmployee1.Enabled = false;
 
             this.EmpAudit.Enabled = false;
+            this.textEditPronoteHeaderID.Properties.ReadOnly = true;
+            this.comboBoxEdit1.Properties.ReadOnly = true;
             this.textEditProduceMaterialID.Properties.ReadOnly = true;
         }
 
@@ -820,8 +832,8 @@ namespace Book.UI.produceManager.ProduceMaterial
                     xoid = new BL.MPSheaderManager().Get(new BL.MRSdetailsManager().Get(f.key[0]).MRSHeader.MPSheaderId).InvoiceXOId;
                 }
 
-                //this.comboBoxEdit1.SelectedIndex = 1;
-                //this.textEditPronoteHeaderID.EditValue = new BL.MRSdetailsManager().Get(f.key[0]).MRSHeaderId;
+                this.comboBoxEdit1.SelectedIndex = 1;
+                this.textEditPronoteHeaderID.EditValue = new BL.MRSdetailsManager().Get(f.key[0]).MRSHeaderId;
                 this.invoiceId = new BL.MRSdetailsManager().Get(f.key[0]).MRSHeaderId;
                 if (!string.IsNullOrEmpty(xoid))
                 {
@@ -1195,13 +1207,13 @@ namespace Book.UI.produceManager.ProduceMaterial
             if (f.ShowDialog(this) != DialogResult.OK) return;
             if (PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList.Count != 0)
             {
-                //this.calcEditInvoiceSum.Value = 0;
+                this.calcEditInvoiceSum.Value = 0;
                 string xoid = PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].PronoteHeader.InvoiceXOId;
-                //this.textEditPronoteHeaderID.Text = PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].PronoteHeaderID;
-                //this.textEditProduct.Text = string.IsNullOrEmpty(PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.CustomerProductName) ? PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.ProductName : PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.ProductName + "{" + PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.CustomerProductName + "}";
+                this.textEditPronoteHeaderID.Text = PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].PronoteHeaderID;
+                this.textEditProduct.Text = string.IsNullOrEmpty(PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.CustomerProductName) ? PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.ProductName : PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.ProductName + "{" + PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.CustomerProductName + "}";
                 this.invoiceId = PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].PronoteHeaderID;
                 this._produceMaterial.InvoiceXOId = xoid;
-                //this.comboBoxEdit1.SelectedIndex = 0;
+                this.comboBoxEdit1.SelectedIndex = 0;
                 //this.com
                 if (!string.IsNullOrEmpty(xoid))
                 {
