@@ -327,6 +327,8 @@
             this.spe_TestQuantity.Name = "spe_TestQuantity";
             this.spe_TestQuantity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.spe_TestQuantity.Properties.DisplayFormat.FormatString = "0";
+            this.spe_TestQuantity.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spe_TestQuantity.StyleController = this.layoutControl1;
             // 
             // txt_InvoiceXOCusId

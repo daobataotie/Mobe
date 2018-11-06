@@ -417,6 +417,15 @@ namespace Book.Model
 
         public readonly static string PRO_AttrFootRDis = "AttrFootRDis";
 
+        private string _attrRetestDis;
+
+        public string AttrRetestDis
+        {
+            get { return ValueToDisplay(_attrRetest); }
+        }
+
+        public readonly static string PRO_AttrRetestDis = "AttrRetestDis";
+
         public string ValueToDisplay(string v)
         {
             string str = string.Empty;

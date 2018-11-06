@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using Book.UI.Settings.BasicData.Employees;
 using Book.UI.Settings.ProduceManager.Workhouselog;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Columns;
 
 namespace Book.UI.produceManager.PCImpactCheck
 {
@@ -30,6 +32,51 @@ namespace Book.UI.produceManager.PCImpactCheck
             this.nccWorkHouse.Choose = new ChooseWorkHouse();
             this.newChooseContorlAuditEmp.Choose = new ChooseEmployee();
             this.bindingSourceUnit.DataSource = (new BL.ProductUnitManager()).Select();
+
+            #region LookUpEditor
+            DataTable dt = new DataTable();
+            DataColumn dc = new DataColumn("id", typeof(string));
+            DataColumn dc1 = new DataColumn("name", typeof(string));
+            dt.Columns.Add(dc);
+            dt.Columns.Add(dc1);
+            DataRow dr;
+            dr = dt.NewRow();
+            dr[0] = string.Empty;
+            dr[1] = "  ";
+            dt.Rows.Add(dr);
+            dr = dt.NewRow();
+            dr[0] = "0";
+            dr[1] = "○";
+            dt.Rows.Add(dr);
+            dr = dt.NewRow();
+            dr[0] = "1";
+            dr[1] = "△";
+            dt.Rows.Add(dr);
+            dr = dt.NewRow();
+            dr[0] = "2";
+            dr[1] = "X";
+            dt.Rows.Add(dr);
+            for (int i = 0; i < this.gridView1.Columns.Count - 1; i++)
+            {
+                if (this.gridView1.Columns[i].ColumnEdit is DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)
+                {
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).DataSource = dt;
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).Columns.Clear();
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+                    new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name",25, "标识"),
+                     });
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).DisplayMember = "name";
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).ValueMember = "id";
+                }
+            }
+            #endregion
+
+            //List<string> listZaiceshi = new List<string>() { "再测试1：AS加热 60℃±2 30 分钟", "再测试2：EN 加热 55℃±2 60 分钟 & 冰冻 -5±2℃ 1 小时" };
+            //this.repositoryItemCheckedComboBoxEdit1.DataSource = listZaiceshi;
+
+            this.repositoryItemCheckedComboBoxEdit1.Items.Add("再测试1：AS加热 60℃±2 30 分钟");
+            this.repositoryItemCheckedComboBoxEdit1.Items.Add("再测试2：EN 加热 55℃±2 60 分钟 & 冰冻 -5±2℃ 1 小时");
+
         }
 
         int LastFlag = 0;
@@ -170,6 +217,7 @@ namespace Book.UI.produceManager.PCImpactCheck
             this._PCIC.ProductUnitId = this.lookUpEditUnit.EditValue == null ? null : this.lookUpEditUnit.EditValue.ToString();
             if (!this.gridView1.PostEditor() || !this.gridView1.UpdateCurrentRow())
                 return;
+
             switch (this.action)
             {
                 case "insert":
@@ -213,45 +261,7 @@ namespace Book.UI.produceManager.PCImpactCheck
             this.txt_AuditState.EditValue = this.GetAuditName(this._PCIC.AuditState);
             this.lookUpEditUnit.EditValue = this._PCIC.ProductUnitId;
 
-            #region LookUpEditor
 
-            DataTable dt = new DataTable();
-            DataColumn dc = new DataColumn("id", typeof(string));
-            DataColumn dc1 = new DataColumn("name", typeof(string));
-            dt.Columns.Add(dc);
-            dt.Columns.Add(dc1);
-            DataRow dr;
-            dr = dt.NewRow();
-            dr[0] = string.Empty;
-            dr[1] = "  ";
-            dt.Rows.Add(dr);
-            dr = dt.NewRow();
-            dr[0] = "0";
-            dr[1] = "○";
-            dt.Rows.Add(dr);
-            dr = dt.NewRow();
-            dr[0] = "1";
-            dr[1] = "△";
-            dt.Rows.Add(dr);
-            dr = dt.NewRow();
-            dr[0] = "2";
-            dr[1] = "X";
-            dt.Rows.Add(dr);
-            for (int i = 0; i < this.gridView1.Columns.Count - 1; i++)
-            {
-                if (this.gridView1.Columns[i].ColumnEdit is DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)
-                {
-                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).DataSource = dt;
-                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).Columns.Clear();
-                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-                    new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name",25, "标识"),
-                     });
-                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).DisplayMember = "name";
-                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).ValueMember = "id";
-                }
-            }
-
-            #endregion
             this.bsPCImpactCheckDetail.DataSource = this._PCIC.Details;
 
             base.Refresh();
@@ -465,6 +475,54 @@ namespace Book.UI.produceManager.PCImpactCheck
 
         }
 
+        //採購單
+        private void btn_InvoiceCO_Click(object sender, EventArgs e)
+        {
+            Invoices.CG.CGForm form = new Book.UI.Invoices.CG.CGForm();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                this._PCIC.PCFromType = 2;     //单据类型
+                this._PCIC.PCImpactCheckDate = this.DE_PCImpactCheckDate.DateTime;
+                this._PCIC.PronoteHeaderId = form.key[0].InvoiceId;
+                this._PCIC.InvoiceCusXOId = form.key[0].Invoice.InvoiceCustomXOId;
+                this._PCIC.Product = new BL.ProductManager().Get(form.key[0].ProductId);
+                this._PCIC.ProductId = this._PCIC.Product.ProductId;
+                this._PCIC.mCheckStandard = form.key[0].Invoice.Customer.CheckedStandard;
+                this._PCIC.InvoiceXOQuantity = form.key[0].OrderQuantity;
+                this.Refresh();
+            }
+
+            form.Dispose();
+            GC.Collect();
+        }
+
+        private void repositoryItemCheckedComboBoxEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            Model.PCImpactCheckDetail model = this.bsPCImpactCheckDetail.Current as Model.PCImpactCheckDetail;
+            if (model == null) return;
+
+            string value = "";
+            foreach (CheckedListBoxItem item in repositoryItemCheckedComboBoxEdit1.Items)
+            {
+                if (item.CheckState == CheckState.Checked)
+                    value += item.ToString() + ",";
+            }
+
+            value = value.TrimEnd(',');
+
+            model.Note = value;
+        }
+
+        private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.Name == "gridColumn3")
+            {
+                Model.PCImpactCheckDetail model = this.bsPCImpactCheckDetail.Current as Model.PCImpactCheckDetail;
+                if (model == null) return;
+
+                e.DisplayText = model.Note;
+            }
+        }
     }
 }
 

@@ -213,6 +213,8 @@ namespace Book.Model
 
         private string _attr90B;
 
+        private string _note;
+
         //private string _businessHoursId;
 
         //public string BusinessHoursId
@@ -824,6 +826,12 @@ namespace Book.Model
             set { _attr90B = value; }
         }
 
+        public string Note
+        {
+            get { return _note; }
+            set { _note = value; }
+        }
+
 
         //private BusinessHours _businessHours;
 
@@ -1031,6 +1039,8 @@ namespace Book.Model
         public readonly static string PRO_attr90T = "attr90T";
 
         public readonly static string PRO_attr90B = "attr90B";
+
+        public readonly static string PRO_Note = "Note";
         //public readonly static string PRO_BusinessHoursId = "BusinessHoursId";
 
         #endregion

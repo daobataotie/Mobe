@@ -578,5 +578,64 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
         }
 
         #endregion
+
+        private void btn_invoiceCO_Click(object sender, EventArgs e)
+        {
+            Invoices.CG.CGForm f = new Book.UI.Invoices.CG.CGForm();
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                this._pcpgoc.Details.Clear();
+
+                this._pcpgoc.PCPGOnlineCheckType = 2;
+                this.layoutDanJuBianHao.Text = "采购单编号:";
+                this._pcpgoc.FromPCId = f.key[0].InvoiceId;
+                this._pcpgoc.Customer = f.key[0].Invoice.Customer;
+                this._pcpgoc.CustomerId = f.key[0].Invoice.CustomerId;
+                this._pcpgoc.InvoiceCusXOId = f.key[0].Invoice.InvoiceCustomXOId;
+                this._pcpgoc.Product = f.key[0].Product;
+                this._pcpgoc.ProductId = f.key[0].ProductId;
+                this._pcpgoc.InvoiceXOQuantity = f.key[0].OrderQuantity;
+                this._pcpgoc.InvoiceXOId = f.key[0].Invoice.InvoiceXOId;
+
+                if (!string.IsNullOrEmpty(f.key[0].Invoice.InvoiceXOId))
+                {
+                    Model.InvoiceXO xo = new BL.InvoiceXOManager().Get(f.key[0].Invoice.InvoiceXOId);
+                    this.txtInvoiceCusXOId.Text = xo == null ? "" : xo.CustomerInvoiceXOId;
+                }
+
+                this.nccCHCustomer.EditValue = this._pcpgoc.Customer;
+                this.txtDatnJuBianHao.Text = this._pcpgoc.FromPCId;
+                this.txtCheckStandard.Text = this._pcpgoc.Customer == null ? "" : this._pcpgoc.Customer.CheckedStandard;
+                this.txtProductName.Text = this._pcpgoc.Product == null ? "" : this._pcpgoc.Product.ToString();
+                this.calcInvoiceXOQuantity.EditValue = this._pcpgoc.InvoiceXOQuantity;
+                this.txtProductDescription.Rtf = this._pcpgoc.Product == null ? "" : this._pcpgoc.Product.ProductDescription;
+
+                foreach (var SelectModel in f.key)
+                {
+                    if (SelectModel != null)
+                    {
+                        //Detail
+                        Model.PCPGOnlineCheckDetail d = new Book.Model.PCPGOnlineCheckDetail();
+                        d.PCPGOnlineCheckDetailId = Guid.NewGuid().ToString();
+                        d.PCPGOnlineCheckId = this._pcpgoc.PCPGOnlineCheckId;
+                        d.PCPGOnlineCheckDetailDate = DateTime.Now;
+                        d.PCPGOnlineCheckDetailTime = DateTime.Now;
+                        //d.PCPGOnlineCheckDetailTime = DateTime.Now;
+                        //d.ProductId = SelectModel.ProductId;
+                        //d.Product = SelectModel.Product;
+                        d.CheckQuantity = Convert.ToInt32(SelectModel.OrderQuantity);
+                        d.FromInvoiceId = SelectModel.InvoiceId;
+                        //if (this._pcpgoc.Customer != null)
+                        //    d.CheckedStandard = this._pcpgoc.Customer.CheckedStandard;
+
+                        this._pcpgoc.Details.Add(d);
+                    }
+                }
+                this.gridControl1.RefreshDataSource();
+
+            }
+            f.Dispose();
+            GC.Collect();
+        }
     }
 }

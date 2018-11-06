@@ -47,6 +47,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="attrFootR" column="attrFootR" />
       <result property="attr90T" column="attr90T"/>
       <result property="attr90B" column="attr90B"/>
+      <result property="Note" column="Note"/>
       <!--<result property="BusinessHoursId" column="BusinessHoursId"/>
       <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key"/>-->
     </resultMap>
@@ -118,8 +119,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[attrFootL],
 				[attrFootR],
         [attr90T],
-        [attr90B]
-        
+        [attr90B],
+        [Note]
         
 			FROM
 				[dbo].[PCImpactCheckDetail]
@@ -214,8 +215,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[attrFootL],
 				[attrFootR],
         [attr90T],
-        [attr90B]
-        
+        [attr90B],
+        [Note]
         
 			) 
 			VALUES 
@@ -260,8 +261,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#attrFootL#,
 				#attrFootR#,
         #attr90T#,
-        #attr90B#
-       
+        #attr90B#,
+        #Note#
 			)
              ]]>
     </insert>
@@ -308,8 +309,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[attrFootL] = #attrFootL#,
 				[attrFootR] = #attrFootR#,
         [attr90T]=#attr90T#,
-        [attr90B]=#attr90B#
-        
+        [attr90B]=#attr90B#,
+        [Note]=#Note#
 			WHERE
 				[PCImpactCheckDetailId] = #PCImpactCheckDetailId#
                     ]]>

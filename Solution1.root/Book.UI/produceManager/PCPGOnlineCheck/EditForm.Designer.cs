@@ -122,6 +122,8 @@
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barBtnSearch = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnContionPrint = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_invoiceCO = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -178,6 +180,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -212,6 +215,7 @@
             this.layoutControl1.Controls.Add(this.newChooseContorlAuditEmp);
             this.layoutControl1.Controls.Add(this.txtProductDescription);
             this.layoutControl1.Controls.Add(this.nccWorkHouse);
+            this.layoutControl1.Controls.Add(this.btn_invoiceCO);
             this.layoutControl1.Controls.Add(this.calcInvoiceXOQuantity);
             this.layoutControl1.Controls.Add(this.txtProductName);
             this.layoutControl1.Controls.Add(this.txtCheckStandard);
@@ -799,7 +803,8 @@
             this.emptySpaceItem1,
             this.layoutControlItem17,
             this.layoutControlItem9,
-            this.layoutControlItem18});
+            this.layoutControlItem18,
+            this.layoutControlItem19});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(924, 432);
@@ -987,9 +992,9 @@
             // emptySpaceItem1
             // 
             resources.ApplyResources(this.emptySpaceItem1, "emptySpaceItem1");
-            this.emptySpaceItem1.Location = new System.Drawing.Point(298, 114);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(454, 114);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(606, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(450, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem17
@@ -1039,6 +1044,24 @@
             this.barBtnContionPrint.Id = 14;
             this.barBtnContionPrint.Name = "barBtnContionPrint";
             this.barBtnContionPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnContionPrint_ItemClick);
+            // 
+            // btn_invoiceCO
+            // 
+            resources.ApplyResources(this.btn_invoiceCO, "btn_invoiceCO");
+            this.btn_invoiceCO.Name = "btn_invoiceCO";
+            this.btn_invoiceCO.StyleController = this.layoutControl1;
+            this.btn_invoiceCO.Click += new System.EventHandler(this.btn_invoiceCO_Click);
+            // 
+            // layoutControlItem19
+            // 
+            this.layoutControlItem19.Control = this.btn_invoiceCO;
+            resources.ApplyResources(this.layoutControlItem19, "layoutControlItem19");
+            this.layoutControlItem19.Location = new System.Drawing.Point(298, 114);
+            this.layoutControlItem19.Name = "layoutControlItem19";
+            this.layoutControlItem19.Size = new System.Drawing.Size(156, 26);
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem19.TextToControlDistance = 0;
+            this.layoutControlItem19.TextVisible = false;
             // 
             // EditForm
             // 
@@ -1103,6 +1126,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1201,6 +1225,8 @@
         private System.Windows.Forms.BindingSource bindingSourceBusinessHours;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.SimpleButton btn_invoiceCO;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
 
     }
 }
