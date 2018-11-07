@@ -433,13 +433,37 @@
 </value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_InvoiceCO.Location" type="System.Drawing.Point, System.Drawing">
+    <value>755, 62</value>
+  </data>
+  <data name="btn_InvoiceCO.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 22</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btn_InvoiceCO.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="btn_InvoiceCO.Text" xml:space="preserve">
+    <value>选择采购单据</value>
+  </data>
+  <data name="&gt;&gt;btn_InvoiceCO.Name" xml:space="preserve">
+    <value>btn_InvoiceCO</value>
+  </data>
+  <data name="&gt;&gt;btn_InvoiceCO.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btn_InvoiceCO.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;btn_InvoiceCO.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="btn_Remove.Location" type="System.Drawing.Point, System.Drawing">
     <value>172, 305</value>
   </data>
   <data name="btn_Remove.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btn_Remove.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
@@ -456,7 +480,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btn_Remove.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="btn_Add.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 305</value>
@@ -480,7 +504,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btn_Add.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="lookUpEditUnit.Location" type="System.Drawing.Point, System.Drawing">
     <value>805, 37</value>
@@ -516,7 +540,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;lookUpEditUnit.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="txt_AuditState.Location" type="System.Drawing.Point, System.Drawing">
     <value>769, 355</value>
@@ -537,7 +561,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txt_AuditState.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="newChooseContorlAuditEmp.Location" type="System.Drawing.Point, System.Drawing">
     <value>497, 355</value>
@@ -558,13 +582,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;newChooseContorlAuditEmp.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btnGetPronoteHeader.Location" type="System.Drawing.Point, System.Drawing">
     <value>648, 62</value>
   </data>
   <data name="btnGetPronoteHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 22</value>
+    <value>103, 22</value>
   </data>
   <data name="btnGetPronoteHeader.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -582,7 +606,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btnGetPronoteHeader.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="calcPCFogCheckQuantity.Location" type="System.Drawing.Point, System.Drawing">
     <value>697, 37</value>
@@ -622,7 +646,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;calcPCFogCheckQuantity.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="ceInvoiceXOCount.Location" type="System.Drawing.Point, System.Drawing">
     <value>532, 37</value>
@@ -658,7 +682,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;ceInvoiceXOCount.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="txtCheckedStandard.Location" type="System.Drawing.Point, System.Drawing">
     <value>297, 37</value>
@@ -691,7 +715,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txtCheckedStandard.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="BEProduct.Location" type="System.Drawing.Point, System.Drawing">
     <value>57, 37</value>
@@ -724,7 +748,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;BEProduct.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="nccEmployee0.Location" type="System.Drawing.Point, System.Drawing">
     <value>497, 331</value>
@@ -745,7 +769,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;nccEmployee0.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="chkEditWDCS.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 62</value>
@@ -772,7 +796,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;chkEditWDCS.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="txtPCFogCheckDesc.Location" type="System.Drawing.Point, System.Drawing">
     <value>67, 331</value>
@@ -793,7 +817,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txtPCFogCheckDesc.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="txtInvoiceCusXOId.Location" type="System.Drawing.Point, System.Drawing">
     <value>720, 12</value>
@@ -826,7 +850,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txtInvoiceCusXOId.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="txtPronoteHeaderId.Location" type="System.Drawing.Point, System.Drawing">
     <value>296, 12</value>
@@ -859,7 +883,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txtPronoteHeaderId.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="DE_PCFogCheckDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>489, 12</value>
@@ -913,7 +937,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;DE_PCFogCheckDate.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="txtPCFogCheckId.Location" type="System.Drawing.Point, System.Drawing">
     <value>57, 12</value>
@@ -946,7 +970,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txtPCFogCheckId.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>303, 17</value>
@@ -1302,7 +1326,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;gridControl1.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1426,6 +1450,12 @@
   </data>
   <data name="emptySpaceItem1.Text" xml:space="preserve">
     <value>emptySpaceItem1</value>
+  </data>
+  <data name="layoutControlItem17.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem17</value>
+  </data>
+  <data name="layoutControlItem17.Text" xml:space="preserve">
+    <value>layoutControlItem17</value>
   </data>
   <data name="layoutControlGroup1.Text" xml:space="preserve">
     <value>layoutControlGroup1</value>
@@ -1852,6 +1882,12 @@
   </data>
   <data name="&gt;&gt;barButtonItemSearch.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem17.Name" xml:space="preserve">
+    <value>layoutControlItem17</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem17.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>EditForm</value>

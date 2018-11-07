@@ -272,7 +272,7 @@ namespace Book.UI.produceManager.PCFogCheck
             GC.Collect();
         }
 
-        //选择测试单据
+        //搜寻列表
         private void barBtnSearch_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ListForm f = new ListForm();
@@ -368,6 +368,32 @@ namespace Book.UI.produceManager.PCFogCheck
             {
                 this.BEProduct.EditValue = f.SelectedItem;
             }
+        }
+
+        private void btn_InvoiceCO_Click(object sender, EventArgs e)
+        {
+            Invoices.CG.CGForm f = new Book.UI.Invoices.CG.CGForm();
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                if (f.key.Count == 0)
+                    return;
+
+                Model.InvoiceCODetail coDetail = f.key[0];
+                if (coDetail != null)
+                {
+                    this._pcfog.PronoteHeaderId = coDetail.InvoiceId;
+                    this._pcfog.InvoiceCusXOId = coDetail.Invoice.InvoiceCustomXOId;
+                    this._pcfog.Product = new BL.ProductManager().Get(coDetail.ProductId);
+                    this._pcfog.ProductId = coDetail.ProductId;
+                    this._pcfog.mCheckStandard = coDetail.Invoice.Customer.CheckedStandard;
+                    this._pcfog.InvoiceXOQuantity = coDetail.OrderQuantity;
+
+                    this.Refresh();
+                }
+            }
+
+            f.Dispose();
+            GC.Collect();
         }
     }
 }

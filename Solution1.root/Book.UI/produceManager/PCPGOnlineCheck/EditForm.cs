@@ -584,6 +584,9 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             Invoices.CG.CGForm f = new Book.UI.Invoices.CG.CGForm();
             if (f.ShowDialog(this) == DialogResult.OK)
             {
+                if (f.key.Count == 0)
+                    return;
+
                 this._pcpgoc.Details.Clear();
 
                 this._pcpgoc.PCPGOnlineCheckType = 2;

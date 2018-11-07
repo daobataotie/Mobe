@@ -481,6 +481,9 @@ namespace Book.UI.produceManager.PCImpactCheck
             Invoices.CG.CGForm form = new Book.UI.Invoices.CG.CGForm();
             if (form.ShowDialog() == DialogResult.OK)
             {
+                if (form.key.Count == 0)
+                    return;
+
                 this._PCIC.PCFromType = 2;     //单据类型
                 this._PCIC.PCImpactCheckDate = this.DE_PCImpactCheckDate.DateTime;
                 this._PCIC.PronoteHeaderId = form.key[0].InvoiceId;
