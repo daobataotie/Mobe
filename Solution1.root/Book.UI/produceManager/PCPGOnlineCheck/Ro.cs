@@ -33,7 +33,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.lblFromInvoiceId.Text = pcpgoc.FromPCId;
             this.lblCHCustomer.Text = pcpgoc.Customer == null ? "" : pcpgoc.Customer.ToString();
             this.lblCheckStandard.Text = pcpgoc.Customer == null ? "" : pcpgoc.Customer.CheckedStandard;
-            this.lblCustomerInvoiceId.Text = pcpgoc.InvoiceCusXOId;
+            this.lblCustomerInvoiceId.Text = pcpgoc.InvoiceXO == null ? "" : pcpgoc.InvoiceXO.CustomerInvoiceXOId;
             this.lblEmployee.Text = pcpgoc.Employee == null ? "" : pcpgoc.Employee.ToString();
             this.lblProductName.Text = pcpgoc.Product == null ? "" : pcpgoc.Product.ToString();
             this.lblInvoiceXOQuantity.Text = pcpgoc.InvoiceXOQuantity.HasValue ? pcpgoc.InvoiceXOQuantity.Value.ToString() : "";
@@ -72,8 +72,8 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             //this.TCattrFangWuMoYingDu.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrFangWuMoYingDu);
             this.TCattrGaoDiJiaoL.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrGaoDiJiaoL);
             this.TCattrGaoDiJiaoR.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrGaoDiJiaoR);
-            //this.TCattrGuanXue.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrGuanXue);
-            //this.TCattrHouDu.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrHouDu);
+            this.TCattrGuanXue.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrGuanXue);
+            this.TCattrHouDu.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrHouDu);
             this.TCattrMaoBian.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrMaoBian);
             this.TCattrTouShiLv.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrTouShiLv);
             this.TCattrUVChengFen.DataBindings.Add("Text", this.DataSource, Model.PCPGOnlineCheckDetail.PRO_attrUVChengFen);

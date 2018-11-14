@@ -517,7 +517,7 @@ namespace Book.Model
         }
 
         /// <summary>
-        /// 
+        /// 客户订单编号
         /// </summary>
         public string CustomerInvoiceXOId
         {

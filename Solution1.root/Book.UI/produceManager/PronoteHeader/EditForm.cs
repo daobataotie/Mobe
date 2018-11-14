@@ -65,7 +65,7 @@ namespace Book.UI.produceManager.PronoteHeader
             this.newChooseWorkHouse.Choose = new Settings.ProduceManager.Workhouselog.ChooseWorkHouse();
             this.EmpAudit.Choose = new ChooseEmployee();
             // this.bindingSourceProcedures.DataSource = this.pronoteHeader.DetailProcedures;           
-        }
+        } 
 
 
         int LastFlag = 0; //页面载入时是否执行 last方法

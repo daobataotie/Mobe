@@ -354,7 +354,10 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
                     //this.attrHotR.Visible = false;
                     this.attrCoolL.Visible = false;
                     this.attrCoolR.Visible = false;
-
+                    this.gridColumn5.Width = 120;
+                    this.gridColumn6.Width = 120;
+                    this.gridColumn5.Caption = "坠球42g土0.5g(左)";
+                    this.gridColumn6.Caption = "坠球42g土0.5g(右)";
                     this.attrZhuiQiu68gL.Caption = "镜片上(左)(20mm)";
                     this.attrZhuiQiu68gR.Caption = "镜片上(右)(20mm)";
                     break;

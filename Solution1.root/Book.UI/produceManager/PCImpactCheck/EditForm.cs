@@ -490,7 +490,7 @@ namespace Book.UI.produceManager.PCImpactCheck
                 this._PCIC.InvoiceCusXOId = form.key[0].Invoice.InvoiceCustomXOId;
                 this._PCIC.Product = new BL.ProductManager().Get(form.key[0].ProductId);
                 this._PCIC.ProductId = this._PCIC.Product.ProductId;
-                this._PCIC.mCheckStandard = form.key[0].Invoice.Customer.CheckedStandard;
+                this._PCIC.mCheckStandard = (form.key[0].Invoice.Customer == null ? "" : form.key[0].Invoice.Customer.CheckedStandard);
                 this._PCIC.InvoiceXOQuantity = form.key[0].OrderQuantity;
                 this.Refresh();
             }

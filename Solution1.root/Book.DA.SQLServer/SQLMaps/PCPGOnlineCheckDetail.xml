@@ -14,7 +14,7 @@
     </delete>
     <select id="SelectByFromInvoiceId" parameterClass="string" resultMap="PCPGOnlineCheckDetailResult">
       <![CDATA[
-      SELECT * FROM PCPGOnlineCheckDetail 
+       SELECT PCPGOnlineCheckDetailId,PCPGOnlineCheckId,EmployeeId,PCPGOnlineCheckDetailDate,PCPGOnlineCheckDetailTime,InvoiceCusXOId,CheckQuantity,attrColor,ImpactCheck,attrExterior,attrGaoDiJiaoL,attrGaoDiJiaoR,attrZhuangJiaoSJDL,attrZhuangJiaoSJDR,PCPGOnlineCheckDetailDesc,attrDianDuPDSLv,attrDianDuBOLiTest,FromInvoiceId,attrUVChengFen,attrTouShiLv,attrFangWuMoYingDu,attrQiangHuaMo,attrZhePian,attrMaoBian,attrCuSuanCeShi,BusinessHoursId,attrFangWuMo,attrQiangHuaMoYingDu,(case when exists (select * from OpticsTest where PCPGOnlineCheckDetailId=PCPGOnlineCheckDetail.PCPGOnlineCheckDetailId) then 'V' else '' end) as attrGuanXue,(case when exists (select * from ThicknessTest where PCPGOnlineCheckDetailId=PCPGOnlineCheckDetail.PCPGOnlineCheckDetailId) then 'V' else '' end) as attrHouDu FROM PCPGOnlineCheckDetail
       WHERE PCPGOnlineCheckDetail.PCPGOnlineCheckId = #value# ORDER BY PCPGOnlineCheckDetail.PCPGOnlineCheckDetailDate
       ]]>
     </select>

@@ -385,7 +385,7 @@ namespace Book.UI.produceManager.PCFogCheck
                     this._pcfog.InvoiceCusXOId = coDetail.Invoice.InvoiceCustomXOId;
                     this._pcfog.Product = new BL.ProductManager().Get(coDetail.ProductId);
                     this._pcfog.ProductId = coDetail.ProductId;
-                    this._pcfog.mCheckStandard = coDetail.Invoice.Customer.CheckedStandard;
+                    this._pcfog.mCheckStandard = (coDetail.Invoice.Customer == null ? "" : coDetail.Invoice.Customer.CheckedStandard);
                     this._pcfog.InvoiceXOQuantity = coDetail.OrderQuantity;
 
                     this.Refresh();
