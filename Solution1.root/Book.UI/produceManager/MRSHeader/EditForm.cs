@@ -964,7 +964,7 @@ namespace Book.UI.produceManager.MRSHeader
                             // Model.TechonlogyHeader techonlogyHeader = techonlogyHeaderManager.Get(bomP.TechonlogyHeaderId);
                             SqlParameter[] sqlte = new SqlParameter[] { new SqlParameter("@TechonlogyHeaderId", SqlDbType.VarChar, 50) };
                             sqlte[0].Value = bomP.TechonlogyHeaderId;
-                            IList<Model.Technologydetails> tedetail = technologydetailsManager.DataReaderBind<Model.Technologydetails>(" SELECT t.TechnologydetailsNo,t.ProceduresId,p.WorkHouseId,p.SupplierId,p.IsOtherProduceOther PackageUnit  FROM   [Technologydetails] t left join Procedures p on t.ProceduresId=p.ProceduresId WHERE [TechonlogyHeaderId] = @TechonlogyHeaderId ", sqlte, CommandType.Text);
+                            IList<Model.Technologydetails> tedetail = technologydetailsManager.DataReaderBind<Model.Technologydetails>(" SELECT t.TechnologydetailsNo,t.ProceduresId,p.WorkHouseId,p.SupplierId,p.IsOtherProduceOther  FROM   [Technologydetails] t left join Procedures p on t.ProceduresId=p.ProceduresId WHERE [TechonlogyHeaderId] = @TechonlogyHeaderId ", sqlte, CommandType.Text);
                             if (tedetail != null)
                             {
                                 foreach (Model.Technologydetails technologydetails in tedetail)
@@ -976,11 +976,11 @@ namespace Book.UI.produceManager.MRSHeader
                                     pronoteProceduresDetail.WorkHouseId = technologydetails.WorkHouseId;
                                     if (tedetail.IndexOf(technologydetails) == 0)
                                         pronoteProceduresDetail.PronoteProceduresDate = _mrsdetail.JiaoHuoDate;
-                                    if (technologydetails.Procedures != null)
-                                    {
-                                        pronoteProceduresDetail.IsOtherProduceOther = technologydetails.IsOtherProduceOther;
-                                        pronoteProceduresDetail.SupplierId = technologydetails.SupplierId;
-                                    }
+                                    //if (technologydetails.Procedures != null)
+                                    //{
+                                    pronoteProceduresDetail.IsOtherProduceOther = technologydetails.IsOtherProduceOther;
+                                    pronoteProceduresDetail.SupplierId = technologydetails.SupplierId;
+                                    //}
                                     pronoteHeader.DetailProcedures.Add(pronoteProceduresDetail);
                                 }
                             }
