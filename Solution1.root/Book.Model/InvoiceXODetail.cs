@@ -93,6 +93,8 @@ namespace Book.Model
 
         public string CustomerProductName { get; set; }
 
+        public string DepotName { get; set; }
+
         public readonly static string PRO_InvoiceDate = "InvoiceDate";
 
         public readonly static string PRO_InvoiceYjrq = "InvoiceYjrq";

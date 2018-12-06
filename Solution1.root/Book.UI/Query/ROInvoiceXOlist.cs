@@ -47,7 +47,7 @@ namespace Book.UI.Query
             //this.TCInvoiceXODetailBeenQuantity.DataBindings.Add("Text", this.DataSource, Model.InvoiceXODetail.PRO_InvoiceXODetailBeenQuantity);
             //this.TCInvoiceXTDetailQuantity.DataBindings.Add("Text", this.DataSource, Model.InvoiceXODetail.PRO_InvoiceXTDetailQuantity);
 
-            this.TCdingdanbianhao.DataBindings.Add("Text", this.DataSource, Model.InvoiceXODetail.PRO_InvoiceId);
+            this.TCDepot.DataBindings.Add("Text", this.DataSource, "DepotName");
             this.TCkhddbh.DataBindings.Add("Text", this.DataSource, Model.InvoiceXODetail.PRO_CustomerInvoiceXOId);
             this.TCdanjia.DataBindings.Add("Text", this.DataSource, Model.InvoiceXODetail.PRO_InvoiceXODetailPrice, "{0:000}");
             this.TCjinge.DataBindings.Add("Text", this.DataSource, Model.InvoiceXODetail.PRO_InvoiceXODetailMoney, "{0:0}");

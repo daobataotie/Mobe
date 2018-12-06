@@ -248,17 +248,17 @@ namespace Book.UI.produceManager.ProduceInDepot
                 #region Set Header
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
-                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 17]).HorizontalAlignment = -4108;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 17]).ColumnWidth = 12;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 19]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 19]).ColumnWidth = 12;
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 2]).ColumnWidth = 20;
                 excel.get_Range(excel.Cells[2, 3], excel.Cells[2, 3]).ColumnWidth = 30;
                 excel.get_Range(excel.Cells[2, 11], excel.Cells[2, 12]).ColumnWidth = 20;
 
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 17]).Interior.Color = 12566463;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 17]).RowHeight = 20;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 17]).Font.Size = 13;
-                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 17]).WrapText = true;
-                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 17]).EntireRow.AutoFit();
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 19]).Interior.Color = 12566463;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 19]).RowHeight = 20;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 19]).Font.Size = 13;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 19]).WrapText = true;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 19]).EntireRow.AutoFit();
 
                 excel.Cells[2, 1] = "入庫日期";
                 excel.Cells[2, 2] = "入庫單號";
@@ -277,6 +277,8 @@ namespace Book.UI.produceManager.ProduceInDepot
                 excel.Cells[2, 15] = "轉生產數量";
                 excel.Cells[2, 16] = "入庫數量";
                 excel.Cells[2, 17] = "不良率";
+                excel.Cells[2, 18] = "手册号";
+                excel.Cells[2, 19] = "项号";
 
                 #endregion
 
@@ -306,6 +308,8 @@ namespace Book.UI.produceManager.ProduceInDepot
                     excel.Cells[i + 3, 15] = details[i].ProduceTransferQuantity;
                     excel.Cells[i + 3, 16] = details[i].ProduceQuantity;
                     excel.Cells[i + 3, 17] = details[i].RejectionRate;
+                    excel.Cells[i + 3, 18] = details[i].HandbookId;
+                    excel.Cells[i + 3, 19] = details[i].HandbookProductId;
                 }
 
                 excel.Visible = true;//是否打开该Excel文件
@@ -898,7 +902,7 @@ namespace Book.UI.produceManager.ProduceInDepot
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 Query.ConditionProInDepotChoose condition = f.Condition as Query.ConditionProInDepotChoose;
-                IList<Model.ProduceInDepotDetail> list = this.produceInDepotDetailManager.SelectList(condition.StartPronoteHeader, condition.EndPronoteHeader, condition.StartDate, condition.EndDate, condition.Product, condition.WorkHouse, condition.MDepot, condition.MDepotPosition, condition.Id1, condition.Id2, condition.Cusxoid, condition.Customer1, condition.Customer2, condition.ProductState);
+                IList<Model.ProduceInDepotDetail> list = this.produceInDepotDetailManager.SelectList(condition.StartPronoteHeader, condition.EndPronoteHeader, condition.StartDate, condition.EndDate, condition.Product, condition.WorkHouse, condition.MDepot, condition.MDepotPosition, condition.Id1, condition.Id2, condition.Cusxoid, condition.Customer1, condition.Customer2, condition.ProductState, condition.HandBookId);
                 if (list == null || list.Count <= 0)
                 {
                     MessageBox.Show("無符合條件數據記錄");
@@ -1258,6 +1262,7 @@ namespace Book.UI.produceManager.ProduceInDepot
             }
         }
 
+        //导出Excel
         private void bar_ExportExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ExportExcel(this.produceInDepot.Details);

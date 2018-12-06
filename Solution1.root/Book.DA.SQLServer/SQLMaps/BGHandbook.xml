@@ -18,6 +18,12 @@
       select case when exists (select 1 from BGHandbook where Id=#Id# and IsEffect='1' and BGHandbookId<>#BGHandbookId#) then 1 else 0 end
       ]]>
     </select>
+
+    <select id="SelectAllId" resultClass="string">
+      <![CDATA[
+      select Id from BGHandbook group by Id
+      ]]>
+    </select>
   </statements>
 
 </sqlMap>

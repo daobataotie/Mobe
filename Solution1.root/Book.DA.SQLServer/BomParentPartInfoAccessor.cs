@@ -113,20 +113,26 @@ namespace Book.DA.SQLServer
         /// 成品dataset
         /// </summary>
         /// <returns></returns>
-        public DataSet SelectNotContentDataSet()
+        public IList<Model.BomParentPartInfo> SelectNotContentDataSet()
         {
-            return SQLDB.DbHelperSQL.Query("select BomId ,Id,BomVersion,DefaultQuantity,(select employeename from employee e where employeeid=b.EmployeeAddId ) as EmployeeAddName ,(select id from product p where p.productid =b.productid) as  ProId,(select ProductName from product p where p.productid =b.productid) as  ProductName,(select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(select ProductName from product p where p.productid =b.productid) as  ProductName,(select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(SELECT CustomerShortName FROM Customer WHERE Customer.CustomerId=(SELECT customerid FROM product WHERE productid =b.ProductId)) as CustomerName from BomParentPartInfo  b where  b.productid not in(select productid from BomComponentInfo)  order by b.id desc ");
-            // return SQLDB.DbHelperSQL.Query("select BomId ,Id,DefaultQuantity,(select employeename from employee e where employeeid=b.EmployeeAddId ) as EmployeeAddName ,(select id as ProId,ProductName as ProductName,CustomerProductName as CustomerProductName, from product p where p.productid =b.productid)   (select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(SELECT CustomerShortName FROM Customer WHERE Customer.CustomerId=(SELECT customerid FROM product WHERE productid =b.ProductId)) as CustomerName from BomParentPartInfo  b where  b.productid not in(select productid from BomComponentInfo)  order by b.id desc ");
+            //return SQLDB.DbHelperSQL.Query("select 0 as IsChecked,BomId ,Id,BomVersion,DefaultQuantity,(select employeename from employee e where employeeid=b.EmployeeAddId ) as EmployeeAddName ,(select id from product p where p.productid =b.productid) as  ProId,(select ProductName from product p where p.productid =b.productid) as  ProductName,(select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(SELECT CustomerShortName FROM Customer WHERE Customer.CustomerId=(SELECT customerid FROM product WHERE productid =b.ProductId)) as CustomerName from BomParentPartInfo  b where  b.productid not in(select productid from BomComponentInfo)  order by b.id desc ");
 
+            string sql = "select 0 as IsChecked,BomId ,Id,BomVersion,DefaultQuantity,(select employeename from employee e where employeeid=b.EmployeeAddId ) as EmployeeAddName ,(select id from product p where p.productid =b.productid) as  ProId,(select ProductName from product p where p.productid =b.productid) as  ProductName,(select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(SELECT CustomerShortName FROM Customer WHERE Customer.CustomerId=(SELECT customerid FROM product WHERE productid =b.ProductId)) as CustomerName from BomParentPartInfo  b where  b.productid not in(select productid from BomComponentInfo)  order by b.id desc ";
+
+            return this.DataReaderBind<Model.BomParentPartInfo>(sql, null, CommandType.Text);
         }
 
         /// <summary>
         /// 所有BOMdataset
         /// </summary>
         /// <returns></returns>
-        public DataSet SelectDataSet()
+        public IList<Model.BomParentPartInfo> SelectDataSet()
         {
-            return SQLDB.DbHelperSQL.Query("select BomId ,Id,DefaultQuantity,BomVersion,(select employeename from employee e where employeeid=b.EmployeeAddId ) as EmployeeAddName ,(select id from product p where p.productid =b.productid) as  ProId,(select ProductName from product p where p.productid =b.productid) as  ProductName,(select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(select ProductName from product p where p.productid =b.productid) as  ProductName,(select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(SELECT CustomerShortName FROM Customer WHERE Customer.CustomerId=(SELECT customerid FROM product WHERE productid =b.ProductId)) as CustomerName from BomParentPartInfo  b  order by b.id desc ");
+            //return SQLDB.DbHelperSQL.Query("select 0 as IsChecked,BomId ,Id,DefaultQuantity,BomVersion,(select employeename from employee e where employeeid=b.EmployeeAddId ) as EmployeeAddName ,(select id from product p where p.productid =b.productid) as  ProId,(select ProductName from product p where p.productid =b.productid) as  ProductName,(select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(SELECT CustomerShortName FROM Customer WHERE Customer.CustomerId=(SELECT customerid FROM product WHERE productid =b.ProductId)) as CustomerName from BomParentPartInfo  b  order by b.id desc ");
+
+            string sql = "select 0 as IsChecked,BomId ,Id,DefaultQuantity,BomVersion,(select employeename from employee e where employeeid=b.EmployeeAddId ) as EmployeeAddName ,(select id from product p where p.productid =b.productid) as  ProId,(select ProductName from product p where p.productid =b.productid) as  ProductName,(select CustomerProductName from product p where p.productid =b.productid) as  CustomerProductName,(SELECT CustomerShortName FROM Customer WHERE Customer.CustomerId=(SELECT customerid FROM product WHERE productid =b.ProductId)) as CustomerName from BomParentPartInfo  b  order by b.id desc ";
+
+            return this.DataReaderBind<Model.BomParentPartInfo>(sql, null, CommandType.Text);
         }
 
         #endregion
@@ -150,7 +156,7 @@ namespace Book.DA.SQLServer
         public string SelectBomIdByProductId(string productId)
         {
             string sql = "select Top 1 BomId from BomParentPartInfo where productId = '" + productId + "' and Status=0";
-            object value=this.QueryObject(sql);
+            object value = this.QueryObject(sql);
 
             return (value == null ? "" : value.ToString());
         }

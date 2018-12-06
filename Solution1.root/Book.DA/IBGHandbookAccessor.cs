@@ -21,6 +21,7 @@ namespace Book.DA
         DataTable SelectIdGroupById();
         void UpdateIsEffect(string id, string effect);
         bool HasEffect(string bGHandBookId, string id);
+        IList<string> SelectAllId();
     }
 }
 

@@ -35,17 +35,17 @@ namespace Book.UI.Settings.ProduceManager
         private BL.ProductUnitManager productUnitManager = new Book.BL.ProductUnitManager();
         private BL.BomPackageDetailsManager package = new Book.BL.BomPackageDetailsManager();
         private Model.Customer _customer = new Book.Model.Customer();
-      //  private BL.ProcessingManager processingManager = new Book.BL.ProcessingManager();
+        //private BL.ProcessingManager processingManager = new Book.BL.ProcessingManager();
         private BL.ProcessCategoryManager processCategoryManager = new Book.BL.ProcessCategoryManager();
         private BL.BOMProductProcessManager bomProductProcess = new Book.BL.BOMProductProcessManager();
         private BL.BomComponentInfoManager BomComManager = new Book.BL.BomComponentInfoManager();
         private BL.ProductProcessManager productProcessManager = new Book.BL.ProductProcessManager();
         private BL.TechonlogyHeaderManager techonlogyHeaderManager = new BL.TechonlogyHeaderManager();
         //客户包装
-     //   private BL.CustomerPackageDetailManager customerPackageDetailManager = new Book.BL.CustomerPackageDetailManager();
-       // private BL.MaterialTypeManager materialTypeManager = new Book.BL.MaterialTypeManager();
+        //   private BL.CustomerPackageDetailManager customerPackageDetailManager = new Book.BL.CustomerPackageDetailManager();
+        // private BL.MaterialTypeManager materialTypeManager = new Book.BL.MaterialTypeManager();
         private BL.CustomerManager customerManager = new Book.BL.CustomerManager();
-       // private BL.ManProcedureManager manProcedureManager = new BL.ManProcedureManager();
+        // private BL.ManProcedureManager manProcedureManager = new BL.ManProcedureManager();
         private BL.TechnologydetailsManager technologydetailsManager = new BL.TechnologydetailsManager();
         private Model.TechonlogyHeader _techonlogyHeader;
         // BL.CustomerProcessingDetailManager CustomerProcessingDetailManager = new Book.BL.CustomerProcessingDetailManager();
@@ -518,7 +518,7 @@ namespace Book.UI.Settings.ProduceManager
 
 
             // this._bomParmentPartInfo.MaterialType = this.comboBoxEditMaterialType.EditValue as Model.MaterialType;
-        
+
             //this._bomParmentPartInfo.BomDescription = this.textEditBomDescription.Text;
             this._bomParmentPartInfo.Id = this.textEditId.Text; ;
             // this._bomParmentPartInfo.BomType = this.textEditBomType.Text;
@@ -1587,6 +1587,7 @@ namespace Book.UI.Settings.ProduceManager
 
             this.gridControl3.RefreshDataSource();
         }
+
         private IList<Model.BomComponentInfo> XRband()
         {
             if (this._bomParmentPartInfo != null)
@@ -1597,7 +1598,7 @@ namespace Book.UI.Settings.ProduceManager
             comm.Product = _bomParmentPartInfo.Product;
 
 
-            comm.Product.ProductName = string.IsNullOrEmpty(_bomParmentPartInfo.Product.ProductName) ? _bomParmentPartInfo.Product.ProductName : comm.Product.ProductName + "{" + comm.Product.CustomerProductName + "}";
+            comm.Product.ProductName = string.IsNullOrEmpty(_bomParmentPartInfo.Product.CustomerProductName) ? _bomParmentPartInfo.Product.ProductName : _bomParmentPartInfo.Product.ProductName + "{" + _bomParmentPartInfo.Product.CustomerProductName + "}";
             comm.ProductId = _bomParmentPartInfo.ProductId;
             comm.Customer = _bomParmentPartInfo.Customer;
 
@@ -2009,6 +2010,7 @@ namespace Book.UI.Settings.ProduceManager
             GC.Collect();
         }
 
+        //导出Excel
         public static void ExportAllBomToExcel(DataSet ds, string sheetName)
         {
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
@@ -2180,74 +2182,6 @@ namespace Book.UI.Settings.ProduceManager
 
         }
 
-        private void barButtonItemQuery_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            BomList listform = new BomList();
-            if (listform.ShowDialog(this) != DialogResult.OK) return;
-            DataRowView dr = listform.SelectItem as DataRowView;
-            if (dr == null || dr["BomId"] == null) return;
-            this.searchBom = this.bomParmentInfoManager.Get(dr["BomId"].ToString());
-            this.treeLoad(this.searchBom);
-
-            this._bomParmentPartInfo = this.searchBom;
-            this.action = "view";
-            this.Refresh();
-
-
-            listform.Dispose();
-            GC.Collect();
-            //Invoices.ChooseProductForm f = new Invoices.ChooseProductForm();
-            //if (f.ShowDialog(this) == DialogResult.OK)
-            //{
-            //    Model.Product p = f.SelectedItem as Model.Product;
-            //    this._bomParmentPartInfo = this.bomParmentInfoManager.Get(p);
-
-            //    ////  }
-            //    //如果母件是客户BOM 
-            //    this.action = "view";
-            //    if (this._bomParmentPartInfo == null)
-            //    {
-            //        this._bomParmentPartInfo = new Book.Model.BomParentPartInfo();
-            //        this._bomParmentPartInfo.BomId = Guid.NewGuid().ToString();
-
-            //        //if (e.Node.Tag.ToString().IndexOf("customer") >= 0)
-            //        //{
-            //        //   this._bomParmentPartInfo.Product= this.productManager.Get(productid.Substring(0, productid.IndexOf("customer")));
-
-            //        //}
-            //        //else
-            //        //{                            // this.action = "view";
-            //        this._bomParmentPartInfo.Product = p;
-            //        // }
-            //        // this._bomParmentPartInfo.Product = this.productManager.Get(e.Node.Tag.ToString());
-            //        this._bomParmentPartInfo.ProductId = p.ProductId;
-            //        this._bomParmentPartInfo.InsertTime = DateTime.Now;
-            //        this._bomParmentPartInfo.CreateMan = BL.V.ActiveOperator.OperatorName;
-            //        this._bomParmentPartInfo.EffectiveDate = DateTime.Now;
-            //        this._bomParmentPartInfo.Id = this.bomParmentInfoManager.GetId();
-
-            //        //if (this.productManager.Get(e.Node.Tag.ToString()).IsProcee == true)
-            //        //{
-            //        //    this._bomParmentPartInfo.Components = this.BomComManager.Select(this.bomParmentInfoManager.Get(this.productManager.Get(this.productManager.Get(e.Node.Tag.ToString()).ProceebeforeProductId)));
-
-            //        //}
-            //        this.action = "insert";
-            //    }
-
-
-            //foreach (TreeListNode listNode in this.treeList1.Nodes)
-            //{               
-            //        if (listNode.Tag.ToString() == p.ProductId)
-            //        {
-            //            this.treeList1.SetFocusedNode(listNode);
-            //        }               
-            //}
-
-            //    this.Refresh();
-
-            // }
-        }
-
         private void buttonEditTechonlogyHeaderid_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             ProduceManager.Techonlogy.ChooseTechonlogyForm f = new Book.UI.Settings.ProduceManager.Techonlogy.ChooseTechonlogyForm();
@@ -2332,15 +2266,34 @@ namespace Book.UI.Settings.ProduceManager
         {
             BomList listform = new BomList(1);
             if (listform.ShowDialog(this) != DialogResult.OK) return;
-            DataRowView dr = listform.SelectItem as DataRowView;
-            if (dr == null || dr["BomId"] == null) return;
-            this.searchBom = this.bomParmentInfoManager.Get(dr["BomId"].ToString());
+            Model.BomParentPartInfo parentModel = listform.SelectItem as Model.BomParentPartInfo;
+            if (parentModel == null || parentModel.BomId == null) return;
+            this.searchBom = this.bomParmentInfoManager.Get(parentModel.BomId);
             this.treeLoad(this.searchBom);
 
             //刷新
             this._bomParmentPartInfo = this.searchBom;
             this.action = "view";
             this.Refresh();
+
+            listform.Dispose();
+            GC.Collect();
+        }
+
+        //搜索
+        private void barButtonItemQuery_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            BomList listform = new BomList();
+            if (listform.ShowDialog(this) != DialogResult.OK) return;
+             Model.BomParentPartInfo parentModel = listform.SelectItem as Model.BomParentPartInfo;
+            if (parentModel == null || parentModel.BomId == null) return;
+            this.searchBom = this.bomParmentInfoManager.Get(parentModel.BomId);
+            this.treeLoad(this.searchBom);
+
+            this._bomParmentPartInfo = this.searchBom;
+            this.action = "view";
+            this.Refresh();
+
 
             listform.Dispose();
             GC.Collect();

@@ -34,7 +34,6 @@ namespace Book.UI.Query
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -49,7 +48,7 @@ namespace Book.UI.Query
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.TCriqi = new DevExpress.XtraReports.UI.XRTableCell();
-            this.TCdingdanbianhao = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCDepot = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCkh = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCchkh = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCkhddbh = new DevExpress.XtraReports.UI.XRTableCell();
@@ -65,6 +64,7 @@ namespace Book.UI.Query
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrlblTotalJinE = new DevExpress.XtraReports.UI.XRLabel();
             this.xrlblTotalShuliang = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -92,21 +92,15 @@ namespace Book.UI.Query
             this.xrlblTotalShuliang,
             this.xrLabel12,
             this.xrLabel11});
-            resources.ApplyResources(this.ReportFooter, "ReportFooter");
             this.ReportFooter.Expanded = true;
-            // 
-            // PageFooter
-            // 
-            resources.ApplyResources(this.PageFooter, "PageFooter");
+            resources.ApplyResources(this.ReportFooter, "ReportFooter");
             // 
             // xrLabelDateRange
             // 
-            resources.ApplyResources(this.xrLabelDateRange, "xrLabelDateRange");
             this.xrLabelDateRange.StylePriority.UseTextAlignment = false;
             // 
             // xrLabelReportName
             // 
-            resources.ApplyResources(this.xrLabelReportName, "xrLabelReportName");
             this.xrLabelReportName.StylePriority.UseFont = false;
             this.xrLabelReportName.StylePriority.UseTextAlignment = false;
             // 
@@ -156,12 +150,6 @@ namespace Book.UI.Query
             resources.ApplyResources(this.xrTableCell9, "xrTableCell9");
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.Weight = 0.25367625149492312;
-            // 
-            // xrTableCell6
-            // 
-            resources.ApplyResources(this.xrTableCell6, "xrTableCell6");
-            this.xrTableCell6.Name = "xrTableCell6";
-            this.xrTableCell6.Weight = 0.29779438621305432;
             // 
             // xrTableCell10
             // 
@@ -244,7 +232,7 @@ namespace Book.UI.Query
             // 
             this.xrTableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.TCriqi,
-            this.TCdingdanbianhao,
+            this.TCDepot,
             this.TCkh,
             this.TCchkh,
             this.TCkhddbh,
@@ -266,11 +254,11 @@ namespace Book.UI.Query
             this.TCriqi.Name = "TCriqi";
             this.TCriqi.Weight = 0.25367625149492312;
             // 
-            // TCdingdanbianhao
+            // TCDepot
             // 
-            resources.ApplyResources(this.TCdingdanbianhao, "TCdingdanbianhao");
-            this.TCdingdanbianhao.Name = "TCdingdanbianhao";
-            this.TCdingdanbianhao.Weight = 0.29779438621305432;
+            resources.ApplyResources(this.TCDepot, "TCDepot");
+            this.TCDepot.Name = "TCDepot";
+            this.TCDepot.Weight = 0.29779438621305432;
             // 
             // TCkh
             // 
@@ -374,6 +362,12 @@ namespace Book.UI.Query
             this.xrlblTotalShuliang.StylePriority.UseForeColor = false;
             this.xrlblTotalShuliang.StylePriority.UseTextAlignment = false;
             // 
+            // xrTableCell6
+            // 
+            resources.ApplyResources(this.xrTableCell6, "xrTableCell6");
+            this.xrTableCell6.Name = "xrTableCell6";
+            this.xrTableCell6.Weight = 0.29779438621305432;
+            // 
             // ROInvoiceXOlist
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -408,7 +402,6 @@ namespace Book.UI.Query
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;
@@ -418,7 +411,7 @@ namespace Book.UI.Query
         private DevExpress.XtraReports.UI.XRTable xrTable2;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow2;
         private DevExpress.XtraReports.UI.XRTableCell TCriqi;
-        private DevExpress.XtraReports.UI.XRTableCell TCdingdanbianhao;
+        private DevExpress.XtraReports.UI.XRTableCell TCDepot;
         private DevExpress.XtraReports.UI.XRTableCell TCkh;
         private DevExpress.XtraReports.UI.XRTableCell TCchkh;
         private DevExpress.XtraReports.UI.XRTableCell TCkhddbh;
@@ -436,5 +429,6 @@ namespace Book.UI.Query
         private DevExpress.XtraReports.UI.XRTableCell TCInvoiceXODetailBeenQuantity;
         private DevExpress.XtraReports.UI.XRTableCell TCInvoiceXTDetailQuantity;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell15;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
     }
 }

@@ -50,5 +50,10 @@ namespace Book.DA.SQLServer
             ht.Add("BGHandbookId", bGHandBookId);
             return sqlmapper.QueryForObject<bool>("BGHandbook.HasEffect", ht);
         }
+
+        public IList<string> SelectAllId()
+        {
+            return sqlmapper.QueryForList<string>("BGHandbook.SelectAllId", null);
+        }
     }
 }

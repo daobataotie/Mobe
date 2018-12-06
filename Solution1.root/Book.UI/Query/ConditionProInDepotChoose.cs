@@ -108,6 +108,6 @@ namespace Book.UI.Query
         //商品状态
         public int ProductState { get; set; }
 
-
+        public string HandBookId { get; set; }
     }
 }

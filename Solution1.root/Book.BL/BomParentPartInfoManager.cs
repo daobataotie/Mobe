@@ -351,15 +351,17 @@ namespace Book.BL
         {
             return accessor.HasRows1();
         }
+
         /// <summary>
         /// 查询成品dataset
         /// </summary>
         /// <returns></returns>
-        public DataSet SelectNotContentDataSet()
+        public IList<Model.BomParentPartInfo> SelectNotContentDataSet()
         {
             return accessor.SelectNotContentDataSet();
         }
-        public DataSet SelectDataSet()
+
+        public IList<Model.BomParentPartInfo> SelectDataSet()
         {
             return accessor.SelectDataSet();
         }

@@ -32,8 +32,8 @@ namespace Book.DA
         Model.BomParentPartInfo GetLast1();
         Model.BomParentPartInfo GetNext1(Model.BomParentPartInfo e);
         bool HasRows1();
-        DataSet SelectNotContentDataSet();
-        DataSet SelectDataSet();
+        IList<Model.BomParentPartInfo> SelectNotContentDataSet();
+        IList<Model.BomParentPartInfo> SelectDataSet();
 
         Model.BomParentPartInfo Select_ProductId(string productid);
 

@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 //物料清单
 namespace Book.UI.Settings.ProduceManager
@@ -26,31 +28,39 @@ namespace Book.UI.Settings.ProduceManager
     public partial class BomList : Settings.BasicData.BaseListForm
     {
         private int flag = 0;
+        BL.BomParentPartInfoManager bomParentPartInfoManager = new Book.BL.BomParentPartInfoManager();
+        BL.BomComponentInfoManager bomComponentInfoManager = new Book.BL.BomComponentInfoManager();
+
         public BomList()
         {
             InitializeComponent();
             this.manager = new BL.BomParentPartInfoManager();
         }
+
         /// <summary>
         /// 1:成品一览
         /// </summary>
         /// <param name="i"></param>
-        public BomList(int i):this()
+        public BomList(int i)
+            : this()
         {
-            flag = i;         
-           
+            flag = i;
         }
+
         protected override void RefreshData()
         {
             if (flag == 1)
-            {              
-                    this.bindingSource1.DataSource = (this.manager as BL.BomParentPartInfoManager).SelectNotContentDataSet().Tables[0];             
+            {
+                this.bindingSource1.DataSource = (this.manager as BL.BomParentPartInfoManager).SelectNotContentDataSet();
             }
             else
             {
-                this.bindingSource1.DataSource = (this.manager as BL.BomParentPartInfoManager).SelectDataSet().Tables[0];
+                this.bindingSource1.DataSource = (this.manager as BL.BomParentPartInfoManager).SelectDataSet();
             }
+
+            this.gridView1.OptionsBehavior.Editable = true;
         }
+
         /// <summary>
         /// 重写父类方法
         /// </summary>
@@ -59,6 +69,7 @@ namespace Book.UI.Settings.ProduceManager
         {
             return new BomEdit();
         }
+
         /// <summary>
         /// 重写父类方法 
         /// </summary>
@@ -70,30 +81,6 @@ namespace Book.UI.Settings.ProduceManager
             return (BomEdit)type.Assembly.CreateInstance(type.FullName, false, System.Reflection.BindingFlags.CreateInstance, null, args, null, null);
         }
 
-
-        //自定义列显示
-        private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
-        {
-            //if (e.ListSourceRowIndex < 0) return;
-            //IList<Model.BomParentPartInfo> details = this.bindingSource1.DataSource as IList<Model.BomParentPartInfo>;
-            //if (details == null || details.Count < 1) return;
-            //Model.Product product = details[e.ListSourceRowIndex].Product;
-            //if (product == null) return;
-            //switch (e.Column.Name)
-            //{
-            //    case "ProductId":
-            //        e.DisplayText = product.Id;
-            //        break;
-            //    case "gridColumnName":
-            //        e.DisplayText =string.IsNullOrEmpty(product.CustomerProductName)? product.ProductName: product.ProductName +"{"+ product.CustomerProductName+"}";
-            //        break;
-            //    case "gridColumnCustomer":
-            //        e.DisplayText = product.Customer==null?"":product.Customer.CustomerShortName;
-            //        break;
-
-
-            //}
-        }
         public override void gridView1_DoubleClick(object sender, EventArgs e)
         {
             GridView view = sender as GridView;
@@ -111,14 +98,178 @@ namespace Book.UI.Settings.ProduceManager
                 //    RefreshData();
                 //}
                 this.DialogResult = DialogResult.OK;
-            }          
-            
+            }
+
         }
-      
-        //public Model.BomParentPartInfo bomSelect
-        //{
-        //    get { return this.bindingSource1.Current as Model.BomParentPartInfo; }
-         
-        //}
+
+        private void repositoryItemCheckEdit1_CheckedChanged(object sender, EventArgs e)
+        {
+            //if (this.bindingSource1.Current != null)
+            //{
+            //    DataRow dr = gridView1.GetDataRow(this.gridView1.FocusedRowHandle);
+            //    if (dr != null)
+            //    {
+            //        if ((sender as CheckEdit).Checked)
+            //            this.BOMIds.Add(dr["BomId"].ToString());
+            //        else
+            //            this.BOMIds.Remove(dr["BomId"].ToString());
+
+            //        this.gridView1.PostEditor();
+            //        this.gridView1.UpdateCurrentRow();
+            //    }
+            //}
+            this.gridView1.PostEditor();
+            this.gridView1.UpdateCurrentRow();
+
+            this.gridControl1.RefreshDataSource();
+        }
+
+        private void bar_ExportSelectProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Type objClassType = null;
+            objClassType = Type.GetTypeFromProgID("Excel.Application");
+            if (objClassType == null)
+            {
+                MessageBox.Show("本機沒有安裝Excel", "提示！", MessageBoxButtons.OK);
+                return;
+            }
+
+            IList<Model.BomParentPartInfo> parentList = ((System.Windows.Forms.BindingSource)(this.gridControl1.DataSource)).DataSource as IList<Model.BomParentPartInfo>;
+            if (parentList != null && parentList.Count > 0)
+            {
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Application.Workbooks.Add(true);
+                Microsoft.Office.Interop.Excel.Worksheet sheet = (Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[1];
+
+                foreach (var model in parentList)
+                {
+                    if (model.IsChecked)
+                    {
+                        try
+                        {
+                            Model.BomParentPartInfo _bomParmentPartInfo = bomParentPartInfoManager.Get(model.BomId);
+                            List<Model.BomComponentInfo> list = GetBomComponetList(_bomParmentPartInfo);
+
+                            if (sheet.Name != "Sheet1")
+                            {
+                                excel.Worksheets.Add(Missing.Value, sheet, Missing.Value, Missing.Value);
+                            }
+                            sheet = ((Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[excel.Worksheets.Count]);
+
+                            #region SetHeader
+                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]).RowHeight = 20;
+                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]).Font.Size = 15;
+                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]).HorizontalAlignment = -4108;
+                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]).ColumnWidth = 12;
+                            sheet.get_Range(excel.Cells[1, 2], excel.Cells[1, 2]).ColumnWidth = 50;
+                            sheet.get_Range(excel.Cells[1, 8], excel.Cells[1, 8]).ColumnWidth = 30;
+
+                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]).Interior.Color = 12566463;
+
+                            //excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).RowHeight = 20;
+                            //excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).Font.Size = 13;
+                            //excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 20]).WrapText = true;
+                            //excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 20]).EntireRow.AutoFit();
+
+                            sheet.Cells[1, 1] = "级别";
+                            sheet.Cells[1, 2] = "子件名称";
+                            sheet.Cells[1, 3] = "计量单位";
+                            sheet.Cells[1, 4] = "使用数量";
+                            sheet.Cells[1, 5] = "损耗率";
+                            sheet.Cells[1, 6] = "生效日期";
+                            sheet.Cells[1, 7] = "失效日期";
+                            sheet.Cells[1, 8] = "备注";
+
+                            #endregion
+
+                            try
+                            {
+                                sheet.Name = list[0].Product.Id;
+                            }
+                            catch
+                            {
+                                sheet.Name = list[0].Product.Id + "-" + list[0].Product.ProductVersion;
+                            }
+
+                            int row = 2;
+                            foreach (var item in list)
+                            {
+                                sheet.Cells[row, 1] = item.Jibie;
+                                sheet.Cells[row, 2] = item.Product.ProductName;
+                                sheet.Cells[row, 3] = item.Unit;
+                                sheet.Cells[row, 4] = item.UseQuantity;
+                                sheet.Cells[row, 5] = item.SubLoseRate == null ? 0 : item.SubLoseRate;
+                                sheet.Cells[row, 6] = Convert.ToDateTime(item.EffectsDate).ToString("yyyy-MM-dd");
+                                sheet.Cells[row, 7] = Convert.ToDateTime(item.ExpiringDate).ToString("yyyy-MM-dd");
+                                RichTextBox rt = new RichTextBox();
+                                rt.Rtf = item.ProductDesc;
+                                rt.SelectAll();
+                                sheet.Cells[row, 8] = rt.SelectedText;
+
+                                row++;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+
+                excel.Visible = true;
+            }
+        }
+
+        private List<Model.BomComponentInfo> GetBomComponetList(Model.BomParentPartInfo _bomParmentPartInfo)
+        {
+            List<Model.BomComponentInfo> _comDetailss = new List<Book.Model.BomComponentInfo>();
+
+            _comDetailss.Clear();
+
+            Model.BomComponentInfo comm = new Model.BomComponentInfo();
+            comm.Jibie = 0;
+            comm.UseQuantity = 1;
+            comm.Product = _bomParmentPartInfo.Product;
+
+
+            comm.Product.ProductName = string.IsNullOrEmpty(_bomParmentPartInfo.Product.CustomerProductName) ? _bomParmentPartInfo.Product.ProductName : _bomParmentPartInfo.Product.ProductName + "{" + _bomParmentPartInfo.Product.CustomerProductName + "}";
+            comm.ProductId = _bomParmentPartInfo.ProductId;
+            comm.Customer = _bomParmentPartInfo.Customer;
+
+            _comDetailss.Add(comm);
+            foreach (Model.BomComponentInfo bomcon in this.bomComponentInfoManager.Select(_bomParmentPartInfo))
+            {
+                bomcon.Jibie = 1;
+                bomcon.Product.ProductName = " ".PadLeft(bomcon.Jibie * 2, ' ') + (string.IsNullOrEmpty(bomcon.Product.CustomerProductName) ? bomcon.Product.ProductName : bomcon.Product.ProductName + "{" + bomcon.Product.CustomerProductName + "}");
+
+                _comDetailss.Add(bomcon);
+
+                GetBomComponetByParent(bomcon, _comDetailss);
+            }
+
+            return _comDetailss;
+        }
+
+        private void GetBomComponetByParent(Model.BomComponentInfo componet, List<Model.BomComponentInfo> _comDetailss)
+        {
+            Model.BomParentPartInfo _bomparent = bomParentPartInfoManager.Get(componet.Product);
+            if (_bomparent != null)
+            {
+                IList<Model.BomComponentInfo> comList = this.bomComponentInfoManager.Select(_bomparent);
+                if (comList != null && comList.Count > 0)
+                {
+                    foreach (var item in comList)
+                    {
+                        item.Jibie = componet.Jibie + 1;
+                        item.Product.ProductName = " ".PadLeft(item.Jibie * 2, ' ') + (string.IsNullOrEmpty(item.Product.CustomerProductName) ? item.Product.ProductName : item.Product.ProductName + "{" + item.Product.CustomerProductName + "}");
+
+                        _comDetailss.Add(item);
+
+                        //递归调用
+                        GetBomComponetByParent(item, _comDetailss);
+                    }
+                }
+            }
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace Book.DA.SQLServer
         }
 
         //ProductState -1全部 0 正常 1非   //用于listForm
-        public IList<Book.Model.ProduceInDepotDetail> SelectList(string startPronoteHeader, string endPronoteHeader, DateTime startDate, DateTime endDate, Book.Model.Product product, Book.Model.WorkHouse work, Book.Model.Depot mDepot, Book.Model.DepotPosition mDepotPositioin, string id1, string id2, string cusxoid, Book.Model.Customer customer1, Book.Model.Customer customer2, int ProductState)
+        public IList<Book.Model.ProduceInDepotDetail> SelectList(string startPronoteHeader, string endPronoteHeader, DateTime startDate, DateTime endDate, Book.Model.Product product, Book.Model.WorkHouse work, Book.Model.Depot mDepot, Book.Model.DepotPosition mDepotPositioin, string id1, string id2, string cusxoid, Book.Model.Customer customer1, Book.Model.Customer customer2, int ProductState, string handBookId)
         {
             //Hashtable ht = new Hashtable();
             //ht.Add("startpronoteid", string.IsNullOrEmpty(startPronoteHeader) ? null : startPronoteHeader);
@@ -79,6 +79,10 @@ namespace Book.DA.SQLServer
             if (customer1 != null && customer2 != null)
             {
                 str.Append(" and d.PronoteHeaderId in(select PronoteHeaderId from PronoteHeader where InvoiceXOId IN(SELECT invoiceid FROM InvoiceXO WHERE CustomerId IN(SELECT CustomerId FROM Customer WHERE Id BETWEEN  '" + customer1.Id + "' AND '" + customer2.Id + "')))");
+            }
+            if (!string.IsNullOrEmpty(handBookId))
+            {
+                str.Append(" and d.HandbookId='" + handBookId + "'");
             }
             switch (ProductState)
             {

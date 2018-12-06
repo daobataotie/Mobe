@@ -30,7 +30,7 @@ namespace Book.UI.produceManager.ProduceInDepot
         {
             this.tag = 1;
             this.flag = 1;
-            this.bindingSource1.DataSource = (this.manager as BL.ProduceInDepotDetailManager).SelectList(null, null, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, null, null, invoiceCusId, null, null, -1);
+            this.bindingSource1.DataSource = (this.manager as BL.ProduceInDepotDetailManager).SelectList(null, null, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, null, null, invoiceCusId, null, null, -1,null);
             this.gridControl1.RefreshDataSource();
             this.gridView1.OptionsBehavior.Editable = true;
         }
@@ -42,7 +42,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                 this.tag = 0;
                 return;
             }
-            this.bindingSource1.DataSource = (this.manager as BL.ProduceInDepotDetailManager).SelectList(null, null, DateTime.Now.Date.AddDays(-3), DateTime.Now, null, null, null, null, null, null, null, null, null, -1);
+            this.bindingSource1.DataSource = (this.manager as BL.ProduceInDepotDetailManager).SelectList(null, null, DateTime.Now.Date.AddDays(-3), DateTime.Now, null, null, null, null, null, null, null, null, null, -1,null);
 
             double? procedureSum, checkoutsum;
             procedureSum = (this.manager as BL.ProduceInDepotDetailManager).select_SumPronoteHeaderWorkhouseDateRang(DateTime.Now.Date.AddDays(-3), global::Helper.DateTimeParse.EndDate, null, null);
@@ -62,7 +62,7 @@ namespace Book.UI.produceManager.ProduceInDepot
             if (condition.ShowDialog(this) == DialogResult.OK)
             {
                 Query.ConditionProInDepotChoose con = condition.Condition as Query.ConditionProInDepotChoose;
-                this.bindingSource1.DataSource = (this.manager as BL.ProduceInDepotDetailManager).SelectList(con.StartPronoteHeader, con.EndPronoteHeader, con.StartDate, con.EndDate, con.Product, con.WorkHouse, con.MDepot, con.MDepotPosition, con.Id1, con.Id2, con.Cusxoid, con.Customer1, con.Customer2, con.ProductState);
+                this.bindingSource1.DataSource = (this.manager as BL.ProduceInDepotDetailManager).SelectList(con.StartPronoteHeader, con.EndPronoteHeader, con.StartDate, con.EndDate, con.Product, con.WorkHouse, con.MDepot, con.MDepotPosition, con.Id1, con.Id2, con.Cusxoid, con.Customer1, con.Customer2, con.ProductState, con.HandBookId);
                 this.gridView1.GroupPanelText = "時間從 " + con.StartDate.ToString("yyyy年MM月dd日") + " 到 " + con.EndDate.ToString("yyyy年MM月dd日");
                 double? procedureSum, checkoutsum;
                 if (this.bindingSource1.DataSource == null)
@@ -173,7 +173,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 18]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 20]);
                 r.MergeCells = true;//合并单元格
 
                 //Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter = -4108;
@@ -185,17 +185,17 @@ namespace Book.UI.produceManager.ProduceInDepot
                 #region Set Header
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
-                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 18]).HorizontalAlignment = -4108;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 18]).ColumnWidth = 12;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 20]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 20]).ColumnWidth = 12;
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 2]).ColumnWidth = 20;
                 excel.get_Range(excel.Cells[2, 3], excel.Cells[2, 3]).ColumnWidth = 30;
                 excel.get_Range(excel.Cells[2, 11], excel.Cells[2, 12]).ColumnWidth = 20;
 
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 18]).Interior.Color = 12566463;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 18]).RowHeight = 20;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 18]).Font.Size = 13;
-                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 18]).WrapText = true;
-                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 18]).EntireRow.AutoFit();
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 20]).Interior.Color = 12566463;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).RowHeight = 20;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).Font.Size = 13;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 20]).WrapText = true;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 20]).EntireRow.AutoFit();
 
                 excel.Cells[2, 1] = "入庫日期";
                 excel.Cells[2, 2] = "入庫單號";
@@ -215,6 +215,8 @@ namespace Book.UI.produceManager.ProduceInDepot
                 excel.Cells[2, 16] = "入庫數量";
                 excel.Cells[2, 17] = "班別";
                 excel.Cells[2, 18] = "機台";
+                excel.Cells[2, 19] = "手册号";
+                excel.Cells[2, 20] = "手册项号";
 
                 #endregion
 
@@ -238,6 +240,8 @@ namespace Book.UI.produceManager.ProduceInDepot
                     excel.Cells[i + 3, 16] = details[i].ProduceQuantity;
                     excel.Cells[i + 3, 17] = details[i].BusinessHoursType;
                     excel.Cells[i + 3, 18] = details[i].Machine;
+                    excel.Cells[i + 3, 19] = details[i].HandbookId;
+                    excel.Cells[i + 3, 20] = details[i].HandbookProductId;
                 }
 
                 excel.Visible = true;//是否打开该Excel文件
@@ -270,7 +274,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 17]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 19]);
                 r.MergeCells = true;//合并单元格
 
                 //Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter = -4108;
@@ -281,35 +285,35 @@ namespace Book.UI.produceManager.ProduceInDepot
                 {
                     case "防霧":
                         excel.Cells[1, 1] = "強化/防霧 工作日報表";
-                        excel.Cells[3 + details.Count, 17] = "QR8-06-05-1";
+                        excel.Cells[3 + details.Count, 19] = "QR8-06-05-1";
                         break;
                     case "品檢":
                         excel.Cells[1, 1] = "品檢日報表";
-                        excel.Cells[3 + details.Count, 17] = "QR8-03-01-1";
+                        excel.Cells[3 + details.Count, 19] = "QR8-03-01-1";
                         break;
                     case "組A(半)":
                         excel.Cells[1, 1] = "組裝半成品日報表";
-                        excel.Cells[3 + details.Count, 17] = "QR8-03-02-1";
+                        excel.Cells[3 + details.Count, 19] = "QR8-03-02-1";
                         break;
                     case "組A":
                         excel.Cells[1, 1] = "成品组装日报表";
-                        excel.Cells[3 + details.Count, 17] = "QR8-03-03-1";
+                        excel.Cells[3 + details.Count, 19] = "QR8-03-03-1";
                         break;
                 }
                 #region Set Header
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
-                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 17]).HorizontalAlignment = -4108;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 17]).ColumnWidth = 12;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 19]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 19]).ColumnWidth = 12;
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 2]).ColumnWidth = 20;
                 excel.get_Range(excel.Cells[2, 3], excel.Cells[2, 3]).ColumnWidth = 40;
                 excel.get_Range(excel.Cells[2, 11], excel.Cells[2, 12]).ColumnWidth = 20;
 
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 17]).Interior.Color = 12566463;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 17]).RowHeight = 20;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 17]).Font.Size = 13;
-                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 17]).WrapText = true;
-                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 17]).EntireRow.AutoFit();
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 19]).Interior.Color = 12566463;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 19]).RowHeight = 20;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 19]).Font.Size = 13;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 19]).WrapText = true;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 19]).EntireRow.AutoFit();
 
                 excel.Cells[2, 1] = "入庫日期";
                 excel.Cells[2, 2] = "入庫單號";
@@ -328,6 +332,8 @@ namespace Book.UI.produceManager.ProduceInDepot
                 excel.Cells[2, 15] = "合格數量";
                 excel.Cells[2, 16] = "轉生產數量";
                 excel.Cells[2, 17] = "入庫數量";
+                excel.Cells[2, 18] = "手册号";
+                excel.Cells[2, 19] = "手册项号";
 
                 #endregion
 
@@ -361,6 +367,8 @@ namespace Book.UI.produceManager.ProduceInDepot
                     excel.Cells[i + 3, 15] = details[i].CheckOutSum;
                     excel.Cells[i + 3, 16] = details[i].ProduceTransferQuantity;
                     excel.Cells[i + 3, 17] = details[i].ProduceQuantity;
+                    excel.Cells[i + 3, 18] = details[i].HandbookId;
+                    excel.Cells[i + 3, 19] = details[i].HandbookProductId;
                 }
 
                 excel.Visible = true;//是否打开该Excel文件
@@ -392,7 +400,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 17]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 19]);
                 r.MergeCells = true;//合并单元格
 
                 //Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter = -4108;
@@ -400,22 +408,22 @@ namespace Book.UI.produceManager.ProduceInDepot
                 //Microsoft.Office.Interop.Excel.XlColorIndex.xlColorIndexAutomatic= -4105;
 
                 excel.Cells[1, 1] = "日報表";
-                excel.Cells[3 + details.Count, 17] = "QR8-06-03-1";
+                excel.Cells[3 + details.Count, 19] = "QR8-06-03-1";
 
                 #region Set Header
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
-                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 17]).HorizontalAlignment = -4108;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 17]).ColumnWidth = 12;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 19]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 19]).ColumnWidth = 12;
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 2]).ColumnWidth = 20;
                 excel.get_Range(excel.Cells[2, 3], excel.Cells[2, 3]).ColumnWidth = 30;
                 excel.get_Range(excel.Cells[2, 11], excel.Cells[2, 12]).ColumnWidth = 20;
 
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 17]).Interior.Color = 12566463;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 17]).RowHeight = 20;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 17]).Font.Size = 13;
-                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 17]).WrapText = true;
-                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 17]).EntireRow.AutoFit();
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 19]).Interior.Color = 12566463;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 19]).RowHeight = 20;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 19]).Font.Size = 13;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 19]).WrapText = true;
+                excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 19]).EntireRow.AutoFit();
 
                 excel.Cells[2, 1] = "入庫日期";
                 excel.Cells[2, 2] = "入庫單號";
@@ -434,6 +442,8 @@ namespace Book.UI.produceManager.ProduceInDepot
                 excel.Cells[2, 15] = "轉生產數量";
                 excel.Cells[2, 16] = "入庫數量";
                 excel.Cells[2, 17] = "不良率";
+                excel.Cells[2, 18] = "手册号";
+                excel.Cells[2, 19] = "手册项号";
 
                 #endregion
 
@@ -456,6 +466,8 @@ namespace Book.UI.produceManager.ProduceInDepot
                     excel.Cells[i + 3, 15] = details[i].ProduceTransferQuantity;
                     excel.Cells[i + 3, 16] = details[i].ProduceQuantity;
                     excel.Cells[i + 3, 17] = details[i].RejectionRate;
+                    excel.Cells[i + 3, 18] = details[i].HandbookId;
+                    excel.Cells[i + 3, 19] = details[i].HandbookProductId;
                 }
 
                 excel.Visible = true;//是否打开该Excel文件

@@ -94,9 +94,6 @@ namespace Book.BL
             }
         }
 
-
-
-
         private void TiGuiExists(Model.BGHandbook model)
         {
             if (this.ExistsPrimary(model.BGHandbookId))
@@ -194,6 +191,11 @@ namespace Book.BL
         public bool HasEffect(string bGHandBookId, string id)
         {
             return accessor.HasEffect(bGHandBookId, id);
+        }
+
+        public IList<string> SelectAllId()
+        {
+            return accessor.SelectAllId();
         }
     }
 }

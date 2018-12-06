@@ -20,7 +20,7 @@ namespace Book.DA
     {
         IList<Book.Model.ProduceInDepotDetail> Select(Model.ProduceInDepot produceInDepot);
         IList<Book.Model.ProduceInDepotDetail> Select(string startPronoteHeader, string endPronoteHeader, DateTime startDate, DateTime endDate, Model.Product product, Model.WorkHouse work, Model.Depot mDepot, Model.DepotPosition mDepotPositioin, string id1, string id2, string cusxoid, Model.Customer customer1, Model.Customer customer2, int ProductState);
-        IList<Book.Model.ProduceInDepotDetail> SelectList(string startPronoteHeader, string endPronoteHeader, DateTime startDate, DateTime endDate, Model.Product product, Model.WorkHouse work, Model.Depot mDepot, Model.DepotPosition mDepotPositioin, string id1, string id2, string cusxoid, Model.Customer customer1, Model.Customer customer2, int ProductState);
+        IList<Book.Model.ProduceInDepotDetail> SelectList(string startPronoteHeader, string endPronoteHeader, DateTime startDate, DateTime endDate, Model.Product product, Model.WorkHouse work, Model.Depot mDepot, Model.DepotPosition mDepotPositioin, string id1, string id2, string cusxoid, Model.Customer customer1, Model.Customer customer2, int ProductState, string handBookId);
 
         IList<Book.Model.ProduceInDepotDetail> Select(string PronoteHeaderId, DateTime startDate, DateTime endDate, string workhouseId, Model.Product product, string CusXOId);
 

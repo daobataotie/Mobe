@@ -43,6 +43,13 @@ namespace Book.UI.Query
             {
                 this.checkedComboBoxEdit1.Properties.Items.Add(item);
             }
+
+
+            IList<string> handBookIds = new BL.BGHandbookManager().SelectAllId();
+            foreach (var item in handBookIds)
+            {
+                this.cob_HandBookId.Properties.Items.Add(item);
+            }
         }
 
         public override Condition Condition
@@ -94,6 +101,7 @@ namespace Book.UI.Query
             this.condition.Customer1 = this.newChooseCustomer1.EditValue as Model.Customer;
             this.condition.Customer2 = this.newChooseCustomer2.EditValue as Model.Customer;
             this.condition.ProductState = this.comBoxProductState.SelectedIndex;
+            this.condition.HandBookId = this.cob_HandBookId.Text;
         }
 
         private void ConditionProInDepotChooseForm_Load(object sender, EventArgs e)

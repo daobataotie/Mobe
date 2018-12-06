@@ -61,6 +61,15 @@ namespace Book.Model
             set { _mPSheaderId = value; }
         }
 
+        public bool IsChecked { get; set; }
+
+        public string EmployeeAddName { get; set; }
+
+        public string ProId { get; set; }
+
+        public string ProductName { get; set; }
+
+        public string CustomerName { get; set; }
 
         //public Model.Customer Customer
         //{
