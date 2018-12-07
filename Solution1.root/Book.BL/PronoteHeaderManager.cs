@@ -421,6 +421,19 @@ namespace Book.BL
             return accessor.SelectByProductId(startDate, endDate, productid);
         }
 
+        /// <summary>
+        /// 用于在查询中通过“手册号”筛选
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="productid"></param>
+        /// <param name="handBookId"></param>
+        /// <returns></returns>
+        public IList<Model.PronoteHeader> SelectByProductId(DateTime startDate, DateTime endDate, string productid, string handBookId)
+        {
+            return accessor.SelectByProductId(startDate, endDate, productid, handBookId);
+        }
+
         public IList<Model.PronoteHeader> SelectByProductIdAll(string productid)
         {
             return accessor.SelectByProductIdAll(productid);

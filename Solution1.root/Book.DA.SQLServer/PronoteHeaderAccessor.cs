@@ -368,8 +368,16 @@ namespace Book.DA.SQLServer
             //string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.PronoteDate>='" + startDate + "' and ph.ProductId='" + productid + "' and ph.IsClose<>1 and xo.IsClose<>1";  //这里还是要查询未结案的商品，已结案的应该是订单完成，在现场没有残留
             //string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.ProductId='" + productid + "'";
 
-            //2018年7月11日17:40:27：结案之后查询，预结案之前某个时间点查询不一样，加上结案时间做判断
+            //2018年7月11日17:40:27：结案之后查询，与结案之前某个时间点查询不一样，加上结案时间做判断
             string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.PronoteDate>='" + startDate + "' and ph.ProductId='" + productid + "' and ((ph.IsClose<>1 and xo.IsClose<>1) or (ph.IsClose=1 and ph.JieAnDate>'" + endDate + "') or (xo.IsClose=1 and xo.JieAnDate>'" + endDate + "'))";
+            return this.DataReaderBind<Model.PronoteHeader>(sql, null, CommandType.Text);
+        }
+
+        //增加条件：手册号
+        public IList<Model.PronoteHeader> SelectByProductId(DateTime startDate, DateTime endDate, string productid, string handBookId)
+        {
+            //2018年7月11日17:40:27：结案之后查询，与结案之前某个时间点查询不一样，加上结案时间做判断
+            string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.PronoteDate>='" + startDate + "' and ph.ProductId='" + productid + "' and ((ph.IsClose<>1 and xo.IsClose<>1) or (ph.IsClose=1 and ph.JieAnDate>'" + endDate + "') or (xo.IsClose=1 and xo.JieAnDate>'" + endDate + "')) and HandbookId='" + handBookId + "'";
             return this.DataReaderBind<Model.PronoteHeader>(sql, null, CommandType.Text);
         }
 

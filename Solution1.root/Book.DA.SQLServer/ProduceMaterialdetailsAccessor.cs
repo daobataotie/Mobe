@@ -225,6 +225,20 @@ namespace Book.DA.SQLServer
             return dt;
         }
 
+        //查询未结案订单领到组装现场的数量，并且增加“手册号”的条件
+        public DataTable SelectMaterialQty(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds, string handBookId)
+        {
+            if (string.IsNullOrEmpty(invoiceXOIds))
+                invoiceXOIds = "''";
+
+            string sql = "select sum(isnull(Materialprocessum,0)) as Materialprocessum,xo.InvoiceId from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID left join InvoiceXO xo on pm.InvoiceXOId=xo.InvoiceId where pmd.ProductId='" + productid + "' and pm.ProduceMaterialDate between '" + dateStart + "' and '" + dateEnd + "' and pm.WorkHouseId='" + workHouseId + "' and (xo.IsClose <>1 or pm.InvoiceXOId in (" + invoiceXOIds + ")) and pmd.HandbookId='" + handBookId + "' group by xo.InvoiceId ";
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(sql, sqlmapper.DataSource.ConnectionString);
+            sda.Fill(dt);
+            return dt;
+        }
+
         //查询所有领到组装现场的数量
         public double SelectMaterialQtyAll(string productid, DateTime dateEnd, string workHouseId)
         {

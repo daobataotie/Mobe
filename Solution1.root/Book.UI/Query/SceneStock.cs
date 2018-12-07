@@ -29,6 +29,12 @@ namespace Book.UI.Query
             InitializeComponent();
 
             this.bindingSourceProductCategory.DataSource = new BL.ProductCategoryManager().Select();
+
+            IList<string> handBookIds = new BL.BGHandbookManager().SelectAllId();
+            foreach (var item in handBookIds)
+            {
+                this.cob_HandBookId.Properties.Items.Add(item);
+            }
         }
 
         private void GetParentProductInfo(string productId, Dictionary<string, double> parentProductDic)
@@ -65,7 +71,7 @@ namespace Book.UI.Query
             //} 
             #endregion
 
-            #region 新版，一个子件没母件引用N次，叠加计算
+            #region 新版，一个子件被母件引用N次，叠加计算
             foreach (var comInfo in bomComponentList)
             {
                 Model.BomParentPartInfo parent = bomParentList.First(P => P.BomId == comInfo.BomId);
@@ -105,10 +111,12 @@ namespace Book.UI.Query
             string workHouseYanpian = workHouseManager.SelectWorkHouseIdByName("验片");
             string workHouseZuzhuang = workHouseManager.SelectWorkHouseIdByName("组装现场仓");
             string workHouseChengpinZuzhuang = workHouseManager.SelectWorkHouseIdByName("成品组装");
-
+            string handBookId = this.cob_HandBookId.Text;
 
             foreach (Model.Product item in listProduct)
             {
+                item.HandbookId = handBookId;
+
                 item.StocksQuantity = item.StocksQuantity.HasValue ? item.StocksQuantity : 0;
                 Dictionary<string, double> parentProductDic = new Dictionary<string, double>();
                 GetParentProductInfo("'" + item.ProductId + "'", parentProductDic);
@@ -117,7 +125,13 @@ namespace Book.UI.Query
 
                 //查询商品对应的未结案加工单       2018年7月3日22:17:36 改：只查询2018.1.1 之后的订单
                 DateTime startDate = new DateTime(2018, 1, 1);
-                IList<Model.PronoteHeader> phList = pronoteHeaderManager.SelectByProductId(startDate, dateEnd.AddSeconds(-1), item.ProductId);
+                IList<Model.PronoteHeader> phList = null;
+
+                if (string.IsNullOrEmpty(handBookId))     //2018年12月7日20:52:30 : 加手册
+                    phList = pronoteHeaderManager.SelectByProductId(startDate, dateEnd.AddSeconds(-1), item.ProductId);
+                else
+                    phList = pronoteHeaderManager.SelectByProductId(startDate, dateEnd.AddSeconds(-1), item.ProductId, handBookId);
+
                 if (phList == null || phList.Count == 0)
                     continue;
                 foreach (var phGroup in phList.GroupBy(P => P.CustomerInvoiceXOId))
@@ -240,7 +254,7 @@ namespace Book.UI.Query
 
                     #endregion
 
-                    resultList.Add(new Book.Model.Product() { Id = item.Id, ProductVersion = item.ProductVersion, ProductName = item.ProductName, CustomerInvoiceXOId = phGroup.Key, XianchangYanpian = item.XianchangYanpian, XianchangZuzhuang = item.XianchangZuzhuang });
+                    resultList.Add(new Book.Model.Product() { Id = item.Id, ProductVersion = item.ProductVersion, ProductName = item.ProductName, CustomerInvoiceXOId = phGroup.Key, XianchangYanpian = item.XianchangYanpian, XianchangZuzhuang = item.XianchangZuzhuang, HandbookId = item.HandbookId });
                 }
 
                 #endregion
@@ -272,7 +286,7 @@ namespace Book.UI.Query
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 3]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 4]);
                 r.MergeCells = true;//合并单元格
 
                 excel.Cells.ColumnWidth = 25;
@@ -280,14 +294,15 @@ namespace Book.UI.Query
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
                 //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
-                excel.get_Range(excel.Cells[1, 3], excel.Cells[1, 3]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[1, 3], excel.Cells[1, 4]).HorizontalAlignment = -4108;
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 50;
                 excel.get_Range(excel.Cells[3, 2], excel.Cells[3 + resultList.Count, 2]).HorizontalAlignment = -4152;
 
                 excel.Cells[2, 1] = "商品名称";
                 excel.Cells[2, 2] = "客户订单号码";
                 excel.Cells[2, 3] = "现场数量"; ;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 3]).Interior.Color = "12566463";
+                excel.Cells[2, 4] = "手册号"; ;
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 4]).Interior.Color = "12566463";
 
                 int row = 3;
 
@@ -296,6 +311,7 @@ namespace Book.UI.Query
                     excel.Cells[row, 1] = item.ProductName;
                     excel.Cells[row, 2] = item.CustomerInvoiceXOId;
                     excel.Cells[row, 3] = item.XianchangTotal;
+                    excel.Cells[row, 4] = item.HandbookId;
 
                     row++;
                 }

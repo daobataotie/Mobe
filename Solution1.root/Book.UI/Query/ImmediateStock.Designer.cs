@@ -63,6 +63,8 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cob_HandBookId = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).BeginInit();
@@ -81,10 +83,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.cob_HandBookId);
             this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Controls.Add(this.btn_Search);
             this.layoutControl1.Controls.Add(this.lue_ProductCategory);
@@ -100,9 +105,9 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(747, 12);
+            this.simpleButton1.Location = new System.Drawing.Point(790, 12);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(101, 22);
+            this.simpleButton1.Size = new System.Drawing.Size(58, 22);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 8;
             this.simpleButton1.Text = "查询2";
@@ -110,9 +115,9 @@
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(642, 12);
+            this.btn_Search.Location = new System.Drawing.Point(683, 12);
             this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(101, 22);
+            this.btn_Search.Size = new System.Drawing.Size(103, 22);
             this.btn_Search.StyleController = this.layoutControl1;
             this.btn_Search.TabIndex = 7;
             this.btn_Search.Text = "查询";
@@ -120,7 +125,7 @@
             // 
             // lue_ProductCategory
             // 
-            this.lue_ProductCategory.Location = new System.Drawing.Point(274, 12);
+            this.lue_ProductCategory.Location = new System.Drawing.Point(251, 12);
             this.lue_ProductCategory.MenuManager = this.barManager1;
             this.lue_ProductCategory.Name = "lue_ProductCategory";
             this.lue_ProductCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -132,7 +137,7 @@
             this.lue_ProductCategory.Properties.DisplayMember = "ProductCategoryName";
             this.lue_ProductCategory.Properties.NullText = "";
             this.lue_ProductCategory.Properties.ValueMember = "ProductCategoryId";
-            this.lue_ProductCategory.Size = new System.Drawing.Size(364, 21);
+            this.lue_ProductCategory.Size = new System.Drawing.Size(226, 21);
             this.lue_ProductCategory.StyleController = this.layoutControl1;
             this.lue_ProductCategory.TabIndex = 6;
             // 
@@ -225,7 +230,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date_End.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.date_End.Size = new System.Drawing.Size(130, 21);
+            this.date_End.Size = new System.Drawing.Size(107, 21);
             this.date_End.StyleController = this.layoutControl1;
             this.date_End.TabIndex = 5;
             // 
@@ -343,7 +348,8 @@
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.layoutControlItem4,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem6});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(860, 504);
@@ -369,7 +375,7 @@
             this.layoutControlItem2.CustomizationFormText = "日期：";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(198, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(175, 26);
             this.layoutControlItem2.Text = "查询日期：";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -377,9 +383,9 @@
             // 
             this.layoutControlItem3.Control = this.lue_ProductCategory;
             this.layoutControlItem3.CustomizationFormText = "商品类别：";
-            this.layoutControlItem3.Location = new System.Drawing.Point(198, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(175, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(432, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(294, 26);
             this.layoutControlItem3.Text = "商品类别：";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(60, 14);
             // 
@@ -387,9 +393,9 @@
             // 
             this.layoutControlItem4.Control = this.btn_Search;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(630, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(671, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(105, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(107, 26);
             this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextToControlDistance = 0;
@@ -399,13 +405,35 @@
             // 
             this.layoutControlItem5.Control = this.simpleButton1;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
-            this.layoutControlItem5.Location = new System.Drawing.Point(735, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(778, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(105, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(62, 26);
             this.layoutControlItem5.Text = "layoutControlItem5";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextToControlDistance = 0;
             this.layoutControlItem5.TextVisible = false;
+            // 
+            // cob_HandBookId
+            // 
+            this.cob_HandBookId.Location = new System.Drawing.Point(545, 12);
+            this.cob_HandBookId.MenuManager = this.barManager1;
+            this.cob_HandBookId.Name = "cob_HandBookId";
+            this.cob_HandBookId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cob_HandBookId.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cob_HandBookId.Size = new System.Drawing.Size(134, 21);
+            this.cob_HandBookId.StyleController = this.layoutControl1;
+            this.cob_HandBookId.TabIndex = 9;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.cob_HandBookId;
+            this.layoutControlItem6.CustomizationFormText = "手册号：";
+            this.layoutControlItem6.Location = new System.Drawing.Point(469, 0);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(202, 26);
+            this.layoutControlItem6.Text = "手册号：";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(60, 14);
             // 
             // ImmediateStock
             // 
@@ -437,6 +465,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -476,5 +506,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraEditors.ComboBoxEdit cob_HandBookId;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
     }
 }

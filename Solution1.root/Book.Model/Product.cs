@@ -174,6 +174,9 @@ namespace Book.Model
 
         public double OutQty { get; set; }
 
+        /// <summary>
+        /// 期初数量
+        /// </summary>
         public double InitialQty { get; set; }
 
         public double XianchangYanpian { get; set; }
@@ -212,6 +215,9 @@ namespace Book.Model
 
         public Dictionary<string, string> ZijianDic { get; set; }
 
+        /// <summary>
+        /// 手册号
+        /// </summary>
         public string HandbookId { get; set; }
 
     }

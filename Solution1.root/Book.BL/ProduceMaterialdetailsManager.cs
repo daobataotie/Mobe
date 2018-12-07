@@ -103,6 +103,21 @@ namespace Book.BL
             return accessor.SelectMaterialQty(productid, dateStart, dateEnd, workHouseId, invoiceXOIds);
         }
 
+        /// <summary>
+        /// 筛选条件增加“手册号”
+        /// </summary>
+        /// <param name="productid"></param>
+        /// <param name="dateStart"></param>
+        /// <param name="dateEnd"></param>
+        /// <param name="workHouseId"></param>
+        /// <param name="invoiceXOIds"></param>
+        /// <param name="handBookId"></param>
+        /// <returns></returns>
+        public DataTable SelectMaterialQty(string productid, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds, string handBookId)
+        {
+            return accessor.SelectMaterialQty(productid, dateStart, dateEnd, workHouseId, invoiceXOIds, handBookId);
+        }
+
         public double SelectMaterialQtyAll(string productid, DateTime dateEnd, string workHouseId)
         {
             return accessor.SelectMaterialQtyAll(productid, dateEnd, workHouseId);
