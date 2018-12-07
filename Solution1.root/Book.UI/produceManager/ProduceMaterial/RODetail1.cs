@@ -19,7 +19,6 @@ namespace Book.UI.produceManager.ProduceMaterial
             this.xrTableHasOutDepot.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialdetails.PRO_Distributioned, "{0:0.####}");
             this.xrTableCellUnit.DataBindings.Add("Text", this.DataSource, "ProductUnit");
             this.xrTableCellProductSpecification.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_StocksQuantity, "{0:0.####}");
-            this.TCDepotStock.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialdetails.PRO_Pihao);
             this.xrRichText1.DataBindings.Add("Rtf", this.DataSource, "ProductDescription");
             this.xrTableCusProName.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_CustomerProductName);
             this.TCHandbookId.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialdetails.PRO_HandbookId);

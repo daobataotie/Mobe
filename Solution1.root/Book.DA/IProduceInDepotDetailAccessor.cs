@@ -62,7 +62,7 @@ namespace Book.DA
 
         IList<Model.ProduceInDepotDetail> SelectIndepotQty(string productids, DateTime dateEnd, string workHouseId, string invoiceXOIds);
 
-        IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd);
+        IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId);
 
         IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd);
 

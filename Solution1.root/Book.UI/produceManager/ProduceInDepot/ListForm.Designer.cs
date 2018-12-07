@@ -76,6 +76,7 @@
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -129,6 +130,7 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumnDate,
+            this.gridColumn19,
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumnWorkHouse,
@@ -545,6 +547,12 @@
             this.gridColumn18.FieldName = "CusXOId";
             this.gridColumn18.Name = "gridColumn18";
             // 
+            // gridColumn19
+            // 
+            resources.ApplyResources(this.gridColumn19, "gridColumn19");
+            this.gridColumn19.FieldName = "PId";
+            this.gridColumn19.Name = "gridColumn19";
+            // 
             // ListForm
             // 
             resources.ApplyResources(this, "$this");
@@ -624,5 +632,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
     }
 }

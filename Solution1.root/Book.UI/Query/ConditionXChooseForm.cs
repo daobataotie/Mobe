@@ -23,6 +23,13 @@ namespace Book.UI.Query
             this.newChooseEmp2.Choose = new Settings.BasicData.Employees.ChooseEmployee();
             this.dateEditStartDate.DateTime = DateTime.Now.Date.AddMonths(-1);
             this.dateEditEndDate.DateTime = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
+
+            this.bindingSourceDepot.DataSource = new BL.DepotManager().Select();
+            IList<string> handBookIds = new BL.BGHandbookManager().SelectAllId();
+            foreach (var item in handBookIds)
+            {
+                this.cob_HandBookId.Properties.Items.Add(item);
+            }
         }
 
         public override Condition Condition
@@ -94,6 +101,9 @@ namespace Book.UI.Query
             this.condition.OrderColumn = this.ComboxOrderColumn.SelectedIndex == -1 ? 0 : this.ComboxOrderColumn.SelectedIndex;
             this.condition.OrderType = this.ComboxOrderType.SelectedIndex == -1 ? 0 : this.ComboxOrderType.SelectedIndex;
             this.condition.DetailFlag = this.checkEditDetailFlag.Checked;
+
+            this.condition.DepotId = this.lue_Depot.EditValue == null ? null : this.lue_Depot.EditValue.ToString();
+            this.condition.HandBookId = this.cob_HandBookId.Text;
         }
 
         private void buttonEditPro_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

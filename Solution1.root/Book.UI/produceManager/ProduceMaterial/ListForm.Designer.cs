@@ -41,6 +41,13 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -72,11 +79,18 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn7,
+            this.gridColumn12,
+            this.gridColumn8,
+            this.gridColumn10,
             this.gridColumn4,
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumnXO,
-            this.gridColumn9});
+            this.gridColumn9,
+            this.gridColumn11,
+            this.gridColumn13,
+            this.gridColumn14,
+            this.gridColumn15});
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsFind.AlwaysVisible = true;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
@@ -169,6 +183,48 @@
             this.gridColumn7.FieldName = "ProductName";
             this.gridColumn7.Name = "gridColumn7";
             // 
+            // gridColumn8
+            // 
+            resources.ApplyResources(this.gridColumn8, "gridColumn8");
+            this.gridColumn8.FieldName = "HandbookId";
+            this.gridColumn8.Name = "gridColumn8";
+            // 
+            // gridColumn10
+            // 
+            resources.ApplyResources(this.gridColumn10, "gridColumn10");
+            this.gridColumn10.FieldName = "HandbookProductId";
+            this.gridColumn10.Name = "gridColumn10";
+            // 
+            // gridColumn11
+            // 
+            resources.ApplyResources(this.gridColumn11, "gridColumn11");
+            this.gridColumn11.FieldName = "Materialprocesedsum";
+            this.gridColumn11.Name = "gridColumn11";
+            // 
+            // gridColumn12
+            // 
+            resources.ApplyResources(this.gridColumn12, "gridColumn12");
+            this.gridColumn12.FieldName = "CustomerProductName";
+            this.gridColumn12.Name = "gridColumn12";
+            // 
+            // gridColumn13
+            // 
+            resources.ApplyResources(this.gridColumn13, "gridColumn13");
+            this.gridColumn13.FieldName = "Distributioned";
+            this.gridColumn13.Name = "gridColumn13";
+            // 
+            // gridColumn14
+            // 
+            resources.ApplyResources(this.gridColumn14, "gridColumn14");
+            this.gridColumn14.FieldName = "StocksQuantity";
+            this.gridColumn14.Name = "gridColumn14";
+            // 
+            // gridColumn15
+            // 
+            resources.ApplyResources(this.gridColumn15, "gridColumn15");
+            this.gridColumn15.FieldName = "PronoteHeaderID";
+            this.gridColumn15.Name = "gridColumn15";
+            // 
             // ListForm
             // 
             resources.ApplyResources(this, "$this");
@@ -199,5 +255,12 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
     }
 }

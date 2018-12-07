@@ -157,14 +157,13 @@ namespace Book.UI.Settings.ProduceManager
                             sheet = ((Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[excel.Worksheets.Count]);
 
                             #region SetHeader
-                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]).RowHeight = 20;
-                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]).Font.Size = 15;
-                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]).HorizontalAlignment = -4108;
-                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]).ColumnWidth = 12;
+                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).RowHeight = 20;
+                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).Font.Size = 15;
+                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).HorizontalAlignment = -4108;
+                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).ColumnWidth = 12;
                             sheet.get_Range(excel.Cells[1, 2], excel.Cells[1, 2]).ColumnWidth = 50;
-                            sheet.get_Range(excel.Cells[1, 8], excel.Cells[1, 8]).ColumnWidth = 30;
 
-                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]).Interior.Color = 12566463;
+                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).Interior.Color = 12566463;
 
                             //excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).RowHeight = 20;
                             //excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).Font.Size = 13;
@@ -178,7 +177,7 @@ namespace Book.UI.Settings.ProduceManager
                             sheet.Cells[1, 5] = "损耗率";
                             sheet.Cells[1, 6] = "生效日期";
                             sheet.Cells[1, 7] = "失效日期";
-                            sheet.Cells[1, 8] = "备注";
+                            //sheet.Cells[1, 8] = "备注";
 
                             #endregion
 
@@ -201,10 +200,33 @@ namespace Book.UI.Settings.ProduceManager
                                 sheet.Cells[row, 5] = item.SubLoseRate == null ? 0 : item.SubLoseRate;
                                 sheet.Cells[row, 6] = Convert.ToDateTime(item.EffectsDate).ToString("yyyy-MM-dd");
                                 sheet.Cells[row, 7] = Convert.ToDateTime(item.ExpiringDate).ToString("yyyy-MM-dd");
-                                RichTextBox rt = new RichTextBox();
-                                rt.Rtf = item.ProductDesc;
-                                rt.SelectAll();
-                                sheet.Cells[row, 8] = rt.SelectedText;
+                                //RichTextBox rt = new RichTextBox();
+                                //rt.Rtf = item.ProductDesc;
+                                //rt.SelectAll();
+                                //sheet.Cells[row, 8] = rt.SelectedText;
+
+                                //不同级别不同颜色
+                                switch (item.Jibie)
+                                {
+                                    case 1:
+                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 13311;     //红
+                                        break;
+                                    case 2:
+                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 6750105;   //浅绿
+                                        break;
+                                    case 3:
+                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 16763955;  //浅蓝
+                                        break;
+                                    case 4:
+                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 6750207;   //浅黄
+                                        break;
+                                    case 5:
+                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 16711935;  //浅紫
+                                        break;
+                                    case 6:
+                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 12566463;  //浅灰
+                                        break;
+                                }
 
                                 row++;
                             }

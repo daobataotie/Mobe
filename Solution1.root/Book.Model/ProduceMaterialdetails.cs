@@ -76,6 +76,8 @@ namespace Book.Model
 
         public string CusXOId { get; set; }
 
+        public double? StocksQuantity { get; set; }
+
         public static readonly string PRO_ProductName = "ProductName";
         public static readonly string PRO_CustomerProductName = "CustomerProductName";
 

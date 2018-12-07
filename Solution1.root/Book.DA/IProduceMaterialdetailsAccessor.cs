@@ -28,7 +28,7 @@ namespace Book.DA
 
         IList<Model.ProduceMaterialdetails> SelectTotalByProduceMaterialID(Model.Product pId0, Model.Product pId1, string str);
         IList<Model.ProduceMaterialdetails> SelectForDistributioned(string productid, DateTime InsertTime);
-        IList<Model.ProduceMaterialdetails> SelectBycondition2(DateTime startDate, DateTime endDate, string produceMaterialId0, string produceMaterialId1, Book.Model.Product pId0, Book.Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1, string CusInvoiceXOId);
+        IList<Model.ProduceMaterialdetails> SelectBycondition2(DateTime startDate, DateTime endDate, string produceMaterialId0, string produceMaterialId1, Book.Model.Product pId0, Book.Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1, string CusInvoiceXOId, string handBookId);
 
         double SelectMaterialQty(string productid, DateTime dateEnd, string workHouseId, string invoiceXOIds);
 

@@ -119,6 +119,8 @@ namespace Book.UI.Query
 
         }
 
+        public string DepotId { get; set; }
 
+        public string HandBookId { get; set; }
     }
 }

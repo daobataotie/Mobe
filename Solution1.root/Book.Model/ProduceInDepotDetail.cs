@@ -116,6 +116,8 @@ namespace Book.Model
             }
         }
 
+        public string PId { get; set; }
+
         private string _productName;
         public string ProductName
         {

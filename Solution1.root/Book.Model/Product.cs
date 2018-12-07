@@ -166,9 +166,6 @@ namespace Book.Model
 
         //  }
 
-
-        #region 2017年12月31日14:34:55
-
         public string ProductCategoryName2 { get; set; }
 
         public string ProductCategoryName3 { get; set; }
@@ -214,7 +211,8 @@ namespace Book.Model
         public double TotalHege { get { return ShechuHege + YanpianHege; } }
 
         public Dictionary<string, string> ZijianDic { get; set; }
-        #endregion
+
+        public string HandbookId { get; set; }
 
     }
 }

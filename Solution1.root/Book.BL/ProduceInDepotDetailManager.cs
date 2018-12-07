@@ -201,9 +201,9 @@ namespace Book.BL
             return accessor.SelectIndepotQty(productids, dateEnd, workHouseId, invoiceXOIds);
         }
 
-        public IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd)
+        public IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId)
         {
-            return accessor.SelectAllByDateRange(dateStart, dateEnd);
+            return accessor.SelectAllByDateRange(dateStart, dateEnd, handBookId);
         }
 
         public IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd)

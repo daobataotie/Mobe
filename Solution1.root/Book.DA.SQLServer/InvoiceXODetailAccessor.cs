@@ -87,9 +87,9 @@ namespace Book.DA.SQLServer
             sqlmapper.Update("InvoiceXODetail.UpdateProofUnitPrice", htDetail);
         }
 
-        public IList<Book.Model.InvoiceXODetail> Select(Model.Customer customer1, Model.Customer customer2, DateTime startDate, DateTime endDate, DateTime yjrq1, DateTime yjrq2, Model.Employee employee1, Model.Employee employee2, string xoid1, string xoid2, string cusxoidkey, Model.Product product, Model.Product product2, bool isclose, bool mpsIsClose, int orderColumn, int orderType, bool detailFlag)
+        public IList<Book.Model.InvoiceXODetail> Select(Model.Customer customer1, Model.Customer customer2, DateTime startDate, DateTime endDate, DateTime yjrq1, DateTime yjrq2, Model.Employee employee1, Model.Employee employee2, string xoid1, string xoid2, string cusxoidkey, Model.Product product, Model.Product product2, bool isclose, bool mpsIsClose, int orderColumn, int orderType, bool detailFlag, string depotId, string handBookId)
         {
-            StringBuilder str = new StringBuilder("SELECT i.InvoiceId,i.InvoiceDate,i.InvoiceYjrq,c1.CustomerShortName as CustomerName,c2.CustomerShortName as XOCustomerName,i.CustomerInvoiceXOId,p.ProductName,p.CustomerProductName,d.InvoiceXODetailPrice,d.InvoiceXODetailMoney,d.InvoiceXODetailQuantity,d.InvoiceXODetailBeenQuantity,isnull(d.InvoiceXTDetailQuantity,0) as InvoiceXTDetailQuantity,dp.DepotName FROM InvoiceXODetail d  LEFT JOIN InvoiceXO i ON i.InvoiceId = d.InvoiceId left join Customer c1 on c1.customerid=i.CustomerId left join Customer c2 on c2.CustomerId=i.xocustomerid left join Product p on p.ProductId=d.ProductId left join InvoiceXSDetail xsd on xsd.InvoiceXODetailId=d.InvoiceXODetailId left join DepotPosition dps on dps.DepotPositionId=xsd.DepotPositionId left join Depot dp on dp.DepotId=dps.DepotId where 1=1");
+            StringBuilder str = new StringBuilder("SELECT i.InvoiceId,i.InvoiceDate,i.InvoiceYjrq,c1.CustomerShortName as CustomerName,c2.CustomerShortName as XOCustomerName,i.CustomerInvoiceXOId,p.ProductName,p.CustomerProductName,d.InvoiceXODetailPrice,d.InvoiceXODetailMoney,d.InvoiceXODetailQuantity,d.InvoiceXODetailBeenQuantity,isnull(d.InvoiceXTDetailQuantity,0) as InvoiceXTDetailQuantity,dp.DepotName,d.HandbookId,d.HandbookProductId,xs.InvoiceDate as InvoiceXSDate FROM InvoiceXODetail d  LEFT JOIN InvoiceXO i ON i.InvoiceId = d.InvoiceId left join Customer c1 on c1.customerid=i.CustomerId left join Customer c2 on c2.CustomerId=i.xocustomerid left join Product p on p.ProductId=d.ProductId left join InvoiceXSDetail xsd on xsd.InvoiceXODetailId=d.InvoiceXODetailId left join InvoiceXS xs on xsd.InvoiceId=xs.InvoiceId left join DepotPosition dps on dps.DepotPositionId=xsd.DepotPositionId left join Depot dp on dp.DepotId=dps.DepotId where 1=1");
 
             str.Append(" and i.InvoiceYjrq BETWEEN '" + yjrq1.ToString("yyyy-MM-dd") + "' AND '" + yjrq2.ToString("yyyy-MM-dd") + "'");
             str.Append(" and i.InvoiceDate BETWEEN '" + startDate.ToString("yyyy-MM-dd") + "' AND '" + endDate.ToString("yyyy-MM-dd HH:mm:ss") + "' ");
@@ -109,6 +109,11 @@ namespace Book.DA.SQLServer
                 str.Append(" and d.InvoiceMPSState<>2");
             if (detailFlag)
                 str.Append(" and d.DetailsFlag<>2");
+            if (!string.IsNullOrEmpty(depotId))
+                str.Append(" and dp.DepotId='" + depotId + "'");
+            if (!string.IsNullOrEmpty(handBookId))
+                str.Append(" and d.HandbookId ='" + handBookId + "'");
+
             str.Append(" ORDER BY");
 
             switch (orderColumn)

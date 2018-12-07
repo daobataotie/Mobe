@@ -11,8 +11,8 @@ namespace Book.UI.Query
         {
             InitializeComponent();
             if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
-            
-                this.xrLabelCompanyInfoName.Text = BL.Settings.CompanyChineseName;
+
+            this.xrLabelCompanyInfoName.Text = BL.Settings.CompanyChineseName;
             this.xrLabelPrintDate.Text = string.Format(Properties.Resources.Book_UI_Query_BaseReport_InvoiceDate, DateTime.Now.ToString("yyyy-MM-dd"));
         }
     }

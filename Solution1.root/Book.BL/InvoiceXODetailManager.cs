@@ -99,9 +99,9 @@ namespace Book.BL
             accessor.UpdateProofUnitPrice(e);
         }
 
-        public IList<Model.InvoiceXODetail> Select(Model.Customer customer1, Model.Customer customer2, DateTime startDate, DateTime endDate, DateTime yjrq1, DateTime yjrq2, Model.Employee employee1, Model.Employee employee2, string xoid1, string xoid2, string cusxoidkey, Model.Product product, Model.Product product2, bool isclose, bool mpsIsClose, int orderColumn, int orderType, bool detailFlag)
+        public IList<Model.InvoiceXODetail> Select(Model.Customer customer1, Model.Customer customer2, DateTime startDate, DateTime endDate, DateTime yjrq1, DateTime yjrq2, Model.Employee employee1, Model.Employee employee2, string xoid1, string xoid2, string cusxoidkey, Model.Product product, Model.Product product2, bool isclose, bool mpsIsClose, int orderColumn, int orderType, bool detailFlag, string depotId, string handBookId)
         {
-            return accessor.Select(customer1, customer2, startDate, endDate, yjrq1, yjrq2, employee1, employee2, xoid1, xoid2, cusxoidkey, product, product2, isclose, mpsIsClose, orderColumn, orderType, detailFlag);
+            return accessor.Select(customer1, customer2, startDate, endDate, yjrq1, yjrq2, employee1, employee2, xoid1, xoid2, cusxoidkey, product, product2, isclose, mpsIsClose, orderColumn, orderType, detailFlag, depotId, handBookId);
         }
 
         public double SumOrderQuantityByHandbook(string handbookId, string handbookProductId)

@@ -112,7 +112,7 @@ namespace Book.DA.SQLServer
             return sqlmapper.QueryForList<Model.ProduceMaterialdetails>("ProduceMaterialdetails.SelectForDistributioned", ht);
         }
 
-        public IList<Model.ProduceMaterialdetails> SelectBycondition2(DateTime startDate, DateTime endDate, string produceMaterialId0, string produceMaterialId1, Book.Model.Product pId0, Book.Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1, string CusInvoiceXOId)
+        public IList<Model.ProduceMaterialdetails> SelectBycondition2(DateTime startDate, DateTime endDate, string produceMaterialId0, string produceMaterialId1, Book.Model.Product pId0, Book.Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1, string CusInvoiceXOId, string handBookId)
         {
             SqlParameter[] parames = { 
                     new SqlParameter("@startDate", DbType.DateTime), 
@@ -175,10 +175,8 @@ namespace Book.DA.SQLServer
             //  sql.Append(" from ProduceMaterial p left join  Workhouse w on w.WorkHouseId=p.WorkHouseId right join ProduceMaterialdetails d on p.ProduceMaterialID = d.ProduceMaterialID left join Product pro on d.ProductId = pro.ProductId");
 
             StringBuilder sql = new StringBuilder();
-            sql.Append("SELECT p.ProduceMaterialID,p.ProduceMaterialDate,p.ProduceMaterialdesc, w.Workhousename as WorkhouseName,pro.Id as PID,pro.ProductName  ");
-            sql.Append(", (SELECT CustomerInvoiceXOId FROM InvoiceXO WHERE InvoiceXO.InvoiceId = p.InvoiceXOId) AS CusXOId");
-            sql.Append(" from ProduceMaterialdetails pd left join ProduceMaterial p on pd.ProduceMaterialID=p.ProduceMaterialID left join  Workhouse w on w.WorkHouseId=p.WorkHouseId left join Product pro on pd.ProductId=pro.ProductId");
-            sql.Append("  WHERE p.ProduceMaterialDate between @startDate  and @endDate ");
+            sql.Append("SELECT pd.Materialprocesedsum,pd.Distributioned,pd.HandbookId,pd.HandbookProductId,pd.PronoteHeaderID,p.ProduceMaterialID,p.ProduceMaterialDate,p.ProduceMaterialdesc, w.Workhousename as WorkhouseName,pro.Id as PID,pro.ProductName,pro.CustomerProductName,pro.StocksQuantity,(SELECT CustomerInvoiceXOId FROM InvoiceXO WHERE InvoiceXO.InvoiceId = p.InvoiceXOId) AS CusXOId from ProduceMaterialdetails pd left join ProduceMaterial p on pd.ProduceMaterialID=p.ProduceMaterialID left join  Workhouse w on w.WorkHouseId=p.WorkHouseId left join Product pro on pd.ProductId=pro.ProductId  WHERE p.ProduceMaterialDate between @startDate  and @endDate ");
+
             if (!string.IsNullOrEmpty(produceMaterialId0) && !string.IsNullOrEmpty(produceMaterialId1))
                 sql.Append("  AND p.ProduceMaterialID between @produceMaterialId0  and @produceMaterialId1 ");
             if (pId0 != null && pId1 != null)
@@ -193,20 +191,11 @@ namespace Book.DA.SQLServer
                 sql.Append(" AND p.InvoiceId between @PronoteHeaderId0 and @PronoteHeaderId1");
             if (!string.IsNullOrEmpty(CusInvoiceXOId))
                 sql.Append(" AND p.InvoiceXOId = (SELECT InvoiceId FROM InvoiceXO WHERE CustomerInvoiceXOId = @CusInvoiceXOId)");
+            if (!string.IsNullOrEmpty(handBookId))
+                sql.Append(" And pd.HandbookId='" + handBookId + "'");
+
             sql.Append(" order by p.ProduceMaterialID desc ");
             return this.DataReaderBind<Model.ProduceMaterialdetails>(sql.ToString(), parames, CommandType.Text);
-            //Hashtable ht = new Hashtable();
-            //ht.Add("starDate", startDate);
-            //ht.Add("endDate", endDate);
-            //ht.Add("produceMaterialId0", produceMaterialId0);
-            //ht.Add("produceMaterialId1", produceMaterialId1);
-            //ht.Add("pId0", pId0 == null ? null : pId0.ProductName);
-            //ht.Add("pId1", pId1 == null ? null : pId1.ProductName);
-            //ht.Add("dId0", departmentId0);
-            //ht.Add("dId1", departmentId1);
-            //ht.Add("pronoteId0", PronoteHeaderId0);
-            //ht.Add("pronoteId1", PronoteHeaderId1);
-            //return sqlmapper.QueryForList<Model.ProduceMaterial>("ProduceMaterial.selectBycondition", ht);
         }
 
         public double SelectMaterialQty(string productid, DateTime dateEnd, string workHouseId, string invoiceXOIds)

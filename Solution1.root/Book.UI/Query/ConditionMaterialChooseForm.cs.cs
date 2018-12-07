@@ -34,7 +34,7 @@ namespace Book.UI.Query
         //----------------------------------------------------------------*/
 
         private ConditionMaterial condition;
-        
+
         public ConditionMaterialChooseForm()
         {
             InitializeComponent();
@@ -46,6 +46,12 @@ namespace Book.UI.Query
             this.dateEditStartDate.DateTime = DateTime.Now.Date.AddDays(-3);
             this.dateEditEndDate.DateTime = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
 
+
+            IList<string> handBookIds = new BL.BGHandbookManager().SelectAllId();
+            foreach (var item in handBookIds)
+            {
+                this.cob_HandBookId.Properties.Items.Add(item);
+            }
         }
 
         private void ConditionMaterialChooseForm_Load(object sender, EventArgs e)
@@ -89,8 +95,8 @@ namespace Book.UI.Query
             else
             {
                 this.condition.EndDate = this.dateEditEndDate.DateTime;
-            } 
-            
+            }
+
             this.condition.ProduceMaterialId0 = this.buttonEditMaterial1.EditValue == null ? null : this.buttonEditMaterial1.EditValue.ToString();
             this.condition.ProduceMaterialId1 = this.buttonEditMaterial2.EditValue == null ? null : this.buttonEditMaterial2.EditValue.ToString();
             this.condition.Product0 = this.buttonEditProduct1.EditValue == null ? null : this.buttonEditProduct1.EditValue as Model.Product;
@@ -100,6 +106,7 @@ namespace Book.UI.Query
             this.condition.DepartmentId0 = (this.newChooseWorkHouse.EditValue as Model.WorkHouse) == null ? null : (this.newChooseWorkHouse.EditValue as Model.WorkHouse).WorkHouseId;
 
             this.condition.CusInvoiceXOId = this.txtCusInvoiceXOId.Text;
+            this.condition.HandBookId = this.cob_HandBookId.Text;
         }
 
         private void buttonEditProduct1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

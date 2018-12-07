@@ -88,5 +88,7 @@ namespace Book.UI.Query
             get { return _CusInvoiceXOId; }
             set { _CusInvoiceXOId = value; }
         }
+
+        public string HandBookId { get; set; }
     }
 }

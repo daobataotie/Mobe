@@ -28,6 +28,11 @@ namespace Book.UI.produceManager.ProduceInDepot
             InitializeComponent();
 
             dicProduct = productManager.SelectProductIdAndName().ToDictionary(P1 => P1.ProductId, P2 => P2.ProductName);
+            IList<string> handBookIds = new BL.BGHandbookManager().SelectAllId();
+            foreach (var item in handBookIds)
+            {
+                this.cob_HandBookId.Properties.Items.Add(item);
+            }
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
@@ -39,13 +44,14 @@ namespace Book.UI.produceManager.ProduceInDepot
             }
             DateTime dateStart = date_Start.DateTime.Date;
             DateTime dateEnd = date_End.DateTime.Date.AddDays(1).AddSeconds(-1);
+            string handBookId = this.cob_HandBookId.Text;
 
-            list = detailManager.SelectAllByDateRange(dateStart, dateEnd);
+            list = detailManager.SelectAllByDateRange(dateStart, dateEnd, handBookId);
+
             IList<Model.ProduceInDepotDetail> listShechu = detailManager.SelectShechuByDateRange(dateStart, dateEnd);
-
+            IList<Model.ProduceInDepotDetail> listYanpian = detailManager.SelectQianghuaByDateRange(dateStart, dateEnd);
             //2018年3月8日00:42:22 验片生产数量改为强化防雾生产数量
             //IList<Model.ProduceInDepotDetail> listYanpian = detailManager.SelectYanpianByDateRange(dateStart, dateEnd);
-            IList<Model.ProduceInDepotDetail> listYanpian = detailManager.SelectQianghuaByDateRange(dateStart, dateEnd);
 
             foreach (var item in list)
             {
@@ -165,7 +171,7 @@ namespace Book.UI.produceManager.ProduceInDepot
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 6]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]);
                 r.MergeCells = true;//合并单元格
 
                 excel.Cells.ColumnWidth = 10;
@@ -173,20 +179,22 @@ namespace Book.UI.produceManager.ProduceInDepot
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
                 //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
-                excel.get_Range(excel.Cells[1, 6], excel.Cells[1, 6]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[1, 8], excel.Cells[1, 8]).HorizontalAlignment = -4108;
 
-                excel.Cells[2, 1] = "商品名称";
-                excel.Cells[2, 2] = "生产数量";
-                excel.Cells[2, 3] = "射出合格";
-                excel.Cells[2, 4] = "片生产数量";
-                excel.Cells[2, 5] = "总合格";
-                excel.Cells[2, 7] = "毛重";
-                excel.Cells[2, 7 + Header.Count + 2] = "净重";
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 7 + Header.Count + 2 + list[0].MaterialDic.Keys.Count]).Interior.Color = "12566463";
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 50;
+                excel.Cells[2, 1] = "商品编号";
+                excel.Cells[2, 2] = "商品名称";
+                excel.Cells[2, 3] = "手册号";
+                excel.Cells[2, 4] = "生产数量";
+                excel.Cells[2, 5] = "射出合格";
+                excel.Cells[2, 6] = "片生产数量";
+                excel.Cells[2, 7] = "总合格";
+                excel.Cells[2, 9] = "毛重";
+                excel.Cells[2, 9 + Header.Count + 2] = "净重";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 9 + Header.Count + 2 + list[0].MaterialDic.Keys.Count]).Interior.Color = "12566463";
+                excel.get_Range(excel.Cells[2, 2], excel.Cells[2, 2]).ColumnWidth = 50;
 
 
-                int col = 8;
+                int col = 10;
                 //毛重
                 foreach (var item in Header)
                 {
@@ -253,14 +261,14 @@ namespace Book.UI.produceManager.ProduceInDepot
 
         private void SetExcelFormat(Microsoft.Office.Interop.Excel.Application excel, ref int col, ref int row, IGrouping<string, Book.Model.Product> item)
         {
-            excel.Cells[row, 1] = item.Key;
-            excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 7 + Header.Count + 2 + list[0].MaterialDic.Keys.Count]).Interior.Color = "6750207";    //红色 255; 浅黄 6750207； 浅浅黄 10092543
-            excel.get_Range(excel.Cells[row, 2], excel.Cells[row, 2]).Formula = string.Format("=SUM(B{0}:B{1})", row + 1, row + item.Count());
-            excel.get_Range(excel.Cells[row, 3], excel.Cells[row, 3]).Formula = string.Format("=SUM(C{0}:C{1})", row + 1, row + item.Count());
+            excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 9 + Header.Count + 2 + list[0].MaterialDic.Keys.Count]).Interior.Color = "6750207";    //红色 255; 浅黄 6750207； 浅浅黄 10092543
+            excel.Cells[row, 2] = item.Key;
             excel.get_Range(excel.Cells[row, 4], excel.Cells[row, 4]).Formula = string.Format("=SUM(D{0}:D{1})", row + 1, row + item.Count());
             excel.get_Range(excel.Cells[row, 5], excel.Cells[row, 5]).Formula = string.Format("=SUM(E{0}:E{1})", row + 1, row + item.Count());
+            excel.get_Range(excel.Cells[row, 6], excel.Cells[row, 6]).Formula = string.Format("=SUM(F{0}:F{1})", row + 1, row + item.Count());
+            excel.get_Range(excel.Cells[row, 7], excel.Cells[row, 7]).Formula = string.Format("=SUM(G{0}:G{1})", row + 1, row + item.Count());
 
-            col = 8;
+            col = 10;
 
             foreach (var h in Header)
             {
@@ -282,13 +290,15 @@ namespace Book.UI.produceManager.ProduceInDepot
 
             foreach (var pro in item)
             {
-                excel.Cells[row, 1] = pro.ProductName;
-                excel.Cells[row, 2] = pro.ShengChan;
-                excel.Cells[row, 3] = pro.ShechuHege;
-                excel.Cells[row, 4] = pro.YanpianHege;
-                excel.Cells[row, 5] = pro.TotalHege;
+                excel.Cells[row, 1] = pro.Id;
+                excel.Cells[row, 2] = pro.ProductName;
+                excel.Cells[row, 3] = pro.HandbookId;
+                excel.Cells[row, 4] = pro.ShengChan;
+                excel.Cells[row, 5] = pro.ShechuHege;
+                excel.Cells[row, 6] = pro.YanpianHege;
+                excel.Cells[row, 7] = pro.TotalHege;
 
-                col = 8;
+                col = 10;
                 //毛重
                 foreach (var h in Header)
                 {

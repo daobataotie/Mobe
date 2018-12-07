@@ -5020,6 +5020,9 @@
       <DependentUpon>ROInvoiceCGlistBiao.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Query\ROInvoiceXOlist.cs.resx">
+      <DependentUpon>ROInvoiceXOlist.cs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Query\ROInvoiceXSlist2.resx">
       <DependentUpon>ROInvoiceXSlist2.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -7464,14 +7467,6 @@
       <DependentUpon>ROInvoiceXO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Query\ROInvoiceXOlist.resx">
-      <DependentUpon>ROInvoiceXOlist.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Query\ROInvoiceXOlist.zh-CHT.resx">
-      <DependentUpon>ROInvoiceXOlist.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Query\ROInvoiceXO_1.resx">
       <DependentUpon>ROInvoiceXO_1.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -7566,6 +7561,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Query\MaterialOutAndInDepotForExcelForm.resx">
       <DependentUpon>MaterialOutAndInDepotForExcelForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\ROInvoiceXOlist_BackUp.resx">
+      <DependentUpon>ROInvoiceXOlist_BackUp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\ROInvoiceXOlist_BackUp.zh-CHT.resx">
+      <DependentUpon>ROInvoiceXOlist_BackUp.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ROStockPrompt.resx">
@@ -12116,6 +12119,12 @@
     <Compile Include="Query\Q15JiShiForm.Designer.cs">
       <DependentUpon>Q15JiShiForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Query\ROInvoiceXOlist.cs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Query\ROInvoiceXOlist.cs.Designer.cs">
+      <DependentUpon>ROInvoiceXOlist.cs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Query\ROInvoiceXSlist2.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -12642,12 +12651,6 @@
     <Compile Include="Query\ROInvoiceXO.Designer.cs">
       <DependentUpon>ROInvoiceXO.cs</DependentUpon>
     </Compile>
-    <Compile Include="Query\ROInvoiceXOlist.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Query\ROInvoiceXOlist.Designer.cs">
-      <DependentUpon>ROInvoiceXOlist.cs</DependentUpon>
-    </Compile>
     <Compile Include="Query\ROInvoiceXO_1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -12726,6 +12729,12 @@
     </Compile>
     <Compile Include="Query\MaterialOutAndInDepotForExcelForm.Designer.cs">
       <DependentUpon>MaterialOutAndInDepotForExcelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\ROInvoiceXOlist_BackUp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Query\ROInvoiceXOlist_BackUp.Designer.cs">
+      <DependentUpon>ROInvoiceXOlist_BackUp.cs</DependentUpon>
     </Compile>
     <Compile Include="ROStockPrompt.cs">
       <SubType>Component</SubType>

@@ -1160,6 +1160,7 @@ namespace Book.UI.produceManager.ProduceMaterial
 
         }
 
+        //搜索
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ListForm form = new ListForm();
@@ -1284,6 +1285,7 @@ namespace Book.UI.produceManager.ProduceMaterial
             GC.Collect();
         }
 
+        //条件查询
         private void barButtonItemQuery_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Query.ConditionMaterialChooseForm form = new Query.ConditionMaterialChooseForm();

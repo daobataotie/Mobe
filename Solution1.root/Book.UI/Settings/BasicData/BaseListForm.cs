@@ -224,6 +224,7 @@ namespace Book.UI.Settings.BasicData
                     this.ExportToPdf(file);
                     break;
                 case "xls":
+                    this.gridView1.OptionsPrint.AutoWidth = false;
                     view.GridControl.ExportToXls(file);
                     break;
                 case "doc":
