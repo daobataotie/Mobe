@@ -9662,14 +9662,6 @@
       <SubType>Designer</SubType>
       <DependentUpon>ChooseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings\BasicData\Products\EditForm.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>EditForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings\BasicData\Products\EditForm.zh-CHT.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>EditForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Settings\BasicData\Products\List1Form.resx">
       <DependentUpon>List1Form.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -9718,12 +9710,12 @@
       <DependentUpon>ListProductClassify.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings\BasicData\Products\EditForm_BackUp.resx">
-      <DependentUpon>EditForm_BackUp.cs</DependentUpon>
+    <EmbeddedResource Include="Settings\BasicData\Products\EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings\BasicData\Products\EditForm_BackUp.zh-CHT.resx">
-      <DependentUpon>EditForm_BackUp.cs</DependentUpon>
+    <EmbeddedResource Include="Settings\BasicData\Products\EditForm.zh-CHT.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\BasicData\ProductUnit\ChooseProductUnitForm.resx">
@@ -10689,12 +10681,6 @@
     </Compile>
     <Compile Include="Settings\BasicData\Products\ChooseForm.Designer.cs">
       <DependentUpon>ChooseForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\BasicData\Products\EditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings\BasicData\Products\EditForm.Designer.cs">
-      <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\BasicData\Products\List1Form.cs">
       <SubType>Form</SubType>
@@ -12831,11 +12817,11 @@
     <Compile Include="Settings\BasicData\Products\ListProductClassify.Designer.cs">
       <DependentUpon>ListProductClassify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings\BasicData\Products\EditForm_BackUp.cs">
+    <Compile Include="Settings\BasicData\Products\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings\BasicData\Products\EditForm_BackUp.Designer.cs">
-      <DependentUpon>EditForm_BackUp.cs</DependentUpon>
+    <Compile Include="Settings\BasicData\Products\EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\BasicData\ROcustomerlist.cs">
       <SubType>Component</SubType>

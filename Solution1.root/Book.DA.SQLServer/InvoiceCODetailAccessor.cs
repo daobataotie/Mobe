@@ -37,8 +37,8 @@ namespace Book.DA.SQLServer
         {
             Hashtable ht = new Hashtable();
             ht.Add("pid", pid);
-            ht.Add("startdate", startdate);
-            ht.Add("enddate", enddate);
+            ht.Add("startdate", startdate.ToString("yyyy-MM-dd"));
+            ht.Add("enddate", enddate.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss"));
             return sqlmapper.QueryForList<Model.InvoiceCODetail>("InvoiceCODetail.SelectByDateRangeAndPid", ht);
         }
 

@@ -162,5 +162,11 @@ namespace Book.Model
             get;
             set;
         }
+
+        public string CustomerInvoiceXOId { get; set; }
+
+        public string CustomerLotNumber { get; set; }
+
+        public DateTime? InvoiceYjrq { get { return this.Invoice.InvoiceYjrq; } }
     }
 }

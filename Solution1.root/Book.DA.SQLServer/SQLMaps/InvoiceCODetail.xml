@@ -1,6 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <sqlMap namespace="InvoiceCODetail" xmlns="http://ibatis.apache.org/mapping"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="InvoiceCODetailResult2" class="InvoiceCODetail">
+      <result property="InvoiceCODetailId" column="InvoiceCODetailId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="InvoiceId" column="InvoiceId" />
+      <result property="OrderQuantity" column="OrderQuantity" />
+      <result property="InvoiceCODetailPrice" column="InvoiceCODetailPrice" />
+      <result property="InvoiceCODetailMoney" column="InvoiceCODetailMoney" />
+      <result property="NoArrivalQuantity" column="NoArrivalQuantity" />
+      <result property="ArrivalQuantity" column="ArrivalQuantity" />
+      <result property="InvoiceProductUnit" column="InvoiceProductUnit" />
+      <result property="TotalMoney" column="TotalMoney" />
+      <result property="InvoiceCODetailNote" column="InvoiceCODetailNote" />
+      <result property="DetailsFlag" column="DetailsFlag" />
+      <result property="Inumber" column="Inumber" />
+      <result property="NextWorkHouseId" column="NextWorkHouseId" />
+      <result property="InvoiceCTQuantity" column="InvoiceCTQuantity" />
+      <result property="Remark" column="Remark" />
+      <result property="CustomerInvoiceXOId" column="CustomerInvoiceXOId"/>
+      <result property="CustomerLotNumber" column="CustomerLotNumber"/>
+      <result property="Invoice" column="InvoiceId" lazyLoad="false" select="InvoiceCO.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+      <result property="NextWorkHouse" column="NextWorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
   <statements>
     <select id="select_by_invoiceid" resultMap="InvoiceCODetailResult" parameterClass="string">
       SELECT *
@@ -13,8 +38,8 @@
       from dbo.InvoiceCODetail
       where invoiceid=#value#
     </delete>
-    <select id="SelectByDateRangeAndPid" resultMap="InvoiceCODetailResult" parameterClass="Map">
-      select * from invoicecodetail where productid=#pid# and invoiceid in(select invoiceId from invoiceco where invoicedate between #startdate# and #enddate#) order by invoiceid
+   <select id="SelectByDateRangeAndPid" resultMap="InvoiceCODetailResult2" parameterClass="Map">
+      select d.*,xo.CustomerInvoiceXOId,xo.CustomerLotNumber from invoicecodetail d left join InvoiceCO i on d.InvoiceId=i.InvoiceId left join InvoiceXO xo on xo.InvoiceId=i.InvoiceXOId where d.productid=#pid# and i.invoicedate between #startdate# and #enddate# order by d.invoiceid
     </select>
     <select id="SelectByHeaderProRang" parameterClass="string" resultMap="InvoiceCODetailResult">
       <![CDATA[
