@@ -89,7 +89,7 @@ namespace Book.DA.SQLServer
 
         public IList<Book.Model.InvoiceXODetail> Select(Model.Customer customer1, Model.Customer customer2, DateTime startDate, DateTime endDate, DateTime yjrq1, DateTime yjrq2, Model.Employee employee1, Model.Employee employee2, string xoid1, string xoid2, string cusxoidkey, Model.Product product, Model.Product product2, bool isclose, bool mpsIsClose, int orderColumn, int orderType, bool detailFlag, string depotId, string handBookId)
         {
-            StringBuilder str = new StringBuilder("SELECT i.InvoiceId,i.InvoiceDate,i.InvoiceYjrq,c1.CustomerShortName as CustomerName,c2.CustomerShortName as XOCustomerName,i.CustomerInvoiceXOId,p.ProductName,p.CustomerProductName,d.InvoiceXODetailPrice,d.InvoiceXODetailMoney,d.InvoiceXODetailQuantity,d.InvoiceXODetailBeenQuantity,isnull(d.InvoiceXTDetailQuantity,0) as InvoiceXTDetailQuantity,dp.DepotName,d.HandbookId,d.HandbookProductId,xs.InvoiceDate as InvoiceXSDate FROM InvoiceXODetail d  LEFT JOIN InvoiceXO i ON i.InvoiceId = d.InvoiceId left join Customer c1 on c1.customerid=i.CustomerId left join Customer c2 on c2.CustomerId=i.xocustomerid left join Product p on p.ProductId=d.ProductId left join InvoiceXSDetail xsd on xsd.InvoiceXODetailId=d.InvoiceXODetailId left join InvoiceXS xs on xsd.InvoiceId=xs.InvoiceId left join DepotPosition dps on dps.DepotPositionId=xsd.DepotPositionId left join Depot dp on dp.DepotId=dps.DepotId where 1=1");
+            StringBuilder str = new StringBuilder("SELECT i.InvoiceId,i.InvoiceDate,i.InvoiceYjrq,c1.CustomerShortName as CustomerName,c2.CustomerShortName as XOCustomerName,i.CustomerInvoiceXOId,p.ProductName,p.CustomerProductName,d.InvoiceXODetailPrice,d.InvoiceXODetailMoney,d.InvoiceXODetailQuantity,xsd.InvoiceXSDetailQuantity as InvoiceXODetailBeenQuantity,isnull(d.InvoiceXTDetailQuantity,0) as InvoiceXTDetailQuantity,dp.DepotName,d.HandbookId,d.HandbookProductId,xs.InvoiceDate as InvoiceXSDate FROM InvoiceXODetail d  LEFT JOIN InvoiceXO i ON i.InvoiceId = d.InvoiceId left join Customer c1 on c1.customerid=i.CustomerId left join Customer c2 on c2.CustomerId=i.xocustomerid left join Product p on p.ProductId=d.ProductId left join InvoiceXSDetail xsd on xsd.InvoiceXODetailId=d.InvoiceXODetailId left join InvoiceXS xs on xsd.InvoiceId=xs.InvoiceId left join DepotPosition dps on dps.DepotPositionId=xsd.DepotPositionId left join Depot dp on dp.DepotId=dps.DepotId where 1=1");
 
             str.Append(" and i.InvoiceYjrq BETWEEN '" + yjrq1.ToString("yyyy-MM-dd") + "' AND '" + yjrq2.ToString("yyyy-MM-dd") + "'");
             str.Append(" and i.InvoiceDate BETWEEN '" + startDate.ToString("yyyy-MM-dd") + "' AND '" + endDate.ToString("yyyy-MM-dd HH:mm:ss") + "' ");
@@ -102,7 +102,8 @@ namespace Book.DA.SQLServer
             if (!string.IsNullOrEmpty(cusxoidkey))
                 str.Append(" and i.CustomerInvoiceXOId like '%" + cusxoidkey + "%'");
             if (product != null && product2 != null)
-                str.Append(" and ProductId IN ( SELECT Product.ProductId FROM Product WHERE ProductName BETWEEN '" + product.ProductName + "' AND '" + product2.ProductName + "')");
+                str.Append(" and p.ProductId IN ( SELECT Product.ProductId FROM Product WHERE Id BETWEEN '" + product.Id + "' AND '" + product2.Id
+ + "')");
             if (isclose)    //true 时只查询未结案
                 str.Append(" and i.IsClose=0");
             if (mpsIsClose)  //true 只查询未排完单

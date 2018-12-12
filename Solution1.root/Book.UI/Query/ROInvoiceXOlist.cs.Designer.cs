@@ -405,7 +405,7 @@
             // 
             this.xrTableCell11.Dpi = 254F;
             this.xrTableCell11.Name = "xrTableCell11";
-            this.xrTableCell11.Text = "数量";
+            this.xrTableCell11.Text = "订单数量";
             this.xrTableCell11.Weight = 0.10586464475087611;
             // 
             // xrTableCell15
