@@ -141,95 +141,152 @@ namespace Book.UI.Settings.ProduceManager
                 excel.Application.Workbooks.Add(true);
                 Microsoft.Office.Interop.Excel.Worksheet sheet = (Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[1];
 
+                #region SetHeader
+                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 9]).RowHeight = 20;
+                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 9]).Font.Size = 15;
+                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 9]).HorizontalAlignment = -4108;
+                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 9]).ColumnWidth = 12;
+                sheet.get_Range(excel.Cells[1, 3], excel.Cells[1, 4]).ColumnWidth = 50;
+
+                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 9]).Interior.Color = 12566463;
+
+                //excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).RowHeight = 20;
+                //excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).Font.Size = 13;
+                //excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 20]).WrapText = true;
+                //excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 20]).EntireRow.AutoFit();
+
+                sheet.Cells[1, 1] = "级别";
+                sheet.Cells[1, 2] = "子件编号";
+                sheet.Cells[1, 3] = "子件名称";
+                sheet.Cells[1, 4] = "客户型号";
+                sheet.Cells[1, 5] = "计量单位";
+                sheet.Cells[1, 6] = "使用数量";
+                sheet.Cells[1, 7] = "损耗率";
+                sheet.Cells[1, 8] = "生效日期";
+                sheet.Cells[1, 9] = "失效日期";
+
+                #endregion
+
+                int row = 2;
+
                 foreach (var model in parentList)
                 {
                     if (model.IsChecked)
                     {
                         try
                         {
+                            #region 每个商品一个Sheet
+                            //Model.BomParentPartInfo _bomParmentPartInfo = bomParentPartInfoManager.Get(model.BomId);
+                            //List<Model.BomComponentInfo> list = GetBomComponetList(_bomParmentPartInfo);
+
+                            //if (sheet.Name != "Sheet1")
+                            //{
+                            //    excel.Worksheets.Add(Missing.Value, sheet, Missing.Value, Missing.Value);
+                            //}
+                            //sheet = ((Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[excel.Worksheets.Count]);
+
+                            //#region SetHeader
+                            //sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).RowHeight = 20;
+                            //sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).Font.Size = 15;
+                            //sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).HorizontalAlignment = -4108;
+                            //sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).ColumnWidth = 12;
+                            //sheet.get_Range(excel.Cells[1, 2], excel.Cells[1, 2]).ColumnWidth = 50;
+
+                            //sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).Interior.Color = 12566463;
+
+                            ////excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).RowHeight = 20;
+                            ////excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).Font.Size = 13;
+                            ////excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 20]).WrapText = true;
+                            ////excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 20]).EntireRow.AutoFit();
+
+                            //sheet.Cells[1, 1] = "级别";
+                            //sheet.Cells[1, 2] = "子件名称";
+                            //sheet.Cells[1, 3] = "计量单位";
+                            //sheet.Cells[1, 4] = "使用数量";
+                            //sheet.Cells[1, 5] = "损耗率";
+                            //sheet.Cells[1, 6] = "生效日期";
+                            //sheet.Cells[1, 7] = "失效日期";
+                            ////sheet.Cells[1, 8] = "备注";
+
+                            //#endregion
+
+                            //try
+                            //{
+                            //    sheet.Name = list[0].Product.Id;
+                            //}
+                            //catch
+                            //{
+                            //    sheet.Name = list[0].Product.Id + "-" + list[0].Product.ProductVersion;
+                            //}
+
+                            //int row = 2;
+                            //foreach (var item in list)
+                            //{
+                            //    sheet.Cells[row, 1] = item.Jibie;
+                            //    sheet.Cells[row, 2] = item.Product.ProductName;
+                            //    sheet.Cells[row, 3] = item.Unit;
+                            //    sheet.Cells[row, 4] = item.UseQuantity;
+                            //    sheet.Cells[row, 5] = item.SubLoseRate == null ? 0 : item.SubLoseRate;
+                            //    sheet.Cells[row, 6] = Convert.ToDateTime(item.EffectsDate).ToString("yyyy-MM-dd");
+                            //    sheet.Cells[row, 7] = Convert.ToDateTime(item.ExpiringDate).ToString("yyyy-MM-dd");
+                            //    //RichTextBox rt = new RichTextBox();
+                            //    //rt.Rtf = item.ProductDesc;
+                            //    //rt.SelectAll();
+                            //    //sheet.Cells[row, 8] = rt.SelectedText;
+
+                            //    //不同级别不同颜色
+                            //    switch (item.Jibie)
+                            //    {
+                            //        case 1:
+                            //            sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 13311;     //红
+                            //            break;
+                            //        case 2:
+                            //            sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 6750105;   //浅绿
+                            //            break;
+                            //        case 3:
+                            //            sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 16763955;  //浅蓝
+                            //            break;
+                            //        case 4:
+                            //            sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 6750207;   //浅黄
+                            //            break;
+                            //        case 5:
+                            //            sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 16711935;  //浅紫
+                            //            break;
+                            //        case 6:
+                            //            sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 12566463;  //浅灰
+                            //            break;
+                            //    }
+
+                            //    row++;
+                            //} 
+                            #endregion
+
+                            #region 所有商品放一个Sheet
+
                             Model.BomParentPartInfo _bomParmentPartInfo = bomParentPartInfoManager.Get(model.BomId);
                             List<Model.BomComponentInfo> list = GetBomComponetList(_bomParmentPartInfo);
 
-                            if (sheet.Name != "Sheet1")
-                            {
-                                excel.Worksheets.Add(Missing.Value, sheet, Missing.Value, Missing.Value);
-                            }
-                            sheet = ((Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[excel.Worksheets.Count]);
-
-                            #region SetHeader
-                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).RowHeight = 20;
-                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).Font.Size = 15;
-                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).HorizontalAlignment = -4108;
-                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).ColumnWidth = 12;
-                            sheet.get_Range(excel.Cells[1, 2], excel.Cells[1, 2]).ColumnWidth = 50;
-
-                            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).Interior.Color = 12566463;
-
-                            //excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).RowHeight = 20;
-                            //excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).Font.Size = 13;
-                            //excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 20]).WrapText = true;
-                            //excel.get_Range(excel.Cells[3, 1], excel.Cells[details.Count + 2, 20]).EntireRow.AutoFit();
-
-                            sheet.Cells[1, 1] = "级别";
-                            sheet.Cells[1, 2] = "子件名称";
-                            sheet.Cells[1, 3] = "计量单位";
-                            sheet.Cells[1, 4] = "使用数量";
-                            sheet.Cells[1, 5] = "损耗率";
-                            sheet.Cells[1, 6] = "生效日期";
-                            sheet.Cells[1, 7] = "失效日期";
-                            //sheet.Cells[1, 8] = "备注";
-
-                            #endregion
-
-                            try
-                            {
-                                sheet.Name = list[0].Product.Id;
-                            }
-                            catch
-                            {
-                                sheet.Name = list[0].Product.Id + "-" + list[0].Product.ProductVersion;
-                            }
-
-                            int row = 2;
                             foreach (var item in list)
                             {
                                 sheet.Cells[row, 1] = item.Jibie;
-                                sheet.Cells[row, 2] = item.Product.ProductName;
-                                sheet.Cells[row, 3] = item.Unit;
-                                sheet.Cells[row, 4] = item.UseQuantity;
-                                sheet.Cells[row, 5] = item.SubLoseRate == null ? 0 : item.SubLoseRate;
-                                sheet.Cells[row, 6] = Convert.ToDateTime(item.EffectsDate).ToString("yyyy-MM-dd");
-                                sheet.Cells[row, 7] = Convert.ToDateTime(item.ExpiringDate).ToString("yyyy-MM-dd");
-                                //RichTextBox rt = new RichTextBox();
-                                //rt.Rtf = item.ProductDesc;
-                                //rt.SelectAll();
-                                //sheet.Cells[row, 8] = rt.SelectedText;
+                                sheet.Cells[row, 2] = item.Product.Id;
+                                sheet.Cells[row, 3] = item.Product.ProductName;
+                                sheet.Cells[row, 4] = item.Product.CustomerProductName;
+                                sheet.Cells[row, 5] = item.Unit;
+                                sheet.Cells[row, 6] = item.UseQuantity;
+                                sheet.Cells[row, 7] = item.SubLoseRate == null ? 0 : item.SubLoseRate;
+                                sheet.Cells[row, 8] = Convert.ToDateTime(item.EffectsDate).ToString("yyyy-MM-dd");
+                                sheet.Cells[row, 9] = Convert.ToDateTime(item.ExpiringDate).ToString("yyyy-MM-dd");
 
-                                //不同级别不同颜色
-                                switch (item.Jibie)
-                                {
-                                    case 1:
-                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 13311;     //红
-                                        break;
-                                    case 2:
-                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 6750105;   //浅绿
-                                        break;
-                                    case 3:
-                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 16763955;  //浅蓝
-                                        break;
-                                    case 4:
-                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 6750207;   //浅黄
-                                        break;
-                                    case 5:
-                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 16711935;  //浅紫
-                                        break;
-                                    case 6:
-                                        sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 7]).Interior.Color = 12566463;  //浅灰
-                                        break;
-                                }
+                                if(item.Jibie==0)
+                                    sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 9]).Interior.Color = 13311;     //红
 
                                 row++;
                             }
+                            row++;
+                            row++;
+
+                            #endregion
                         }
                         catch (Exception ex)
                         {
