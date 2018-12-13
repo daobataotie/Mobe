@@ -1791,7 +1791,7 @@ namespace Book.Model
         }
 
         /// <summary>
-        /// 
+        /// 半成品加工
         /// </summary>
         public bool? IsProcee
         {

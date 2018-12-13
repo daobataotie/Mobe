@@ -78,6 +78,8 @@
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCProId = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -116,6 +118,7 @@
             this.TCchkh,
             this.TCkhddbh,
             this.TCyjrq,
+            this.TCProId,
             this.TCcpxh,
             this.TCkhxh,
             this.TCshuliang,
@@ -173,7 +176,7 @@
             this.TCcpxh.Dpi = 254F;
             this.TCcpxh.Name = "TCcpxh";
             this.TCcpxh.Text = "產品型號";
-            this.TCcpxh.Weight = 0.50669181255432927;
+            this.TCcpxh.Weight = 0.25334590627716463;
             // 
             // TCkhxh
             // 
@@ -231,7 +234,7 @@
             // TopMargin
             // 
             this.TopMargin.Dpi = 254F;
-            this.TopMargin.HeightF = 80F;
+            this.TopMargin.HeightF = 79F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -239,7 +242,7 @@
             // BottomMargin
             // 
             this.BottomMargin.Dpi = 254F;
-            this.BottomMargin.HeightF = 80F;
+            this.BottomMargin.HeightF = 79F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -332,6 +335,7 @@
             this.xrTableCell1,
             this.xrTableCell7,
             this.xrTableCell4,
+            this.xrTableCell16,
             this.xrTableCell8,
             this.xrTableCell2,
             this.xrTableCell11,
@@ -392,7 +396,7 @@
             this.xrTableCell8.Dpi = 254F;
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.Text = "产品型号";
-            this.xrTableCell8.Weight = 0.50669153318741944;
+            this.xrTableCell8.Weight = 0.25334576659370972;
             // 
             // xrTableCell2
             // 
@@ -533,6 +537,19 @@
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
             this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
+            // xrTableCell16
+            // 
+            this.xrTableCell16.Dpi = 254F;
+            this.xrTableCell16.Name = "xrTableCell16";
+            this.xrTableCell16.Text = "商品编号";
+            this.xrTableCell16.Weight = 0.25334576659370972;
+            // 
+            // TCProId
+            // 
+            this.TCProId.Dpi = 254F;
+            this.TCProId.Name = "TCProId";
+            this.TCProId.Weight = 0.25334590627716463;
+            // 
             // ROInvoiceXOlist
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -544,7 +561,7 @@
             this.ReportFooter,
             this.PageFooter});
             this.Dpi = 254F;
-            this.Margins = new System.Drawing.Printing.Margins(0, 0, 80, 80);
+            this.Margins = new System.Drawing.Printing.Margins(0, 0, 79, 79);
             this.PageHeight = 2159;
             this.PageWidth = 2794;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
@@ -609,5 +626,7 @@
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.XRTableCell TC_Xianghao;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
+        private DevExpress.XtraReports.UI.XRTableCell TCProId;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell16;
     }
 }

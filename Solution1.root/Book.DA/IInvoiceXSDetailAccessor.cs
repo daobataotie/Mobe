@@ -38,6 +38,8 @@ namespace Book.DA
         double SumBeeQuantityByHandbook(string handbookId, string handbookProductId);
 
         double GetInvoiceXSDetailQuantity(string id);
+
+        IList<Model.InvoiceXSDetail> SelectByBGHandBook(DateTime startDate, DateTime endDate, string bgHandBookId, string bgProductId, string productId, string cusXOId);
     }
 
 }

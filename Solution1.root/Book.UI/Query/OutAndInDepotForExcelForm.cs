@@ -52,7 +52,7 @@ namespace Book.UI.Query
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 5]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]);
                 r.MergeCells = true;//合并单元格
 
                 excel.Cells.ColumnWidth = 10;
@@ -60,17 +60,18 @@ namespace Book.UI.Query
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
                 //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
-                excel.get_Range(excel.Cells[1, 7], excel.Cells[1, 7]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[1, 7], excel.Cells[1, 8]).HorizontalAlignment = -4108;
 
                 excel.Cells[2, 1] = "日期";
                 excel.Cells[2, 2] = "单据类型";
-                excel.Cells[2, 3] = "商品名称";
-                excel.Cells[2, 4] = "单据编号";
-                excel.Cells[2, 5] = "客户订单编号";
-                excel.Cells[2, 6] = "货位";
-                excel.Cells[2, 7] = "数量";
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 7]).Interior.Color = "12566463";
-                excel.get_Range(excel.Cells[2, 3], excel.Cells[2, 3]).ColumnWidth = 50;
+                excel.Cells[2, 3] = "商品编号";
+                excel.Cells[2, 4] = "商品名称";
+                excel.Cells[2, 5] = "单据编号";
+                excel.Cells[2, 6] = "客户订单编号";
+                excel.Cells[2, 7] = "货位";
+                excel.Cells[2, 8] = "数量";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 8]).Interior.Color = "12566463";
+                excel.get_Range(excel.Cells[2, 4], excel.Cells[2, 4]).ColumnWidth = 50;
 
 
 
@@ -109,11 +110,12 @@ namespace Book.UI.Query
                     {
                         excel.Cells[row, 1] = stock.InvoiceDate.Value.ToString("yyyy-MM-dd");
                         excel.Cells[row, 2] = stock.InvoiceType;
-                        excel.Cells[row, 3] = stock.ProductName;
-                        excel.Cells[row, 4] = stock.InvoiceNO;
-                        excel.Cells[row, 5] = stock.CusXOId;
-                        excel.Cells[row, 6] = stock.PositionName;
-                        excel.Cells[row, 7] = stock.InvoiceQuantity;
+                        excel.Cells[row, 3] = stock.PId;
+                        excel.Cells[row, 4] = stock.ProductName;
+                        excel.Cells[row, 5] = stock.InvoiceNO;
+                        excel.Cells[row, 6] = stock.CusXOId;
+                        excel.Cells[row, 7] = stock.PositionName;
+                        excel.Cells[row, 8] = stock.InvoiceQuantity;
 
                         row++;
                     }
@@ -131,11 +133,12 @@ namespace Book.UI.Query
                     {
                         excel.Cells[row, 1] = stock.InvoiceDate.Value.ToString("yyyy-MM-dd");
                         excel.Cells[row, 2] = stock.InvoiceType;
-                        excel.Cells[row, 3] = stock.ProductName;
-                        excel.Cells[row, 4] = stock.InvoiceNO;
-                        excel.Cells[row, 5] = stock.CusXOId;
-                        excel.Cells[row, 6] = stock.PositionName;
-                        excel.Cells[row, 7] = stock.InvoiceQuantity;
+                        excel.Cells[row, 3] = stock.PId;
+                        excel.Cells[row, 4] = stock.ProductName;
+                        excel.Cells[row, 5] = stock.InvoiceNO;
+                        excel.Cells[row, 6] = stock.CusXOId;
+                        excel.Cells[row, 7] = stock.PositionName;
+                        excel.Cells[row, 8] = stock.InvoiceQuantity;
 
                         row++;
                     }
@@ -153,11 +156,12 @@ namespace Book.UI.Query
                     {
                         excel.Cells[row, 1] = stock.InvoiceDate.Value.ToString("yyyy-MM-dd");
                         excel.Cells[row, 2] = stock.InvoiceType;
-                        excel.Cells[row, 3] = stock.ProductName;
-                        excel.Cells[row, 4] = stock.InvoiceNO;
-                        excel.Cells[row, 5] = stock.CusXOId;
-                        excel.Cells[row, 6] = stock.PositionName;
-                        excel.Cells[row, 7] = stock.InvoiceQuantity;
+                        excel.Cells[row, 3] = stock.PId;
+                        excel.Cells[row, 4] = stock.ProductName;
+                        excel.Cells[row, 5] = stock.InvoiceNO;
+                        excel.Cells[row, 6] = stock.CusXOId;
+                        excel.Cells[row, 7] = stock.PositionName;
+                        excel.Cells[row, 8] = stock.InvoiceQuantity;
 
                         row++;
                     }

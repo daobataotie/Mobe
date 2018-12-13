@@ -271,6 +271,8 @@ namespace Book.Model
 
         public double? ProduceTransferQuantity { get; set; }
 
+        public string PId { get; set; }
+
         public string ProductName { get; set; }
 
         public string ProductCategoryName1 { get; set; }

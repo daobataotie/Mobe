@@ -95,6 +95,8 @@ namespace Book.Model
 
         public string DepotName { get; set; }
 
+        public string PId { get; set; }
+
         /// <summary>
         /// 出货日期
         /// </summary>
@@ -115,5 +117,7 @@ namespace Book.Model
         public readonly static string PRO_CustomerProductName = "CustomerProductName";
 
         public readonly static string PRO_InvoiceXSDate = "InvoiceXSDate";
+
+        public readonly static string PRO_PId = "PId";
     }
 }

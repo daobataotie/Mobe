@@ -195,5 +195,31 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForObject<double>("InvoiceXSDetail.GetInvoiceXSDetailQuantity", id);
         }
+
+        public IList<Model.InvoiceXSDetail> SelectByBGHandBook(DateTime startDate, DateTime endDate, string bgHandBookId, string bgProductId, string productId, string cusXOId)
+        {
+            StringBuilder sb = new StringBuilder("select xsd.HandbookId,xsd.HandbookProductId,xsd.ProductId,p.Id as PId,p.ProductName,p.CustomerProductName,xo.CustomerInvoiceXOId,SUM(xsd.InvoiceXSDetailQuantity) as InvoiceXSDetailQuantity from InvoiceXSDetail xsd left join InvoiceXS xs on xsd.InvoiceId=xs.InvoiceId left join InvoiceXO xo on xsd.InvoiceXOId=xo.InvoiceId left join Product p on xsd.ProductId=p.ProductId where xs.InvoiceDate between '" + startDate.ToString("yyyy-MM-dd") + "' and '" + endDate.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "' ");
+
+            if (!string.IsNullOrEmpty(bgHandBookId))
+            {
+                sb.Append(" and xsd.HandbookId in (" + bgHandBookId + ")");
+            }
+            if (!string.IsNullOrEmpty(bgProductId))
+            {
+                sb.Append(" and HandbookProductId='" + bgProductId + "'");
+            }
+            if (!string.IsNullOrEmpty(productId))
+            {
+                sb.Append(" and xsd.ProductId='" + productId + "'");
+            }
+            if (!string.IsNullOrEmpty(cusXOId))
+            {
+                sb.Append(" and xo.CustomerInvoiceXOId='" + cusXOId + "'");
+            }
+
+            sb.Append(" group by xsd.HandbookId,xsd.HandbookProductId,xsd.ProductId,p.Id,p.ProductName,p.CustomerProductName,xo.CustomerInvoiceXOId order by xsd.HandbookId,xsd.HandbookProductId");
+
+            return this.DataReaderBind<Model.InvoiceXSDetail>(sb.ToString(), null, CommandType.Text);
+        }
     }
 }

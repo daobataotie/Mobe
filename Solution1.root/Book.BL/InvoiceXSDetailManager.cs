@@ -117,6 +117,11 @@ namespace Book.BL
         {
             return accessor.GetInvoiceXSDetailQuantity(id);
         }
+
+        public IList<Model.InvoiceXSDetail> SelectByBGHandBook(DateTime startDate, DateTime endDate, string bgHandBookId, string bgProductId, string productId, string cusXOId)
+        {
+            return accessor.SelectByBGHandBook(startDate, endDate, bgHandBookId, bgProductId, productId, cusXOId);
+        }
     }
 }
 
