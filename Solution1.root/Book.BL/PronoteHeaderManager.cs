@@ -438,6 +438,11 @@ namespace Book.BL
         {
             return accessor.SelectByProductIdAll(productid);
         }
+
+        public string SelectCusXOIdByHeaderId(string headerId)
+        {
+            return accessor.SelectCusXOIdByHeaderId(headerId);
+        }
     }
 }
 

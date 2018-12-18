@@ -82,7 +82,7 @@ namespace Book.DA.SQLServer
             }
             if (!string.IsNullOrEmpty(handBookId))
             {
-                str.Append(" and d.HandbookId='" + handBookId + "'");
+                str.Append(" and d.HandbookId in (" + handBookId + ")");
             }
             switch (ProductState)
             {

@@ -35,5 +35,7 @@ namespace Book.DA
         IList<Model.PronoteHeader> SelectByProductId(DateTime startDate, DateTime endDate, string productid, string handBookId);
 
         IList<Model.PronoteHeader> SelectByProductIdAll(string productid);
+
+        string SelectCusXOIdByHeaderId(string headerId);
     }
 }

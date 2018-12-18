@@ -140,5 +140,11 @@
         and invoicestatus<>2
          		]]>
     </select>
+
+    <select id="SelectCusXOIdByHeaderId" parameterClass="string" resultClass="string">
+      <![CDATA[
+      select CustomerInvoiceXOId from InvoiceXO where InvoiceId in (select InvoiceXOId from PronoteHeader where PronoteHeaderID=#value#)
+      ]]>
+    </select>
   </statements>
 </sqlMap>

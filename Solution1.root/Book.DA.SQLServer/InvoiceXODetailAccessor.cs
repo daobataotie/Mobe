@@ -92,7 +92,7 @@ namespace Book.DA.SQLServer
             StringBuilder str = new StringBuilder("SELECT i.InvoiceId,i.InvoiceDate,i.InvoiceYjrq,c1.CustomerShortName as CustomerName,c2.CustomerShortName as XOCustomerName,i.CustomerInvoiceXOId,p.Id as PId,p.ProductName,p.CustomerProductName,d.InvoiceXODetailPrice,d.InvoiceXODetailMoney,d.InvoiceXODetailQuantity,xsd.InvoiceXSDetailQuantity as InvoiceXODetailBeenQuantity,isnull(d.InvoiceXTDetailQuantity,0) as InvoiceXTDetailQuantity,dp.DepotName,d.HandbookId,d.HandbookProductId,xs.InvoiceDate as InvoiceXSDate FROM InvoiceXODetail d  LEFT JOIN InvoiceXO i ON i.InvoiceId = d.InvoiceId left join Customer c1 on c1.customerid=i.CustomerId left join Customer c2 on c2.CustomerId=i.xocustomerid left join Product p on p.ProductId=d.ProductId left join InvoiceXSDetail xsd on xsd.InvoiceXODetailId=d.InvoiceXODetailId left join InvoiceXS xs on xsd.InvoiceId=xs.InvoiceId left join DepotPosition dps on dps.DepotPositionId=xsd.DepotPositionId left join Depot dp on dp.DepotId=dps.DepotId where 1=1");
 
             str.Append(" and i.InvoiceYjrq BETWEEN '" + yjrq1.ToString("yyyy-MM-dd") + "' AND '" + yjrq2.ToString("yyyy-MM-dd") + "'");
-            str.Append(" and i.InvoiceDate BETWEEN '" + startDate.ToString("yyyy-MM-dd") + "' AND '" + endDate.ToString("yyyy-MM-dd HH:mm:ss") + "' ");
+            str.Append(" and xs.InvoiceDate BETWEEN '" + startDate.ToString("yyyy-MM-dd") + "' AND '" + endDate.ToString("yyyy-MM-dd HH:mm:ss") + "' ");
             if (customer1 != null && customer2 != null)
                 str.Append(" and i.xocustomerId IN (SELECT CustomerId FROM Customer WHERE Id BETWEEN '" + customer1.Id + "' AND '" + customer2.Id + "')");
             if (employee1 != null && employee2 != null)

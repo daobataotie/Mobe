@@ -69,7 +69,7 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.btn_ExportExcel = new DevExpress.XtraEditors.SimpleButton();
-            this.cob_HandBookId = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.ccb_BGHandBookIds = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
@@ -107,7 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ccb_BGHandBookIds.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,7 +131,7 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.cob_HandBookId);
+            this.layoutControl1.Controls.Add(this.ccb_BGHandBookIds);
             this.layoutControl1.Controls.Add(this.checkedComboBoxEdit1);
             this.layoutControl1.Controls.Add(this.comBoxProductState);
             this.layoutControl1.Controls.Add(this.newChooseCustomer2);
@@ -489,7 +489,7 @@
             resources.ApplyResources(this.layoutControlItem18, "layoutControlItem18");
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 198);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(275, 25);
+            this.layoutControlItem18.Size = new System.Drawing.Size(276, 25);
             this.layoutControlItem18.TextSize = new System.Drawing.Size(88, 14);
             // 
             // layoutControlItem19
@@ -527,22 +527,21 @@
             this.btn_ExportExcel.Name = "btn_ExportExcel";
             this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
             // 
-            // cob_HandBookId
+            // ccb_BGHandBookIds
             // 
-            resources.ApplyResources(this.cob_HandBookId, "cob_HandBookId");
-            this.cob_HandBookId.Name = "cob_HandBookId";
-            this.cob_HandBookId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("comboBoxEdit1.Properties.Buttons"))))});
-            this.cob_HandBookId.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cob_HandBookId.StyleController = this.layoutControl1;
+            resources.ApplyResources(this.ccb_BGHandBookIds, "ccb_BGHandBookIds");
+            this.ccb_BGHandBookIds.Name = "ccb_BGHandBookIds";
+            this.ccb_BGHandBookIds.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("checkedComboBoxEdit2.Properties.Buttons"))))});
+            this.ccb_BGHandBookIds.StyleController = this.layoutControl1;
             // 
             // layoutControlItem17
             // 
-            this.layoutControlItem17.Control = this.cob_HandBookId;
+            this.layoutControlItem17.Control = this.ccb_BGHandBookIds;
             resources.ApplyResources(this.layoutControlItem17, "layoutControlItem17");
-            this.layoutControlItem17.Location = new System.Drawing.Point(275, 198);
+            this.layoutControlItem17.Location = new System.Drawing.Point(276, 198);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(278, 25);
+            this.layoutControlItem17.Size = new System.Drawing.Size(277, 25);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(88, 14);
             // 
             // ConditionProInDepotChooseForm
@@ -593,7 +592,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ccb_BGHandBookIds.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             this.ResumeLayout(false);
 
@@ -640,7 +639,7 @@
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
         private DevExpress.XtraEditors.SimpleButton btn_ExportExcel;
-        private DevExpress.XtraEditors.ComboBoxEdit cob_HandBookId;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit ccb_BGHandBookIds;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
     }
 }

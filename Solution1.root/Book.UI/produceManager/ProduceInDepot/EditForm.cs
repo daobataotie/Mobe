@@ -155,6 +155,11 @@ namespace Book.UI.produceManager.ProduceInDepot
                 if (this.action == "view")
                 {
                     this.produceInDepot = this.produceInDepotManager.GetDetails(produceInDepot.ProduceInDepotId);
+
+                    foreach (var item in produceInDepot.Details)
+                    {
+                        item.CusXOId = this.pronoteHeaderManager.SelectCusXOIdByHeaderId(item.PronoteHeaderId);
+                    }
                 }
             }
 

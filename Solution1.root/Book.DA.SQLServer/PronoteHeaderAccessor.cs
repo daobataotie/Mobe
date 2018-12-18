@@ -388,5 +388,10 @@ namespace Book.DA.SQLServer
             string sql = "select PronoteHeaderID,InvoiceXOId,xo.CustomerInvoiceXOId from PronoteHeader ph left join InvoiceXO xo on ph.InvoiceXOId=xo.InvoiceId where ph.ProductId='" + productid + "'";
             return this.DataReaderBind<Model.PronoteHeader>(sql, null, CommandType.Text);
         }
+
+        public string SelectCusXOIdByHeaderId(string headerId)
+        {
+            return sqlmapper.QueryForObject<string>("PronoteHeader.SelectCusXOIdByHeaderId", headerId);
+        }
     }
 }

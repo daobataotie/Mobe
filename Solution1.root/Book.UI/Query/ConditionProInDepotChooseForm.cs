@@ -45,10 +45,10 @@ namespace Book.UI.Query
             }
 
 
-            IList<string> handBookIds = new BL.BGHandbookManager().SelectAllId();
-            foreach (var item in handBookIds)
+            IList<string> bgHandbookIds = new BL.BGHandbookManager().SelectAllId();
+            foreach (var item in bgHandbookIds)
             {
-                this.cob_HandBookId.Properties.Items.Add(item);
+                this.ccb_BGHandBookIds.Properties.Items.Add(item);
             }
         }
 
@@ -101,7 +101,18 @@ namespace Book.UI.Query
             this.condition.Customer1 = this.newChooseCustomer1.EditValue as Model.Customer;
             this.condition.Customer2 = this.newChooseCustomer2.EditValue as Model.Customer;
             this.condition.ProductState = this.comBoxProductState.SelectedIndex;
-            this.condition.HandBookId = this.cob_HandBookId.Text;
+
+            if (!string.IsNullOrEmpty(this.ccb_BGHandBookIds.Text))
+            {
+                string bgHandBookId = "";
+                string[] bgHandBookIds = this.ccb_BGHandBookIds.Text.Split(',');
+                foreach (var item in bgHandBookIds)
+                {
+                    bgHandBookId += "'" + item.Trim() + "',";
+                }
+                bgHandBookId = bgHandBookId.TrimEnd(',');
+                this.condition.HandBookId = bgHandBookId;
+            }
         }
 
         private void ConditionProInDepotChooseForm_Load(object sender, EventArgs e)

@@ -13,7 +13,7 @@
   <statements>
     <select id="select_by_productId" resultMap="BomParentPartInfoResult"   parameterClass="String">
       <![CDATA[
-      select Top 1 * from BomParentPartInfo where productId = #value:varchar# and Status=0
+      select Top 1 * from BomParentPartInfo where productId = #value:varchar#
       ]]>
     </select>
     <select id="selectnotcontent" resultMap="BomParentPartInfoResult">
@@ -52,7 +52,7 @@
     <delete id="deleteByProduct" parameterClass="string">
       DELETE FROM [dbo].[BomParentPartInfo]
       WHERE
-      [ProductId] = #value# 
+      [ProductId] = #value#
     </delete>
     <select id="exists_field" resultClass="bool" parameterClass="Map">
       <![CDATA[
@@ -134,6 +134,6 @@ and Status=0
 			]]>
     </select>
 
- 
+
   </statements>
 </sqlMap>

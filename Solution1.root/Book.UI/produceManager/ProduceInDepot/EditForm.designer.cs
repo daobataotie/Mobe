@@ -119,6 +119,7 @@
             this.gridColumn48 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn49 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn50 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn51 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.bindingSourceProductId = new System.Windows.Forms.BindingSource(this.components);
             this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -451,7 +452,8 @@
             this.gridColumn17,
             this.gridColumn48,
             this.gridColumn49,
-            this.gridColumn50});
+            this.gridColumn50,
+            this.gridColumn51});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ColumnAutoWidth = false;
@@ -958,6 +960,12 @@
             resources.ApplyResources(this.gridColumn50, "gridColumn50");
             this.gridColumn50.FieldName = "HeJiBeforeTransferQuantity";
             this.gridColumn50.Name = "gridColumn50";
+            // 
+            // gridColumn51
+            // 
+            resources.ApplyResources(this.gridColumn51, "gridColumn51");
+            this.gridColumn51.FieldName = "CusXOId";
+            this.gridColumn51.Name = "gridColumn51";
             // 
             // repositoryItemLookUpEdit1
             // 
@@ -1516,5 +1524,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn50;
         private DevExpress.XtraBars.BarButtonItem bar_ExportExcel;
         private DevExpress.XtraBars.BarButtonItem bar_PrintIndepot;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn51;
     }
 }
