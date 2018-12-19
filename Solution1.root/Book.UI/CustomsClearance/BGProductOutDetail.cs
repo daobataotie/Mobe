@@ -94,25 +94,26 @@ namespace Book.UI.CustomsClearance
             Microsoft.Office.Interop.Excel.Worksheet sheet = (Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[1];
 
             #region SetHeader
-            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 11]).RowHeight = 20;
-            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 11]).Font.Size = 15;
-            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 11]).HorizontalAlignment = -4108;
-            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 11]).ColumnWidth = 12;
+            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 12]).RowHeight = 20;
+            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 12]).Font.Size = 15;
+            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 12]).HorizontalAlignment = -4108;
+            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 12]).ColumnWidth = 12;
             sheet.get_Range(excel.Cells[1, 3], excel.Cells[1, 4]).ColumnWidth = 30;
-            sheet.get_Range(excel.Cells[1, 9], excel.Cells[1, 9]).ColumnWidth = 30;
-            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 11]).Interior.Color = 12566463;
+            sheet.get_Range(excel.Cells[1, 10], excel.Cells[1, 10]).ColumnWidth = 30;
+            sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 12]).Interior.Color = 12566463;
 
             sheet.Cells[1, 1] = "手册号";
             sheet.Cells[1, 2] = "成品项号";
             sheet.Cells[1, 3] = "成品编号";
             sheet.Cells[1, 4] = "成品名称";
             sheet.Cells[1, 5] = "规格型号";
-            sheet.Cells[1, 6] = "客户订单号";
-            sheet.Cells[1, 7] = "订单量";
-            sheet.Cells[1, 8] = "半成品编号";
-            sheet.Cells[1, 9] = "使用半成品名称";
-            sheet.Cells[1, 10] = "单位";
-            sheet.Cells[1, 11] = "使用半成品数量";
+            sheet.Cells[1, 6] = "装配单编号";
+            sheet.Cells[1, 7] = "客户订单号";
+            sheet.Cells[1, 8] = "订单量";
+            sheet.Cells[1, 9] = "半成品编号";
+            sheet.Cells[1, 10] = "使用半成品名称";
+            sheet.Cells[1, 11] = "单位";
+            sheet.Cells[1, 12] = "使用半成品数量";
 
             #endregion
 
@@ -128,21 +129,23 @@ namespace Book.UI.CustomsClearance
                 sheet.get_Range(excel.Cells[row, 5], excel.Cells[row + count - 1, 5]).MergeCells = true;
                 sheet.get_Range(excel.Cells[row, 6], excel.Cells[row + count - 1, 6]).MergeCells = true;
                 sheet.get_Range(excel.Cells[row, 7], excel.Cells[row + count - 1, 7]).MergeCells = true;
+                sheet.get_Range(excel.Cells[row, 8], excel.Cells[row + count - 1, 8]).MergeCells = true;
 
                 sheet.Cells[row, 1] = item.Key.HandbookId;
                 sheet.Cells[row, 2] = item.Key.HandbookProductId;
                 sheet.Cells[row, 3] = item.Key.PId;
                 sheet.Cells[row, 4] = item.Key.ProductName;
                 sheet.Cells[row, 5] = item.Key.CustomerProductName;
-                sheet.Cells[row, 6] = item.Key.CustomerInvoiceXOId;
-                sheet.Cells[row, 7] = item.Key.InvoiceXSDetailQuantity;
+                sheet.Cells[row, 6] = item.Key.PronoteHeaderID;
+                sheet.Cells[row, 7] = item.Key.CustomerInvoiceXOId;
+                sheet.Cells[row, 8] = item.Key.InvoiceXSDetailQuantity;
 
                 foreach (var detail in item.Value)
                 {
-                    sheet.Cells[row, 8] = detail.Product.Id;
-                    sheet.Cells[row, 9] = detail.Product.ProductName;
-                    sheet.Cells[row, 10] = detail.Unit;
-                    sheet.Cells[row, 11] = detail.UseQuantity;
+                    sheet.Cells[row, 9] = detail.Product.Id;
+                    sheet.Cells[row, 10] = detail.Product.ProductName;
+                    sheet.Cells[row, 11] = detail.Unit;
+                    sheet.Cells[row, 12] = detail.UseQuantity;
 
                     row++;
                 }

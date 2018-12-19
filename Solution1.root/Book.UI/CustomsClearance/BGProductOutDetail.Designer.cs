@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.ccb_bgHandBook = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.txt_CusXOId = new DevExpress.XtraEditors.TextEdit();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.btn_OK = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Product = new DevExpress.XtraEditors.ButtonEdit();
@@ -43,12 +45,12 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.txt_CusXOId = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ccb_bgHandBook = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ccb_bgHandBook.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_CusXOId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Product.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_BGProductId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties.VistaTimeProperties)).BeginInit();
@@ -63,10 +65,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_CusXOId.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ccb_bgHandBook.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -86,6 +86,24 @@
             this.layoutControl1.Size = new System.Drawing.Size(452, 159);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // ccb_bgHandBook
+            // 
+            this.ccb_bgHandBook.Location = new System.Drawing.Point(88, 37);
+            this.ccb_bgHandBook.Name = "ccb_bgHandBook";
+            this.ccb_bgHandBook.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ccb_bgHandBook.Size = new System.Drawing.Size(352, 21);
+            this.ccb_bgHandBook.StyleController = this.layoutControl1;
+            this.ccb_bgHandBook.TabIndex = 13;
+            // 
+            // txt_CusXOId
+            // 
+            this.txt_CusXOId.Location = new System.Drawing.Point(303, 62);
+            this.txt_CusXOId.Name = "txt_CusXOId";
+            this.txt_CusXOId.Size = new System.Drawing.Size(137, 21);
+            this.txt_CusXOId.StyleController = this.layoutControl1;
+            this.txt_CusXOId.TabIndex = 11;
             // 
             // btn_Cancel
             // 
@@ -248,13 +266,15 @@
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // txt_CusXOId
+            // layoutControlItem10
             // 
-            this.txt_CusXOId.Location = new System.Drawing.Point(303, 62);
-            this.txt_CusXOId.Name = "txt_CusXOId";
-            this.txt_CusXOId.Size = new System.Drawing.Size(137, 21);
-            this.txt_CusXOId.StyleController = this.layoutControl1;
-            this.txt_CusXOId.TabIndex = 11;
+            this.layoutControlItem10.Control = this.ccb_bgHandBook;
+            this.layoutControlItem10.CustomizationFormText = "手册号：";
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 25);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(432, 25);
+            this.layoutControlItem10.Text = "手册号：";
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(72, 14);
             // 
             // layoutControlItem8
             // 
@@ -266,26 +286,6 @@
             this.layoutControlItem8.Text = "客户订单号：";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(72, 14);
             // 
-            // ccb_bgHandBook
-            // 
-            this.ccb_bgHandBook.Location = new System.Drawing.Point(88, 37);
-            this.ccb_bgHandBook.Name = "ccb_bgHandBook";
-            this.ccb_bgHandBook.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ccb_bgHandBook.Size = new System.Drawing.Size(352, 21);
-            this.ccb_bgHandBook.StyleController = this.layoutControl1;
-            this.ccb_bgHandBook.TabIndex = 13;
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.ccb_bgHandBook;
-            this.layoutControlItem10.CustomizationFormText = "手册号：";
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 25);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(432, 25);
-            this.layoutControlItem10.Text = "手册号：";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(72, 14);
-            // 
             // BGProductOutDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -293,9 +293,11 @@
             this.ClientSize = new System.Drawing.Size(452, 159);
             this.Controls.Add(this.layoutControl1);
             this.Name = "BGProductOutDetail";
-            this.Text = "手册料件明细";
+            this.Text = "手册料件出货明细";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ccb_bgHandBook.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_CusXOId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Product.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_BGProductId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties.VistaTimeProperties)).EndInit();
@@ -310,10 +312,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_CusXOId.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ccb_bgHandBook.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -120,6 +120,8 @@ namespace Book.Model
 
         public string CustomerInvoiceXOId { get; set; }
 
+        public string PronoteHeaderID { get; set; }
+
         public static readonly string PRO_xiaoji = "xiaoji";
 
     }
