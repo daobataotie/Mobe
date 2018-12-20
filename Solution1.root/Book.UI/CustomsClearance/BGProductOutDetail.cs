@@ -159,18 +159,26 @@ namespace Book.UI.CustomsClearance
             List<Model.BomComponentInfo> _comDetailss = new List<Book.Model.BomComponentInfo>();
 
             foreach (Model.BomComponentInfo bomcon in this.bomComponentInfoManager.Select(_bomParmentPartInfo))   //第一层子件
-            { //商品类型为：自制或者委外 才会带出，其他一律不需要
-                if (bomcon.Product.IsProcee == false && bomcon.Product.TrustOut == false && (bomcon.Product.HomeMade == true || bomcon.Product.OutSourcing == true))
-                {
-                    //bomcon.UseQuantity = bomcon.UseQuantity * outQty * (1 + (bomcon.SubLoseRate.HasValue ? bomcon.SubLoseRate.Value * 0.01 : 0));
-                    bomcon.UseQuantity = bomcon.UseQuantity * outQty;
-                    _comDetailss.Add(bomcon);
+            {
+                //商品类型为：自制或者外购 才会带出，其他一律不需要
+                //if (bomcon.Product.IsProcee == false && bomcon.Product.TrustOut == false && (bomcon.Product.HomeMade == true || bomcon.Product.OutSourcing == true))
+                //{
+                //bomcon.UseQuantity = bomcon.UseQuantity * outQty * (1 + (bomcon.SubLoseRate.HasValue ? bomcon.SubLoseRate.Value * 0.01 : 0));
+                bomcon.UseQuantity = bomcon.UseQuantity * outQty;
+                _comDetailss.Add(bomcon);
+                //}
 
-                    GetBomComponetByParent(bomcon, _comDetailss);     //第一层以下子件
-                }
+                GetBomComponetByParent(bomcon, _comDetailss);     //第一层以下子件
             }
 
-            return _comDetailss;
+            List<Model.BomComponentInfo> needList = new List<Book.Model.BomComponentInfo>(); //商品类型为：自制或者外购 才会带出，其他一律不需要
+            foreach (var bomcon in _comDetailss)
+            {
+                if (bomcon.Product.IsProcee == false && bomcon.Product.TrustOut == false && (bomcon.Product.HomeMade == true || bomcon.Product.OutSourcing == true))
+                    needList.Add(bomcon);
+            }
+
+            return needList;
         }
 
         private void GetBomComponetByParent(Model.BomComponentInfo componet, List<Model.BomComponentInfo> _comDetailss)
@@ -183,16 +191,16 @@ namespace Book.UI.CustomsClearance
                 {
                     foreach (var item in comList)
                     {
-                        //商品类型为：自制或者委外 才会带出，其他一律不需要
-                        if (item.Product.IsProcee == false && item.Product.TrustOut == false && (item.Product.HomeMade == true || item.Product.OutSourcing == true))
-                        {
-                            //item.UseQuantity = componet.UseQuantity * item.UseQuantity * (1 + (item.SubLoseRate.HasValue ? item.SubLoseRate.Value * 0.01 : 0));
-                            item.UseQuantity = componet.UseQuantity * item.UseQuantity;
-                            _comDetailss.Add(item);
+                        //商品类型为：自制或者外购 才会带出，其他一律不需要
+                        //if (item.Product.IsProcee == false && item.Product.TrustOut == false && (item.Product.HomeMade == true || item.Product.OutSourcing == true))
+                        //{
+                        //item.UseQuantity = componet.UseQuantity * item.UseQuantity * (1 + (item.SubLoseRate.HasValue ? item.SubLoseRate.Value * 0.01 : 0));
+                        item.UseQuantity = componet.UseQuantity * item.UseQuantity;
+                        _comDetailss.Add(item);
+                        //}
 
-                            //递归调用
-                            GetBomComponetByParent(item, _comDetailss);
-                        }
+                        //递归调用
+                        GetBomComponetByParent(item, _comDetailss);
                     }
                 }
             }
