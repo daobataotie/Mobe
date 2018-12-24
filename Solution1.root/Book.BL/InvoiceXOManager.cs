@@ -453,6 +453,11 @@ namespace Book.BL
         {
             return accessor.SelectMpsIsClose(mpsheader);
         }
+
+        public string SelectCusXOIdByPronoteHeaderId(string id)
+        {
+            return accessor.SelectCusXOIdByPronoteHeaderId(id);
+        }
     }
 }
 

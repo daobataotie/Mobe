@@ -163,5 +163,11 @@
 	 order by invoiceid desc
 			 ]]>
 	  </select>
+
+    <select id="SelectCusXOIdByPronoteHeaderId" resultClass="string" parameterClass="string">
+      <![CDATA[
+      select CustomerInvoiceXOId from InvoiceXO where InvoiceId = (select InvoiceXOId from PronoteHeader where PronoteHeaderID=#value#)
+      ]]>
+    </select>
   </statements>
 </sqlMap>

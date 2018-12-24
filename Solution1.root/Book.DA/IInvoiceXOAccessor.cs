@@ -25,7 +25,7 @@ namespace Book.DA
         IList<Model.InvoiceXO> SelectFlagNot2();
         IList<Model.InvoiceXO> SelectDateRangCusXOCustomer(DateTime startdate, DateTime enddate, string cusxoid, Model.Customer customer);
         Model.InvoiceXO SelectMpsIsClose(string mpsheader);
-  
+        string SelectCusXOIdByPronoteHeaderId(string id);
     }
 }
 

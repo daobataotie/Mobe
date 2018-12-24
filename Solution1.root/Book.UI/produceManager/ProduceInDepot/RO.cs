@@ -10,6 +10,7 @@ namespace Book.UI.produceManager.ProduceInDepot
     {
         private BL.ProduceInDepotManager ProduceInDepotManager = new Book.BL.ProduceInDepotManager();
         private BL.ProduceInDepotDetailManager ProduceInDepotDetailManager = new Book.BL.ProduceInDepotDetailManager();
+        private BL.InvoiceXOManager InvoiceXOManager = new Book.BL.InvoiceXOManager();
 
         private Model.ProduceInDepot produceInDepot;
         public RO(string produceInDepotId, int i)
@@ -21,6 +22,10 @@ namespace Book.UI.produceManager.ProduceInDepot
                 return;
 
             this.produceInDepot.Details = this.ProduceInDepotDetailManager.Select(this.produceInDepot);
+            foreach (var item in this.produceInDepot.Details)
+            {
+                item.CusXOId = InvoiceXOManager.SelectCusXOIdByPronoteHeaderId(item.PronoteHeaderId);
+            }
 
             this.DataSource = this.produceInDepot.Details;
 
@@ -57,24 +62,29 @@ namespace Book.UI.produceManager.ProduceInDepot
             {
                 this.xrTableDepartment.DataBindings.Add("Text", this.DataSource, "ProduceInDepot.WorkHouse.Workhousename");
             }
-            this.xrTableProduceInDepotDate.DataBindings.Add("Text", this.DataSource, "ProduceInDepot." + Model.ProduceInDepot.PRO_ProduceInDepotDate, "{0:yyyy-MM-dd}");
             this.xrTableProduceQuantity.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ProduceQuantity);
-            this.xrTableProductGuige.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ProductGuige);
-            this.xrTableProducePrice.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ProducePrice);
-            this.xrTableProduceMoney.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ProduceMoney);
             this.xrTableCellCustomerProductName.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_CustomerProductName);
-            //this.xrTableCellProductProce.DataBindings.Add("Text", this.DataSource, "ProductProce." + Model.Product.PRO_ProductName);
-            this.xrTableCellProduceTransferQuantity.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ProduceTransferQuantity);
-            this.xrTableCellPronoteHeaderId.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_PronoteHeaderId);
-            this.xrTableCellHeJiProceduresSum.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_HeJiProceduresSum);
-            this.xrTableCellHeJiCheckOutSum.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_HeJiCheckOutSum);
-            this.xrTableCellBusinessHoursType.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_BusinessHoursType);
-            this.xrTableCellRejectionRate.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_RejectionRate);
-            this.xrTableCellZaZhi.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ZaZhi);
-            this.xrTableCellHeJiProceduresSum.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ProceduresSum);
-            this.xrTableCellCheckOutSum.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_CheckOutSum);
-            this.xrRichText1.DataBindings.Add("Rtf", this.DataSource, "Product." + Model.Product.PRO_ProductDescription);
-            this.xrTableCellInvoiceQuantity.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_PronoteHeaderSum);
+            this.TCPronoteHeaderId.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_PronoteHeaderId);
+            this.TCCusXOId.DataBindings.Add("Text", this.DataSource, "CusXOId");
+            this.TCHandBookId.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_HandbookId);
+            this.TCHandBookProductId.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_HandbookProductId);
+
+
+            //this.xrTableProduceInDepotDate.DataBindings.Add("Text", this.DataSource, "ProduceInDepot." + Model.ProduceInDepot.PRO_ProduceInDepotDate, "{0:yyyy-MM-dd}");
+            //this.xrTableProductGuige.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ProductGuige);
+            //this.xrTableProducePrice.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ProducePrice);
+            //this.xrTableProduceMoney.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ProduceMoney);
+            //this.xrTableCellProduceTransferQuantity.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ProduceTransferQuantity);
+            //this.xrTableCellPronoteHeaderId.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_PronoteHeaderId);
+            //this.xrTableCellHeJiProceduresSum.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_HeJiProceduresSum);
+            //this.xrTableCellHeJiCheckOutSum.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_HeJiCheckOutSum);
+            //this.xrTableCellBusinessHoursType.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_BusinessHoursType);
+            //this.xrTableCellRejectionRate.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_RejectionRate);
+            //this.xrTableCellZaZhi.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ZaZhi);
+            //this.xrTableCellHeJiProceduresSum.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_ProceduresSum);
+            //this.xrTableCellCheckOutSum.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_CheckOutSum);
+            //this.xrTableCellInvoiceQuantity.DataBindings.Add("Text", this.DataSource, Model.ProduceInDepotDetail.PRO_PronoteHeaderSum);
+
         }
 
     }

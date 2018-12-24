@@ -99,7 +99,10 @@ namespace Book.DA.SQLServer
             return sqlmapper.QueryForObject<Model.InvoiceXO>("InvoiceXO.get_mpsIscloseState", mpsheader);
         }
 
-
+        public string SelectCusXOIdByPronoteHeaderId(string id)
+        {
+            return sqlmapper.QueryForObject<string>("InvoiceXO.SelectCusXOIdByPronoteHeaderId", id);
+        }
         #endregion
     }
 }
