@@ -768,7 +768,7 @@ namespace Book.UI
             //组装现场盘点录入
             operations.Add("Settings.StockLimitations.AssemblySiteInventoryForm", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.StockLimitations.AssemblySiteInventoryForm", form); });
 
-             //组装现场盘点差异
+            //组装现场盘点差异
             operations.Add("Settings.StockLimitations.AssemblySiteDifferenceForm", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.StockLimitations.AssemblySiteDifferenceForm", form); });
 
             //AS2017外销报告
@@ -776,6 +776,9 @@ namespace Book.UI
 
             //手册料件出货明细
             operations.Add("CustomsClearance.BGProductOutDetail", (D1)delegate(System.Windows.Forms.Form form) { M1("CustomsClearance.BGProductOutDetail", form); });
+
+            //阻燃性测试表
+            operations.Add("produceManager.PCFlameRetardant.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCFlameRetardant.EditForm", form); });
         }
 
         static Form CreateForm(string formTypeName)

@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCFlameRetardantDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCFlameRetardantDetail" type="Book.Model.PCFlameRetardantDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCFlameRetardantDetailResult" class="PCFlameRetardantDetail">
+      <result property="PCFlameRetardantDetailId" column="PCFlameRetardantDetailId" />
+      <result property="PCFlameRetardantId" column="PCFlameRetardantId" />
+      <result property="Number" column="Number"/>
+      <result property="ProductId" column="ProductId" />
+      <result property="Pihao" column="Pihao" />
+      <result property="Yanse" column="Yanse" />
+      <result property="Qianghua" column="Qianghua" />
+      <result property="Fangwu" column="Fangwu" />
+      <result property="WuQianghua" column="WuQianghua" />
+      <result property="Ranshao" column="Ranshao" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="TestQty" column="TestQty" />
+      <result property="Judge" column="Judge" />
+      <result property="Note" column="Note" />
+      <result property="InvoiceXOId" column="InvoiceXOId"/>
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_by_primary_key" />
+      <result property="PCFlameRetardant" column="PCFlameRetardantId" lazyLoad="false" select="PCFlameRetardant.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCFlameRetardantDetail]
+				WHERE
+				[PCFlameRetardantDetailId] = #PCFlameRetardantDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCFlameRetardantDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCFlameRetardantDetailResult" parameterClass="PCFlameRetardantDetail">
+      <![CDATA[SELECT
+				[PCFlameRetardantDetailId],
+				[PCFlameRetardantId],
+        [Number],
+				[ProductId],
+				[Pihao],
+				[Yanse],
+				[Qianghua],
+				[Fangwu],
+				[WuQianghua],
+				[Ranshao],
+				[EmployeeId],
+				[TestQty],
+				[Judge],
+				[Note],
+        [InvoiceXOId]
+			FROM
+				[dbo].[PCFlameRetardantDetail]
+			WHERE
+				[PCFlameRetardantDetailId] = #PCFlameRetardantDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCFlameRetardantDetail]
+			WHERE            
+				[PCFlameRetardantDetailId] = #PCFlameRetardantDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCFlameRetardantDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCFlameRetardantDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCFlameRetardantDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCFlameRetardantDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCFlameRetardantDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCFlameRetardantDetail">
+      <![CDATA[ INSERT INTO [dbo].[PCFlameRetardantDetail] 
+			(
+				[PCFlameRetardantDetailId],
+				[PCFlameRetardantId],
+        [Number],
+				[ProductId],
+				[Pihao],
+				[Yanse],
+				[Qianghua],
+				[Fangwu],
+				[WuQianghua],
+				[Ranshao],
+				[EmployeeId],
+				[TestQty],
+				[Judge],
+				[Note],
+        [InvoiceXOId]
+			) 
+			VALUES 
+			(
+				#PCFlameRetardantDetailId#,
+				#PCFlameRetardantId#,
+        #Number#,
+				#ProductId#,
+				#Pihao#,
+				#Yanse#,
+				#Qianghua#,
+				#Fangwu#,
+				#WuQianghua#,
+				#Ranshao#,
+				#EmployeeId#,
+				#TestQty#,
+				#Judge#,
+				#Note#,
+        #InvoiceXOId#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCFlameRetardantDetail">
+      <![CDATA[ 	UPDATE [PCFlameRetardantDetail] SET
+				[PCFlameRetardantId] = #PCFlameRetardantId#,
+        [Number] = #Number#,
+				[ProductId] = #ProductId#,
+				[Pihao] = #Pihao#,
+				[Yanse] = #Yanse#,
+				[Qianghua] = #Qianghua#,
+				[Fangwu] = #Fangwu#,
+				[WuQianghua] = #WuQianghua#,
+				[Ranshao] = #Ranshao#,
+				[EmployeeId] = #EmployeeId#,
+				[TestQty] = #TestQty#,
+				[Judge] = #Judge#,
+				[Note] = #Note#,
+        [InvoiceXOId]=#InvoiceXOId#
+			WHERE
+				[PCFlameRetardantDetailId] = #PCFlameRetardantDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCFlameRetardantDetail]
+				where  PCFlameRetardantDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>

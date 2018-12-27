@@ -445,5 +445,16 @@ namespace Book.Model
             }
             return str;
         }
+
+
+        public string NoteShowPrint
+        {
+            get
+            {
+                return (string.IsNullOrEmpty(this.Note) ? "" : this.Note.Replace(",", ";"));
+            }
+        }
+
+        public readonly static string PRO_NoteShowPrint = "NoteShowPrint";
     }
 }

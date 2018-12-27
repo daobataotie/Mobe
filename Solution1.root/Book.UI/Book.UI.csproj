@@ -4522,6 +4522,29 @@
       <DependentUpon>XuejingENRO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFlameRetardant\ConditionForm.resx">
+      <DependentUpon>ConditionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFlameRetardant\ConditionForm.zh-CHT.resx">
+      <DependentUpon>ConditionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFlameRetardant\EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFlameRetardant\EditForm.zh-CHT.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFlameRetardant\ListForm.resx">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFlameRetardant\ListForm.zh-CHT.resx">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFlameRetardant\RO.resx">
+      <DependentUpon>RO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCIncomingCheck\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -11655,6 +11678,30 @@
     </Compile>
     <Compile Include="produceManager\PCExportReportANSI\XuejingENRO.designer.cs">
       <DependentUpon>XuejingENRO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCFlameRetardant\ConditionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCFlameRetardant\ConditionForm.Designer.cs">
+      <DependentUpon>ConditionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCFlameRetardant\EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCFlameRetardant\EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCFlameRetardant\ListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCFlameRetardant\ListForm.Designer.cs">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCFlameRetardant\RO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCFlameRetardant\RO.Designer.cs">
+      <DependentUpon>RO.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCIncomingCheck\Condition.cs" />
     <Compile Include="produceManager\PCIncomingCheck\ConditionForm.cs">

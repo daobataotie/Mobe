@@ -73,10 +73,10 @@ namespace Book.UI.produceManager.PCImpactCheck
             this.TCattr30R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr30RDis);
             this.TCattr45L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr45LDis);
             this.TCattr45R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr45RDis);
-            this.TCattr60L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr60LDis);
-            this.TCattr60R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr60RDis);
-            this.TCattr75L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr75LDis);
-            this.TCattr75R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr75RDis);
+            //this.TCattr60L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr60LDis);
+            //this.TCattr60R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr60RDis);
+            //this.TCattr75L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr75LDis);
+            //this.TCattr75R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr75RDis);
             this.TCattr90L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr90LDis);
             this.TCattr90R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Attr90RDis);
             this.TCattrFootL.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_AttrFootLDis);
@@ -84,7 +84,8 @@ namespace Book.UI.produceManager.PCImpactCheck
             //this.lblBanbie.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_attrBanBie);
             this.RT_retest.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_AttrRetestDis);
             this.xrTBanBie.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_attrBanBie);
-            this.lblNote.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Note);
+            //this.lblNote.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Note);
+            this.lblNote.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_NoteShowPrint);
         }
 
     }

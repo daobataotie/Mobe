@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PCFlameRetardantDetail" xmlns="http://ibatis.apache.org/mapping" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <statements>
+    <select id="SelectByPrimaryId" resultMap="PCFlameRetardantDetailResult" parameterClass="string">
+      select * from PCFlameRetardantDetail where PCFlameRetardantId=#value# order by Number
+    </select>
+
+    <delete id="DeleteByPrimaryId" parameterClass="string">
+      delete from PCFlameRetardantDetail where PCFlameRetardantId=#value#
+    </delete>
+    
+  </statements>
+</sqlMap>

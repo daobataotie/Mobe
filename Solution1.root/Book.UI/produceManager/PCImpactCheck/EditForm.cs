@@ -197,6 +197,7 @@ namespace Book.UI.produceManager.PCImpactCheck
             this._PCIC.PCImpactCheckQuantity = Convert.ToInt32(this.CE_PCImpactCheckQuantity.Value);
             this._PCIC.PCImpactCheckDate = this.DE_PCImpactCheckDate.DateTime;
             this._PCIC.Employee = (this.nccEmployee0.EditValue as Model.Employee);
+            this._PCIC.mCheckStandard = this.txtCheckStandard.Text;
             if (this._PCIC.Employee != null)
             {
                 this._PCIC.EmployeeId = this._PCIC.Employee.EmployeeId;
