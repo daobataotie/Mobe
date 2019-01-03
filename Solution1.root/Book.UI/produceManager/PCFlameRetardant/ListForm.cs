@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Linq;
 
 namespace Book.UI.produceManager.PCFlameRetardant
 {
@@ -16,6 +17,22 @@ namespace Book.UI.produceManager.PCFlameRetardant
         public ListForm()
         {
             InitializeComponent();
+
+            this.gridColumn7.Visible = false;
+            this.btn_OK.Visible = false;
+        }
+
+        /// <summary>
+        /// 用于入料检验单选择阻燃性测试表
+        /// </summary>
+        /// <param name="ShowCheck"></param>
+        public ListForm(bool ShowCheck)
+            : this()
+        {
+            this.gridView1.OptionsBehavior.Editable = true;
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 0;
+            this.btn_OK.Visible = true;
         }
 
         protected override void RefreshData()
@@ -64,6 +81,21 @@ namespace Book.UI.produceManager.PCFlameRetardant
             Form f = this.GetEditForm(new object[] { this.bindingSource1.Current });
             if (f != null)
                 f.ShowDialog();
+        }
+
+        public string PCFlameRetardantId { get; set; }
+
+        private void btn_OK_Click(object sender, EventArgs e)
+        {
+            IList<Model.PCFlameRetardantDetail> list = this.bindingSource1.DataSource as IList<Model.PCFlameRetardantDetail>;
+            if (list != null)
+            {
+                Model.PCFlameRetardantDetail detail = list.FirstOrDefault(P => P.IsChecked == true);
+                if (detail != null)
+                    this.PCFlameRetardantId = detail.PCFlameRetardantId;
+            }
+
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

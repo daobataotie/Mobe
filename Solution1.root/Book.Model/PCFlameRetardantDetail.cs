@@ -21,5 +21,7 @@ namespace Book.Model
         public string CustomerInvoiceXOId { get; set; }
 
         public DateTime InvoiceDate { get; set; }
+
+        public bool IsChecked { get; set; }
     }
 }

@@ -120,18 +120,6 @@
   <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>172, 17</value>
   </metadata>
-  <data name="barButtonItem1.Caption" xml:space="preserve">
-    <value>搜索</value>
-  </data>
-  <data name="barButtonItem2.Caption" xml:space="preserve">
-    <value>關聯客戶訂單</value>
-  </data>
-  <data name="barButtonItem3.Caption" xml:space="preserve">
-    <value>barButtonItem3</value>
-  </data>
-  <data name="barButtonItem4.Caption" xml:space="preserve">
-    <value>結案</value>
-  </data>
   <metadata name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -441,13 +429,76 @@
         PiydRVvthbEShq0tdS1YP1XNB1WKv8rxjMwZjD8BORXH707ETOoAAAAASUVORK5CYIIL
 </value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_FlameRetardant.Location" type="System.Drawing.Point, System.Drawing">
+    <value>795, 87</value>
+  </data>
+  <data name="btn_FlameRetardant.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 21</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btn_FlameRetardant.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;btn_FlameRetardant.Name" xml:space="preserve">
+    <value>btn_FlameRetardant</value>
+  </data>
+  <data name="&gt;&gt;btn_FlameRetardant.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ButtonEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btn_FlameRetardant.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;btn_FlameRetardant.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btn_Fog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>529, 87</value>
+  </data>
+  <data name="btn_Fog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 21</value>
+  </data>
+  <data name="btn_Fog.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="&gt;&gt;btn_Fog.Name" xml:space="preserve">
+    <value>btn_Fog</value>
+  </data>
+  <data name="&gt;&gt;btn_Fog.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ButtonEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btn_Fog.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;btn_Fog.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btn_Impact.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 87</value>
+  </data>
+  <data name="btn_Impact.Size" type="System.Drawing.Size, System.Drawing">
+    <value>337, 21</value>
+  </data>
+  <data name="btn_Impact.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;btn_Impact.Name" xml:space="preserve">
+    <value>btn_Impact</value>
+  </data>
+  <data name="&gt;&gt;btn_Impact.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ButtonEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btn_Impact.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;btn_Impact.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="spe_TestQuantity.EditValue" type="System.Decimal, mscorlib">
     <value>0</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="spe_TestQuantity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>529, 137</value>
+    <value>529, 162</value>
   </data>
   <data name="spe_TestQuantity.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 21</value>
@@ -465,10 +516,10 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;spe_TestQuantity.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="txt_InvoiceXOCusId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 137</value>
+    <value>100, 162</value>
   </data>
   <data name="txt_InvoiceXOCusId.Size" type="System.Drawing.Size, System.Drawing">
     <value>337, 21</value>
@@ -486,7 +537,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txt_InvoiceXOCusId.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="nccMadeEmp.Location" type="System.Drawing.Point, System.Drawing">
     <value>795, 12</value>
@@ -507,10 +558,10 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;nccMadeEmp.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="txt_TestProduct.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 112</value>
+    <value>100, 137</value>
   </data>
   <data name="txt_TestProduct.Size" type="System.Drawing.Size, System.Drawing">
     <value>337, 21</value>
@@ -528,7 +579,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txt_TestProduct.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>626, 37</value>
@@ -552,7 +603,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>11</value>
   </data>
   <data name="nccConfirmor.Location" type="System.Drawing.Point, System.Drawing">
     <value>658, 444</value>
@@ -573,7 +624,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;nccConfirmor.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <assembly alias="DevExpress.XtraEditors.v10.2" name="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="labelControl1.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v10.2">
@@ -601,497 +652,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;labelControl1.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="txt_Wudu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>467, 29</value>
-  </data>
-  <data name="txt_Wudu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 21</value>
-  </data>
-  <data name="txt_Wudu.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;txt_Wudu.Name" xml:space="preserve">
-    <value>txt_Wudu</value>
-  </data>
-  <data name="&gt;&gt;txt_Wudu.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;txt_Wudu.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;txt_Wudu.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="nccToushilv.Location" type="System.Drawing.Point, System.Drawing">
-    <value>467, 92</value>
-  </data>
-  <data name="nccToushilv.Size" type="System.Drawing.Size, System.Drawing">
-    <value>486, 21</value>
-  </data>
-  <data name="nccToushilv.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;nccToushilv.Name" xml:space="preserve">
-    <value>nccToushilv</value>
-  </data>
-  <data name="&gt;&gt;nccToushilv.Type" xml:space="preserve">
-    <value>Book.UI.Invoices.NewChooseContorl, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;nccToushilv.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;nccToushilv.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="nccChongji.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 92</value>
-  </data>
-  <data name="nccChongji.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 21</value>
-  </data>
-  <data name="nccChongji.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;nccChongji.Name" xml:space="preserve">
-    <value>nccChongji</value>
-  </data>
-  <data name="&gt;&gt;nccChongji.Type" xml:space="preserve">
-    <value>Book.UI.Invoices.NewChooseContorl, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;nccChongji.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;nccChongji.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="nccNairan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>234, 92</value>
-  </data>
-  <data name="nccNairan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 21</value>
-  </data>
-  <data name="nccNairan.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;nccNairan.Name" xml:space="preserve">
-    <value>nccNairan</value>
-  </data>
-  <data name="&gt;&gt;nccNairan.Type" xml:space="preserve">
-    <value>Book.UI.Invoices.NewChooseContorl, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;nccNairan.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;nccNairan.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="txt_AS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>769, 29</value>
-  </data>
-  <data name="txt_AS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 21</value>
-  </data>
-  <data name="txt_AS.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;txt_AS.Name" xml:space="preserve">
-    <value>txt_AS</value>
-  </data>
-  <data name="&gt;&gt;txt_AS.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;txt_AS.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;txt_AS.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="txt_EN.Location" type="System.Drawing.Point, System.Drawing">
-    <value>675, 29</value>
-  </data>
-  <data name="txt_EN.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 21</value>
-  </data>
-  <data name="txt_EN.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;txt_EN.Name" xml:space="preserve">
-    <value>txt_EN</value>
-  </data>
-  <data name="&gt;&gt;txt_EN.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;txt_EN.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;txt_EN.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="txt_JIS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>863, 29</value>
-  </data>
-  <data name="txt_JIS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 21</value>
-  </data>
-  <data name="txt_JIS.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;txt_JIS.Name" xml:space="preserve">
-    <value>txt_JIS</value>
-  </data>
-  <data name="&gt;&gt;txt_JIS.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;txt_JIS.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;txt_JIS.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="txt_ANSICSA.Location" type="System.Drawing.Point, System.Drawing">
-    <value>561, 29</value>
-  </data>
-  <data name="txt_ANSICSA.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 21</value>
-  </data>
-  <data name="txt_ANSICSA.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;txt_ANSICSA.Name" xml:space="preserve">
-    <value>txt_ANSICSA</value>
-  </data>
-  <data name="&gt;&gt;txt_ANSICSA.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;txt_ANSICSA.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;txt_ANSICSA.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="nccDuise.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 92</value>
-  </data>
-  <data name="nccDuise.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 21</value>
-  </data>
-  <data name="nccDuise.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;nccDuise.Name" xml:space="preserve">
-    <value>nccDuise</value>
-  </data>
-  <data name="&gt;&gt;nccDuise.Type" xml:space="preserve">
-    <value>Book.UI.Invoices.NewChooseContorl, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;nccDuise.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;nccDuise.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="rdo_Nairan.EditValue" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Nairan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>234, 29</value>
-  </data>
-  <data name="rdo_Nairan.Properties.Items" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Nairan.Properties.Items1" xml:space="preserve">
-    <value>PASS</value>
-  </data>
-  <data name="rdo_Nairan.Properties.Items2" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rdo_Nairan.Properties.Items3" xml:space="preserve">
-    <value>FALL</value>
-  </data>
-  <data name="rdo_Nairan.Properties.Items4" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="rdo_Nairan.Properties.Items5" xml:space="preserve">
-    <value>無此項</value>
-  </data>
-  <data name="rdo_Nairan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 59</value>
-  </data>
-  <data name="rdo_Nairan.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;rdo_Nairan.Name" xml:space="preserve">
-    <value>rdo_Nairan</value>
-  </data>
-  <data name="&gt;&gt;rdo_Nairan.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;rdo_Nairan.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;rdo_Nairan.ZOrder" xml:space="preserve">
     <value>13</value>
-  </data>
-  <data name="rdo_Chongji.EditValue" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Chongji.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 29</value>
-  </data>
-  <data name="rdo_Chongji.Properties.Items" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Chongji.Properties.Items1" xml:space="preserve">
-    <value>PASS</value>
-  </data>
-  <data name="rdo_Chongji.Properties.Items2" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rdo_Chongji.Properties.Items3" xml:space="preserve">
-    <value>FALL</value>
-  </data>
-  <data name="rdo_Chongji.Properties.Items4" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="rdo_Chongji.Properties.Items5" xml:space="preserve">
-    <value>無此項</value>
-  </data>
-  <data name="rdo_Chongji.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 59</value>
-  </data>
-  <data name="rdo_Chongji.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;rdo_Chongji.Name" xml:space="preserve">
-    <value>rdo_Chongji</value>
-  </data>
-  <data name="&gt;&gt;rdo_Chongji.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;rdo_Chongji.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;rdo_Chongji.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="rdo_UV.EditValue" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_UV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>351, 29</value>
-  </data>
-  <data name="rdo_UV.Properties.Items" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_UV.Properties.Items1" xml:space="preserve">
-    <value>PASS</value>
-  </data>
-  <data name="rdo_UV.Properties.Items2" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rdo_UV.Properties.Items3" xml:space="preserve">
-    <value>FALL</value>
-  </data>
-  <data name="rdo_UV.Properties.Items4" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="rdo_UV.Properties.Items5" xml:space="preserve">
-    <value>無此項</value>
-  </data>
-  <data name="rdo_UV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 59</value>
-  </data>
-  <data name="rdo_UV.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;rdo_UV.Name" xml:space="preserve">
-    <value>rdo_UV</value>
-  </data>
-  <data name="&gt;&gt;rdo_UV.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;rdo_UV.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;rdo_UV.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="nccUV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>351, 92</value>
-  </data>
-  <data name="nccUV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 21</value>
-  </data>
-  <data name="nccUV.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;nccUV.Name" xml:space="preserve">
-    <value>nccUV</value>
-  </data>
-  <data name="&gt;&gt;nccUV.Type" xml:space="preserve">
-    <value>Book.UI.Invoices.NewChooseContorl, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;nccUV.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;nccUV.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="rdo_Duise.EditValue" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Duise.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 29</value>
-  </data>
-  <data name="rdo_Duise.Properties.Items" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Duise.Properties.Items1" xml:space="preserve">
-    <value>PASS</value>
-  </data>
-  <data name="rdo_Duise.Properties.Items2" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rdo_Duise.Properties.Items3" xml:space="preserve">
-    <value>FALL</value>
-  </data>
-  <data name="rdo_Duise.Properties.Items4" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="rdo_Duise.Properties.Items5" xml:space="preserve">
-    <value>無此項</value>
-  </data>
-  <data name="rdo_Duise.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 59</value>
-  </data>
-  <data name="rdo_Duise.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;rdo_Duise.Name" xml:space="preserve">
-    <value>rdo_Duise</value>
-  </data>
-  <data name="&gt;&gt;rdo_Duise.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;rdo_Duise.Parent" xml:space="preserve">
-    <value>layoutControl3</value>
-  </data>
-  <data name="&gt;&gt;rdo_Duise.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="layoutControl3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="layoutControl3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 23</value>
-  </data>
-  <data name="layoutControlGroup3.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlGroup3</value>
-  </data>
-  <data name="layoutControlItem45.CustomizationFormText" xml:space="preserve">
-    <value>UV值</value>
-  </data>
-  <data name="layoutControlItem45.Text" xml:space="preserve">
-    <value>UV值</value>
-  </data>
-  <data name="layoutControlItem46.CustomizationFormText" xml:space="preserve">
-    <value>对色</value>
-  </data>
-  <data name="layoutControlItem46.Text" xml:space="preserve">
-    <value>对色</value>
-  </data>
-  <data name="layoutControlItem47.CustomizationFormText" xml:space="preserve">
-    <value>冲击</value>
-  </data>
-  <data name="layoutControlItem47.Text" xml:space="preserve">
-    <value>冲击</value>
-  </data>
-  <data name="layoutControlItem48.CustomizationFormText" xml:space="preserve">
-    <value>阻燃测试</value>
-  </data>
-  <data name="layoutControlItem48.Text" xml:space="preserve">
-    <value>阻燃测试</value>
-  </data>
-  <data name="layoutControlItem49.CustomizationFormText" xml:space="preserve">
-    <value>ANSI/CSA透视率</value>
-  </data>
-  <data name="layoutControlItem49.Text" xml:space="preserve">
-    <value>ANSI/CSA透视率</value>
-  </data>
-  <data name="layoutControlItem50.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem50</value>
-  </data>
-  <data name="layoutControlItem50.Text" xml:space="preserve">
-    <value>JIS透视率</value>
-  </data>
-  <data name="layoutControlItem51.CustomizationFormText" xml:space="preserve">
-    <value>EN透视率</value>
-  </data>
-  <data name="layoutControlItem51.Text" xml:space="preserve">
-    <value>EN透视率</value>
-  </data>
-  <data name="layoutControlItem52.CustomizationFormText" xml:space="preserve">
-    <value>AS透视率</value>
-  </data>
-  <data name="layoutControlItem52.Text" xml:space="preserve">
-    <value>AS透视率</value>
-  </data>
-  <data name="layoutControlItem55.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem55</value>
-  </data>
-  <data name="layoutControlItem55.Text" xml:space="preserve">
-    <value>layoutControlItem55</value>
-  </data>
-  <data name="layoutControlItem56.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem56</value>
-  </data>
-  <data name="layoutControlItem56.Text" xml:space="preserve">
-    <value>layoutControlItem56</value>
-  </data>
-  <data name="layoutControlItem58.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem58</value>
-  </data>
-  <data name="layoutControlItem58.Text" xml:space="preserve">
-    <value>layoutControlItem58</value>
-  </data>
-  <data name="layoutControlItem59.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem59</value>
-  </data>
-  <data name="layoutControlItem59.Text" xml:space="preserve">
-    <value>layoutControlItem59</value>
-  </data>
-  <data name="emptySpaceItem1.CustomizationFormText" xml:space="preserve">
-    <value>emptySpaceItem1</value>
-  </data>
-  <data name="emptySpaceItem1.Text" xml:space="preserve">
-    <value>emptySpaceItem1</value>
-  </data>
-  <data name="layoutControlItem57.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem57</value>
-  </data>
-  <data name="layoutControlItem57.Text" xml:space="preserve">
-    <value>layoutControlItem57</value>
-  </data>
-  <data name="layoutControlItem62.CustomizationFormText" xml:space="preserve">
-    <value>霧度測試</value>
-  </data>
-  <data name="layoutControlItem62.Text" xml:space="preserve">
-    <value>霧度測試</value>
-  </data>
-  <data name="layoutControlGroup3.Text" xml:space="preserve">
-    <value>layoutControlGroup3</value>
-  </data>
-  <data name="layoutControl3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>955, 124</value>
-  </data>
-  <data name="layoutControl3.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="layoutControl3.Text" xml:space="preserve">
-    <value>layoutControl3</value>
   </data>
   <data name="&gt;&gt;layoutControl3.Name" xml:space="preserve">
     <value>layoutControl3</value>
@@ -1106,10 +667,10 @@
     <value>0</value>
   </data>
   <data name="groupControl2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 291</value>
+    <value>12, 305</value>
   </data>
   <data name="groupControl2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>959, 149</value>
+    <value>959, 135</value>
   </data>
   <data name="groupControl2.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -1127,7 +688,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;groupControl2.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>14</value>
   </data>
   <data name="btn_InvoiceCOId3.Location" type="System.Drawing.Point, System.Drawing">
     <value>441, 62</value>
@@ -1148,7 +709,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btn_InvoiceCOId3.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>15</value>
   </data>
   <data name="btn_InvoiceCOId2.Location" type="System.Drawing.Point, System.Drawing">
     <value>252, 62</value>
@@ -1169,316 +730,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btn_InvoiceCOId2.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="rdo_Qipao.EditValue" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Qipao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>801, 29</value>
-  </data>
-  <data name="rdo_Qipao.Properties.Items" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Qipao.Properties.Items1" xml:space="preserve">
-    <value>PASS</value>
-  </data>
-  <data name="rdo_Qipao.Properties.Items2" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rdo_Qipao.Properties.Items3" xml:space="preserve">
-    <value>FALL</value>
-  </data>
-  <data name="rdo_Qipao.Properties.Items4" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="rdo_Qipao.Properties.Items5" xml:space="preserve">
-    <value>無此項</value>
-  </data>
-  <data name="rdo_Qipao.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 59</value>
-  </data>
-  <data name="rdo_Qipao.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;rdo_Qipao.Name" xml:space="preserve">
-    <value>rdo_Qipao</value>
-  </data>
-  <data name="&gt;&gt;rdo_Qipao.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;rdo_Qipao.Parent" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;rdo_Qipao.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="rdo_Guohuo.EditValue" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Guohuo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 29</value>
-  </data>
-  <data name="rdo_Guohuo.Properties.Items" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Guohuo.Properties.Items1" xml:space="preserve">
-    <value>PASS</value>
-  </data>
-  <data name="rdo_Guohuo.Properties.Items2" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rdo_Guohuo.Properties.Items3" xml:space="preserve">
-    <value>FALL</value>
-  </data>
-  <data name="rdo_Guohuo.Properties.Items4" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="rdo_Guohuo.Properties.Items5" xml:space="preserve">
-    <value>無此項</value>
-  </data>
-  <data name="rdo_Guohuo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 59</value>
-  </data>
-  <data name="rdo_Guohuo.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;rdo_Guohuo.Name" xml:space="preserve">
-    <value>rdo_Guohuo</value>
-  </data>
-  <data name="&gt;&gt;rdo_Guohuo.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;rdo_Guohuo.Parent" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;rdo_Guohuo.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="rdo_Liaodian.EditValue" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Liaodian.Location" type="System.Drawing.Point, System.Drawing">
-    <value>320, 29</value>
-  </data>
-  <data name="rdo_Liaodian.Properties.Items" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Liaodian.Properties.Items1" xml:space="preserve">
-    <value>PASS</value>
-  </data>
-  <data name="rdo_Liaodian.Properties.Items2" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rdo_Liaodian.Properties.Items3" xml:space="preserve">
-    <value>FALL</value>
-  </data>
-  <data name="rdo_Liaodian.Properties.Items4" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="rdo_Liaodian.Properties.Items5" xml:space="preserve">
-    <value>無此項</value>
-  </data>
-  <data name="rdo_Liaodian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 59</value>
-  </data>
-  <data name="rdo_Liaodian.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;rdo_Liaodian.Name" xml:space="preserve">
-    <value>rdo_Liaodian</value>
-  </data>
-  <data name="&gt;&gt;rdo_Liaodian.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;rdo_Liaodian.Parent" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;rdo_Liaodian.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="rdo_Wasiqi.EditValue" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Wasiqi.Location" type="System.Drawing.Point, System.Drawing">
-    <value>481, 29</value>
-  </data>
-  <data name="rdo_Wasiqi.Properties.Items" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Wasiqi.Properties.Items1" xml:space="preserve">
-    <value>PASS</value>
-  </data>
-  <data name="rdo_Wasiqi.Properties.Items2" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rdo_Wasiqi.Properties.Items3" xml:space="preserve">
-    <value>FALL</value>
-  </data>
-  <data name="rdo_Wasiqi.Properties.Items4" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="rdo_Wasiqi.Properties.Items5" xml:space="preserve">
-    <value>無此項</value>
-  </data>
-  <data name="rdo_Wasiqi.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 59</value>
-  </data>
-  <data name="rdo_Wasiqi.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;rdo_Wasiqi.Name" xml:space="preserve">
-    <value>rdo_Wasiqi</value>
-  </data>
-  <data name="&gt;&gt;rdo_Wasiqi.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;rdo_Wasiqi.Parent" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;rdo_Wasiqi.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="rdo_Zazhi.EditValue" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Zazhi.Location" type="System.Drawing.Point, System.Drawing">
-    <value>642, 29</value>
-  </data>
-  <data name="rdo_Zazhi.Properties.Items" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Zazhi.Properties.Items1" xml:space="preserve">
-    <value>PASS</value>
-  </data>
-  <data name="rdo_Zazhi.Properties.Items2" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rdo_Zazhi.Properties.Items3" xml:space="preserve">
-    <value>FALL</value>
-  </data>
-  <data name="rdo_Zazhi.Properties.Items4" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="rdo_Zazhi.Properties.Items5" xml:space="preserve">
-    <value>無此項</value>
-  </data>
-  <data name="rdo_Zazhi.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 59</value>
-  </data>
-  <data name="rdo_Zazhi.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;rdo_Zazhi.Name" xml:space="preserve">
-    <value>rdo_Zazhi</value>
-  </data>
-  <data name="&gt;&gt;rdo_Zazhi.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;rdo_Zazhi.Parent" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;rdo_Zazhi.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="rdo_Heidian.EditValue" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Heidian.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 29</value>
-  </data>
-  <data name="rdo_Heidian.Properties.Items" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rdo_Heidian.Properties.Items1" xml:space="preserve">
-    <value>PASS</value>
-  </data>
-  <data name="rdo_Heidian.Properties.Items2" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="rdo_Heidian.Properties.Items3" xml:space="preserve">
-    <value>FALL</value>
-  </data>
-  <data name="rdo_Heidian.Properties.Items4" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="rdo_Heidian.Properties.Items5" xml:space="preserve">
-    <value>無此項</value>
-  </data>
-  <data name="rdo_Heidian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 59</value>
-  </data>
-  <data name="rdo_Heidian.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;rdo_Heidian.Name" xml:space="preserve">
-    <value>rdo_Heidian</value>
-  </data>
-  <data name="&gt;&gt;rdo_Heidian.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;rdo_Heidian.Parent" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;rdo_Heidian.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="layoutControl2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="layoutControl2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 23</value>
-  </data>
-  <data name="layoutControlGroup2.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlGroup2</value>
-  </data>
-  <data name="layoutControlItem25.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem25</value>
-  </data>
-  <data name="layoutControlItem25.Text" xml:space="preserve">
-    <value>杂质</value>
-  </data>
-  <data name="layoutControlItem26.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem26</value>
-  </data>
-  <data name="layoutControlItem26.Text" xml:space="preserve">
-    <value>瓦斯气</value>
-  </data>
-  <data name="layoutControlItem27.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem27</value>
-  </data>
-  <data name="layoutControlItem27.Text" xml:space="preserve">
-    <value>料点</value>
-  </data>
-  <data name="layoutControlItem28.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem28</value>
-  </data>
-  <data name="layoutControlItem28.Text" xml:space="preserve">
-    <value>过火</value>
-  </data>
-  <data name="layoutControlItem31.CustomizationFormText" xml:space="preserve">
-    <value>气泡：</value>
-  </data>
-  <data name="layoutControlItem31.Text" xml:space="preserve">
-    <value>气泡</value>
-  </data>
-  <data name="layoutControlItem17.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem17</value>
-  </data>
-  <data name="layoutControlItem17.Text" xml:space="preserve">
-    <value>黑点</value>
-  </data>
-  <data name="layoutControlGroup2.Text" xml:space="preserve">
-    <value>layoutControlGroup2</value>
-  </data>
-  <data name="layoutControl2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>955, 100</value>
-  </data>
-  <data name="layoutControl2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="layoutControl2.Text" xml:space="preserve">
-    <value>layoutControl2</value>
+    <value>16</value>
   </data>
   <data name="&gt;&gt;layoutControl2.Name" xml:space="preserve">
     <value>layoutControl2</value>
@@ -1493,10 +745,10 @@
     <value>0</value>
   </data>
   <data name="groupControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 162</value>
+    <value>12, 187</value>
   </data>
   <data name="groupControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>959, 125</value>
+    <value>959, 114</value>
   </data>
   <data name="groupControl1.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -1514,7 +766,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;groupControl1.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>17</value>
   </data>
   <data name="btn_InvoiceCGId2.Location" type="System.Drawing.Point, System.Drawing">
     <value>252, 37</value>
@@ -1538,7 +790,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btn_InvoiceCGId2.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>18</value>
   </data>
   <data name="btn_InvoiceCOId1.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 62</value>
@@ -1559,7 +811,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btn_InvoiceCOId1.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>19</value>
   </data>
   <data name="nccSupplier.Location" type="System.Drawing.Point, System.Drawing">
     <value>529, 12</value>
@@ -1580,10 +832,10 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;nccSupplier.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>20</value>
   </data>
   <data name="nccTestEmployee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>529, 112</value>
+    <value>529, 137</value>
   </data>
   <data name="nccTestEmployee.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 21</value>
@@ -1601,7 +853,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;nccTestEmployee.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>21</value>
   </data>
   <data name="btn_InvoiceCGId3.Location" type="System.Drawing.Point, System.Drawing">
     <value>441, 37</value>
@@ -1625,10 +877,10 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btn_InvoiceCGId3.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>22</value>
   </data>
   <data name="txt_LotNumber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>795, 112</value>
+    <value>795, 137</value>
   </data>
   <data name="txt_LotNumber.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 21</value>
@@ -1646,7 +898,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txt_LotNumber.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>23</value>
   </data>
   <data name="date_Test.Location" type="System.Drawing.Point, System.Drawing">
     <value>795, 62</value>
@@ -1670,10 +922,10 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;date_Test.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>24</value>
   </data>
   <data name="cobUnit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>795, 87</value>
+    <value>795, 112</value>
   </data>
   <data name="cobUnit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
     <value>Combo</value>
@@ -1694,13 +946,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;cobUnit.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>25</value>
   </data>
   <data name="spe_Quantity.EditValue" type="System.Decimal, mscorlib">
     <value>0</value>
   </data>
   <data name="spe_Quantity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>529, 87</value>
+    <value>529, 112</value>
   </data>
   <data name="spe_Quantity.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 21</value>
@@ -1718,10 +970,10 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;spe_Quantity.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>26</value>
   </data>
   <data name="btn_Product.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 87</value>
+    <value>100, 112</value>
   </data>
   <data name="btn_Product.Size" type="System.Drawing.Size, System.Drawing">
     <value>337, 21</value>
@@ -1739,7 +991,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btn_Product.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>27</value>
   </data>
   <data name="btn_InvoiceCGId1.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 37</value>
@@ -1763,7 +1015,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;btn_InvoiceCGId1.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>28</value>
   </data>
   <data name="date_Chouliao.Location" type="System.Drawing.Point, System.Drawing">
     <value>795, 37</value>
@@ -1787,7 +1039,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;date_Chouliao.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>29</value>
   </data>
   <data name="date_PCInputCheckDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>340, 12</value>
@@ -1811,7 +1063,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;date_PCInputCheckDate.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>30</value>
   </data>
   <data name="txt_PCInputCheckId.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 12</value>
@@ -1832,8 +1084,9 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txt_PCInputCheckId.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>31</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -1999,6 +1252,24 @@
   <data name="layoutControlItem64.Text" xml:space="preserve">
     <value>測驗支數：</value>
   </data>
+  <data name="layoutControlItem65.CustomizationFormText" xml:space="preserve">
+    <value>冲击测试单：</value>
+  </data>
+  <data name="layoutControlItem65.Text" xml:space="preserve">
+    <value>冲击测试单：</value>
+  </data>
+  <data name="layoutControlItem66.CustomizationFormText" xml:space="preserve">
+    <value>雾都测试单：</value>
+  </data>
+  <data name="layoutControlItem66.Text" xml:space="preserve">
+    <value>雾都测试单：</value>
+  </data>
+  <data name="layoutControlItem67.CustomizationFormText" xml:space="preserve">
+    <value>阻燃性测试表：</value>
+  </data>
+  <data name="layoutControlItem67.Text" xml:space="preserve">
+    <value>阻燃性测试表：</value>
+  </data>
   <data name="layoutControlGroup1.Text" xml:space="preserve">
     <value>layoutControlGroup1</value>
   </data>
@@ -2022,6 +1293,828 @@
   </data>
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="txt_Wudu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>467, 19</value>
+  </data>
+  <data name="txt_Wudu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 21</value>
+  </data>
+  <data name="txt_Wudu.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;txt_Wudu.Name" xml:space="preserve">
+    <value>txt_Wudu</value>
+  </data>
+  <data name="&gt;&gt;txt_Wudu.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txt_Wudu.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;txt_Wudu.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="nccToushilv.Location" type="System.Drawing.Point, System.Drawing">
+    <value>467, 87</value>
+  </data>
+  <data name="nccToushilv.Size" type="System.Drawing.Size, System.Drawing">
+    <value>486, 21</value>
+  </data>
+  <data name="nccToushilv.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;nccToushilv.Name" xml:space="preserve">
+    <value>nccToushilv</value>
+  </data>
+  <data name="&gt;&gt;nccToushilv.Type" xml:space="preserve">
+    <value>Book.UI.Invoices.NewChooseContorl, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nccToushilv.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;nccToushilv.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="nccChongji.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 87</value>
+  </data>
+  <data name="nccChongji.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 21</value>
+  </data>
+  <data name="nccChongji.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;nccChongji.Name" xml:space="preserve">
+    <value>nccChongji</value>
+  </data>
+  <data name="&gt;&gt;nccChongji.Type" xml:space="preserve">
+    <value>Book.UI.Invoices.NewChooseContorl, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nccChongji.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;nccChongji.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="nccNairan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>234, 87</value>
+  </data>
+  <data name="nccNairan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 21</value>
+  </data>
+  <data name="nccNairan.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;nccNairan.Name" xml:space="preserve">
+    <value>nccNairan</value>
+  </data>
+  <data name="&gt;&gt;nccNairan.Type" xml:space="preserve">
+    <value>Book.UI.Invoices.NewChooseContorl, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nccNairan.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;nccNairan.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="txt_AS.Location" type="System.Drawing.Point, System.Drawing">
+    <value>769, 19</value>
+  </data>
+  <data name="txt_AS.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 21</value>
+  </data>
+  <data name="txt_AS.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;txt_AS.Name" xml:space="preserve">
+    <value>txt_AS</value>
+  </data>
+  <data name="&gt;&gt;txt_AS.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txt_AS.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;txt_AS.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="txt_EN.Location" type="System.Drawing.Point, System.Drawing">
+    <value>675, 19</value>
+  </data>
+  <data name="txt_EN.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 21</value>
+  </data>
+  <data name="txt_EN.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;txt_EN.Name" xml:space="preserve">
+    <value>txt_EN</value>
+  </data>
+  <data name="&gt;&gt;txt_EN.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txt_EN.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;txt_EN.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="txt_JIS.Location" type="System.Drawing.Point, System.Drawing">
+    <value>863, 19</value>
+  </data>
+  <data name="txt_JIS.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 21</value>
+  </data>
+  <data name="txt_JIS.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;txt_JIS.Name" xml:space="preserve">
+    <value>txt_JIS</value>
+  </data>
+  <data name="&gt;&gt;txt_JIS.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txt_JIS.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;txt_JIS.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="txt_ANSICSA.Location" type="System.Drawing.Point, System.Drawing">
+    <value>561, 19</value>
+  </data>
+  <data name="txt_ANSICSA.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 21</value>
+  </data>
+  <data name="txt_ANSICSA.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;txt_ANSICSA.Name" xml:space="preserve">
+    <value>txt_ANSICSA</value>
+  </data>
+  <data name="&gt;&gt;txt_ANSICSA.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;txt_ANSICSA.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;txt_ANSICSA.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="nccDuise.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 87</value>
+  </data>
+  <data name="nccDuise.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 21</value>
+  </data>
+  <data name="nccDuise.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;nccDuise.Name" xml:space="preserve">
+    <value>nccDuise</value>
+  </data>
+  <data name="&gt;&gt;nccDuise.Type" xml:space="preserve">
+    <value>Book.UI.Invoices.NewChooseContorl, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nccDuise.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;nccDuise.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="rdo_Nairan.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Nairan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>234, 19</value>
+  </data>
+  <data name="rdo_Nairan.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Nairan.Properties.Items1" xml:space="preserve">
+    <value>PASS</value>
+  </data>
+  <data name="rdo_Nairan.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rdo_Nairan.Properties.Items3" xml:space="preserve">
+    <value>FALL</value>
+  </data>
+  <data name="rdo_Nairan.Properties.Items4" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rdo_Nairan.Properties.Items5" xml:space="preserve">
+    <value>無此項</value>
+  </data>
+  <data name="rdo_Nairan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 64</value>
+  </data>
+  <data name="rdo_Nairan.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;rdo_Nairan.Name" xml:space="preserve">
+    <value>rdo_Nairan</value>
+  </data>
+  <data name="&gt;&gt;rdo_Nairan.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rdo_Nairan.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;rdo_Nairan.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="rdo_Chongji.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Chongji.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 19</value>
+  </data>
+  <data name="rdo_Chongji.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Chongji.Properties.Items1" xml:space="preserve">
+    <value>PASS</value>
+  </data>
+  <data name="rdo_Chongji.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rdo_Chongji.Properties.Items3" xml:space="preserve">
+    <value>FALL</value>
+  </data>
+  <data name="rdo_Chongji.Properties.Items4" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rdo_Chongji.Properties.Items5" xml:space="preserve">
+    <value>無此項</value>
+  </data>
+  <data name="rdo_Chongji.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 64</value>
+  </data>
+  <data name="rdo_Chongji.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;rdo_Chongji.Name" xml:space="preserve">
+    <value>rdo_Chongji</value>
+  </data>
+  <data name="&gt;&gt;rdo_Chongji.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rdo_Chongji.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;rdo_Chongji.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="rdo_UV.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_UV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>351, 19</value>
+  </data>
+  <data name="rdo_UV.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_UV.Properties.Items1" xml:space="preserve">
+    <value>PASS</value>
+  </data>
+  <data name="rdo_UV.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rdo_UV.Properties.Items3" xml:space="preserve">
+    <value>FALL</value>
+  </data>
+  <data name="rdo_UV.Properties.Items4" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rdo_UV.Properties.Items5" xml:space="preserve">
+    <value>無此項</value>
+  </data>
+  <data name="rdo_UV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 64</value>
+  </data>
+  <data name="rdo_UV.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;rdo_UV.Name" xml:space="preserve">
+    <value>rdo_UV</value>
+  </data>
+  <data name="&gt;&gt;rdo_UV.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rdo_UV.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;rdo_UV.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="nccUV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>351, 87</value>
+  </data>
+  <data name="nccUV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 21</value>
+  </data>
+  <data name="nccUV.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;nccUV.Name" xml:space="preserve">
+    <value>nccUV</value>
+  </data>
+  <data name="&gt;&gt;nccUV.Type" xml:space="preserve">
+    <value>Book.UI.Invoices.NewChooseContorl, Book.UI, Version=2.0.0.6, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;nccUV.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;nccUV.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="rdo_Duise.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Duise.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 19</value>
+  </data>
+  <data name="rdo_Duise.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Duise.Properties.Items1" xml:space="preserve">
+    <value>PASS</value>
+  </data>
+  <data name="rdo_Duise.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rdo_Duise.Properties.Items3" xml:space="preserve">
+    <value>FALL</value>
+  </data>
+  <data name="rdo_Duise.Properties.Items4" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rdo_Duise.Properties.Items5" xml:space="preserve">
+    <value>無此項</value>
+  </data>
+  <data name="rdo_Duise.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 64</value>
+  </data>
+  <data name="rdo_Duise.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;rdo_Duise.Name" xml:space="preserve">
+    <value>rdo_Duise</value>
+  </data>
+  <data name="&gt;&gt;rdo_Duise.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rdo_Duise.Parent" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;rdo_Duise.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="layoutControl3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="layoutControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 23</value>
+  </data>
+  <data name="layoutControlGroup3.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlGroup3</value>
+  </data>
+  <data name="layoutControlGroup3.Text" xml:space="preserve">
+    <value>layoutControlGroup3</value>
+  </data>
+  <data name="layoutControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>955, 110</value>
+  </data>
+  <data name="layoutControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="layoutControl3.Text" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;layoutControl3.Name" xml:space="preserve">
+    <value>layoutControl3</value>
+  </data>
+  <data name="&gt;&gt;layoutControl3.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControl, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControl3.Parent" xml:space="preserve">
+    <value>groupControl2</value>
+  </data>
+  <data name="&gt;&gt;layoutControl3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="layoutControlItem45.CustomizationFormText" xml:space="preserve">
+    <value>UV值</value>
+  </data>
+  <data name="layoutControlItem45.Text" xml:space="preserve">
+    <value>UV值</value>
+  </data>
+  <data name="layoutControlItem46.CustomizationFormText" xml:space="preserve">
+    <value>对色</value>
+  </data>
+  <data name="layoutControlItem46.Text" xml:space="preserve">
+    <value>对色</value>
+  </data>
+  <data name="layoutControlItem47.CustomizationFormText" xml:space="preserve">
+    <value>冲击</value>
+  </data>
+  <data name="layoutControlItem47.Text" xml:space="preserve">
+    <value>冲击</value>
+  </data>
+  <data name="layoutControlItem48.CustomizationFormText" xml:space="preserve">
+    <value>阻燃测试</value>
+  </data>
+  <data name="layoutControlItem48.Text" xml:space="preserve">
+    <value>阻燃测试</value>
+  </data>
+  <data name="layoutControlItem49.CustomizationFormText" xml:space="preserve">
+    <value>ANSI/CSA透视率</value>
+  </data>
+  <data name="layoutControlItem49.Text" xml:space="preserve">
+    <value>ANSI/CSA透视率</value>
+  </data>
+  <data name="layoutControlItem50.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem50</value>
+  </data>
+  <data name="layoutControlItem50.Text" xml:space="preserve">
+    <value>JIS透视率</value>
+  </data>
+  <data name="layoutControlItem51.CustomizationFormText" xml:space="preserve">
+    <value>EN透视率</value>
+  </data>
+  <data name="layoutControlItem51.Text" xml:space="preserve">
+    <value>EN透视率</value>
+  </data>
+  <data name="layoutControlItem52.CustomizationFormText" xml:space="preserve">
+    <value>AS透视率</value>
+  </data>
+  <data name="layoutControlItem52.Text" xml:space="preserve">
+    <value>AS透视率</value>
+  </data>
+  <data name="layoutControlItem55.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem55</value>
+  </data>
+  <data name="layoutControlItem55.Text" xml:space="preserve">
+    <value>layoutControlItem55</value>
+  </data>
+  <data name="layoutControlItem56.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem56</value>
+  </data>
+  <data name="layoutControlItem56.Text" xml:space="preserve">
+    <value>layoutControlItem56</value>
+  </data>
+  <data name="layoutControlItem58.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem58</value>
+  </data>
+  <data name="layoutControlItem58.Text" xml:space="preserve">
+    <value>layoutControlItem58</value>
+  </data>
+  <data name="layoutControlItem59.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem59</value>
+  </data>
+  <data name="layoutControlItem59.Text" xml:space="preserve">
+    <value>layoutControlItem59</value>
+  </data>
+  <data name="emptySpaceItem1.CustomizationFormText" xml:space="preserve">
+    <value>emptySpaceItem1</value>
+  </data>
+  <data name="emptySpaceItem1.Text" xml:space="preserve">
+    <value>emptySpaceItem1</value>
+  </data>
+  <data name="layoutControlItem57.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem57</value>
+  </data>
+  <data name="layoutControlItem57.Text" xml:space="preserve">
+    <value>layoutControlItem57</value>
+  </data>
+  <data name="layoutControlItem62.CustomizationFormText" xml:space="preserve">
+    <value>霧度測試</value>
+  </data>
+  <data name="layoutControlItem62.Text" xml:space="preserve">
+    <value>霧度測試</value>
+  </data>
+  <data name="rdo_Qipao.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Qipao.Location" type="System.Drawing.Point, System.Drawing">
+    <value>801, 19</value>
+  </data>
+  <data name="rdo_Qipao.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Qipao.Properties.Items1" xml:space="preserve">
+    <value>PASS</value>
+  </data>
+  <data name="rdo_Qipao.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rdo_Qipao.Properties.Items3" xml:space="preserve">
+    <value>FALL</value>
+  </data>
+  <data name="rdo_Qipao.Properties.Items4" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rdo_Qipao.Properties.Items5" xml:space="preserve">
+    <value>無此項</value>
+  </data>
+  <data name="rdo_Qipao.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 68</value>
+  </data>
+  <data name="rdo_Qipao.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;rdo_Qipao.Name" xml:space="preserve">
+    <value>rdo_Qipao</value>
+  </data>
+  <data name="&gt;&gt;rdo_Qipao.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rdo_Qipao.Parent" xml:space="preserve">
+    <value>layoutControl2</value>
+  </data>
+  <data name="&gt;&gt;rdo_Qipao.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="rdo_Guohuo.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Guohuo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 19</value>
+  </data>
+  <data name="rdo_Guohuo.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Guohuo.Properties.Items1" xml:space="preserve">
+    <value>PASS</value>
+  </data>
+  <data name="rdo_Guohuo.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rdo_Guohuo.Properties.Items3" xml:space="preserve">
+    <value>FALL</value>
+  </data>
+  <data name="rdo_Guohuo.Properties.Items4" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rdo_Guohuo.Properties.Items5" xml:space="preserve">
+    <value>無此項</value>
+  </data>
+  <data name="rdo_Guohuo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 68</value>
+  </data>
+  <data name="rdo_Guohuo.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;rdo_Guohuo.Name" xml:space="preserve">
+    <value>rdo_Guohuo</value>
+  </data>
+  <data name="&gt;&gt;rdo_Guohuo.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rdo_Guohuo.Parent" xml:space="preserve">
+    <value>layoutControl2</value>
+  </data>
+  <data name="&gt;&gt;rdo_Guohuo.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="rdo_Liaodian.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Liaodian.Location" type="System.Drawing.Point, System.Drawing">
+    <value>320, 19</value>
+  </data>
+  <data name="rdo_Liaodian.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Liaodian.Properties.Items1" xml:space="preserve">
+    <value>PASS</value>
+  </data>
+  <data name="rdo_Liaodian.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rdo_Liaodian.Properties.Items3" xml:space="preserve">
+    <value>FALL</value>
+  </data>
+  <data name="rdo_Liaodian.Properties.Items4" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rdo_Liaodian.Properties.Items5" xml:space="preserve">
+    <value>無此項</value>
+  </data>
+  <data name="rdo_Liaodian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 68</value>
+  </data>
+  <data name="rdo_Liaodian.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;rdo_Liaodian.Name" xml:space="preserve">
+    <value>rdo_Liaodian</value>
+  </data>
+  <data name="&gt;&gt;rdo_Liaodian.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rdo_Liaodian.Parent" xml:space="preserve">
+    <value>layoutControl2</value>
+  </data>
+  <data name="&gt;&gt;rdo_Liaodian.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="rdo_Wasiqi.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Wasiqi.Location" type="System.Drawing.Point, System.Drawing">
+    <value>481, 19</value>
+  </data>
+  <data name="rdo_Wasiqi.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Wasiqi.Properties.Items1" xml:space="preserve">
+    <value>PASS</value>
+  </data>
+  <data name="rdo_Wasiqi.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rdo_Wasiqi.Properties.Items3" xml:space="preserve">
+    <value>FALL</value>
+  </data>
+  <data name="rdo_Wasiqi.Properties.Items4" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rdo_Wasiqi.Properties.Items5" xml:space="preserve">
+    <value>無此項</value>
+  </data>
+  <data name="rdo_Wasiqi.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 68</value>
+  </data>
+  <data name="rdo_Wasiqi.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;rdo_Wasiqi.Name" xml:space="preserve">
+    <value>rdo_Wasiqi</value>
+  </data>
+  <data name="&gt;&gt;rdo_Wasiqi.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rdo_Wasiqi.Parent" xml:space="preserve">
+    <value>layoutControl2</value>
+  </data>
+  <data name="&gt;&gt;rdo_Wasiqi.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="rdo_Zazhi.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Zazhi.Location" type="System.Drawing.Point, System.Drawing">
+    <value>642, 19</value>
+  </data>
+  <data name="rdo_Zazhi.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Zazhi.Properties.Items1" xml:space="preserve">
+    <value>PASS</value>
+  </data>
+  <data name="rdo_Zazhi.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rdo_Zazhi.Properties.Items3" xml:space="preserve">
+    <value>FALL</value>
+  </data>
+  <data name="rdo_Zazhi.Properties.Items4" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rdo_Zazhi.Properties.Items5" xml:space="preserve">
+    <value>無此項</value>
+  </data>
+  <data name="rdo_Zazhi.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 68</value>
+  </data>
+  <data name="rdo_Zazhi.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;rdo_Zazhi.Name" xml:space="preserve">
+    <value>rdo_Zazhi</value>
+  </data>
+  <data name="&gt;&gt;rdo_Zazhi.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rdo_Zazhi.Parent" xml:space="preserve">
+    <value>layoutControl2</value>
+  </data>
+  <data name="&gt;&gt;rdo_Zazhi.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="rdo_Heidian.EditValue" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Heidian.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 19</value>
+  </data>
+  <data name="rdo_Heidian.Properties.Items" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rdo_Heidian.Properties.Items1" xml:space="preserve">
+    <value>PASS</value>
+  </data>
+  <data name="rdo_Heidian.Properties.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rdo_Heidian.Properties.Items3" xml:space="preserve">
+    <value>FALL</value>
+  </data>
+  <data name="rdo_Heidian.Properties.Items4" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rdo_Heidian.Properties.Items5" xml:space="preserve">
+    <value>無此項</value>
+  </data>
+  <data name="rdo_Heidian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 68</value>
+  </data>
+  <data name="rdo_Heidian.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;rdo_Heidian.Name" xml:space="preserve">
+    <value>rdo_Heidian</value>
+  </data>
+  <data name="&gt;&gt;rdo_Heidian.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.RadioGroup, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rdo_Heidian.Parent" xml:space="preserve">
+    <value>layoutControl2</value>
+  </data>
+  <data name="&gt;&gt;rdo_Heidian.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="layoutControl2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="layoutControl2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 23</value>
+  </data>
+  <data name="layoutControlGroup2.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlGroup2</value>
+  </data>
+  <data name="layoutControlGroup2.Text" xml:space="preserve">
+    <value>layoutControlGroup2</value>
+  </data>
+  <data name="layoutControl2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>955, 89</value>
+  </data>
+  <data name="layoutControl2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="layoutControl2.Text" xml:space="preserve">
+    <value>layoutControl2</value>
+  </data>
+  <data name="&gt;&gt;layoutControl2.Name" xml:space="preserve">
+    <value>layoutControl2</value>
+  </data>
+  <data name="&gt;&gt;layoutControl2.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControl, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControl2.Parent" xml:space="preserve">
+    <value>groupControl1</value>
+  </data>
+  <data name="&gt;&gt;layoutControl2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="layoutControlItem25.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem25</value>
+  </data>
+  <data name="layoutControlItem25.Text" xml:space="preserve">
+    <value>杂质</value>
+  </data>
+  <data name="layoutControlItem26.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem26</value>
+  </data>
+  <data name="layoutControlItem26.Text" xml:space="preserve">
+    <value>瓦斯气</value>
+  </data>
+  <data name="layoutControlItem27.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem27</value>
+  </data>
+  <data name="layoutControlItem27.Text" xml:space="preserve">
+    <value>料点</value>
+  </data>
+  <data name="layoutControlItem28.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem28</value>
+  </data>
+  <data name="layoutControlItem28.Text" xml:space="preserve">
+    <value>过火</value>
+  </data>
+  <data name="layoutControlItem31.CustomizationFormText" xml:space="preserve">
+    <value>气泡：</value>
+  </data>
+  <data name="layoutControlItem31.Text" xml:space="preserve">
+    <value>气泡</value>
+  </data>
+  <data name="layoutControlItem17.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem17</value>
+  </data>
+  <data name="layoutControlItem17.Text" xml:space="preserve">
+    <value>黑点</value>
   </data>
   <data name="layoutControlItem18.CustomizationFormText" xml:space="preserve">
     <value>layoutControlItem17</value>
@@ -2136,6 +2229,18 @@
   </data>
   <data name="layoutControlItem44.Text" xml:space="preserve">
     <value>瓦斯气：</value>
+  </data>
+  <data name="barButtonItem1.Caption" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="barButtonItem2.Caption" xml:space="preserve">
+    <value>關聯客戶訂單</value>
+  </data>
+  <data name="barButtonItem3.Caption" xml:space="preserve">
+    <value>barButtonItem3</value>
+  </data>
+  <data name="barButtonItem4.Caption" xml:space="preserve">
+    <value>結案</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2616,6 +2721,24 @@
   </data>
   <data name="&gt;&gt;barButtonItem4.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem65.Name" xml:space="preserve">
+    <value>layoutControlItem65</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem65.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem66.Name" xml:space="preserve">
+    <value>layoutControlItem66</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem66.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem67.Name" xml:space="preserve">
+    <value>layoutControlItem67</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem67.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>EditForm</value>

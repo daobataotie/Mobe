@@ -15,5 +15,7 @@ namespace Book.Model
     public partial class PCFogCheck
     {
         public System.Collections.Generic.IList<Model.PCFogCheckDetail> Details { get; set; }
+
+        public bool IsChecked { get; set; }
     }
 }

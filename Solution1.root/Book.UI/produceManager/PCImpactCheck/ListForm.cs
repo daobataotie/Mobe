@@ -5,25 +5,43 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Book.UI.produceManager.PCImpactCheck
 {
     public partial class ListForm : Book.UI.Settings.BasicData.BaseListForm
     {
         int tag = 0;
+
         public ListForm()
         {
             if (!EditForm.isDelete)
                 this.CancleDelete();
             InitializeComponent();
             this.manager = new BL.PCImpactCheckManager();
+
+            this.gridColumn10.Visible = false;
+            this.btn_OK.Visible = false;
         }
 
         public ListForm(string InvoiceCusId)
             : this()
         {
             this.tag = 1;
-            this.bindingSource1.DataSource = (this.manager as BL.PCImpactCheckManager).SelectByDateRage(global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null,null, InvoiceCusId);
+            this.bindingSource1.DataSource = (this.manager as BL.PCImpactCheckManager).SelectByDateRage(global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, InvoiceCusId);
+        }
+
+        /// <summary>
+        /// 用于入料检验单选择冲击测试单
+        /// </summary>
+        /// <param name="ShowCheck"></param>
+        public ListForm(bool ShowCheck)
+            : this()
+        {
+            this.gridView1.OptionsBehavior.Editable = true;
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 0;
+            this.btn_OK.Visible = true;
         }
 
         protected override void RefreshData()
@@ -74,6 +92,24 @@ namespace Book.UI.produceManager.PCImpactCheck
             Form f = this.GetEditForm(new object[] { this.bindingSource1.Current });
             if (f != null)
                 f.ShowDialog();
+        }
+
+        public string PCImpactCheckId { get; set; }
+
+        private void btn_OK_Click(object sender, EventArgs e)
+        {
+            this.gridView1.PostEditor();
+            this.gridView1.UpdateCurrentRow();
+
+            IList<Model.PCImpactCheck> list = this.bindingSource1.DataSource as IList<Model.PCImpactCheck>;
+            if (list != null)
+            {
+                Model.PCImpactCheck pcImapactCheck = list.FirstOrDefault(P => P.IsChecked == true);
+                if (pcImapactCheck != null)
+                    this.PCImpactCheckId = pcImapactCheck.PCImpactCheckId;
+            }
+
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

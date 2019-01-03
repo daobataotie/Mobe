@@ -20,5 +20,7 @@ namespace Book.Model
             get { return details; }
             set { details = value; }
         }
+
+        public bool IsChecked { get; set; }
     }
 }
