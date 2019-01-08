@@ -1104,6 +1104,8 @@ namespace Book.Model
 
         public readonly static string PRO_PCImpactCheckId = "PCImpactCheckId";
 
+        public readonly static string PRO_PCFogCheckId = "PCFogCheckId";
+
         public readonly static string PRO_PCFlameRetardantId = "PCFlameRetardantId";
 
         #endregion
