@@ -1301,6 +1301,38 @@ namespace Book.UI.produceManager.ProduceInDepot
             }
         }
 
+        //入库货位 清除
+        private void repositoryItemLookUpEdit5_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 1)
+            {
+                Model.ProduceInDepotDetail detail = this.bindingSourceDetails.Current as Model.ProduceInDepotDetail;
+                if (detail != null)
+                {
+                    detail.DepotPositionId = null;
+                    detail.DepotPosition = null;
+
+                    this.gridControl1.RefreshDataSource();
+                }
+            }
+        }
+
+        //转生产车间 清除
+        private void repositoryItemLookUpEdit7_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Index == 1)
+            {
+                Model.ProduceInDepotDetail detail = this.bindingSourceDetails.Current as Model.ProduceInDepotDetail;
+                if (detail != null)
+                {
+                    detail.WorkHouseId = null;
+
+                    this.gridView1.RefreshData();
+                    this.gridControl1.RefreshDataSource();
+                }
+            }
+        }
+
     }
 }
 

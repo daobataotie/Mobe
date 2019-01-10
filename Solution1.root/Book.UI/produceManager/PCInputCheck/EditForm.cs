@@ -327,9 +327,9 @@ namespace Book.UI.produceManager.PCInputCheck
                     this.btn_InvoiceCOId2.Properties.ReadOnly = true;
                     this.btn_InvoiceCOId3.Properties.ReadOnly = true;
                     this.btn_Product.Properties.ReadOnly = true;
-                    this.btn_Impact.Properties.ReadOnly = true;
-                    this.btn_Fog.Properties.ReadOnly = true;
-                    this.btn_FlameRetardant.Properties.ReadOnly = true;
+                    //this.btn_Impact.Properties.ReadOnly = true;
+                    //this.btn_Fog.Properties.ReadOnly = true;
+                    //this.btn_FlameRetardant.Properties.ReadOnly = true;
                     break;
                 default:
                     this.btn_InvoiceCGId1.Properties.Buttons[1].Visible = true;
@@ -342,9 +342,9 @@ namespace Book.UI.produceManager.PCInputCheck
                     this.btn_InvoiceCOId2.Properties.ReadOnly = true;
                     this.btn_InvoiceCOId3.Properties.ReadOnly = true;
                     this.btn_Product.Properties.ReadOnly = true;
-                    this.btn_Impact.Properties.ReadOnly = true;
-                    this.btn_Fog.Properties.ReadOnly = true;
-                    this.btn_FlameRetardant.Properties.ReadOnly = true;
+                    //this.btn_Impact.Properties.ReadOnly = true;
+                    //this.btn_Fog.Properties.ReadOnly = true;
+                    //this.btn_FlameRetardant.Properties.ReadOnly = true;
                     break;
             }
             updateCaption();

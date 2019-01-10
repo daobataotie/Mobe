@@ -264,6 +264,8 @@ namespace Book.UI.produceManager.PCFogCheck
                     this._pcfog.ProductId = currentModel.ProductId;
                     this._pcfog.mCheckStandard = currentModel.CustomerCheckStandard;
                     this._pcfog.InvoiceXOQuantity = currentModel.InvoiceXODetailQuantity;
+                    this._pcfog.ProductUnit = this._pcfog.Product.BuyUnit;
+                    this._pcfog.ProductUnitId = this._pcfog.Product.BuyUnitId;
 
                     this.Refresh();
                 }
@@ -387,7 +389,8 @@ namespace Book.UI.produceManager.PCFogCheck
                     this._pcfog.ProductId = coDetail.ProductId;
                     this._pcfog.mCheckStandard = (coDetail.Invoice.Customer == null ? "" : coDetail.Invoice.Customer.CheckedStandard);
                     this._pcfog.InvoiceXOQuantity = coDetail.OrderQuantity;
-
+                    this._pcfog.ProductUnit = this._pcfog.Product.BuyUnit;
+                    this._pcfog.ProductUnitId = this._pcfog.Product.BuyUnitId;
                     this.Refresh();
                 }
             }

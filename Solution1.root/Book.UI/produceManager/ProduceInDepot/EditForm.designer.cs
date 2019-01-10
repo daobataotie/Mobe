@@ -656,7 +656,8 @@
             // 
             resources.ApplyResources(this.repositoryItemLookUpEdit5, "repositoryItemLookUpEdit5");
             this.repositoryItemLookUpEdit5.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit5.Buttons"))))});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit5.Buttons")))),
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit5.Buttons1"))))});
             this.repositoryItemLookUpEdit5.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo(resources.GetString("repositoryItemLookUpEdit5.Columns"), ((int)(resources.GetObject("repositoryItemLookUpEdit5.Columns1"))), resources.GetString("repositoryItemLookUpEdit5.Columns2"))});
             this.repositoryItemLookUpEdit5.DataSource = this.bindingSourceDepotPositionId;
@@ -665,6 +666,7 @@
             this.repositoryItemLookUpEdit5.Name = "repositoryItemLookUpEdit5";
             this.repositoryItemLookUpEdit5.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.repositoryItemLookUpEdit5.ValueMember = "DepotPositionId";
+            this.repositoryItemLookUpEdit5.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemLookUpEdit5_ButtonClick);
             // 
             // gridColumnProceduresSum
             // 
@@ -720,7 +722,8 @@
             // 
             resources.ApplyResources(this.repositoryItemLookUpEdit7, "repositoryItemLookUpEdit7");
             this.repositoryItemLookUpEdit7.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit7.Buttons"))))});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit7.Buttons")))),
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit7.Buttons1"))))});
             this.repositoryItemLookUpEdit7.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo(resources.GetString("repositoryItemLookUpEdit7.Columns"), ((int)(resources.GetObject("repositoryItemLookUpEdit7.Columns1"))), resources.GetString("repositoryItemLookUpEdit7.Columns2"))});
             this.repositoryItemLookUpEdit7.DataSource = this.bindingSourceWorkHouse;
@@ -728,6 +731,7 @@
             this.repositoryItemLookUpEdit7.Name = "repositoryItemLookUpEdit7";
             this.repositoryItemLookUpEdit7.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.repositoryItemLookUpEdit7.ValueMember = "WorkHouseId";
+            this.repositoryItemLookUpEdit7.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemLookUpEdit7_ButtonClick);
             // 
             // gridColumn19
             // 
