@@ -106,6 +106,9 @@ namespace Book.Model
         private WorkHouse _workHouse;
 
         private ProductUnit _ProductUnit;
+
+        private string _materialUnit;
+
         #endregion
 
         #region Properties
@@ -344,6 +347,9 @@ namespace Book.Model
             }
         }
 
+        /// <summary>
+        /// 检验品单位
+        /// </summary>
         public string ProductUnitId
         {
             get { return _ProductUnitId; }
@@ -414,6 +420,16 @@ namespace Book.Model
             get { return _ProductUnit; }
             set { _ProductUnit = value; }
         }
+
+        /// <summary>
+        /// 原料单位
+        /// </summary>
+        public string MaterialUnit
+        {
+            get { return _materialUnit; }
+            set { _materialUnit = value; }
+        }
+
         /// <summary>
         /// 主键编号
         /// </summary>
@@ -489,6 +505,8 @@ namespace Book.Model
         public readonly static string PRO_AuditEmpId = "AuditEmpId";
 
         public readonly static string PRO_ProductUnitId = "ProductUnitId";
+
+        public readonly static string PRO_MaterialUnit = "MaterialUnit";
         #endregion
     }
 }

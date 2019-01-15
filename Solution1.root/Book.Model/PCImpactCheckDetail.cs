@@ -426,6 +426,67 @@ namespace Book.Model
 
         public readonly static string PRO_AttrRetestDis = "AttrRetestDis";
 
+
+        public string HM500gLDis { get { return ValueToDisplay(this.HM500gL); } }
+
+        public readonly static string PRO_HM500gLDis = "HM500gLDis";
+
+
+        public string HM500gRDis { get { return ValueToDisplay(this.HM500gR); } }
+
+        public readonly static string PRO_HM500gRDis = "HM500gRDis";
+
+
+        public string Zhuiqiu68gLDis { get { return ValueToDisplay(this.Zhuiqiu68gL); } }
+
+        public readonly static string PRO_Zhuiqiu68gLDis = "Zhuiqiu68gLDis";
+
+
+        public string Zhuiqiu68gRDis { get { return ValueToDisplay(this.Zhuiqiu68gR); } }
+
+        public readonly static string PRO_Zhuiqiu68gRDis = "Zhuiqiu68gRDis";
+
+
+        public string Zhuiqiu44gLDis { get { return ValueToDisplay(this.Zhuiqiu44gL); } }
+
+        public readonly static string PRO_Zhuiqiu44gLDis = "Zhuiqiu44gLDis";
+
+
+        public string Zhuiqiu44gRDis { get { return ValueToDisplay(this.Zhuiqiu44gR); } }
+
+        public readonly static string PRO_Zhuiqiu44gRDis = "Zhuiqiu44gRDis";
+
+
+        public string Zhuiqiu43gLDis { get { return ValueToDisplay(this.Zhuiqiu43gL); } }
+
+        public readonly static string PRO_Zhuiqiu43gLDis = "Zhuiqiu43gLDis";
+
+
+        public string Zhuiqiu43gRDis { get { return ValueToDisplay(this.Zhuiqiu43gR); } }
+
+        public readonly static string PRO_Zhuiqiu43gRDis = "Zhuiqiu43gRDis";
+
+
+        public string Zhuiqiu42gLDis { get { return ValueToDisplay(this.Zhuiqiu42gL); } }
+
+        public readonly static string PRO_Zhuiqiu42gLDis = "Zhuiqiu42gLDis";
+
+
+        public string Zhuiqiu42gRDis { get { return ValueToDisplay(this.Zhuiqiu42gR); } }
+
+        public readonly static string PRO_Zhuiqiu42gRDis = "Zhuiqiu42gRDis";
+
+
+        public string Chuantou442gLDis { get { return ValueToDisplay(this.Chuantou442gL); } }
+
+        public readonly static string PRO_Chuantou442gLDis = "Chuantou442gLDis";
+
+
+        public string Chuantou442gRDis { get { return ValueToDisplay(this.Chuantou442gR); } }
+
+        public readonly static string PRO_Chuantou442gRDis = "Chuantou442gRDis";
+
+
         public string ValueToDisplay(string v)
         {
             string str = string.Empty;

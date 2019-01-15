@@ -31,7 +31,14 @@ namespace Book.UI.produceManager.PCImpactCheck
             this.nccEmployee0.Choose = new ChooseEmployee();
             this.nccWorkHouse.Choose = new ChooseWorkHouse();
             this.newChooseContorlAuditEmp.Choose = new ChooseEmployee();
-            this.bindingSourceUnit.DataSource = (new BL.ProductUnitManager()).Select();
+
+            IList<Model.ProductUnit> UnitList = (new BL.ProductUnitManager()).Select();
+            this.bindingSourceUnit.DataSource = UnitList;
+
+            foreach (var item in UnitList)
+            {
+                this.cob_MaterialUnit.Properties.Items.Add(item.CnName);
+            }
 
             #region LookUpEditor
             DataTable dt = new DataTable();
@@ -56,7 +63,7 @@ namespace Book.UI.produceManager.PCImpactCheck
             dr[0] = "2";
             dr[1] = "X";
             dt.Rows.Add(dr);
-            for (int i = 0; i < this.gridView1.Columns.Count - 1; i++)
+            for (int i = 0; i < this.gridView1.Columns.Count; i++)
             {
                 if (this.gridView1.Columns[i].ColumnEdit is DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)
                 {
@@ -65,6 +72,7 @@ namespace Book.UI.produceManager.PCImpactCheck
                     ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
                     new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name",25, "标识"),
                      });
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).NullText = "";
                     ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).DisplayMember = "name";
                     ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).ValueMember = "id";
                 }
@@ -216,6 +224,9 @@ namespace Book.UI.produceManager.PCImpactCheck
             }
 
             this._PCIC.ProductUnitId = this.lookUpEditUnit.EditValue == null ? null : this.lookUpEditUnit.EditValue.ToString();
+
+            this._PCIC.MaterialUnit = this.cob_MaterialUnit.Text;
+
             if (!this.gridView1.PostEditor() || !this.gridView1.UpdateCurrentRow())
                 return;
 
@@ -262,6 +273,7 @@ namespace Book.UI.produceManager.PCImpactCheck
             this.txt_AuditState.EditValue = this.GetAuditName(this._PCIC.AuditState);
             this.lookUpEditUnit.EditValue = this._PCIC.ProductUnitId;
 
+            this.cob_MaterialUnit.Text = this._PCIC.MaterialUnit;
 
             this.bsPCImpactCheckDetail.DataSource = this._PCIC.Details;
 

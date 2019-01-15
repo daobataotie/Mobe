@@ -48,6 +48,19 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="attr90T" column="attr90T"/>
       <result property="attr90B" column="attr90B"/>
       <result property="Note" column="Note"/>
+      <result property="HM500gL" column="HM500gL"/>
+      <result property="HM500gR" column="HM500gR"/>
+      <result property="Zhuiqiu68gL" column="Zhuiqiu68gL"/>
+      <result property="Zhuiqiu68gR" column="Zhuiqiu68gR"/>
+      <result property="Zhuiqiu44gL" column="Zhuiqiu44gL"/>
+      <result property="Zhuiqiu44gR" column="Zhuiqiu44gR"/>
+      <result property="Zhuiqiu43gL" column="Zhuiqiu43gL"/>
+      <result property="Zhuiqiu43gR" column="Zhuiqiu43gR"/>
+      <result property="Zhuiqiu42gL" column="Zhuiqiu42gL"/>
+      <result property="Zhuiqiu42gR" column="Zhuiqiu42gR"/>
+      <result property="Chuantou442gL" column="Chuantou442gL"/>
+      <result property="Chuantou442gR" column="Chuantou442gR"/>
+
       <!--<result property="BusinessHoursId" column="BusinessHoursId"/>
       <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key"/>-->
     </resultMap>
@@ -120,7 +133,19 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[attrFootR],
         [attr90T],
         [attr90B],
-        [Note]
+        [Note],
+        [HM500gL],
+        [HM500gR],
+        [Zhuiqiu68gL],
+        [Zhuiqiu68gR],
+        [Zhuiqiu44gL],
+        [Zhuiqiu44gR],
+        [Zhuiqiu43gL],
+        [Zhuiqiu43gR],
+        [Zhuiqiu42gL],
+        [Zhuiqiu42gR],
+        [Chuantou442gL],
+        [Chuantou442gR]
         
 			FROM
 				[dbo].[PCImpactCheckDetail]
@@ -216,7 +241,19 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[attrFootR],
         [attr90T],
         [attr90B],
-        [Note]
+        [Note],
+        [HM500gL],
+        [HM500gR],
+        [Zhuiqiu68gL],
+        [Zhuiqiu68gR],
+        [Zhuiqiu44gL],
+        [Zhuiqiu44gR],
+        [Zhuiqiu43gL],
+        [Zhuiqiu43gR],
+        [Zhuiqiu42gL],
+        [Zhuiqiu42gR],
+        [Chuantou442gL],
+        [Chuantou442gR]
         
 			) 
 			VALUES 
@@ -262,7 +299,19 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#attrFootR#,
         #attr90T#,
         #attr90B#,
-        #Note#
+        #Note#,
+        #HM500gL#,
+        #HM500gR#,
+        #Zhuiqiu68gL#,
+        #Zhuiqiu68gR#,
+        #Zhuiqiu44gL#,
+        #Zhuiqiu44gR#,
+        #Zhuiqiu43gL#,
+        #Zhuiqiu43gR#,
+        #Zhuiqiu42gL#,
+        #Zhuiqiu42gR#,
+        #Chuantou442gL#,
+        #Chuantou442gR#
 			)
              ]]>
     </insert>
@@ -310,7 +359,19 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[attrFootR] = #attrFootR#,
         [attr90T]=#attr90T#,
         [attr90B]=#attr90B#,
-        [Note]=#Note#
+        [Note]=#Note#,
+        [HM500gL]=#HM500gL#,
+        [HM500gR]=#HM500gR#,
+        [Zhuiqiu68gL]=#Zhuiqiu68gL#,
+        [Zhuiqiu68gR]=#Zhuiqiu68gR#,
+        [Zhuiqiu44gL]=#Zhuiqiu44gL#,
+        [Zhuiqiu44gR]=#Zhuiqiu44gR#,
+        [Zhuiqiu43gL]=#Zhuiqiu43gL#,
+        [Zhuiqiu43gR]=#Zhuiqiu43gR#,
+        [Zhuiqiu42gL]=#Zhuiqiu42gL#,
+        [Zhuiqiu42gR]=#Zhuiqiu42gR#,
+        [Chuantou442gL]=#Chuantou442gL#,
+        [Chuantou442gR]=#Chuantou442gR#
 			WHERE
 				[PCImpactCheckDetailId] = #PCImpactCheckDetailId#
                     ]]>

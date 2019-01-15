@@ -98,6 +98,8 @@ namespace Book.Model
 
         private ProductUnit _ProductUnit;
 
+        private string _materialUnit;
+
 		#endregion
 		
 		#region Properties
@@ -376,6 +378,12 @@ namespace Book.Model
             get { return _ProductUnit; }
             set { _ProductUnit = value; }
         }
+        
+        public string MaterialUnit
+        {
+            get { return _materialUnit; }
+            set { _materialUnit = value; }
+        }
 
 		/// <summary>
 		/// 
@@ -446,7 +454,9 @@ namespace Book.Model
 
         public readonly static string PRO_AuditEmpId = "AuditEmpId";
 
-        public readonly static string PRO_ProductUnitId = "ProductUnitId";		
+        public readonly static string PRO_ProductUnitId = "ProductUnitId";
+
+        public readonly static string PRO_MaterialUnit = "MaterialUnit";
 		#endregion
 	}
 }

@@ -23,6 +23,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="AuditState" column="AuditState" />
       <result property="AuditEmpId" column="AuditEmpId" />
       <result property="ProductUnitId" column="ProductUnitId" />
+      <result property="MaterialUnit" column="MaterialUnit"/>
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
       <result property="WorkHouse" column="WorkHouseId" lazyLoad="false" select="WorkHouse.select_by_primary_key" />
@@ -131,7 +132,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[InvoiceXOQuantity],
         [AuditState],
         [AuditEmpId],
-        [ProductUnitId]
+        [ProductUnitId],
+        [MaterialUnit]
 			FROM
 				[dbo].[PCImpactCheck]
 			WHERE
@@ -201,7 +203,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[InvoiceXOQuantity],
         [AuditState],
         [AuditEmpId],
-        [ProductUnitId]
+        [ProductUnitId],
+        [MaterialUnit]
 			) 
 			VALUES 
 			(
@@ -221,7 +224,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#InvoiceXOQuantity#,
         #AuditState#,
         #AuditEmpId#,
-        #ProductUnitId#
+        #ProductUnitId#,
+        #MaterialUnit#
 			)
              ]]>
     </insert>
@@ -244,7 +248,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[InvoiceXOQuantity] = #InvoiceXOQuantity#,
         [AuditState]=#AuditState#,        
         [AuditEmpId]=#AuditEmpId#,
-        [ProductUnitId] = #ProductUnitId#
+        [ProductUnitId] = #ProductUnitId#,
+        [MaterialUnit]=#MaterialUnit#
 			WHERE
 				[PCImpactCheckId] = #PCImpactCheckId#
                     ]]>

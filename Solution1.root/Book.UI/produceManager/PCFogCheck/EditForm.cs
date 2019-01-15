@@ -29,10 +29,15 @@ namespace Book.UI.produceManager.PCFogCheck
             this.action = "view";
             this.nccEmployee0.Choose = new ChooseEmployee();
             this.newChooseContorlAuditEmp.Choose = new ChooseEmployee();
-            this.bindingSourceUnit.DataSource = (new BL.ProductUnitManager()).Select();
             this.bindingSourceBusinessHours.DataSource = new BL.BusinessHoursManager().SelectIdAndName();
             this.bindingSourceMethod.DataSource = new BL.SettingManager().SelectByName("Method");
 
+            IList<Model.ProductUnit> UnitList = (new BL.ProductUnitManager()).Select();
+            this.bindingSourceUnit.DataSource = UnitList;
+            foreach (var item in UnitList)
+            {
+                this.cob_MaterailUnit.Properties.Items.Add(item.CnName);
+            }
 
         }
 
@@ -119,7 +124,8 @@ namespace Book.UI.produceManager.PCFogCheck
             this.newChooseContorlAuditEmp.EditValue = this._pcfog.AuditEmp;
             this.txt_AuditState.EditValue = this.GetAuditName(this._pcfog.AuditState);
             this.lookUpEditUnit.EditValue = this._pcfog.ProductUnitId;
-
+            this.cob_MaterailUnit.Text = this._pcfog.MaterialUnit;
+            
             this.bindingSource1.DataSource = this._pcfog.Details;
 
             base.Refresh();
@@ -230,6 +236,7 @@ namespace Book.UI.produceManager.PCFogCheck
             }
 
             this._pcfog.ProductUnitId = this.lookUpEditUnit.EditValue == null ? null : this.lookUpEditUnit.EditValue.ToString();
+            this._pcfog.MaterialUnit = this.cob_MaterailUnit.Text;
 
             if (!this.gridView1.PostEditor() || !this.gridView1.UpdateCurrentRow())
                 return;

@@ -22,6 +22,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="AuditState" column="AuditState" />
       <result property="AuditEmpId" column="AuditEmpId" />
       <result property="ProductUnitId" column="ProductUnitId"/>
+      <result property="MaterialUnit" column="MaterialUnit"/>
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
       <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
@@ -128,7 +129,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[IsFogPassing],
         [AuditState],
         [AuditEmpId],
-        [ProductUnitId]
+        [ProductUnitId],
+        [MaterialUnit]
 			FROM
 				[dbo].[PCFogCheck]
 			WHERE
@@ -197,7 +199,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[IsFogPassing],
         [AuditState],
         [AuditEmpId],
-        [ProductUnitId]
+        [ProductUnitId],
+        [MaterialUnit]
 			) 
 			VALUES 
 			(
@@ -216,7 +219,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#IsFogPassing#,
         #AuditState#,
         #AuditEmpId#,
-        #ProductUnitId#
+        #ProductUnitId#,
+        #MaterialUnit#
 			)
              ]]>
     </insert>
@@ -238,7 +242,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[IsFogPassing] = #IsFogPassing#,
         [AuditState]=#AuditState#,        
         [AuditEmpId]=#AuditEmpId#,
-        [ProductUnitId] = #ProductUnitId#
+        [ProductUnitId] = #ProductUnitId#,
+        [MaterialUnit]=#MaterialUnit#
 			WHERE
 				[PCFogCheckId] = #PCFogCheckId#
                     ]]>

@@ -215,6 +215,31 @@ namespace Book.Model
 
         private string _note;
 
+        private string _hM500gL;
+
+        private string _hM500gR;
+
+        private string _zhuiqiu68gL;
+
+        private string _zhuiqiu68gR;
+
+        private string _zhuiqiu44gL;
+
+        private string _zhuiqiu44gR;
+
+        private string _zhuiqiu43gL;
+
+        private string _zhuiqiu43gR;
+
+        private string _zhuiqiu42gL;
+
+        private string _zhuiqiu42gR;
+
+        private string _chuantou442gL;
+
+        private string _chuantou442gR;
+
+
         //private string _businessHoursId;
 
         //public string BusinessHoursId
@@ -223,7 +248,7 @@ namespace Book.Model
         //    set { _businessHoursId = value; }
         //}
 
-     
+
 
         #endregion
 
@@ -830,6 +855,78 @@ namespace Book.Model
         {
             get { return _note; }
             set { _note = value; }
+        }
+
+        public string HM500gL
+        {
+            get { return _hM500gL; }
+            set { _hM500gL = value; }
+        }
+
+        public string HM500gR
+        {
+            get { return _hM500gR; }
+            set { _hM500gR = value; }
+        }
+
+        public string Zhuiqiu68gL
+        {
+            get { return _zhuiqiu68gL; }
+            set { _zhuiqiu68gL = value; }
+        }
+
+        public string Zhuiqiu68gR
+        {
+            get { return _zhuiqiu68gR; }
+            set { _zhuiqiu68gR = value; }
+        }
+
+        public string Zhuiqiu44gL
+        {
+            get { return _zhuiqiu44gL; }
+            set { _zhuiqiu44gL = value; }
+        }
+
+        public string Zhuiqiu44gR
+        {
+            get { return _zhuiqiu44gR; }
+            set { _zhuiqiu44gR = value; }
+        }
+
+        public string Zhuiqiu43gL
+        {
+            get { return _zhuiqiu43gL; }
+            set { _zhuiqiu43gL = value; }
+        }
+
+        public string Zhuiqiu43gR
+        {
+            get { return _zhuiqiu43gR; }
+            set { _zhuiqiu43gR = value; }
+        }
+
+        public string Zhuiqiu42gL
+        {
+            get { return _zhuiqiu42gL; }
+            set { _zhuiqiu42gL = value; }
+        }
+
+        public string Zhuiqiu42gR
+        {
+            get { return _zhuiqiu42gR; }
+            set { _zhuiqiu42gR = value; }
+        }
+
+        public string Chuantou442gL
+        {
+            get { return _chuantou442gL; }
+            set { _chuantou442gL = value; }
+        }
+
+        public string Chuantou442gR
+        {
+            get { return _chuantou442gR; }
+            set { _chuantou442gR = value; }
         }
 
 

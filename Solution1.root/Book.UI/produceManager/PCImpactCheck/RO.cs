@@ -45,8 +45,10 @@ namespace Book.UI.produceManager.PCImpactCheck
                     this.lbl_CustomerProductName.Text = _pcic.Product.CustomerProductName;
             }
 
+            this.lbl_MaterialUnit.Text = _pcic.MaterialUnit;
+
             //Details
-            this.TCattrDate.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_attrDate, "{0:yyyy-MM-dd HH:mm:dd}");
+            this.TCattrDate.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_attrDate, "{0:yyyy-MM-dd  HH:mm:dd}");
             this.TCattrGlassUpL.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_AttrGlassUpLDis);
             this.TCattrGlassUpR.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_AttrGlassUpRDis);
             this.TCattrGlassDownL.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_AttrGlassDownLDis);
@@ -86,6 +88,21 @@ namespace Book.UI.produceManager.PCImpactCheck
             this.xrTBanBie.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_attrBanBie);
             //this.lblNote.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Note);
             this.lblNote.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_NoteShowPrint);
+
+
+            this.TCHM500L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_HM500gLDis);
+            this.TCHM500R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_HM500gRDis);
+            this.TCZhuiqiu68L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Zhuiqiu68gLDis);
+            this.TCZhuiqiu68R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Zhuiqiu68gRDis);
+            this.TCZhuiqiu44L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Zhuiqiu44gLDis);
+            this.TCZhuiqiu44R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Zhuiqiu44gRDis);
+            this.TCZhuiqiu43L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Zhuiqiu43gLDis);
+            this.TCZhuiqiu43R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Zhuiqiu43gRDis);
+            this.TCZhuiqiu42L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Zhuiqiu42gLDis);
+            this.TCZhuiqiu42R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Zhuiqiu42gRDis);
+            this.TCChuantou442L.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Chuantou442gLDis);
+            this.TCChuantou442R.DataBindings.Add("Text", this.DataSource, Model.PCImpactCheckDetail.PRO_Chuantou442gRDis);
+
         }
 
     }

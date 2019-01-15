@@ -59,6 +59,8 @@ namespace Book.UI.produceManager.PCFogCheck
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.lblCompanyName = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.lbl_CustomerProductName = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.lbl_productunit = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
@@ -99,8 +101,8 @@ namespace Book.UI.produceManager.PCFogCheck
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lbl_CustomerProductName = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_MaterailUnit = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RTDescript)).BeginInit();
@@ -391,6 +393,8 @@ namespace Book.UI.produceManager.PCFogCheck
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lbl_MaterailUnit,
+            this.xrLabel13,
             this.lbl_CustomerProductName,
             this.xrLabel8,
             this.lbl_productunit,
@@ -416,6 +420,22 @@ namespace Book.UI.produceManager.PCFogCheck
             this.lblInvoiceXOQuantity});
             resources.ApplyResources(this.PageHeader, "PageHeader");
             this.PageHeader.Name = "PageHeader";
+            // 
+            // lbl_CustomerProductName
+            // 
+            this.lbl_CustomerProductName.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            resources.ApplyResources(this.lbl_CustomerProductName, "lbl_CustomerProductName");
+            this.lbl_CustomerProductName.Name = "lbl_CustomerProductName";
+            this.lbl_CustomerProductName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_CustomerProductName.StylePriority.UseBorders = false;
+            this.lbl_CustomerProductName.StylePriority.UseFont = false;
+            // 
+            // xrLabel8
+            // 
+            resources.ApplyResources(this.xrLabel8, "xrLabel8");
+            this.xrLabel8.Name = "xrLabel8";
+            this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel8.StylePriority.UseFont = false;
             // 
             // lbl_productunit
             // 
@@ -748,21 +768,23 @@ namespace Book.UI.produceManager.PCFogCheck
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             // 
-            // xrLabel8
+            // xrLabel13
             // 
-            resources.ApplyResources(this.xrLabel8, "xrLabel8");
-            this.xrLabel8.Name = "xrLabel8";
-            this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel8.StylePriority.UseFont = false;
+            resources.ApplyResources(this.xrLabel13, "xrLabel13");
+            this.xrLabel13.Name = "xrLabel13";
+            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel13.StylePriority.UseFont = false;
+            this.xrLabel13.StylePriority.UseTextAlignment = false;
             // 
-            // lbl_CustomerProductName
+            // lbl_MaterailUnit
             // 
-            this.lbl_CustomerProductName.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            resources.ApplyResources(this.lbl_CustomerProductName, "lbl_CustomerProductName");
-            this.lbl_CustomerProductName.Name = "lbl_CustomerProductName";
-            this.lbl_CustomerProductName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lbl_CustomerProductName.StylePriority.UseBorders = false;
-            this.lbl_CustomerProductName.StylePriority.UseFont = false;
+            this.lbl_MaterailUnit.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            resources.ApplyResources(this.lbl_MaterailUnit, "lbl_MaterailUnit");
+            this.lbl_MaterailUnit.Name = "lbl_MaterailUnit";
+            this.lbl_MaterailUnit.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_MaterailUnit.StylePriority.UseBorders = false;
+            this.lbl_MaterailUnit.StylePriority.UseFont = false;
+            this.lbl_MaterailUnit.StylePriority.UseTextAlignment = false;
             // 
             // RO
             // 
@@ -860,5 +882,7 @@ namespace Book.UI.produceManager.PCFogCheck
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell16;
         private DevExpress.XtraReports.UI.XRLabel lbl_CustomerProductName;
         private DevExpress.XtraReports.UI.XRLabel xrLabel8;
+        private DevExpress.XtraReports.UI.XRLabel lbl_MaterailUnit;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel13;
     }
 }
