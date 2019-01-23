@@ -4737,6 +4737,10 @@
       <DependentUpon>EditForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\ProduceMaterialExit\ConditionForList.resx">
+      <DependentUpon>ConditionForList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\ProduceOtherInDepot\Editform.resx">
       <DependentUpon>Editform.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -6677,8 +6681,8 @@
       <DependentUpon>ChooseProduceMaterialExit.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\ProduceMaterialExit\ConditionForList.resx">
-      <DependentUpon>ConditionForList.cs</DependentUpon>
+    <EmbeddedResource Include="produceManager\ProduceMaterialExit\ConditionForList_Backup.resx">
+      <DependentUpon>ConditionForList_Backup.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\ProduceMaterialExit\ListForm.resx">
@@ -7595,6 +7599,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Query\ROInvoiceXOlist_BackUp.zh-CHT.resx">
       <DependentUpon>ROInvoiceXOlist_BackUp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Query\PendingAreaStock.resx">
+      <DependentUpon>PendingAreaStock.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ROStockPrompt.resx">
@@ -11905,6 +11913,12 @@
     <Compile Include="produceManager\ProduceInDepot\EditForm.designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="produceManager\ProduceMaterialExit\ConditionForList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\ProduceMaterialExit\ConditionForList.Designer.cs">
+      <DependentUpon>ConditionForList.cs</DependentUpon>
+    </Compile>
     <Compile Include="produceManager\ProduceOtherInDepot\Editform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -12569,11 +12583,11 @@
       <DependentUpon>ChooseProductDefectRate.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\ProduceInDepot\ChooseProductDefectRateCls.cs" />
-    <Compile Include="produceManager\ProduceMaterialExit\ConditionForList.cs">
+    <Compile Include="produceManager\ProduceMaterialExit\ConditionForList_Backup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="produceManager\ProduceMaterialExit\ConditionForList.Designer.cs">
-      <DependentUpon>ConditionForList.cs</DependentUpon>
+    <Compile Include="produceManager\ProduceMaterialExit\ConditionForList_Backup.Designer.cs">
+      <DependentUpon>ConditionForList_Backup.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\ProduceMaterialExit\ConditionForListCls.cs" />
     <Compile Include="produceManager\ProduceMaterialExit\ListForm.cs">
@@ -12777,6 +12791,12 @@
     </Compile>
     <Compile Include="Query\ROInvoiceXOlist_BackUp.Designer.cs">
       <DependentUpon>ROInvoiceXOlist_BackUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\PendingAreaStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Query\PendingAreaStock.Designer.cs">
+      <DependentUpon>PendingAreaStock.cs</DependentUpon>
     </Compile>
     <Compile Include="ROStockPrompt.cs">
       <SubType>Component</SubType>

@@ -183,6 +183,8 @@ namespace Book.Model
 
         public double XianchangZuzhuang { get; set; }
 
+        public double PendingAreaStock { get; set; }
+
         public double XianchangTotal
         {
             get
@@ -195,7 +197,7 @@ namespace Book.Model
         {
             get
             {
-                return Convert.ToDouble(this.StocksQuantity) + XianchangTotal;
+                return Convert.ToDouble(this.StocksQuantity) + XianchangTotal + PendingAreaStock;
             }
         }
 

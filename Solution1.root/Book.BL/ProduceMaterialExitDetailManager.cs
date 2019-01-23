@@ -61,6 +61,20 @@ namespace Book.BL
             return accessor.Select(houseid, startDate, endDate);
         }
 
+        /// <summary>
+        /// 暂不用
+        /// </summary>
+        /// <param name="starDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="produceMaterialExitId0"></param>
+        /// <param name="produceMaterialExitId1"></param>
+        /// <param name="pId0"></param>
+        /// <param name="pId1"></param>
+        /// <param name="departmentId0"></param>
+        /// <param name="departmentId1"></param>
+        /// <param name="PronoteHeaderId0"></param>
+        /// <param name="PronoteHeaderId1"></param>
+        /// <returns></returns>
         public IList<Model.ProduceMaterialExitDetail> SelectBycondition(DateTime starDate, DateTime endDate, string produceMaterialExitId0, string produceMaterialExitId1, Model.Product pId0, Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1)
         {
             return accessor.SelectBycondition(starDate, endDate, produceMaterialExitId0, produceMaterialExitId1, pId0, pId1, departmentId0, departmentId1, PronoteHeaderId0, PronoteHeaderId1);
@@ -83,6 +97,26 @@ namespace Book.BL
         public double SelectSumQtyFromZuzhuangAll(string productId, DateTime dateEnd, string workHouseId)
         {
             return accessor.SelectSumQtyFromZuzhuangAll(productId, dateEnd, workHouseId);
+        }
+
+        /// <summary>
+        /// 用此方法
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="startPMEId"></param>
+        /// <param name="endPMEId"></param>
+        /// <param name="startPronoteHeaderId"></param>
+        /// <param name="endPronoteHeaderId"></param>
+        /// <param name="startProduct"></param>
+        /// <param name="endProduct"></param>
+        /// <param name="workhouseId"></param>
+        /// <param name="invoiceXOCusId"></param>
+        /// <param name="handBookId"></param>
+        /// <returns></returns>
+        public IList<Book.Model.ProduceMaterialExitDetail> SelectForListForm(DateTime startDate, DateTime endDate, string startPMEId, string endPMEId, string startPronoteHeaderId, string endPronoteHeaderId, Book.Model.Product startProduct, Book.Model.Product endProduct, string workhouseId, string invoiceXOCusId, string handBookId)
+        {
+            return accessor.SelectForListForm(startDate, endDate, startPMEId, endPMEId, startPronoteHeaderId, endPronoteHeaderId, startProduct, endProduct, workhouseId, invoiceXOCusId, handBookId);
         }
     }
 }

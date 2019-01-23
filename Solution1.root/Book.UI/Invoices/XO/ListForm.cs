@@ -17,6 +17,10 @@ namespace Book.UI.Invoices.XO
                 this.CancleDelete();
             InitializeComponent();
             this.invoiceManager = new BL.InvoiceXOManager();
+
+            //进来直接进去条件查询，默认查询时间太长
+            this.ShowSearchForm();
+            this.tag = 1;
         }
 
         public ListForm(string invoiceCusId)
@@ -50,14 +54,14 @@ namespace Book.UI.Invoices.XO
             Model.InvoiceXO invoice = this.SelectedItem as Model.InvoiceXO;
             if (invoice != null)
                 return new EditForm(invoice.InvoiceId);
-        //        return new ViewForm(invoice.InvoiceId);
+            //        return new ViewForm(invoice.InvoiceId);
 
-              return null;
+            return null;
         }
 
         protected override DevExpress.XtraReports.UI.XtraReport GetReport()
         {
-            return new R02( this.bindingSource1.DataSource as IList<Model.InvoiceXO>);
+            return new R02(this.bindingSource1.DataSource as IList<Model.InvoiceXO>);
         }
 
         protected override DevExpress.XtraGrid.Views.Grid.GridView MainView
@@ -74,12 +78,12 @@ namespace Book.UI.Invoices.XO
             switch (tag)
             {
                 case "ToXS":
-                   // Operations.Open("invoices.xs.edit1", this.MdiParent, this.bindingSource1.Current);
+                    // Operations.Open("invoices.xs.edit1", this.MdiParent, this.bindingSource1.Current);
                     Invoices.XS.EditForm f = new Book.UI.Invoices.XS.EditForm(this.bindingSource1.Current as Model.InvoiceXO);
                     if (this.bindingSource1.Current != null)
                     {
                         f.ShowDialog(this);
-                    
+
                     }
                     break;
             }
@@ -90,9 +94,9 @@ namespace Book.UI.Invoices.XO
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 Query.ConditionX condition = f.Condition as Query.ConditionX;
-                this.bindingSource1.DataSource = ((BL.InvoiceXOManager)this.invoiceManager).SelectByYJRQCustomEmpCusXOId(condition.Customer1, condition.Customer2, condition.StartDate, condition.EndDate, condition.Yjri1, condition.Yjri2, condition.Employee1, condition.Employee2, condition.XOId1, condition.XOId2, condition.CusXOId, condition.Product,condition.Product2, condition.IsClose,false,false);
+                this.bindingSource1.DataSource = ((BL.InvoiceXOManager)this.invoiceManager).SelectByYJRQCustomEmpCusXOId(condition.Customer1, condition.Customer2, condition.StartDate, condition.EndDate, condition.Yjri1, condition.Yjri2, condition.Employee1, condition.Employee2, condition.XOId1, condition.XOId2, condition.CusXOId, condition.Product, condition.Product2, condition.IsClose, false, false);
 
-        }
+            }
             f.Dispose();
             GC.Collect();
         }

@@ -43,7 +43,7 @@ namespace Book.UI.Query
 
             //this.bindingSourcePronoteHeader.DataSource = new BL.PronoteHeaderManager().Select();
             //this.bindingSourceProduceMaterialID.DataSource = new BL.ProduceMaterialManager().Select();
-            this.dateEditStartDate.DateTime = DateTime.Now.Date.AddDays(-3);
+            this.dateEditStartDate.DateTime = DateTime.Now.Date.AddDays(-15);
             this.dateEditEndDate.DateTime = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
 
 

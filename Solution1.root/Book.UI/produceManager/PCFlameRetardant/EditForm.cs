@@ -160,7 +160,7 @@ namespace Book.UI.produceManager.PCFlameRetardant
             this.date_Check.EditValue = this._pCFlameRetardant.InvoiceDate;
             this.ncc_Employee.EditValue = this._pCFlameRetardant.Employee;
 
-            this.txt_Note.EditValue = this._pCFlameRetardant.Note;
+            this.cob_Note.Text = this._pCFlameRetardant.Note;
             this.newChooseContorlAuditEmp.EditValue = this._pCFlameRetardant.AuditEmp;
             this.txt_AuditState.EditValue = this.GetAuditName(this._pCFlameRetardant.AuditState);
 
@@ -203,7 +203,7 @@ namespace Book.UI.produceManager.PCFlameRetardant
             if (this.date_Check.EditValue != null)
                 this._pCFlameRetardant.InvoiceDate = this.date_Check.DateTime;
             this._pCFlameRetardant.EmployeeId = this.ncc_Employee.EditValue == null ? null : (this.ncc_Employee.EditValue as Model.Employee).EmployeeId;
-            this._pCFlameRetardant.Note = this.txt_Note.Text;
+            this._pCFlameRetardant.Note = this.cob_Note.Text;
 
             switch (this.action)
             {

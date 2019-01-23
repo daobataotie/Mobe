@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Linq;
 
 namespace Book.UI.produceManager.ProduceMaterialExit
 {
@@ -28,11 +29,19 @@ namespace Book.UI.produceManager.ProduceMaterialExit
         public ConditionForList()
         {
             InitializeComponent();
+
+            this.ncc_Workhouse.Choose = new Settings.ProduceManager.Workhouselog.ChooseWorkHouse();
+
+            IList<string> handBookIds = new BL.BGHandbookManager().SelectAllId();
+            foreach (var item in handBookIds)
+            {
+                this.cob_HandBook.Properties.Items.Add(item);
+            }
         }
 
         private void ConditionForList_Load(object sender, EventArgs e)
         {
-            this.StartdateEdit.DateTime = DateTime.Now.AddDays(-3).Date;
+            this.StartdateEdit.DateTime = DateTime.Now.AddDays(-15).Date;
             this.EnddateEdit.DateTime = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
         }
 
@@ -52,13 +61,17 @@ namespace Book.UI.produceManager.ProduceMaterialExit
                 this.condition.EndDate = this.EnddateEdit.DateTime;
 
 
-            this.condition.StartPMEid = this.txtStartPMEid.Text;
-            this.condition.EndPMEid = this.txtEndPMEid.Text;
-            this.condition.StartPronoteHeaderId = this.txtStartPronoteheadid.Text;
-            this.condition.EndPronoteHeaderId = this.txtEndPronoteheadid.Text;
+            this.condition.StartPMEid = this.btn_StartPMEId.Text;
+            this.condition.EndPMEid = this.btn_EndPMEId.Text;
+            this.condition.StartPronoteHeaderId = this.btn_StartPNTId.Text;
+            this.condition.EndPronoteHeaderId = this.btn_EndPNTId.Text;
 
             this.condition.StartProduct = this.btnEditStartProduct.EditValue as Model.Product;
             this.condition.EndProduct = this.btnEditEndProduct.EditValue as Model.Product;
+
+            this.condition.WorkhouseId = this.ncc_Workhouse.EditValue == null ? null : (this.ncc_Workhouse.EditValue as Model.WorkHouse).WorkHouseId;
+            this.condition.InvocieXOCusId = this.txt_InvoiceXOCusId.Text;
+            this.condition.HandBookId = this.cob_HandBook.Text;
         }
 
         private void btnEditStartProduct_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -84,6 +97,60 @@ namespace Book.UI.produceManager.ProduceMaterialExit
             GC.Collect();
         }
 
+        private void btn_StartPMEId_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            ChooseProduceMaterialExit form = new ChooseProduceMaterialExit();
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                if (form.detailList != null)
+                {
+                    Model.ProduceMaterialExitDetail detail = form.detailList.FirstOrDefault(D => D.IsChecked == true);
+                    if (detail != null)
+                    {
+                        this.btn_EndPMEId.EditValue = this.btn_StartPMEId.EditValue = detail.ProduceMaterialExitId;
+                    }
+                }
+            }
+        }
 
+        private void btn_EndPMEId_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            ChooseProduceMaterialExit form = new ChooseProduceMaterialExit();
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                if (form.detailList != null)
+                {
+                    Model.ProduceMaterialExitDetail detail = form.detailList.FirstOrDefault(D => D.IsChecked == true);
+                    if (detail != null)
+                    {
+                        this.btn_EndPMEId.EditValue = detail.ProduceMaterialExitId;
+                    }
+                }
+            }
+        }
+
+        private void btn_StartPNTId_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            produceManager.PronoteHeader.ChoosePronoteHeaderDetailsForm form = new produceManager.PronoteHeader.ChoosePronoteHeaderDetailsForm();
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                this.btn_EndPNTId.EditValue = this.btn_StartPNTId.EditValue = (form.SelectItem == null ? null : (form.SelectItem).PronoteHeaderID);
+            }
+            GC.Collect();
+            form.Dispose();
+        }
+
+        private void btn_EndPNTId_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            produceManager.PronoteHeader.ChoosePronoteHeaderDetailsForm form = new produceManager.PronoteHeader.ChoosePronoteHeaderDetailsForm();
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                this.btn_EndPNTId.EditValue = (form.SelectItem == null ? null : (form.SelectItem).PronoteHeaderID);
+            }
+            GC.Collect();
+            form.Dispose();
+        }
     }
 }

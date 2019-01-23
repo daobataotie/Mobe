@@ -28,5 +28,11 @@ namespace Book.UI.produceManager.ProduceMaterialExit
         public Model.Product StartProduct { get; set; }
 
         public Model.Product EndProduct { get; set; }
+
+        public string WorkhouseId { get; set; }
+
+        public string InvocieXOCusId { get; set; }
+
+        public string HandBookId { get; set; }
     }
 }

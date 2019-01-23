@@ -207,9 +207,9 @@ namespace Book.BL
             return accessor.SelectByProduceHeaderId(pronoteHeaderid);
         }
 
-        public IList<Book.Model.ProduceMaterialExit> SelectForListForm(DateTime startDate, DateTime endDate, string startPMEId, string endPMEId, string startPronoteHeaderId, string endPronoteHeaderId, Book.Model.Product startProduct, Book.Model.Product endProduct)
+        public IList<Book.Model.ProduceMaterialExit> SelectForListForm(DateTime startDate, DateTime endDate, string startPMEId, string endPMEId, string startPronoteHeaderId, string endPronoteHeaderId, Book.Model.Product startProduct, Book.Model.Product endProduct, string workhouseId, string invoiceXOCusId, string handBookId)
         {
-            return accessor.SelectForListForm(startDate, endDate, startPMEId, endPMEId, startPronoteHeaderId, endPronoteHeaderId, startProduct, endProduct);
+            return accessor.SelectForListForm(startDate, endDate, startPMEId, endPMEId, startPronoteHeaderId, endPronoteHeaderId, startProduct, endProduct, workhouseId, invoiceXOCusId, handBookId);
         }
     }
 }

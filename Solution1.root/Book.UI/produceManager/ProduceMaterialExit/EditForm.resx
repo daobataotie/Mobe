@@ -120,6 +120,12 @@
   <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>172, 17</value>
   </metadata>
+  <data name="barButtonItem1.Caption" xml:space="preserve">
+    <value>选择加工单</value>
+  </data>
+  <data name="barBtnSearch.Caption" xml:space="preserve">
+    <value>搜索</value>
+  </data>
   <metadata name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -472,6 +478,9 @@
   <data name="textEditProName.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
+  <data name="textEditProName.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;textEditProName.Name" xml:space="preserve">
     <value>textEditProName</value>
   </data>
@@ -646,9 +655,6 @@
   <data name="ColProductId.Caption" xml:space="preserve">
     <value>货品编号</value>
   </data>
-  <metadata name="bindingSourceProductId.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>303, 17</value>
-  </metadata>
   <data name="repositoryItemLookUpEdit1.AutoHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -695,6 +701,9 @@
   <data name="repositoryItemLookUpEdit1.Columns12" type="DevExpress.Utils.HorzAlignment, DevExpress.Data.v10.2">
     <value>Default</value>
   </data>
+  <metadata name="bindingSourceProductId.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>303, 17</value>
+  </metadata>
   <data name="repositoryItemLookUpEdit1.NullText" xml:space="preserve">
     <value />
   </data>
@@ -702,10 +711,10 @@
     <value>True</value>
   </data>
   <data name="ColProductId.VisibleIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="ColProductId.Width" type="System.Int32, mscorlib">
-    <value>163</value>
+    <value>93</value>
   </data>
   <data name="gridColumn2.Caption" xml:space="preserve">
     <value>货品名称</value>
@@ -717,7 +726,7 @@
     <value>3</value>
   </data>
   <data name="gridColumn2.Width" type="System.Int32, mscorlib">
-    <value>128</value>
+    <value>159</value>
   </data>
   <data name="gridColumn3.Caption" xml:space="preserve">
     <value>数量</value>
@@ -732,7 +741,7 @@
     <value>4</value>
   </data>
   <data name="gridColumn3.Width" type="System.Int32, mscorlib">
-    <value>67</value>
+    <value>50</value>
   </data>
   <data name="gridColumn4.Caption" xml:space="preserve">
     <value>总用量</value>
@@ -756,7 +765,7 @@
     <value>5</value>
   </data>
   <data name="gridColumnUnit.Width" type="System.Int32, mscorlib">
-    <value>87</value>
+    <value>42</value>
   </data>
   <data name="gridColumn6.Caption" xml:space="preserve">
     <value>库存</value>
@@ -773,9 +782,6 @@
   <data name="gridColumnDepotPosition.Caption" xml:space="preserve">
     <value>退入货位</value>
   </data>
-  <metadata name="bindingSourceDepotPosition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>851, 17</value>
-  </metadata>
   <data name="repositoryItemLookUpEdit3.AutoHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -812,6 +818,9 @@
   <data name="repositoryItemLookUpEdit3.Columns9" type="DevExpress.Utils.HorzAlignment, DevExpress.Data.v10.2">
     <value>Default</value>
   </data>
+  <metadata name="bindingSourceDepotPosition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>851, 17</value>
+  </metadata>
   <data name="repositoryItemLookUpEdit3.NullText" xml:space="preserve">
     <value />
   </data>
@@ -819,10 +828,10 @@
     <value>True</value>
   </data>
   <data name="gridColumnDepotPosition.VisibleIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="gridColumnDepotPosition.Width" type="System.Int32, mscorlib">
-    <value>83</value>
+    <value>58</value>
   </data>
   <data name="gridColumn5.Caption" xml:space="preserve">
     <value>批号</value>
@@ -831,10 +840,10 @@
     <value>True</value>
   </data>
   <data name="gridColumn5.VisibleIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="gridColumn5.Width" type="System.Int32, mscorlib">
-    <value>79</value>
+    <value>70</value>
   </data>
   <data name="gridColumn1.Caption" xml:space="preserve">
     <value>说明</value>
@@ -843,10 +852,10 @@
     <value>True</value>
   </data>
   <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="gridColumn1.Width" type="System.Int32, mscorlib">
-    <value>55</value>
+    <value>74</value>
   </data>
   <data name="gridColumn8.Caption" xml:space="preserve">
     <value>手册号</value>
@@ -855,10 +864,10 @@
     <value>True</value>
   </data>
   <data name="gridColumn8.VisibleIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="gridColumn8.Width" type="System.Int32, mscorlib">
-    <value>51</value>
+    <value>81</value>
   </data>
   <data name="gridColumn9.Caption" xml:space="preserve">
     <value>项号</value>
@@ -867,10 +876,10 @@
     <value>True</value>
   </data>
   <data name="gridColumn9.VisibleIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="gridColumn9.Width" type="System.Int32, mscorlib">
-    <value>65</value>
+    <value>36</value>
   </data>
   <data name="gridColumn10.Caption" xml:space="preserve">
     <value>不计算库存</value>
@@ -882,14 +891,35 @@
     <value>True</value>
   </data>
   <data name="gridColumn10.VisibleIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="gridColumn10.Width" type="System.Int32, mscorlib">
-    <value>79</value>
+    <value>70</value>
   </data>
-  <metadata name="bindingSourceDepot.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>677, 17</value>
-  </metadata>
+  <data name="gridColumn11.Caption" xml:space="preserve">
+    <value>加工单号</value>
+  </data>
+  <data name="gridColumn11.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn11.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="gridColumn11.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
+  <data name="gridColumn12.Caption" xml:space="preserve">
+    <value>客户订单号</value>
+  </data>
+  <data name="gridColumn12.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn12.VisibleIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="gridColumn12.Width" type="System.Int32, mscorlib">
+    <value>105</value>
+  </data>
   <data name="repositoryItemLookUpEdit2.AutoHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -935,6 +965,9 @@
   <data name="repositoryItemLookUpEdit2.Columns12" type="DevExpress.Utils.HorzAlignment, DevExpress.Data.v10.2">
     <value>Default</value>
   </data>
+  <metadata name="bindingSourceDepot.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>677, 17</value>
+  </metadata>
   <data name="repositoryItemLookUpEdit2.NullText" xml:space="preserve">
     <value />
   </data>
@@ -1126,7 +1159,7 @@
     <value>供应商：</value>
   </data>
   <data name="layoutControlItem17.Text" xml:space="preserve">
-    <value>    供应商：</value>
+    <value>供应商：</value>
   </data>
   <data name="layoutControlItem12.CustomizationFormText" xml:space="preserve">
     <value>客户订单编号:</value>
@@ -1170,18 +1203,6 @@
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="bindingSourceProductId.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>303, 17</value>
-  </metadata>
-  <metadata name="bindingSourceDepotPosition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>851, 17</value>
-  </metadata>
-  <metadata name="bindingSourceDepot.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>677, 17</value>
-  </metadata>
-  <data name="barButtonItem1.Caption" xml:space="preserve">
-    <value>选择加工单</value>
-  </data>
   <data name="layoutControlItem15.CustomizationFormText" xml:space="preserve">
     <value>操作人：</value>
   </data>
@@ -1199,9 +1220,6 @@
   </data>
   <data name="layoutControlItem18.Text" xml:space="preserve">
     <value>審核人：</value>
-  </data>
-  <data name="barBtnSearch.Caption" xml:space="preserve">
-    <value>搜索</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1365,6 +1383,24 @@
   <data name="&gt;&gt;gridColumn10.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;repositoryItemCheckEdit1.Name" xml:space="preserve">
+    <value>repositoryItemCheckEdit1</value>
+  </data>
+  <data name="&gt;&gt;repositoryItemCheckEdit1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridColumn11.Name" xml:space="preserve">
+    <value>gridColumn11</value>
+  </data>
+  <data name="&gt;&gt;gridColumn11.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridColumn12.Name" xml:space="preserve">
+    <value>gridColumn12</value>
+  </data>
+  <data name="&gt;&gt;gridColumn12.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;repositoryItemLookUpEdit2.Name" xml:space="preserve">
     <value>repositoryItemLookUpEdit2</value>
   </data>
@@ -1526,12 +1562,6 @@
   </data>
   <data name="&gt;&gt;barBtnSearch.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;repositoryItemCheckEdit1.Name" xml:space="preserve">
-    <value>repositoryItemCheckEdit1</value>
-  </data>
-  <data name="&gt;&gt;repositoryItemCheckEdit1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>EditForm</value>

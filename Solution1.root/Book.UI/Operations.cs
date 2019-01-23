@@ -529,7 +529,9 @@ namespace Book.UI
             operations.Add("query.q48", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.Q48", new Book.UI.Query.ConditionMPShooseForm()); });
             operations.Add("query.q49", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.Q49", new Book.UI.Query.ConditionPronoteHeaderChooseForm()); });
             operations.Add("query.q50", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.Q50", new Book.UI.Query.ConditionMaterialChooseForm()); });
-            operations.Add("query.q51", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.Q51", new Book.UI.Query.ConditionMaterialChooseForm()); });
+            //operations.Add("query.q51", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.Q51", new Book.UI.Query.ConditionMaterialChooseForm()); });
+            //生产退料明细
+            operations.Add("query.q51", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.Q51", new Book.UI.produceManager.ProduceMaterialExit.ConditionForList()); });
             operations.Add("query.q59", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.Q59", new Book.UI.Query.ConditionMRSChooseForm()); });
             operations.Add("query.ROMRSDetailsList", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ROMRSDetailsList", new Book.UI.Query.ConditionMRSChooseForm()); });
             operations.Add("query.conditionStockCheckReport", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ConditionStockCheckReport", new Book.UI.Query.ConditionStockCheckChooseForm()); });
@@ -779,6 +781,9 @@ namespace Book.UI
 
             //阻燃性测试表
             operations.Add("produceManager.PCFlameRetardant.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCFlameRetardant.EditForm", form); });
+
+            //仓库待转区库存
+            operations.Add("Query.PendingAreaStock", (D1)delegate(System.Windows.Forms.Form form) { M1("Query.PendingAreaStock", form); });
         }
 
         static Form CreateForm(string formTypeName)

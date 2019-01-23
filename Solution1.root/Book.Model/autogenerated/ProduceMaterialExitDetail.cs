@@ -388,6 +388,12 @@ namespace Book.Model
 
         private bool? _isCountStock;
 
+        private string _invoiceXOId;
+
+        private string _pronoteHeaderId;
+
+        private Model.InvoiceXO _invoiceXO;
+
         /// <summary>
         /// 不计算库存
         /// </summary>
@@ -397,6 +403,28 @@ namespace Book.Model
             set { _isCountStock = value; }
         }
 
+        public string InvoiceXOId
+        {
+            get { return _invoiceXOId; }
+            set { _invoiceXOId = value; }
+        }
+
+        public string PronoteHeaderId
+        {
+            get { return _pronoteHeaderId; }
+            set { _pronoteHeaderId = value; }
+        }
+
+        public Model.InvoiceXO InvoiceXO
+        {
+            get { return _invoiceXO; }
+            set { _invoiceXO = value; }
+        }
+
         public static string PRO_IsCountStock = "IsCountStock";
+
+        public static string pro_InvoiceXOId = "InvoiceXOId";
+
+        public static string PRO_PronoteHeaderId = "PronoteHeaderId";
 	}
 }

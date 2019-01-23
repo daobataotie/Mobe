@@ -20,9 +20,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="HandbookId" column="HandbookId"/>
       <result property="HandbookProductId" column="HandbookProductId"/>
       <result property="IsCountStock" column="IsCountStock"/>
+      <result property="InvoiceXOId" column="InvoiceXOId"/>
+      <result property="PronoteHeaderId" column="PronoteHeaderId"/>
       <result property="ProduceMaterialExit" column="ProduceMaterialExitId" lazyLoad="false" select="ProduceMaterialExit.select_by_primary_key" />
       <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
       <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
+      <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo"/>
     </resultMap>
   </resultMaps>
 
@@ -65,7 +68,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[ProductioinBatch],
         [HandbookId],
         [HandbookProductId],
-        [IsCountStock]
+        [IsCountStock],
+        [InvoiceXOId],
+        [PronoteHeaderId]
+        
 			FROM
 				[dbo].[ProduceMaterialExitDetail]
 			WHERE
@@ -132,7 +138,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[ProductioinBatch],
         [HandbookId],
         [HandbookProductId],
-        [IsCountStock]
+        [IsCountStock],
+        [InvoiceXOId],
+        [PronoteHeaderId]
 			) 
 			VALUES 
 			(
@@ -149,7 +157,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#ProductioinBatch#,
         #HandbookId#,
         #HandbookProductId#,
-        #IsCountStock#
+        #IsCountStock#,
+        #InvoiceXOId#,
+        #PronoteHeaderId#
 			)
              ]]>
     </insert>
@@ -169,7 +179,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[ProductioinBatch] = #ProductioinBatch#,
         [HandbookId]=#HandbookId#,
         [HandbookProductId]=#HandbookProductId#,
-        [IsCountStock]=#IsCountStock#
+        [IsCountStock]=#IsCountStock#,
+        [InvoiceXOId]=#InvoiceXOId#,
+        [PronoteHeaderId]=#PronoteHeaderId#
 			WHERE
 				[ProduceMaterialExitDetailId] = #ProduceMaterialExitDetailId#
                     ]]>

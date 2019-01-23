@@ -283,7 +283,7 @@
             this.gridColumnCheck.Name = "gridColumnCheck";
             this.gridColumnCheck.Visible = true;
             this.gridColumnCheck.VisibleIndex = 0;
-            this.gridColumnCheck.Width = 68;
+            this.gridColumnCheck.Width = 49;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -299,6 +299,7 @@
             this.gridColumnProductId.OptionsColumn.AllowEdit = false;
             this.gridColumnProductId.Visible = true;
             this.gridColumnProductId.VisibleIndex = 1;
+            this.gridColumnProductId.Width = 149;
             // 
             // gridColumn3
             // 
@@ -307,6 +308,7 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 258;
             // 
             // gridColumnProductName
             // 
@@ -322,6 +324,7 @@
             this.gridColumnProductUnit.OptionsColumn.AllowEdit = false;
             this.gridColumnProductUnit.Visible = true;
             this.gridColumnProductUnit.VisibleIndex = 3;
+            this.gridColumnProductUnit.Width = 105;
             // 
             // gridColumn8
             // 
@@ -331,7 +334,7 @@
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 4;
-            this.gridColumn8.Width = 107;
+            this.gridColumn8.Width = 156;
             // 
             // repositoryItemLookUpEdit1
             // 

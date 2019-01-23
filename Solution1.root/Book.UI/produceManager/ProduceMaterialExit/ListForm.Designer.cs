@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListForm));
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProduct = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCustomerProduct = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,10 +42,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -68,7 +67,6 @@
             this.gridColumn2,
             this.gridColumn3,
             this.colProduct,
-            this.colCustomerProduct,
             this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8,
@@ -79,13 +77,6 @@
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridView1_CustomColumnDisplayText);
             // 
-            // gridControl1
-            // 
-            gridLevelNode2.RelationName = "Level1";
-            this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
-            resources.ApplyResources(this.gridControl1, "gridControl1");
-            // 
             // imageCollection1
             // 
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
@@ -95,12 +86,19 @@
             resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Controls.SetChildIndex(this.gridControl1, 0);
             // 
+            // gridControl1
+            // 
+            gridLevelNode2.RelationName = "Level1";
+            this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode2});
+            resources.ApplyResources(this.gridControl1, "gridControl1");
+            // 
             // gridColumn1
             // 
             resources.ApplyResources(this.gridColumn1, "gridColumn1");
             this.gridColumn1.DisplayFormat.FormatString = "yyyy-MM-dd";
             this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.gridColumn1.FieldName = "ProduceExitMaterialDate";
+            this.gridColumn1.FieldName = "ProduceMaterialExit.ProduceExitMaterialDate";
             this.gridColumn1.Name = "gridColumn1";
             // 
             // gridColumn2
@@ -112,35 +110,31 @@
             // gridColumn3
             // 
             resources.ApplyResources(this.gridColumn3, "gridColumn3");
-            this.gridColumn3.FieldName = "PronoteHeaderID";
+            this.gridColumn3.FieldName = "PronoteHeaderId";
             this.gridColumn3.Name = "gridColumn3";
             // 
             // colProduct
             // 
             resources.ApplyResources(this.colProduct, "colProduct");
+            this.colProduct.FieldName = "Product.ProductName";
             this.colProduct.Name = "colProduct";
-            // 
-            // colCustomerProduct
-            // 
-            resources.ApplyResources(this.colCustomerProduct, "colCustomerProduct");
-            this.colCustomerProduct.Name = "colCustomerProduct";
             // 
             // gridColumn6
             // 
             resources.ApplyResources(this.gridColumn6, "gridColumn6");
-            this.gridColumn6.FieldName = "WorkHouse";
+            this.gridColumn6.FieldName = "ProduceMaterialExit.WorkHouse";
             this.gridColumn6.Name = "gridColumn6";
             // 
             // gridColumn7
             // 
             resources.ApplyResources(this.gridColumn7, "gridColumn7");
-            this.gridColumn7.FieldName = "CustomerInvoiceXOId";
+            this.gridColumn7.FieldName = "InvoiceXO.CustomerInvoiceXOId";
             this.gridColumn7.Name = "gridColumn7";
             // 
             // gridColumn8
             // 
             resources.ApplyResources(this.gridColumn8, "gridColumn8");
-            this.gridColumn8.FieldName = "Supplier";
+            this.gridColumn8.FieldName = "ProduceMaterialExit.Supplier";
             this.gridColumn8.Name = "gridColumn8";
             // 
             // gridColumn9
@@ -164,10 +158,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,7 +172,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn colProduct;
-        private DevExpress.XtraGrid.Columns.GridColumn colCustomerProduct;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;

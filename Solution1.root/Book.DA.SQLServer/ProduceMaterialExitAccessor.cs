@@ -32,10 +32,10 @@ namespace Book.DA.SQLServer
             return sqlmapper.QueryForList<Model.ProduceMaterialExit>("ProduceMaterialExit.SelectByProduceHeaderId", produceHeaderid);
         }
 
-        public IList<Book.Model.ProduceMaterialExit> SelectForListForm(DateTime startDate, DateTime endDate, string startPMEId, string endPMEId, string startPronoteHeaderId, string endPronoteHeaderId, Book.Model.Product startProduct, Book.Model.Product endProduct)
+        public IList<Book.Model.ProduceMaterialExit> SelectForListForm(DateTime startDate, DateTime endDate, string startPMEId, string endPMEId, string startPronoteHeaderId, string endPronoteHeaderId, Book.Model.Product startProduct, Book.Model.Product endProduct, string workhouseId, string invoiceXOCusId, string handBookId)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(" AND ProduceExitMaterialDate BETWEEN '" + startDate.ToString("yyyy-MM-dd") + "' AND '" + endDate.ToString("yyyy-MM-dd") + "'");
+            sb.Append(" AND ProduceExitMaterialDate BETWEEN '" + startDate.ToString("yyyy-MM-dd") + "' AND '" + endDate.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "'");
 
             if (!string.IsNullOrEmpty(startPMEId) && !string.IsNullOrEmpty(endPMEId))
             {
@@ -44,12 +44,27 @@ namespace Book.DA.SQLServer
 
             if (!string.IsNullOrEmpty(startPronoteHeaderId) && !string.IsNullOrEmpty(endPronoteHeaderId))
             {
-                sb.Append(" AND PronoteHeaderID BETWEEN '" + startPronoteHeaderId + "' AND '" + endPronoteHeaderId + "'");
+                //sb.Append(" AND PronoteHeaderID BETWEEN '" + startPronoteHeaderId + "' AND '" + endPronoteHeaderId + "'");
+                sb.Append(" and ProduceMaterialExitId in (select ProduceMaterialExitId from ProduceMaterialExitDetail where PronoteHeaderID between '" + startPronoteHeaderId + "' and '" + endPronoteHeaderId + "')");
             }
 
             if (startProduct != null & endProduct != null)
             {
-                sb.Append(" AND PronoteHeaderID IN (SELECT PronoteHeaderID FROM PronoteHeader WHERE ProductId BETWEEN '" + startProduct.ProductId + "' AND '" + endProduct.ProductId + "')");
+                //sb.Append(" AND PronoteHeaderID IN (SELECT PronoteHeaderID FROM PronoteHeader WHERE ProductId BETWEEN '" + startProduct.ProductId + "' AND '" + endProduct.ProductId + "')");
+                sb.Append(" and  ProduceMaterialExitId in (select ProduceMaterialExitId from ProduceMaterialExitDetail where ProductId in (select ProductId from Product where Id between '" + startProduct.Id + "' and '" + endProduct.Id + "'))");
+            }
+            if (!string.IsNullOrEmpty(workhouseId))
+            {
+                sb.Append(" and  WorkHouseId ='" + workhouseId + "'");
+            }
+            if (!string.IsNullOrEmpty(invoiceXOCusId))
+            {
+                //sb.Append(" and CustomerInvoiceXOId='" + invoiceXOCusId + "'");
+                sb.Append(" and  ProduceMaterialExitId in (select ProduceMaterialExitId from ProduceMaterialExitDetail where InvoiceXOId in (select InvoiceId from InvoiceXO where CustomerInvoiceXOId='" + invoiceXOCusId + "'))");
+            }
+            if (!string.IsNullOrEmpty(handBookId))
+            {
+                sb.Append(" and  ProduceMaterialExitId in (select ProduceMaterialExitId from ProduceMaterialExitDetail where HandbookId='" + handBookId + "')");
             }
 
             return sqlmapper.QueryForList<Model.ProduceMaterialExit>("ProduceMaterialExit.SelectForListForm", sb.ToString());

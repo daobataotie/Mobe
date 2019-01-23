@@ -40,6 +40,8 @@ namespace Book.UI.produceManager.ProduceMaterialExit
         Model.Product product = new Book.Model.Product();
         protected BL.ProductManager productManager = new Book.BL.ProductManager();
 
+        int tag = 0;
+
         public EditForm()
         {
             InitializeComponent();
@@ -62,6 +64,8 @@ namespace Book.UI.produceManager.ProduceMaterialExit
             this._produceMaterialExit = ProduceMaterialExit;
             this._produceMaterialExit.Detail = this.produceExitDetailManager.Select(_produceMaterialExit);
             this.action = "view";
+
+            this.tag = 1;
         }
 
         public EditForm(Model.ProduceMaterialExit ProduceMaterialExit, string action)
@@ -70,6 +74,8 @@ namespace Book.UI.produceManager.ProduceMaterialExit
             this._produceMaterialExit = ProduceMaterialExit;
             this._produceMaterialExit.Detail = this.produceExitDetailManager.Select(ProduceMaterialExit);
             this.action = action;
+
+            this.tag = 1;
         }
 
         protected override void Save()
@@ -257,10 +263,13 @@ namespace Book.UI.produceManager.ProduceMaterialExit
 
         protected override void MoveLast()
         {
-            // if (_produceMaterialExit == null)
+            if (this.tag == 1)
             {
-                this._produceMaterialExit = this.produceMaterialExitManager.Get(this.produceMaterialExitManager.GetLast() == null ? "" : this.produceMaterialExitManager.GetLast().ProduceMaterialExitId);
+                this.tag = 0;
+                return;
             }
+            this._produceMaterialExit = this.produceMaterialExitManager.Get(this.produceMaterialExitManager.GetLast() == null ? "" : this.produceMaterialExitManager.GetLast().ProduceMaterialExitId);
+
         }
 
         protected override bool HasRows()
@@ -480,6 +489,7 @@ namespace Book.UI.produceManager.ProduceMaterialExit
             //}
         }
 
+        //选择加工单
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
@@ -487,23 +497,6 @@ namespace Book.UI.produceManager.ProduceMaterialExit
             if (f.ShowDialog(this) != DialogResult.OK) return;
             if (PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList.Count != 0)
             {
-                Model.PronoteHeader pronoteHeader = PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].PronoteHeader;
-
-                this._produceMaterialExit.PronoteHeaderID = pronoteHeader.PronoteHeaderID;
-                this.textEditProId.Text = pronoteHeader.Product.Id;
-                this.textEditProName.Text = pronoteHeader.Product.ProductName;
-                this.textEditCusProName.Text = pronoteHeader.Product.CustomerProductName;
-                //if (!string.IsNullOrEmpty(pronoteHeader.InvoiceXOId))
-                //{
-                //    Model.InvoiceXO xo = new BL.InvoiceXOManager().Get(pronoteHeader.InvoiceXOId);
-                //    if (xo != null)
-                this.textEditCustomerXOId.Text = pronoteHeader.InvoiceCusId;
-                //    else
-                //        this.textEditCustomerXOId.EditValue = null;
-                //}
-                //else
-                //    this.textEditCustomerXOId.EditValue = null;
-                this.tEtPronoteHeaderId.Text = pronoteHeader.PronoteHeaderID;
                 foreach (Model.PronotedetailsMaterial pronoteMaterial in PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList)
                 {
                     Model.ProduceMaterialExitDetail produceMaterialExitDetail = new Book.Model.ProduceMaterialExitDetail();
@@ -511,25 +504,17 @@ namespace Book.UI.produceManager.ProduceMaterialExit
                     produceMaterialExitDetail.Product = pronoteMaterial.Product;
                     produceMaterialExitDetail.Inumber = this._produceMaterialExit.Detail.Count + 1;
                     produceMaterialExitDetail.ProductId = pronoteMaterial.ProductId;
-                 
+                    produceMaterialExitDetail.ProductUnit = pronoteMaterial.ProductUnit;
                     produceMaterialExitDetail.HandbookId = pronoteMaterial.PronoteHeader.HandbookId;
                     produceMaterialExitDetail.HandbookProductId = pronoteMaterial.PronoteHeader.HandbookProductId;
 
-                    //   produceMaterialExitDetail.PronotedetailsMaterialId = pronoteMaterial.PronotedetailsMaterialId;
+
                     produceMaterialExitDetail.ProduceQuantity = 0;
                     if (produceMaterialExitDetail.Product != null)
                     {
-                        if (pronoteMaterial.Product.DepotUnit != null)
-                            produceMaterialExitDetail.ProductUnit = pronoteMaterial.Product.DepotUnit.CnName;
-                        // produceMaterialExitDetail. = pronotedetails.Product.ProductSpecification;                                  }
-                        //单位  pronotedetails. =  pronotedetails.ProductUnit;
-                        //pronotedetails.InDepotQuantity = Convert.ToDouble(mpsdetail.MPSdetailssum);                     
-                        //produceMaterialExitDetail.ProduceAllUserQuantity = pronotedetails.DetailsSum;
-                        //produceMaterialExitDetail. = this._produceMaterialExit;
-                        //produceMaterialExitDetail._produceMaterialExitID = this._produceMaterialExit._produceMaterialExitID
-                        //produceMaterialExitDetail.MPSheaderId = pronotedetails.MPSheaderId;
-                        //produceMaterialExitDetail.InvoiceXOId = pronotedetails.InvoiceXOId;
-                        //produceMaterialExitDetail.InvoiceXODetailId = pronotedetails.InvoiceXODetailId;                      
+                        produceMaterialExitDetail.PronoteHeaderId = pronoteMaterial.PronoteHeaderID;
+                        produceMaterialExitDetail.InvoiceXOId = pronoteMaterial.PronoteHeader.InvoiceXOId;
+                        produceMaterialExitDetail.InvoiceXO = pronoteMaterial.PronoteHeader.InvoiceXO;
                     }
                     this._produceMaterialExit.Detail.Add(produceMaterialExitDetail);
                 }
@@ -572,16 +557,17 @@ namespace Book.UI.produceManager.ProduceMaterialExit
         private void barBtnSearch_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ListForm form = new ListForm();
-            if (form.ShowDialog(this) == DialogResult.OK)
-            {
-                Model.ProduceMaterialExit currentModel = form.SelectItem as Model.ProduceMaterialExit;
-                if (currentModel != null)
-                {
-                    this._produceMaterialExit = currentModel;
-                    this._produceMaterialExit = this.produceMaterialExitManager.GetDetails(_produceMaterialExit.ProduceMaterialExitId);
-                    this.Refresh();
-                }
-            }
+            form.ShowDialog(this);
+            //if (form.ShowDialog(this) == DialogResult.OK)
+            //{
+            //    Model.ProduceMaterialExit currentModel = form.SelectItem as Model.ProduceMaterialExit;
+            //    if (currentModel != null)
+            //    {
+            //        this._produceMaterialExit = currentModel;
+            //        this._produceMaterialExit = this.produceMaterialExitManager.GetDetails(_produceMaterialExit.ProduceMaterialExitId);
+            //        this.Refresh();
+            //    }
+            //}
         }
     }
 }

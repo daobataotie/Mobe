@@ -26,5 +26,11 @@
 	  <delete id="delete_byheader" parameterClass="string">
 		  delete from ProduceMaterialExitDetail WHERE ProduceMaterialExitId=#value#
 	  </delete>
+
+    <select id="SelectForListForm" parameterClass="string" resultMap="ProduceMaterialExitDetailResult">
+      <![CDATA[
+      select * from ProduceMaterialExitDetail ped left join ProduceMaterialExit pe on ped.ProduceMaterialExitId=pe.ProduceMaterialExitId where 1=1 $value$ order by ped.ProduceMaterialExitId
+      ]]>
+    </select>
   </statements>
 </sqlMap>

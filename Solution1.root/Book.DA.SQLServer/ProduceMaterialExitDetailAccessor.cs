@@ -80,5 +80,40 @@ namespace Book.DA.SQLServer
 
             return Convert.ToDouble(this.QueryObject(sql));
         }
+
+        public IList<Book.Model.ProduceMaterialExitDetail> SelectForListForm(DateTime startDate, DateTime endDate, string startPMEId, string endPMEId, string startPronoteHeaderId, string endPronoteHeaderId, Book.Model.Product startProduct, Book.Model.Product endProduct, string workhouseId, string invoiceXOCusId, string handBookId)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" AND pe.ProduceExitMaterialDate BETWEEN '" + startDate.ToString("yyyy-MM-dd") + "' AND '" + endDate.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "'");
+
+            if (!string.IsNullOrEmpty(startPMEId) && !string.IsNullOrEmpty(endPMEId))
+            {
+                sb.Append(" AND ped.ProduceMaterialExitId BETWEEN '" + startPMEId + "' AND '" + endPMEId + "'");
+            }
+
+            if (!string.IsNullOrEmpty(startPronoteHeaderId) && !string.IsNullOrEmpty(endPronoteHeaderId))
+            {
+                sb.Append(" and ped.PronoteHeaderID between '" + startPronoteHeaderId + "' and '" + endPronoteHeaderId + "'");
+            }
+
+            if (startProduct != null & endProduct != null)
+            {
+                sb.Append(" and ped.ProductId in (select ProductId from Product where Id between '" + startProduct.Id + "' and '" + endProduct.Id + "')");
+            }
+            if (!string.IsNullOrEmpty(workhouseId))
+            {
+                sb.Append(" and pe.WorkHouseId ='" + workhouseId + "'");
+            }
+            if (!string.IsNullOrEmpty(invoiceXOCusId))
+            {
+                sb.Append(" and ped.InvoiceXOId in (select InvoiceId from InvoiceXO where CustomerInvoiceXOId='" + invoiceXOCusId + "')");
+            }
+            if (!string.IsNullOrEmpty(handBookId))
+            {
+                sb.Append(" and ped.HandbookId='" + handBookId + "'");
+            }
+
+            return sqlmapper.QueryForList<Model.ProduceMaterialExitDetail>("ProduceMaterialExitDetail.SelectForListForm", sb.ToString());
+        }
     }
 }
