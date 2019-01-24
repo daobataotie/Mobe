@@ -171,7 +171,7 @@ namespace Book.UI.Query
                 excel.Cells[2, 5] = "总数";
                 excel.Cells[2, 6] = "手册号";
 
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 7 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "12566463";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 6 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "12566463";
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 25;
                 excel.get_Range(excel.Cells[2, 2], excel.Cells[2, 2]).ColumnWidth = 50;
 
