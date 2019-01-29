@@ -282,6 +282,8 @@ namespace Book.UI.produceManager.ProduceMaterial
             {
                 Model.ProduceMaterialdetails produceMaterialdetails = new Book.Model.ProduceMaterialdetails();
                 produceMaterialdetails.Inumber = this._produceMaterial.Details.Count + 1;
+                produceMaterialdetails.HandbookId = PronoteMaterial.PronoteHeader.HandbookId;
+                produceMaterialdetails.HandbookProductId = PronoteMaterial.PronoteHeader.HandbookProductId;
                 produceMaterialdetails.ProduceMaterialdetailsID = Guid.NewGuid().ToString();
                 produceMaterialdetails.PronoteHeaderID = PronoteMaterial.PronoteHeaderID;
                 produceMaterialdetails.PronotedetailsID = PronoteMaterial.PronotedetailsMaterialId;
