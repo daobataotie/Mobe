@@ -76,5 +76,14 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForObject<bool>("MRSHeader.IsCloseed", mrsid);
         }
+
+        public IList<string> SelectAllProductIdByMRSHeaderId(string MRSHerderId, string handBookProductId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("MRSHeaderId", MRSHerderId);
+            ht.Add("HandbookProductId", handBookProductId);
+
+            return sqlmapper.QueryForList<string>("MRSHeader.SelectAllProductIdByMRSHeaderId", ht);
+        }
     }
 }

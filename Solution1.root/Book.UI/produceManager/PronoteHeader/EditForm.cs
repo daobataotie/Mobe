@@ -389,6 +389,7 @@ namespace Book.UI.produceManager.PronoteHeader
 
         protected override DevExpress.XtraReports.UI.XtraReport GetReport()
         {
+            //0：生产加工    4：组装加工    5：加工指示
             if (FlagIsProcee == 4)
             {
                 return new RO(pronoteHeader.PronoteHeaderID, FlagIsProcee);

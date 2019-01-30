@@ -42,7 +42,7 @@ namespace Book.BL
             //
             _ValidateForDelete(mRSHeader);
             try
-            {               
+            {
                 BL.V.BeginTransaction();
                 this._Delete(mRSHeader);
                 BL.V.CommitTransaction();
@@ -56,7 +56,7 @@ namespace Book.BL
         public void _ValidateForDelete(Model.MRSHeader mRSHeader)
         {
             switch (mRSHeader.SourceType)
-            { 
+            {
                 case "3":
                 case "6":
                     if (this.JudgeValueExists(" SELECT  1 FROM ProduceOtherCompact where MRSHeaderId ='" + mRSHeader.MRSHeaderId + "' "))
@@ -83,11 +83,11 @@ namespace Book.BL
 
 
 
-              
-            }
-           
 
-           
+            }
+
+
+
         }
 
         public Model.MRSHeader GetDetails(string mRSheaderId)
@@ -128,7 +128,7 @@ namespace Book.BL
                     mRSHeader.Employee1Id = mRSHeader.Employee1.EmployeeId;
                 mRSHeader.InvoiceStatus = 1;
 
-              
+
 
 
 
@@ -271,10 +271,15 @@ namespace Book.BL
         {
             return accessor.SelectbyCondition(mrsstartId, mrsendId, customerstartId, customerendId, startdate, enddate, sourceType, id1, id2, cusxoid, product);
         }
-     
+
         public bool SelectIsCloseed(string mrsid)
         {
             return accessor.SelectIsCloseed(mrsid);
+        }
+
+        public IList<string> SelectAllProductIdByMRSHeaderId(string MRSHerderId, string handBookProductId)
+        {
+            return accessor.SelectAllProductIdByMRSHeaderId(MRSHerderId, handBookProductId);
         }
     }
 }

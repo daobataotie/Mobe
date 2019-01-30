@@ -33,7 +33,7 @@ namespace Book.UI.produceManager.PronoteHeader
                     detail.Product = new BL.ProductManager().Get(detail.ProductId);
 
                     if (string.IsNullOrEmpty(detail.CustomerProductName))
-                        detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail.PronoteHeaderID, detail.ProductId,detail.HandbookProductId);
+                        detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId,detail.HandbookProductId);
                 }
             }
             this.DataSource = list;
@@ -104,7 +104,7 @@ namespace Book.UI.produceManager.PronoteHeader
                 {
                     detail.Product = new BL.ProductManager().Get(detail.ProductId);
                     if (string.IsNullOrEmpty(detail.CustomerProductName))
-                        detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail.PronoteHeaderID, detail.ProductId, detail.HandbookProductId);
+                        detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId, detail.HandbookProductId);
                 }
             }
             this.DataSource = list;
