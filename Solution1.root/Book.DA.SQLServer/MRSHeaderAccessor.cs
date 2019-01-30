@@ -81,7 +81,7 @@ namespace Book.DA.SQLServer
         {
             Hashtable ht = new Hashtable();
             ht.Add("MRSHeaderId", MRSHerderId);
-            ht.Add("HandbookProductId", handBookProductId);
+            ht.Add("HandbookProductId", string.IsNullOrEmpty(handBookProductId) ? null : handBookProductId);
 
             return sqlmapper.QueryForList<string>("MRSHeader.SelectAllProductIdByMRSHeaderId", ht);
         }

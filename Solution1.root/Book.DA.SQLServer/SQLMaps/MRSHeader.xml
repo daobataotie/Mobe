@@ -25,7 +25,7 @@ THEN 0 ELSE 1 END
 
     <select id="SelectAllProductIdByMRSHeaderId" resultClass="string" parameterClass="Map">
       <![CDATA[
-      select ProductId from MRSdetails where MRSHeaderId in (select MRSHeaderId from MRSHeader where MPSheaderId = (select MPSheaderId from MRSHeader where MRSHeaderId=#MRSHeaderId#) and SourceType=4) and HandbookProductId=#HandbookProductId#
+      select ProductId from MRSdetails where MRSHeaderId in (select MRSHeaderId from MRSHeader where MPSheaderId = (select MPSheaderId from MRSHeader where MRSHeaderId=#MRSHeaderId#) and SourceType=4) and (HandbookProductId=#HandbookProductId# or #HandbookProductId# is null)
       ]]>
     </select>
   </statements>
