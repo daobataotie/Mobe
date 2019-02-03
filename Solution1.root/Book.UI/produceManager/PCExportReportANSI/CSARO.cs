@@ -40,7 +40,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
 
             this.xrTableCell20.Text = _PCExportReportANSI.CeShiSuLi + this.xrTableCell20.Text;
 
-            this.LbSpecifiction.Text = string.IsNullOrEmpty(_PCExportReportANSI.CSAJiShuBiaoZhun) ? "CSA Z94.3-07" : _PCExportReportANSI.CSAJiShuBiaoZhun;
+            this.LbSpecifiction.Text = string.IsNullOrEmpty(_PCExportReportANSI.CSAJiShuBiaoZhun) ? "CSA Z94.3-2015" : _PCExportReportANSI.CSAJiShuBiaoZhun;
             //if (_PCExportReportANSI.CSAJiShuBiaoZhun != null && _PCExportReportANSI.CSAJiShuBiaoZhun.Contains("2015"))
             //    this.xrLabel121.Text="R7-08-03-R-2";
             this.LbOpticsTestAmount.Text = (_PCExportReportANSI.ShouCeShu1.HasValue ? _PCExportReportANSI.ShouCeShu1.ToString() : "0") + "PCS";

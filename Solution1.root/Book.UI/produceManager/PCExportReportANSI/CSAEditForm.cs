@@ -122,10 +122,13 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._PCExportReportANSI = new Book.Model.PCExportReportANSI();
             this._PCExportReportANSI.ExportReportId = this._PCExportReportANSIManager.GetId();
             this._PCExportReportANSI.ReportDate = DateTime.Now.Date;
+            this._PCExportReportANSI.Employee = BL.V.ActiveOperator.Employee;
             this._PCExportReportANSI.ExpType = "CSA";
 
-            var jiShuBiaoZhun = new BL.SettingManager().SelectByName("CSAJiShuBiaoZhun").Last();
+            var jiShuBiaoZhun = new BL.SettingManager().SelectByName("CSAJiShuBiaoZhun").FirstOrDefault(D => D.SettingCurrentValue.Contains("2015"));
             this._PCExportReportANSI.CSAJiShuBiaoZhun = jiShuBiaoZhun == null ? "CSA Z94.3-2015" : jiShuBiaoZhun.SettingCurrentValue;
+
+            this._PCExportReportANSI.CeShiSuLi = this.comboBox1.Items.Count > 0 ? this.comboBox1.Items[0].ToString() : null;
         }
 
         protected override void Delete()
@@ -152,7 +155,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._PCExportReportANSI.Mirrorlens = this.memoMirrorlens.EditValue == null ? null : this.memoMirrorlens.EditValue.ToString();
             this._PCExportReportANSI.ReportDate = this.DateReportDate.EditValue == null ? DateTime.Now : this.DateReportDate.DateTime;
             //this._PCExportReportANSI.CSAJiShuBiaoZhun = this.label25.Text;
-            this._PCExportReportANSI.CSAJiShuBiaoZhun = this.comboBoxEdit1.SelectedText;
+            this._PCExportReportANSI.CSAJiShuBiaoZhun = this.comboBoxEdit1.SelectedItem == null ? null : this.comboBoxEdit1.SelectedItem.ToString();
 
             if (this._PCExportReportANSI.Customer != null)
             {
@@ -237,7 +240,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
             //this.SpinTestAmount.Enabled = false;
             this.TxtProduct.Enabled = false;
             this.TxtCustomersId.Enabled = false;
-            this.comboBox1.SelectedItem = this._PCExportReportANSI.CeShiSuLi;
         }
 
         //控件赋值
@@ -280,7 +282,9 @@ namespace Book.UI.produceManager.PCExportReportANSI
 
             this.lookUpEditUnit.EditValue = this._PCExportReportANSI.ProductUnitId;
             //this.label25.Text = string.IsNullOrEmpty(this._PCExportReportANSI.CSAJiShuBiaoZhun) ? "CSA Z94.3-07" : this._PCExportReportANSI.CSAJiShuBiaoZhun;
-            this.comboBoxEdit1.Text = string.IsNullOrEmpty(this._PCExportReportANSI.CSAJiShuBiaoZhun) ? "CSA Z94.3-07" : this._PCExportReportANSI.CSAJiShuBiaoZhun;
+            this.comboBoxEdit1.Text = string.IsNullOrEmpty(this._PCExportReportANSI.CSAJiShuBiaoZhun) ? "CSA Z94.3-2015" : this._PCExportReportANSI.CSAJiShuBiaoZhun;
+
+            this.comboBox1.SelectedItem = this._PCExportReportANSI.CeShiSuLi;
         }
 
         //列印
