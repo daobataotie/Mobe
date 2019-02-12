@@ -1,17 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-<sqlMap namespace="RoleAuditing" xmlns="http://ibatis.apache.org/mapping" 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="RoleAuditing" xmlns="http://ibatis.apache.org/mapping"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <statements>
-    <select id="select_IsHasAudit" parameterClass="Map" resultClass="bool"><!--是否拥有下级级别审核权限-->
+    <!--<select id="select_IsHasAudit" parameterClass="Map" resultClass="bool">      --><!--是否拥有下级级别审核权限--><!--
       select case when exists(
       select 1 from RoleAuditing where invoiceid=#invoiceid:varchar# and TableName=#TableName:varchar#   and  NextAuditRoleId in(select roleid from OperationRole where OperatorsId =#operatorsId:varchar# and IsHold=1)
       ) then 1 else 0 end
-    </select>
-    <select id="select_IsHasGiveUpAudited" parameterClass="Map" resultClass="bool"> <!--是否有弃核权限-->
+    </select>-->
+    <!--<select id="select_IsHasGiveUpAudited" parameterClass="Map" resultClass="bool">      -->
+    <!--是否有弃核权限-->
+    <!--
       select case when exists(
       select 1 from RoleAuditing where invoiceid=#invoiceid# and TableName=#TableName:varchar#  and  Role1Id in(select roleid from OperationRole where OperatorsId =#operatorsId:varchar# and IsHold=1)
       ) then 1 else 0 end
+    </select>-->
+    
+    <select id="select_IsHasAudit" parameterClass="Map" resultClass="bool">      <!--2019年2月12日11:34:44 改为只判断是否具有审核权限-->
+      select case when exists(select * from RoleOperation ro left join OperationRole o on ro.RoleId=o.RoleId where ro.TableName=#TableName# and ro.PossAuditingRank is not null and o.OperatorsId=#operatorsId# and o.IsHold=1 ) then 1 else 0 end
+    </select>    
+    <select id="select_IsHasGiveUpAudited" parameterClass="Map" resultClass="bool">       <!--2019年2月12日11:34:44 改为只判断是否具有审核权限-->
+      select case when exists(select * from RoleOperation ro left join OperationRole o on ro.RoleId=o.RoleId where ro.TableName=#TableName# and ro.PossAuditingRank is not null and o.OperatorsId=#operatorsId# and o.IsHold=1 ) then 1 else 0 end
     </select>
+    
     <select id="select_IsNeedAuditByTableName" parameterClass="string" resultClass="bool">
       select case when exists(
       select 1 FROM RoleOperation WHERE OperationId in(SELECT OperationId FROM Operation WHERE TableName=#value:varchar#) AND RoleOperation.PossAuditingRank>0
@@ -34,6 +44,6 @@
     <delete id="delete_ByInvoiceIdAndTable" parameterClass="Map">
       delete  from RoleAuditing where invoiceid=#invoiceid:varchar#  and  tablename=#tableName:varchar#
     </delete>
-  
+
   </statements>
 </sqlMap>

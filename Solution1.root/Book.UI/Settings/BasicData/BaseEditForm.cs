@@ -253,52 +253,53 @@ namespace Book.UI.Settings.BasicData
                                 flag = 1;
                             BL.V.BeginTransaction();
 
-                            Model.RoleAuditing roleAuditing = this.roleAuditingManager.SelectByInvoiceIdAndTable(tableKeyId, tableName);
+                            //Model.RoleAuditing roleAuditing = this.roleAuditingManager.SelectByInvoiceIdAndTable(tableKeyId, tableName);
 
                             if (this.barButtonItemAudit.Caption == "åè∫À" || this.barButtonItemAudit.Caption == "…Û∫À" || this.barButtonItemAudit.Caption == "—}∫À" || this.barButtonItemAudit.Caption == "∏¥∫À")
                             {
 
-                                roleAuditing.AuditDate = DateTime.Now;
-                                roleAuditing.AuditRank = roleAuditing.AuditRank + 1;
-                                // «∑Ò◊Ó∫Û…Û∫À
-                                if (!this.roleAuditingManager.IsLastAudit(roleAuditing.AuditRank.Value + 1, tableKeyId, tableName))
-                                {
-                                    roleAuditing.AuditState = (int)global::Helper.InvoiceAudit.Audited;//…Û∫ÀΩ· ¯    
-                                    roleAuditing.NextAuditRole = null;
-                                    roleAuditing.NextAuditRoleId = null;
-                                    roleAuditing.Role1 = new BL.RoleManager().select_byAuditRandTableName(roleAuditing.AuditRank.Value, tableName);
-                                    if (roleAuditing.Role1 != null)
-                                        roleAuditing.Role1Id = roleAuditing.Role1.RoleId;
-                                }
-                                else
-                                {
-                                    roleAuditing.AuditState = (int)global::Helper.InvoiceAudit.OnAuditing;
-                                    roleAuditing.Role1 = new BL.RoleManager().select_byAuditRandTableName(roleAuditing.AuditRank.Value, tableName);
+                                //roleAuditing.AuditDate = DateTime.Now;
+                                //roleAuditing.AuditRank = roleAuditing.AuditRank + 1;
+                                //// «∑Ò◊Ó∫Û…Û∫À
+                                //if (!this.roleAuditingManager.IsLastAudit(roleAuditing.AuditRank.Value + 1, tableKeyId, tableName))
+                                //{
+                                //    roleAuditing.AuditState = (int)global::Helper.InvoiceAudit.Audited;//…Û∫ÀΩ· ¯    
+                                //    roleAuditing.NextAuditRole = null;
+                                //    roleAuditing.NextAuditRoleId = null;
+                                //    roleAuditing.Role1 = new BL.RoleManager().select_byAuditRandTableName(roleAuditing.AuditRank.Value, tableName);
+                                //    if (roleAuditing.Role1 != null)
+                                //        roleAuditing.Role1Id = roleAuditing.Role1.RoleId;
+                                //}
+                                //else
+                                //{
+                                //    roleAuditing.AuditState = (int)global::Helper.InvoiceAudit.OnAuditing;
+                                //    roleAuditing.Role1 = new BL.RoleManager().select_byAuditRandTableName(roleAuditing.AuditRank.Value, tableName);
 
-                                    if (roleAuditing.Role1 != null)
-                                        roleAuditing.Role1Id = roleAuditing.Role1.RoleId;
+                                //    if (roleAuditing.Role1 != null)
+                                //        roleAuditing.Role1Id = roleAuditing.Role1.RoleId;
 
-                                    roleAuditing.NextAuditRole = new BL.RoleManager().select_byAuditRandTableName(roleAuditing.AuditRank.Value + 1, tableName);
-                                    if (roleAuditing.NextAuditRole != null)
-                                        roleAuditing.NextAuditRoleId = roleAuditing.NextAuditRole.RoleId;
-                                }
+                                //    roleAuditing.NextAuditRole = new BL.RoleManager().select_byAuditRandTableName(roleAuditing.AuditRank.Value + 1, tableName);
+                                //    if (roleAuditing.NextAuditRole != null)
+                                //        roleAuditing.NextAuditRoleId = roleAuditing.NextAuditRole.RoleId;
+                                //}
 
-                                roleAuditing.Employee1Id = BL.V.ActiveOperator.EmployeeId;
-                                roleAuditing.UpdateTime = DateTime.Now;
-                                this.roleAuditingManager.Update(roleAuditing);
-                                string sql = "update " + tableName + " set  AuditState= " + roleAuditing.AuditState + ",   AuditEmpId='" + BL.V.ActiveOperator.EmployeeId + "' where " + KeyIdName + "='" + tableKeyId + "'";
+                                //roleAuditing.Employee1Id = BL.V.ActiveOperator.EmployeeId;
+                                //roleAuditing.UpdateTime = DateTime.Now;
+                                //this.roleAuditingManager.Update(roleAuditing);
+
+                                string sql = "update " + tableName + " set  AuditState= " + (int)global::Helper.InvoiceAudit.Audited + ",   AuditEmpId='" + BL.V.ActiveOperator.EmployeeId + "' where " + KeyIdName + "='" + tableKeyId + "'";
                                 new BL.AcademicBackGroundManager().UpdateSqlMap(sql);
                                 // this.barButtonItemAudit.Caption = "óâåè";
 
                             }
                             else if (this.barButtonItemAudit.Caption == "óâåè" || this.barButtonItemAudit.Caption == "∆˙…Û")
-                            {//∆˙∫À
-                                roleAuditing.AuditState = (int)global::Helper.InvoiceAudit.GiveUpAudited;
-                                roleAuditing.AuditRank = 0;
-                                roleAuditing.NextAuditRole = new BL.RoleManager().select_byAuditRandTableName(1, tableName);
-                                if (roleAuditing.NextAuditRole != null)
-                                    roleAuditing.NextAuditRoleId = roleAuditing.NextAuditRole.RoleId;
-                                this.roleAuditingManager.Update(roleAuditing);
+                            {
+                                //roleAuditing.AuditState = (int)global::Helper.InvoiceAudit.GiveUpAudited;
+                                //roleAuditing.AuditRank = 0;
+                                //roleAuditing.NextAuditRole = new BL.RoleManager().select_byAuditRandTableName(1, tableName);
+                                //if (roleAuditing.NextAuditRole != null)
+                                //    roleAuditing.NextAuditRoleId = roleAuditing.NextAuditRole.RoleId;
+                                //this.roleAuditingManager.Update(roleAuditing);
 
                                 string sql = "update " + tableName + " set  AuditState= " + (int)global::Helper.InvoiceAudit.GiveUpAudited + ",   AuditEmpId='" + BL.V.ActiveOperator.EmployeeId + "' where " + KeyIdName + "='" + tableKeyId + "'";
                                 new BL.AcademicBackGroundManager().UpdateSqlMap(sql);
