@@ -440,6 +440,11 @@ namespace Book.UI.Settings.StockLimitations
                         if (model != null)
                         {
                             double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * Convert.ToDouble(detail.Quantity);
+
+                            if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName))
+                            {
+                                model.MaterialCategoryName = model.MaterialCategoryName.ToLower();
+                            }
                             pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");
                         }
                     }
