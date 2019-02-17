@@ -13,6 +13,7 @@ namespace Book.UI.produceManager.PCFlameRetardant
     public partial class ListForm : Book.UI.Settings.BasicData.BaseListForm
     {
         BL.PCFlameRetardantDetailManager _pCFlameRetardantDetailManager = new Book.BL.PCFlameRetardantDetailManager();
+        public string Pihao { get; set; }
 
         public ListForm()
         {
@@ -26,13 +27,15 @@ namespace Book.UI.produceManager.PCFlameRetardant
         /// 用于入料检验单选择阻燃性测试表
         /// </summary>
         /// <param name="ShowCheck"></param>
-        public ListForm(bool ShowCheck)
+        public ListForm(bool ShowCheck, string pihao)
             : this()
         {
             this.gridView1.OptionsBehavior.Editable = true;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 0;
             this.btn_OK.Visible = true;
+
+            this.Pihao = pihao;
         }
 
         protected override void RefreshData()
@@ -58,7 +61,7 @@ namespace Book.UI.produceManager.PCFlameRetardant
         /// <returns></returns>
         protected override Book.UI.Settings.BasicData.BaseEditForm GetEditForm()
         {
-            return new EditForm();
+            return new EditForm(Pihao, 0);
         }
 
         /// <summary>

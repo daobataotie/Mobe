@@ -14,6 +14,7 @@ namespace Book.UI.produceManager.PCFlameRetardant
         Model.PCFlameRetardant _pCFlameRetardant;
         BL.PCFlameRetardantManager _pCFlameRetardantManager = new Book.BL.PCFlameRetardantManager();
         BL.InvoiceXOManager invoiceXOManager = new Book.BL.InvoiceXOManager();
+        string Pihao = "";
 
         public EditForm()
         {
@@ -86,6 +87,12 @@ namespace Book.UI.produceManager.PCFlameRetardant
             this.action = "view";
             if (this.action == "view")
                 LastFlag = 1;
+        }
+
+        public EditForm(string pihao, int i)
+            : this()
+        {
+            this.Pihao = pihao;
         }
 
         protected override void AddNew()
@@ -214,6 +221,8 @@ namespace Book.UI.produceManager.PCFlameRetardant
                     this._pCFlameRetardantManager.Update(this._pCFlameRetardant);
                     break;
             }
+
+            this.Pihao = null;
         }
 
         protected override void Delete()
@@ -266,9 +275,16 @@ namespace Book.UI.produceManager.PCFlameRetardant
                         detail.EmployeeId = BL.V.ActiveOperator.EmployeeId;
                         detail.InvoiceXOId = item.InvoiceXOId;
 
-                        Model.InvoiceXO xo = invoiceXOManager.Get(detail.InvoiceXOId);
-                        if (xo != null)
-                            detail.Pihao = xo.CustomerLotNumber;
+                        if (string.IsNullOrEmpty(this.Pihao))
+                        {
+                            Model.InvoiceXO xo = invoiceXOManager.Get(detail.InvoiceXOId);
+                            if (xo != null)
+                                detail.Pihao = xo.CustomerLotNumber;
+                        }
+                        else
+                        {
+                            detail.Pihao = this.Pihao;
+                        }
 
                         this._pCFlameRetardant.Details.Add(detail);
                     }
@@ -297,9 +313,16 @@ namespace Book.UI.produceManager.PCFlameRetardant
                     detail.EmployeeId = BL.V.ActiveOperator.EmployeeId;
                     detail.InvoiceXOId = item.Invoice.InvoiceXOId;
 
-                    Model.InvoiceXO xo = invoiceXOManager.Get(detail.InvoiceXOId);
-                    if (xo != null)
-                        detail.Pihao = xo.CustomerLotNumber;
+                    if (string.IsNullOrEmpty(this.Pihao))
+                    {
+                        Model.InvoiceXO xo = invoiceXOManager.Get(detail.InvoiceXOId);
+                        if (xo != null)
+                            detail.Pihao = xo.CustomerLotNumber;
+                    }
+                    else
+                    {
+                        detail.Pihao = this.Pihao;
+                    }
 
                     this._pCFlameRetardant.Details.Add(detail);
                 }
@@ -345,6 +368,7 @@ namespace Book.UI.produceManager.PCFlameRetardant
                         detail.Product = product;
                         detail.ProductId = product.ProductId;
                         detail.EmployeeId = BL.V.ActiveOperator.EmployeeId;
+                        detail.Pihao = this.Pihao;
                         this._pCFlameRetardant.Details.Add(detail);
                         this.bindingSourceDetail.Position = this.bindingSourceDetail.IndexOf(detail);
                     }
@@ -357,6 +381,7 @@ namespace Book.UI.produceManager.PCFlameRetardant
                     detail.Product = f.SelectedItem as Model.Product;
                     detail.ProductId = (f.SelectedItem as Model.Product).ProductId;
                     detail.EmployeeId = BL.V.ActiveOperator.EmployeeId;
+                    detail.Pihao = this.Pihao;
                     this._pCFlameRetardant.Details.Add(detail);
                     this.bindingSourceDetail.Position = this.bindingSourceDetail.IndexOf(detail);
                 }

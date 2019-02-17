@@ -28,8 +28,8 @@ namespace Book.UI.produceManager.PronoteHeader
                 if (!string.IsNullOrEmpty(detail.InvoiceXOId))
                     detail.InvoiceXO = this.xomanamager.Get(detail.InvoiceXOId);
                 detail.MRSDetails = this.mrsdetailManager.Get(detail.MRSdetailsId);
-                if (detail.MRSDetails != null)
-                    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
+                //if (detail.MRSDetails != null)
+                //    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
 
                 if (string.IsNullOrEmpty(detail.CustomerProductName))
                     detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId,detail.HandbookProductId);
@@ -63,8 +63,8 @@ namespace Book.UI.produceManager.PronoteHeader
                 if (!string.IsNullOrEmpty(detail.InvoiceXOId))
                     detail.InvoiceXO = this.xomanamager.Get(detail.InvoiceXOId);
                 detail.MRSDetails = this.mrsdetailManager.Get(detail.MRSdetailsId);
-                if (detail.MRSDetails != null)
-                    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
+                //if (detail.MRSDetails != null)
+                //    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
 
                 if (string.IsNullOrEmpty(detail.CustomerProductName))
                     detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId,detail.HandbookProductId);
@@ -89,7 +89,7 @@ namespace Book.UI.produceManager.PronoteHeader
 
             this.lblHandBookId.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_HandbookId);
             this.lblHandBookProductId.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_HandbookProductId);
-            this.lblPanNum.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_Plannum);
+            this.lblPanNum.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_InvoiceXODetailQuantity);
             //Model.MRSdetails mrsdetail = this.mRSDetailsManager.Get((this.GetCurrentRow() as Model.PronoteHeader).MRSdetailsId);
             //if (mrsdetail != null)
             //    this.lblPanNum.Text = mrsdetail.MRSdetailsQuantity.ToString();

@@ -25,15 +25,15 @@ namespace Book.UI.produceManager.PronoteHeader
             {
                 if (!string.IsNullOrEmpty(detail.InvoiceXOId))
                     detail.InvoiceXO = this.xomanamager.Get(detail.InvoiceXOId);
-                detail.MRSDetails = this.mrsdetailManager.Get(detail.MRSdetailsId);
-                if (detail.MRSDetails != null)
-                    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
+                //detail.MRSDetails = this.mrsdetailManager.Get(detail.MRSdetailsId);
+                //if (detail.MRSDetails != null)
+                //    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
                 if (!string.IsNullOrEmpty(detail.ProductId))
                 {
                     detail.Product = new BL.ProductManager().Get(detail.ProductId);
 
                     if (string.IsNullOrEmpty(detail.CustomerProductName))
-                        detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId,detail.HandbookProductId);
+                        detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId, detail.HandbookProductId);
                 }
             }
             this.DataSource = list;
@@ -52,7 +52,7 @@ namespace Book.UI.produceManager.PronoteHeader
 
             this.lblHandBookId.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_HandbookId);
             this.lblHandBookProducrId.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_HandbookProductId);
-            this.lblPlanNum.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_Plannum);
+            this.lblPlanNum.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_InvoiceXODetailQuantity);
             //Model.MRSdetails mrsdetail = this.mRSDetailsManager.Get((this.GetCurrentRow() as Model.PronoteHeader).MRSdetailsId);
             //if (mrsdetail != null)
             //    this.lblPlanNum.Text = mrsdetail.MRSdetailsQuantity.ToString();
@@ -98,8 +98,8 @@ namespace Book.UI.produceManager.PronoteHeader
                 if (!string.IsNullOrEmpty(detail.InvoiceXOId))
                     detail.InvoiceXO = this.xomanamager.Get(detail.InvoiceXOId);
                 detail.MRSDetails = this.mrsdetailManager.Get(detail.MRSdetailsId);
-                if (detail.MRSDetails != null)
-                    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
+                //if (detail.MRSDetails != null)
+                //    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
                 if (!string.IsNullOrEmpty(detail.ProductId))
                 {
                     detail.Product = new BL.ProductManager().Get(detail.ProductId);
@@ -124,7 +124,7 @@ namespace Book.UI.produceManager.PronoteHeader
 
             this.lblHandBookId.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_HandbookId);
             this.lblHandBookProducrId.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_HandbookProductId);
-            this.lblPlanNum.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_Plannum);
+            this.lblPlanNum.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_InvoiceXODetailQuantity);
             //Model.MRSdetails mrsdetail = this.mRSDetailsManager.Get((this.GetCurrentRow() as Model.PronoteHeader).MRSdetailsId);
             //if (mrsdetail != null)
             //    this.lblPlanNum.Text = mrsdetail.MRSdetailsQuantity.ToString();

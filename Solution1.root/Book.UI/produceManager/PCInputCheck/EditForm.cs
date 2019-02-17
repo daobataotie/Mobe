@@ -703,7 +703,7 @@ namespace Book.UI.produceManager.PCInputCheck
 
         private void btn_FlameRetardant_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            PCFlameRetardant.ListForm f = new Book.UI.produceManager.PCFlameRetardant.ListForm(true);
+            PCFlameRetardant.ListForm f = new Book.UI.produceManager.PCFlameRetardant.ListForm(true,this._PCInputCheck.LotNumber);
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 this.btn_FlameRetardant.EditValue = f.PCFlameRetardantId;

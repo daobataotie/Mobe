@@ -45,12 +45,12 @@ namespace Book.UI.produceManager.PronoteHeader
             if (mrsdetail != null)
             {
                 this.xrLabelBeforepPackage.Text = mrsdetail.BeforePackageProduct == null ? string.Empty : (mrsdetail.BeforePackageProduct.IsCustomerProduct.HasValue && mrsdetail.BeforePackageProduct.IsCustomerProduct.Value ? mrsdetail.BeforePackageProduct.ProductName + "{" + mrsdetail.BeforePackageProduct.CustomerProductName + "}" : mrsdetail.BeforePackageProduct.ProductName);
-                this.lblPlanNum.Text = mrsdetail.MRSdetailsQuantity.ToString();
+                //this.lblPlanNum.Text = mrsdetail.MRSdetailsQuantity.ToString();
             }
             else
                 this.xrLabelBeforepPackage.Text = string.Empty;
             //生產通知
-            lblInvoiceXODetailQuantity.Text = this.pronoteHeader.InvoiceXODetailQuantity.HasValue ? this.pronoteHeader.InvoiceXODetailQuantity.ToString() : "0";
+            this.lblPlanNum.Text = this.pronoteHeader.InvoiceXODetailQuantity.HasValue ? this.pronoteHeader.InvoiceXODetailQuantity.Value.ToString() : "";
             this.xrLabelPronoteHeaderID.Text = this.pronoteHeader.PronoteHeaderID;
             this.xrLabelPronoteDte.Text = this.pronoteHeader.PronoteDate.Value.ToString("yyyy-MM-dd");
             this.xrLabelMRP.Text = this.pronoteHeader.MRSHeaderId;
@@ -64,7 +64,7 @@ namespace Book.UI.produceManager.PronoteHeader
                 this.xrLabelProductName.Text = pronoteHeader.Product.ProductName;
 
                 if (string.IsNullOrEmpty(pronoteHeader.Product.CustomerProductName))
-                    this.xrLabelCustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(pronoteHeader, pronoteHeader.ProductId,pronoteHeader.HandbookProductId);
+                    this.xrLabelCustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(pronoteHeader, pronoteHeader.ProductId, pronoteHeader.HandbookProductId);
                 else
                     this.xrLabelCustomerProductName.Text = pronoteHeader.Product.CustomerProductName;
 

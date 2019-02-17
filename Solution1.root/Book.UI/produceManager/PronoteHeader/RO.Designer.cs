@@ -39,8 +39,6 @@
             this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblBGHandBookId = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel25 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblInvoiceXODetailQuantity = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabelPiHao = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabelMRP = new DevExpress.XtraReports.UI.XRLabel();
@@ -80,6 +78,7 @@
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
+            this.lbl_PageSign = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPanel2 = new DevExpress.XtraReports.UI.XRPanel();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
@@ -93,7 +92,6 @@
             this.xrLabelCompanyInfoName = new DevExpress.XtraReports.UI.XRLabel();
             this.topMarginBand1 = new DevExpress.XtraReports.UI.TopMarginBand();
             this.bottomMarginBand1 = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.lbl_PageSign = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichTextProDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RichTextCeMai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RichTextZhengMai)).BeginInit();
@@ -129,8 +127,6 @@
             this.xrLabel24,
             this.lblBGHandBookId,
             this.xrLabel25,
-            this.lblInvoiceXODetailQuantity,
-            this.xrLabel21,
             this.xrLabelPiHao,
             this.xrLabel9,
             this.xrLabelMRP,
@@ -208,20 +204,6 @@
             this.xrLabel25.Name = "xrLabel25";
             this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabel25.StylePriority.UseTextAlignment = false;
-            // 
-            // lblInvoiceXODetailQuantity
-            // 
-            resources.ApplyResources(this.lblInvoiceXODetailQuantity, "lblInvoiceXODetailQuantity");
-            this.lblInvoiceXODetailQuantity.Name = "lblInvoiceXODetailQuantity";
-            this.lblInvoiceXODetailQuantity.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblInvoiceXODetailQuantity.StylePriority.UseTextAlignment = false;
-            // 
-            // xrLabel21
-            // 
-            resources.ApplyResources(this.xrLabel21, "xrLabel21");
-            this.xrLabel21.Name = "xrLabel21";
-            this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel21.StylePriority.UseTextAlignment = false;
             // 
             // xrLabelPiHao
             // 
@@ -534,6 +516,13 @@
             this.ReportFooter.Name = "ReportFooter";
             this.ReportFooter.PrintAtBottom = true;
             // 
+            // lbl_PageSign
+            // 
+            resources.ApplyResources(this.lbl_PageSign, "lbl_PageSign");
+            this.lbl_PageSign.Name = "lbl_PageSign";
+            this.lbl_PageSign.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_PageSign.StylePriority.UseTextAlignment = false;
+            // 
             // xrPanel2
             // 
             this.xrPanel2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -646,13 +635,6 @@
             resources.ApplyResources(this.bottomMarginBand1, "bottomMarginBand1");
             this.bottomMarginBand1.Name = "bottomMarginBand1";
             // 
-            // lbl_PageSign
-            // 
-            resources.ApplyResources(this.lbl_PageSign, "lbl_PageSign");
-            this.lbl_PageSign.Name = "lbl_PageSign";
-            this.lbl_PageSign.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.lbl_PageSign.StylePriority.UseTextAlignment = false;
-            // 
             // RO
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -730,8 +712,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel20;
         private DevExpress.XtraReports.UI.XRLabel xrLabelPiHao;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
-        private DevExpress.XtraReports.UI.XRLabel lblInvoiceXODetailQuantity;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel21;
         private DevExpress.XtraReports.UI.XRRichText RichTextCeMai;
         private DevExpress.XtraReports.UI.XRLabel xrLabel23;
         private DevExpress.XtraReports.UI.XRLabel xrLabel22;

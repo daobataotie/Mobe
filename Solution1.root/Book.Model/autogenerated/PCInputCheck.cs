@@ -387,7 +387,7 @@ namespace Book.Model
         }
 
         /// <summary>
-        /// 
+        /// 批号
         /// </summary>
         public string LotNumber
         {
