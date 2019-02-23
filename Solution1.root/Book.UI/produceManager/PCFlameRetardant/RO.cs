@@ -33,7 +33,6 @@ namespace Book.UI.produceManager.PCFlameRetardant
             this.TCEmployee.DataBindings.Add("Text", this.DataSource, "Employee.EmployeeName");
             this.TCTestQty.DataBindings.Add("Text", this.DataSource, Model.PCFlameRetardantDetail.PRO_TestQty);
             this.TCJudge.DataBindings.Add("Text", this.DataSource, Model.PCFlameRetardantDetail.PRO_Judge);
-            this.TCNote.DataBindings.Add("Text", this.DataSource, Model.PCFlameRetardant.PRO_Note);
         }
 
     }
