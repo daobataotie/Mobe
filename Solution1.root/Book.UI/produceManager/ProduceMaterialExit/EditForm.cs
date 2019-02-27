@@ -39,6 +39,7 @@ namespace Book.UI.produceManager.ProduceMaterialExit
         private BL.DepotPositionManager depotPositionManager = new Book.BL.DepotPositionManager();
         Model.Product product = new Book.Model.Product();
         protected BL.ProductManager productManager = new Book.BL.ProductManager();
+        BL.InvoiceXOManager invoiceXOManager = new Book.BL.InvoiceXOManager();
 
         int tag = 0;
 
@@ -514,13 +515,35 @@ namespace Book.UI.produceManager.ProduceMaterialExit
                     {
                         produceMaterialExitDetail.PronoteHeaderId = pronoteMaterial.PronoteHeaderID;
                         produceMaterialExitDetail.InvoiceXOId = pronoteMaterial.PronoteHeader.InvoiceXOId;
-                        produceMaterialExitDetail.InvoiceXO = pronoteMaterial.PronoteHeader.InvoiceXO;
+                        produceMaterialExitDetail.InvoiceXO = pronoteMaterial.PronoteHeader.InvoiceXO == null ? invoiceXOManager.Get(pronoteMaterial.PronoteHeader.InvoiceXOId) : pronoteMaterial.PronoteHeader.InvoiceXO;
                     }
                     this._produceMaterialExit.Detail.Add(produceMaterialExitDetail);
                 }
                 this.gridControl1.RefreshDataSource();
-
             }
+            else if (f.pronoteHeader != null)
+            {
+                Model.ProduceMaterialExitDetail produceMaterialExitDetail = new Book.Model.ProduceMaterialExitDetail();
+                produceMaterialExitDetail.ProduceMaterialExitDetailId = Guid.NewGuid().ToString();
+                produceMaterialExitDetail.Inumber = this._produceMaterialExit.Detail.Count + 1;
+                produceMaterialExitDetail.Product = productManager.Get(f.pronoteHeader.ProductId);
+                produceMaterialExitDetail.ProductId = f.pronoteHeader.ProductId;
+                produceMaterialExitDetail.ProductUnit = f.pronoteHeader.ProductUnit;
+                produceMaterialExitDetail.HandbookId = f.pronoteHeader.HandbookId;
+                produceMaterialExitDetail.HandbookProductId = f.pronoteHeader.HandbookProductId;
+                
+                produceMaterialExitDetail.ProduceQuantity = 0;
+                if (produceMaterialExitDetail.Product != null)
+                {
+                    produceMaterialExitDetail.PronoteHeaderId = f.pronoteHeader.PronoteHeaderID;
+                    produceMaterialExitDetail.InvoiceXOId = f.pronoteHeader.InvoiceXOId;
+                    produceMaterialExitDetail.InvoiceXO = f.pronoteHeader.InvoiceXO == null ? invoiceXOManager.Get(f.pronoteHeader.InvoiceXOId) : f.pronoteHeader.InvoiceXO;
+                }
+
+                this._produceMaterialExit.Detail.Add(produceMaterialExitDetail);
+                this.gridControl1.RefreshDataSource();
+            }
+
         }
 
         //选择说明参数

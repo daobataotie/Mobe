@@ -61,7 +61,8 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrLabelPronoteHeaderID.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_PronoteHeaderID);
             this.xrLabelPronoteDte.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_PronoteDate, "{0:yyyy-MM-dd}");
 
-            this.xrLabelCustomerXOId.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_InvoiceCusId);
+            //this.xrLabelCustomerXOId.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_InvoiceCusId);
+            this.xrLabelCustomerXOId.DataBindings.Add("Text", this.DataSource, "InvoiceXO." + Model.InvoiceXO.PRO_CustomerInvoiceXOId);
             this.xrLabelCustomer.DataBindings.Add("Text", this.DataSource, "CustomerShortName");
             this.xrLabelCheckedStandard.DataBindings.Add("Text", this.DataSource, "CustomerCheckStandard");
             this.xrLabelCustomerProductName.DataBindings.Add("Text", this.DataSource, "CustomerProductName");
@@ -133,7 +134,8 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrLabelPronoteHeaderID.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_PronoteHeaderID);
             this.xrLabelPronoteDte.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_PronoteDate, "{0:yyyy-MM-dd}");
 
-            this.xrLabelCustomerXOId.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_InvoiceCusId);
+            //this.xrLabelCustomerXOId.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_InvoiceCusId);
+            this.xrLabelCustomerXOId.DataBindings.Add("Text", this.DataSource, "InvoiceXO." + Model.InvoiceXO.PRO_CustomerInvoiceXOId);
             this.xrLabelCustomer.DataBindings.Add("Text", this.DataSource, "CustomerShortName");
             this.xrLabelCheckedStandard.DataBindings.Add("Text", this.DataSource, "CustomerCheckStandard");
             this.xrLabelCustomerProductName.DataBindings.Add("Text", this.DataSource, "CustomerProductName");

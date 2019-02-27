@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cob_TestProductUnit = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.btn_FlameRetardant = new DevExpress.XtraEditors.ButtonEdit();
+            this.btn_Fog = new DevExpress.XtraEditors.ButtonEdit();
+            this.btn_Impact = new DevExpress.XtraEditors.ButtonEdit();
             this.spe_TestQuantity = new DevExpress.XtraEditors.SpinEdit();
             this.txt_InvoiceXOCusId = new DevExpress.XtraEditors.TextEdit();
             this.nccMadeEmp = new Book.UI.Invoices.NewChooseContorl();
@@ -125,8 +129,11 @@
             this.layoutControlItem29 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem61 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem63 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem64 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem65 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem66 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem67 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem68 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -150,16 +157,14 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_Impact = new DevExpress.XtraEditors.ButtonEdit();
-            this.layoutControlItem65 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btn_Fog = new DevExpress.XtraEditors.ButtonEdit();
-            this.layoutControlItem66 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btn_FlameRetardant = new DevExpress.XtraEditors.ButtonEdit();
-            this.layoutControlItem67 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cob_TestProductUnit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_FlameRetardant.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Fog.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Impact.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spe_TestQuantity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_InvoiceXOCusId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TestProduct.Properties)).BeginInit();
@@ -251,8 +256,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem61)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem63)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem64)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem65)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem66)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem67)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem68)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
@@ -272,12 +280,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem44)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Impact.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem65)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Fog.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem66)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_FlameRetardant.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem67)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -303,6 +305,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.cob_TestProductUnit);
             this.layoutControl1.Controls.Add(this.btn_FlameRetardant);
             this.layoutControl1.Controls.Add(this.btn_Fog);
             this.layoutControl1.Controls.Add(this.btn_Impact);
@@ -334,6 +337,52 @@
             resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
+            // 
+            // cob_TestProductUnit
+            // 
+            resources.ApplyResources(this.cob_TestProductUnit, "cob_TestProductUnit");
+            this.cob_TestProductUnit.MenuManager = this.barManager1;
+            this.cob_TestProductUnit.Name = "cob_TestProductUnit";
+            this.cob_TestProductUnit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("cob_TestProductUnit.Properties.Buttons"))))});
+            this.cob_TestProductUnit.Properties.Items.AddRange(new object[] {
+            resources.GetString("cob_TestProductUnit.Properties.Items"),
+            resources.GetString("cob_TestProductUnit.Properties.Items1"),
+            resources.GetString("cob_TestProductUnit.Properties.Items2")});
+            this.cob_TestProductUnit.StyleController = this.layoutControl1;
+            // 
+            // btn_FlameRetardant
+            // 
+            resources.ApplyResources(this.btn_FlameRetardant, "btn_FlameRetardant");
+            this.btn_FlameRetardant.MenuManager = this.barManager1;
+            this.btn_FlameRetardant.Name = "btn_FlameRetardant";
+            this.btn_FlameRetardant.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btn_FlameRetardant.StyleController = this.layoutControl1;
+            this.btn_FlameRetardant.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btn_FlameRetardant_ButtonClick);
+            this.btn_FlameRetardant.DoubleClick += new System.EventHandler(this.btn_FlameRetardant_DoubleClick);
+            // 
+            // btn_Fog
+            // 
+            resources.ApplyResources(this.btn_Fog, "btn_Fog");
+            this.btn_Fog.MenuManager = this.barManager1;
+            this.btn_Fog.Name = "btn_Fog";
+            this.btn_Fog.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btn_Fog.StyleController = this.layoutControl1;
+            this.btn_Fog.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btn_Fog_ButtonClick);
+            this.btn_Fog.DoubleClick += new System.EventHandler(this.btn_Fog_DoubleClick);
+            // 
+            // btn_Impact
+            // 
+            resources.ApplyResources(this.btn_Impact, "btn_Impact");
+            this.btn_Impact.MenuManager = this.barManager1;
+            this.btn_Impact.Name = "btn_Impact";
+            this.btn_Impact.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.btn_Impact.StyleController = this.layoutControl1;
+            this.btn_Impact.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btn_Impact_ButtonClick);
+            this.btn_Impact.DoubleClick += new System.EventHandler(this.btn_Impact_DoubleClick);
             // 
             // spe_TestQuantity
             // 
@@ -1058,11 +1107,11 @@
             this.layoutControlItem29,
             this.layoutControlItem61,
             this.layoutControlItem63,
-            this.emptySpaceItem2,
             this.layoutControlItem64,
             this.layoutControlItem65,
             this.layoutControlItem66,
-            this.layoutControlItem67});
+            this.layoutControlItem67,
+            this.layoutControlItem68});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(983, 476);
@@ -1301,14 +1350,6 @@
             this.layoutControlItem63.Size = new System.Drawing.Size(429, 25);
             this.layoutControlItem63.TextSize = new System.Drawing.Size(84, 14);
             // 
-            // emptySpaceItem2
-            // 
-            resources.ApplyResources(this.emptySpaceItem2, "emptySpaceItem2");
-            this.emptySpaceItem2.Location = new System.Drawing.Point(695, 150);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(268, 25);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // layoutControlItem64
             // 
             this.layoutControlItem64.Control = this.spe_TestQuantity;
@@ -1317,6 +1358,42 @@
             this.layoutControlItem64.Name = "layoutControlItem64";
             this.layoutControlItem64.Size = new System.Drawing.Size(266, 25);
             this.layoutControlItem64.TextSize = new System.Drawing.Size(84, 14);
+            // 
+            // layoutControlItem65
+            // 
+            this.layoutControlItem65.Control = this.btn_Impact;
+            resources.ApplyResources(this.layoutControlItem65, "layoutControlItem65");
+            this.layoutControlItem65.Location = new System.Drawing.Point(0, 75);
+            this.layoutControlItem65.Name = "layoutControlItem65";
+            this.layoutControlItem65.Size = new System.Drawing.Size(429, 25);
+            this.layoutControlItem65.TextSize = new System.Drawing.Size(84, 14);
+            // 
+            // layoutControlItem66
+            // 
+            this.layoutControlItem66.Control = this.btn_Fog;
+            resources.ApplyResources(this.layoutControlItem66, "layoutControlItem66");
+            this.layoutControlItem66.Location = new System.Drawing.Point(429, 75);
+            this.layoutControlItem66.Name = "layoutControlItem66";
+            this.layoutControlItem66.Size = new System.Drawing.Size(266, 25);
+            this.layoutControlItem66.TextSize = new System.Drawing.Size(84, 14);
+            // 
+            // layoutControlItem67
+            // 
+            this.layoutControlItem67.Control = this.btn_FlameRetardant;
+            resources.ApplyResources(this.layoutControlItem67, "layoutControlItem67");
+            this.layoutControlItem67.Location = new System.Drawing.Point(695, 75);
+            this.layoutControlItem67.Name = "layoutControlItem67";
+            this.layoutControlItem67.Size = new System.Drawing.Size(268, 25);
+            this.layoutControlItem67.TextSize = new System.Drawing.Size(84, 14);
+            // 
+            // layoutControlItem68
+            // 
+            this.layoutControlItem68.Control = this.cob_TestProductUnit;
+            resources.ApplyResources(this.layoutControlItem68, "layoutControlItem68");
+            this.layoutControlItem68.Location = new System.Drawing.Point(695, 150);
+            this.layoutControlItem68.Name = "layoutControlItem68";
+            this.layoutControlItem68.Size = new System.Drawing.Size(268, 25);
+            this.layoutControlItem68.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem18
             // 
@@ -1535,66 +1612,6 @@
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
-            // btn_Impact
-            // 
-            resources.ApplyResources(this.btn_Impact, "btn_Impact");
-            this.btn_Impact.MenuManager = this.barManager1;
-            this.btn_Impact.Name = "btn_Impact";
-            this.btn_Impact.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btn_Impact.StyleController = this.layoutControl1;
-            this.btn_Impact.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btn_Impact_ButtonClick);
-            this.btn_Impact.DoubleClick += new System.EventHandler(this.btn_Impact_DoubleClick);
-            // 
-            // layoutControlItem65
-            // 
-            this.layoutControlItem65.Control = this.btn_Impact;
-            resources.ApplyResources(this.layoutControlItem65, "layoutControlItem65");
-            this.layoutControlItem65.Location = new System.Drawing.Point(0, 75);
-            this.layoutControlItem65.Name = "layoutControlItem65";
-            this.layoutControlItem65.Size = new System.Drawing.Size(429, 25);
-            this.layoutControlItem65.TextSize = new System.Drawing.Size(84, 14);
-            // 
-            // btn_Fog
-            // 
-            resources.ApplyResources(this.btn_Fog, "btn_Fog");
-            this.btn_Fog.MenuManager = this.barManager1;
-            this.btn_Fog.Name = "btn_Fog";
-            this.btn_Fog.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btn_Fog.StyleController = this.layoutControl1;
-            this.btn_Fog.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btn_Fog_ButtonClick);
-            this.btn_Fog.DoubleClick += new System.EventHandler(this.btn_Fog_DoubleClick);
-            // 
-            // layoutControlItem66
-            // 
-            this.layoutControlItem66.Control = this.btn_Fog;
-            resources.ApplyResources(this.layoutControlItem66, "layoutControlItem66");
-            this.layoutControlItem66.Location = new System.Drawing.Point(429, 75);
-            this.layoutControlItem66.Name = "layoutControlItem66";
-            this.layoutControlItem66.Size = new System.Drawing.Size(266, 25);
-            this.layoutControlItem66.TextSize = new System.Drawing.Size(84, 14);
-            // 
-            // btn_FlameRetardant
-            // 
-            resources.ApplyResources(this.btn_FlameRetardant, "btn_FlameRetardant");
-            this.btn_FlameRetardant.MenuManager = this.barManager1;
-            this.btn_FlameRetardant.Name = "btn_FlameRetardant";
-            this.btn_FlameRetardant.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btn_FlameRetardant.StyleController = this.layoutControl1;
-            this.btn_FlameRetardant.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btn_FlameRetardant_ButtonClick);
-            this.btn_FlameRetardant.DoubleClick += new System.EventHandler(this.btn_FlameRetardant_DoubleClick);
-            // 
-            // layoutControlItem67
-            // 
-            this.layoutControlItem67.Control = this.btn_FlameRetardant;
-            resources.ApplyResources(this.layoutControlItem67, "layoutControlItem67");
-            this.layoutControlItem67.Location = new System.Drawing.Point(695, 75);
-            this.layoutControlItem67.Name = "layoutControlItem67";
-            this.layoutControlItem67.Size = new System.Drawing.Size(268, 25);
-            this.layoutControlItem67.TextSize = new System.Drawing.Size(84, 14);
-            // 
             // EditForm
             // 
             resources.ApplyResources(this, "$this");
@@ -1606,6 +1623,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cob_TestProductUnit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_FlameRetardant.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Fog.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Impact.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spe_TestQuantity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_InvoiceXOCusId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TestProduct.Properties)).EndInit();
@@ -1697,8 +1718,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem29)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem61)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem63)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem64)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem65)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem66)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem67)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem68)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
@@ -1718,12 +1742,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem42)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem44)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Impact.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem65)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Fog.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem66)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_FlameRetardant.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem67)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1844,7 +1862,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem61;
         private DevExpress.XtraEditors.TextEdit txt_InvoiceXOCusId;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem63;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraEditors.TextEdit txt_Wudu;
@@ -1857,5 +1874,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem65;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem66;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem67;
+        private DevExpress.XtraEditors.ComboBoxEdit cob_TestProductUnit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem68;
     }
 }

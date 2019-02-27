@@ -64,6 +64,7 @@ namespace Book.UI.produceManager.PCFlameRetardant
 
             this.bindingSourceProduct.DataSource = this._pCFlameRetardantManager.Query("select ProductId,Id,ProductName from Product", 30, "Product").Tables[0];
             this.bindingSourceEmployee.DataSource = this._pCFlameRetardantManager.Query("select EmployeeId,IDNo,EmployeeName from Employee", 30, "Employee").Tables[0];
+
         }
 
         int LastFlag = 0; //页面载 入时是否执行 last方法

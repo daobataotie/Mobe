@@ -185,6 +185,8 @@ namespace Book.Model
 
         private decimal? _TestQuantity;
 
+        private string _testProductUnit;
+
         /// <summary>
         /// 员工
         /// </summary>
@@ -749,6 +751,12 @@ namespace Book.Model
             set { _TestQuantity = value; }
         }
 
+        public string TestProductUnit
+        {
+            get { return _testProductUnit; }
+            set { _testProductUnit = value; }
+        }
+
         /// <summary>
         /// 员工
         /// </summary>
@@ -1107,6 +1115,8 @@ namespace Book.Model
         public readonly static string PRO_PCFogCheckId = "PCFogCheckId";
 
         public readonly static string PRO_PCFlameRetardantId = "PCFlameRetardantId";
+
+        public readonly static string PRO_TestProductUnit = "TestProductUnit";
 
         #endregion
     }

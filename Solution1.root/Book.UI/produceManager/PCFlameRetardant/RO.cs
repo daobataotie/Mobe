@@ -30,9 +30,9 @@ namespace Book.UI.produceManager.PCFlameRetardant
             this.TCFangwu.DataBindings.Add("Text", this.DataSource, Model.PCFlameRetardantDetail.PRO_Fangwu);
             this.TCWuQianghua.DataBindings.Add("Text", this.DataSource, Model.PCFlameRetardantDetail.PRO_WuQianghua);
             this.TCRanshao.DataBindings.Add("Text", this.DataSource, Model.PCFlameRetardantDetail.PRO_Ranshao);
-            this.TCEmployee.DataBindings.Add("Text", this.DataSource, "Employee.EmployeeName");
             this.TCTestQty.DataBindings.Add("Text", this.DataSource, Model.PCFlameRetardantDetail.PRO_TestQty);
             this.TCJudge.DataBindings.Add("Text", this.DataSource, Model.PCFlameRetardantDetail.PRO_Judge);
+            this.TCProductUnit.DataBindings.Add("Text", this.DataSource, Model.PCFlameRetardantDetail.PRO_ProductUnit);
         }
 
     }

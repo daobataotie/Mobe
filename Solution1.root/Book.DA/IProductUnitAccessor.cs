@@ -27,6 +27,7 @@ namespace Book.DA
         bool existsInsertName(string name, Model.UnitGroup group);
         bool existsUpdateName(string name, string id, Model.UnitGroup group);
         double? ConvertUnit(string groupunitId, string Fromunitid, string Tounitid, double FromQuantity);
+        IList<string> SelectProductUnitGroup();
     }
 }
 

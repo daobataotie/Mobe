@@ -83,6 +83,8 @@ namespace Book.Model
 
         private string _invoiceXOId;
 
+        private string _productUnit;
+
         /// <summary>
         /// 员工
         /// </summary>
@@ -307,6 +309,12 @@ namespace Book.Model
             set { _invoiceXOId = value; }
         }
 
+        public string ProductUnit
+        {
+            get { return _productUnit; }
+            set { _productUnit = value; }
+        }
+
         /// <summary>
         /// 员工
         /// </summary>
@@ -420,6 +428,8 @@ namespace Book.Model
         public readonly static string PRO_Note = "Note";
 
         public readonly static string PRO_InvoicXOId = "InvoicXOId";
+
+        public readonly static string PRO_ProductUnit = "ProductUnit";
         #endregion
     }
 }

@@ -335,7 +335,23 @@ namespace Book.UI
 
             XmlDocument document1 = new XmlDocument();
 
-            String configFile = string.Format("Book.{0}.SQLMap.config", connection.Type);
+            String configFile = "";
+            Book.DA.SQLServer.Accessor.Clearsqlmapper();
+            if (connection.Name.ToLower().Contains("ERP".ToLower()))
+            {
+                configFile = string.Format("Book.{0}.SQLMap.config", connection.Type);
+                Book.DA.SQLServer.Accessor.SQLConnectionType = 1;
+            }
+            else if (connection.Name.ToLower().Contains("ansico".ToLower()))
+            {
+                configFile = string.Format("Book.{0}.SQLMap2.config", connection.Type);
+                Book.DA.SQLServer.Accessor.SQLConnectionType = 2;
+            }
+            else if (connection.Name.ToLower().Contains("Ansico-Earplugs".ToLower()))
+            {
+                configFile = string.Format("Book.{0}.SQLMap3.config", connection.Type);
+                Book.DA.SQLServer.Accessor.SQLConnectionType = 3;
+            }
             document1.Load(configFile);
             XmlNamespaceManager nm = new XmlNamespaceManager(document1.NameTable);
             nm.AddNamespace("aa", "http://ibatis.apache.org/dataMapper");

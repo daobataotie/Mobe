@@ -62,7 +62,10 @@ namespace Book.DA.SQLServer
             return sqlmapper.QueryForObject<double?>("ProductUnit.SelectByCondition", ht);
         }
 
-
+        public IList<string> SelectProductUnitGroup()
+        {
+            return sqlmapper.QueryForList<string>("ProductUnit.SelectProductUnitGroup", null);
+        }
 
         #endregion
     }

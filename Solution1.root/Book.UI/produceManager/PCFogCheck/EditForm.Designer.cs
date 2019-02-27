@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cob_MaterailUnit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btn_InvoiceCO = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Remove = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Add = new DevExpress.XtraEditors.SimpleButton();
@@ -102,20 +103,20 @@
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bsLUEemployees = new System.Windows.Forms.BindingSource(this.components);
             this.barBtnSearch = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSearch = new DevExpress.XtraBars.BarButtonItem();
-            this.cob_MaterailUnit = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cob_MaterailUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_AuditState.Properties)).BeginInit();
@@ -168,14 +169,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLUEemployees)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cob_MaterailUnit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLUEemployees)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -219,6 +219,15 @@
             resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
+            // 
+            // cob_MaterailUnit
+            // 
+            resources.ApplyResources(this.cob_MaterailUnit, "cob_MaterailUnit");
+            this.cob_MaterailUnit.MenuManager = this.barManager1;
+            this.cob_MaterailUnit.Name = "cob_MaterailUnit";
+            this.cob_MaterailUnit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("cob_MaterailUnit.Properties.Buttons"))))});
+            this.cob_MaterailUnit.StyleController = this.layoutControl1;
             // 
             // btn_InvoiceCO
             // 
@@ -745,7 +754,8 @@
             this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemComboBox1.Buttons"))))});
             this.repositoryItemComboBox1.Items.AddRange(new object[] {
-            resources.GetString("repositoryItemComboBox1.Items")});
+            resources.GetString("repositoryItemComboBox1.Items"),
+            resources.GetString("repositoryItemComboBox1.Items1")});
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             this.repositoryItemComboBox1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             // 
@@ -941,17 +951,6 @@
             this.layoutControlItem10.Size = new System.Drawing.Size(182, 25);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(84, 14);
             // 
-            // layoutControlItem11
-            // 
-            this.layoutControlItem11.Control = this.lookUpEditUnit;
-            resources.ApplyResources(this.layoutControlItem11, "layoutControlItem11");
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 50);
-            this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(196, 26);
-            this.layoutControlItem11.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(80, 14);
-            this.layoutControlItem11.TextToControlDistance = 5;
-            // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.btn_Add;
@@ -993,6 +992,28 @@
             this.layoutControlItem17.TextToControlDistance = 0;
             this.layoutControlItem17.TextVisible = false;
             // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.lookUpEditUnit;
+            resources.ApplyResources(this.layoutControlItem11, "layoutControlItem11");
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 50);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(196, 26);
+            this.layoutControlItem11.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(80, 14);
+            this.layoutControlItem11.TextToControlDistance = 5;
+            // 
+            // layoutControlItem20
+            // 
+            this.layoutControlItem20.Control = this.cob_MaterailUnit;
+            resources.ApplyResources(this.layoutControlItem20, "layoutControlItem20");
+            this.layoutControlItem20.Location = new System.Drawing.Point(196, 50);
+            this.layoutControlItem20.Name = "layoutControlItem20";
+            this.layoutControlItem20.Size = new System.Drawing.Size(236, 26);
+            this.layoutControlItem20.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(80, 20);
+            this.layoutControlItem20.TextToControlDistance = 5;
+            // 
             // barBtnSearch
             // 
             resources.ApplyResources(this.barBtnSearch, "barBtnSearch");
@@ -1008,26 +1029,6 @@
             this.barButtonItemSearch.Name = "barButtonItemSearch";
             this.barButtonItemSearch.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemSearch_ItemClick);
             // 
-            // cob_MaterailUnit
-            // 
-            resources.ApplyResources(this.cob_MaterailUnit, "cob_MaterailUnit");
-            this.cob_MaterailUnit.MenuManager = this.barManager1;
-            this.cob_MaterailUnit.Name = "cob_MaterailUnit";
-            this.cob_MaterailUnit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("comboBoxEdit1.Properties.Buttons"))))});
-            this.cob_MaterailUnit.StyleController = this.layoutControl1;
-            // 
-            // layoutControlItem20
-            // 
-            this.layoutControlItem20.Control = this.cob_MaterailUnit;
-            resources.ApplyResources(this.layoutControlItem20, "layoutControlItem20");
-            this.layoutControlItem20.Location = new System.Drawing.Point(196, 50);
-            this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(236, 26);
-            this.layoutControlItem20.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
-            this.layoutControlItem20.TextSize = new System.Drawing.Size(80, 20);
-            this.layoutControlItem20.TextToControlDistance = 5;
-            // 
             // EditForm
             // 
             resources.ApplyResources(this, "$this");
@@ -1038,6 +1039,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cob_MaterailUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_AuditState.Properties)).EndInit();
@@ -1090,14 +1092,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLUEemployees)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cob_MaterailUnit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLUEemployees)).EndInit();
             this.ResumeLayout(false);
 
         }

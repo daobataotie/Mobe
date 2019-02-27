@@ -24,8 +24,13 @@ namespace Book.DA.SQLServer
     /// </summary>
     public class Accessor : IAccessor
     {
- 
+
         #region IBATIS sql mapper
+
+        /// <summary>
+        /// 1，ERP   2，Ansico   3,Ansico-Earplugs
+        /// </summary>
+        public static int SQLConnectionType { get; set; }
 
         public static volatile IBatisNet.DataMapper.ISqlMapper _sqlmapper = null;
 
@@ -41,7 +46,7 @@ namespace Book.DA.SQLServer
 
         public static void Configure(object obj)
         {
-            
+
             _sqlmapper = (IBatisNet.DataMapper.SqlMapper)obj;
         }
 
@@ -58,8 +63,14 @@ namespace Book.DA.SQLServer
 #if DEBUG
                     try
                     {
-                        _sqlmapper = builder.ConfigureAndWatch("Book.SQLServer.SQLMap.config", handler);
-                
+
+                        if (SQLConnectionType == 1)
+                            _sqlmapper = builder.ConfigureAndWatch("Book.SQLServer.SQLMap.config", handler);
+                        else if (SQLConnectionType == 2)
+                            _sqlmapper = builder.ConfigureAndWatch("Book.SQLServer.SQLMap2.config", handler);
+                        else if (SQLConnectionType == 3)
+                            _sqlmapper = builder.ConfigureAndWatch("Book.SQLServer.SQLMap3.config", handler);
+
                     }
                     catch (Exception ex)
                     {
@@ -94,6 +105,10 @@ namespace Book.DA.SQLServer
         #endregion
 
 
+        public static void Clearsqlmapper()
+        {
+            _sqlmapper = null;
+        }
 
     }
 }

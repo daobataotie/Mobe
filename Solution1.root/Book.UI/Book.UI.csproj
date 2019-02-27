@@ -13083,6 +13083,10 @@
       <Project>{3A5B5789-D63A-4E8C-A8AE-F057048AD9E2}</Project>
       <Name>Book.DA.SQLServer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Book.DA\Book.DA.csproj">
+      <Project>{2BA6A46A-8A57-413A-BD90-C08EF22939D9}</Project>
+      <Name>Book.DA</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Book.Model\Book.Model.csproj">
       <Project>{F5D117A7-D096-4713-97D9-EC6AF3ED45A4}</Project>
       <Name>Book.Model</Name>
@@ -13133,6 +13137,10 @@
     <Content Include="Invoices\readme.txt" />
     <Content Include="Resources\4.jpg" />
     <Content Include="Resources\5.jpg" />
+    <None Include="Book.SQLServer.SQLMap2.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\Access.png" />
     <None Include="Resources\Excel.png" />
     <None Include="Resources\muisc.PNG" />
@@ -13150,6 +13158,10 @@
     <None Include="Service References\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Book.SQLServer.SQLMap3.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="窗体说明.txt" />
   </ItemGroup>

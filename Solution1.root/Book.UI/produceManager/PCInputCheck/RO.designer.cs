@@ -33,6 +33,8 @@
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_TestProductUnit = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTestQuantity = new DevExpress.XtraReports.UI.XRLabel();
@@ -155,6 +157,8 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel23,
+            this.lbl_TestProductUnit,
             this.xrLabel12,
             this.xrLabel20,
             this.lblTestQuantity,
@@ -200,6 +204,20 @@
             this.xrTable5});
             resources.ApplyResources(this.ReportHeader, "ReportHeader");
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // xrLabel23
+            // 
+            resources.ApplyResources(this.xrLabel23, "xrLabel23");
+            this.xrLabel23.Name = "xrLabel23";
+            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel23.StylePriority.UseTextAlignment = false;
+            // 
+            // lbl_TestProductUnit
+            // 
+            resources.ApplyResources(this.lbl_TestProductUnit, "lbl_TestProductUnit");
+            this.lbl_TestProductUnit.Name = "lbl_TestProductUnit";
+            this.lbl_TestProductUnit.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_TestProductUnit.StylePriority.UseTextAlignment = false;
             // 
             // xrLabel12
             // 
@@ -1013,5 +1031,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.XRLabel xrLabel21;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel23;
+        private DevExpress.XtraReports.UI.XRLabel lbl_TestProductUnit;
     }
 }

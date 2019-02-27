@@ -38,8 +38,8 @@
             this.TCFangwu = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCWuQianghua = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCRanshao = new DevExpress.XtraReports.UI.XRTableCell();
-            this.TCEmployee = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCTestQty = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCProductUnit = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCJudge = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -55,8 +55,8 @@
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.lbl_Employee = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
@@ -67,13 +67,14 @@
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.lbl_ReportName = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.lbl_Note = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_Note = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -94,11 +95,11 @@
                         | DevExpress.XtraPrinting.BorderSide.Right)
                         | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable2.Dpi = 254F;
-            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(10.58333F, 0F);
+            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(4.037221E-05F, 0F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow2});
-            this.xrTable2.SizeF = new System.Drawing.SizeF(1973.792F, 63.49998F);
+            this.xrTable2.SizeF = new System.Drawing.SizeF(1992.313F, 63.49998F);
             this.xrTable2.StylePriority.UseBorders = false;
             this.xrTable2.StylePriority.UseTextAlignment = false;
             this.xrTable2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -113,8 +114,8 @@
             this.TCFangwu,
             this.TCWuQianghua,
             this.TCRanshao,
-            this.TCEmployee,
             this.TCTestQty,
+            this.TCProductUnit,
             this.TCJudge});
             this.xrTableRow2.Dpi = 254F;
             this.xrTableRow2.Name = "xrTableRow2";
@@ -132,62 +133,62 @@
             this.TCPihao.Dpi = 254F;
             this.TCPihao.Name = "TCPihao";
             this.TCPihao.Text = "批号";
-            this.TCPihao.Weight = 0.40080387990111854;
+            this.TCPihao.Weight = 0.37667543283569732;
             // 
             // TCYanse
             // 
             this.TCYanse.Dpi = 254F;
             this.TCYanse.Name = "TCYanse";
             this.TCYanse.Text = "颜色";
-            this.TCYanse.Weight = 0.30697030530261932;
+            this.TCYanse.Weight = 0.32305680327202568;
             // 
             // TCQianghua
             // 
             this.TCQianghua.Dpi = 254F;
             this.TCQianghua.Name = "TCQianghua";
             this.TCQianghua.Text = "强化";
-            this.TCQianghua.Weight = 0.14439215281953843;
+            this.TCQianghua.Weight = 0.17656308587934427;
             // 
             // TCFangwu
             // 
             this.TCFangwu.Dpi = 254F;
             this.TCFangwu.Name = "TCFangwu";
             this.TCFangwu.Text = "防雾";
-            this.TCFangwu.Weight = 0.14439215356790253;
+            this.TCFangwu.Weight = 0.16525896341119886;
             // 
             // TCWuQianghua
             // 
             this.TCWuQianghua.Dpi = 254F;
             this.TCWuQianghua.Name = "TCWuQianghua";
             this.TCWuQianghua.Text = "无强化";
-            this.TCWuQianghua.Weight = 0.18239006242505862;
+            this.TCWuQianghua.Weight = 0.21297829908529786;
             // 
             // TCRanshao
             // 
             this.TCRanshao.Dpi = 254F;
             this.TCRanshao.Name = "TCRanshao";
             this.TCRanshao.Text = "燃烧";
-            this.TCRanshao.Weight = 0.14439213187307054;
-            // 
-            // TCEmployee
-            // 
-            this.TCEmployee.Dpi = 254F;
-            this.TCEmployee.Name = "TCEmployee";
-            this.TCEmployee.Text = "测试者";
-            this.TCEmployee.Weight = 0.19758922694244607;
+            this.TCRanshao.Weight = 0.17738748750849381;
             // 
             // TCTestQty
             // 
             this.TCTestQty.Dpi = 254F;
             this.TCTestQty.Name = "TCTestQty";
             this.TCTestQty.Text = "检验数量";
-            this.TCTestQty.Weight = 0.24318672106880598;
+            this.TCTestQty.Weight = 0.22361713539663863;
+            // 
+            // TCProductUnit
+            // 
+            this.TCProductUnit.Dpi = 254F;
+            this.TCProductUnit.Name = "TCProductUnit";
+            this.TCProductUnit.Text = "TCProductUnit";
+            this.TCProductUnit.Weight = 0.15813482531512407;
             // 
             // TCJudge
             // 
             this.TCJudge.Dpi = 254F;
             this.TCJudge.Name = "TCJudge";
-            this.TCJudge.Weight = 0.23052088823182235;
+            this.TCJudge.Weight = 0.20911512014802014;
             // 
             // TopMargin
             // 
@@ -247,11 +248,11 @@
                         | DevExpress.XtraPrinting.BorderSide.Right)
                         | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable1.Dpi = 254F;
-            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(10.58333F, 227.5417F);
+            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(4.037221E-05F, 227.5417F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
-            this.xrTable1.SizeF = new System.Drawing.SizeF(1973.792F, 63.49998F);
+            this.xrTable1.SizeF = new System.Drawing.SizeF(1992.313F, 63.49998F);
             this.xrTable1.StylePriority.UseBorders = false;
             this.xrTable1.StylePriority.UseTextAlignment = false;
             this.xrTable1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -266,8 +267,8 @@
             this.xrTableCell7,
             this.xrTableCell3,
             this.xrTableCell8,
-            this.xrTableCell6,
             this.xrTableCell9,
+            this.xrTableCell11,
             this.xrTableCell10});
             this.xrTableRow1.Dpi = 254F;
             this.xrTableRow1.Name = "xrTableRow1";
@@ -285,63 +286,63 @@
             this.xrTableCell4.Dpi = 254F;
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.Text = "批号";
-            this.xrTableCell4.Weight = 0.40080422960152906;
+            this.xrTableCell4.Weight = 0.3766754555986449;
             // 
             // xrTableCell2
             // 
             this.xrTableCell2.Dpi = 254F;
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.Text = "颜色";
-            this.xrTableCell2.Weight = 0.30697030530261932;
+            this.xrTableCell2.Weight = 0.32305705988395828;
             // 
             // xrTableCell5
             // 
             this.xrTableCell5.Dpi = 254F;
             this.xrTableCell5.Name = "xrTableCell5";
             this.xrTableCell5.Text = "强化";
-            this.xrTableCell5.Weight = 0.1443921292135438;
+            this.xrTableCell5.Weight = 0.17656290292623808;
             // 
             // xrTableCell7
             // 
             this.xrTableCell7.Dpi = 254F;
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.Text = "防雾";
-            this.xrTableCell7.Weight = 0.14439212970816781;
+            this.xrTableCell7.Weight = 0.16525888931359495;
             // 
             // xrTableCell3
             // 
             this.xrTableCell3.Dpi = 254F;
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.Text = "无强化";
-            this.xrTableCell3.Weight = 0.18239006194125595;
+            this.xrTableCell3.Weight = 0.21297834203767166;
             // 
             // xrTableCell8
             // 
             this.xrTableCell8.Dpi = 254F;
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.Text = "燃烧";
-            this.xrTableCell8.Weight = 0.14439213069776957;
-            // 
-            // xrTableCell6
-            // 
-            this.xrTableCell6.Dpi = 254F;
-            this.xrTableCell6.Name = "xrTableCell6";
-            this.xrTableCell6.Text = "测试者";
-            this.xrTableCell6.Weight = 0.19758923701145326;
+            this.xrTableCell8.Weight = 0.17738736185107745;
             // 
             // xrTableCell9
             // 
             this.xrTableCell9.Dpi = 254F;
             this.xrTableCell9.Name = "xrTableCell9";
-            this.xrTableCell9.Text = "检验数量";
-            this.xrTableCell9.Weight = 0.24318675558905695;
+            this.xrTableCell9.Text = "检验数";
+            this.xrTableCell9.Weight = 0.22361771636214975;
+            // 
+            // xrTableCell11
+            // 
+            this.xrTableCell11.Dpi = 254F;
+            this.xrTableCell11.Name = "xrTableCell11";
+            this.xrTableCell11.Text = "单位";
+            this.xrTableCell11.Weight = 0.15813444687773445;
             // 
             // xrTableCell10
             // 
             this.xrTableCell10.Dpi = 254F;
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.Text = "判定";
-            this.xrTableCell10.Weight = 0.2305208887063972;
+            this.xrTableCell10.Weight = 0.20911532626303489;
             // 
             // lbl_Employee
             // 
@@ -432,6 +433,7 @@
             // ReportFooter
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel8,
             this.xrLabel7,
             this.xrLabel6,
             this.xrLabel5,
@@ -441,15 +443,53 @@
             this.ReportFooter.HeightF = 203.9409F;
             this.ReportFooter.Name = "ReportFooter";
             // 
-            // lbl_Note
+            // xrLabel8
             // 
-            this.lbl_Note.Dpi = 254F;
-            this.lbl_Note.LocationFloat = new DevExpress.Utils.PointFloat(161.3958F, 145.5209F);
-            this.lbl_Note.Name = "lbl_Note";
-            this.lbl_Note.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lbl_Note.SizeF = new System.Drawing.SizeF(1526.205F, 58.41997F);
-            this.lbl_Note.StylePriority.UseTextAlignment = false;
-            this.lbl_Note.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.xrLabel8.Dpi = 254F;
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(1730.375F, 145.5208F);
+            this.xrLabel8.Name = "xrLabel8";
+            this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(254F, 58.42F);
+            this.xrLabel8.StylePriority.UseTextAlignment = false;
+            this.xrLabel8.Text = "QW-06 附表 24";
+            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLabel7
+            // 
+            this.xrLabel7.Dpi = 254F;
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(161.3958F, 58.42004F);
+            this.xrLabel7.Multiline = true;
+            this.xrLabel7.Name = "xrLabel7";
+            this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 254F);
+            this.xrLabel7.SizeF = new System.Drawing.SizeF(1497.101F, 58.42004F);
+            this.xrLabel7.StylePriority.UsePadding = false;
+            this.xrLabel7.StylePriority.UseTextAlignment = false;
+            this.xrLabel7.Text = "ANSI/CSA/EN/AS/JIS/GB 共用此測試表";
+            this.xrLabel7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // xrLabel6
+            // 
+            this.xrLabel6.Dpi = 254F;
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(10.58333F, 0F);
+            this.xrLabel6.Name = "xrLabel6";
+            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(150.8125F, 116.8401F);
+            this.xrLabel6.StylePriority.UseTextAlignment = false;
+            this.xrLabel6.Text = "备注：";
+            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // xrLabel5
+            // 
+            this.xrLabel5.Dpi = 254F;
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(161.3958F, 0F);
+            this.xrLabel5.Multiline = true;
+            this.xrLabel5.Name = "xrLabel5";
+            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 254F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(1497.101F, 58.42004F);
+            this.xrLabel5.StylePriority.UsePadding = false;
+            this.xrLabel5.StylePriority.UseTextAlignment = false;
+            this.xrLabel5.Text = "護目鏡貼膜部分的軟墊不在此限\r\n";
+            this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel4
             // 
@@ -461,6 +501,16 @@
             this.xrLabel4.StylePriority.UseTextAlignment = false;
             this.xrLabel4.Text = "备注：";
             this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // lbl_Note
+            // 
+            this.lbl_Note.Dpi = 254F;
+            this.lbl_Note.LocationFloat = new DevExpress.Utils.PointFloat(161.3958F, 145.5209F);
+            this.lbl_Note.Name = "lbl_Note";
+            this.lbl_Note.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_Note.SizeF = new System.Drawing.SizeF(1497.101F, 58.41995F);
+            this.lbl_Note.StylePriority.UseTextAlignment = false;
+            this.lbl_Note.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // PageFooter
             // 
@@ -477,43 +527,6 @@
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrPageInfo1.SizeF = new System.Drawing.SizeF(129.6459F, 58.42F);
-            // 
-            // xrLabel5
-            // 
-            this.xrLabel5.Dpi = 254F;
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(161.3958F, 0F);
-            this.xrLabel5.Multiline = true;
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 254F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(1526.205F, 58.42004F);
-            this.xrLabel5.StylePriority.UsePadding = false;
-            this.xrLabel5.StylePriority.UseTextAlignment = false;
-            this.xrLabel5.Text = "護目鏡貼膜部分的軟墊不在此限\r\n";
-            this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
-            // xrLabel6
-            // 
-            this.xrLabel6.Dpi = 254F;
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(10.58333F, 0F);
-            this.xrLabel6.Name = "xrLabel6";
-            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(150.8125F, 116.8401F);
-            this.xrLabel6.StylePriority.UseTextAlignment = false;
-            this.xrLabel6.Text = "备注：";
-            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            // 
-            // xrLabel7
-            // 
-            this.xrLabel7.Dpi = 254F;
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(161.3958F, 58.42004F);
-            this.xrLabel7.Multiline = true;
-            this.xrLabel7.Name = "xrLabel7";
-            this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 254F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(1526.205F, 58.42004F);
-            this.xrLabel7.StylePriority.UsePadding = false;
-            this.xrLabel7.StylePriority.UseTextAlignment = false;
-            this.xrLabel7.Text = "ANSI/CSA/EN/AS/JIS/GB 共用此測試表";
-            this.xrLabel7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // RO
             // 
@@ -564,7 +577,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell8;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;
         private DevExpress.XtraReports.UI.XRTable xrTable2;
@@ -576,7 +588,6 @@
         private DevExpress.XtraReports.UI.XRTableCell TCFangwu;
         private DevExpress.XtraReports.UI.XRTableCell TCWuQianghua;
         private DevExpress.XtraReports.UI.XRTableCell TCRanshao;
-        private DevExpress.XtraReports.UI.XRTableCell TCEmployee;
         private DevExpress.XtraReports.UI.XRTableCell TCTestQty;
         private DevExpress.XtraReports.UI.XRTableCell TCJudge;
         private DevExpress.XtraReports.UI.XRLabel lbl_Note;
@@ -586,5 +597,8 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
+        private DevExpress.XtraReports.UI.XRTableCell TCProductUnit;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell11;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel8;
     }
 }

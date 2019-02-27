@@ -30,6 +30,13 @@ namespace Book.UI.Settings.BasicData
             if (System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None) != null && System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None).AppSettings.Settings["AllAttachment"] != null)
             {
                 this._ServerSavePath = System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None).AppSettings.Settings["AllAttachment"].Value;
+
+                if (Book.DA.SQLServer.Accessor.SQLConnectionType == 1)
+                    this._ServerSavePath = Path.GetPathRoot(this._ServerSavePath) + "\\Mobe" + this._ServerSavePath.Substring(Path.GetPathRoot(this._ServerSavePath).Length);
+                else if (Book.DA.SQLServer.Accessor.SQLConnectionType == 2)
+                    this._ServerSavePath = Path.GetPathRoot(this._ServerSavePath) + "\\Ansico" + this._ServerSavePath.Substring(Path.GetPathRoot(this._ServerSavePath).Length);
+                else if (Book.DA.SQLServer.Accessor.SQLConnectionType == 3)
+                    this._ServerSavePath = Path.GetPathRoot(this._ServerSavePath) + "\\Ansico-Earplugs" + this._ServerSavePath.Substring(Path.GetPathRoot(this._ServerSavePath).Length);
             }
 
             this._invoiceid = invoiceid;
@@ -93,7 +100,15 @@ namespace Book.UI.Settings.BasicData
                         catch (Exception ex)
                         { throw new Helper.MessageValueException(ex.Message); }
 
-                        System.IO.File.Copy(fn, sfdir + "\\" + fn.Substring(fn.LastIndexOf("\\") + 1), true);
+                        try
+                        {
+                            System.IO.File.Copy(fn, sfdir + "\\" + fn.Substring(fn.LastIndexOf("\\") + 1), true);
+                        }
+                        catch
+                        {
+                            byte[] data = File.ReadAllBytes(fn);
+                            File.WriteAllBytes(sfdir + "\\" + fn.Substring(fn.LastIndexOf("\\") + 1), data);
+                        }
                     }
                 }
             }

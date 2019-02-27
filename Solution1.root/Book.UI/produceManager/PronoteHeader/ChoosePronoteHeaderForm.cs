@@ -22,15 +22,15 @@ namespace Book.UI.produceManager.PronoteHeader
     public partial class ChoosePronoteHeaderForm : DevExpress.XtraEditors.XtraForm
     {
         BL.PronoteHeaderManager pronoteHeaderManager = new Book.BL.PronoteHeaderManager();
-        Model.PronoteHeader pronoteHeader = new Book.Model.PronoteHeader();
+        public Model.PronoteHeader pronoteHeader = new Book.Model.PronoteHeader();
         BL.PronotedetailsMaterialManager pronotedetailsMaterialManager = new Book.BL.PronotedetailsMaterialManager();
         Model.PronotedetailsMaterial pronotedetailsMaterial = new Book.Model.PronotedetailsMaterial();
         public static IList<Model.PronotedetailsMaterial> _PronotedetailsMaterialList;
         //BL.PronotedetailsManager PronotedetailsManager = new Book.BL.PronotedetailsManager();
-       // IList<Model.Pronotedetails> _Pronotedetaillist = new List<Model.Pronotedetails>();
+        // IList<Model.Pronotedetails> _Pronotedetaillist = new List<Model.Pronotedetails>();
 
 
-       // Model.Pronotedetails _pronotedetail = new Book.Model.Pronotedetails();
+        // Model.Pronotedetails _pronotedetail = new Book.Model.Pronotedetails();
         //Model.BomParentPartInfo _bomParentPartInfo = new Book.Model.BomParentPartInfo();
         //Model.BomComponentInfo _bomComponentInfo = new Book.Model.BomComponentInfo();
         //IList<Model.BomComponentInfo> _BomComponentInfoList = new List<Model.BomComponentInfo>();
@@ -41,10 +41,10 @@ namespace Book.UI.produceManager.PronoteHeader
         public ChoosePronoteHeaderForm()
         {
             InitializeComponent();
-            this.newChooseCustomer.Choose=new Settings.BasicData.Customs.ChooseCustoms();
+            this.newChooseCustomer.Choose = new Settings.BasicData.Customs.ChooseCustoms();
             //this.details = this.pronoteHeaderManager.Select();
             this.dateEditStartDate.DateTime = DateTime.Now.Date.AddMonths(-1).Date;
-            this.dateEditEndDate.DateTime = DateTime.Now; 
+            this.dateEditEndDate.DateTime = DateTime.Now;
             _PronotedetailsMaterialList = new List<Model.PronotedetailsMaterial>();
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace Book.UI.produceManager.PronoteHeader
         public ChoosePronoteHeaderForm(int sourceType)
             : base()
         {
-            this.sourceType = sourceType;   
+            this.sourceType = sourceType;
         }
 
 
@@ -75,7 +75,7 @@ namespace Book.UI.produceManager.PronoteHeader
             //        ProduceInDepot.EditForm._pronotedetails.Add(Pronotedetails);
             //    }
             //}
-
+            this.pronoteHeader = this.bindingSource1.Current as Model.PronoteHeader;
             this.DialogResult = DialogResult.OK;
         }
 
@@ -87,7 +87,7 @@ namespace Book.UI.produceManager.PronoteHeader
         /// <param name="e"></param>
         private void ChoosePronoteHeaderForm_Load(object sender, EventArgs e)
         {
-           // this.bindingSource1.DataSource = this.pronoteHeaderManager.GetByDate(DateTime.Now.AddMonths(-1), global::Helper.DateTimeParse.EndDate,null,null,null,null,null,-1,null,true);
+            // this.bindingSource1.DataSource = this.pronoteHeaderManager.GetByDate(DateTime.Now.AddMonths(-1), global::Helper.DateTimeParse.EndDate,null,null,null,null,null,-1,null,true);
         }
 
 
@@ -143,7 +143,7 @@ namespace Book.UI.produceManager.PronoteHeader
             if (e.ListSourceRowIndex < 0) return;
             IList<Model.PronoteHeader> details = this.bindingSource1.DataSource as IList<Model.PronoteHeader>;
             if (details == null || details.Count < 1) return;
-            Model.Product product = details[e.ListSourceRowIndex].Product;      
+            Model.Product product = details[e.ListSourceRowIndex].Product;
             switch (e.Column.Name)
             {
                 case "gridColumn1Id":
@@ -169,14 +169,14 @@ namespace Book.UI.produceManager.PronoteHeader
         private void gridView1_Click(object sender, EventArgs e)
         {
             this.pronoteHeader = this.bindingSource1.Current as Model.PronoteHeader;
-            if (pronoteHeader!=null)
-            this.bindingSource2.DataSource = this.pronotedetailsMaterialManager.GetByHeader(this.pronoteHeader);
+            if (pronoteHeader != null)
+                this.bindingSource2.DataSource = this.pronotedetailsMaterialManager.GetByHeader(this.pronoteHeader);
 
         }
 
         private void gridView2_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-             if (_PronotedetailsMaterialList == null) return;
+            if (_PronotedetailsMaterialList == null) return;
             if (e.Column.Name == "gridColumnChecked")
             {
                 Model.PronotedetailsMaterial pronotedetailsMaterial = this.gridView2.GetRow(e.RowHandle) as Model.PronotedetailsMaterial;
@@ -190,7 +190,7 @@ namespace Book.UI.produceManager.PronoteHeader
                     _PronotedetailsMaterialList.Remove(pronotedetailsMaterial);
                 }
             }
-            
+
         }
 
         private void simpleButtonOK_Click(object sender, EventArgs e)
@@ -205,7 +205,7 @@ namespace Book.UI.produceManager.PronoteHeader
             {
                 endTime = this.dateEditEndDate.DateTime.Date.AddDays(1).AddSeconds(-1);
             }
-            this.bindingSource1.DataSource = this.pronoteHeaderManager.GetByDateMa(startTime, endTime, this.newChooseCustomer.EditValue as Model.Customer, this.textEditCusXOId.Text == "" ? null : this.textEditCusXOId.Text, this.buttonEditPro.EditValue as Model.Product, null, null, -1, null, false, this.TXTproNameKey.Text, this.TXTproCusNameKey.Text, this.txtpronoteHeaderIdKey.Text, false, false, false); 
+            this.bindingSource1.DataSource = this.pronoteHeaderManager.GetByDateMa(startTime, endTime, this.newChooseCustomer.EditValue as Model.Customer, this.textEditCusXOId.Text == "" ? null : this.textEditCusXOId.Text, this.buttonEditPro.EditValue as Model.Product, null, null, -1, null, false, this.TXTproNameKey.Text, this.TXTproCusNameKey.Text, this.txtpronoteHeaderIdKey.Text, false, false, false);
         }
 
         private void buttonEditPro_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

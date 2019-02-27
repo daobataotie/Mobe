@@ -52,6 +52,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="PCImpactCheckId" column="PCImpactCheckId"/>
       <result property="PCFogCheckId" column="PCFogCheckId"/>
       <result property="PCFlameRetardantId" column="PCFlameRetardantId"/>
+      <result property="TestProductUnit" column="TestProductUnit"/>
       <result property="CheckEmployee" column="CheckEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="ChongjiEmployee" column="ChongjiEmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="Confirmor" column="ConfirmorId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
@@ -195,7 +196,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [TestQuantity],
         [PCImpactCheckId],
         [PCFogCheckId],
-        [PCFlameRetardantId]
+        [PCFlameRetardantId],
+        [TestProductUnit]
 			FROM
 				[dbo].[PCInputCheck]
 			WHERE
@@ -294,7 +296,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [TestQuantity],
         [PCImpactCheckId],
         [PCFogCheckId],
-        [PCFlameRetardantId]
+        [PCFlameRetardantId],
+        [TestProductUnit]
 			) 
 			VALUES 
 			(
@@ -343,7 +346,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         #TestQuantity#,
         #PCImpactCheckId#,
         #PCFogCheckId#,
-        #PCFlameRetardantId#
+        #PCFlameRetardantId#,
+        #TestProductUnit#
 			)
              ]]>
     </insert>
@@ -395,7 +399,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [TestQuantity]=#TestQuantity#,        
         [PCImpactCheckId]=#PCImpactCheckId#,
         [PCFogCheckId]=#PCFogCheckId#,
-        [PCFlameRetardantId]=#PCFlameRetardantId#
+        [PCFlameRetardantId]=#PCFlameRetardantId#,
+        [TestProductUnit]=#TestProductUnit#
 			WHERE
 				[PCInputCheckId] = #PCInputCheckId#
                     ]]>

@@ -216,6 +216,8 @@ namespace Book.UI.produceManager.PCInputCheck
             this._PCInputCheck.PCFogCheckId = this.btn_Fog.Text;
             this._PCInputCheck.PCFlameRetardantId = this.btn_FlameRetardant.Text;
 
+            this._PCInputCheck.TestProductUnit = this.cob_TestProductUnit.SelectedText;
+
             switch (this.action)
             {
                 case "insert":
@@ -311,6 +313,8 @@ namespace Book.UI.produceManager.PCInputCheck
             this.btn_Impact.EditValue = this._PCInputCheck.PCImpactCheckId;
             this.btn_Fog.EditValue = this._PCInputCheck.PCFogCheckId;
             this.btn_FlameRetardant.EditValue = this._PCInputCheck.PCFlameRetardantId;
+
+            this.cob_TestProductUnit.SelectedItem = this._PCInputCheck.TestProductUnit;
 
             base.Refresh();
 
@@ -703,7 +707,7 @@ namespace Book.UI.produceManager.PCInputCheck
 
         private void btn_FlameRetardant_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            PCFlameRetardant.ListForm f = new Book.UI.produceManager.PCFlameRetardant.ListForm(true,this._PCInputCheck.LotNumber);
+            PCFlameRetardant.ListForm f = new Book.UI.produceManager.PCFlameRetardant.ListForm(true, this._PCInputCheck.LotNumber);
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 this.btn_FlameRetardant.EditValue = f.PCFlameRetardantId;

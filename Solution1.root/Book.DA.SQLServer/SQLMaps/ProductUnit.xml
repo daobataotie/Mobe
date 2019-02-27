@@ -38,5 +38,9 @@
     <select id="SelectByCondition" resultClass="double?" parameterClass="Map">
       select $UnitId0Quantity$/(select convertrate from ProductUnit where unitgroupid=#GroupUnitId# and cnname=#UnitId0#)*(select convertrate from ProductUnit where unitgroupid=#GroupUnitId# and cnname=#UnitId1#) Numbers
     </select>
+
+    <select id="SelectProductUnitGroup" resultClass="string">
+      select CnName from ProductUnit group by CnName
+    </select>
   </statements>
 </sqlMap>

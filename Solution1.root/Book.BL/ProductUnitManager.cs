@@ -167,6 +167,11 @@ namespace Book.BL
             else
                 return accessor.ConvertUnit(groupunitId, Fromunitid, Tounitid, FromQuantity);
         }
+
+        public IList<string> SelectProductUnitGroup()
+        {
+            return accessor.SelectProductUnitGroup();
+        }
     }
 }
 
