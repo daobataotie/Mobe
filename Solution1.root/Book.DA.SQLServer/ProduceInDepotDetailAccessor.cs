@@ -1710,25 +1710,25 @@ namespace Book.DA.SQLServer
         }
 
         //计算单独在“射出”部门的合格数量（生产部门是射出，并且下个生产站不能是“强化/防雾”，“验片”） 
-        public IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd)
+        public IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId)
         {
-            string sql = "select pid.ProductId, SUM(CheckOutSum) as CheckOutSum from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='1537e0b6-0ac8-43ea-a300-e121518d3f26' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and  (pid.WorkHouseId is null or pid.WorkHouseId not in ('2521761d-1e0c-4f23-89bc-fa40bf0fc66f','c3e6b2fc-d869-4cb1-b007-ec8dde0c87e5')) group by pid.ProductId";
+            string sql = "select pid.ProductId, SUM(CheckOutSum) as CheckOutSum,pid.HandbookId from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='1537e0b6-0ac8-43ea-a300-e121518d3f26' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and  (pid.WorkHouseId is null or pid.WorkHouseId not in ('2521761d-1e0c-4f23-89bc-fa40bf0fc66f','c3e6b2fc-d869-4cb1-b007-ec8dde0c87e5')) and (pid.HandbookId='" + handBookId + "' or '" + handBookId + "' ='') group by pid.ProductId,pid.HandbookId";
 
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
         }
 
         //计算经“强化/防雾”“验片”后的合格数量（生产部门是“验片”,此处抓验片的生产数量做合格数量） 
-        public IList<Model.ProduceInDepotDetail> SelectYanpianByDateRange(DateTime dateStart, DateTime dateEnd)
+        public IList<Model.ProduceInDepotDetail> SelectYanpianByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId)
         {
-            string sql = "select pid.ProductId, SUM(ProceduresSum) as CheckOutSum from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='c3e6b2fc-d869-4cb1-b007-ec8dde0c87e5' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' group by pid.ProductId";
+            string sql = "select pid.ProductId, SUM(ProceduresSum) as CheckOutSum,pid.HandbookId from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='c3e6b2fc-d869-4cb1-b007-ec8dde0c87e5' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and (pid.HandbookId='" + handBookId + "' or '" + handBookId + "' ='') group by pid.ProductId,pid.HandbookId";
 
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
         }
 
         //计算“强化/防雾”的生产数量
-        public IList<Model.ProduceInDepotDetail> SelectQianghuaByDateRange(DateTime dateStart, DateTime dateEnd)
+        public IList<Model.ProduceInDepotDetail> SelectQianghuaByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId)
         {
-            string sql = "select pid.ProductId, SUM(ProceduresSum) as CheckOutSum from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='2521761d-1e0c-4f23-89bc-fa40bf0fc66f' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' group by pid.ProductId";
+            string sql = "select pid.ProductId, SUM(ProceduresSum) as CheckOutSum,pid.HandbookId from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='2521761d-1e0c-4f23-89bc-fa40bf0fc66f' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and (pid.HandbookId='" + handBookId + "' or '" + handBookId + "' ='') group by pid.ProductId,pid.HandbookId";
 
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
         }

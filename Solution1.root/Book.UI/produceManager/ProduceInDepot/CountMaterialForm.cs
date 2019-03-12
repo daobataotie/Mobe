@@ -48,15 +48,15 @@ namespace Book.UI.produceManager.ProduceInDepot
 
             list = detailManager.SelectAllByDateRange(dateStart, dateEnd, handBookId);
 
-            IList<Model.ProduceInDepotDetail> listShechu = detailManager.SelectShechuByDateRange(dateStart, dateEnd);
-            IList<Model.ProduceInDepotDetail> listYanpian = detailManager.SelectQianghuaByDateRange(dateStart, dateEnd);
+            IList<Model.ProduceInDepotDetail> listShechu = detailManager.SelectShechuByDateRange(dateStart, dateEnd, handBookId);
+            IList<Model.ProduceInDepotDetail> listYanpian = detailManager.SelectQianghuaByDateRange(dateStart, dateEnd, handBookId);
             //2018年3月8日00:42:22 验片生产数量改为强化防雾生产数量
             //IList<Model.ProduceInDepotDetail> listYanpian = detailManager.SelectYanpianByDateRange(dateStart, dateEnd);
 
             foreach (var item in list)
             {
-                var shechu = listShechu.FirstOrDefault(L => L.ProductId == item.ProductId);
-                var yanpian = listYanpian.FirstOrDefault(L => L.ProductId == item.ProductId);
+                var shechu = listShechu.FirstOrDefault(L => L.ProductId == item.ProductId && L.HandbookId == item.HandbookId);
+                var yanpian = listYanpian.FirstOrDefault(L => L.ProductId == item.ProductId && L.HandbookId == item.HandbookId);
 
                 if (shechu != null)
                     item.ShechuHege = shechu.CheckOutSum.HasValue ? shechu.CheckOutSum.Value : 0;

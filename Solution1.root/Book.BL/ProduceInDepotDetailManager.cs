@@ -206,19 +206,19 @@ namespace Book.BL
             return accessor.SelectAllByDateRange(dateStart, dateEnd, handBookId);
         }
 
-        public IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd)
+        public IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId)
         {
-            return accessor.SelectShechuByDateRange(dateStart, dateEnd);
+            return accessor.SelectShechuByDateRange(dateStart, dateEnd, handBookId);
         }
 
-        public IList<Model.ProduceInDepotDetail> SelectYanpianByDateRange(DateTime dateStart, DateTime dateEnd)
+        public IList<Model.ProduceInDepotDetail> SelectYanpianByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId)
         {
-            return accessor.SelectYanpianByDateRange(dateStart, dateEnd);
+            return accessor.SelectYanpianByDateRange(dateStart, dateEnd, handBookId);
         }
 
-        public IList<Model.ProduceInDepotDetail> SelectQianghuaByDateRange(DateTime dateStart, DateTime dateEnd)
+        public IList<Model.ProduceInDepotDetail> SelectQianghuaByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId)
         {
-            return accessor.SelectQianghuaByDateRange(dateStart, dateEnd);
+            return accessor.SelectQianghuaByDateRange(dateStart, dateEnd, handBookId);
         }
 
         public string SelectCustomerProductNameByPronoteHeaderId(string pronoteHeaderId)

@@ -64,11 +64,11 @@ namespace Book.DA
 
         IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId);
 
-        IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd);
+        IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId);
 
-        IList<Model.ProduceInDepotDetail> SelectYanpianByDateRange(DateTime dateStart, DateTime dateEnd);
+        IList<Model.ProduceInDepotDetail> SelectYanpianByDateRange(DateTime dateStart, DateTime dateEnd,string handBookId);
 
-        IList<Model.ProduceInDepotDetail> SelectQianghuaByDateRange(DateTime dateStart, DateTime dateEnd);
+        IList<Model.ProduceInDepotDetail> SelectQianghuaByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId);
 
         string SelectCustomerProductNameByPronoteHeaderId(string pronoteHeaderId);
     }
