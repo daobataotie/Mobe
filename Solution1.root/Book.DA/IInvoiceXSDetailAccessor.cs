@@ -8,6 +8,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Book.DA
 {
@@ -40,6 +41,8 @@ namespace Book.DA
         double GetInvoiceXSDetailQuantity(string id);
 
         IList<Model.InvoiceXSDetail> SelectByBGHandBook(DateTime startDate, DateTime endDate, string bgHandBookId, string bgProductId, string productId, string cusXOId);
+
+        DataTable SelectAnnualShipment(string ProductId, DateTime StartDate, DateTime EndDate, string CustomerId, int showType);
     }
 
 }

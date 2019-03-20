@@ -784,6 +784,10 @@ namespace Book.UI
 
             //仓库待转区库存
             operations.Add("Query.PendingAreaStock", (D1)delegate(System.Windows.Forms.Form form) { M1("Query.PendingAreaStock", form); });
+
+            //客戶商品年度出貨查詢
+            operations.Add("Book.UI.Settings.BasicData.Customs.AnnualShipment", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.BasicData.Customs.AnnualShipmentByCustomer", form); });
+
         }
 
         static Form CreateForm(string formTypeName)

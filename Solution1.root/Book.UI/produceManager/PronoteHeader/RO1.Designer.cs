@@ -35,7 +35,7 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCellNo = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableJibie = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCProduct_Id = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCellProductName = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCellDetailsSum = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCellProductUnit = new DevExpress.XtraReports.UI.XRTableCell();
@@ -99,7 +99,7 @@ namespace Book.UI.produceManager.PronoteHeader
             // 
             this.xrTableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.xrTableCellNo,
-            this.xrTableJibie,
+            this.TCProduct_Id,
             this.xrTableCellProductName,
             this.xrTableCellDetailsSum,
             this.xrTableCellProductUnit,
@@ -114,11 +114,11 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrTableCellNo.Name = "xrTableCellNo";
             this.xrTableCellNo.Weight = 0.044012145271426786;
             // 
-            // xrTableJibie
+            // TCProduct_Id
             // 
-            resources.ApplyResources(this.xrTableJibie, "xrTableJibie");
-            this.xrTableJibie.Name = "xrTableJibie";
-            this.xrTableJibie.Weight = 0.049277345741124259;
+            resources.ApplyResources(this.TCProduct_Id, "TCProduct_Id");
+            this.TCProduct_Id.Name = "TCProduct_Id";
+            this.TCProduct_Id.Weight = 0.19592847138199346;
             // 
             // xrTableCellProductName
             // 
@@ -126,7 +126,7 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrTableCellProductName.Name = "xrTableCellProductName";
             this.xrTableCellProductName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCellProductName.StylePriority.UseTextAlignment = false;
-            this.xrTableCellProductName.Weight = 0.4302336528443147;
+            this.xrTableCellProductName.Weight = 0.41489137801034193;
             // 
             // xrTableCellDetailsSum
             // 
@@ -134,7 +134,7 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrTableCellDetailsSum.Name = "xrTableCellDetailsSum";
             this.xrTableCellDetailsSum.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCellDetailsSum.StylePriority.UseTextAlignment = false;
-            this.xrTableCellDetailsSum.Weight = 0.0875768542216713;
+            this.xrTableCellDetailsSum.Weight = 0.079174437994481317;
             // 
             // xrTableCellProductUnit
             // 
@@ -142,13 +142,13 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrTableCellProductUnit.Name = "xrTableCellProductUnit";
             this.xrTableCellProductUnit.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCellProductUnit.StylePriority.UseTextAlignment = false;
-            this.xrTableCellProductUnit.Weight = 0.097519716402421422;
+            this.xrTableCellProductUnit.Weight = 0.0548326386991235;
             // 
             // xrTableCellJiaoQi
             // 
             resources.ApplyResources(this.xrTableCellJiaoQi, "xrTableCellJiaoQi");
             this.xrTableCellJiaoQi.Name = "xrTableCellJiaoQi";
-            this.xrTableCellJiaoQi.Weight = 0.19594085924359878;
+            this.xrTableCellJiaoQi.Weight = 0.11572150236719021;
             // 
             // xrRichText1
             // 
@@ -211,7 +211,7 @@ namespace Book.UI.produceManager.PronoteHeader
             // 
             resources.ApplyResources(this.xrTableCell3, "xrTableCell3");
             this.xrTableCell3.Name = "xrTableCell3";
-            this.xrTableCell3.Weight = 0.054476555169601919;
+            this.xrTableCell3.Weight = 0.21660075784213448;
             // 
             // xrTableCell1
             // 
@@ -219,7 +219,7 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCell1.StylePriority.UseTextAlignment = false;
-            this.xrTableCell1.Weight = 0.475627217065878;
+            this.xrTableCell1.Weight = 0.45866611978013178;
             // 
             // xrTableCell2
             // 
@@ -227,7 +227,7 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCell2.StylePriority.UseTextAlignment = false;
-            this.xrTableCell2.Weight = 0.096895083150226449;
+            this.xrTableCell2.Weight = 0.08752813162336362;
             // 
             // xrTableCell7
             // 
@@ -235,13 +235,13 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
-            this.xrTableCell7.Weight = 0.10782692862951054;
+            this.xrTableCell7.Weight = 0.06061798472088336;
             // 
             // xrTableCell4
             // 
             resources.ApplyResources(this.xrTableCell4, "xrTableCell4");
             this.xrTableCell4.Name = "xrTableCell4";
-            this.xrTableCell4.Weight = 0.21651838021622255;
+            this.xrTableCell4.Weight = 0.12793117026492623;
             // 
             // RO1
             // 
@@ -251,7 +251,7 @@ namespace Book.UI.produceManager.PronoteHeader
             this.BottomMargin,
             this.ReportHeader});
             resources.ApplyResources(this, "$this");
-            this.Margins = new System.Drawing.Printing.Margins(150, 89, 79, 79);
+            this.Margins = new System.Drawing.Printing.Margins(150, 89, 80, 80);
             this.PageHeight = 2794;
             this.PageWidth = 2159;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
@@ -287,7 +287,7 @@ namespace Book.UI.produceManager.PronoteHeader
         private DevExpress.XtraReports.UI.XRRichText xrRichText1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.XRLine xrLine1;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableJibie;
+        private DevExpress.XtraReports.UI.XRTableCell TCProduct_Id;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
     }
 }

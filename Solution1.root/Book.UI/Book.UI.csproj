@@ -7749,6 +7749,9 @@
       <DependentUpon>ListForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\BasicData\Customs\AnnualShipmentByCustomer.resx">
+      <DependentUpon>AnnualShipmentByCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings\BasicData\Customs\ChooseCustomerMarksForm.resx">
       <DependentUpon>ChooseCustomerMarksForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -7772,6 +7775,15 @@
     <EmbeddedResource Include="Settings\BasicData\Customs\ChooseCustomsForm.zh-CHT.resx">
       <DependentUpon>ChooseCustomsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\BasicData\Customs\ChooseCustomsForm2.resx">
+      <DependentUpon>ChooseCustomsForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\BasicData\Customs\ChooseCustomsForm2.zh-CHT.resx">
+      <DependentUpon>ChooseCustomsForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\BasicData\Customs\CustomerProduct.resx">
+      <DependentUpon>CustomerProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\BasicData\Customs\CustomerProductForm.resx">
       <DependentUpon>CustomerProductForm.cs</DependentUpon>
@@ -12815,11 +12827,29 @@
     <Compile Include="Settings\BasicData\BaseAttachmentView.Designer.cs">
       <DependentUpon>BaseAttachmentView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\BasicData\Customs\AnnualShipmentByCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\BasicData\Customs\AnnualShipmentByCustomer.Designer.cs">
+      <DependentUpon>AnnualShipmentByCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\BasicData\Customs\ChooseCustomerMarksForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings\BasicData\Customs\ChooseCustomerMarksForm.Designer.cs">
       <DependentUpon>ChooseCustomerMarksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\BasicData\Customs\ChooseCustomsForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\BasicData\Customs\ChooseCustomsForm2.Designer.cs">
+      <DependentUpon>ChooseCustomsForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\BasicData\Customs\CustomerProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\BasicData\Customs\CustomerProduct.Designer.cs">
+      <DependentUpon>CustomerProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\BasicData\Customs\CustomerProductPrice.cs">
       <SubType>Form</SubType>

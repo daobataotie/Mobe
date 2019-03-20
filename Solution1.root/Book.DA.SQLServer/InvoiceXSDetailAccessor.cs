@@ -221,5 +221,30 @@ namespace Book.DA.SQLServer
 
             return this.DataReaderBind<Model.InvoiceXSDetail>(sb.ToString(), null, CommandType.Text);
         }
+
+        //年度出货查询
+        public DataTable SelectAnnualShipment(string ProductId, DateTime StartDate, DateTime EndDate, string CustomerId, int showType)
+        {
+            string sql = "";
+            if (showType == 0)
+                sql = "select YEAR(x.InvoiceDate) as ShipmentYear, sum(isnull(xd.InvoiceXSDetailQuantity,0)) as ShipmentQuantity,xd.ProductId from InvoiceXSDetail xd left join InvoiceXS x on xd.InvoiceId=x.InvoiceId where xd.ProductId='" + ProductId + "' and x.InvoiceDate between '" + StartDate.ToString("yyyy-MM-dd") + "' and '" + EndDate.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "' group by YEAR(x.InvoiceDate),x.CustomerId,xd.ProductId order by YEAR(x.InvoiceDate)";
+            else
+                sql = "select (cast(year(x.InvoiceDate) as varchar(10))+'.'+cast(month(x.InvoiceDate) as varchar(10))) as ShipmentYear, sum(isnull(xd.InvoiceXSDetailQuantity,0)) as ShipmentQuantity,xd.ProductId from InvoiceXSDetail xd left join InvoiceXS x on xd.InvoiceId=x.InvoiceId where xd.ProductId='" + ProductId + "' and x.InvoiceDate between '" + StartDate.ToString("yyyy-MM-dd") + "' and '" + EndDate.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "' group by (cast(year(x.InvoiceDate) as varchar(10))+'.'+cast(month(x.InvoiceDate) as varchar(10))),x.CustomerId,xd.ProductId order by (cast(year(x.InvoiceDate) as varchar(10))+'.'+cast(month(x.InvoiceDate) as varchar(10)))";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(sqlmapper.DataSource.ConnectionString))
+                {
+
+                    SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+                    return dt;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

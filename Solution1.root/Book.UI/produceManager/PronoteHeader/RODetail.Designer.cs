@@ -200,6 +200,7 @@
             resources.ApplyResources(this.lblHandBookId, "lblHandBookId");
             this.lblHandBookId.Name = "lblHandBookId";
             this.lblHandBookId.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lblHandBookId.StylePriority.UseFont = false;
             this.lblHandBookId.StylePriority.UseTextAlignment = false;
             // 
             // xrLabel23

@@ -577,6 +577,12 @@ namespace Book.BL
             return accessor.SelectProductByCustomer(customer);
 
         }
+
+        public IList<Model.Product> SelectAllProductByCustomers(string customerIds, bool isShowUnuseProduct)
+        {
+            return accessor.SelectAllProductByCustomers(customerIds, isShowUnuseProduct);
+        }
+
         public Model.Product Get(Model.Customer customer, Model.Product product)
         {
             return accessor.Get(customer, product);
@@ -703,6 +709,11 @@ namespace Book.BL
         public double SelectStocksQuantityByStock(string productId)
         {
             return accessor.SelectStocksQuantityByStock(productId);
+        }
+
+        public IList<Model.Product> GetProductBaseInfo()
+        {
+            return accessor.GetProductBaseInfo();
         }
     }
 }

@@ -61,7 +61,13 @@
       <result property="ProductCategory" column="ProductCategoryId" lazyLoad="false" select="ProductCategory.select_by_primary_key" />
       <result property="DepotUnit" column="DepotUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
     </resultMap>
-
+    <resultMap id="ProductResult5" class="Product">
+      <result property="ProductId" column="ProductId" />
+      <result property="Id" column="Id" />
+      <result property="ProductName" column="ProductName" />
+      <result property="CustomerProductName" column="CustomerProductName"/>
+      <result property="ProductVersion" column="ProductVersion"/>
+    </resultMap>
     <resultMap id="ProductResultBomPar" class="Product">
       <result property="ProductId" column="ProductId" />
       <result property="Id" column="Id" />
@@ -547,6 +553,15 @@ where ProductId = #productid#
       ]]>
       <!--CustomerProductName desc-->
     </select>
+
+    <select id="SelectAllProductByCustomers" resultMap="ProductResult5" parameterClass="Map">
+      <![CDATA[
+      select ProductId,Id,ProductName,ProductVersion,CustomerProductName from product 
+      where customerid in ($CustomerIds$) and 1=1 $sql$ order by Id
+      ]]>
+      <!--CustomerProductName desc-->
+    </select>
+    
     <!--查询指定类型和客户的货品和公司货品-->
 
     <select id="SelectByCategoryAndCustomer" resultMap="ProductResult" parameterClass="string">
@@ -848,6 +863,12 @@ where ProductId = #productid#
     <select id="SelectStocksQuantityByStock" resultClass="double" parameterClass="string">
       <![CDATA[
       select ISNULL(sum(stockquantity1),0) from Stock where ProductId=#value#
+      ]]>
+    </select>
+
+    <select id="GetProductBaseInfo" resultMap="ProductResult3">
+      <![CDATA[
+      select ProductId,Id,ProductName from Product
       ]]>
     </select>
   </statements>

@@ -37,6 +37,7 @@ namespace Book.DA
         //查询指定类型和客户的货品和公司货品
         IList<Model.Product> Select(Model.Customer customer, Model.ProductCategory cate);
         IList<Model.Product> SelectProductByCustomer(Model.Customer customer);
+        IList<Model.Product> SelectAllProductByCustomers(string customerIds, bool isShowUnuseProduct);
         Model.Product Get(Model.Customer customer, Model.Product product);
         void Delete(Book.Model.Product product, Model.Customer customer);
         IList<Model.Product> GetProduct();
@@ -72,6 +73,8 @@ namespace Book.DA
         string SelectCustomerProductNameByProductIds(string productIds);
 
         double SelectStocksQuantityByStock(string productId);
+
+        IList<Model.Product> GetProductBaseInfo();
     }
 }
 

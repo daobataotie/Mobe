@@ -122,6 +122,11 @@ namespace Book.BL
         {
             return accessor.SelectByBGHandBook(startDate, endDate, bgHandBookId, bgProductId, productId, cusXOId);
         }
+
+        public System.Data.DataTable SelectAnnualShipment(string ProductId, DateTime StartDate, DateTime EndDate, string CustomerId, int showType)
+        {
+            return accessor.SelectAnnualShipment(ProductId, StartDate, EndDate, CustomerId, showType);
+        }
     }
 }
 

@@ -52,6 +52,8 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrTableCellNo.DataBindings.Add("Text", this.DataSource, Model.PronotedetailsMaterial.PRO_Inumber);
             this.xrTableCellJiaoQi.DataBindings.Add("Text", this.DataSource, Model.PronotedetailsMaterial.PRO_JiaoQi, "{0:yyyy-MM-dd}");
             //this.xrTableCellSupplierName.DataBindings.Add("Text", this.DataSource, Model.PronotedetailsMaterial.PRO_SupplierName);
+
+            this.TCProduct_Id.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_Id);
         }
 
         private Model.PronoteHeader pronoteHeader;
@@ -81,96 +83,6 @@ namespace Book.UI.produceManager.PronoteHeader
             //  this.DataSource = XRband();           
             this.DataSource = this.pronoteHeader.DetailsMaterial;
         }
-        //# region
-        //public IList<Model.BomComponentInfo> XRband()
-        //{                    
-
-        //     Model.MRSHeader mrp= this.mRSHeaderManager.Get(this.pronoteHeader.MRSHeaderId);           
-
-        //     IList<Model.MRSdetails> mrsdetailList=null;
-
-        //        foreach (Model.PronotedetailsMaterial mater in this.pronoteHeader.DetailsMaterial)
-        //        {                 
-
-        //            Model.BomComponentInfo comm = new Model.BomComponentInfo();                   
-        //            comm.Jibie = 1;
-        //            comm.UseQuantity =mater.PronoteQuantity;
-        //            comm.IndexOfBom = mater.Inumber;
-        //            comm.Product = mater.Product;
-        //            comm.Unit = mater.ProductUnit;
-        //            comm.Product.ProductName = string.IsNullOrEmpty(mater.Product.CustomerProductName) ? mater.Product.ProductName : mater.Product.ProductName + "{" + mater.Product.CustomerProductName + "}";
-        //            comm.ProductId = mater.ProductId;
-        //            comm.JiaoQi = mater.JiaoQi;
-        //            _comDetailss.Add(comm);
-        //        }                       
-
-        //    if (this._comDetailss.Count != 0&&!string.IsNullOrEmpty(this.pronoteHeader.Product.CustomerProductName))
-        //    {
-        //        IList<Model.BomComponentInfo> a = null;
-        //        string strlenth = "";
-        //        for (int i = 0; i < this._comDetailss.Count; i++)
-        //        {
-        //            if(_comDetailss[i].Product.IsProcee!=true) //非半成品加工跳过
-        //                continue;
-        //            //在物料中查询 是否 存在此子件
-
-        //            this._bomparent = this.bomParmentInfoManager.Get(_comDetailss[i].Product);
-        //            if (this._bomparent != null)
-        //            {                        
-        //                //交期
-        //            if(!string.IsNullOrEmpty( this.pronoteHeader.MRSHeaderId))
-        //            {
-
-        //                if(mrp!=null&&!string.IsNullOrEmpty( mrp.MPSheaderId))
-        //                {                                         
-        //                    mrsdetailList=this.mrsdetailsManager.SelectWhere(" MadeProductId='"+this._bomparent.ProductId+"' and MRSHeaderId in(select MRSHeaderId from MRSHeader where mpsheaderid='"+mrp.MPSheaderId+"') ");
-
-        //                }
-
-        //            }
-        //                a = this.BomComManager.Select(this._bomparent);
-        //                int m = this._comDetailss.Count;
-        //                for (int j = i + 1; j < m; j++)
-        //                {
-        //                    _comDetails.Add(this._comDetailss[i + 1]);
-        //                    this._comDetailss.RemoveAt(i + 1);
-        //                }
-
-        //                foreach (Model.BomComponentInfo bom in a)
-        //                {
-        //                    foreach(Model.MRSdetails mrpdetail in mrsdetailList)
-        //                    {
-        //                       if(mrpdetail.ProductId==bom.ProductId)
-        //                           bom.JiaoQi=mrpdetail.JiaoHuoDate;
-        //                    }
-
-        //                    bom.IndexOfBom = null;
-        //                    bom.Jibie = _comDetailss[i].Jibie + 1;
-        //                    bom.UseQuantity = _comDetailss[i].UseQuantity * bom.UseQuantity*(1+0.01*(bom.SubLoseRate.HasValue?bom.SubLoseRate.Value:0));
-        //                    for (int g = 0; g < bom.Jibie; g++)
-        //                    {
-        //                        strlenth += "   ";
-        //                    }
-        //                    if (bom.Product != null)
-        //                    {
-        //                        bom.Product.ProductName = strlenth + (string.IsNullOrEmpty(bom.Product.CustomerProductName) ? bom.Product.ProductName : bom.Product.ProductName + "{" + bom.Product.CustomerProductName + "}");
-        //                    }
-
-        //                    this._comDetailss.Add(bom);
-        //                    strlenth = "";
-        //                }
-        //                foreach (Model.BomComponentInfo boms in _comDetails)
-        //                {
-        //                    this._comDetailss.Add(boms);
-        //                }
-        //                _comDetails.Clear();
-        //                a.Clear();
-        //            }
-        //        }
-        //    }
-        //    return _comDetailss;
-        //}
-        //#endregion
-
+     
     }
 }

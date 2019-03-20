@@ -49,32 +49,6 @@ namespace Book.UI.Query
                     return;
                 }
 
-                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-                excel.Application.Workbooks.Add(true);
-
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]);
-                r.MergeCells = true;//合并单元格
-
-                excel.Cells.ColumnWidth = 10;
-                excel.Cells[1, 1] = "商品进出仓明细(" + this.date_End.DateTime.ToString("yyyy-MM-dd") + ")";
-                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
-                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
-                //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
-                excel.get_Range(excel.Cells[1, 7], excel.Cells[1, 8]).HorizontalAlignment = -4108;
-
-                excel.Cells[2, 1] = "日期";
-                excel.Cells[2, 2] = "单据类型";
-                excel.Cells[2, 3] = "商品编号";
-                excel.Cells[2, 4] = "商品名称";
-                excel.Cells[2, 5] = "单据编号";
-                excel.Cells[2, 6] = "客户订单编号";
-                excel.Cells[2, 7] = "货位";
-                excel.Cells[2, 8] = "数量";
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 8]).Interior.Color = "12566463";
-                excel.get_Range(excel.Cells[2, 4], excel.Cells[2, 4]).ColumnWidth = 50;
-
-
-
                 if (this.date_Start.EditValue == null || this.date_End.EditValue == null)
                 {
                     MessageBox.Show("日期区间不完整", "提示", MessageBoxButtons.OK);
@@ -92,6 +66,33 @@ namespace Book.UI.Query
                     return;
                 }
 
+
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Application.Workbooks.Add(true);
+
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]);
+                r.MergeCells = true;//合并单元格
+
+                excel.Cells.ColumnWidth = 15;
+                excel.Cells[1, 1] = "商品进出仓明细(" + this.date_End.DateTime.ToString("yyyy-MM-dd") + ")";
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
+                //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
+                excel.get_Range(excel.Cells[1, 7], excel.Cells[1, 8]).HorizontalAlignment = -4108;
+
+                excel.Cells[2, 1] = "日期";
+                excel.Cells[2, 2] = "单据类型";
+                excel.Cells[2, 3] = "商品编号";
+                excel.Cells[2, 4] = "商品名称";
+                excel.Cells[2, 5] = "单据编号";
+                excel.Cells[2, 6] = "客户订单编号";
+                excel.Cells[2, 7] = "货位";
+                excel.Cells[2, 8] = "数量";
+                excel.Cells[2, 9] = "加工单";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 9]).Interior.Color = "12566463";
+                excel.get_Range(excel.Cells[2, 4], excel.Cells[2, 4]).ColumnWidth = 50;
+
+
                 List<Model.StockSeach> haveThreeCategory = list.Where(P => !string.IsNullOrEmpty(P.ProductCategoryName3)).ToList();
                 List<Model.StockSeach> haveTwoCategory = list.Where(P => !string.IsNullOrEmpty(P.ProductCategoryName2) && string.IsNullOrEmpty(P.ProductCategoryName3)).ToList();
                 List<Model.StockSeach> haveOneCategory = list.Where(P => string.IsNullOrEmpty(P.ProductCategoryName2) && string.IsNullOrEmpty(P.ProductCategoryName3)).ToList();
@@ -102,7 +103,7 @@ namespace Book.UI.Query
                 foreach (var item in haveThreeCategory.GroupBy(p => p.ProductCategoryName3))
                 {
                     excel.Cells[row, 1] = item.Key;
-                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 5]).Interior.Color = "255";    //红色
+                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 9]).Interior.Color = "255";    //红色
 
                     row++;
 
@@ -116,6 +117,7 @@ namespace Book.UI.Query
                         excel.Cells[row, 6] = stock.CusXOId;
                         excel.Cells[row, 7] = stock.PositionName;
                         excel.Cells[row, 8] = stock.InvoiceQuantity;
+                        excel.Cells[row, 9] = stock.PronoteHeaderID;
 
                         row++;
                     }
@@ -125,7 +127,7 @@ namespace Book.UI.Query
                 foreach (var item in haveTwoCategory.GroupBy(p => p.ProductCategoryName2))
                 {
                     excel.Cells[row, 1] = item.Key;
-                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 5]).Interior.Color = "255";    //红色
+                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 9]).Interior.Color = "255";    //红色
 
                     row++;
 
@@ -139,6 +141,7 @@ namespace Book.UI.Query
                         excel.Cells[row, 6] = stock.CusXOId;
                         excel.Cells[row, 7] = stock.PositionName;
                         excel.Cells[row, 8] = stock.InvoiceQuantity;
+                        excel.Cells[row, 9] = stock.PronoteHeaderID;
 
                         row++;
                     }
@@ -148,7 +151,7 @@ namespace Book.UI.Query
                 foreach (var item in haveOneCategory.GroupBy(p => p.ProductCategoryName1))
                 {
                     excel.Cells[row, 1] = item.Key;
-                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 5]).Interior.Color = "255";    //红色
+                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 9]).Interior.Color = "255";    //红色
 
                     row++;
 
@@ -162,6 +165,7 @@ namespace Book.UI.Query
                         excel.Cells[row, 6] = stock.CusXOId;
                         excel.Cells[row, 7] = stock.PositionName;
                         excel.Cells[row, 8] = stock.InvoiceQuantity;
+                        excel.Cells[row, 9] = stock.PronoteHeaderID;
 
                         row++;
                     }
