@@ -38,9 +38,7 @@
             this.TCInvoiceId = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCusProName = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCellQuantity = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableHasOutDepot = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCellUnit = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCellProductSpecification = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCDepotStock = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
@@ -54,15 +52,15 @@
             this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.topMarginBand1 = new DevExpress.XtraReports.UI.TopMarginBand();
             this.bottomMarginBand1 = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCCusXOId = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -100,9 +98,8 @@
             this.TCInvoiceId,
             this.xrTableCusProName,
             this.xrTableCellQuantity,
-            this.xrTableHasOutDepot,
             this.xrTableCellUnit,
-            this.xrTableCellProductSpecification,
+            this.TCCusXOId,
             this.TCDepotStock});
             resources.ApplyResources(this.xrTableRow2, "xrTableRow2");
             this.xrTableRow2.Name = "xrTableRow2";
@@ -112,7 +109,7 @@
             // 
             resources.ApplyResources(this.xrTableCell5, "xrTableCell5");
             this.xrTableCell5.Name = "xrTableCell5";
-            this.xrTableCell5.Weight = 0.050412267415506792;
+            this.xrTableCell5.Weight = 0.043700745581137707;
             // 
             // xrTableCellProductName
             // 
@@ -120,25 +117,25 @@
             this.xrTableCellProductName.Name = "xrTableCellProductName";
             this.xrTableCellProductName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCellProductName.StylePriority.UseTextAlignment = false;
-            this.xrTableCellProductName.Weight = 0.18882622046227532;
+            this.xrTableCellProductName.Weight = 0.22173402579314525;
             // 
             // TCHandbookId
             // 
             resources.ApplyResources(this.TCHandbookId, "TCHandbookId");
             this.TCHandbookId.Name = "TCHandbookId";
-            this.TCHandbookId.Weight = 0.1185412950640381;
+            this.TCHandbookId.Weight = 0.13784392562520276;
             // 
             // TCInvoiceId
             // 
             resources.ApplyResources(this.TCInvoiceId, "TCInvoiceId");
             this.TCInvoiceId.Name = "TCInvoiceId";
-            this.TCInvoiceId.Weight = 0.15138317876862464;
+            this.TCInvoiceId.Weight = 0.17206452321885912;
             // 
             // xrTableCusProName
             // 
             resources.ApplyResources(this.xrTableCusProName, "xrTableCusProName");
             this.xrTableCusProName.Name = "xrTableCusProName";
-            this.xrTableCusProName.Weight = 0.12564260634477284;
+            this.xrTableCusProName.Weight = 0.12012759971137409;
             // 
             // xrTableCellQuantity
             // 
@@ -146,13 +143,7 @@
             this.xrTableCellQuantity.Name = "xrTableCellQuantity";
             this.xrTableCellQuantity.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCellQuantity.StylePriority.UseTextAlignment = false;
-            this.xrTableCellQuantity.Weight = 0.060665359936764113;
-            // 
-            // xrTableHasOutDepot
-            // 
-            resources.ApplyResources(this.xrTableHasOutDepot, "xrTableHasOutDepot");
-            this.xrTableHasOutDepot.Name = "xrTableHasOutDepot";
-            this.xrTableHasOutDepot.Weight = 0.083262958259433292;
+            this.xrTableCellQuantity.Weight = 0.07031661955735509;
             // 
             // xrTableCellUnit
             // 
@@ -160,15 +151,7 @@
             this.xrTableCellUnit.Name = "xrTableCellUnit";
             this.xrTableCellUnit.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCellUnit.StylePriority.UseTextAlignment = false;
-            this.xrTableCellUnit.Weight = 0.066184755466169753;
-            // 
-            // xrTableCellProductSpecification
-            // 
-            resources.ApplyResources(this.xrTableCellProductSpecification, "xrTableCellProductSpecification");
-            this.xrTableCellProductSpecification.Name = "xrTableCellProductSpecification";
-            this.xrTableCellProductSpecification.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrTableCellProductSpecification.StylePriority.UseTextAlignment = false;
-            this.xrTableCellProductSpecification.Weight = 0.066265604883460172;
+            this.xrTableCellUnit.Weight = 0.047419641752081743;
             // 
             // TCDepotStock
             // 
@@ -176,7 +159,7 @@
             this.TCDepotStock.Name = "TCDepotStock";
             this.TCDepotStock.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.TCDepotStock.StylePriority.UseTextAlignment = false;
-            this.TCDepotStock.Weight = 0.0888157533989547;
+            this.TCDepotStock.Weight = 0.0823664003929173;
             // 
             // xrLine1
             // 
@@ -227,7 +210,6 @@
             this.xrTableCell11,
             this.xrTableCell9,
             this.xrTableCell2,
-            this.xrTableCell8,
             this.xrTableCell6,
             this.xrTableCell3,
             this.xrTableCell12});
@@ -240,7 +222,7 @@
             resources.ApplyResources(this.xrTableCell4, "xrTableCell4");
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseFont = false;
-            this.xrTableCell4.Weight = 0.050407150383258395;
+            this.xrTableCell4.Weight = 0.043538857850479618;
             // 
             // xrTableCell1
             // 
@@ -249,28 +231,28 @@
             this.xrTableCell1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCell1.StylePriority.UseFont = false;
             this.xrTableCell1.StylePriority.UseTextAlignment = false;
-            this.xrTableCell1.Weight = 0.1879450240050542;
+            this.xrTableCell1.Weight = 0.22091254496732615;
             // 
             // xrTableCell10
             // 
             resources.ApplyResources(this.xrTableCell10, "xrTableCell10");
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.StylePriority.UseFont = false;
-            this.xrTableCell10.Weight = 0.1181021761997859;
+            this.xrTableCell10.Weight = 0.13733326625816714;
             // 
             // xrTableCell11
             // 
             resources.ApplyResources(this.xrTableCell11, "xrTableCell11");
             this.xrTableCell11.Name = "xrTableCell11";
             this.xrTableCell11.StylePriority.UseFont = false;
-            this.xrTableCell11.Weight = 0.15082236960314518;
+            this.xrTableCell11.Weight = 0.17142709763431027;
             // 
             // xrTableCell9
             // 
             resources.ApplyResources(this.xrTableCell9, "xrTableCell9");
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.StylePriority.UseFont = false;
-            this.xrTableCell9.Weight = 0.1251771460947409;
+            this.xrTableCell9.Weight = 0.1196825942036055;
             // 
             // xrTableCell2
             // 
@@ -279,14 +261,7 @@
             this.xrTableCell2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCell2.StylePriority.UseFont = false;
             this.xrTableCell2.StylePriority.UseTextAlignment = false;
-            this.xrTableCell2.Weight = 0.060440575931053661;
-            // 
-            // xrTableCell8
-            // 
-            resources.ApplyResources(this.xrTableCell8, "xrTableCell8");
-            this.xrTableCell8.Name = "xrTableCell8";
-            this.xrTableCell8.StylePriority.UseFont = false;
-            this.xrTableCell8.Weight = 0.082954499758083722;
+            this.xrTableCell2.Weight = 0.070056132843199809;
             // 
             // xrTableCell6
             // 
@@ -295,16 +270,7 @@
             this.xrTableCell6.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCell6.StylePriority.UseFont = false;
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
-            this.xrTableCell6.Weight = 0.065939564482788621;
-            // 
-            // xrTableCell3
-            // 
-            resources.ApplyResources(this.xrTableCell3, "xrTableCell3");
-            this.xrTableCell3.Name = "xrTableCell3";
-            this.xrTableCell3.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrTableCell3.StylePriority.UseFont = false;
-            this.xrTableCell3.StylePriority.UseTextAlignment = false;
-            this.xrTableCell3.Weight = 0.066020182774464031;
+            this.xrTableCell6.Weight = 0.047243970955171667;
             // 
             // xrTableCell12
             // 
@@ -314,7 +280,7 @@
             this.xrTableCell12.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTableCell12.StylePriority.UseFont = false;
             this.xrTableCell12.StylePriority.UseTextAlignment = false;
-            this.xrTableCell12.Weight = 0.0884866957580073;
+            this.xrTableCell12.Weight = 0.082061219702801336;
             // 
             // PageFooter
             // 
@@ -343,6 +309,19 @@
             resources.ApplyResources(this.bottomMarginBand1, "bottomMarginBand1");
             this.bottomMarginBand1.Name = "bottomMarginBand1";
             // 
+            // xrTableCell3
+            // 
+            resources.ApplyResources(this.xrTableCell3, "xrTableCell3");
+            this.xrTableCell3.Name = "xrTableCell3";
+            this.xrTableCell3.StylePriority.UseFont = false;
+            this.xrTableCell3.Weight = 0.13838078852939822;
+            // 
+            // TCCusXOId
+            // 
+            resources.ApplyResources(this.TCCusXOId, "TCCusXOId");
+            this.TCCusXOId.Name = "TCCusXOId";
+            this.TCCusXOId.Weight = 0.13889533964452133;
+            // 
             // RODetail1
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -354,7 +333,7 @@
             this.topMarginBand1,
             this.bottomMarginBand1});
             resources.ApplyResources(this, "$this");
-            this.Margins = new System.Drawing.Printing.Margins(150, 80, 79, 80);
+            this.Margins = new System.Drawing.Printing.Margins(80, 80, 79, 80);
             this.PageHeight = 1397;
             this.PageWidth = 2159;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
@@ -385,9 +364,7 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCellProductName;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCusProName;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCellQuantity;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableHasOutDepot;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCellUnit;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCellProductSpecification;
         private DevExpress.XtraReports.UI.XRTableCell TCDepotStock;
         private DevExpress.XtraReports.UI.XRTable xrTable1;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
@@ -395,13 +372,13 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell8;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell12;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell11;
         private DevExpress.XtraReports.UI.XRTableCell TCHandbookId;
         private DevExpress.XtraReports.UI.XRTableCell TCInvoiceId;
+        private DevExpress.XtraReports.UI.XRTableCell TCCusXOId;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
     }
 }

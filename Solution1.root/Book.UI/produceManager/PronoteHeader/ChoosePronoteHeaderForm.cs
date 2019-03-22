@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Linq;
 
 namespace Book.UI.produceManager.PronoteHeader
 {
@@ -170,8 +171,15 @@ namespace Book.UI.produceManager.PronoteHeader
         {
             this.pronoteHeader = this.bindingSource1.Current as Model.PronoteHeader;
             if (pronoteHeader != null)
-                this.bindingSource2.DataSource = this.pronotedetailsMaterialManager.GetByHeader(this.pronoteHeader);
-
+            {
+                IList<Model.PronotedetailsMaterial> list = this.pronotedetailsMaterialManager.GetByHeader(this.pronoteHeader);
+                foreach (var item in list)
+                {
+                    if (_PronotedetailsMaterialList.Any(D => D.PronotedetailsMaterialId == item.PronotedetailsMaterialId))
+                        item.Checkeds = true;
+                }
+                this.bindingSource2.DataSource = list;
+            }
         }
 
         private void gridView2_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -181,13 +189,13 @@ namespace Book.UI.produceManager.PronoteHeader
             {
                 Model.PronotedetailsMaterial pronotedetailsMaterial = this.gridView2.GetRow(e.RowHandle) as Model.PronotedetailsMaterial;
 
-                if ((bool)e.Value)
+                if ((bool)e.Value && !_PronotedetailsMaterialList.Any(D => D.PronotedetailsMaterialId == pronotedetailsMaterial.PronotedetailsMaterialId))
                 {
                     _PronotedetailsMaterialList.Add(pronotedetailsMaterial);
                 }
                 if (!(bool)e.Value)
                 {
-                    _PronotedetailsMaterialList.Remove(pronotedetailsMaterial);
+                    _PronotedetailsMaterialList.Remove(_PronotedetailsMaterialList.First(D => D.PronotedetailsMaterialId == pronotedetailsMaterial.PronotedetailsMaterialId));
                 }
             }
 
@@ -206,6 +214,8 @@ namespace Book.UI.produceManager.PronoteHeader
                 endTime = this.dateEditEndDate.DateTime.Date.AddDays(1).AddSeconds(-1);
             }
             this.bindingSource1.DataSource = this.pronoteHeaderManager.GetByDateMa(startTime, endTime, this.newChooseCustomer.EditValue as Model.Customer, this.textEditCusXOId.Text == "" ? null : this.textEditCusXOId.Text, this.buttonEditPro.EditValue as Model.Product, null, null, -1, null, false, this.TXTproNameKey.Text, this.TXTproCusNameKey.Text, this.txtpronoteHeaderIdKey.Text, false, false, false);
+
+            this.gridView1_Click(null, null);
         }
 
         private void buttonEditPro_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

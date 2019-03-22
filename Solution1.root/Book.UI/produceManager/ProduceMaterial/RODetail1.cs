@@ -16,14 +16,15 @@ namespace Book.UI.produceManager.ProduceMaterial
             this.xrTableCell5.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialdetails.PRO_Inumber);
             this.xrTableCellProductName.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_ProductName);
             this.xrTableCellQuantity.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialdetails.PRO_Materialprocessum);
-            this.xrTableHasOutDepot.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialdetails.PRO_Distributioned, "{0:0.####}");
+            //this.xrTableHasOutDepot.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialdetails.PRO_Distributioned, "{0:0.####}");
             this.xrTableCellUnit.DataBindings.Add("Text", this.DataSource, "ProductUnit");
-            this.xrTableCellProductSpecification.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_StocksQuantity, "{0:0.####}");
+            //this.xrTableCellProductSpecification.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_StocksQuantity, "{0:0.####}");
             this.xrRichText1.DataBindings.Add("Rtf", this.DataSource, "ProductDescription");
             this.xrTableCusProName.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_CustomerProductName);
             this.TCHandbookId.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialdetails.PRO_HandbookId);
             this.TCInvoiceId.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialdetails.PRO_InvoiceFrom);
             this.TCDepotStock.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialdetails.PRO_DepotStock);
+            this.TCCusXOId.DataBindings.Add("Text", this.DataSource, "CusXOId");
         }
 
         private Model.ProduceMaterial _produceMaterial;
@@ -39,6 +40,12 @@ namespace Book.UI.produceManager.ProduceMaterial
                 return;
             ProduceMaterial.Details = this.produceMaterialdetailsManager.Select(ProduceMaterial);
             this.DataSource = ProduceMaterial.Details;
+
+            if (ProduceMaterial.InvoiceXO != null)
+                foreach (var item in ProduceMaterial.Details)
+                {
+                    item.CusXOId = ProduceMaterial.InvoiceXO.CustomerInvoiceXOId;
+                }
         }
 
     }

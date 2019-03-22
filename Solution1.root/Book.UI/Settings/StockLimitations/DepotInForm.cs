@@ -674,5 +674,38 @@ namespace Book.UI.Settings.StockLimitations
                 this.textEditDepotInId.Text = this._depotIn.DepotInId;
             }
         }
+
+        //选择加工单
+        private void bar_ChoosePNT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            produceManager.PronoteHeader.ChoosePronoteHeaderForm f = new Book.UI.produceManager.PronoteHeader.ChoosePronoteHeaderForm();
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                if (produceManager.PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList.Count > 0)
+                {
+                    if (this._depotIn.Details.Count > 0 && string.IsNullOrEmpty(this._depotIn.Details[0].ProductId))
+                        this._depotIn.Details.RemoveAt(0);
+
+                    Model.DepotInDetail detail;
+                    foreach (var item in produceManager.PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList)
+                    {
+                        detail = new Book.Model.DepotInDetail();
+                        detail.DepotInDetailId = Guid.NewGuid().ToString();
+                        detail.Inumber = this._depotIn.Details.Count + 1;
+                        detail.Product = item.Product;
+                        detail.ProductId = item.ProductId;
+                        detail.ProductUnit = item.ProductUnit;
+                        detail.PronoteHeaderId = item.PronoteHeaderID;
+                        detail.DepotInQuantity = item.PronoteQuantity;
+                        detail.PronoteHeaderId = item.PronoteHeaderID;
+                        detail.PronoteHeaderId = item.PronoteHeaderID;
+
+                        this._depotIn.Details.Add(detail);
+                    }
+
+                    this.gridControl1.RefreshDataSource();
+                }
+            }
+        }
     }
 }

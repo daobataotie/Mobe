@@ -48,8 +48,6 @@
             this.xrLabelDepartment = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabelProduceMaterialDate = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabelXOId = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabelDataName = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabelCompanyInfoName = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
@@ -102,8 +100,6 @@
             this.xrLabelDepartment,
             this.xrLabel5,
             this.xrLabelProduceMaterialDate,
-            this.xrLabelXOId,
-            this.xrLabel4,
             this.xrLabelDataName,
             this.xrLabelCompanyInfoName});
             resources.ApplyResources(this.PageHeader, "PageHeader");
@@ -232,22 +228,6 @@
             this.xrLabelProduceMaterialDate.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrLabelProduceMaterialDate.StylePriority.UseFont = false;
             this.xrLabelProduceMaterialDate.StylePriority.UseTextAlignment = false;
-            // 
-            // xrLabelXOId
-            // 
-            resources.ApplyResources(this.xrLabelXOId, "xrLabelXOId");
-            this.xrLabelXOId.Name = "xrLabelXOId";
-            this.xrLabelXOId.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabelXOId.StylePriority.UseFont = false;
-            this.xrLabelXOId.StylePriority.UseTextAlignment = false;
-            // 
-            // xrLabel4
-            // 
-            resources.ApplyResources(this.xrLabel4, "xrLabel4");
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel4.StylePriority.UseFont = false;
-            this.xrLabel4.StylePriority.UseTextAlignment = false;
             // 
             // xrLabelDataName
             // 
@@ -394,7 +374,7 @@
             this.bottomMarginBand1,
             this.GroupHeader1});
             resources.ApplyResources(this, "$this");
-            this.Margins = new System.Drawing.Printing.Margins(127, 79, 79, 79);
+            this.Margins = new System.Drawing.Printing.Margins(80, 79, 79, 79);
             this.PageHeight = 1397;
             this.PageWidth = 2159;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
@@ -422,8 +402,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabelDepartment;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
-        private DevExpress.XtraReports.UI.XRLabel xrLabelXOId;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabelEmployee2;
         private DevExpress.XtraReports.UI.XRBarCode xrBarCodeProduceMaterialID;

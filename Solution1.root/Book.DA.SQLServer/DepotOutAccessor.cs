@@ -25,6 +25,7 @@ namespace Book.DA.SQLServer
             ht.Add("startdate", startdate);
             ht.Add("enddate", enddate);
             return sqlmapper.QueryForList<Model.DepotOut>("DepotOut.SelectByDateRange", ht);
-        }
+        }
+
     }
 }

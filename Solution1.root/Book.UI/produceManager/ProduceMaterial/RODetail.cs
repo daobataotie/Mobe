@@ -58,15 +58,15 @@ namespace Book.UI.produceManager.ProduceMaterial
             //this.xrLabelPronoteHeaderID.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterial.PRO_InvoiceId);
             this.xrLabelProduceMaterialDate.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterial.PRO_ProduceMaterialDate, "{0:yyyy-MM-dd}");
             this.xrLabelProduct.DataBindings.Add("Text", this.DataSource, "ParenProductName");
-            this.xrLabelXOId.DataBindings.Add("Text", this.DataSource, "CusXOId");
+            //this.xrLabelXOId.DataBindings.Add("Text", this.DataSource, "CusXOId");
             this.xrLabelPiHao.DataBindings.Add("Text", this.DataSource, "InvoiceXO." + Model.InvoiceXO.PRO_CustomerLotNumber);
             this.xrLabelInvoiceSum.DataBindings.Add("Text", this.DataSource, "PronoteHeader." + Model.PronoteHeader.PRO_InvoiceXODetailQuantity);
             //this.xrLabelSourceType.DataBindings.Add("Text", this.DataSource, "SourceTypeName");
             this.xrLabel1ProduceMaterialdesc.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterial.PRO_ProduceMaterialdesc);
             this.xrLabelEmployee0.DataBindings.Add("Text", this.DataSource, "Employee0Name");
             this.GroupHeader1.GroupFields.Add(new GroupField(Model.ProduceMaterial.PRO_ProduceMaterialID));
-            this.xrSubreport1.ReportSource = new RODetail1();
 
+            this.xrSubreport1.ReportSource = new RODetail1();
         }
 
     }
