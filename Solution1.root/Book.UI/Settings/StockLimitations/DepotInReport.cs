@@ -10,10 +10,11 @@ namespace Book.UI.Settings.StockLimitations
     {
         private BL.DepotInManager DepotInManager = new Book.BL.DepotInManager();
         private BL.DepotInDetailManager DepotInDetailManager = new Book.BL.DepotInDetailManager();
+        private BL.InvoiceXOManager invoiceXOManager = new Book.BL.InvoiceXOManager();
 
         private Model.DepotIn DepotIn;
         public DepotInReport(string DepotInId)
-        {  
+        {
 
             InitializeComponent();
 
@@ -24,11 +25,18 @@ namespace Book.UI.Settings.StockLimitations
 
             this.DepotIn.Details = this.DepotInDetailManager.GetDetailByDepotInId(this.DepotIn.DepotInId);
 
+            if (this.DepotIn.Details != null)
+                foreach (var item in this.DepotIn.Details)
+                {
+                    if (!string.IsNullOrEmpty(item.PronoteHeaderId))
+                        item.CusXOId = invoiceXOManager.SelectCusXOIdByPronoteHeaderId(item.PronoteHeaderId);
+                }
+
             this.DataSource = this.DepotIn.Details;
 
             //CompanyInfo
             this.xrLabelCompanyInfoName.Text = BL.Settings.CompanyChineseName;
-            this.xrLabelDataName.Text =Properties.Resources.DepotIn;
+            this.xrLabelDataName.Text = Properties.Resources.DepotIn;
             this.xrLabelPrintDate.Text = "Ñu±íÈÕÆÚ£º        " + DateTime.Now.ToShortDateString();
 
 
@@ -59,7 +67,7 @@ namespace Book.UI.Settings.StockLimitations
             this.xrTableCellCount.DataBindings.Add("Text", this.DataSource, Model.DepotInDetail.PRO_DepotInQuantity);
             this.xrTableCellUnit.DataBindings.Add("Text", this.DataSource, Model.DepotInDetail.PRO_ProductUnit);
             this.xrTableCellPronoteHeaderId.DataBindings.Add("Text", this.DataSource, Model.DepotInDetail.PRO_PronoteHeaderId);
-            // this.xrTableCellCustomXOId.DataBindings.Add("Text", this.DataSource, Model.DepotInDetail);
+            this.xrTableCellCustomXOId.DataBindings.Add("Text", this.DataSource, "CusXOId");
             this.xrTableCellDepotId.DataBindings.Add("Text", this.DataSource, "DepotPosition." + Model.DepotPosition.PROPERTY_ID);
         }
 

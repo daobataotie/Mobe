@@ -283,5 +283,9 @@ namespace Book.Model
 
         public string PronoteHeaderID { get; set; }
 
+        public string HandbookId { get; set; }
+
+        public string HandbookProductId { get; set; }
+
     }
 }

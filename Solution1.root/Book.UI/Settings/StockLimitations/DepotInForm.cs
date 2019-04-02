@@ -126,6 +126,12 @@ namespace Book.UI.Settings.StockLimitations
                     }
                 }
             }
+            if (this._depotIn.Details != null)
+                foreach (var item in this._depotIn.Details)
+                {
+                    if (!string.IsNullOrEmpty(item.PronoteHeaderId))
+                        item.CusXOId = invoiceXOManager.SelectCusXOIdByPronoteHeaderId(item.PronoteHeaderId);
+                }
             this.dateEditDate.EditValue = DateTime.Now;
 
             this.textEditDepotInId.Text = this._depotIn.DepotInId;
@@ -356,20 +362,20 @@ namespace Book.UI.Settings.StockLimitations
 
         private void gridView1_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
         {
-            if (e.ListSourceRowIndex < 0) return;
-            IList<Model.DepotInDetail> details = this.bindingSourceDetail.DataSource as IList<Model.DepotInDetail>;
-            if (details == null || details.Count < 1) return;
-            Model.DepotInDetail detail = details[e.ListSourceRowIndex];
+            //if (e.ListSourceRowIndex < 0) return;
+            //IList<Model.DepotInDetail> details = this.bindingSourceDetail.DataSource as IList<Model.DepotInDetail>;
+            //if (details == null || details.Count < 1) return;
+            //Model.DepotInDetail detail = details[e.ListSourceRowIndex];
 
-            switch (e.Column.Name)
-            {
-                case "gridColumnCusXOId":
-                    Model.PronoteHeader pronoteHeader = this.pronoteHeaderManager.Get(detail.PronoteHeaderId);
-                    if (pronoteHeader == null) return;
-                    Model.InvoiceXO invoiceXO = this.invoiceXOManager.Get(pronoteHeader.InvoiceXOId);
-                    e.DisplayText = invoiceXO == null ? string.Empty : invoiceXO.CustomerInvoiceXOId;
-                    break;
-            }
+            //switch (e.Column.Name)
+            //{
+            //    case "gridColumnCusXOId":
+            //        Model.PronoteHeader pronoteHeader = this.pronoteHeaderManager.Get(detail.PronoteHeaderId);
+            //        if (pronoteHeader == null) return;
+            //        Model.InvoiceXO invoiceXO = this.invoiceXOManager.Get(pronoteHeader.InvoiceXOId);
+            //        e.DisplayText = invoiceXO == null ? string.Empty : invoiceXO.CustomerInvoiceXOId;
+            //        break;
+            //}
         }
 
         private void simpleButton_Appent_Click(object sender, EventArgs e)

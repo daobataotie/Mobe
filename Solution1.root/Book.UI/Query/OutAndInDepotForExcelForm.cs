@@ -70,7 +70,7 @@ namespace Book.UI.Query
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 11]);
                 r.MergeCells = true;//合并单元格
 
                 excel.Cells.ColumnWidth = 15;
@@ -89,7 +89,9 @@ namespace Book.UI.Query
                 excel.Cells[2, 7] = "货位";
                 excel.Cells[2, 8] = "数量";
                 excel.Cells[2, 9] = "加工单";
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 9]).Interior.Color = "12566463";
+                excel.Cells[2, 10] = "手册号";
+                excel.Cells[2, 11] = "项号";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 11]).Interior.Color = "12566463";
                 excel.get_Range(excel.Cells[2, 4], excel.Cells[2, 4]).ColumnWidth = 50;
 
 
@@ -103,7 +105,7 @@ namespace Book.UI.Query
                 foreach (var item in haveThreeCategory.GroupBy(p => p.ProductCategoryName3))
                 {
                     excel.Cells[row, 1] = item.Key;
-                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 9]).Interior.Color = "255";    //红色
+                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 11]).Interior.Color = "255";    //红色
 
                     row++;
 
@@ -118,6 +120,8 @@ namespace Book.UI.Query
                         excel.Cells[row, 7] = stock.PositionName;
                         excel.Cells[row, 8] = stock.InvoiceQuantity;
                         excel.Cells[row, 9] = stock.PronoteHeaderID;
+                        excel.Cells[row, 10] = stock.HandbookId;
+                        excel.Cells[row, 11] = stock.HandbookProductId;
 
                         row++;
                     }
@@ -127,7 +131,7 @@ namespace Book.UI.Query
                 foreach (var item in haveTwoCategory.GroupBy(p => p.ProductCategoryName2))
                 {
                     excel.Cells[row, 1] = item.Key;
-                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 9]).Interior.Color = "255";    //红色
+                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 11]).Interior.Color = "255";    //红色
 
                     row++;
 
@@ -142,6 +146,8 @@ namespace Book.UI.Query
                         excel.Cells[row, 7] = stock.PositionName;
                         excel.Cells[row, 8] = stock.InvoiceQuantity;
                         excel.Cells[row, 9] = stock.PronoteHeaderID;
+                        excel.Cells[row, 10] = stock.HandbookId;
+                        excel.Cells[row, 11] = stock.HandbookProductId;
 
                         row++;
                     }
@@ -151,7 +157,7 @@ namespace Book.UI.Query
                 foreach (var item in haveOneCategory.GroupBy(p => p.ProductCategoryName1))
                 {
                     excel.Cells[row, 1] = item.Key;
-                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 9]).Interior.Color = "255";    //红色
+                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 11]).Interior.Color = "255";    //红色
 
                     row++;
 
@@ -166,6 +172,8 @@ namespace Book.UI.Query
                         excel.Cells[row, 7] = stock.PositionName;
                         excel.Cells[row, 8] = stock.InvoiceQuantity;
                         excel.Cells[row, 9] = stock.PronoteHeaderID;
+                        excel.Cells[row, 10] = stock.HandbookId;
+                        excel.Cells[row, 11] = stock.HandbookProductId;
 
                         row++;
                     }

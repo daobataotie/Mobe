@@ -36,9 +36,12 @@ namespace Book.Model
             set { _date = value; }
         }
 
+        public string CusXOId { get; set; }
+
         /// <summary>
         /// 头编号
         /// </summary>
         public readonly static string PRO_Date = "Date";
+
     }
 }
