@@ -543,7 +543,10 @@ namespace Book.UI.Query
 
                             if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName))
                             {
-                                model.MaterialCategoryName = model.MaterialCategoryName.ToLower();
+                                if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName.ToLower()))
+                                    model.MaterialCategoryName = model.MaterialCategoryName.ToUpper();
+                                else
+                                    model.MaterialCategoryName = model.MaterialCategoryName.ToLower();
                             }
                             pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");
                         }
