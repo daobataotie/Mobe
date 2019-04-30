@@ -70,6 +70,9 @@ namespace Book.UI.produceManager.PCFinishCheck
             this.lblJingdai.Text = Trans(_pcfc.AttrJDZRFS);
             //this.lblChuhuochongji.Text = Trans(_pcfc.AttrChuhuochongji);
             this.lblChuhuochongji.Text = _pcfc.AttrCheckStandard;
+            this.lblESSSFZH.Text = Trans(_pcfc.AttrESSSFZH);
+            this.lblESSFYGZTZ.Text = Trans(_pcfc.AttrESSFYGZTZ);
+
         }
 
         private string Trans(int? a)

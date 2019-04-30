@@ -232,6 +232,8 @@ namespace Book.UI.produceManager.PCFinishCheck
             this._PCFC.AttrJDZRFS = this.radio_AttrJDZRFS.SelectedIndex;
             //this._PCFC.AttrChuhuochongji = this.radio_AttrChuhuoChongji.SelectedIndex;
             this._PCFC.AttrCheckStandard = this.cbe_CheckStandard.SelectedText;
+            this._PCFC.AttrESSSFZH = this.radio_AttrESSSFZH.SelectedIndex;
+            this._PCFC.AttrESSFYGZTZ = this.radio_AttrESSFYGZTZ.SelectedIndex;
 
             //this._PCFC.AttrCJBZ = this.radio_AttrChanpinjihao.SelectedIndex;
             //this._PCFC.AttrGX = this.radio_AttrQitaPeijianjihao.SelectedIndex;
@@ -343,6 +345,8 @@ namespace Book.UI.produceManager.PCFinishCheck
             this.radio_AttrJDZRFS.SelectedIndex = this._PCFC.AttrJDZRFS.HasValue ? this._PCFC.AttrJDZRFS.Value : Def_select;
             //this.radio_AttrChuhuoChongji.SelectedIndex = this._PCFC.AttrChuhuochongji.HasValue ? this._PCFC.AttrChuhuochongji.Value : Def_select;
             this.cbe_CheckStandard.EditValue = this._PCFC.AttrCheckStandard;
+            this.radio_AttrESSSFZH.SelectedIndex = this._PCFC.AttrESSSFZH.HasValue ? this._PCFC.AttrESSSFZH.Value : Def_select;
+            this.radio_AttrESSFYGZTZ.SelectedIndex = this._PCFC.AttrESSFYGZTZ.HasValue ? this._PCFC.AttrESSFYGZTZ.Value : Def_select;
         }
 
         private void txtPCFinishCheckDesc_DoubleClick(object sender, EventArgs e)

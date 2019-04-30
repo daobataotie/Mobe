@@ -1209,6 +1209,22 @@ namespace Book.Model
             set { _AttrCheckStandard = value; }
         }
 
+        private int? _attrESSSFZH;
+
+        public int? AttrESSSFZH
+        {
+            get { return _attrESSSFZH; }
+            set { _attrESSSFZH = value; }
+        }
+
+        private int? _attrESSFYGZTZ;
+
+        public int? AttrESSFYGZTZ
+        {
+            get { return _attrESSFYGZTZ; }
+            set { _attrESSFYGZTZ = value; }
+        }
+
         public readonly static string PRO_AttrChanpinyanse = "AttrChanpinyanse";
         public readonly static string PRO_AttrChanpinjihao = "AttrChanpinjihao";
         public readonly static string PRO_AttrQitapeijianjihao = "AttrQitapeijianjihao";
@@ -1217,5 +1233,7 @@ namespace Book.Model
         public readonly static string PRO_AttrSujiaodaitiebiao = "AttrSujiaodaitiebiao";
         public readonly static string PRO_AttrNeihekuanxing = "AttrNeihekuanxing";
         public readonly static string PRO_AttrChuhuochongji = "AttrChuhuochongji";
+        public readonly static string PRO_AttrESSSFZH = "AttrESSSFZH";
+        public readonly static string PRO_AttrESSFYGZTZ = "AttrESSFYGZTZ";
     }
 }

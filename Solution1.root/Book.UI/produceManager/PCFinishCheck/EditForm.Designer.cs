@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cbe_CheckStandard = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.nccEmployee0 = new Book.UI.Invoices.NewChooseContorl();
             this.nccEmployeeCheckId4 = new Book.UI.Invoices.NewChooseContorl();
@@ -124,16 +125,20 @@
             this.layoutControlItem40 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem41 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem39 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.barBtn_Search = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.cbe_CheckStandard = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.radio_AttrESSSFZH = new DevExpress.XtraEditors.RadioGroup();
+            this.layoutControlItem47 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.radio_AttrESSFYGZTZ = new DevExpress.XtraEditors.RadioGroup();
+            this.layoutControlItem48 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbe_CheckStandard.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_AuditState.Properties)).BeginInit();
@@ -214,9 +219,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem40)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem41)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem39)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbe_CheckStandard.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radio_AttrESSSFZH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radio_AttrESSFYGZTZ.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem48)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -244,6 +252,8 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.radio_AttrESSFYGZTZ);
+            this.layoutControl1.Controls.Add(this.radio_AttrESSSFZH);
             this.layoutControl1.Controls.Add(this.cbe_CheckStandard);
             this.layoutControl1.Controls.Add(this.labelControl1);
             this.layoutControl1.Controls.Add(this.nccEmployee0);
@@ -293,6 +303,22 @@
             resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
+            // 
+            // cbe_CheckStandard
+            // 
+            resources.ApplyResources(this.cbe_CheckStandard, "cbe_CheckStandard");
+            this.cbe_CheckStandard.MenuManager = this.barManager1;
+            this.cbe_CheckStandard.Name = "cbe_CheckStandard";
+            this.cbe_CheckStandard.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("cbe_CheckStandard.Properties.Buttons"))))});
+            this.cbe_CheckStandard.Properties.Items.AddRange(new object[] {
+            resources.GetString("cbe_CheckStandard.Properties.Items"),
+            resources.GetString("cbe_CheckStandard.Properties.Items1"),
+            resources.GetString("cbe_CheckStandard.Properties.Items2"),
+            resources.GetString("cbe_CheckStandard.Properties.Items3"),
+            resources.GetString("cbe_CheckStandard.Properties.Items4"),
+            resources.GetString("cbe_CheckStandard.Properties.Items5")});
+            this.cbe_CheckStandard.StyleController = this.layoutControl1;
             // 
             // labelControl1
             // 
@@ -700,7 +726,6 @@
             this.layoutControlItem9,
             this.layoutControlItem3,
             this.layoutControlItem5,
-            this.layoutControlItem34,
             this.layoutControlItem35,
             this.layoutControlItem2,
             this.layoutControlItem4,
@@ -739,10 +764,13 @@
             this.layoutControlItem40,
             this.layoutControlItem41,
             this.layoutControlItem39,
-            this.layoutControlItem25});
+            this.layoutControlItem25,
+            this.layoutControlItem47,
+            this.layoutControlItem48,
+            this.layoutControlItem34});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(889, 510);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(889, 511);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -818,7 +846,7 @@
             resources.ApplyResources(this.layoutControlItem5, "layoutControlItem5");
             this.layoutControlItem5.Location = new System.Drawing.Point(617, 25);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(133, 25);
+            this.layoutControlItem5.Size = new System.Drawing.Size(131, 25);
             this.layoutControlItem5.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(60, 14);
             this.layoutControlItem5.TextToControlDistance = 5;
@@ -827,10 +855,10 @@
             // 
             this.layoutControlItem34.Control = this.txtPCFinishCheckDesc;
             resources.ApplyResources(this.layoutControlItem34, "layoutControlItem34");
-            this.layoutControlItem34.Location = new System.Drawing.Point(0, 466);
+            this.layoutControlItem34.Location = new System.Drawing.Point(501, 467);
             this.layoutControlItem34.Name = "layoutControlItem34";
-            this.layoutControlItem34.Size = new System.Drawing.Size(869, 24);
-            this.layoutControlItem34.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem34.Size = new System.Drawing.Size(368, 24);
+            this.layoutControlItem34.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem35
             // 
@@ -932,9 +960,9 @@
             // 
             this.layoutControlItem43.Control = this.lookUpEditUnit;
             resources.ApplyResources(this.layoutControlItem43, "layoutControlItem43");
-            this.layoutControlItem43.Location = new System.Drawing.Point(750, 25);
+            this.layoutControlItem43.Location = new System.Drawing.Point(748, 25);
             this.layoutControlItem43.Name = "layoutControlItem43";
-            this.layoutControlItem43.Size = new System.Drawing.Size(119, 25);
+            this.layoutControlItem43.Size = new System.Drawing.Size(121, 25);
             this.layoutControlItem43.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem43.TextSize = new System.Drawing.Size(60, 14);
             this.layoutControlItem43.TextToControlDistance = 5;
@@ -943,9 +971,9 @@
             // 
             this.layoutControlItem42.Control = this.nccEmployeeCheckId2;
             resources.ApplyResources(this.layoutControlItem42, "layoutControlItem42");
-            this.layoutControlItem42.Location = new System.Drawing.Point(434, 417);
+            this.layoutControlItem42.Location = new System.Drawing.Point(434, 443);
             this.layoutControlItem42.Name = "layoutControlItem42";
-            this.layoutControlItem42.Size = new System.Drawing.Size(224, 25);
+            this.layoutControlItem42.Size = new System.Drawing.Size(224, 24);
             this.layoutControlItem42.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem42.TextSize = new System.Drawing.Size(55, 14);
             this.layoutControlItem42.TextToControlDistance = 5;
@@ -954,9 +982,9 @@
             // 
             this.layoutControlItem32.Control = this.nccEmployee0;
             resources.ApplyResources(this.layoutControlItem32, "layoutControlItem32");
-            this.layoutControlItem32.Location = new System.Drawing.Point(0, 417);
+            this.layoutControlItem32.Location = new System.Drawing.Point(0, 443);
             this.layoutControlItem32.Name = "layoutControlItem32";
-            this.layoutControlItem32.Size = new System.Drawing.Size(217, 25);
+            this.layoutControlItem32.Size = new System.Drawing.Size(217, 24);
             this.layoutControlItem32.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem32.TextSize = new System.Drawing.Size(55, 14);
             this.layoutControlItem32.TextToControlDistance = 5;
@@ -965,9 +993,9 @@
             // 
             this.layoutControlItem44.Control = this.nccEmployeeCheckId1;
             resources.ApplyResources(this.layoutControlItem44, "layoutControlItem44");
-            this.layoutControlItem44.Location = new System.Drawing.Point(217, 417);
+            this.layoutControlItem44.Location = new System.Drawing.Point(217, 443);
             this.layoutControlItem44.Name = "layoutControlItem44";
-            this.layoutControlItem44.Size = new System.Drawing.Size(217, 25);
+            this.layoutControlItem44.Size = new System.Drawing.Size(217, 24);
             this.layoutControlItem44.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem44.TextSize = new System.Drawing.Size(55, 14);
             this.layoutControlItem44.TextToControlDistance = 5;
@@ -976,9 +1004,9 @@
             // 
             this.layoutControlItem45.Control = this.nccEmployeeCheckId3;
             resources.ApplyResources(this.layoutControlItem45, "layoutControlItem45");
-            this.layoutControlItem45.Location = new System.Drawing.Point(658, 417);
+            this.layoutControlItem45.Location = new System.Drawing.Point(658, 443);
             this.layoutControlItem45.Name = "layoutControlItem45";
-            this.layoutControlItem45.Size = new System.Drawing.Size(211, 25);
+            this.layoutControlItem45.Size = new System.Drawing.Size(211, 24);
             this.layoutControlItem45.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem45.TextSize = new System.Drawing.Size(55, 14);
             this.layoutControlItem45.TextToControlDistance = 5;
@@ -987,7 +1015,7 @@
             // 
             this.layoutControlItem33.Control = this.nccEmployee1;
             resources.ApplyResources(this.layoutControlItem33, "layoutControlItem33");
-            this.layoutControlItem33.Location = new System.Drawing.Point(0, 393);
+            this.layoutControlItem33.Location = new System.Drawing.Point(0, 419);
             this.layoutControlItem33.Name = "layoutControlItem33";
             this.layoutControlItem33.Size = new System.Drawing.Size(434, 24);
             this.layoutControlItem33.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
@@ -998,7 +1026,7 @@
             // 
             this.layoutControlItem46.Control = this.nccEmployeeCheckId4;
             resources.ApplyResources(this.layoutControlItem46, "layoutControlItem46");
-            this.layoutControlItem46.Location = new System.Drawing.Point(0, 442);
+            this.layoutControlItem46.Location = new System.Drawing.Point(0, 467);
             this.layoutControlItem46.Name = "layoutControlItem46";
             this.layoutControlItem46.Size = new System.Drawing.Size(217, 24);
             this.layoutControlItem46.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
@@ -1012,7 +1040,7 @@
             this.layoutControlItem19.Location = new System.Drawing.Point(0, 158);
             this.layoutControlItem19.Name = "layoutControlItem19";
             this.layoutControlItem19.Size = new System.Drawing.Size(434, 29);
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem20
             // 
@@ -1021,7 +1049,7 @@
             this.layoutControlItem20.Location = new System.Drawing.Point(0, 100);
             this.layoutControlItem20.Name = "layoutControlItem20";
             this.layoutControlItem20.Size = new System.Drawing.Size(434, 29);
-            this.layoutControlItem20.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem21
             // 
@@ -1030,7 +1058,7 @@
             this.layoutControlItem21.Location = new System.Drawing.Point(0, 129);
             this.layoutControlItem21.Name = "layoutControlItem21";
             this.layoutControlItem21.Size = new System.Drawing.Size(434, 29);
-            this.layoutControlItem21.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem24
             // 
@@ -1039,7 +1067,7 @@
             this.layoutControlItem24.Location = new System.Drawing.Point(434, 129);
             this.layoutControlItem24.Name = "layoutControlItem24";
             this.layoutControlItem24.Size = new System.Drawing.Size(435, 29);
-            this.layoutControlItem24.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem24.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem17
             // 
@@ -1048,43 +1076,43 @@
             this.layoutControlItem17.Location = new System.Drawing.Point(434, 158);
             this.layoutControlItem17.Name = "layoutControlItem17";
             this.layoutControlItem17.Size = new System.Drawing.Size(435, 29);
-            this.layoutControlItem17.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem17.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem22
             // 
             this.layoutControlItem22.Control = this.radio_AttrWXTB;
             resources.ApplyResources(this.layoutControlItem22, "layoutControlItem22");
-            this.layoutControlItem22.Location = new System.Drawing.Point(434, 246);
+            this.layoutControlItem22.Location = new System.Drawing.Point(434, 245);
             this.layoutControlItem22.Name = "layoutControlItem22";
             this.layoutControlItem22.Size = new System.Drawing.Size(435, 29);
-            this.layoutControlItem22.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem22.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem23
             // 
             this.layoutControlItem23.Control = this.radio_AttrZMCM;
             resources.ApplyResources(this.layoutControlItem23, "layoutControlItem23");
-            this.layoutControlItem23.Location = new System.Drawing.Point(434, 275);
+            this.layoutControlItem23.Location = new System.Drawing.Point(434, 274);
             this.layoutControlItem23.Name = "layoutControlItem23";
-            this.layoutControlItem23.Size = new System.Drawing.Size(435, 30);
-            this.layoutControlItem23.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem23.Size = new System.Drawing.Size(435, 29);
+            this.layoutControlItem23.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem27
             // 
             this.layoutControlItem27.Control = this.radio_AttrJSSFZQ;
             resources.ApplyResources(this.layoutControlItem27, "layoutControlItem27");
-            this.layoutControlItem27.Location = new System.Drawing.Point(434, 305);
+            this.layoutControlItem27.Location = new System.Drawing.Point(434, 303);
             this.layoutControlItem27.Name = "layoutControlItem27";
             this.layoutControlItem27.Size = new System.Drawing.Size(435, 29);
-            this.layoutControlItem27.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem27.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem28
             // 
             this.layoutControlItem28.Control = this.radio_AttrJDZRFS;
             resources.ApplyResources(this.layoutControlItem28, "layoutControlItem28");
-            this.layoutControlItem28.Location = new System.Drawing.Point(434, 334);
+            this.layoutControlItem28.Location = new System.Drawing.Point(434, 332);
             this.layoutControlItem28.Name = "layoutControlItem28";
-            this.layoutControlItem28.Size = new System.Drawing.Size(435, 30);
-            this.layoutControlItem28.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem28.Size = new System.Drawing.Size(435, 29);
+            this.layoutControlItem28.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem29
             // 
@@ -1093,7 +1121,7 @@
             this.layoutControlItem29.Location = new System.Drawing.Point(434, 100);
             this.layoutControlItem29.Name = "layoutControlItem29";
             this.layoutControlItem29.Size = new System.Drawing.Size(435, 29);
-            this.layoutControlItem29.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem29.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem16
             // 
@@ -1102,7 +1130,7 @@
             this.layoutControlItem16.Location = new System.Drawing.Point(0, 187);
             this.layoutControlItem16.Name = "layoutControlItem16";
             this.layoutControlItem16.Size = new System.Drawing.Size(434, 29);
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem30
             // 
@@ -1111,7 +1139,7 @@
             this.layoutControlItem30.Location = new System.Drawing.Point(434, 187);
             this.layoutControlItem30.Name = "layoutControlItem30";
             this.layoutControlItem30.Size = new System.Drawing.Size(435, 29);
-            this.layoutControlItem30.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem30.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem26
             // 
@@ -1119,8 +1147,8 @@
             resources.ApplyResources(this.layoutControlItem26, "layoutControlItem26");
             this.layoutControlItem26.Location = new System.Drawing.Point(434, 216);
             this.layoutControlItem26.Name = "layoutControlItem26";
-            this.layoutControlItem26.Size = new System.Drawing.Size(435, 30);
-            this.layoutControlItem26.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem26.Size = new System.Drawing.Size(435, 29);
+            this.layoutControlItem26.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem10
             // 
@@ -1128,61 +1156,61 @@
             resources.ApplyResources(this.layoutControlItem10, "layoutControlItem10");
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 216);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(434, 30);
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem10.Size = new System.Drawing.Size(434, 29);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.radio_AttrJWYHWRL;
             resources.ApplyResources(this.layoutControlItem11, "layoutControlItem11");
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 246);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 245);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(434, 29);
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.radio_AttrGZBKYRL;
             resources.ApplyResources(this.layoutControlItem13, "layoutControlItem13");
-            this.layoutControlItem13.Location = new System.Drawing.Point(0, 275);
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 274);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(434, 30);
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem13.Size = new System.Drawing.Size(434, 29);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.radio_AttrZZWBXGJ;
             resources.ApplyResources(this.layoutControlItem14, "layoutControlItem14");
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 305);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 303);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(434, 29);
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.radio_AttrJPBKGS;
             resources.ApplyResources(this.layoutControlItem15, "layoutControlItem15");
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 334);
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 332);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(434, 30);
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem15.Size = new System.Drawing.Size(434, 29);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.radio_AttrJJSFTSYH;
             resources.ApplyResources(this.layoutControlItem18, "layoutControlItem18");
-            this.layoutControlItem18.Location = new System.Drawing.Point(0, 364);
+            this.layoutControlItem18.Location = new System.Drawing.Point(0, 361);
             this.layoutControlItem18.Name = "layoutControlItem18";
             this.layoutControlItem18.Size = new System.Drawing.Size(434, 29);
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem40
             // 
             this.layoutControlItem40.Control = this.newChooseContorlAuditEmp;
             resources.ApplyResources(this.layoutControlItem40, "layoutControlItem40");
-            this.layoutControlItem40.Location = new System.Drawing.Point(434, 389);
+            this.layoutControlItem40.Location = new System.Drawing.Point(434, 418);
             this.layoutControlItem40.Name = "layoutControlItem40";
-            this.layoutControlItem40.Size = new System.Drawing.Size(224, 28);
+            this.layoutControlItem40.Size = new System.Drawing.Size(224, 25);
             this.layoutControlItem40.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem40.TextSize = new System.Drawing.Size(50, 20);
             this.layoutControlItem40.TextToControlDistance = 5;
@@ -1191,9 +1219,9 @@
             // 
             this.layoutControlItem41.Control = this.txt_AuditState;
             resources.ApplyResources(this.layoutControlItem41, "layoutControlItem41");
-            this.layoutControlItem41.Location = new System.Drawing.Point(658, 389);
+            this.layoutControlItem41.Location = new System.Drawing.Point(658, 418);
             this.layoutControlItem41.Name = "layoutControlItem41";
-            this.layoutControlItem41.Size = new System.Drawing.Size(211, 28);
+            this.layoutControlItem41.Size = new System.Drawing.Size(211, 25);
             this.layoutControlItem41.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem41.TextSize = new System.Drawing.Size(60, 14);
             this.layoutControlItem41.TextToControlDistance = 5;
@@ -1202,12 +1230,21 @@
             // 
             this.layoutControlItem39.Control = this.labelControl1;
             resources.ApplyResources(this.layoutControlItem39, "layoutControlItem39");
-            this.layoutControlItem39.Location = new System.Drawing.Point(217, 442);
+            this.layoutControlItem39.Location = new System.Drawing.Point(217, 467);
             this.layoutControlItem39.Name = "layoutControlItem39";
-            this.layoutControlItem39.Size = new System.Drawing.Size(652, 24);
+            this.layoutControlItem39.Size = new System.Drawing.Size(284, 24);
             this.layoutControlItem39.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem39.TextToControlDistance = 0;
             this.layoutControlItem39.TextVisible = false;
+            // 
+            // layoutControlItem25
+            // 
+            this.layoutControlItem25.Control = this.cbe_CheckStandard;
+            resources.ApplyResources(this.layoutControlItem25, "layoutControlItem25");
+            this.layoutControlItem25.Location = new System.Drawing.Point(434, 393);
+            this.layoutControlItem25.Name = "layoutControlItem25";
+            this.layoutControlItem25.Size = new System.Drawing.Size(435, 25);
+            this.layoutControlItem25.TextSize = new System.Drawing.Size(125, 14);
             // 
             // emptySpaceItem4
             // 
@@ -1237,30 +1274,45 @@
             this.barButtonItem1.Id = 14;
             this.barButtonItem1.Name = "barButtonItem1";
             // 
-            // cbe_CheckStandard
+            // radio_AttrESSSFZH
             // 
-            resources.ApplyResources(this.cbe_CheckStandard, "cbe_CheckStandard");
-            this.cbe_CheckStandard.MenuManager = this.barManager1;
-            this.cbe_CheckStandard.Name = "cbe_CheckStandard";
-            this.cbe_CheckStandard.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("comboBoxEdit1.Properties.Buttons"))))});
-            this.cbe_CheckStandard.Properties.Items.AddRange(new object[] {
-            resources.GetString("comboBoxEdit1.Properties.Items"),
-            resources.GetString("comboBoxEdit1.Properties.Items1"),
-            resources.GetString("comboBoxEdit1.Properties.Items2"),
-            resources.GetString("comboBoxEdit1.Properties.Items3"),
-            resources.GetString("comboBoxEdit1.Properties.Items4"),
-            resources.GetString("comboBoxEdit1.Properties.Items5")});
-            this.cbe_CheckStandard.StyleController = this.layoutControl1;
+            resources.ApplyResources(this.radio_AttrESSSFZH, "radio_AttrESSSFZH");
+            this.radio_AttrESSSFZH.MenuManager = this.barManager1;
+            this.radio_AttrESSSFZH.Name = "radio_AttrESSSFZH";
+            this.radio_AttrESSSFZH.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((object)(resources.GetObject("radioGroup1.Properties.Items6"))), resources.GetString("radioGroup1.Properties.Items7")),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((object)(resources.GetObject("radioGroup1.Properties.Items8"))), resources.GetString("radioGroup1.Properties.Items9")),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((object)(resources.GetObject("radioGroup1.Properties.Items10"))), resources.GetString("radioGroup1.Properties.Items11"))});
+            this.radio_AttrESSSFZH.StyleController = this.layoutControl1;
             // 
-            // layoutControlItem25
+            // layoutControlItem47
             // 
-            this.layoutControlItem25.Control = this.cbe_CheckStandard;
-            resources.ApplyResources(this.layoutControlItem25, "layoutControlItem25");
-            this.layoutControlItem25.Location = new System.Drawing.Point(434, 364);
-            this.layoutControlItem25.Name = "layoutControlItem25";
-            this.layoutControlItem25.Size = new System.Drawing.Size(435, 25);
-            this.layoutControlItem25.TextSize = new System.Drawing.Size(108, 14);
+            this.layoutControlItem47.Control = this.radio_AttrESSSFZH;
+            resources.ApplyResources(this.layoutControlItem47, "layoutControlItem47");
+            this.layoutControlItem47.Location = new System.Drawing.Point(0, 390);
+            this.layoutControlItem47.Name = "layoutControlItem47";
+            this.layoutControlItem47.Size = new System.Drawing.Size(434, 29);
+            this.layoutControlItem47.TextSize = new System.Drawing.Size(125, 14);
+            // 
+            // radio_AttrESSFYGZTZ
+            // 
+            resources.ApplyResources(this.radio_AttrESSFYGZTZ, "radio_AttrESSFYGZTZ");
+            this.radio_AttrESSFYGZTZ.MenuManager = this.barManager1;
+            this.radio_AttrESSFYGZTZ.Name = "radio_AttrESSFYGZTZ";
+            this.radio_AttrESSFYGZTZ.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((object)(resources.GetObject("radioGroup1.Properties.Items"))), resources.GetString("radioGroup1.Properties.Items1")),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((object)(resources.GetObject("radioGroup1.Properties.Items2"))), resources.GetString("radioGroup1.Properties.Items3")),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((object)(resources.GetObject("radioGroup1.Properties.Items4"))), resources.GetString("radioGroup1.Properties.Items5"))});
+            this.radio_AttrESSFYGZTZ.StyleController = this.layoutControl1;
+            // 
+            // layoutControlItem48
+            // 
+            this.layoutControlItem48.Control = this.radio_AttrESSFYGZTZ;
+            resources.ApplyResources(this.layoutControlItem48, "layoutControlItem48");
+            this.layoutControlItem48.Location = new System.Drawing.Point(434, 361);
+            this.layoutControlItem48.Name = "layoutControlItem48";
+            this.layoutControlItem48.Size = new System.Drawing.Size(435, 32);
+            this.layoutControlItem48.TextSize = new System.Drawing.Size(125, 14);
             // 
             // EditForm
             // 
@@ -1273,6 +1325,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbe_CheckStandard.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_AuditState.Properties)).EndInit();
@@ -1353,9 +1406,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem40)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem41)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem39)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbe_CheckStandard.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radio_AttrESSSFZH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radio_AttrESSFYGZTZ.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem48)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1462,5 +1518,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem39;
         private DevExpress.XtraEditors.ComboBoxEdit cbe_CheckStandard;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem25;
+        private DevExpress.XtraEditors.RadioGroup radio_AttrESSFYGZTZ;
+        private DevExpress.XtraEditors.RadioGroup radio_AttrESSSFZH;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem47;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem48;
     }
 }

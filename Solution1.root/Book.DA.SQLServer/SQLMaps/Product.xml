@@ -230,6 +230,7 @@
       <result property="LastStockTakeTime" column="LastStockTakeTime"/>
       <result property="OnMadingQuantity" column="OnMadingQuantity"/>
       <result property="BeenAssigned" column="BeenAssigned"/>
+      <result property="NetWeight" column="NetWeight"/>
       <result property="OutSourcing" column="OutSourcing" />
       <result property="Consume" column="Consume" />
       <result property="TrustOut" column="TrustOut" />
@@ -294,6 +295,7 @@
       LastStockTakeTime,
       OnMadingQuantity,
       BeenAssigned,
+      NetWeight,
       OutSourcing,
       Consume,
       TrustOut,

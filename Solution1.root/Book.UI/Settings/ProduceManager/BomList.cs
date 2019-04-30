@@ -30,6 +30,7 @@ namespace Book.UI.Settings.ProduceManager
         private int flag = 0;
         BL.BomParentPartInfoManager bomParentPartInfoManager = new Book.BL.BomParentPartInfoManager();
         BL.BomComponentInfoManager bomComponentInfoManager = new Book.BL.BomComponentInfoManager();
+        private BL.MaterialManager materialManager = new Book.BL.MaterialManager();
 
         public BomList()
         {
@@ -142,13 +143,13 @@ namespace Book.UI.Settings.ProduceManager
                 Microsoft.Office.Interop.Excel.Worksheet sheet = (Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[1];
 
                 #region SetHeader
-                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 9]).RowHeight = 20;
-                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 9]).Font.Size = 15;
-                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 9]).HorizontalAlignment = -4108;
-                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 9]).ColumnWidth = 12;
-                sheet.get_Range(excel.Cells[1, 3], excel.Cells[1, 4]).ColumnWidth = 50;
+                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 10]).RowHeight = 20;
+                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 10]).Font.Size = 15;
+                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 10]).HorizontalAlignment = -4108;
+                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 10]).ColumnWidth = 12;
+                sheet.get_Range(excel.Cells[1, 3], excel.Cells[1, 3]).ColumnWidth = 50;
 
-                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 9]).Interior.Color = 12566463;
+                sheet.get_Range(excel.Cells[1, 1], excel.Cells[1, 10]).Interior.Color = 12566463;
 
                 //excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).RowHeight = 20;
                 //excel.get_Range(excel.Cells[2, 1], excel.Cells[details.Count + 2, 20]).Font.Size = 13;
@@ -162,8 +163,9 @@ namespace Book.UI.Settings.ProduceManager
                 sheet.Cells[1, 5] = "计量单位";
                 sheet.Cells[1, 6] = "使用数量";
                 sheet.Cells[1, 7] = "损耗率";
-                sheet.Cells[1, 8] = "生效日期";
-                sheet.Cells[1, 9] = "失效日期";
+                sheet.Cells[1, 8] = "净重";
+                sheet.Cells[1, 9] = "生效日期";
+                sheet.Cells[1, 10] = "失效日期";
 
                 #endregion
 
@@ -275,11 +277,12 @@ namespace Book.UI.Settings.ProduceManager
                                 sheet.Cells[row, 5] = item.Unit;
                                 sheet.Cells[row, 6] = item.UseQuantity;
                                 sheet.Cells[row, 7] = item.SubLoseRate == null ? 0 : item.SubLoseRate;
-                                sheet.Cells[row, 8] = Convert.ToDateTime(item.EffectsDate).ToString("yyyy-MM-dd");
-                                sheet.Cells[row, 9] = Convert.ToDateTime(item.ExpiringDate).ToString("yyyy-MM-dd");
+                                sheet.Cells[row, 8] = item.Product.NetWeight.ToString();
+                                sheet.Cells[row, 9] = Convert.ToDateTime(item.EffectsDate).ToString("yyyy-MM-dd");
+                                sheet.Cells[row, 10] = Convert.ToDateTime(item.ExpiringDate).ToString("yyyy-MM-dd");
 
-                                if(item.Jibie==0)
-                                    sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 9]).Interior.Color = 13311;     //红
+                                if (item.Jibie == 0)
+                                    sheet.get_Range(sheet.Cells[row, 1], sheet.Cells[row, 10]).Interior.Color = 13311;     //红
 
                                 row++;
                             }
@@ -299,7 +302,7 @@ namespace Book.UI.Settings.ProduceManager
             }
         }
 
-        private List<Model.BomComponentInfo> GetBomComponetList(Model.BomParentPartInfo _bomParmentPartInfo)
+               private List<Model.BomComponentInfo> GetBomComponetList(Model.BomParentPartInfo _bomParmentPartInfo)
         {
             List<Model.BomComponentInfo> _comDetailss = new List<Book.Model.BomComponentInfo>();
 

@@ -58,6 +58,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="AttrNeihekuanxing" column="AttrNeihekuanxing"/>
       <result property="AttrChuhuochongji" column="AttrChuhuochongji"/>
       <result property="AttrCheckStandard" column="AttrCheckStandard"/>
+      <result property="AttrESSSFZH" column="AttrESSSFZH"/>
+      <result property="AttrESSFYGZTZ" column="AttrESSFYGZTZ"/>
       <result property="PronoteHeader" column="PronoteHeaderID" lazyLoad="false" select="PronoteHeader.select_by_primary_key" />
       <result property="Employee0" column="Employee0Id" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
@@ -208,7 +210,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AttrSujiaodaitiebiao],
         [AttrNeihekuanxing],
         [AttrChuhuochongji],
-        [AttrCheckStandard]
+        [AttrCheckStandard],
+        [AttrESSSFZH],
+        [AttrESSFYGZTZ]
+        
         
 			FROM
 				[dbo].[PCFinishCheck]
@@ -314,7 +319,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AttrSujiaodaitiebiao],
         [AttrNeihekuanxing],
         [AttrChuhuochongji],
-        [AttrCheckStandard]
+        [AttrCheckStandard],
+        [AttrESSSFZH],
+        [AttrESSFYGZTZ]
 			) 
 			VALUES 
 			(
@@ -369,7 +376,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         #AttrSujiaodaitiebiao#,
         #AttrNeihekuanxing#,
         #AttrChuhuochongji#,
-        #AttrCheckStandard#
+        #AttrCheckStandard#,
+        #AttrESSSFZH#,
+        #AttrESSFYGZTZ#
 			) 
              ]]>
     </insert>
@@ -427,7 +436,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         [AttrSujiaodaitiebiao]=#AttrSujiaodaitiebiao#,
         [AttrNeihekuanxing]=#AttrNeihekuanxing#,
         [AttrChuhuochongji]=#AttrChuhuochongji#,
-        [AttrCheckStandard]=#AttrCheckStandard#
+        [AttrCheckStandard]=#AttrCheckStandard#,
+        [AttrESSSFZH]=#AttrESSSFZH#,
+        [AttrESSFYGZTZ]=#AttrESSFYGZTZ#
+        
 			WHERE
 				[PCFinishCheckID] = #PCFinishCheckID#
                     ]]>
