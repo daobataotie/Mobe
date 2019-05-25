@@ -160,6 +160,12 @@
             this.barBtnPrintMonth = new DevExpress.XtraBars.BarButtonItem();
             this.bar_ExportExcel = new DevExpress.XtraBars.BarButtonItem();
             this.bar_PrintIndepot = new DevExpress.XtraBars.BarButtonItem();
+            this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn53 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn54 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn55 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn56 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn57 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -453,7 +459,13 @@
             this.gridColumn48,
             this.gridColumn49,
             this.gridColumn50,
-            this.gridColumn51});
+            this.gridColumn51,
+            this.gridColumn52,
+            this.gridColumn53,
+            this.gridColumn54,
+            this.gridColumn55,
+            this.gridColumn56,
+            this.gridColumn57});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ColumnAutoWidth = false;
@@ -1329,6 +1341,42 @@
             this.bar_PrintIndepot.Name = "bar_PrintIndepot";
             this.bar_PrintIndepot.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_PrintIndepot_ItemClick);
             // 
+            // gridColumn52
+            // 
+            resources.ApplyResources(this.gridColumn52, "gridColumn52");
+            this.gridColumn52.FieldName = "mKaijisunhuai";
+            this.gridColumn52.Name = "gridColumn52";
+            // 
+            // gridColumn53
+            // 
+            resources.ApplyResources(this.gridColumn53, "gridColumn53");
+            this.gridColumn53.FieldName = "mMaobian";
+            this.gridColumn53.Name = "gridColumn53";
+            // 
+            // gridColumn54
+            // 
+            resources.ApplyResources(this.gridColumn54, "gridColumn54");
+            this.gridColumn54.FieldName = "mYiliaoqikong";
+            this.gridColumn54.Name = "gridColumn54";
+            // 
+            // gridColumn55
+            // 
+            resources.ApplyResources(this.gridColumn55, "gridColumn55");
+            this.gridColumn55.FieldName = "mPopi";
+            this.gridColumn55.Name = "gridColumn55";
+            // 
+            // gridColumn56
+            // 
+            resources.ApplyResources(this.gridColumn56, "gridColumn56");
+            this.gridColumn56.FieldName = "mBianse";
+            this.gridColumn56.Name = "gridColumn56";
+            // 
+            // gridColumn57
+            // 
+            resources.ApplyResources(this.gridColumn57, "gridColumn57");
+            this.gridColumn57.FieldName = "mMihedu";
+            this.gridColumn57.Name = "gridColumn57";
+            // 
             // EditForm
             // 
             resources.ApplyResources(this, "$this");
@@ -1529,5 +1577,11 @@
         private DevExpress.XtraBars.BarButtonItem bar_ExportExcel;
         private DevExpress.XtraBars.BarButtonItem bar_PrintIndepot;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn51;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn52;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn53;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn54;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn55;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn56;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn57;
     }
 }

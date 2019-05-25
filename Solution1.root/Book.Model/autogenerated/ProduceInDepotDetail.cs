@@ -1691,5 +1691,60 @@ namespace Book.Model
         public readonly static string PRO_HeJiBeforeTransferQuantity = "HeJiBeforeTransferQuantity";
 
 		#endregion
+
+        private double? _mKaijisunhuai;
+
+        public double? mKaijisunhuai
+        {
+            get { return _mKaijisunhuai; }
+            set { _mKaijisunhuai = value; }
+        }
+
+        private double? _mMaobian;
+
+        public double? mMaobian
+        {
+            get { return _mMaobian; }
+            set { _mMaobian = value; }
+        }
+
+        private double? _mYiliaoqikong;
+
+        public double? mYiliaoqikong
+        {
+            get { return _mYiliaoqikong; }
+            set { _mYiliaoqikong = value; }
+        }
+
+        private double? _mPopi;
+
+        public double? mPopi
+        {
+            get { return _mPopi; }
+            set { _mPopi = value; }
+        }
+
+        private double? _mBianse;
+
+        public double? mBianse
+        {
+            get { return _mBianse; }
+            set { _mBianse = value; }
+        }
+
+        private double? _mMihedu;
+
+        public double? mMihedu
+        {
+            get { return _mMihedu; }
+            set { _mMihedu = value; }
+        }
+
+        public readonly static string PRO_mKaijisunhuai = "mKaijisunhuai";
+        public readonly static string PRO_mMaobian = "mMaobian";
+        public readonly static string PRO_mYiliaoqikong = "mYiliaoqikong";
+        public readonly static string PRO_mPopi = "mPopi";
+        public readonly static string PRO_mBianse = "mBianse";
+        public readonly static string PRO_mMihedu = "mMihedu";
 	}
 }

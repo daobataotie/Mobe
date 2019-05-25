@@ -280,7 +280,7 @@
     <value>新細明體, 10pt</value>
   </data>
   <data name="xrTable13.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
-    <value>0, 1989.66809</value>
+    <value>0, 1894.4176</value>
   </data>
   <data name="xrTableCell70.Dpi" type="System.Single, mscorlib">
     <value>254</value>
@@ -367,16 +367,13 @@
     <value>新細明體, 10pt</value>
   </data>
   <data name="xrTable12.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
-    <value>0, 1894.4176</value>
+    <value>0.0029296875, 1989.6676</value>
   </data>
   <data name="xrTableCell64.Dpi" type="System.Single, mscorlib">
     <value>254</value>
   </data>
   <data name="xrTableCell64.Font" type="System.Drawing.Font, System.Drawing">
     <value>新細明體, 10pt</value>
-  </data>
-  <data name="xrTableCell64.Text" xml:space="preserve">
-    <value>1.0</value>
   </data>
   <data name="xrTableCell64.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
     <value>MiddleLeft</value>
@@ -388,7 +385,7 @@
     <value>新細明體, 10pt</value>
   </data>
   <data name="xrTableCell65.Text" xml:space="preserve">
-    <value>Information</value>
+    <value>Packaging</value>
   </data>
   <data name="xrTableCell65.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
     <value>MiddleLeft</value>
@@ -400,42 +397,42 @@
     <value>新細明體, 10pt</value>
   </data>
   <data name="xrTableCell66.Text" xml:space="preserve">
-    <value>Visual inspection</value>
+    <value>Visual inspection(base on the instructions of the internal work order)</value>
   </data>
   <data name="xrTableCell66.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
     <value>MiddleLeft</value>
   </data>
-  <data name="LbTestIF.Dpi" type="System.Single, mscorlib">
+  <data name="LbTestPackaging.Dpi" type="System.Single, mscorlib">
     <value>254</value>
   </data>
-  <data name="LbTestIF.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="LbTestPackaging.Font" type="System.Drawing.Font, System.Drawing">
     <value>新細明體, 10pt</value>
   </data>
-  <data name="LbTestIF.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+  <data name="LbTestPackaging.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
     <value>0.00451660156, 0.0007324219</value>
   </data>
-  <data name="LbTestIF.SizeF" type="System.Drawing.SizeF, System.Drawing">
+  <data name="LbTestPackaging.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>370.410645, 95.2497559</value>
   </data>
-  <data name="LbTestIF.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+  <data name="LbTestPackaging.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
     <value>MiddleCenter</value>
   </data>
   <data name="xrTableCell67.Dpi" type="System.Single, mscorlib">
     <value>254</value>
   </data>
-  <data name="LbJudgeIF.Dpi" type="System.Single, mscorlib">
+  <data name="LbJudgePackaging.Dpi" type="System.Single, mscorlib">
     <value>254</value>
   </data>
-  <data name="LbJudgeIF.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="LbJudgePackaging.Font" type="System.Drawing.Font, System.Drawing">
     <value>新細明體, 10pt</value>
   </data>
-  <data name="LbJudgeIF.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
+  <data name="LbJudgePackaging.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
     <value>0, 0.0007324219</value>
   </data>
-  <data name="LbJudgeIF.SizeF" type="System.Drawing.SizeF, System.Drawing">
+  <data name="LbJudgePackaging.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>295.9109, 95.2497559</value>
   </data>
-  <data name="LbJudgeIF.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+  <data name="LbJudgePackaging.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
     <value>MiddleCenter</value>
   </data>
   <data name="xrTableCell69.Dpi" type="System.Single, mscorlib">
@@ -1337,13 +1334,13 @@ dioptre</value>
     <value>254</value>
   </data>
   <data name="xrLabel6.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
-    <value>370.421631, 71.43765</value>
+    <value>370.421631, 0</value>
   </data>
   <data name="xrLabel6.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>295.908936, 66.14575</value>
+    <value>295.908936, 137.5834</value>
   </data>
   <data name="xrLabel6.Text" xml:space="preserve">
-    <value>判定(Judgement)</value>
+    <value>RESULT</value>
   </data>
   <data name="xrLabel6.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
     <value>MiddleCenter</value>
@@ -1352,33 +1349,15 @@ dioptre</value>
     <value>254</value>
   </data>
   <data name="xrLabel5.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
-    <value>0.0223388672, 71.43765</value>
+    <value>0.0223388672, 0</value>
   </data>
   <data name="xrLabel5.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>370.39502, 66.14569</value>
+    <value>370.39502, 137.583344</value>
   </data>
   <data name="xrLabel5.Text" xml:space="preserve">
-    <value>檢測數/受測數(qty)</value>
+    <value>SAMPLE SIZE</value>
   </data>
   <data name="xrLabel5.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="xrLabel24.Dpi" type="System.Single, mscorlib">
-    <value>254</value>
-  </data>
-  <data name="xrLabel24.Font" type="System.Drawing.Font, System.Drawing">
-    <value>新細明體, 10pt</value>
-  </data>
-  <data name="xrLabel24.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
-    <value>0.000122070313, 0</value>
-  </data>
-  <data name="xrLabel24.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>666.3314, 71.43756</value>
-  </data>
-  <data name="xrLabel24.Text" xml:space="preserve">
-    <value>RESULT/测试结果</value>
-  </data>
-  <data name="xrLabel24.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
     <value>MiddleCenter</value>
   </data>
   <data name="xrTableCell3.Dpi" type="System.Single, mscorlib">

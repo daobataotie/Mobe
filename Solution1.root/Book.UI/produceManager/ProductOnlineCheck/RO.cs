@@ -82,6 +82,9 @@ namespace Book.UI.produceManager.ProductOnlineCheck
                 case "2":
                     str = "¡÷";
                     break;
+                case "3":
+                    str = "";
+                    break;
             }
             return str;
         }

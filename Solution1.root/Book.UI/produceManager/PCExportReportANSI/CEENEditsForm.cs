@@ -167,21 +167,22 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._PCExportReportANSI.ShouCeShu8 = this.SpinTestRobustness.EditValue == null ? 0 : double.Parse(this.SpinTestRobustness.EditValue.ToString());
             this._PCExportReportANSI.ShouCeShu9 = this.SpinTestHighSpeed.EditValue == null ? 0 : double.Parse(this.SpinTestHighSpeed.EditValue.ToString());
             this._PCExportReportANSI.ShouCeShu10 = this.SpinTestMarking.EditValue == null ? 0 : double.Parse(this.SpinTestMarking.EditValue.ToString());
-            this._PCExportReportANSI.ShouCeShu11 = this.SpinTestInformation.EditValue == null ? 0 : double.Parse(this.SpinTestInformation.EditValue.ToString());
-            this._PCExportReportANSI.ShouCeShu12 = this.SpinTestInternal.EditValue == null ? 0 : double.Parse(this.SpinTestInternal.EditValue.ToString());
 
-            this._PCExportReportANSI.PanDing1 = this.SpinJudgeConstruction.EditValue == null ? 0 : double.Parse(this.SpinJudgeConstruction.EditValue.ToString());
-            this._PCExportReportANSI.PanDing2 = this.SpinJudgeSp.EditValue == null ? 0 : double.Parse(this.SpinJudgeSp.EditValue.ToString());
-            this._PCExportReportANSI.PanDing3 = this.SpinJudgeAst.EditValue == null ? 0 : double.Parse(this.SpinJudgeAst.EditValue.ToString());
-            this._PCExportReportANSI.PanDing4 = this.SpinJudgePrism.EditValue == null ? 0 : double.Parse(this.SpinJudgePrism.EditValue.ToString());
-            this._PCExportReportANSI.PanDing5 = this.SpinJudgeDiffrence.EditValue == null ? 0 : double.Parse(this.SpinJudgeDiffrence.EditValue.ToString());
-            this._PCExportReportANSI.PanDing6 = this.SpinJudgeTrans.EditValue == null ? 0 : double.Parse(this.SpinJudgeTrans.EditValue.ToString());
-            this._PCExportReportANSI.PanDing7 = this.SpinJudgeSurface.EditValue == null ? 0 : double.Parse(this.SpinJudgeSurface.EditValue.ToString());
-            this._PCExportReportANSI.PanDing8 = this.SpinJudgeRobustness.EditValue == null ? 0 : double.Parse(this.SpinJudgeRobustness.EditValue.ToString());
-            this._PCExportReportANSI.PanDing9 = this.SpinJudgeHighSpeed.EditValue == null ? 0 : double.Parse(this.SpinJudgeHighSpeed.EditValue.ToString());
-            this._PCExportReportANSI.PanDing10 = this.SpinJudgeMarking.EditValue == null ? 0 : double.Parse(this.SpinJudgeMarking.EditValue.ToString());
-            this._PCExportReportANSI.PanDing11 = this.SpinJudgeInformation.EditValue == null ? 0 : double.Parse(this.SpinJudgeInformation.EditValue.ToString());
-            this._PCExportReportANSI.PanDingShu12 = this.SpinJudgeInternal.EditValue == null ? 0 : double.Parse(this.SpinJudgeInternal.EditValue.ToString());
+            this._PCExportReportANSI.ShouCeShu12 = this.SpinTestInternal.EditValue == null ? 0 : double.Parse(this.SpinTestInternal.EditValue.ToString()); 
+            this._PCExportReportANSI.ShouCeShu13 = this.SpinTestPackaging.EditValue == null ? 0 : double.Parse(this.SpinTestPackaging.EditValue.ToString());
+
+            //this._PCExportReportANSI.PanDing1 = this.SpinJudgeConstruction.EditValue == null ? 0 : double.Parse(this.SpinJudgeConstruction.EditValue.ToString());
+            //this._PCExportReportANSI.PanDing2 = this.SpinJudgeSp.EditValue == null ? 0 : double.Parse(this.SpinJudgeSp.EditValue.ToString());
+            //this._PCExportReportANSI.PanDing3 = this.SpinJudgeAst.EditValue == null ? 0 : double.Parse(this.SpinJudgeAst.EditValue.ToString());
+            //this._PCExportReportANSI.PanDing4 = this.SpinJudgePrism.EditValue == null ? 0 : double.Parse(this.SpinJudgePrism.EditValue.ToString());
+            //this._PCExportReportANSI.PanDing5 = this.SpinJudgeDiffrence.EditValue == null ? 0 : double.Parse(this.SpinJudgeDiffrence.EditValue.ToString());
+            //this._PCExportReportANSI.PanDing6 = this.SpinJudgeTrans.EditValue == null ? 0 : double.Parse(this.SpinJudgeTrans.EditValue.ToString());
+            //this._PCExportReportANSI.PanDing7 = this.SpinJudgeSurface.EditValue == null ? 0 : double.Parse(this.SpinJudgeSurface.EditValue.ToString());
+            //this._PCExportReportANSI.PanDing8 = this.SpinJudgeRobustness.EditValue == null ? 0 : double.Parse(this.SpinJudgeRobustness.EditValue.ToString());
+            //this._PCExportReportANSI.PanDing9 = this.SpinJudgeHighSpeed.EditValue == null ? 0 : double.Parse(this.SpinJudgeHighSpeed.EditValue.ToString());
+            //this._PCExportReportANSI.PanDing10 = this.SpinJudgeMarking.EditValue == null ? 0 : double.Parse(this.SpinJudgeMarking.EditValue.ToString());
+            //this._PCExportReportANSI.PanDing11 = this.SpinJudgeInformation.EditValue == null ? 0 : double.Parse(this.SpinJudgeInformation.EditValue.ToString());
+            //this._PCExportReportANSI.PanDingShu12 = this.SpinJudgeInternal.EditValue == null ? 0 : double.Parse(this.SpinJudgeInternal.EditValue.ToString());
 
             this._PCExportReportANSI.ProductUnitId = this.lookUpEditUnit.EditValue == null ? null : this.lookUpEditUnit.EditValue.ToString();
 
@@ -266,8 +267,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.SpinTestRobustness.EditValue = this._PCExportReportANSI.ShouCeShu8.HasValue ? this._PCExportReportANSI.ShouCeShu8.Value : 0;
             this.SpinTestHighSpeed.EditValue = this._PCExportReportANSI.ShouCeShu9.HasValue ? this._PCExportReportANSI.ShouCeShu9.Value : 0;
             this.SpinTestMarking.EditValue = this._PCExportReportANSI.ShouCeShu10.HasValue ? this._PCExportReportANSI.ShouCeShu10.Value : 0;
-            this.SpinTestInformation.EditValue = this._PCExportReportANSI.ShouCeShu11.HasValue ? this._PCExportReportANSI.ShouCeShu11.Value : 0;
             this.SpinTestInternal.EditValue = this._PCExportReportANSI.ShouCeShu12.HasValue ? this._PCExportReportANSI.ShouCeShu12.Value : 0;
+            this.SpinTestPackaging.EditValue = this._PCExportReportANSI.ShouCeShu13.HasValue ? this._PCExportReportANSI.ShouCeShu13.Value : 0;
 
             //this.SpinBringConstruction.EditValue = this._PCExportReportANSI.QuYangShu1.HasValue ? this._PCExportReportANSI.QuYangShu1.Value : 0;
             //this.SpinBringSp.EditValue = this._PCExportReportANSI.QuYangShu2.HasValue ? this._PCExportReportANSI.QuYangShu2.Value : 0;
@@ -282,18 +283,18 @@ namespace Book.UI.produceManager.PCExportReportANSI
             //this.SpinBringInformation.EditValue = this._PCExportReportANSI.QuYangShu11.HasValue ? this._PCExportReportANSI.QuYangShu11.Value : 0;
             //this.SpinBringInternal.EditValue = this._PCExportReportANSI.QuYangShu12.HasValue ? this._PCExportReportANSI.QuYangShu12.Value : 0;
 
-            this.SpinJudgeConstruction.EditValue = this._PCExportReportANSI.PanDing1.HasValue ? this._PCExportReportANSI.PanDing1.Value : 0;
-            this.SpinJudgeSp.EditValue = this._PCExportReportANSI.PanDing2.HasValue ? this._PCExportReportANSI.PanDing2.Value : 0;
-            this.SpinJudgeAst.EditValue = this._PCExportReportANSI.PanDing3.HasValue ? this._PCExportReportANSI.PanDing3.Value : 0;
-            this.SpinJudgePrism.EditValue = this._PCExportReportANSI.PanDing4.HasValue ? this._PCExportReportANSI.PanDing4.Value : 0;
-            this.SpinJudgeDiffrence.EditValue = this._PCExportReportANSI.PanDing5.HasValue ? this._PCExportReportANSI.PanDing5.Value : 0;
-            this.SpinJudgeTrans.EditValue = this._PCExportReportANSI.PanDing6.HasValue ? this._PCExportReportANSI.PanDing6.Value : 0;
-            this.SpinJudgeSurface.EditValue = this._PCExportReportANSI.PanDing7.HasValue ? this._PCExportReportANSI.PanDing7.Value : 0;
-            this.SpinJudgeRobustness.EditValue = this._PCExportReportANSI.PanDing8.HasValue ? this._PCExportReportANSI.PanDing8.Value : 0;
-            this.SpinJudgeHighSpeed.EditValue = this._PCExportReportANSI.PanDing9.HasValue ? this._PCExportReportANSI.PanDing9.Value : 0;
-            this.SpinJudgeMarking.EditValue = this._PCExportReportANSI.PanDing10.HasValue ? this._PCExportReportANSI.PanDing10.Value : 0;
-            this.SpinJudgeInformation.EditValue = this._PCExportReportANSI.PanDing11.HasValue ? this._PCExportReportANSI.PanDing11.Value : 0;
-            this.SpinJudgeInternal.EditValue = this._PCExportReportANSI.PanDingShu12.HasValue ? this._PCExportReportANSI.PanDingShu12.Value : 0;
+            //this.SpinJudgeConstruction.EditValue = this._PCExportReportANSI.PanDing1.HasValue ? this._PCExportReportANSI.PanDing1.Value : 0;
+            //this.SpinJudgeSp.EditValue = this._PCExportReportANSI.PanDing2.HasValue ? this._PCExportReportANSI.PanDing2.Value : 0;
+            //this.SpinJudgeAst.EditValue = this._PCExportReportANSI.PanDing3.HasValue ? this._PCExportReportANSI.PanDing3.Value : 0;
+            //this.SpinJudgePrism.EditValue = this._PCExportReportANSI.PanDing4.HasValue ? this._PCExportReportANSI.PanDing4.Value : 0;
+            //this.SpinJudgeDiffrence.EditValue = this._PCExportReportANSI.PanDing5.HasValue ? this._PCExportReportANSI.PanDing5.Value : 0;
+            //this.SpinJudgeTrans.EditValue = this._PCExportReportANSI.PanDing6.HasValue ? this._PCExportReportANSI.PanDing6.Value : 0;
+            //this.SpinJudgeSurface.EditValue = this._PCExportReportANSI.PanDing7.HasValue ? this._PCExportReportANSI.PanDing7.Value : 0;
+            //this.SpinJudgeRobustness.EditValue = this._PCExportReportANSI.PanDing8.HasValue ? this._PCExportReportANSI.PanDing8.Value : 0;
+            //this.SpinJudgeHighSpeed.EditValue = this._PCExportReportANSI.PanDing9.HasValue ? this._PCExportReportANSI.PanDing9.Value : 0;
+            //this.SpinJudgeMarking.EditValue = this._PCExportReportANSI.PanDing10.HasValue ? this._PCExportReportANSI.PanDing10.Value : 0;
+            //this.SpinJudgeInformation.EditValue = this._PCExportReportANSI.PanDing11.HasValue ? this._PCExportReportANSI.PanDing11.Value : 0;
+            //this.SpinJudgeInternal.EditValue = this._PCExportReportANSI.PanDingShu12.HasValue ? this._PCExportReportANSI.PanDingShu12.Value : 0;
 
             this.newChooseContorlAuditEmp.EditValue = this._PCExportReportANSI.AuditEmp;
             this.txt_AuditState.EditValue = this.GetAuditName(this._PCExportReportANSI.AuditState);
@@ -348,47 +349,47 @@ namespace Book.UI.produceManager.PCExportReportANSI
 
             //if (_PCExportReportANSIDetail != null)
             //{
-                #region 测试数量、合格数量
+            #region 测试数量、合格数量
 
-                //受测数量默认为订单数量的1/500,无条件进位，最大为12
-                int Orderamount = int.Parse(this._PCExportReportANSI.Amount.HasValue ? this._PCExportReportANSI.Amount.ToString() : "0");
-                double MustCheck = 0;
+            //受测数量默认为订单数量的1/500,无条件进位，最大为12
+            int Orderamount = int.Parse(this._PCExportReportANSI.Amount.HasValue ? this._PCExportReportANSI.Amount.ToString() : "0");
+            double MustCheck = 0;
 
-                if (Orderamount < 500)
-                    MustCheck = 1;
-                else
-                    MustCheck = Orderamount % 500 == 0 ? Orderamount / 500 : Orderamount / 500 + 1;
+            if (Orderamount < 500)
+                MustCheck = 1;
+            else
+                MustCheck = Orderamount % 500 == 0 ? Orderamount / 500 : Orderamount / 500 + 1;
 
-                this._PCExportReportANSI.AmountTest = MustCheck > 12 ? 12 : MustCheck;//受测数量12个，无条件进位
+            this._PCExportReportANSI.AmountTest = MustCheck > 12 ? 12 : MustCheck;//受测数量12个，无条件进位
 
-                this._PCExportReportANSI.ShouCeShu1 = this._PCExportReportANSI.ShouCeShu2 = this._PCExportReportANSI.ShouCeShu3 = this._PCExportReportANSI.ShouCeShu4 = this._PCExportReportANSI.ShouCeShu5 = this._PCExportReportANSI.ShouCeShu6 = this._PCExportReportANSI.ShouCeShu7 = this._PCExportReportANSI.ShouCeShu8 = this._PCExportReportANSI.ShouCeShu9 = this._PCExportReportANSI.ShouCeShu10 = this._PCExportReportANSI.ShouCeShu11 = this._PCExportReportANSI.ShouCeShu12 = this._PCExportReportANSI.AmountTest;
+            this._PCExportReportANSI.ShouCeShu1 = this._PCExportReportANSI.ShouCeShu2 = this._PCExportReportANSI.ShouCeShu3 = this._PCExportReportANSI.ShouCeShu4 = this._PCExportReportANSI.ShouCeShu5 = this._PCExportReportANSI.ShouCeShu6 = this._PCExportReportANSI.ShouCeShu7 = this._PCExportReportANSI.ShouCeShu8 = this._PCExportReportANSI.ShouCeShu9 = this._PCExportReportANSI.ShouCeShu10 = this._PCExportReportANSI.ShouCeShu11 = this._PCExportReportANSI.ShouCeShu12 = this._PCExportReportANSI.AmountTest;
 
-                //this._PCExportReportANSI.PanDing1 = _PCExportReportANSIDetail.pCEENCONSTRUCTION;
-                //this._PCExportReportANSI.QuYangShu1 = _PCExportReportANSIDetail.qCEENCONSTRUCTION;
-                //this._PCExportReportANSI.PanDing2 = _PCExportReportANSIDetail.pCEENQMDS;
-                //this._PCExportReportANSI.QuYangShu2 = _PCExportReportANSIDetail.qCEENQMDS;
-                //this._PCExportReportANSI.PanDing3 = _PCExportReportANSIDetail.pCEENSGDS;
-                //this._PCExportReportANSI.QuYangShu3 = _PCExportReportANSIDetail.qCEENSGDS;
-                //this._PCExportReportANSI.PanDing4 = _PCExportReportANSIDetail.pCEENLJDS;
-                //this._PCExportReportANSI.QuYangShu4 = _PCExportReportANSIDetail.qCEENLJDS;
-                //this._PCExportReportANSI.PanDing5 = _PCExportReportANSIDetail.pCEENZB;
-                //this._PCExportReportANSI.QuYangShu5 = _PCExportReportANSIDetail.qCEENZB;
-                //this._PCExportReportANSI.PanDing6 = _PCExportReportANSIDetail.pCEENTSL;
-                //this._PCExportReportANSI.QuYangShu6 = _PCExportReportANSIDetail.qCEENTSL;
-                //this._PCExportReportANSI.PanDing7 = _PCExportReportANSIDetail.pCEENBMPZ;
-                //this._PCExportReportANSI.QuYangShu7 = _PCExportReportANSIDetail.qCEENBMPZ;
-                //this._PCExportReportANSI.PanDing8 = _PCExportReportANSIDetail.pCEENZSCJ;
-                //this._PCExportReportANSI.QuYangShu8 = _PCExportReportANSIDetail.qCEENZSCJ;
-                //this._PCExportReportANSI.PanDing9 = _PCExportReportANSIDetail.pCEENGSCJ; ;
-                //this._PCExportReportANSI.QuYangShu9 = _PCExportReportANSIDetail.qCEENGSCJ;
-                //this._PCExportReportANSI.PanDing10 = _PCExportReportANSIDetail.pCEENJH;
-                //this._PCExportReportANSI.QuYangShu10 = _PCExportReportANSIDetail.qCEENJH;
-                //this._PCExportReportANSI.PanDing11 = _PCExportReportANSIDetail.pCEENZX;
-                //this._PCExportReportANSI.QuYangShu11 = _PCExportReportANSIDetail.qCEENZX;
-                //this._PCExportReportANSI.PanDingShu12 = _PCExportReportANSIDetail.pCEENUVCF;
-                //this._PCExportReportANSI.QuYangShu12 = _PCExportReportANSIDetail.qCEENUVCF;
+            //this._PCExportReportANSI.PanDing1 = _PCExportReportANSIDetail.pCEENCONSTRUCTION;
+            //this._PCExportReportANSI.QuYangShu1 = _PCExportReportANSIDetail.qCEENCONSTRUCTION;
+            //this._PCExportReportANSI.PanDing2 = _PCExportReportANSIDetail.pCEENQMDS;
+            //this._PCExportReportANSI.QuYangShu2 = _PCExportReportANSIDetail.qCEENQMDS;
+            //this._PCExportReportANSI.PanDing3 = _PCExportReportANSIDetail.pCEENSGDS;
+            //this._PCExportReportANSI.QuYangShu3 = _PCExportReportANSIDetail.qCEENSGDS;
+            //this._PCExportReportANSI.PanDing4 = _PCExportReportANSIDetail.pCEENLJDS;
+            //this._PCExportReportANSI.QuYangShu4 = _PCExportReportANSIDetail.qCEENLJDS;
+            //this._PCExportReportANSI.PanDing5 = _PCExportReportANSIDetail.pCEENZB;
+            //this._PCExportReportANSI.QuYangShu5 = _PCExportReportANSIDetail.qCEENZB;
+            //this._PCExportReportANSI.PanDing6 = _PCExportReportANSIDetail.pCEENTSL;
+            //this._PCExportReportANSI.QuYangShu6 = _PCExportReportANSIDetail.qCEENTSL;
+            //this._PCExportReportANSI.PanDing7 = _PCExportReportANSIDetail.pCEENBMPZ;
+            //this._PCExportReportANSI.QuYangShu7 = _PCExportReportANSIDetail.qCEENBMPZ;
+            //this._PCExportReportANSI.PanDing8 = _PCExportReportANSIDetail.pCEENZSCJ;
+            //this._PCExportReportANSI.QuYangShu8 = _PCExportReportANSIDetail.qCEENZSCJ;
+            //this._PCExportReportANSI.PanDing9 = _PCExportReportANSIDetail.pCEENGSCJ; ;
+            //this._PCExportReportANSI.QuYangShu9 = _PCExportReportANSIDetail.qCEENGSCJ;
+            //this._PCExportReportANSI.PanDing10 = _PCExportReportANSIDetail.pCEENJH;
+            //this._PCExportReportANSI.QuYangShu10 = _PCExportReportANSIDetail.qCEENJH;
+            //this._PCExportReportANSI.PanDing11 = _PCExportReportANSIDetail.pCEENZX;
+            //this._PCExportReportANSI.QuYangShu11 = _PCExportReportANSIDetail.qCEENZX;
+            //this._PCExportReportANSI.PanDingShu12 = _PCExportReportANSIDetail.pCEENUVCF;
+            //this._PCExportReportANSI.QuYangShu12 = _PCExportReportANSIDetail.qCEENUVCF;
 
-                #endregion
+            #endregion
             //}
             this.InitControls();
         }

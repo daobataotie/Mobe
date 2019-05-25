@@ -71,6 +71,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="HandbookId" column="HandbookId"/>
       <result property="HandbookProductId" column="HandbookProductId"/>
       <result property="HeJiBeforeTransferQuantity" column="HeJiBeforeTransferQuantity"/>
+      <result property="mKaijisunhuai" column="mKaijisunhuai"/>
+      <result property="mMaobian" column="mMaobian"/>
+      <result property="mYiliaoqikong" column="mYiliaoqikong"/>
+      <result property="mPopi" column="mPopi"/>
+      <result property="mBianse" column="mBianse"/>
+      <result property="mMihedu" column="mMihedu"/>
       <result property="DepotPosition" column="DepotPositionId" lazyLoad="false" select="DepotPosition.select_by_primary_key" />
       <result property="Procedures" column="ProceduresId" lazyLoad="false" select="Procedures.select_by_primary_key" />
       <result property="ProduceInDepot" column="ProduceInDepotId" lazyLoad="false" select="ProduceInDepot.select_by_primary_key" />
@@ -168,7 +174,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[mQianghuahoucashang],
         [HandbookId],
         [HandbookProductId],
-        [HeJiBeforeTransferQuantity]
+        [HeJiBeforeTransferQuantity],
+        [mKaijisunhuai],
+        [mMaobian],
+        [mYiliaoqikong],
+        [mPopi],
+        [mBianse],
+        [mMihedu]
+        
 			FROM
 				[dbo].[ProduceInDepotDetail]
 			WHERE
@@ -286,7 +299,13 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[mQianghuahoucashang],
         [HandbookId],
         [HandbookProductId],
-        [HeJiBeforeTransferQuantity]
+        [HeJiBeforeTransferQuantity],
+        [mKaijisunhuai],
+        [mMaobian],
+        [mYiliaoqikong],
+        [mPopi],
+        [mBianse],
+        [mMihedu]
 			) 
 			VALUES 
 			(
@@ -354,7 +373,13 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#mQianghuahoucashang#,
         #HandbookId#,
         #HandbookProductId#,
-        #HeJiBeforeTransferQuantity#
+        #HeJiBeforeTransferQuantity#,
+        #mKaijisunhuai#,
+        #mMaobian#,
+        #mYiliaoqikong#,
+        #mPopi#,
+        #mBianse#,
+        #mMihedu#     
 			)
              ]]>
     </insert>
@@ -425,7 +450,13 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[mQianghuahoucashang] = #mQianghuahoucashang#,
         [HandbookId]=#HandbookId#,
         [HandbookProductId]=#HandbookProductId#,
-        [HeJiBeforeTransferQuantity]=#HeJiBeforeTransferQuantity#
+        [HeJiBeforeTransferQuantity]=#HeJiBeforeTransferQuantity#,
+        [mKaijisunhuai]=#mKaijisunhuai#,
+        [mMaobian]=#mMaobian#,
+        [mYiliaoqikong]=#mYiliaoqikong#,
+        [mPopi]=#mPopi#,
+        [mBianse]=#mBianse#,
+        [mMihedu]=#mMihedu# 
 			WHERE
 				[ProduceInDepotDetailId] = #ProduceInDepotDetailId#
                     ]]>

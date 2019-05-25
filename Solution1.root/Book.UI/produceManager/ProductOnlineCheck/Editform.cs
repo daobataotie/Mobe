@@ -46,6 +46,11 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             dr[0] = "2";
             dr[1] = "△";
             dt.Rows.Add(dr);
+
+            dr = dt.NewRow();
+            dr[0] = "3";
+            dr[1] = " ";
+            dt.Rows.Add(dr);
             this.repositoryItemLookUpEdit1.DataSource = dt;
 
             this.action = "view";
@@ -176,7 +181,7 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             this.date_Online.EditValue = this._ProductOnlineCheck.OnlineDate;
             this.newCCEmployee.EditValue = this._ProductOnlineCheck.Employee;
             this.txt_ProductName.EditValue = this._ProductOnlineCheck.Product == null ? null : this._ProductOnlineCheck.Product.ToString();
-           
+
             if (this._ProductOnlineCheck.InvoiceXO != null)
             {
                 this.txt_InvoiceXOId.EditValue = this._ProductOnlineCheck.InvoiceXO.CustomerInvoiceXOId;

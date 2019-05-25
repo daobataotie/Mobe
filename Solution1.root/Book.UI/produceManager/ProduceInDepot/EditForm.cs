@@ -962,6 +962,12 @@ namespace Book.UI.produceManager.ProduceInDepot
                         dt.Columns.Add("廠商不良", typeof(string));
                         dt.Columns.Add("組裝擦傷", typeof(string));
                         dt.Columns.Add("擦傷", typeof(string));
+                        dt.Columns.Add("开机损坏", typeof(string));
+                        dt.Columns.Add("毛边", typeof(string));
+                        dt.Columns.Add("溢料气孔", typeof(string));
+                        dt.Columns.Add("破皮", typeof(string));
+                        dt.Columns.Add("变色", typeof(string));
+                        dt.Columns.Add("密合度", typeof(string));
 
                         //dt.Columns.Add("其他", typeof(string));
                         //dt.Columns.Add("擦模次數", typeof(string));
@@ -978,7 +984,8 @@ namespace Book.UI.produceManager.ProduceInDepot
                             Model.ProduceInDepotDetail cc = new Book.Model.ProduceInDepotDetail();
 
                             //cc.Product = mDateGroups.First().Product;
-                            //cc.ProduceInDepot = mDateGroups.First().ProduceInDepot;
+                            //cc.ProduceInDepotDate = mDateGroups.First().ProduceInDepotDate;
+                            cc.ProduceInDepot = mDateGroups.First().ProduceInDepot;
                             cc.ProceduresSum = (from dd in mDateGroups select dd.ProceduresSum).Sum();
                             cc.CheckOutSum = (from dd in mDateGroups select dd.CheckOutSum).Sum();
                             cc.RejectionRate = (from dd in mDateGroups select dd.RejectionRate).Sum();
@@ -1012,7 +1019,12 @@ namespace Book.UI.produceManager.ProduceInDepot
                             cc.mHanyao = (from dd in mDateGroups select dd.mHanyao).Sum();
                             cc.mCashang = (from dd in mDateGroups select dd.mCashang).Sum();
                             cc.mQianghuahoucashang = (from dd in mDateGroups select dd.mQianghuahoucashang).Sum();
-
+                            cc.mKaijisunhuai = (from dd in mDateGroups select dd.mKaijisunhuai).Sum();
+                            cc.mMaobian = (from dd in mDateGroups select dd.mMaobian).Sum();
+                            cc.mYiliaoqikong = (from dd in mDateGroups select dd.mYiliaoqikong).Sum();
+                            cc.mPopi = (from dd in mDateGroups select dd.mPopi).Sum();
+                            cc.mBianse = (from dd in mDateGroups select dd.mBianse).Sum();
+                            cc.mMihedu = (from dd in mDateGroups select dd.mMihedu).Sum();
                             //};
 
                             //Model.ProduceInDepotDetail cc = QueryEx.First<Model.ProduceInDepotDetail>();
@@ -1058,6 +1070,12 @@ namespace Book.UI.produceManager.ProduceInDepot
                             dr["廠商不良"] = cc.mChangshangbuliang.HasValue ? cc.mChangshangbuliang.ToString() : "0";
                             dr["組裝擦傷"] = cc.mZuzhuangcashang.HasValue ? cc.mZuzhuangcashang.ToString() : "0";
                             dr["擦傷"] = cc.mCashang.HasValue ? cc.mCashang.ToString() : "0";
+                            dr["开机损坏"] = cc.mKaijisunhuai.HasValue ? cc.mKaijisunhuai.ToString() : "0";
+                            dr["毛边"] = cc.mMaobian.HasValue ? cc.mMaobian.ToString() : "0";
+                            dr["溢料气孔"] = cc.mYiliaoqikong.HasValue ? cc.mYiliaoqikong.ToString() : "0";
+                            dr["破皮"] = cc.mPopi.HasValue ? cc.mPopi.ToString() : "0";
+                            dr["变色"] = cc.mBianse.HasValue ? cc.mBianse.ToString() : "0";
+                            dr["密合度"] = cc.mMihedu.HasValue ? cc.mMihedu.ToString() : "0";
 
                             //dr["其他"] = cc.mQiTa.HasValue ? cc.mQiTa.ToString() : "0";
                             //dr["擦模次數"] = cc.mCaMoCiShu.HasValue ? cc.mCaMoCiShu.ToString() : "0";

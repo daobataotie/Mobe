@@ -1702,9 +1702,11 @@ namespace Book.DA.SQLServer
         //计算所有射出部门的生产数量
         public IList<Model.Product> SelectAllByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId)
         {
+            string workHouseSheChu = new SQLServer.WorkHouseAccessor().SelectWorkHouseIdByName("射出");
+
             handBookId = handBookId == null ? "" : handBookId;
 
-            string sql = "select a.*,p.Id,p.ProductName,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum  from (select pid.ProductId, SUM(ProceduresSum) as ShengChan,pid.HandbookId from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='1537e0b6-0ac8-43ea-a300-e121518d3f26' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and ProceduresSum<>0 and (pid.HandbookId='" + handBookId + "' or '" + handBookId + "' ='') group by pid.ProductId,pid.HandbookId) a left join Product p on a.ProductId=p.ProductId left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId";
+            string sql = "select a.*,p.Id,p.ProductName,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum  from (select pid.ProductId, SUM(ProceduresSum) as ShengChan,pid.HandbookId from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='" + workHouseSheChu + "' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and ProceduresSum<>0 and (pid.HandbookId='" + handBookId + "' or '" + handBookId + "' ='') group by pid.ProductId,pid.HandbookId) a left join Product p on a.ProductId=p.ProductId left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId";
 
             return this.DataReaderBind<Model.Product>(sql, null, CommandType.Text);
         }
@@ -1712,7 +1714,9 @@ namespace Book.DA.SQLServer
         //计算单独在“射出”部门的合格数量（生产部门是射出，并且下个生产站不能是“强化/防雾”，“验片”） 
         public IList<Model.ProduceInDepotDetail> SelectShechuByDateRange(DateTime dateStart, DateTime dateEnd, string handBookId)
         {
-            string sql = "select pid.ProductId, SUM(CheckOutSum) as CheckOutSum,pid.HandbookId from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='1537e0b6-0ac8-43ea-a300-e121518d3f26' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and  (pid.WorkHouseId is null or pid.WorkHouseId not in ('2521761d-1e0c-4f23-89bc-fa40bf0fc66f','c3e6b2fc-d869-4cb1-b007-ec8dde0c87e5')) and (pid.HandbookId='" + handBookId + "' or '" + handBookId + "' ='') group by pid.ProductId,pid.HandbookId";
+            string workHouseSheChu = new SQLServer.WorkHouseAccessor().SelectWorkHouseIdByName("射出");
+
+            string sql = "select pid.ProductId, SUM(CheckOutSum) as CheckOutSum,pid.HandbookId from ProduceInDepotDetail pid left join ProduceInDepot pi on pid.ProduceInDepotId=pi.ProduceInDepotId where pi.WorkHouseId='" + workHouseSheChu + "' and pi.ProduceInDepotDate between '" + dateStart + "' and '" + dateEnd + "' and  (pid.WorkHouseId is null or pid.WorkHouseId not in ('2521761d-1e0c-4f23-89bc-fa40bf0fc66f','c3e6b2fc-d869-4cb1-b007-ec8dde0c87e5')) and (pid.HandbookId='" + handBookId + "' or '" + handBookId + "' ='') group by pid.ProductId,pid.HandbookId";
 
             return this.DataReaderBind<Model.ProduceInDepotDetail>(sql, null, CommandType.Text);
         }
