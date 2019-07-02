@@ -230,7 +230,7 @@
     <value>366, 230</value>
   </data>
   <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="comboBoxEdit1.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
+  <data name="ccb_BGHandBookIds.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
     <value>Combo</value>
   </data>
   <data name="cob_HandBookId.Size" type="System.Drawing.Size, System.Drawing">
@@ -238,13 +238,13 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cob_HandBookId.TabIndex" type="System.Int32, mscorlib">
-    <value>70</value>
+    <value>65</value>
   </data>
   <data name="&gt;&gt;cob_HandBookId.Name" xml:space="preserve">
     <value>cob_HandBookId</value>
   </data>
   <data name="&gt;&gt;cob_HandBookId.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.CheckedComboBoxEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;cob_HandBookId.Parent" xml:space="preserve">
     <value>layoutControl1</value>
@@ -255,25 +255,25 @@
   <data name="lue_Depot.Location" type="System.Drawing.Point, System.Drawing">
     <value>71, 230</value>
   </data>
-  <data name="lookUpEdit1.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
+  <data name="lue_Depot.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
     <value>Combo</value>
   </data>
-  <data name="lookUpEdit1.Properties.Columns" xml:space="preserve">
+  <data name="lue_Depot.Properties.Columns" xml:space="preserve">
     <value>Id</value>
   </data>
-  <data name="lookUpEdit1.Properties.Columns1" xml:space="preserve">
+  <data name="lue_Depot.Properties.Columns1" xml:space="preserve">
     <value>编号</value>
   </data>
-  <data name="lookUpEdit1.Properties.Columns2" xml:space="preserve">
+  <data name="lue_Depot.Properties.Columns2" xml:space="preserve">
     <value>DepotName</value>
   </data>
-  <data name="lookUpEdit1.Properties.Columns3" xml:space="preserve">
+  <data name="lue_Depot.Properties.Columns3" xml:space="preserve">
     <value>库房</value>
   </data>
   <metadata name="bindingSourceDepot.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="lookUpEdit1.Properties.NullText" xml:space="preserve">
+  <data name="lue_Depot.Properties.NullText" xml:space="preserve">
     <value />
   </data>
   <data name="lue_Depot.Size" type="System.Drawing.Size, System.Drawing">
@@ -403,7 +403,7 @@
     <value>9</value>
   </data>
   <data name="newChooseEmp2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>366, 74</value>
+    <value>366, 66</value>
   </data>
   <data name="newChooseEmp2.Size" type="System.Drawing.Size, System.Drawing">
     <value>208, 21</value>
@@ -424,7 +424,7 @@
     <value>10</value>
   </data>
   <data name="newChooseEmp1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 74</value>
+    <value>101, 66</value>
   </data>
   <data name="newChooseEmp1.Size" type="System.Drawing.Size, System.Drawing">
     <value>207, 21</value>
@@ -723,10 +723,10 @@
   <data name="layoutControlItem11.Text" xml:space="preserve">
     <value>库房：</value>
   </data>
-  <data name="layoutControlItem17.CustomizationFormText" xml:space="preserve">
+  <data name="layoutControlItem20.CustomizationFormText" xml:space="preserve">
     <value>手册号：</value>
   </data>
-  <data name="layoutControlItem17.Text" xml:space="preserve">
+  <data name="layoutControlItem20.Text" xml:space="preserve">
     <value>手册号：</value>
   </data>
   <data name="layoutControlGroup1.Text" xml:space="preserve">
@@ -809,6 +809,12 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>638, 379</value>
+  </data>
+  <data name="&gt;&gt;bindingSourceDepot.Name" xml:space="preserve">
+    <value>bindingSourceDepot</value>
+  </data>
+  <data name="&gt;&gt;bindingSourceDepot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;layoutControlGroup1.Name" xml:space="preserve">
     <value>layoutControlGroup1</value>
@@ -906,6 +912,12 @@
   <data name="&gt;&gt;layoutControlItem19.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;layoutControlItem11.Name" xml:space="preserve">
+    <value>layoutControlItem11</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem11.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;layoutControlItem4.Name" xml:space="preserve">
     <value>layoutControlItem4</value>
   </data>
@@ -918,23 +930,11 @@
   <data name="&gt;&gt;layoutControlItem12.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem11.Name" xml:space="preserve">
-    <value>layoutControlItem11</value>
+  <data name="&gt;&gt;layoutControlItem20.Name" xml:space="preserve">
+    <value>layoutControlItem20</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem11.Type" xml:space="preserve">
+  <data name="&gt;&gt;layoutControlItem20.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItem17.Name" xml:space="preserve">
-    <value>layoutControlItem17</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItem17.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;bindingSourceDepot.Name" xml:space="preserve">
-    <value>bindingSourceDepot</value>
-  </data>
-  <data name="&gt;&gt;bindingSourceDepot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ConditionXChooseForm</value>

@@ -113,7 +113,10 @@ namespace Book.DA.SQLServer
             if (!string.IsNullOrEmpty(depotId))
                 str.Append(" and dp.DepotId='" + depotId + "'");
             if (!string.IsNullOrEmpty(handBookId))
-                str.Append(" and d.HandbookId ='" + handBookId + "'");
+            {
+                //str.Append(" and d.HandbookId ='" + handBookId + "'");
+                str.Append(" and d.HandbookId  in (" + handBookId + ")");
+            }
 
             str.Append(" ORDER BY");
 

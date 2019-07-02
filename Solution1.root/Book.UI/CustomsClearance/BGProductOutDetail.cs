@@ -75,6 +75,10 @@ namespace Book.UI.CustomsClearance
                 {
                     dic.Add(xsDetail, GetBomComponetList(bomParent, xsDetail.InvoiceXSDetailQuantity.Value));
                 }
+                else
+                {
+                    dic.Add(xsDetail, new List<Book.Model.BomComponentInfo>());
+                }
             }
 
             ExportExcel(dic);
@@ -122,6 +126,9 @@ namespace Book.UI.CustomsClearance
             foreach (var item in dic)
             {
                 int count = item.Value.Count;
+                if (count == 0)
+                    count = 1;
+
                 sheet.get_Range(excel.Cells[row, 1], excel.Cells[row + count - 1, 1]).MergeCells = true;
                 sheet.get_Range(excel.Cells[row, 2], excel.Cells[row + count - 1, 2]).MergeCells = true;
                 sheet.get_Range(excel.Cells[row, 3], excel.Cells[row + count - 1, 3]).MergeCells = true;
@@ -149,6 +156,8 @@ namespace Book.UI.CustomsClearance
 
                     row++;
                 }
+                if (item.Value.Count == 0)
+                    row++;
             }
 
             excel.Visible = true;

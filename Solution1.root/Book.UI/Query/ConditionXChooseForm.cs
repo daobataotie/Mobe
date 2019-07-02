@@ -103,7 +103,19 @@ namespace Book.UI.Query
             this.condition.DetailFlag = this.checkEditDetailFlag.Checked;
 
             this.condition.DepotId = this.lue_Depot.EditValue == null ? null : this.lue_Depot.EditValue.ToString();
-            this.condition.HandBookId = this.cob_HandBookId.Text;
+            //this.condition.HandBookId = this.cob_HandBookId.Text;
+
+            if (!string.IsNullOrEmpty(this.cob_HandBookId.Text))
+            {
+                string bgHandBookId = "";
+                string[] bgHandBookIds = this.cob_HandBookId.Text.Split(',');
+                foreach (var item in bgHandBookIds)
+                {
+                    bgHandBookId += "'" + item.Trim() + "',";
+                }
+                bgHandBookId = bgHandBookId.TrimEnd(',');
+                this.condition.HandBookId = bgHandBookId;
+            }
         }
 
         private void buttonEditPro_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

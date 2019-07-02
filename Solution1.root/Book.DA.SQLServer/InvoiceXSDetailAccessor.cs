@@ -198,7 +198,8 @@ namespace Book.DA.SQLServer
 
         public IList<Model.InvoiceXSDetail> SelectByBGHandBook(DateTime startDate, DateTime endDate, string bgHandBookId, string bgProductId, string productId, string cusXOId)
         {
-            StringBuilder sb = new StringBuilder("select xsd.HandbookId,xsd.HandbookProductId,xsd.ProductId,p.Id as PId,p.ProductName,p.CustomerProductName,xo.CustomerInvoiceXOId,SUM(xsd.InvoiceXSDetailQuantity) as InvoiceXSDetailQuantity,ph.PronoteHeaderID  from InvoiceXSDetail xsd left join InvoiceXS xs on xsd.InvoiceId=xs.InvoiceId left join InvoiceXO xo on xsd.InvoiceXOId=xo.InvoiceId left join PronoteHeader ph on ph.InvoiceXOId=xo.InvoiceId and ph.ProductId=xsd.ProductId left join Product p on xsd.ProductId=p.ProductId where xsd.HandbookId  is not null and xsd.HandbookProductId is not null and xs.InvoiceDate between '" + startDate.ToString("yyyy-MM-dd") + "' and '" + endDate.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "' ");
+            //StringBuilder sb = new StringBuilder("select xsd.HandbookId,xsd.HandbookProductId,xsd.ProductId,p.Id as PId,p.ProductName,p.CustomerProductName,xo.CustomerInvoiceXOId,SUM(xsd.InvoiceXSDetailQuantity) as InvoiceXSDetailQuantity,ph.PronoteHeaderID  from InvoiceXSDetail xsd left join InvoiceXS xs on xsd.InvoiceId=xs.InvoiceId left join InvoiceXO xo on xsd.InvoiceXOId=xo.InvoiceId left join PronoteHeader ph on ph.InvoiceXOId=xo.InvoiceId and ph.ProductId=xsd.ProductId left join Product p on xsd.ProductId=p.ProductId where xsd.HandbookId  is not null and xsd.HandbookProductId is not null and xs.InvoiceDate between '" + startDate.ToString("yyyy-MM-dd") + "' and '" + endDate.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "' ");
+            StringBuilder sb = new StringBuilder(" select *,(SELECT top 1 PronoteHeaderID FROM PronoteHeader where MRSdetailsId in (select MRSdetailsId from MRSdetails where MPSdetailsId in (select MPSdetailsId from MPSdetails where InvoiceXODetailId=a.InvoiceXODetailId))) as PronoteHeaderID  from  (select xsd.HandbookId,xsd.HandbookProductId,xsd.ProductId,p.Id as PId,p.ProductName,p.CustomerProductName,xo.CustomerInvoiceXOId,SUM(xsd.InvoiceXSDetailQuantity) as InvoiceXSDetailQuantity,xsd.InvoiceXODetailId from InvoiceXSDetail xsd left join InvoiceXS xs on xsd.InvoiceId=xs.InvoiceId  left join InvoiceXO xo on xsd.InvoiceXOId=xo.InvoiceId  left join Product p on xsd.ProductId=p.ProductId where xsd.HandbookId  is not null and xsd.HandbookProductId is not null and xs.InvoiceDate between '" + startDate.ToString("yyyy-MM-dd") + "' and '" + endDate.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "' ");
 
             if (!string.IsNullOrEmpty(bgHandBookId))
             {
@@ -206,7 +207,7 @@ namespace Book.DA.SQLServer
             }
             if (!string.IsNullOrEmpty(bgProductId))
             {
-                sb.Append(" and HandbookProductId='" + bgProductId + "'");
+                sb.Append(" and xsd.HandbookProductId='" + bgProductId + "'");
             }
             if (!string.IsNullOrEmpty(productId))
             {
@@ -217,7 +218,7 @@ namespace Book.DA.SQLServer
                 sb.Append(" and xo.CustomerInvoiceXOId='" + cusXOId + "'");
             }
 
-            sb.Append(" group by xsd.HandbookId,xsd.HandbookProductId,xsd.ProductId,p.Id,p.ProductName,p.CustomerProductName,xo.CustomerInvoiceXOId,ph.PronoteHeaderID order by xsd.HandbookId,xsd.HandbookProductId");
+            sb.Append(" group by xsd.HandbookId,xsd.HandbookProductId,xsd.ProductId,p.Id,p.ProductName,p.CustomerProductName,xo.CustomerInvoiceXOId,xsd.InvoiceXODetailId ) a order by a.HandbookId,a.HandbookProductId");
 
             return this.DataReaderBind<Model.InvoiceXSDetail>(sb.ToString(), null, CommandType.Text);
         }
