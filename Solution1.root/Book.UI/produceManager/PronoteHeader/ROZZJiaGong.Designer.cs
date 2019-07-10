@@ -95,6 +95,8 @@
             this.xrLabelCompanyInfoName = new DevExpress.XtraReports.UI.XRLabel();
             this.topMarginBand1 = new DevExpress.XtraReports.UI.TopMarginBand();
             this.bottomMarginBand1 = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_Pro_Id = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichTextProDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -122,6 +124,8 @@
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lbl_Pro_Id,
+            this.xrLabel23,
             this.xrLabel24,
             this.lblPlanNum,
             this.lblBGHandBookDetailId,
@@ -804,6 +808,30 @@
             resources.ApplyResources(this.bottomMarginBand1, "bottomMarginBand1");
             this.bottomMarginBand1.Name = "bottomMarginBand1";
             // 
+            // xrLabel23
+            // 
+            this.xrLabel23.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
+            this.xrLabel23.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            resources.ApplyResources(this.xrLabel23, "xrLabel23");
+            this.xrLabel23.Name = "xrLabel23";
+            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel23.StylePriority.UseBorderDashStyle = false;
+            this.xrLabel23.StylePriority.UseBorders = false;
+            this.xrLabel23.StylePriority.UseFont = false;
+            this.xrLabel23.StylePriority.UseTextAlignment = false;
+            // 
+            // lbl_Pro_Id
+            // 
+            this.lbl_Pro_Id.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
+            this.lbl_Pro_Id.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            resources.ApplyResources(this.lbl_Pro_Id, "lbl_Pro_Id");
+            this.lbl_Pro_Id.Name = "lbl_Pro_Id";
+            this.lbl_Pro_Id.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_Pro_Id.StylePriority.UseBorderDashStyle = false;
+            this.lbl_Pro_Id.StylePriority.UseBorders = false;
+            this.lbl_Pro_Id.StylePriority.UseFont = false;
+            this.lbl_Pro_Id.StylePriority.UseTextAlignment = false;
+            // 
             // ROZZJiaGong
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -894,5 +922,7 @@
         private DevExpress.XtraReports.UI.XRLine xrLine2;
         private DevExpress.XtraReports.UI.XRLine xrLine8;
         private DevExpress.XtraReports.UI.XRLabel xrLabel25;
+        private DevExpress.XtraReports.UI.XRLabel lbl_Pro_Id;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel23;
     }
 }

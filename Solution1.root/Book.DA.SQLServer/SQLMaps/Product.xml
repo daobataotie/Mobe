@@ -80,6 +80,7 @@
       <result property="OutSourcing" column="OutSourcing" />
       <result property="TrustOut" column="TrustOut" />
       <result property="HomeMade" column="HomeMade" />
+      <result property="IsProcee" column="IsProcee"/>
     </resultMap>
     <resultMap id="ProductResultNotZCMai" class="Product">
       <result property="Id" column="Id" />
@@ -733,7 +734,7 @@ where ProductId = #productid#
       SELECT Id,ProductId,ProductName,ProductCategoryId,CustomerProductName,ProductDescription,StocksQuantity,IsCustomerProduct,ProductCategoryId2,ProductCategoryId3 FROM Product  where    ProductCategoryId = #value# order by ProductName
     </select>
     <select id="select_by_primary_key3" resultMap="ProductResultBomPar">
-      SELECT Id,ProductId,CustomerId,ProductName,ProductCategoryId,CustomerProductName,ProductDescription,StocksQuantity,IsCustomerProduct,OutSourcing,TrustOut,HomeMade FROM Product  where    ProductId = #value#
+      SELECT Id,ProductId,CustomerId,ProductName,ProductCategoryId,CustomerProductName,ProductDescription,StocksQuantity,IsCustomerProduct,OutSourcing,TrustOut,HomeMade,IsProcee FROM Product  where    ProductId = #value#
     </select>
     <select id="select_by_primary_key4" resultMap="ProductResultNotZCMai">
       SELECT

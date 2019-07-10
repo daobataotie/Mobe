@@ -92,6 +92,8 @@
             this.xrLabelCompanyInfoName = new DevExpress.XtraReports.UI.XRLabel();
             this.topMarginBand1 = new DevExpress.XtraReports.UI.TopMarginBand();
             this.bottomMarginBand1 = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_Pro_Id = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichTextProDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RichTextCeMai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RichTextZhengMai)).BeginInit();
@@ -121,6 +123,8 @@
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lbl_Pro_Id,
+            this.xrLabel21,
             this.lblBGHandBookDetailId,
             this.lblPlanNum,
             this.xrLabel26,
@@ -182,6 +186,7 @@
             resources.ApplyResources(this.xrLabel26, "xrLabel26");
             this.xrLabel26.Name = "xrLabel26";
             this.xrLabel26.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel26.StylePriority.UseFont = false;
             this.xrLabel26.StylePriority.UseTextAlignment = false;
             // 
             // xrLabel24
@@ -218,6 +223,7 @@
             resources.ApplyResources(this.xrLabel9, "xrLabel9");
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
             // 
             // xrLabelMRP
@@ -636,6 +642,22 @@
             resources.ApplyResources(this.bottomMarginBand1, "bottomMarginBand1");
             this.bottomMarginBand1.Name = "bottomMarginBand1";
             // 
+            // xrLabel21
+            // 
+            resources.ApplyResources(this.xrLabel21, "xrLabel21");
+            this.xrLabel21.Name = "xrLabel21";
+            this.xrLabel21.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel21.StylePriority.UseFont = false;
+            this.xrLabel21.StylePriority.UseTextAlignment = false;
+            // 
+            // lbl_Pro_Id
+            // 
+            resources.ApplyResources(this.lbl_Pro_Id, "lbl_Pro_Id");
+            this.lbl_Pro_Id.Name = "lbl_Pro_Id";
+            this.lbl_Pro_Id.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_Pro_Id.StylePriority.UseFont = false;
+            this.lbl_Pro_Id.StylePriority.UseTextAlignment = false;
+            // 
             // RO
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -725,5 +747,7 @@
         private DevExpress.XtraReports.UI.XRLabel lblBGHandBookId;
         private DevExpress.XtraReports.UI.XRLabel xrLabel25;
         private DevExpress.XtraReports.UI.XRLabel lbl_PageSign;
+        private DevExpress.XtraReports.UI.XRLabel lbl_Pro_Id;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel21;
     }
 }

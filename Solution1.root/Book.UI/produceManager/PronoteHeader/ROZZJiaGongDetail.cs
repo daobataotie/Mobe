@@ -32,7 +32,7 @@ namespace Book.UI.produceManager.PronoteHeader
                 //    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
 
                 if (string.IsNullOrEmpty(detail.CustomerProductName))
-                    detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId,detail.HandbookProductId);
+                    detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId, detail.HandbookProductId);
             }
             this.DataSource = list;
             this.xrLabelDataName.Text = Properties.Resources.Pronotedetails;
@@ -67,7 +67,7 @@ namespace Book.UI.produceManager.PronoteHeader
                 //    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
 
                 if (string.IsNullOrEmpty(detail.CustomerProductName))
-                    detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId,detail.HandbookProductId);
+                    detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId, detail.HandbookProductId);
             }
             this.DataSource = list;
             this.xrLabelDataName.Text = Properties.Resources.Pronotedetails;
@@ -109,6 +109,7 @@ namespace Book.UI.produceManager.PronoteHeader
             this.xrLabelXOJHDate.DataBindings.Add("Text", this.DataSource, "InvoiceXO." + Model.InvoiceXO.PRO_InvoiceYjrq, "{0:yyyy-MM-dd}");
             this.xrLabelPiHao.DataBindings.Add("Text", this.DataSource, "InvoiceXO." + Model.InvoiceXO.PRO_CustomerLotNumber);
             this.xrLabelProductName.DataBindings.Add("Text", this.DataSource, "ProductName");
+            this.lbl_Pro_Id.DataBindings.Add("Text", this.DataSource, "Id");
             this.xrRichTextProDesc.DataBindings.Add("Rtf", this.DataSource, "ProductDesc");
             this.xrLabelMRP.DataBindings.Add("Text", this.DataSource, Model.PronoteHeader.PRO_MRSHeaderId);
             this.xrLabelWorkHouse.DataBindings.Add("Text", this.DataSource, "Workhousename");

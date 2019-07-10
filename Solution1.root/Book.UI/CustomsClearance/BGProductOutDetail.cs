@@ -167,7 +167,8 @@ namespace Book.UI.CustomsClearance
         {
             List<Model.BomComponentInfo> _comDetailss = new List<Book.Model.BomComponentInfo>();
 
-            foreach (Model.BomComponentInfo bomcon in this.bomComponentInfoManager.Select(_bomParmentPartInfo))   //第一层子件
+            //foreach (Model.BomComponentInfo bomcon in this.bomComponentInfoManager.Select(_bomParmentPartInfo))   //第一层子件
+            foreach (Model.BomComponentInfo bomcon in this.bomComponentInfoManager.SelectSimpleForHandBook(_bomParmentPartInfo))   //第一层子件
             {
                 //商品类型为：自制或者外购 才会带出，其他一律不需要
                 //if (bomcon.Product.IsProcee == false && bomcon.Product.TrustOut == false && (bomcon.Product.HomeMade == true || bomcon.Product.OutSourcing == true))
@@ -195,7 +196,7 @@ namespace Book.UI.CustomsClearance
             Model.BomParentPartInfo _bomparent = bomParentPartInfoManager.Get(componet.Product);
             if (_bomparent != null)
             {
-                IList<Model.BomComponentInfo> comList = this.bomComponentInfoManager.Select(_bomparent);
+                IList<Model.BomComponentInfo> comList = this.bomComponentInfoManager.SelectSimpleForHandBook(_bomparent);
                 if (comList != null && comList.Count > 0)
                 {
                     foreach (var item in comList)

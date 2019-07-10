@@ -1,6 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <sqlMap namespace="BomComponentInfo" xmlns="http://ibatis.apache.org/mapping"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="BomComponentInfoResultSimpleProduct" class="BomComponentInfo">
+      <result property="PriamryKeyId" column="PriamryKeyId" />
+      <result property="BomId" column="BomId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="ProcessId" column="ProcessId" />
+      <result property="BasicUseQuantity" column="BasicUseQuantity" />
+      <result property="FoundationQuantity" column="FoundationQuantity" />
+      <result property="SubLoseRate" column="SubLoseRate" />
+      <result property="IsFixedUseQuantity" column="IsFixedUseQuantity" />
+      <result property="ProvideType" column="ProvideType" />
+      <result property="UseQuantity" column="UseQuantity" />
+      <result property="EffectsDate" column="EffectsDate" />
+      <result property="ExpiringDate" column="ExpiringDate" />
+      <result property="offset" column="offset" />
+      <result property="PlanProportion" column="PlanProportion" />
+      <result property="OutProduct" column="OutProduct" />
+      <result property="ProductType" column="ProductType" />
+      <result property="Cost" column="Cost" />
+      <result property="IsSelect" column="IsSelect" />
+      <result property="SelectRule" column="SelectRule" />
+      <result property="Remarks" column="Remarks" />
+      <result property="InsteadOfFlag" column="InsteadOfFlag" />
+      <result property="Unit" column="Unit" />
+      <result property="IndexOfBom" column="IndexOfBom" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_by_primary_key3" />
+    </resultMap>
+  </resultMaps>
   <statements>
     <select id="select_byParents" resultMap="BomComponentInfoResult" >
       SELECT *
@@ -36,6 +64,14 @@
 
     <select id="SelectByProductId" resultMap="BomComponentInfoResult" parameterClass="string">
       select * from BomComponentInfo where BomId =(select BomId from BomParentPartInfo where ProductId=#value#) order by IndexOfBom
+    </select>
+
+    <select id="SelectSimpleForHandBook" resultMap="BomComponentInfoResultSimpleProduct" parameterClass="string">
+      SELECT *
+      FROM
+      [BomComponentInfo]
+      WHERE
+      [BomId] = #value# order by IndexOfBom
     </select>
   </statements>
 </sqlMap>

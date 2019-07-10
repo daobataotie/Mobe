@@ -62,5 +62,10 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForList<Model.BomComponentInfo>("BomComponentInfo.SelectByProductId", bomId);
         }
+
+        public IList<Book.Model.BomComponentInfo> SelectSimpleForHandBook(Book.Model.BomParentPartInfo par)
+        {
+            return sqlmapper.QueryForList<Model.BomComponentInfo>("BomComponentInfo.SelectSimpleForHandBook", par == null ? "" : par.BomId);
+        }
     }
 }

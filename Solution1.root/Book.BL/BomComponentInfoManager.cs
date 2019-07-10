@@ -87,6 +87,11 @@ namespace Book.BL
         {
             return accessor.SelectByProductId(bomId);
         }
+
+        public IList<Book.Model.BomComponentInfo> SelectSimpleForHandBook(Book.Model.BomParentPartInfo par)
+        {
+            return accessor.SelectSimpleForHandBook(par);
+        }
     }
 }
 

@@ -31,6 +31,8 @@ namespace Book.DA
         IList<Model.BomComponentInfo> SelectProductIdAndUseQty(string bomId);
 
         IList<Book.Model.BomComponentInfo> SelectByProductId(string bomId);
+
+        IList<Book.Model.BomComponentInfo> SelectSimpleForHandBook(Book.Model.BomParentPartInfo par);
     }
 }
 

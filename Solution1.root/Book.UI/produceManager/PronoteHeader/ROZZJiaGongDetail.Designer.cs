@@ -97,6 +97,8 @@
             this.topMarginBand1 = new DevExpress.XtraReports.UI.TopMarginBand();
             this.bottomMarginBand1 = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_Pro_Id = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichTextProDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -124,6 +126,8 @@
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lbl_Pro_Id,
+            this.xrLabel23,
             this.lblPanNum,
             this.xrLabel24,
             this.lblHandBookId,
@@ -680,6 +684,22 @@
             this.GroupHeader1.Name = "GroupHeader1";
             this.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBand;
             // 
+            // xrLabel23
+            // 
+            resources.ApplyResources(this.xrLabel23, "xrLabel23");
+            this.xrLabel23.Name = "xrLabel23";
+            this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel23.StylePriority.UseFont = false;
+            this.xrLabel23.StylePriority.UseTextAlignment = false;
+            // 
+            // lbl_Pro_Id
+            // 
+            resources.ApplyResources(this.lbl_Pro_Id, "lbl_Pro_Id");
+            this.lbl_Pro_Id.Name = "lbl_Pro_Id";
+            this.lbl_Pro_Id.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_Pro_Id.StylePriority.UseFont = false;
+            this.lbl_Pro_Id.StylePriority.UseTextAlignment = false;
+            // 
             // ROZZJiaGongDetail
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -773,5 +793,7 @@
         private DevExpress.XtraReports.UI.XRLine xrLine8;
         private DevExpress.XtraReports.UI.XRLine xrLine4;
         private DevExpress.XtraReports.UI.XRLine xrLine7;
+        private DevExpress.XtraReports.UI.XRLabel lbl_Pro_Id;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel23;
     }
 }
