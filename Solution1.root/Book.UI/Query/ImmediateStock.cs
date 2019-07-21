@@ -290,7 +290,9 @@ namespace Book.UI.Query
                                 GetParentProductInfo("'" + pmd.ProductId + "'", fatherDic);
                                 if (pids.Any(P => fatherDic.Keys.Contains(P.ProductId)))
                                 {
-                                    deductionQty -= pmd.Materialprocessum.HasValue ? pmd.Materialprocessum.Value * parentProductDic[pmd.ProductId] * fatherDic[pids.First(P => fatherDic.Keys.Contains(P.ProductId)).ProductId] : 0;
+                                    //deductionQty -= pmd.Materialprocessum.HasValue ? pmd.Materialprocessum.Value * parentProductDic[pmd.ProductId] * fatherDic[pids.First(P => fatherDic.Keys.Contains(P.ProductId)).ProductId] : 0;
+                                    deductionQty -= pmd.Materialprocessum.HasValue ? pmd.Materialprocessum.Value * parentProductDic[pmd.ProductId] : 0;
+                                    //这里是商品对应的半成品母件领料扣减，不是对应的成品母件(上面if才是对应的成品母件)，所以系数乘以半成品母件的就够了.
                                 }
                             }
                         }
