@@ -24,7 +24,7 @@ namespace Book.UI.Accounting.Report
             if (this.condition == null)
                 this.condition = new ConditionGeneralAccount();
             this.condition.StartDate = this.dateEditStartDate.DateTime.Date;
-            this.condition.EndDate = this.dateEditEndDate.DateTime.AddDays(1).Date;
+            this.condition.EndDate = this.dateEditEndDate.DateTime.AddDays(1).AddSeconds(-1);
             this.condition.StartSubjectId = (this.lue_AtaccoutSubject.EditValue == null || string.IsNullOrEmpty(this.lue_AtaccoutSubject.EditValue.ToString())) ? null : this.lue_AtaccoutSubject.EditValue.ToString();
             this.condition.EndSubjectId = (this.lue_end_AtaccoutSubject.EditValue == null || string.IsNullOrEmpty(this.lue_end_AtaccoutSubject.EditValue.ToString())) ? null : this.lue_end_AtaccoutSubject.EditValue.ToString();
             //this.condition.Include_QiChuYuE = this.chkEdit_IncludeQiChuYuE.Checked;

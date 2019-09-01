@@ -79,8 +79,8 @@ namespace Book.UI.produceManager.PCClarityCheck
             this._pcClarity.CheckDate = DateTime.Now.Date;
             this._pcClarity.CheckCount = 6;  //检测数量默认为6
             this._pcClarity.ProductUnitId = "f7f95879-3444-494b-92eb-2aa784c52e8c";
-            //this._ansipcic.Employee = BL.V.ActiveOperator.Employee;
-            //this._ansipcic.EmployeeId = BL.V.ActiveOperator.EmployeeId;
+            this._pcClarity.Employee = BL.V.ActiveOperator.Employee;
+            this._pcClarity.EmployeeId = BL.V.ActiveOperator.EmployeeId;
             //初始化添加一条详细
             this._pcClarity.Details = new List<Model.PCClarityCheckDetail>();
             this.AddDataRows();

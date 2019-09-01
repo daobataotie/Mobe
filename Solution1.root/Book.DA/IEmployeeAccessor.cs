@@ -79,6 +79,7 @@ namespace Book.DA
         bool mHasRowsBefore(Model.Employee emp);
 
         bool mHasRowsAfter(Model.Employee emp);
+
         IList<Model.Employee> SelectIdAndName();
     }
 }

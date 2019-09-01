@@ -86,6 +86,20 @@ namespace Book.UI.Accounting.Report
                     this.TCF_JieFangjinE.Text = this.ataccountsubject.ZFLZ_Jie.HasValue ? this.ataccountsubject.ZFLZ_Jie.Value.ToString("0.##") : "0";
                     this.TCF_YuE.Text = FootZongYuE.HasValue ? FootZongYuE.Value.ToString("0.##") : "0";
                 }
+                else
+                {
+                    this.DataSource = datalist;
+                    this.TCF_DaiFangJinE.Text = "";
+                    this.TCF_JieFangjinE.Text = "";
+                    this.TCF_YuE.Text = "";
+                }
+            }
+            else
+            {
+                this.DataSource = datalist;
+                this.TCF_DaiFangJinE.Text = "";
+                this.TCF_JieFangjinE.Text = "";
+                this.TCF_YuE.Text = "";
             }
         }
     }
