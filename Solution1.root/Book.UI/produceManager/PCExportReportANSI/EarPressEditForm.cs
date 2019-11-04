@@ -212,6 +212,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.txtCusXOid.Enabled = false;
             this.btnEditProduct.Enabled = false;
             this.spinEditDDSL.Enabled = false;
+            this.cob_Size324.Enabled = true;
+            this.cob_Size324.Properties.ReadOnly = false;
         }
 
         //列印
@@ -219,7 +221,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
         {
             tag = 0;
             bool canSave = (DialogResult.OK == MessageBox.Show("是否將打印文件上傳至服務器(pdf格式)", "操作提示", MessageBoxButtons.OKCancel));
-            EarRO r = new EarRO(this._pcExpANSI, tag);
+            EarRO r = new EarRO(this._pcExpANSI, tag, this.cob_Size324.Text, this.lbl_ValueA324.Text, this.lbl_ValueB324.Text);
             //r.ShowPreviewDialog();
             if (canSave)
             {
@@ -386,7 +388,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
         {
             tag = 1;
             bool canSave = (DialogResult.OK == MessageBox.Show("是否將打印文件上傳至服務器(pdf格式)", "操作提示", MessageBoxButtons.OKCancel));
-            EarRO r = new EarRO(this._pcExpANSI, tag);
+            EarRO r = new EarRO(this._pcExpANSI, tag, this.cob_Size324.Text, this.lbl_ValueA324.Text, this.lbl_ValueB324.Text);
             //r.ShowPreviewDialog();
             if (canSave)
             {
@@ -410,7 +412,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
         {
             tag = 2;
             bool canSave = (DialogResult.OK == MessageBox.Show("是否將打印文件上傳至服務器(pdf格式)", "操作提示", MessageBoxButtons.OKCancel));
-            EarRO r = new EarRO(this._pcExpANSI, tag);
+            EarRO r = new EarRO(this._pcExpANSI, tag, this.cob_Size324.Text, this.lbl_ValueA324.Text, this.lbl_ValueB324.Text);
             //r.ShowPreviewDialog();
             if (canSave)
             {
@@ -427,6 +429,25 @@ namespace Book.UI.produceManager.PCExportReportANSI
                 }
             }
             r.ShowPreviewDialog();
+        }
+
+        private void cob_Size324_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cob_Size324.SelectedIndex == 0)       //S
+            {
+                this.lbl_ValueA324.Text = "115";
+                this.lbl_ValueB324.Text = "135";
+            }
+            else if (cob_Size324.SelectedIndex == 1)  //M
+            {
+                this.lbl_ValueA324.Text = "130";
+                this.lbl_ValueB324.Text = "145";
+            }
+            else                                       //L
+            {
+                this.lbl_ValueA324.Text = "140";
+                this.lbl_ValueB324.Text = "150";
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             InitializeComponent();
         }
 
-        public EarRO(Model.PCExportReportANSI _PCExpANSI, int tag)
+        public EarRO(Model.PCExportReportANSI _PCExpANSI, int tag, string size, string valueA, string valueB)
             : this()
         {
             if (tag == 1)
@@ -28,6 +28,9 @@ namespace Book.UI.produceManager.PCExportReportANSI
             }
             else
                 this.lbl_Signature.Text = new BL.SettingManager().SelectByName("ASWANSignature").Count < 1 ? "" : new BL.SettingManager().SelectByName("ASWANSignature")[0].SettingCurrentValue;
+
+            xrTableCell8.Text = string.Format("3.2.4  Clamping force test: {0} size                           Test height, a={1}+/ - 2mm                                        Test width , b={2}+/ - 2mm                                         For 120+/ - 5 second", size, valueA, valueB);
+
             this.lblCeShiBaoGaoRiQi.Text = _PCExpANSI.ReportDate.Value.ToShortDateString();
             this.lblCeShiShuLiang.Text = (_PCExpANSI.AmountTest.HasValue ? _PCExpANSI.AmountTest.ToString() : "0") + "pcs";
             this.lblChanpingpingming.Text = _PCExpANSI.Product.CustomerProductName == null ? "" : _PCExpANSI.Product.CustomerProductName.ToString();

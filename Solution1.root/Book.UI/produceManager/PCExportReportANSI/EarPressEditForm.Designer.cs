@@ -39,6 +39,9 @@
             this.txtCusXOid = new DevExpress.XtraEditors.TextEdit();
             this.btnEditProduct = new DevExpress.XtraEditors.ButtonEdit();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_ValueB324 = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_ValueA324 = new DevExpress.XtraEditors.LabelControl();
+            this.cob_Size324 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -113,6 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCusXOid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditProduct.Properties)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cob_Size324.Properties)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditShouCe2.Properties)).BeginInit();
@@ -244,6 +248,9 @@
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.lbl_ValueB324);
+            this.panel1.Controls.Add(this.lbl_ValueA324);
+            this.panel1.Controls.Add(this.cob_Size324);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel6);
@@ -263,6 +270,31 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Name = "panel1";
+            // 
+            // lbl_ValueB324
+            // 
+            resources.ApplyResources(this.lbl_ValueB324, "lbl_ValueB324");
+            this.lbl_ValueB324.Name = "lbl_ValueB324";
+            // 
+            // lbl_ValueA324
+            // 
+            resources.ApplyResources(this.lbl_ValueA324, "lbl_ValueA324");
+            this.lbl_ValueA324.Name = "lbl_ValueA324";
+            // 
+            // cob_Size324
+            // 
+            resources.ApplyResources(this.cob_Size324, "cob_Size324");
+            this.cob_Size324.MenuManager = this.barManager1;
+            this.cob_Size324.MinimumSize = new System.Drawing.Size(0, 18);
+            this.cob_Size324.Name = "cob_Size324";
+            this.cob_Size324.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("cob_Size324.Properties.Buttons"))))});
+            this.cob_Size324.Properties.Items.AddRange(new object[] {
+            resources.GetString("cob_Size324.Properties.Items"),
+            resources.GetString("cob_Size324.Properties.Items1"),
+            resources.GetString("cob_Size324.Properties.Items2")});
+            this.cob_Size324.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cob_Size324.SelectedIndexChanged += new System.EventHandler(this.cob_Size324_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -789,6 +821,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCusXOid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditProduct.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cob_Size324.Properties)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing2.Properties)).EndInit();
@@ -907,5 +941,8 @@
         private System.Windows.Forms.Label label23;
         private DevExpress.XtraEditors.SpinEdit spinEditPanDing4;
         private DevExpress.XtraEditors.SpinEdit spinEditShouCe4;
+        private DevExpress.XtraEditors.ComboBoxEdit cob_Size324;
+        private DevExpress.XtraEditors.LabelControl lbl_ValueB324;
+        private DevExpress.XtraEditors.LabelControl lbl_ValueA324;
     }
 }

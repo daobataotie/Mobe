@@ -3359,11 +3359,9 @@ namespace Book.UI.Settings.BasicData.Products
 
         //}
 
-        /// <summary>
-        /// 选择原料
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
+
+        // 净重-选择原料
         private void buttonEdit1_Click(object sender, EventArgs e)
         {
             string str = string.Empty;

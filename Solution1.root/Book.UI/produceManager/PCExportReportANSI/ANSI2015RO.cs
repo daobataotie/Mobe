@@ -39,14 +39,14 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.LbClearlens.Text = _PCExportReportANSI.Clearlens == null ? null : _PCExportReportANSI.Clearlens.ToString();
             this.LbClearlens.Multiline = true;
             //this.lbl_ShouCe1.Text = (_PCExportReportANSI.QuYangShu1.HasValue ? _PCExportReportANSI.QuYangShu1.ToString() : "0") + " PCS";
-            this.lbl_ShouCe2.Text = (_PCExportReportANSI.QuYangShu2.HasValue ? _PCExportReportANSI.QuYangShu2.ToString() : "0") + " PCS";
+            //this.lbl_ShouCe2.Text = (_PCExportReportANSI.QuYangShu2.HasValue ? _PCExportReportANSI.QuYangShu2.ToString() : "0") + " PCS";  //¹Ì¶¨1PCS
             this.lbl_ShouCe3.Text = (_PCExportReportANSI.QuYangShu3.HasValue ? _PCExportReportANSI.QuYangShu3.ToString() : "0") + " PCS";
             this.lbl_ShouCe4.Text = (_PCExportReportANSI.QuYangShu4.HasValue ? _PCExportReportANSI.QuYangShu4.ToString() : "0") + " PCS";
             this.lbl_ShouCe5.Text = (_PCExportReportANSI.QuYangShu5.HasValue ? _PCExportReportANSI.QuYangShu5.ToString() : "0") + " PCS";
             this.lbl_ShouCe6.Text = (_PCExportReportANSI.QuYangShu6.HasValue ? _PCExportReportANSI.QuYangShu6.ToString() : "0") + " PCS";
             this.lbl_ShouCe7.Text = (_PCExportReportANSI.QuYangShu7.HasValue ? _PCExportReportANSI.QuYangShu7.ToString() : "0") + " PCS";
             this.lbl_ShouCe8.Text = (_PCExportReportANSI.QuYangShu8.HasValue ? _PCExportReportANSI.QuYangShu8.ToString() : "0") + " PCS";
-            this.lbl_ShouCe9.Text = (_PCExportReportANSI.QuYangShu9.HasValue ? _PCExportReportANSI.QuYangShu9.ToString() : "0") + " PCS";
+            //this.lbl_ShouCe9.Text = (_PCExportReportANSI.QuYangShu9.HasValue ? _PCExportReportANSI.QuYangShu9.ToString() : "0") + " PCS";  //¹Ì¶¨1PCS
             this.lbl_ShouCe10.Text = (_PCExportReportANSI.QuYangShu10.HasValue ? _PCExportReportANSI.QuYangShu10.ToString() : "0") + " PCS";
             this.lbl_ShouCe11.Text = (_PCExportReportANSI.QuYangShu11.HasValue ? _PCExportReportANSI.QuYangShu11.ToString() : "0") + " PCS";
             this.lbl_ShouCe12.Text = (_PCExportReportANSI.QuYangShu12.HasValue ? _PCExportReportANSI.QuYangShu12.ToString() : "0") + " PCS";

@@ -101,6 +101,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblCompanyName = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -606,6 +607,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.xrTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.xrTableCell1,
             this.xrTableCell2,
+            this.xrTableCell14,
             this.xrTableCell3});
             resources.ApplyResources(this.xrTableRow1, "xrTableRow1");
             this.xrTableRow1.Name = "xrTableRow1";
@@ -630,7 +632,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             resources.ApplyResources(this.xrTableCell3, "xrTableCell3");
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.StylePriority.UseFont = false;
-            this.xrTableCell3.Weight = 1.8445698895792326;
+            this.xrTableCell3.Weight = 0.87580979715182106;
             // 
             // xrLabel121
             // 
@@ -865,6 +867,12 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.lblCompanyName.StylePriority.UseFont = false;
             this.lblCompanyName.StylePriority.UseTextAlignment = false;
             // 
+            // xrTableCell14
+            // 
+            resources.ApplyResources(this.xrTableCell14, "xrTableCell14");
+            this.xrTableCell14.Name = "xrTableCell14";
+            this.xrTableCell14.Weight = 0.96876009242741157;
+            // 
             // EarRO
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -963,5 +971,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
         private DevExpress.XtraReports.UI.XRLabel xrLabel19;
         private DevExpress.XtraReports.UI.XRLabel lblPanDing5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel14;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
     }
 }
