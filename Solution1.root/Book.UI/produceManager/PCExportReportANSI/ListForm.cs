@@ -71,8 +71,10 @@ namespace Book.UI.produceManager.PCExportReportANSI
         /// <returns></returns>
         protected override Book.UI.Settings.BasicData.BaseEditForm GetEditForm()
         {
-            if (this.Text.Contains("AS") && !this.Text.Contains("ASTM"))
+            if (this.Text.Contains("AS") && !this.Text.Contains("ASTM") && !this.Text.Contains("2017") && !this.Text.Contains("耳压"))
                 return new ASEditForm();
+            else if (this.Text.Contains("AS") && this.Text.Contains("2017"))
+                return new ASEditForm2017();
             else if (this.Text.Contains("CEEN"))
                 return new CEENEditsForm();
             else if (this.Text.Contains("CSA"))
@@ -85,6 +87,10 @@ namespace Book.UI.produceManager.PCExportReportANSI
                 return new XuejingASTMForm();
             else if (this.Text.Contains("EN174"))
                 return new XuejingENForm();
+            else if (this.Text.Contains("AS耳压"))
+                return new EarPressEditForm();
+            else if (this.Text.Contains("EN耳护"))
+                return new ENEarProtectEditForm();
             else
                 return new EditForm();
         }
@@ -97,7 +103,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
         protected override Book.UI.Settings.BasicData.BaseEditForm GetEditForm(object[] args)
         {
             Type type;
-            if (this.Text.Contains("AS") && !this.Text.Contains("ASTM") && !this.Text.Contains("2017"))
+            if (this.Text.Contains("AS") && !this.Text.Contains("ASTM") && !this.Text.Contains("2017") && !this.Text.Contains("耳压"))
             {
                 type = typeof(ASEditForm);
                 return (ASEditForm)type.Assembly.CreateInstance(type.FullName, false, System.Reflection.BindingFlags.CreateInstance, null, args, null, null);
@@ -136,6 +142,16 @@ namespace Book.UI.produceManager.PCExportReportANSI
             {
                 type = typeof(XuejingENForm);
                 return (XuejingENForm)type.Assembly.CreateInstance(type.FullName, false, System.Reflection.BindingFlags.CreateInstance, null, args, null, null);
+            }
+            else if (this.Text.Contains("AS耳压"))
+            {
+                type = typeof(EarPressEditForm);
+                return (EarPressEditForm)type.Assembly.CreateInstance(type.FullName, false, System.Reflection.BindingFlags.CreateInstance, null, args, null, null);
+            }
+            else if (this.Text.Contains("EN耳护"))
+            {
+                type = typeof(ENEarProtectEditForm);
+                return (ENEarProtectEditForm)type.Assembly.CreateInstance(type.FullName, false, System.Reflection.BindingFlags.CreateInstance, null, args, null, null);
             }
             else
             {

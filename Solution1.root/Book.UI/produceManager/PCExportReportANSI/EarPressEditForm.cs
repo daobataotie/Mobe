@@ -91,6 +91,11 @@ namespace Book.UI.produceManager.PCExportReportANSI
 
         protected override void MoveLast()
         {
+            if (this.sign == 1)
+            {
+                this.sign = 0;
+                return;
+            }
             this._pcExpANSI = this._pcExpANSIManager.mget_last("Ear");
         }
 

@@ -18,6 +18,7 @@ namespace Book.UI
         private static IDictionary<string, Delegate> operations;
 
         static Operations()
+
         {
             operations = new Dictionary<string, Delegate>();
 
@@ -705,6 +706,8 @@ namespace Book.UI
             operations.Add("produceManager.PCEarPressCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCEarPressCheck.EditForm", form); });
 
             operations.Add("produceManager.PCEarProtectCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCEarProtectCheck.EditForm", form); });
+
+            //AS耳压外销报告
             operations.Add("produceManager.PCExportReportANSI.EarPressEditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCExportReportANSI.EarPressEditForm", form); });
             operations.Add("produceManager.PCEarPressCheck.EditForm-Report", (D1)delegate(System.Windows.Forms.Form form) { M7("produceManager.PCEarPressCheck.EditForm-Report", form); });
 
@@ -786,7 +789,9 @@ namespace Book.UI
             operations.Add("Query.PendingAreaStock", (D1)delegate(System.Windows.Forms.Form form) { M1("Query.PendingAreaStock", form); });
 
             //客戶商品年度出貨查詢
-            operations.Add("Book.UI.Settings.BasicData.Customs.AnnualShipment", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.BasicData.Customs.AnnualShipmentByCustomer", form); });
+            operations.Add("Book.UI.Settings.BasicData.Customs.AnnualShipment", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.BasicData.Customs.AnnualShipmentByCustomer", form); });  
+            //EN耳护外销报告
+            operations.Add("produceManager.PCExportReportANSI.ENEarProtectEditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCExportReportANSI.ENEarProtectEditForm", form); });
 
         }
 
