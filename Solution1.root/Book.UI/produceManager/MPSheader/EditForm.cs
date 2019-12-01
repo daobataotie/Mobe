@@ -767,8 +767,8 @@ namespace Book.UI.produceManager.MPSheader
                     //else
                     //    a = details.MPSdetailssum / bompackage.UseQuantity;
 
-                    component.MpsQuantity = details.MPSdetailssum / bompackage.UseQuantity;
-                    component.MrpQuantity = details.MPSdetailssum / bompackage.UseQuantity - (bompackage.Product.StocksQuantity == null ? 0 : bompackage.Product.StocksQuantity - (bompackage.Product.MRSStockQuantity == null ? 0 : bompackage.Product.MRSStockQuantity)) + bompackage.Product.SafeStock;
+                    component.MpsQuantity = details.MPSdetailssum / (bompackage.UseQuantity==0?1:bompackage.UseQuantity);
+                    component.MrpQuantity = details.MPSdetailssum / (bompackage.UseQuantity==0?1:bompackage.UseQuantity) - (bompackage.Product.StocksQuantity == null ? 0 : bompackage.Product.StocksQuantity - (bompackage.Product.MRSStockQuantity == null ? 0 : bompackage.Product.MRSStockQuantity)) + bompackage.Product.SafeStock;
                     if (component.MrpQuantity <= 0)
                     {
                         component.MrpQuantity = 0;
@@ -840,7 +840,7 @@ namespace Book.UI.produceManager.MPSheader
                                     if (!bom.isBaoCai)
                                         mrpQuantity = (_comDetailss[i].MrpQuantity) * bom.UseQuantity;
                                     else
-                                        mrpQuantity = (_comDetailss[i].MrpQuantity) / bom.UseQuantity;
+                                        mrpQuantity = (_comDetailss[i].MrpQuantity) / (bom.UseQuantity == 0 ? 1 : bom.UseQuantity);
                                     if (this.checkEditIsAdvisementSafetyStock.Checked && this.checkEditIsAdvisementOnWay.Checked)
                                     {
                                         bom.MrpQuantity = mrpQuantity - (bom.Product.StocksQuantity == null ? 0 : bom.Product.StocksQuantity - (bom.Product.MRSStockQuantity == null ? 0 : bom.Product.MRSStockQuantity)) + (bom.Product.SafeStock == null ? 0 : bom.Product.SafeStock);// -bom.Product.OrderOnWayQuantity;
