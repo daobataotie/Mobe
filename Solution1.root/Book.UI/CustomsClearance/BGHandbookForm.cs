@@ -23,6 +23,8 @@ namespace Book.UI.CustomsClearance
         private BL.BGProductDepotOutDetailManager bGProductDepotOutDetailManager = new Book.BL.BGProductDepotOutDetailManager();
         private int flag = 0;//是否更改转出到手册数量或者手册号
         private IList<Model.BGHandbookDetail2> Detail2ZhjuanCe = new List<Model.BGHandbookDetail2>();
+        private BL.InvoicePackingManager invoicePackingManager = new Book.BL.InvoicePackingManager();
+
         public BGHandbookForm()
         {
             InitializeComponent();
@@ -258,7 +260,7 @@ namespace Book.UI.CustomsClearance
                     action = "insert";
 
                     Model.BGHandbookDetail1 detail1;
-                    Model.BGHandbookDetail2 detail2;
+                    Model.BGHandbookDetail2 detail2; 
 
                     int m = 0;
                     int e3;
@@ -502,6 +504,7 @@ namespace Book.UI.CustomsClearance
 
             }
         }
+
         //导出
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -688,6 +691,7 @@ namespace Book.UI.CustomsClearance
             this.action = "insert";
             this.Refresh();
         }
+
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             //if (e.Column.Name == gridColumnQuantity.Name || e.Column.Name == gridColumnBeeQuantity.Name || e.Column.Name == gridColumn13.Name || e.Column.Name == gridColumn14.Name)
@@ -910,6 +914,7 @@ namespace Book.UI.CustomsClearance
             }
         }
 
+        //导出理论耗用
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ExcelClass.ExcelClass1 ex = new ExcelClass1();
@@ -1013,17 +1018,9 @@ namespace Book.UI.CustomsClearance
             ex.app.Visible = true;
             ex.release_xlsObj();
             GC.Collect();
-
-
-
         }
-        private BL.InvoicePackingManager invoicePackingManager = new Book.BL.InvoicePackingManager();
 
-        /// <summary>
-        /// 出口明细
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 出口明细
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ExcelClass.ExcelClass1 ex = new ExcelClass1();
@@ -1161,11 +1158,7 @@ namespace Book.UI.CustomsClearance
             GC.Collect();
         }
 
-        /// <summary>
-        /// 进口明细
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // 进口明细
         private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
