@@ -354,7 +354,7 @@ namespace Book.Model
 		}
 
 		/// <summary>
-		/// Attribute_1579
+		/// 料件名稱
 		/// </summary>
 		public string Column1
 		{

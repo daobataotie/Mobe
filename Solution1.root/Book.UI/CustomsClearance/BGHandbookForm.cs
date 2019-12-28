@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -250,259 +251,404 @@ namespace Book.UI.CustomsClearance
         {
             if (this.openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                ExcelClass1 ec = new ExcelClass1();
-                ec.Open(openFileDialog1.FileName);
+                // ImportOld();
 
-                try
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                //dynamic excel = Activator.CreateInstance(objClassType);
+                excel.Application.Workbooks.Add(true);
+
+                ImportNew();
+            }
+        }
+
+        private void ImportNew()
+        {
+            Help.ExcelHelper eh = new Book.UI.Help.ExcelHelper();
+            eh.OpenFile(openFileDialog1.FileName);
+
+            try
+            {
+                BL.V.BeginTransaction();
+                Model.BGHandbook bgHandbook = new Book.Model.BGHandbook();
+                bgHandbook.Detail1 = new List<Model.BGHandbookDetail1>();
+                bgHandbook.Detail2 = new List<Model.BGHandbookDetail2>();
+                bgHandbook.BGHandbookId = this.bGHandbookManager.GetId();
+                bgHandbook.BGHandbookDate = DateTime.Now;
+                bgHandbook.Employee = BL.V.ActiveOperator.Employee;
+                bgHandbook.EmployeeId = BL.V.ActiveOperator.EmployeeId;
+                bgHandbook.AuditEmpId = BL.V.ActiveOperator.EmployeeId;
+                bgHandbook.AuditState = 1;
+                bgHandbook.InsertTime = DateTime.Now;
+                action = "insert";
+
+                Model.BGHandbookDetail1 detail1;
+                Model.BGHandbookDetail2 detail2;
+
+                List<Model.BGHandbookDetail1> detailList1 = new List<Book.Model.BGHandbookDetail1>();
+
+                for (int i = 1; i <= eh.app.Worksheets.Count; i++)
                 {
-                    BL.V.BeginTransaction();
-                    Model.BGHandbook bghandbook = null;
-                    action = "insert";
+                    var sheet = eh.app.Worksheets[i] as Worksheet;
+                    object[,] data = sheet.UsedRange.Value2 as object[,];
 
-                    Model.BGHandbookDetail1 detail1;
-                    Model.BGHandbookDetail2 detail2; 
-
-                    int m = 0;
-                    int e3;
-                    for (int i = 6; i <= ec.wb.Worksheets.Count; i++)
+                    if (sheet.Name.Contains("表头"))
                     {
-
-                        bghandbook = new Book.Model.BGHandbook();
-                        bghandbook.Detail1 = new List<Model.BGHandbookDetail1>();
-                        bghandbook.Detail2 = new List<Model.BGHandbookDetail2>();
-                        bghandbook.BGHandbookId = this.bGHandbookManager.GetId();
-                        bghandbook.BGHandbookDate = DateTime.Now;
-                        bghandbook.Employee = BL.V.ActiveOperator.Employee;
-                        bghandbook.EmployeeId = BL.V.ActiveOperator.EmployeeId;
-                        bghandbook.AuditEmpId = BL.V.ActiveOperator.EmployeeId;
-                        bghandbook.AuditState = 1;
-
-                        bghandbook.InsertTime = DateTime.Now;
-
-                        m = 0;
-                        e3 = 0;
-                        Microsoft.Office.Interop.Excel.Worksheet ss = (Microsoft.Office.Interop.Excel.Worksheet)ec.wb.Worksheets[i];
-
-                        bghandbook.Id = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[1, 1]).Text.ToString();
-                        if (string.IsNullOrEmpty(bghandbook.Id))
-                            continue;
-                        int flag = 0;
-                        for (int j = 3; j < 2500; j++)
+                        bgHandbook.Id = data[2, 4] == null ? "" : data[2, 4].ToString();
+                    }
+                    else if (sheet.Name.Contains("成品"))
+                    {
+                        for (int row = 3; row <= data.GetLength(0); row++)
                         {
-                            try
+                            detail1 = new Book.Model.BGHandbookDetail1();
+                            detail1.BGHandbookDetail1Id = Guid.NewGuid().ToString();
+                            detail1.BGHandbookId = bgHandbook.BGHandbookId;
+
+                            object cellNo = data[row, 1];
+                            if (cellNo == null)
+                                break;
+
+                            detail1.Id = detail1.NOId = Convert.ToInt32(cellNo);
+                            detail1.CusProName = "";
+                            detail1.ProName = (data[row, 5] == null ? "" : data[row, 5].ToString()) + "/" + (data[row, 3] == null ? "" : data[row, 3].ToString());
+                            detail1.ProGuiGe = data[row, 6] == null ? "" : data[row, 6].ToString();
+
+                            if (data[row, 12] != null)
+                                detail1.Quantity = detail1.UpQuantity = Convert.ToDouble(data[row, 12]);
+
+                            bgHandbook.Detail1.Add(detail1);
+                        }
+
+                    }
+                    else if (sheet.Name.Contains("料件"))
+                    {
+                        for (int row = 3; row <= data.GetLength(0); row++)
+                        {
+                            detail2 = new Book.Model.BGHandbookDetail2();
+                            detail2.BGHandbookDetail2Id = Guid.NewGuid().ToString();
+                            detail2.BGHandbookId = bgHandbook.BGHandbookId;
+
+                            object cellNo = data[row, 1];
+                            if (cellNo == null)
+                                break;
+
+                            detail2.Id = Convert.ToInt32(cellNo);
+                            detail2.ProName = (data[row, 5] == null ? "" : data[row, 5].ToString()) + "/" + (data[row, 3] == null ? "" : data[row, 3].ToString());
+
+                            if (data[row, 10] != null)
+                                detail2.LPrice = Convert.ToDecimal(data[row, 10]);
+                            if (data[row, 12] != null)
+                                detail2.Ljingliang = detail2.UpQuantity = Convert.ToDouble(data[row, 12]);
+                            if (data[row, 13] != null)
+                                detail2.LciciMoney = Convert.ToDecimal(data[row, 13]);
+
+                            bgHandbook.Detail2.Add(detail2);
+                        }
+                    }
+                    else if (sheet.Name.Contains("单损耗"))
+                    {
+                        for (int row = 3; row <= data.GetLength(0); row++)
+                        {
+                            detail1 = new Book.Model.BGHandbookDetail1();
+                            detail1.BGHandbookDetail1Id = Guid.NewGuid().ToString();
+                            detail1.BGHandbookId = bgHandbook.BGHandbookId;
+
+                            object cellNo = data[row, 2];
+                            if (cellNo == null)
+                                break;
+
+                            detail1.Id = Convert.ToInt32(cellNo);
+
+                            detail1.LId = Convert.ToInt32(data[row, 6]);
+                            detail1.Column1 = data[row, 9] == null ? "" : data[row, 9].ToString();
+                            detail1.Lsunhaolv = Convert.ToDouble(data[row, 12]) * 100;
+
+                            detailList1.Add(detail1);
+                        }
+
+                        var group = detailList1.GroupBy(d => d.Id);
+                        foreach (var item in group)
+                        {
+                            var firstD = item.First();
+                            var detailChengpin = bgHandbook.Detail1.First(d => d.Id == firstD.Id);
+                            detailChengpin.LId = firstD.Id;
+                            detailChengpin.Column1 = firstD.Column1;
+                            detailChengpin.Lsunhaolv = firstD.Lsunhaolv;
+
+                            for (int j = 1; j < item.Count(); j++)
                             {
-
-                                if (flag == 0)
-                                {
-
-
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 4]).Text.ToString().Trim() == "合计")
-                                    {
-                                        flag = 1;
-                                        continue;
-                                    }
-
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 3]).Text.ToString() == "" && ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString() == "")
-                                        continue;
-                                    else if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 3]).Text.ToString() == "" && ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString() != "") //多子件
-                                    {
-                                        m = m + 1;
-
-
-                                        detail1 = new Book.Model.BGHandbookDetail1();
-                                        detail1.BGHandbookDetail1Id = Guid.NewGuid().ToString();
-                                        detail1.NOId = m;
-
-                                        int c = j;
-                                        decimal beeQuantity = decimal.Zero;
-                                        for (c = j; c > 2; c--)
-                                        {
-                                            if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 3]).Text.ToString() != "")
-                                            {
-                                                detail1.Id = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 1]).Text.ToString());
-                                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 6]).Text.ToString() != "")
-                                                    beeQuantity = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 6]).Text.ToString());
-                                                break;
-                                            }
-                                        }
-
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString() != "")
-                                            detail1.LId = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString());
-                                        detail1.Column1 = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 9]).Text.ToString();
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString() != "")
-                                            detail1.Ljingliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString());
-
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString() != "")
-                                            detail1.LjingSunliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString());
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString() != "")
-                                            detail1.LjingQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString());
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 13]).Text.ToString() != "")
-                                            detail1.Lsunhaolv = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 13]).Text.ToString());
-
-                                        detail1.LiLunHaoYongJing = (double)GetDecimal(beeQuantity * Convert.ToDecimal(detail1.LjingQuantity), 2);
-                                        detail1.LiLunHaoYongJingSun = (double)GetDecimal(beeQuantity * Convert.ToDecimal(detail1.LjingQuantity) / (1 - decimal.Parse(detail1.Lsunhaolv.ToString()) * 0.01M), 2);
-
-
-
-
-                                        bghandbook.Detail1.Add(detail1);
-                                    }
-                                    else
-                                    {
-                                        m = m + 1;
-
-
-
-                                        detail1 = new Book.Model.BGHandbookDetail1();
-                                        detail1.BGHandbookDetail1Id = Guid.NewGuid().ToString();
-                                        detail1.NOId = m;
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 1]).Text.ToString() != "")
-                                            detail1.Id = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 1]).Text.ToString());
-
-
-                                        detail1.CusProName = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 2]).Text.ToString();
-                                        detail1.ProName = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 3]).Text.ToString();
-                                        detail1.ProGuiGe = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 4]).Text.ToString();
-
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 5]).Text.ToString() != "")
-                                            detail1.Quantity = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 5]).Text.ToString());
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 6]).Text.ToString() != "")
-                                        {
-                                            detail1.BeeQuantity = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 6]).Text.ToString());
-                                            detail1.BeeQuantityTemp = detail1.BeeQuantity;
-                                        }
-
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString() != "")
-                                            detail1.UpQuantity = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString());
-
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString() != "")
-                                            detail1.LId = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString());
-                                        detail1.Column1 = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 9]).Text.ToString();
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString() != "")
-                                            detail1.Ljingliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString());
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString() != "")
-                                            detail1.LjingSunliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString());
-
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString() != "")
-                                            detail1.LjingQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString());
-
-                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 13]).Text.ToString() != "")
-                                            detail1.Lsunhaolv = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 13]).Text.ToString());
-                                        bghandbook.Detail1.Add(detail1);
-                                    }
-                                }
-
-                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString().Trim() == "序号")
-                                {
-                                    flag = 2;
-                                    continue;
-                                }
-                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 4]).Text.ToString().Trim() == "序号")
-                                {
-                                    flag = 3;
-                                    continue;
-                                }
-                                if (flag == 2)
-                                {
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString().Trim() == "")
-                                        continue;
-                                    detail2 = new Book.Model.BGHandbookDetail2();
-                                    detail2.BGHandbookDetail2Id = Guid.NewGuid().ToString();
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString() != "")
-                                        detail2.Id = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString());
-                                    detail2.ProName = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 9]).Text.ToString();
-
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString() != "")
-                                        detail2.Ljingliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString());
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString() != "")
-                                        detail2.LjingSunliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString());
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString() != "")
-                                        detail2.LLastjingSunliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString());
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 14]).Text.ToString() != "")
-                                        detail2.Lchazhi = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 14]).Text.ToString());
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 15]).Text.ToString() != "")
-
-                                        detail2.LPrice = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 15]).Text.ToString());
-
-
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 16]).Text.ToString() != "")
-                                        detail2.Lmoney = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 16]).Text.ToString());
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 18]).Text.ToString() != "")
-                                        detail2.LciciMoney = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 18]).Text.ToString());
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 19]).Text.ToString() != "")
-                                        detail2.JinKouiMoney = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 19]).Text.ToString());
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 20]).Text.ToString() != "")
-                                        detail2.LastMoney = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 20]).Text.ToString());
-                                    bghandbook.Detail2.Add(detail2);
-                                }
-                                if (flag == 3)
-                                {
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 4]).Text.ToString() == "")
-                                        break;
-
-
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString() != "")
-
-                                        bghandbook.Detail2[e3].LbejinQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString());
-
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString() != "")
-                                        bghandbook.Detail2[e3].ZhuanCeInQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString());
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 9]).Text.ToString() != "")
-                                        bghandbook.Detail2[e3].UpQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 9]).Text.ToString());
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString() != "")
-                                        bghandbook.Detail2[e3].YaoJInQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString());
-                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString() != "")
-                                        bghandbook.Detail2[e3].HaiKeJInQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString());
-
-                                    double a = 0;
-                                    double.TryParse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString(), out a);
-                                    bghandbook.Detail2[e3].LilunHaoYong = a;
-
-                                    double b = 0;
-
-                                    double.TryParse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 14]).Text.ToString(), out b);
-                                    bghandbook.Detail2[e3].LilunStock = b;
-                                    e3++;
-
-
-                                }
-
-                            }
-                            catch (Exception exc)
-                            {
-                                throw new Exception(j + exc.Message);
-
-
+                                bgHandbook.Detail1.Add(item.ToList()[j]);
                             }
                         }
 
+                        bgHandbook.Detail1 = bgHandbook.Detail1.OrderBy(d => d.Id).ThenByDescending(s => s.ProName).ToList();
 
-
-
-
-
-                        this.bGHandbookManager.Insert(bghandbook);
-
+                        foreach (var item in bgHandbook.Detail1)
+                        {
+                            item.NOId = bgHandbook.Detail1.IndexOf(item) + 1;
+                        }
                     }
-
-                    BL.V.CommitTransaction();
-                    this._bGHandbook = this.bGHandbookManager.GetLast();
-                    this.action = "view";
-                    this.Refresh();
                 }
-                catch (Exception ex)
-                {
-                    BL.V.RollbackTransaction();
-                    ec.Close();
-                    string s = ex.TargetSite.ToString();
-                    throw ex;
 
-                }
-                ec.Close();
-                ec.release_xlsObj();
+                this.bGHandbookManager.Insert(bgHandbook);
 
+                BL.V.CommitTransaction();
+                this._bGHandbook = this.bGHandbookManager.GetLast();
+                this.action = "view";
+                this.Refresh();
 
             }
+            catch (Exception ex)
+            {
+                BL.V.RollbackTransaction();
+                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK);
+                return;
+            }
+            finally
+            {
+                eh.Close();
+            }
+        }
+
+        private void ImportOld()
+        {
+            ExcelClass1 ec = new ExcelClass1();
+            ec.Open(openFileDialog1.FileName);
+
+            try
+            {
+                BL.V.BeginTransaction();
+                Model.BGHandbook bghandbook = null;
+                action = "insert";
+
+                Model.BGHandbookDetail1 detail1;
+                Model.BGHandbookDetail2 detail2;
+
+                int m = 0;
+                int e3;
+                for (int i = 6; i <= ec.wb.Worksheets.Count; i++)
+                {
+
+                    bghandbook = new Book.Model.BGHandbook();
+                    bghandbook.Detail1 = new List<Model.BGHandbookDetail1>();
+                    bghandbook.Detail2 = new List<Model.BGHandbookDetail2>();
+                    bghandbook.BGHandbookId = this.bGHandbookManager.GetId();
+                    bghandbook.BGHandbookDate = DateTime.Now;
+                    bghandbook.Employee = BL.V.ActiveOperator.Employee;
+                    bghandbook.EmployeeId = BL.V.ActiveOperator.EmployeeId;
+                    bghandbook.AuditEmpId = BL.V.ActiveOperator.EmployeeId;
+                    bghandbook.AuditState = 1;
+
+                    bghandbook.InsertTime = DateTime.Now;
+
+                    m = 0;
+                    e3 = 0;
+                    Microsoft.Office.Interop.Excel.Worksheet ss = (Microsoft.Office.Interop.Excel.Worksheet)ec.wb.Worksheets[i];
+
+                    bghandbook.Id = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[1, 1]).Text.ToString();
+                    if (string.IsNullOrEmpty(bghandbook.Id))
+                        continue;
+                    int flag = 0;
+                    for (int j = 3; j < 2500; j++)
+                    {
+                        try
+                        {
+                            if (flag == 0)
+                            {
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 4]).Text.ToString().Trim() == "合计")
+                                {
+                                    flag = 1;
+                                    continue;
+                                }
+
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 3]).Text.ToString() == "" && ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString() == "")
+                                    continue;
+                                else if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 3]).Text.ToString() == "" && ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString() != "") //多子件
+                                {
+                                    m = m + 1;
+
+
+                                    detail1 = new Book.Model.BGHandbookDetail1();
+                                    detail1.BGHandbookDetail1Id = Guid.NewGuid().ToString();
+                                    detail1.NOId = m;
+
+                                    int c = j;
+                                    decimal beeQuantity = decimal.Zero;
+                                    // 项号&已出数量
+                                    for (c = j; c > 2; c--)
+                                    {
+                                        if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 3]).Text.ToString() != "")
+                                        {
+                                            detail1.Id = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 1]).Text.ToString());
+                                            if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 6]).Text.ToString() != "")
+                                                beeQuantity = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[c, 6]).Text.ToString());
+                                            break;
+                                        }
+                                    }
+
+                                    //料件项号
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString() != "")
+                                        detail1.LId = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString());
+                                    detail1.Column1 = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 9]).Text.ToString();
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString() != "")
+                                        detail1.Ljingliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString());
+
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString() != "")
+                                        detail1.LjingSunliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString());
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString() != "")
+                                        detail1.LjingQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString());
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 13]).Text.ToString() != "")
+                                        detail1.Lsunhaolv = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 13]).Text.ToString());
+
+                                    detail1.LiLunHaoYongJing = (double)GetDecimal(beeQuantity * Convert.ToDecimal(detail1.LjingQuantity), 2);
+                                    detail1.LiLunHaoYongJingSun = (double)GetDecimal(beeQuantity * Convert.ToDecimal(detail1.LjingQuantity) / (1 - decimal.Parse(detail1.Lsunhaolv.ToString()) * 0.01M), 2);
+
+                                    bghandbook.Detail1.Add(detail1);
+                                }
+                                else
+                                {
+                                    m = m + 1;
+
+                                    detail1 = new Book.Model.BGHandbookDetail1();
+                                    detail1.BGHandbookDetail1Id = Guid.NewGuid().ToString();
+                                    detail1.NOId = m;
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 1]).Text.ToString() != "")
+                                        detail1.Id = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 1]).Text.ToString());
+
+
+                                    detail1.CusProName = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 2]).Text.ToString();
+                                    detail1.ProName = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 3]).Text.ToString();
+                                    detail1.ProGuiGe = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 4]).Text.ToString();
+
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 5]).Text.ToString() != "")
+                                        detail1.Quantity = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 5]).Text.ToString());
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 6]).Text.ToString() != "")
+                                    {
+                                        detail1.BeeQuantity = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 6]).Text.ToString());
+                                        detail1.BeeQuantityTemp = detail1.BeeQuantity;
+                                    }
+
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString() != "")
+                                        detail1.UpQuantity = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString());
+
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString() != "")
+                                        detail1.LId = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString());
+                                    detail1.Column1 = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 9]).Text.ToString();
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString() != "")
+                                        detail1.Ljingliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString());
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString() != "")
+                                        detail1.LjingSunliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString());
+
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString() != "")
+                                        detail1.LjingQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString());
+
+                                    if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 13]).Text.ToString() != "")
+                                        detail1.Lsunhaolv = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 13]).Text.ToString());
+                                    bghandbook.Detail1.Add(detail1);
+                                }
+                            }
+
+                            if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString().Trim() == "序号")
+                            {
+                                flag = 2;
+                                continue;
+                            }
+                            if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 4]).Text.ToString().Trim() == "序号")
+                            {
+                                flag = 3;
+                                continue;
+                            }
+                            if (flag == 2)
+                            {
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString().Trim() == "")
+                                    continue;
+                                detail2 = new Book.Model.BGHandbookDetail2();
+                                detail2.BGHandbookDetail2Id = Guid.NewGuid().ToString();
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString() != "")
+                                    detail2.Id = int.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString());
+                                detail2.ProName = ((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 9]).Text.ToString();
+
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString() != "")
+                                    detail2.Ljingliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString());
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString() != "")
+                                    detail2.LjingSunliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString());
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString() != "")
+                                    detail2.LLastjingSunliang = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString());
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 14]).Text.ToString() != "")
+                                    detail2.Lchazhi = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 14]).Text.ToString());
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 15]).Text.ToString() != "")
+
+                                    detail2.LPrice = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 15]).Text.ToString());
+
+
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 16]).Text.ToString() != "")
+                                    detail2.Lmoney = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 16]).Text.ToString());
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 18]).Text.ToString() != "")
+                                    detail2.LciciMoney = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 18]).Text.ToString());
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 19]).Text.ToString() != "")
+                                    detail2.JinKouiMoney = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 19]).Text.ToString());
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 20]).Text.ToString() != "")
+                                    detail2.LastMoney = decimal.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 20]).Text.ToString());
+                                bghandbook.Detail2.Add(detail2);
+                            }
+                            if (flag == 3)
+                            {
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 4]).Text.ToString() == "")
+                                    break;
+
+
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString() != "")
+
+                                    bghandbook.Detail2[e3].LbejinQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 7]).Text.ToString());
+
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString() != "")
+                                    bghandbook.Detail2[e3].ZhuanCeInQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 8]).Text.ToString());
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 9]).Text.ToString() != "")
+                                    bghandbook.Detail2[e3].UpQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 9]).Text.ToString());
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString() != "")
+                                    bghandbook.Detail2[e3].YaoJInQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 10]).Text.ToString());
+                                if (((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString() != "")
+                                    bghandbook.Detail2[e3].HaiKeJInQuantity = double.Parse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 11]).Text.ToString());
+
+                                double a = 0;
+                                double.TryParse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 12]).Text.ToString(), out a);
+                                bghandbook.Detail2[e3].LilunHaoYong = a;
+
+                                double b = 0;
+
+                                double.TryParse(((Microsoft.Office.Interop.Excel.Range)ss.Cells[j, 14]).Text.ToString(), out b);
+                                bghandbook.Detail2[e3].LilunStock = b;
+                                e3++;
+
+
+                            }
+
+                        }
+                        catch (Exception exc)
+                        {
+                            throw new Exception(j + exc.Message);
+
+
+                        }
+                    }
+
+                    this.bGHandbookManager.Insert(bghandbook);
+                }
+
+                BL.V.CommitTransaction();
+                this._bGHandbook = this.bGHandbookManager.GetLast();
+                this.action = "view";
+                this.Refresh();
+            }
+            catch (Exception ex)
+            {
+                BL.V.RollbackTransaction();
+                ec.Close();
+                string s = ex.TargetSite.ToString();
+                throw ex;
+
+            }
+            ec.Close();
+            ec.release_xlsObj();
         }
 
         //导出
