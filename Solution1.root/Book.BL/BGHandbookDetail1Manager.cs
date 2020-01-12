@@ -142,11 +142,11 @@ namespace Book.BL
             {      //多单据
                 if (!detail2.LbejinQuantity.HasValue) detail2.LbejinQuantity = 0;
 
-                detail2.LbejinQuantity = detail2.LbejinQuantity + quantity;
-                detail2.UpQuantity = detail2.LjingSunliang - detail2.LbejinQuantity - (detail2.ZhuanCeInQuantity.HasValue ? detail2.ZhuanCeInQuantity : 0);
-                detail2.HaiKeJInQuantity = detail2.UpQuantity - (detail2.YaoJInQuantity.HasValue ? detail2.YaoJInQuantity : 0);
+                detail2.LbejinQuantity = Convert.ToDouble(detail2.LbejinQuantity) + quantity;
+                detail2.UpQuantity = Convert.ToDouble(detail2.LjingSunliang) - Convert.ToDouble(detail2.LbejinQuantity) - (detail2.ZhuanCeInQuantity.HasValue ? detail2.ZhuanCeInQuantity : 0);
+                detail2.HaiKeJInQuantity = Convert.ToDouble(detail2.UpQuantity) - (detail2.YaoJInQuantity.HasValue ? detail2.YaoJInQuantity : 0);
 
-                detail2.LilunStock = detail2.LbejinQuantity - (detail2.LilunHaoYong.HasValue ? detail2.LilunHaoYong : 0);
+                detail2.LilunStock = Convert.ToDouble(detail2.LbejinQuantity) - (detail2.LilunHaoYong.HasValue ? detail2.LilunHaoYong : 0);
                 detail2.JinKouiMoney = GetSiSheWuRu(Convert.ToDecimal(detail2.LbejinQuantity) * (detail2.LPrice.HasValue ? detail2.LPrice.Value : 0m), 2);
                 Detail2Accessor.Update(detail2);
 

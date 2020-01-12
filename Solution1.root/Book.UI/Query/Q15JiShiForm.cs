@@ -226,7 +226,7 @@ namespace Book.UI.Query
                 if (i == 0 || dt.Rows[i]["productid"].ToString() != dt.Rows[i - 1]["productid"].ToString())
                 {
                     //excelDT.Rows.Add(dt.Rows[i]["productid"].ToString(), dt.Rows[i]["spid"].ToString(), dt.Rows[i]["productName"].ToString(), dt.Rows[i]["Quantity"].ToString());
-                    list.Add(new Model.Product() { ProductId = dt.Rows[i]["productid"].ToString(), Id = dt.Rows[i]["spid"].ToString(), ProductName = dt.Rows[i]["productName"].ToString(), StocksQuantity = Convert.ToDouble(dt.Rows[i]["Quantity"]) });
+                    list.Add(new Model.Product() { ProductId = dt.Rows[i]["productid"].ToString(), Id = dt.Rows[i]["spid"].ToString(), ProductName = dt.Rows[i]["productName"].ToString(), StocksQuantity = Convert.ToDouble(dt.Rows[i]["Quantity"]), CnName = dt.Rows[i]["CnName"].ToString() });
                     productIDs += "'" + dt.Rows[i]["productid"].ToString() + "',";
                 }
                 else
@@ -279,7 +279,7 @@ namespace Book.UI.Query
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 3]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 4]);
                 r.MergeCells = true;//合并单元格
 
                 excel.Cells.ColumnWidth = 20;
@@ -291,11 +291,12 @@ namespace Book.UI.Query
                 excel.Cells[2, 1] = "商品编号";
                 excel.Cells[2, 2] = "商品名称";
                 excel.Cells[2, 3] = "即时库存";
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 3]).Interior.Color = "12566463";
+                excel.Cells[2, 4] = "单位";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 4]).Interior.Color = "12566463";
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 2]).ColumnWidth = 50;
                 int row = 3;
 
-                int col = 5;
+                int col = 6;
                 //原料
                 foreach (var item in list[0].MaterialDic)
                 {
@@ -340,8 +341,9 @@ namespace Book.UI.Query
                 excel.Cells[row, 1] = pro.Id;
                 excel.Cells[row, 2] = pro.ProductName;
                 excel.Cells[row, 3] = pro.StocksQuantity;
+                excel.Cells[row, 4] = pro.CnName;
 
-                int col = 5;
+                int col = 6;
                 foreach (var dic in pro.MaterialDic)
                 {
                     excel.Cells[row, col++] = dic.Value;

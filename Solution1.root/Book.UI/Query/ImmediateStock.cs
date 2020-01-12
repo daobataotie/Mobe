@@ -368,7 +368,7 @@ namespace Book.UI.Query
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]);
                 r.MergeCells = true;//合并单元格
 
                 excel.Cells.ColumnWidth = 10;
@@ -376,7 +376,7 @@ namespace Book.UI.Query
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
                 excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
                 //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
-                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 7]).HorizontalAlignment = -4108;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 8]).HorizontalAlignment = -4108;
 
                 excel.Cells[2, 1] = "商品编号";
                 excel.Cells[2, 2] = "商品名称";
@@ -385,12 +385,14 @@ namespace Book.UI.Query
                 excel.Cells[2, 5] = "组装现场";
                 excel.Cells[2, 6] = "总数";
                 excel.Cells[2, 7] = "手册号";
+                excel.Cells[2, 8] = "单位";
 
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 7 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "12566463";
+
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 8 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "12566463";
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 25;
                 excel.get_Range(excel.Cells[2, 2], excel.Cells[2, 2]).ColumnWidth = 50;
 
-                int col = 9;
+                int col = 10;
                 //原料
                 foreach (var item in listProduct[0].MaterialDic)
                 {
@@ -420,8 +422,9 @@ namespace Book.UI.Query
                         excel.Cells[row, 5] = pro.XianchangZuzhuang;
                         excel.Cells[row, 6] = pro.TotalQty;
                         excel.Cells[row, 7] = pro.HandbookId;
+                        excel.Cells[row, 8] = pro.CnName;
 
-                        col = 9;
+                        col = 10;
                         foreach (var dic in pro.MaterialDic)
                         {
                             excel.Cells[row, col++] = dic.Value;
@@ -447,8 +450,9 @@ namespace Book.UI.Query
                         excel.Cells[row, 5] = pro.XianchangZuzhuang;
                         excel.Cells[row, 6] = pro.TotalQty;
                         excel.Cells[row, 7] = pro.HandbookId;
+                        excel.Cells[row, 8] = pro.CnName;
 
-                        col = 9;
+                        col = 10;
                         foreach (var dic in pro.MaterialDic)
                         {
                             excel.Cells[row, col++] = dic.Value;
@@ -474,8 +478,9 @@ namespace Book.UI.Query
                         excel.Cells[row, 5] = pro.XianchangZuzhuang;
                         excel.Cells[row, 6] = pro.TotalQty;
                         excel.Cells[row, 7] = pro.HandbookId;
+                        excel.Cells[row, 8] = pro.CnName;
 
-                        col = 9;
+                        col = 10;
                         foreach (var dic in pro.MaterialDic)
                         {
                             excel.Cells[row, col++] = dic.Value;
@@ -499,13 +504,13 @@ namespace Book.UI.Query
         private void SetExcelFormat(Microsoft.Office.Interop.Excel.Application excel, ref int col, ref int row, IGrouping<string, Book.Model.Product> item)
         {
             excel.Cells[row, 1] = item.Key;
-            excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 7 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "255";    //红色
+            excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 8 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "255";    //红色
             excel.get_Range(excel.Cells[row, 3], excel.Cells[row, 3]).Formula = string.Format("=SUM(C{0}:C{1})", row + 1, row + item.Count());
             excel.get_Range(excel.Cells[row, 4], excel.Cells[row, 4]).Formula = string.Format("=SUM(D{0}:D{1})", row + 1, row + item.Count());
             excel.get_Range(excel.Cells[row, 5], excel.Cells[row, 5]).Formula = string.Format("=SUM(E{0}:E{1})", row + 1, row + item.Count());
             excel.get_Range(excel.Cells[row, 6], excel.Cells[row, 6]).Formula = string.Format("=SUM(F{0}:F{1})", row + 1, row + item.Count());
 
-            col = 9;
+            col = 10;
             foreach (var ec in listProduct[0].MaterialDic)
             {
                 string excelColumnName = CountExcelColumnName(col);

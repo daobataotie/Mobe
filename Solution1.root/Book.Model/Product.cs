@@ -222,5 +222,6 @@ namespace Book.Model
         /// </summary>
         public string HandbookId { get; set; }
 
+        public string CnName { get; set; }
     }
 }

@@ -256,7 +256,7 @@ namespace Book.UI.Query
 
                     #endregion
 
-                    resultList.Add(new Book.Model.Product() { Id = item.Id, ProductVersion = item.ProductVersion, ProductName = item.ProductName, CustomerInvoiceXOId = phGroup.Key, XianchangYanpian = item.XianchangYanpian, XianchangZuzhuang = item.XianchangZuzhuang, HandbookId = item.HandbookId });
+                    resultList.Add(new Book.Model.Product() { Id = item.Id, ProductVersion = item.ProductVersion, ProductName = item.ProductName, CustomerInvoiceXOId = phGroup.Key, XianchangYanpian = item.XianchangYanpian, XianchangZuzhuang = item.XianchangZuzhuang, HandbookId = item.HandbookId, CnName = item.CnName });
                 }
 
                 #endregion
@@ -288,7 +288,7 @@ namespace Book.UI.Query
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                 excel.Application.Workbooks.Add(true);
 
-                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 4]);
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 5]);
                 r.MergeCells = true;//合并单元格
 
                 excel.Cells.ColumnWidth = 25;
@@ -298,13 +298,15 @@ namespace Book.UI.Query
                 //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
                 excel.get_Range(excel.Cells[1, 3], excel.Cells[1, 4]).HorizontalAlignment = -4108;
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 50;
-                excel.get_Range(excel.Cells[3, 2], excel.Cells[3 + resultList.Count, 2]).HorizontalAlignment = -4152;
+                excel.get_Range(excel.Cells[3, 2], excel.Cells[5 + resultList.Count, 2]).HorizontalAlignment = -4152;
 
                 excel.Cells[2, 1] = "商品名称";
                 excel.Cells[2, 2] = "客户订单号码";
-                excel.Cells[2, 3] = "现场数量"; ;
-                excel.Cells[2, 4] = "手册号"; ;
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 4]).Interior.Color = "12566463";
+                excel.Cells[2, 3] = "现场数量";
+                excel.Cells[2, 4] = "手册号";
+                excel.Cells[2, 5] = "单位";
+
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 5]).Interior.Color = "12566463";
 
                 int row = 3;
 
@@ -314,6 +316,7 @@ namespace Book.UI.Query
                     excel.Cells[row, 2] = item.CustomerInvoiceXOId;
                     excel.Cells[row, 3] = item.XianchangTotal;
                     excel.Cells[row, 4] = item.HandbookId;
+                    excel.Cells[row, 5] = item.CnName;
 
                     row++;
                 }
