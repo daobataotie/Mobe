@@ -1199,6 +1199,7 @@ namespace Book.UI.produceManager.MRSHeader
                         //    continue;
                         //this._invoiceCO.InvoiceYjrq = Convert.ToDateTime(item.JiaoHuoDate == null ? null : item.JiaoHuoDate.ToString());
                         this._invoiceCODetail = new Book.Model.InvoiceCODetail();
+                        this._invoiceCODetail.Inumber = this._invoiceCO.Details.Count + 1;
                         this._invoiceCODetail.InvoiceCODetailId = Guid.NewGuid().ToString();
                         this._invoiceCODetail.InvoiceId = this._invoiceCO.InvoiceId;
                         this._invoiceCODetail.ProductId = item.ProductId;

@@ -1142,10 +1142,10 @@ namespace Book.BL
                 istrue = true;
                 if (item.DepotOutDetailId == null)
                     throw new Helper.RequireValueException(Model.DepotOutDetail.PRO_DepotPositionId);
-                Model.Stock stock = stockAccessor.GetStockByProductIdAndDepotPositionId(item.ProductId, item.DepotPositionId);
 
-                //if (stock == null || stock.StockQuantity1 < item.DepotOutDetailQuantity)
-                //    throw new Helper.MessageValueException("產品：" + item.Product.ProductName + "\r出庫數量大於當前的貨位數量");
+                Model.Stock stock = stockAccessor.GetStockByProductIdAndDepotPositionId(item.ProductId, item.DepotPositionId);
+                if (stock == null || stock.StockQuantity1 < item.DepotOutDetailQuantity)
+                    throw new Helper.MessageValueException("產品：" + item.Product.ProductName + "\r出庫數量大於當前的貨位數量");
 
             }
 
