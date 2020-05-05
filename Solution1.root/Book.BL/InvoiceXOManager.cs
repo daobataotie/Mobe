@@ -235,7 +235,7 @@ namespace Book.BL
 
         private void _Update(Model.InvoiceXO invoice)
         {
-            _ValidateForUpdate(invoice);
+            //_ValidateForUpdate(invoice);
 
             invoice.UpdateTime = DateTime.Now;
             if (invoice.Employee0 != null)
@@ -352,7 +352,7 @@ namespace Book.BL
             int flag = 0;
             foreach (Model.InvoiceXODetail detail in invoiceXO.Details)
             {
-                flag += detail.DetailsFlag.Value;
+                flag += detail.DetailsFlag.HasValue ? detail.DetailsFlag.Value : 0;
             }
             if (flag == 0)
                 invoiceXO.InvoiceFlag = 0;
