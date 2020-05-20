@@ -205,7 +205,6 @@ namespace Book.BL
 
         private void _Insert(Model.InvoiceCO invoice)
         {
-
             invoice.InvoiceFlag = 0;
             invoice.InsertTime = DateTime.Now;
             invoice.UpdateTime = DateTime.Now;
@@ -250,9 +249,9 @@ namespace Book.BL
                 }
             }
         }
+
         private void _Update(Model.InvoiceCO invoice)
         {
-
             Model.InvoiceCO invoiceOriginal = this.Get(invoice.InvoiceId);
 
             switch ((Helper.InvoiceStatus)invoiceOriginal.InvoiceStatus)
@@ -396,14 +395,6 @@ namespace Book.BL
                                     bGHandbookDetail1Manager.UpdateYidingweiru(detail, 0 - detail.NoArrivalQuantity.Value);
                                 }
                                 //  invoiceCODetailAccessor.Update(detail);
-                                //更改物料需求，删除采购单已生成采购单的状态
-                                Model.MRSdetails model;
-                                model = MRSdetailsManager.Get(detail.MRSdetailId);
-                                if (model != null)
-                                {
-                                    model.ArrangeDesc = string.Empty;
-                                    MRSdetailsManager.Update(model);
-                                }
                             }
                             break;
 
