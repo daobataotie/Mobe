@@ -1445,9 +1445,18 @@ namespace Book.UI.Invoices.XO
             public string Mark { get; set; }
         }
 
-        private void gridControl1_Click(object sender, EventArgs e)
+        private void repositoryItemLookUpEdit4_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            if (this.bindingSource1.Current != null && e.Button.Index == 1)
+            {
+                Model.InvoiceXODetail detail = this.bindingSource1.Current as Model.InvoiceXODetail;
 
+                detail.HandbookId = null;
+                detail.HandbookProductId = null;
+
+                this.gridView1.PostEditor();
+                this.gridView1.UpdateCurrentRow();
+            }
         }
     }
 }
