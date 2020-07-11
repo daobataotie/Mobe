@@ -2923,7 +2923,7 @@ namespace Book.UI.Settings.BasicData.Products
             IList<Model.InvoiceXS> ixslist;
             foreach (Model.InvoiceXODetail item in halfwayList)
             {
-                ixslist = ixsm.SelectDateRangAndWhere(null, null, this.dateEditxostartdate.DateTime, this.dateEditxoenddate.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, item.Product, item.InvoiceId, null);
+                ixslist = ixsm.SelectDateRangAndWhere(null, null, this.dateEditxostartdate.DateTime, this.dateEditxoenddate.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, item.Product, item.InvoiceId, null, null, null);
                 item.InvoiceProductUnit = "";
                 foreach (Model.InvoiceXS s in ixslist)
                 {

@@ -179,7 +179,7 @@ namespace Book.BL
                     invoiceXOManager.UpdateInvoiceFlag(xodetail.Invoice);
 
 
-                     if (!string.IsNullOrEmpty(xodetail.HandbookProductId) && !string.IsNullOrEmpty(xodetail.HandbookId))
+                    if (!string.IsNullOrEmpty(xodetail.HandbookProductId) && !string.IsNullOrEmpty(xodetail.HandbookId))
                     {
                         bGHandbookDetail1Manager.UpdateYDWC(xodetail, 0 - (noArr - xodetail.InvoiceXODetailQuantity0.Value));
                     }
@@ -355,9 +355,9 @@ namespace Book.BL
         {
             return accessor.SelectCustomerInfo(xoid);
         }
-        public IList<Book.Model.InvoiceXS> SelectDateRangAndWhere(Model.Customer customer1, Model.Customer customer2, DateTime? dateStart, DateTime? dateEnd, DateTime JHDate1, DateTime JHDate2, string cusxoid, Model.Product product, string invoicexoid1, string invoicexoid2)
+        public IList<Book.Model.InvoiceXS> SelectDateRangAndWhere(Model.Customer customer1, Model.Customer customer2, DateTime? dateStart, DateTime? dateEnd, DateTime JHDate1, DateTime JHDate2, string cusxoid, Model.Product product, string invoicexoid1, string invoicexoid2, string depotId, string handBookId)
         {
-            return accessor.SelectDateRangAndWhere(customer1, customer2, dateStart, dateEnd, JHDate1, JHDate2, cusxoid, product, invoicexoid1, invoicexoid2);
+            return accessor.SelectDateRangAndWhere(customer1, customer2, dateStart, dateEnd, JHDate1, JHDate2, cusxoid, product, invoicexoid1, invoicexoid2, depotId, handBookId);
         }
     }
 }

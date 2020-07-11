@@ -17,7 +17,7 @@ namespace Book.UI.produceManager.ProduceMaterial
         public RODetail(ConditionMaterial condition)
         {
             InitializeComponent();
-            IList<Model.ProduceMaterial> list = produceMaterialManager.SelectBycondition(condition.StartDate, condition.EndDate, condition.ProduceMaterialId0, condition.ProduceMaterialId1, condition.Product0, condition.Product1, condition.DepartmentId0, condition.DepartmentId1, condition.PronoteHeaderId0, condition.PronoteHeaderId1,condition.CusInvoiceXOId);
+            IList<Model.ProduceMaterial> list = produceMaterialManager.SelectBycondition(condition.StartDate, condition.EndDate, condition.ProduceMaterialId0, condition.ProduceMaterialId1, condition.Product0, condition.Product1, condition.DepartmentId0, condition.DepartmentId1, condition.PronoteHeaderId0, condition.PronoteHeaderId1,condition.CusInvoiceXOId,condition.HandBookId);
             if (list == null || list.Count <= 0)
             {
                 throw new global::Helper.MessageValueException("无数据");

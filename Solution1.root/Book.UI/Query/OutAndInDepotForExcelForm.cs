@@ -16,6 +16,13 @@ namespace Book.UI.Query
         public OutAndInDepotForExcelForm()
         {
             InitializeComponent();
+
+            this.bindingSourceDepot.DataSource = new BL.DepotManager().Select();
+            IList<string> handBookIds = new BL.BGHandbookManager().SelectAllId();
+            foreach (var item in handBookIds)
+            {
+                this.cob_HandBookId.Properties.Items.Add(item);
+            }
         }
 
         private void btn_StartCategory_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -58,8 +65,20 @@ namespace Book.UI.Query
                 DateTime endDate = this.date_End.DateTime.Date.AddDays(1).AddSeconds(-1);
                 string startCategoryID = (this.btn_StartCategory.EditValue == null ? null : (this.btn_StartCategory.EditValue as Model.ProductCategory).Id);
                 string endCategoryID = (this.btn_EndCategory.EditValue == null ? null : (this.btn_EndCategory.EditValue as Model.ProductCategory).Id);
+                string depotId = this.lue_Depot.EditValue == null ? null : this.lue_Depot.EditValue.ToString();
+                string bgHandBookId = "";
+                if (!string.IsNullOrEmpty(this.cob_HandBookId.Text))
+                {
 
-                var list = new BL.StockManager().SelectOutAndInDepot(startDate, endDate, startCategoryID, endCategoryID);
+                    string[] bgHandBookIds = this.cob_HandBookId.Text.Split(',');
+                    foreach (var item in bgHandBookIds)
+                    {
+                        bgHandBookId += "'" + item.Trim() + "',";
+                    }
+                    bgHandBookId = bgHandBookId.TrimEnd(',');
+                }
+
+                var list = new BL.StockManager().SelectOutAndInDepot(startDate, endDate, startCategoryID, endCategoryID, depotId, bgHandBookId);
                 if (list.Count == 0)
                 {
                     MessageBox.Show("无数据", "提示", MessageBoxButtons.OK);

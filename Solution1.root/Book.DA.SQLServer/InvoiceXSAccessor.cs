@@ -143,13 +143,48 @@ namespace Book.DA.SQLServer
             return sqlmapper.QueryForList<Model.InvoiceXS>("InvoiceXS.selectCustomerInfo", xoid);
         }
 
-        public IList<Book.Model.InvoiceXS> SelectDateRangAndWhere(Model.Customer customer1, Model.Customer customer2, DateTime? dateStart, DateTime? dateEnd, DateTime JHDate1, DateTime JHDate2, string cusxoid, Model.Product product, string invoicexoid1, string invoicexoid2)
+        //public IList<Book.Model.InvoiceXS> SelectDateRangAndWhere(Model.Customer customer1, Model.Customer customer2, DateTime? dateStart, DateTime? dateEnd, DateTime JHDate1, DateTime JHDate2, string cusxoid, Model.Product product, string invoicexoid1, string invoicexoid2)
+        //{
+        //    Hashtable ht = new Hashtable();
+        //    ht.Add("dateStart", dateStart);
+        //    ht.Add("dateEnd", dateEnd);
+        //    StringBuilder sql = new StringBuilder();
+        //    sql.Append(" AND (InvoiceXOId IN (SELECT InvoiceId FROM InvoiceXO WHERE InvoiceYjrq BETWEEN '" + JHDate1.ToString("yyyy-MM-dd") + "' AND '" + JHDate2.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "')  or InvoiceXOId is null)");
+        //    if (customer1 != null || customer2 != null)
+        //    {
+        //        if (customer1 != null && customer2 != null)
+        //            sql.Append(" and  customerid BETWEEN '" + customer1.CustomerId + "' AND '" + customer2.CustomerId + "'");
+        //        else
+        //            sql.Append(" and customerid='" + (customer1 == null ? customer2.CustomerId : customer1.CustomerId) + "'");
+        //    }
+        //    if (!string.IsNullOrEmpty(cusxoid))
+        //        sql.Append(" and  InvoiceId in(select invoiceid from invoicexsdetail where invoicexoid in(select invoiceid from invoicexo where  CustomerInvoiceXOId like '%" + cusxoid + "%' ))");
+        //    if (!string.IsNullOrEmpty(invoicexoid1) || !string.IsNullOrEmpty(invoicexoid2))
+        //    {
+        //        if (!string.IsNullOrEmpty(invoicexoid1) && !string.IsNullOrEmpty(invoicexoid2))
+        //            sql.Append(" and  InvoiceId in(select invoiceid from invoicexsdetail where invoicexoid between '" + invoicexoid1 + "' and '" + invoicexoid2 + "')");
+        //        else
+        //            sql.Append(" and  InvoiceId in(select invoiceid from invoicexsdetail where invoicexoid='" + (string.IsNullOrEmpty(invoicexoid1) ? invoicexoid2 : invoicexoid1) + "')");
+        //    }
+        //    if (product != null)
+        //        sql.Append(" and  InvoiceId in(select invoiceid from invoicexsdetail where productid='" + product.ProductId + "')  ");
+
+        //    //if (IsForeigntrade == true)
+        //    //    sql.Append(" AND InvoiceXS.InvoiceId IN (SELECT InvoiceXSDetail.InvoiceId FROM InvoiceXSDetail WHERE InvoiceXOId IN (SELECT InvoiceXO.InvoiceId FROM InvoiceXO WHERE IsForeigntrade=1))");
+        //    ht.Add("sql", sql.ToString());
+        //    return sqlmapper.QueryForList<Book.Model.InvoiceXS>("InvoiceXS.select_where", ht);
+        //}
+
+        public IList<Book.Model.InvoiceXS> SelectDateRangAndWhere(Model.Customer customer1, Model.Customer customer2, DateTime? dateStart, DateTime? dateEnd, DateTime JHDate1, DateTime JHDate2, string cusxoid, Model.Product product, string invoicexoid1, string invoicexoid2, string depotId, string handBookId)
         {
             Hashtable ht = new Hashtable();
             ht.Add("dateStart", dateStart);
             ht.Add("dateEnd", dateEnd);
             StringBuilder sql = new StringBuilder();
             sql.Append(" AND (InvoiceXOId IN (SELECT InvoiceId FROM InvoiceXO WHERE InvoiceYjrq BETWEEN '" + JHDate1.ToString("yyyy-MM-dd") + "' AND '" + JHDate2.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "')  or InvoiceXOId is null)");
+
+            string xsDetailConditions = "";
+            sql.Append("  And InvoiceId in (select InvoiceId from InvoiceXSDetail where 1=1 " + xsDetailConditions + ")");
             if (customer1 != null || customer2 != null)
             {
                 if (customer1 != null && customer2 != null)
@@ -158,16 +193,21 @@ namespace Book.DA.SQLServer
                     sql.Append(" and customerid='" + (customer1 == null ? customer2.CustomerId : customer1.CustomerId) + "'");
             }
             if (!string.IsNullOrEmpty(cusxoid))
-                sql.Append(" and  InvoiceId in(select invoiceid from invoicexsdetail where invoicexoid in(select invoiceid from invoicexo where  CustomerInvoiceXOId like '%" + cusxoid + "%' ))");
+                xsDetailConditions += " and invoicexoid in(select invoiceid from invoicexo where  CustomerInvoiceXOId like '%" + cusxoid + "%' )";
             if (!string.IsNullOrEmpty(invoicexoid1) || !string.IsNullOrEmpty(invoicexoid2))
             {
                 if (!string.IsNullOrEmpty(invoicexoid1) && !string.IsNullOrEmpty(invoicexoid2))
-                    sql.Append(" and  InvoiceId in(select invoiceid from invoicexsdetail where invoicexoid between '" + invoicexoid1 + "' and '" + invoicexoid2 + "')");
+                    xsDetailConditions += " and invoicexoid between '" + invoicexoid1 + "' and '" + invoicexoid2 + "'";
                 else
-                    sql.Append(" and  InvoiceId in(select invoiceid from invoicexsdetail where invoicexoid='" + (string.IsNullOrEmpty(invoicexoid1) ? invoicexoid2 : invoicexoid1) + "')");
+                    xsDetailConditions += " and nvoicexoid='" + (string.IsNullOrEmpty(invoicexoid1) ? invoicexoid2 : invoicexoid1) + "'";
             }
             if (product != null)
-                sql.Append(" and  InvoiceId in(select invoiceid from invoicexsdetail where productid='" + product.ProductId + "')  ");
+                xsDetailConditions += " and productid='" + product.ProductId + "'";
+            if (!string.IsNullOrEmpty(depotId))
+                sql.Append(" and DepotId='" + depotId + "'");
+            if (!string.IsNullOrEmpty(handBookId))
+                xsDetailConditions += " and HandbookId in (" + handBookId + ")";
+
             //if (IsForeigntrade == true)
             //    sql.Append(" AND InvoiceXS.InvoiceId IN (SELECT InvoiceXSDetail.InvoiceId FROM InvoiceXSDetail WHERE InvoiceXOId IN (SELECT InvoiceXO.InvoiceId FROM InvoiceXO WHERE IsForeigntrade=1))");
             ht.Add("sql", sql.ToString());

@@ -33,7 +33,7 @@ namespace Book.UI.Invoices.XS
         {
             this.tag = 1;
 
-            this.bindingSource1.DataSource = ((BL.InvoiceXSManager)this.invoiceManager).SelectDateRangAndWhere(null, null, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, InvoiceCusId, null, null, null);
+            this.bindingSource1.DataSource = ((BL.InvoiceXSManager)this.invoiceManager).SelectDateRangAndWhere(null, null, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, InvoiceCusId, null, null, null, null, null);
             this.gridControl1.RefreshDataSource();
         }
 
@@ -61,7 +61,7 @@ namespace Book.UI.Invoices.XS
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 Query.ConditionX con = f.Condition as Query.ConditionX;
-                this.bindingSource1.DataSource = ((BL.InvoiceXSManager)this.invoiceManager).SelectDateRangAndWhere(con.Customer1, con.Customer2, con.StartDate, con.EndDate, con.Yjri1, con.Yjri2, con.CusXOId, con.Product, con.XOId1, con.XOId2);
+                this.bindingSource1.DataSource = ((BL.InvoiceXSManager)this.invoiceManager).SelectDateRangAndWhere(con.Customer1, con.Customer2, con.StartDate, con.EndDate, con.Yjri1, con.Yjri2, con.CusXOId, con.Product, con.XOId1, con.XOId2, con.DepotId, con.HandBookId);
             }
             f.Dispose();
             GC.Collect();

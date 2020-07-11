@@ -215,9 +215,17 @@ namespace Book.BL
             return accessor.SelectProductNoDepotout(years, productCategoryId);
         }
 
-        public IList<Model.StockSeach> SelectOutAndInDepot(DateTime startDate, DateTime endDate, string startProductCategory, string endProductCategory)
+        /// <summary>
+        /// 进出仓明细表
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="startProductCategory"></param>
+        /// <param name="endProductCategory"></param>
+        /// <returns></returns>
+        public IList<Model.StockSeach> SelectOutAndInDepot(DateTime startDate, DateTime endDate, string startProductCategory, string endProductCategory, string depotId, string handBookId)
         {
-            return accessor.SelectOutAndInDepot(startDate, endDate, startProductCategory, endProductCategory);
+            return accessor.SelectOutAndInDepot(startDate, endDate, startProductCategory, endProductCategory, depotId, handBookId);
         }
 
     }

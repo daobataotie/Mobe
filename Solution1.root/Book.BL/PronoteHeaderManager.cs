@@ -105,8 +105,6 @@ namespace Book.BL
 
         public void InsertWithOutTrans(Model.PronoteHeader pronoteHeader)
         {
-
-
             pronoteHeader.InsertTime = DateTime.Now;
             pronoteHeader.UpdateTime = DateTime.Now;
             TiGuiExists(pronoteHeader);

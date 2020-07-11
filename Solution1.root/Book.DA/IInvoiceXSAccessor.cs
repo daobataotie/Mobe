@@ -45,6 +45,6 @@ namespace Book.DA
 
         IList<Model.InvoiceXS> SelectCustomerInfo(string xoid);
 
-        IList<Book.Model.InvoiceXS> SelectDateRangAndWhere(Model.Customer customer1, Model.Customer customer2, DateTime? dateStart, DateTime? dateEnd, DateTime JHDate1, DateTime JHDate2, string cusxoid, Model.Product product, string invoicexoid1, string invoicexoid2);
+        IList<Book.Model.InvoiceXS> SelectDateRangAndWhere(Model.Customer customer1, Model.Customer customer2, DateTime? dateStart, DateTime? dateEnd, DateTime JHDate1, DateTime JHDate2, string cusxoid, Model.Product product, string invoicexoid1, string invoicexoid2, string depotId, string handBookId);
     }
 }

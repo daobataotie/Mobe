@@ -46,7 +46,7 @@ namespace Book.UI.Query
                     this.lblReprotCondition.Text += "\t…Ã∆∑:" + condition.Product.ToString() + "~" + condition.Product2.ToString();
 
             //bind
-            this.DataSource = this.detailManager.SelectbyConditionX(condition.StartDate, condition.EndDate, condition.Yjri1, condition.Yjri2, condition.Customer1, condition.Customer2, condition.XOId1, condition.XOId2, condition.Product, condition.Product2, condition.CusXOId, condition.OrderColumn, condition.OrderType);
+            this.DataSource = this.detailManager.SelectbyConditionX(condition.StartDate, condition.EndDate, condition.Yjri1, condition.Yjri2, condition.Customer1, condition.Customer2, condition.XOId1, condition.XOId2, condition.Product, condition.Product2, condition.CusXOId, condition.OrderColumn, condition.OrderType,condition.DepotId,condition.HandBookId);
 
             if (this.DataSource == null)
                 throw new global::Helper.InvalidValueException("üo”õ‰õ");

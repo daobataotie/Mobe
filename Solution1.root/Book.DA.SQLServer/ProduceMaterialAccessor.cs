@@ -69,7 +69,7 @@ namespace Book.DA.SQLServer
             return sqlmapper.QueryForObject<bool>("ProduceMaterial.existsId", id);
         }
 
-        public IList<Book.Model.ProduceMaterial> SelectBycondition(DateTime startDate, DateTime endDate, string produceMaterialId0, string produceMaterialId1, Book.Model.Product pId0, Book.Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1, string CusInvoiceXOId)
+        public IList<Book.Model.ProduceMaterial> SelectBycondition(DateTime startDate, DateTime endDate, string produceMaterialId0, string produceMaterialId1, Book.Model.Product pId0, Book.Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1, string CusInvoiceXOId, string handBookId)
         {
             SqlParameter[] parames = { 
                     new SqlParameter("@startDate", DbType.DateTime), 
@@ -133,7 +133,7 @@ namespace Book.DA.SQLServer
             StringBuilder sql = new StringBuilder();
             sql.Append("SELECT  w.Workhousename as WorkhouseName,p.*  ");
             sql.Append(", (SELECT ProductName+'{'+CustomerProductName+'}' FROM Product WHERE Product.ProductId = (SELECT PronoteHeader.ProductId FROM PronoteHeader WHERE PronoteHeader.PronoteHeaderID = p.InvoiceId)) AS ParenProductName");
-            sql.Append(", (SELECT  EmployeeName FROM employee where employee.employeeid=p.Employee0Id) as Employee0Name, (select  EmployeeName from employee where employee.employeeid=p.Employee1Id) as Employee1Name,(SELECT  EmployeeName FROM employee where employee.employeeid=p.Employee2Id) as Employee2Name");
+            sql.Append(", (SELECT  EmployeeName FROM employee where employee.employeeid=p.Employee0Id) as Employee0Name, (select  EmployeeName from employee where employee.employeeid=p.Employee1Id) as Employee1Name");  //,(SELECT  EmployeeName FROM employee where employee.employeeid=p.Employee2Id) as Employee2Name
             sql.Append(", (SELECT  CustomerInvoiceXOId FROM invoiceXO where invoiceXO.invoiceId=p.InvoiceXOId) as CusXOId ");
             //sql.Append(" ,");
             sql.Append(" from ProduceMaterial p left join  Workhouse w on w.WorkHouseId=p.WorkHouseId ");
@@ -152,6 +152,9 @@ namespace Book.DA.SQLServer
                 sql.Append(" AND p.InvoiceId between @PronoteHeaderId0 and @PronoteHeaderId1");
             if (!string.IsNullOrEmpty(CusInvoiceXOId))
                 sql.Append(" AND InvoiceXOId = (SELECT InvoiceId FROM InvoiceXO WHERE CustomerInvoiceXOId = @CusInvoiceXOId)");
+            if (!string.IsNullOrEmpty(handBookId))
+                sql.Append(" AND p.ProduceMaterialID in (select ProduceMaterialID from ProduceMaterialdetails where HandbookId='" + handBookId + "')");
+
             sql.Append(" order by p.ProduceMaterialID");
             return this.DataReaderBind<Model.ProduceMaterial>(sql.ToString(), parames, CommandType.Text);
             //Hashtable ht = new Hashtable();

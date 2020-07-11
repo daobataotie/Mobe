@@ -20,7 +20,7 @@ namespace Book.DA
         IList<Model.ProduceMaterial> SelectInvoiceId(string invoiceid);
         IList<Model.ProduceMaterial> SelectByDateRage(DateTime startdate, DateTime enddate, Model.Product product, bool isNoClose, string InvoiceCusXOId);
         IList<Model.ProduceMaterial> SelectState();
-        IList<Model.ProduceMaterial> SelectBycondition(DateTime starDate, DateTime endDate, string produceMaterialId0, string produceMaterialId1, Model.Product pId0, Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1, string CusInvoiceXOId);
+        IList<Model.ProduceMaterial> SelectBycondition(DateTime starDate, DateTime endDate, string produceMaterialId0, string produceMaterialId1, Model.Product pId0, Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1, string CusInvoiceXOId, string handBookId);
         bool IsDepotOut(string id);
     }
 }

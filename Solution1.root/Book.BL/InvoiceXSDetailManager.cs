@@ -98,9 +98,9 @@ namespace Book.BL
             return accessor.SelectByDateRange(startdate, enddate);
         }
 
-        public IList<Model.InvoiceXSDetail> SelectbyConditionX(DateTime StartDate, DateTime EndDate, DateTime Yjri1, DateTime Yjri2, Model.Customer Customer1, Model.Customer Customer2, string XOId1, string XOId2, Model.Product Product, Model.Product Product2, string CusXOId, int OrderColumn, int OrderType)
+        public IList<Model.InvoiceXSDetail> SelectbyConditionX(DateTime StartDate, DateTime EndDate, DateTime Yjri1, DateTime Yjri2, Model.Customer Customer1, Model.Customer Customer2, string XOId1, string XOId2, Model.Product Product, Model.Product Product2, string CusXOId, int OrderColumn, int OrderType, string depotId, string handBookId)
         {
-            return accessor.SelectbyConditionX(StartDate, EndDate, Yjri1, Yjri2, Customer1, Customer2, XOId1, XOId2, Product, Product2, CusXOId, OrderColumn, OrderType);
+            return accessor.SelectbyConditionX(StartDate, EndDate, Yjri1, Yjri2, Customer1, Customer2, XOId1, XOId2, Product, Product2, CusXOId, OrderColumn, OrderType,  depotId,  handBookId);
         }
 
         public System.Data.DataTable SelectbyConditionXBiao(DateTime StartDate, DateTime EndDate, DateTime Yjri1, DateTime Yjri2, Model.Customer Customer1, Model.Customer Customer2, string XOId1, string XOId2, Model.Product Product, Model.Product Product2, string CusXOId, int OrderColumn, int OrderType)

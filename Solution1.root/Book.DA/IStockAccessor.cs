@@ -57,7 +57,7 @@ namespace Book.DA
 
         System.Data.DataTable SelectProductNoDepotout(double years, string productCategoryId);
 
-        IList<Model.StockSeach> SelectOutAndInDepot(DateTime startDate, DateTime endDate, string startProductCategory, string endProductCategory);
+        IList<Model.StockSeach> SelectOutAndInDepot(DateTime startDate, DateTime endDate, string startProductCategory, string endProductCategory, string depotId, string handBookId);
     }
 }
 

@@ -453,7 +453,17 @@ namespace Book.DA.SQLServer
             return dt;
         }
 
-        public IList<Model.StockSeach> SelectOutAndInDepot(DateTime startDate, DateTime endDate, string startProductCategory, string endProductCategory)
+        /// <summary>
+        /// 进出仓明细表(Excel版)
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="startProductCategory"></param>
+        /// <param name="endProductCategory"></param>
+        /// <param name="depotId"></param>
+        /// <param name="handBookId"></param>
+        /// <returns></returns>
+        public IList<Model.StockSeach> SelectOutAndInDepot(DateTime startDate, DateTime endDate, string startProductCategory, string endProductCategory, string depotId, string handBookId)
         {
             #region 老版没有单据编号和客户订单号
             //StringBuilder sb = new StringBuilder("select a.InvoiceType,a.InvoiceDate,a.ProductId,a.ProductName,a.InvoiceQuantity,dp.Id as PositionName,pc1.ProductCategoryName as ProductCategoryName1,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3 from ( ");
@@ -512,6 +522,34 @@ namespace Book.DA.SQLServer
                     otherIn += category;
                     otherOut += category;
                 }
+            }
+
+            if (!String.IsNullOrEmpty(depotId))
+            {
+                depotIn += " and di.DepotId='" + depotId + "'";
+                depotOut += " and do.DepotId='" + depotId + "'";
+                cg += " and cg.DepotId='" + depotId + "'";
+                ct += " and ct.DepotId='" + depotId + "'";
+                xs += " and xs.DepotId='" + depotId + "'";
+                xt += " and xt.DepotId='" + depotId + "'";
+                produceIn += " and pi.DepotId='" + depotId + "'";
+                produceOut += " and pe.DepotId='" + depotId + "'";
+                otherIn += " and pi.DepotId='" + depotId + "'";
+                otherOut += " and pm.DepotId='" + depotId + "'";
+            }
+
+            if (!String.IsNullOrEmpty(handBookId))
+            {
+                depotIn += " and dd.HandbookId='" + handBookId + "'";
+                depotOut += " and dd.HandbookId='" + handBookId + "'";
+                cg += " and cd.HandbookId='" + handBookId + "'";
+                ct += " and cd.HandbookId='" + handBookId + "'";
+                xs += " and xd.HandbookId='" + handBookId + "'";
+                xt += " and xd.HandbookId='" + handBookId + "'";
+                produceIn += " and pd.HandbookId='" + handBookId + "' ";
+                produceOut += " and pd.HandbookId='" + handBookId + "' ";
+                otherIn += " and pd.HandbookId='" + handBookId + "'";
+                otherOut += " and pd.HandbookId='" + handBookId + "'";
             }
 
             sb.Append(depotIn);

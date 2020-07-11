@@ -240,7 +240,7 @@ namespace Book.UI.Query
 
             this.xrLabelReportName.Text = Properties.Resources.CHDetail;
             this.xrLabelDateRange.Text = string.Format(Properties.Resources.DateRange, start.ToString("yyyy-MM-dd"), end.ToString("yyyy/MM/dd"));
-            this.bindingSource1.DataSource = this.invoiceManager.SelectDateRangAndWhere(condition.Customer1, condition.Customer2, condition.StartDate, condition.EndDate, condition.Yjri1, condition.Yjri2, condition.CusXOId, condition.Product, condition.XOId1, condition.XOId2);
+            this.bindingSource1.DataSource = this.invoiceManager.SelectDateRangAndWhere(condition.Customer1, condition.Customer2, condition.StartDate, condition.EndDate, condition.Yjri1, condition.Yjri2, condition.CusXOId, condition.Product, condition.XOId1, condition.XOId2, condition.DepotId, condition.HandBookId);
 
             if (this.bindingSource1.DataSource == null)
             {

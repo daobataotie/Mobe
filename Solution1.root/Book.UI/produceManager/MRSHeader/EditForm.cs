@@ -825,16 +825,14 @@ namespace Book.UI.produceManager.MRSHeader
                         return;
                     }
                 }
+
                 try
                 {
+                    //需要开启事物，如果其中一笔生成失败，全部回滚
+                    BL.V.BeginTransaction();
 
-
-                    //BL.V.BeginTransaction();
                     foreach (Model.MRSdetails _mrsdetail in invoices)
                     {
-
-
-
                         no = 0;
                         pronoteHeader = new Book.Model.PronoteHeader();
 
@@ -1013,13 +1011,14 @@ namespace Book.UI.produceManager.MRSHeader
 
                         }
                     }
-                    //BL.V.CommitTransaction();
+
+                    BL.V.CommitTransaction();
                     MessageBox.Show("單據形成成功", this.Text, MessageBoxButtons.OK);
                     this.checkEditCheck.Checked = false;
                 }
                 catch (Exception ex)
                 {
-                    //BL.V.RollbackTransaction();
+                    BL.V.RollbackTransaction();
                     foreach (Model.MRSdetails item in this.mrsheader.Details)
                     {
                         if (item.CheckSign.HasValue && item.CheckSign.Value)

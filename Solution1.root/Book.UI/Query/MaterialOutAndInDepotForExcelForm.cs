@@ -82,6 +82,7 @@ namespace Book.UI.Query
                 DateTime endDate = this.date_End.DateTime.Date.AddDays(1).AddSeconds(-1);
                 string startCategoryID = (this.btn_StartCategory.EditValue == null ? null : (this.btn_StartCategory.EditValue as Model.ProductCategory).Id);
                 string endCategoryID = (this.btn_EndCategory.EditValue == null ? null : (this.btn_EndCategory.EditValue as Model.ProductCategory).Id);
+                string depotId = this.lue_Depot.EditValue == null ? null : this.lue_Depot.EditValue.ToString();
 
                 var list = new BL.StockManager().SelectOutAndInDepot(startDate, endDate, startCategoryID, endCategoryID);
                 if (list.Count == 0)

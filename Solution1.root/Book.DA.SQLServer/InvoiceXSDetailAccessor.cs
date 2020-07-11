@@ -109,7 +109,7 @@ namespace Book.DA.SQLServer
             return sqlmapper.QueryForList<Model.InvoiceXSDetail>("InvoiceXSDetail.SelectByDateRange", ht);
         }
 
-        public IList<Book.Model.InvoiceXSDetail> SelectbyConditionX(DateTime StartDate, DateTime EndDate, DateTime Yjri1, DateTime Yjri2, Book.Model.Customer Customer1, Book.Model.Customer Customer2, string XOId1, string XOId2, Book.Model.Product Product, Book.Model.Product Product2, string CusXOId, int OrderColumn, int OrderType)
+        public IList<Book.Model.InvoiceXSDetail> SelectbyConditionX(DateTime StartDate, DateTime EndDate, DateTime Yjri1, DateTime Yjri2, Book.Model.Customer Customer1, Book.Model.Customer Customer2, string XOId1, string XOId2, Book.Model.Product Product, Book.Model.Product Product2, string CusXOId, int OrderColumn, int OrderType, string depotId, string handBookId)
         {
             StringBuilder sb = new StringBuilder();
             if (Product != null && Product2 != null)
@@ -123,6 +123,10 @@ namespace Book.DA.SQLServer
                 sb.Append(" AND InvoiceId IN (SELECT InvoiceId FROM InvoiceXS WHERE CustomerId IN (SELECT CustomerId FROM Customer WHERE Id BETWEEN '" + Customer1.Id + "' AND '" + Customer2.Id + "'))");
             if (!string.IsNullOrEmpty(XOId1) && !string.IsNullOrEmpty(XOId2))
                 sb.Append(" AND InvoiceId BETWEEN '" + XOId1 + "' AND '" + XOId2 + "'");
+            if (!string.IsNullOrEmpty(depotId))
+                sb.Append(" AND InvoiceId IN (SELECT InvoiceId FROM InvoiceXS WHERE DepotId = '" + depotId + "')");
+            if (!string.IsNullOrEmpty(handBookId))
+                sb.Append(" and HandbookId  in (" + handBookId + ")");
 
             return sqlmapper.QueryForList<Model.InvoiceXSDetail>("InvoiceXSDetail.SelectbyConditionX", sb.ToString());
         }

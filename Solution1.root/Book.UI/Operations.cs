@@ -23,6 +23,8 @@ namespace Book.UI
             operations = new Dictionary<string, Delegate>();
 
             operations.Add("invoices.xo.edit-detail", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ROInvoiceXO", new Book.UI.Query.ConditionXChooseForm()); });
+            
+            //销售订单明细表
             operations.Add("invoices.xo.edit-detail1", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ROInvoiceXOlist", new Book.UI.Query.ConditionXChooseForm()); });
             operations.Add("invoices.co.edit-detail", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ROInvoiceCO", new Book.UI.Query.ConditionCOChooseForm()); });
             operations.Add("invoices.co.edit-detail1", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ROInvoiceCOlist", new Book.UI.Query.ConditionCOChooseForm()); });

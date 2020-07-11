@@ -32,7 +32,7 @@ namespace Book.UI.Query
         {
             InitializeComponent();
             this.MaterialCondidtion = condition;
-            IList<Model.ProduceMaterial> list = produceMaterialManager.SelectBycondition(condition.StartDate, condition.EndDate, condition.ProduceMaterialId0, condition.ProduceMaterialId1, condition.Product0, condition.Product1, condition.DepartmentId0, condition.DepartmentId1, condition.PronoteHeaderId0, condition.PronoteHeaderId1, condition.CusInvoiceXOId);
+            IList<Model.ProduceMaterial> list = produceMaterialManager.SelectBycondition(condition.StartDate, condition.EndDate, condition.ProduceMaterialId0, condition.ProduceMaterialId1, condition.Product0, condition.Product1, condition.DepartmentId0, condition.DepartmentId1, condition.PronoteHeaderId0, condition.PronoteHeaderId1, condition.CusInvoiceXOId, condition.HandBookId);
             if (list == null || list.Count <= 0)
             {
                 throw new global::Helper.InvalidValueException("查詢無記錄.");

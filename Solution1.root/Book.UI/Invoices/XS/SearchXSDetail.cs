@@ -28,7 +28,7 @@ namespace Book.UI.Invoices.XS
 
         protected override void LoadData()
         {
-            this.bsHeader.DataSource = this._mInvoiceXSManager.SelectDateRangAndWhere(null, null, this.dateEditStart.DateTime, this.dateEditEnd.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, "", null, null, null);
+            this.bsHeader.DataSource = this._mInvoiceXSManager.SelectDateRangAndWhere(null, null, this.dateEditStart.DateTime, this.dateEditEnd.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, "", null, null, null, null, null);
             if (this.bsHeader.Current != null)
             {
                 Model.InvoiceXS xs = this.bsHeader.Current as Model.InvoiceXS;
@@ -69,7 +69,7 @@ namespace Book.UI.Invoices.XS
         private void btnSearch_Click(object sender, EventArgs e)
         {
             this.RecordSelected();
-            this.bsHeader.DataSource = this._mInvoiceXSManager.SelectDateRangAndWhere(this.nccChuHuoCustomer.EditValue as Model.Customer, null, this.dateEditStart.DateTime, this.dateEditEnd.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, "", null, null, null);
+            this.bsHeader.DataSource = this._mInvoiceXSManager.SelectDateRangAndWhere(this.nccChuHuoCustomer.EditValue as Model.Customer, null, this.dateEditStart.DateTime, this.dateEditEnd.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, "", null, null, null, null, null);
             if (this.bsHeader.Current != null)
             {
                 Model.InvoiceXS xs = this.bsHeader.Current as Model.InvoiceXS;
@@ -91,7 +91,7 @@ namespace Book.UI.Invoices.XS
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 Query.ConditionX con = f.Condition as Query.ConditionX;
-                this.bsHeader.DataSource = this._mInvoiceXSManager.SelectDateRangAndWhere(con.Customer1, con.Customer2, con.StartDate, con.EndDate, con.Yjri1, con.Yjri2, con.CusXOId, con.Product, null, null);
+                this.bsHeader.DataSource = this._mInvoiceXSManager.SelectDateRangAndWhere(con.Customer1, con.Customer2, con.StartDate, con.EndDate, con.Yjri1, con.Yjri2, con.CusXOId, con.Product, con.XOId1, con.XOId2, con.DepotId, con.HandBookId);
                 if (this.bsHeader.Current != null)
                 {
                     Model.InvoiceXS xs = this.bsHeader.Current as Model.InvoiceXS;

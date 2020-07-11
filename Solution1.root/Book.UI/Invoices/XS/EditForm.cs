@@ -1233,5 +1233,19 @@ namespace Book.UI.Invoices.XS
                 this.textEditInvoiceId.Text = invoice.InvoiceId;
             }
         }
+
+        //销售出货明细表
+        private void bar_XOXSDetail_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Query.ConditionXChooseForm f = new Book.UI.Query.ConditionXChooseForm();
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                Query.ROInvoiceXOlist ro = new Book.UI.Query.ROInvoiceXOlist(f.Condition as Query.ConditionX);
+
+                ro.ShowPreviewDialog();
+            }
+            f.Dispose();
+            GC.Collect();
+        }
     }
 }

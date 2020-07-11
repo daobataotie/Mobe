@@ -260,9 +260,9 @@ namespace Book.BL
             return accessor.SelectState();
         }
 
-        public IList<Model.ProduceMaterial> SelectBycondition(DateTime starDate, DateTime endDate, string produceMaterialId0, string produceMaterialId1, Model.Product pId0, Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1, string CusInvoiceXOId)
+        public IList<Model.ProduceMaterial> SelectBycondition(DateTime starDate, DateTime endDate, string produceMaterialId0, string produceMaterialId1, Model.Product pId0, Model.Product pId1, string departmentId0, string departmentId1, string PronoteHeaderId0, string PronoteHeaderId1, string CusInvoiceXOId, string handBookId)
         {
-            return accessor.SelectBycondition(starDate, endDate, produceMaterialId0, produceMaterialId1, pId0, pId1, departmentId0, departmentId1, PronoteHeaderId0, PronoteHeaderId1, CusInvoiceXOId);
+            return accessor.SelectBycondition(starDate, endDate, produceMaterialId0, produceMaterialId1, pId0, pId1, departmentId0, departmentId1, PronoteHeaderId0, PronoteHeaderId1, CusInvoiceXOId, handBookId);
         }
 
         private void TiGuiExists(Model.ProduceMaterial model)
