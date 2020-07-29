@@ -207,10 +207,14 @@ namespace Book.UI.produceManager.ProduceMaterial
                 //    else
                 //        produceMaterialdetails.Materialprocessum = Convert.ToDouble(mRSdetails.Product.StocksQuantity) - Convert.ToDouble(mRSdetails.Product.ProduceMaterialDistributioned);
                 //}
+                produceMaterialdetails.NextWorkHouse = mRSdetails.WorkHouseNext;
+                produceMaterialdetails.NextWorkHouseId = mRSdetails.WorkHouseNextId;
                 produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailssum;     //修改：领料数量=需求数量
                 //produceMaterialdetails.Materialprocesedsum = PronoteMaterial.DetailsSum;                   
                 produceMaterialdetails.ProduceMaterialID = this._produceMaterial.ProduceMaterialID;
                 produceMaterialdetails.MPSDetailsSum = mRSdetails.MRSdetailsQuantity;
+                produceMaterialdetails.HandbookProductId = mRSdetails.HandbookProductId;
+                produceMaterialdetails.HandbookId = mRSdetails.HandbookId;
                 //produceMaterialdetails.InvoiceXOId = this.produceMaterial.pro;
                 //produceMaterialdetails.InvoiceXODetailId = Pronotedetails.InvoiceXODetailId;
                 dtlist.Add(produceMaterialdetails);
@@ -304,6 +308,9 @@ namespace Book.UI.produceManager.ProduceMaterial
                 produceMaterialdetails.Materialprocessum = PronoteMaterial.PronoteQuantity;
                 //produceMaterialdetails.Materialprocesedsum = PronoteMaterial.DetailsSum;
 
+                produceMaterialdetails.HandbookProductId = PronoteMaterial.PronoteHeader.HandbookProductId;
+                produceMaterialdetails.HandbookId = PronoteMaterial.PronoteHeader.HandbookId;
+
                 produceMaterialdetails.ProduceMaterialID = this._produceMaterial.ProduceMaterialID;
                 //produceMaterialdetails.InvoiceXOId = this.produceMaterial.pro;
                 //produceMaterialdetails.InvoiceXODetailId = Pronotedetails.InvoiceXODetailId;
@@ -333,7 +340,7 @@ namespace Book.UI.produceManager.ProduceMaterial
         {
             //if (this._TempIsChuCangupdate)
             //    throw new Helper.InvalidValueException(Model.ProduceMaterialdetails.PRO_Materialprocesedsum);
-            this._produceMaterial.InvoiceId = this.textEditPronoteHeaderID.Text; 
+            this._produceMaterial.InvoiceId = this.textEditPronoteHeaderID.Text;
             this._produceMaterial.ProduceMaterialID = this.textEditProduceMaterialID.Text;
             this._produceMaterial.ProduceMaterialdesc = this.textEditProduceMaterialdesc.Text;
             this._produceMaterial.SourceType = this.comboBoxEdit1.SelectedIndex;
@@ -874,7 +881,7 @@ namespace Book.UI.produceManager.ProduceMaterial
                     produceMaterialdetails.ProductSpecification = mRSdetails.Product.ProductSpecification;
                     produceMaterialdetails.NextWorkHouse = mRSdetails.WorkHouseNext;
                     produceMaterialdetails.NextWorkHouseId = mRSdetails.WorkHouseNextId;
-                    produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailsQuantity;
+                    produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailssum;
                     //produceMaterialdetails.Materialprocesedsum = PronoteMaterial.DetailsSum;                   
                     produceMaterialdetails.ProduceMaterialID = this._produceMaterial.ProduceMaterialID;
                     produceMaterialdetails.MPSDetailsSum = mRSdetails.MRSdetailsQuantity;
@@ -1213,7 +1220,11 @@ namespace Book.UI.produceManager.ProduceMaterial
                 this.calcEditInvoiceSum.Value = 0;
                 string xoid = PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].PronoteHeader.InvoiceXOId;
                 this.textEditPronoteHeaderID.Text = PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].PronoteHeaderID;
+
+                //只有数据来源于同一个加工单才显示主件商品
+                //if (PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList.GroupBy(p => p.PronoteHeaderID).Count() == 1)
                 this.textEditProduct.Text = string.IsNullOrEmpty(PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.CustomerProductName) ? PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.ProductName : PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.ProductName + "{" + PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].Product.CustomerProductName + "}";
+
                 this.invoiceId = PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].PronoteHeaderID;
                 this._produceMaterial.InvoiceXOId = xoid;
                 this.comboBoxEdit1.SelectedIndex = 0;
@@ -1269,8 +1280,8 @@ namespace Book.UI.produceManager.ProduceMaterial
                     produceMaterialdetails.Materialprocessum = PronoteMaterial.PronoteQuantity;
 
 
-                    produceMaterialdetails.HandbookProductId = PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].PronoteHeader.HandbookProductId;
-                    produceMaterialdetails.HandbookId = PronoteHeader.ChoosePronoteHeaderForm._PronotedetailsMaterialList[0].PronoteHeader.HandbookId;
+                    produceMaterialdetails.HandbookProductId = PronoteMaterial.PronoteHeader.HandbookProductId;
+                    produceMaterialdetails.HandbookId = PronoteMaterial.PronoteHeader.HandbookId;
 
                     //produceMaterialdetails.Materialprocesedsum = PronoteMaterial.DetailsSum;
 

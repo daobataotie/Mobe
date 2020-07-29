@@ -184,7 +184,6 @@ namespace Book.DA.SQLServer
             sql.Append(" AND (InvoiceXOId IN (SELECT InvoiceId FROM InvoiceXO WHERE InvoiceYjrq BETWEEN '" + JHDate1.ToString("yyyy-MM-dd") + "' AND '" + JHDate2.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "')  or InvoiceXOId is null)");
 
             string xsDetailConditions = "";
-            sql.Append("  And InvoiceId in (select InvoiceId from InvoiceXSDetail where 1=1 " + xsDetailConditions + ")");
             if (customer1 != null || customer2 != null)
             {
                 if (customer1 != null && customer2 != null)
@@ -208,6 +207,7 @@ namespace Book.DA.SQLServer
             if (!string.IsNullOrEmpty(handBookId))
                 xsDetailConditions += " and HandbookId in (" + handBookId + ")";
 
+            sql.Append("  And InvoiceId in (select InvoiceId from InvoiceXSDetail where 1=1 " + xsDetailConditions + ")");
             //if (IsForeigntrade == true)
             //    sql.Append(" AND InvoiceXS.InvoiceId IN (SELECT InvoiceXSDetail.InvoiceId FROM InvoiceXSDetail WHERE InvoiceXOId IN (SELECT InvoiceXO.InvoiceId FROM InvoiceXO WHERE IsForeigntrade=1))");
             ht.Add("sql", sql.ToString());

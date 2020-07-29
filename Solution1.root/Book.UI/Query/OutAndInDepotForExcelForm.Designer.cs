@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cob_HandBookId = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.lue_Depot = new DevExpress.XtraEditors.LookUpEdit();
             this.btn_EndCategory = new DevExpress.XtraEditors.ButtonEdit();
             this.btn_StartCategory = new DevExpress.XtraEditors.ButtonEdit();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
@@ -44,13 +46,13 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.lue_Depot = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cob_HandBookId = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSourceDepot = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Depot.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_EndCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_StartCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties.VistaTimeProperties)).BeginInit();
@@ -65,9 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lue_Depot.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepot)).BeginInit();
             this.SuspendLayout();
@@ -89,6 +89,33 @@
             this.layoutControl1.Size = new System.Drawing.Size(537, 147);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // cob_HandBookId
+            // 
+            this.cob_HandBookId.Location = new System.Drawing.Point(358, 62);
+            this.cob_HandBookId.Name = "cob_HandBookId";
+            this.cob_HandBookId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cob_HandBookId.Size = new System.Drawing.Size(167, 21);
+            this.cob_HandBookId.StyleController = this.layoutControl1;
+            this.cob_HandBookId.TabIndex = 66;
+            // 
+            // lue_Depot
+            // 
+            this.lue_Depot.Location = new System.Drawing.Point(100, 62);
+            this.lue_Depot.Name = "lue_Depot";
+            this.lue_Depot.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_Depot.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "编号"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepotName", "库房")});
+            this.lue_Depot.Properties.DataSource = this.bindingSourceDepot;
+            this.lue_Depot.Properties.DisplayMember = "DepotName";
+            this.lue_Depot.Properties.NullText = "";
+            this.lue_Depot.Properties.ValueMember = "DepotId";
+            this.lue_Depot.Size = new System.Drawing.Size(166, 21);
+            this.lue_Depot.StyleController = this.layoutControl1;
+            this.lue_Depot.TabIndex = 70;
             // 
             // btn_EndCategory
             // 
@@ -255,22 +282,6 @@
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // lue_Depot
-            // 
-            this.lue_Depot.Location = new System.Drawing.Point(100, 62);
-            this.lue_Depot.Name = "lue_Depot";
-            this.lue_Depot.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lue_Depot.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "编号"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DepotName", "库房")});
-            this.lue_Depot.Properties.DisplayMember = "DepotName";
-            this.lue_Depot.Properties.NullText = "";
-            this.lue_Depot.Properties.ValueMember = "DepotId";
-            this.lue_Depot.Size = new System.Drawing.Size(166, 21);
-            this.lue_Depot.StyleController = this.layoutControl1;
-            this.lue_Depot.TabIndex = 70;
-            // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.lue_Depot;
@@ -280,16 +291,6 @@
             this.layoutControlItem7.Size = new System.Drawing.Size(258, 25);
             this.layoutControlItem7.Text = "库房：";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(84, 14);
-            // 
-            // cob_HandBookId
-            // 
-            this.cob_HandBookId.Location = new System.Drawing.Point(358, 62);
-            this.cob_HandBookId.Name = "cob_HandBookId";
-            this.cob_HandBookId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cob_HandBookId.Size = new System.Drawing.Size(167, 21);
-            this.cob_HandBookId.StyleController = this.layoutControl1;
-            this.cob_HandBookId.TabIndex = 66;
             // 
             // layoutControlItem8
             // 
@@ -312,6 +313,8 @@
             this.Text = "进出仓明细(Excel版)";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Depot.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_EndCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_StartCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties.VistaTimeProperties)).EndInit();
@@ -326,9 +329,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lue_Depot.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepot)).EndInit();
             this.ResumeLayout(false);

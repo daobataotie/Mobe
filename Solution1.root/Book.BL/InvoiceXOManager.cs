@@ -332,9 +332,9 @@ namespace Book.BL
             return accessor.SelectNoDeal();
         }
 
-        public IList<Book.Model.InvoiceXO> SelectByYJRQCustomEmpCusXOId(Model.Customer customer1, Model.Customer customer2, DateTime startDate, DateTime endDate, DateTime yjrq1, DateTime yjrq2, Model.Employee employee1, Model.Employee employee2, string xoid1, string xoid2, string cusxoidkey, Model.Product product, Model.Product product2, bool isclose, bool mpsIsClose, bool isForeigntrade)
+        public IList<Book.Model.InvoiceXO> SelectByYJRQCustomEmpCusXOId(Model.Customer customer1, Model.Customer customer2, DateTime startDate, DateTime endDate, DateTime yjrq1, DateTime yjrq2, Model.Employee employee1, Model.Employee employee2, string xoid1, string xoid2, string cusxoidkey, Model.Product product, Model.Product product2, bool isclose, bool mpsIsClose, bool isForeigntrade, string handBookId)
         {
-            return accessor.SelectByYJRQCustomEmpCusXOId(customer1, customer2, startDate, endDate, yjrq1, yjrq2, employee1, employee2, xoid1, xoid2, cusxoidkey, product, product2, isclose, mpsIsClose, isForeigntrade);
+            return accessor.SelectByYJRQCustomEmpCusXOId(customer1, customer2, startDate, endDate, yjrq1, yjrq2, employee1, employee2, xoid1, xoid2, cusxoidkey, product, product2, isclose, mpsIsClose, isForeigntrade, handBookId);
         }
 
         public IList<Book.Model.InvoiceXO> SelectByCustomers(Model.Customer customer)

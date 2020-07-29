@@ -56,7 +56,7 @@ namespace Book.UI.produceManager.createProduce
             //switch(this.tagType)
             //   {
             //    case "mps" :
-            this.bindingSourceHeader.DataSource = this.invoiceXOManager.SelectByYJRQCustomEmpCusXOId(null, null, this.dateEditStart.DateTime, this.dateEditEnd.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, null, null, null, true, true, false);
+            this.bindingSourceHeader.DataSource = this.invoiceXOManager.SelectByYJRQCustomEmpCusXOId(null, null, this.dateEditStart.DateTime, this.dateEditEnd.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, null, null, null, true, true, false, null);
             //    break;
             //case "co" :
             //    this.bindingSourceHeader.DataSource = this.invoiceXOManager.SelectDateRangCusXOCustomer(DateTime.Now.Date.AddDays(-15),global::Helper.DateTimeParse.EndDate,null,null);
@@ -171,7 +171,7 @@ namespace Book.UI.produceManager.createProduce
             //switch (this.tagType)
             //{
             // case "mps":
-            this.bindingSourceHeader.DataSource = this.invoiceXOManager.SelectByYJRQCustomEmpCusXOId(this.newChooseCustomer.EditValue as Model.Customer, this.newChooseCustomer.EditValue as Model.Customer, this.dateEditStart.DateTime, this.dateEditEnd.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, this.txtCusXOId.Text, null, null, this.chkHasInvoiceClose.Checked, this.chkHasNotMRSOver.Checked, false);
+            this.bindingSourceHeader.DataSource = this.invoiceXOManager.SelectByYJRQCustomEmpCusXOId(this.newChooseCustomer.EditValue as Model.Customer, this.newChooseCustomer.EditValue as Model.Customer, this.dateEditStart.DateTime, this.dateEditEnd.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, this.txtCusXOId.Text, null, null, this.chkHasInvoiceClose.Checked, this.chkHasNotMRSOver.Checked, false, null);
             //    break;
             //case "co":
             //    this.bindingSourceHeader.DataSource = this.invoiceXOManager.SelectDateRangCusXOCustomer(this.dateEditStart.DateTime, this.dateEditEnd.DateTime, null, null);

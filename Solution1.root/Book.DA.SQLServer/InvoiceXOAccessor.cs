@@ -39,7 +39,7 @@ namespace Book.DA.SQLServer
             return sqlmapper.QueryForList<Book.Model.InvoiceXO>("InvoiceXO.select_byYJRQ", DateTime.Now);
         }
 
-        public IList<Book.Model.InvoiceXO> SelectByYJRQCustomEmpCusXOId(Model.Customer customer1, Model.Customer customer2, DateTime startDate, DateTime endDate, DateTime yjrq1, DateTime yjrq2, Model.Employee employee1, Model.Employee employee2, string xoid1, string xoid2, string cusxoidkey, Model.Product product, Model.Product product2, bool isclose, bool mpsIsClose, bool isForeigntrade)
+        public IList<Book.Model.InvoiceXO> SelectByYJRQCustomEmpCusXOId(Model.Customer customer1, Model.Customer customer2, DateTime startDate, DateTime endDate, DateTime yjrq1, DateTime yjrq2, Model.Employee employee1, Model.Employee employee2, string xoid1, string xoid2, string cusxoidkey, Model.Product product, Model.Product product2, bool isclose, bool mpsIsClose, bool isForeigntrade, string handBookId)
         {
             StringBuilder str = new StringBuilder();
             if (customer1 != null && customer2 != null)
@@ -58,6 +58,9 @@ namespace Book.DA.SQLServer
                 str.Append(" and InvoiceMPSState<>2");
             if (isForeigntrade)  //true 时只查询外销订单
                 str.Append(" and IsForeigntrade=1");
+            if (!string.IsNullOrEmpty(handBookId))
+                str.Append(" and InvoiceId in (select invoiceid from invoicexodetail where HandbookId in (" + handBookId + ")) ");
+
             str.Append("   ORDER BY InvoiceId   ");
             Hashtable ht = new Hashtable();
             ht.Add("startDate", startDate);

@@ -540,16 +540,16 @@ namespace Book.DA.SQLServer
 
             if (!String.IsNullOrEmpty(handBookId))
             {
-                depotIn += " and dd.HandbookId='" + handBookId + "'";
-                depotOut += " and dd.HandbookId='" + handBookId + "'";
-                cg += " and cd.HandbookId='" + handBookId + "'";
-                ct += " and cd.HandbookId='" + handBookId + "'";
-                xs += " and xd.HandbookId='" + handBookId + "'";
-                xt += " and xd.HandbookId='" + handBookId + "'";
-                produceIn += " and pd.HandbookId='" + handBookId + "' ";
-                produceOut += " and pd.HandbookId='" + handBookId + "' ";
-                otherIn += " and pd.HandbookId='" + handBookId + "'";
-                otherOut += " and pd.HandbookId='" + handBookId + "'";
+                depotIn += " and dd.HandbookId in (" + handBookId + ")";
+                depotOut += " and dd.HandbookId in (" + handBookId + ")";
+                cg += " and cd.HandbookId in (" + handBookId + ")";
+                ct += " and cd.HandbookId in (" + handBookId + ")";
+                xs += " and xd.HandbookId in (" + handBookId + ")";
+                xt += " and xd.HandbookId in (" + handBookId + ")";
+                produceIn += " and pd.HandbookId in (" + handBookId + ") ";
+                produceOut += " and pd.HandbookId in (" + handBookId + ") ";
+                otherIn += " and pd.HandbookId in (" + handBookId + ")";
+                otherOut += " and pd.HandbookId in (" + handBookId + ")";
             }
 
             sb.Append(depotIn);

@@ -27,7 +27,7 @@ namespace Book.UI.Invoices.XO
             : this()
         {
             this.tag = 1;
-            IList<Model.InvoiceXO> list = ((BL.InvoiceXOManager)this.invoiceManager).SelectByYJRQCustomEmpCusXOId(null, null, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, invoiceCusId, null, null, false, false, false);
+            IList<Model.InvoiceXO> list = ((BL.InvoiceXOManager)this.invoiceManager).SelectByYJRQCustomEmpCusXOId(null, null, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, invoiceCusId, null, null, false, false, false, null);
 
             this.bindingSource1.DataSource = list;
         }
@@ -39,7 +39,7 @@ namespace Book.UI.Invoices.XO
                 this.tag = 0;
                 return;
             }
-            IList<Model.InvoiceXO> list = ((BL.InvoiceXOManager)this.invoiceManager).SelectByYJRQCustomEmpCusXOId(null, null, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, null, null, null, false, false, false);
+            IList<Model.InvoiceXO> list = ((BL.InvoiceXOManager)this.invoiceManager).SelectByYJRQCustomEmpCusXOId(null, null, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, null, null, null, false, false, false, null);
 
             this.bindingSource1.DataSource = list;
         }
@@ -94,8 +94,8 @@ namespace Book.UI.Invoices.XO
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 Query.ConditionX condition = f.Condition as Query.ConditionX;
-                this.bindingSource1.DataSource = ((BL.InvoiceXOManager)this.invoiceManager).SelectByYJRQCustomEmpCusXOId(condition.Customer1, condition.Customer2, condition.StartDate, condition.EndDate, condition.Yjri1, condition.Yjri2, condition.Employee1, condition.Employee2, condition.XOId1, condition.XOId2, condition.CusXOId, condition.Product, condition.Product2, condition.IsClose, false, false);
-
+                this.bindingSource1.DataSource = ((BL.InvoiceXOManager)this.invoiceManager).SelectByYJRQCustomEmpCusXOId(condition.Customer1, condition.Customer2, condition.StartDate, condition.EndDate, condition.Yjri1, condition.Yjri2, condition.Employee1, condition.Employee2, condition.XOId1, condition.XOId2, condition.CusXOId, condition.Product, condition.Product2, condition.IsClose, false, false, condition.HandBookId);
+               
             }
             f.Dispose();
             GC.Collect();

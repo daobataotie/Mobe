@@ -24,7 +24,7 @@ namespace Book.UI.Invoices.XS
             get { return _key; }
             set { _key = value; }
         }
-        int tag=0;
+        int tag = 0;
 
         /// <summary>
         /// 选中的订单
@@ -49,7 +49,7 @@ namespace Book.UI.Invoices.XS
 
         public SearcharInvoiceXSForm(int i)
             : this()
-        { 
+        {
 
         }
 
@@ -58,7 +58,7 @@ namespace Book.UI.Invoices.XS
             Model.Customer customer = newChooseCustom.EditValue as Model.Customer;
             Model.Customer xocustomer = newChooseXOcustomer.EditValue as Model.Customer;
             Model.Employee emp = this.cbo_bussiness.EditValue as Model.Employee;
-            IList<Model.InvoiceXO> invoicesXO = invoiceXOManager.SelectByYJRQCustomEmpCusXOId(customer, xocustomer, this.dateEdit1.DateTime, this.dateEdit2.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, emp, emp, null, null, this.textEditCustomerXOInvoiceId.Text, null, null, this.ceIsClose.Checked, false, this.ceIsForeigntrade.Checked);
+            IList<Model.InvoiceXO> invoicesXO = invoiceXOManager.SelectByYJRQCustomEmpCusXOId(customer, xocustomer, this.dateEdit1.DateTime, this.dateEdit2.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, emp, emp, null, null, this.textEditCustomerXOInvoiceId.Text, null, null, this.ceIsClose.Checked, false, this.ceIsForeigntrade.Checked, null);
             this.bindingSource1.DataSource = invoicesXO;
             bandDetail();
         }
@@ -74,7 +74,7 @@ namespace Book.UI.Invoices.XS
 
         private void SearcharInvoiceXSForm_Load(object sender, EventArgs e)
         {
-            IList<Model.InvoiceXO> invoicesXO = invoiceXOManager.SelectByYJRQCustomEmpCusXOId(null, null, this.dateEdit1.DateTime, this.dateEdit2.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, null, null, null, false, false, false);
+            IList<Model.InvoiceXO> invoicesXO = invoiceXOManager.SelectByYJRQCustomEmpCusXOId(null, null, this.dateEdit1.DateTime, this.dateEdit2.DateTime, global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, null, null, null, null, null, null, false, false, false,null);
             this.bindingSource1.DataSource = invoicesXO;
         }
 

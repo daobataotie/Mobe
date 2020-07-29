@@ -62,6 +62,7 @@ namespace Book.UI.Invoices.XS
             {
                 Query.ConditionX con = f.Condition as Query.ConditionX;
                 this.bindingSource1.DataSource = ((BL.InvoiceXSManager)this.invoiceManager).SelectDateRangAndWhere(con.Customer1, con.Customer2, con.StartDate, con.EndDate, con.Yjri1, con.Yjri2, con.CusXOId, con.Product, con.XOId1, con.XOId2, con.DepotId, con.HandBookId);
+                
             }
             f.Dispose();
             GC.Collect();

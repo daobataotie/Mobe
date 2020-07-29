@@ -1240,7 +1240,7 @@ namespace Book.UI.Invoices.XS
             Query.ConditionXChooseForm f = new Book.UI.Query.ConditionXChooseForm();
             if (f.ShowDialog(this) == DialogResult.OK)
             {
-                Query.ROInvoiceXOlist ro = new Book.UI.Query.ROInvoiceXOlist(f.Condition as Query.ConditionX);
+                Query.ROInvoiceXOlist ro = new Book.UI.Query.ROInvoiceXOlist(f.Condition as Query.ConditionX, "出货明细表");
 
                 ro.ShowPreviewDialog();
             }

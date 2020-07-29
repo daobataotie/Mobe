@@ -24,6 +24,13 @@ namespace Book.UI.Invoices
             InitializeComponent();
             this.datetimeBase1 = DateTime.Now.Date.AddMonths(-1);
             this.datetimeBase2 = DateTime.Now.Date.AddDays(1).AddSeconds(-1);
+
+            this.bindingSource1.DataSourceChanged += new EventHandler(bindingSource1_DataSourceChanged);
+        }
+
+        void bindingSource1_DataSourceChanged(object sender, EventArgs e)
+        {
+            this.ShowStatistics();
         }
 
         protected virtual void ShowSearchForm()
