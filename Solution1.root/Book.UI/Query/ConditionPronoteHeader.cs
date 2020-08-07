@@ -63,5 +63,7 @@ namespace Book.UI.Query
             get { return _pronoteHeaderIdKey; }
             set { _pronoteHeaderIdKey = value; }
         }
+
+        public string HandbookId { get; set; }
     }
 }

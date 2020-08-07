@@ -39,6 +39,8 @@ namespace Book.DA
         double SelectMaterialQtyAll(string productid, DateTime dateEnd, string workHouseId);
 
         IList<Model.ProduceMaterialdetails> SelectMaterialsByProductIds(string productids, DateTime dateStart, DateTime dateEnd, string workHouseId, string invoiceXOIds);
+
+        IList<Model.ProduceMaterialdetails> GetDataByPronoteHeaders(string pronoteHeaderIds);
     }
 }
 

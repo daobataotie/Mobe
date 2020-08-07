@@ -244,8 +244,8 @@ namespace Book.UI.Settings.BasicData.Customs
 
                 //excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).BorderAround(1, -4138, -4105, "#000000");
                 //excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).BorderAround(1, XlBorderWeight.xlMedium, XlColorIndex.xlColorIndexAutomatic, "#000000");
-                sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[3, productShipmentList.Count + moreCol]).Interior.ColorIndex = 15;
-                sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[rowCount + 3, productShipmentList.Count + moreCol]).HorizontalAlignment = -4108;
+                sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[3, productShipmentList.Count + moreCol]).Interior.ColorIndex = 15;   //浅灰色
+                sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[rowCount + 3, productShipmentList.Count + moreCol]).HorizontalAlignment = -4108;   //居中对齐
                 sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[rowCount + 3, productShipmentList.Count + moreCol]).WrapText = true;
                 sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[rowCount + 3, productShipmentList.Count + moreCol]).EntireRow.AutoFit();
                 sheet.get_Range(sheet.Cells[4, 1], sheet.Cells[rowCount + 3, productShipmentList.Count + moreCol]).RowHeight = 20;
@@ -369,6 +369,7 @@ namespace Book.UI.Settings.BasicData.Customs
                 {
                     excel.Worksheets.Add(Missing.Value, sheet, Missing.Value, Missing.Value);
                     Microsoft.Office.Interop.Excel.Worksheet sheet2 = ((Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[2]);
+                    //sheet2.Name = "";
                     sheet2.Rows.AutoFit();
                     sheet2.Rows.WrapText = true;
                     sheet2.Rows.RowHeight = 20;

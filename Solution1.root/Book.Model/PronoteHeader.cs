@@ -172,6 +172,12 @@ namespace Book.Model
         //计划数量
         public double? Plannum { get; set; }
 
+        public string MaterialId { get; set; }
+
+        public string MaterialName { get; set; }
+
+        public double? MaterialQty { get; set; }
+
         public readonly static string PRO_CustomerCheckStandard = "CustomerCheckStandard";
         public readonly static string PRO_InvoiceId = "InvoiceId";
         public readonly static string PRO_CustomerInvoiceXOId = "CustomerInvoiceXOId";

@@ -27,7 +27,7 @@ namespace Book.UI.Query
         {
             InitializeComponent();
 
-            IList<Model.ProduceInDepotDetail> list = detailManager.Select(condition.StartPronoteHeader, condition.EndPronoteHeader, condition.StartDate, condition.EndDate, condition.Product, condition.WorkHouse, condition.MDepot, condition.MDepotPosition, condition.Id1, condition.Id2, condition.Cusxoid, condition.Customer1, condition.Customer2, condition.ProductState);
+            IList<Model.ProduceInDepotDetail> list = detailManager.Select(condition.StartPronoteHeader, condition.EndPronoteHeader, condition.StartDate, condition.EndDate, condition.Product, condition.WorkHouse, condition.MDepot, condition.MDepotPosition, condition.Id1, condition.Id2, condition.Cusxoid, condition.Customer1, condition.Customer2, condition.ProductState, condition.HandBookId);
             if (list == null || list.Count <= 0)
             {
                 throw new global::Helper.MessageValueException("無數據！");

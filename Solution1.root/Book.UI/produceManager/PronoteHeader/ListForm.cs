@@ -32,7 +32,7 @@ namespace Book.UI.produceManager.PronoteHeader
         {
             this.tag = 1;
 
-            listDetail = (this.manager as BL.PronoteHeaderManager).GetByDateMa(global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, invoiceCusId, null, null, null, -1, null, false, null, null, null, false, false, false);
+            listDetail = (this.manager as BL.PronoteHeaderManager).GetByDateMa(global::Helper.DateTimeParse.NullDate, global::Helper.DateTimeParse.EndDate, null, invoiceCusId, null, null, null, -1, null, false, null, null, null, false, false, false, null);
 
             foreach (Model.PronoteHeader pronoteHeader in listDetail)
             {
@@ -107,7 +107,7 @@ namespace Book.UI.produceManager.PronoteHeader
             }
             if (flag == 0)
             {
-                listDetail = (this.manager as BL.PronoteHeaderManager).GetByDateMa(DateTime.Now.AddDays(-7).Date, global::Helper.DateTimeParse.EndDate, null, null, null, null, null, -1, null, false, null, null, null, false, false, false);
+                listDetail = (this.manager as BL.PronoteHeaderManager).GetByDateMa(DateTime.Now.AddDays(-7).Date, global::Helper.DateTimeParse.EndDate, null, null, null, null, null, -1, null, false, null, null, null, false, false, false, null);
             }
             else
                 listDetail = (this.manager as BL.PronoteHeaderManager).Select(mrsheader);
@@ -133,7 +133,7 @@ namespace Book.UI.produceManager.PronoteHeader
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 ConditionPronoteHeader condition = f.Condition as ConditionPronoteHeader;
-                listDetail = (this.manager as BL.PronoteHeaderManager).GetByDateMa(condition.StartDate, condition.EndDate, condition.Customer, condition.CusXOId, condition.Product, condition.PronoteHeaderIdStart, condition.PronoteHeaderIdEnd, condition.SourceTpye, null, false, condition.ProNameKey, condition.ProCusNameKey, condition.PronoteHeaderIdKey, false, false, false);
+                listDetail = (this.manager as BL.PronoteHeaderManager).GetByDateMa(condition.StartDate, condition.EndDate, condition.Customer, condition.CusXOId, condition.Product, condition.PronoteHeaderIdStart, condition.PronoteHeaderIdEnd, condition.SourceTpye, null, false, condition.ProNameKey, condition.ProCusNameKey, condition.PronoteHeaderIdKey, false, false, false, condition.HandbookId);
                 foreach (Model.PronoteHeader pronoteHeader in listDetail)
                 {
                     pronoteHeader.Checkeds = true;

@@ -213,7 +213,7 @@ namespace Book.UI.produceManager.PronoteHeader
             {
                 endTime = this.dateEditEndDate.DateTime.Date.AddDays(1).AddSeconds(-1);
             }
-            this.bindingSource1.DataSource = this.pronoteHeaderManager.GetByDateMa(startTime, endTime, this.newChooseCustomer.EditValue as Model.Customer, this.textEditCusXOId.Text == "" ? null : this.textEditCusXOId.Text, this.buttonEditPro.EditValue as Model.Product, null, null, -1, null, false, this.TXTproNameKey.Text, this.TXTproCusNameKey.Text, this.txtpronoteHeaderIdKey.Text, false, false, false);
+            this.bindingSource1.DataSource = this.pronoteHeaderManager.GetByDateMa(startTime, endTime, this.newChooseCustomer.EditValue as Model.Customer, this.textEditCusXOId.Text == "" ? null : this.textEditCusXOId.Text, this.buttonEditPro.EditValue as Model.Product, null, null, -1, null, false, this.TXTproNameKey.Text, this.TXTproCusNameKey.Text, this.txtpronoteHeaderIdKey.Text, false, false, false,null);
 
             this.gridView1_Click(null, null);
         }

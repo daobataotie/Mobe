@@ -394,9 +394,9 @@ namespace Book.BL
             accessor.UpdateHeaderIsClse(pronoteheaderid, isclose);
         }
 
-        public IList<Book.Model.PronoteHeader> GetByDateMa(DateTime startDate, DateTime endDate, Model.Customer customer, string cusxoid, Model.Product product, string PronoteHeaderIdStart, string PronoteHeaderIdEnd, int sourcetype, string workhouseIndepot, bool jiean, string proNameKey, string proCusNameKey, string pronoteHeaderIdKey, bool sourcetype0, bool sourcetype4, bool sourcetype5)
+        public IList<Book.Model.PronoteHeader> GetByDateMa(DateTime startDate, DateTime endDate, Model.Customer customer, string cusxoid, Model.Product product, string PronoteHeaderIdStart, string PronoteHeaderIdEnd, int sourcetype, string workhouseIndepot, bool jiean, string proNameKey, string proCusNameKey, string pronoteHeaderIdKey, bool sourcetype0, bool sourcetype4, bool sourcetype5, string handBookId)
         {
-            return accessor.GetByDateMa(startDate, endDate, customer, cusxoid, product, PronoteHeaderIdStart, PronoteHeaderIdEnd, sourcetype, workhouseIndepot, jiean, proNameKey, proCusNameKey, pronoteHeaderIdKey, sourcetype0, sourcetype4, sourcetype5);
+            return accessor.GetByDateMa(startDate, endDate, customer, cusxoid, product, PronoteHeaderIdStart, PronoteHeaderIdEnd, sourcetype, workhouseIndepot, jiean, proNameKey, proCusNameKey, pronoteHeaderIdKey, sourcetype0, sourcetype4, sourcetype5, handBookId);
         }
 
         public IList<Book.Model.PronoteHeader> GetByDateZJ(DateTime startDate, DateTime endDate, Model.Customer customer, string cusxoid, Model.Product product, string PronoteHeaderIdStart, string PronoteHeaderIdEnd, int sourcetype, string workhouseIndepot, bool jiean, string proNameKey, string proCusNameKey, string pronoteHeaderIdKey, bool sourcetype0, bool sourcetype4, bool sourcetype5)
@@ -440,6 +440,32 @@ namespace Book.BL
         public string SelectCusXOIdByHeaderId(string headerId)
         {
             return accessor.SelectCusXOIdByHeaderId(headerId);
+        }
+
+        /// <summary>
+        /// 生产管理-明细查询-生产加工明细表，导出Excel
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="customer"></param>
+        /// <param name="cusxoid"></param>
+        /// <param name="product"></param>
+        /// <param name="PronoteHeaderIdStart"></param>
+        /// <param name="PronoteHeaderIdEnd"></param>
+        /// <param name="sourcetype"></param>
+        /// <param name="workhouseIndepot"></param>
+        /// <param name="jiean"></param>
+        /// <param name="proNameKey"></param>
+        /// <param name="proCusNameKey"></param>
+        /// <param name="pronoteHeaderIdKey"></param>
+        /// <param name="sourcetype0"></param>
+        /// <param name="sourcetype4"></param>
+        /// <param name="sourcetype5"></param>
+        /// <param name="handBookId"></param>
+        /// <returns></returns>
+        public IList<Book.Model.PronoteHeader> GetDataForExcel(DateTime startDate, DateTime endDate, Model.Customer customer, string cusxoid, Model.Product product, string PronoteHeaderIdStart, string PronoteHeaderIdEnd, int sourcetype, string workhouseIndepot, bool jiean, string proNameKey, string proCusNameKey, string pronoteHeaderIdKey, bool sourcetype0, bool sourcetype4, bool sourcetype5, string handBookId)
+        {
+            return accessor.GetDataForExcel(startDate, endDate, customer, cusxoid, product, PronoteHeaderIdStart, PronoteHeaderIdEnd, sourcetype, workhouseIndepot, jiean, proNameKey, proCusNameKey, pronoteHeaderIdKey, sourcetype0, sourcetype4, sourcetype5, handBookId);
         }
     }
 }

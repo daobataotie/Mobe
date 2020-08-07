@@ -127,6 +127,11 @@ namespace Book.BL
         {
             return accessor.SelectMaterialsByProductIds(productids, dateStart, dateEnd, workHouseId, invoiceXOIds);
         }
+
+        public IList<Model.ProduceMaterialdetails> GetDataByPronoteHeaders(string pronoteHeaderIds)
+        {
+            return accessor.GetDataByPronoteHeaders(pronoteHeaderIds);
+        }
     }
 }
 

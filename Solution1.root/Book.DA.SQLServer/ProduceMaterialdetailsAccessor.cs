@@ -256,5 +256,12 @@ namespace Book.DA.SQLServer
 
             return this.DataReaderBind<Model.ProduceMaterialdetails>(sql, null, CommandType.Text);
         }
+
+        public IList<Model.ProduceMaterialdetails> GetDataByPronoteHeaders(string pronoteHeaderIds)
+        {
+            string sql = "select pm.ProduceMaterialID,pm.ProduceMaterialDate,pro.Id as PID,pro.ProductName,pro.CustomerProductName,pmd.HandbookId,pmd.HandbookProductId,pmd.Materialprocessum,w.Workhousename as WorkhouseName,pmd.Distributioned,xo.CustomerInvoiceXOId as CusXOId ,pmd.ProductStock,pm.ProduceMaterialdesc,pmd.PronoteHeaderID from ProduceMaterialdetails pmd left join ProduceMaterial pm on pmd.ProduceMaterialID=pm.ProduceMaterialID left join Product pro on pro.ProductId=pmd.ProductId left join WorkHouse w on w.WorkHouseId=pm.WorkHouseId left join InvoiceXO xo on xo.InvoiceId=pm.InvoiceXOId where pmd.PronoteHeaderID in (" + pronoteHeaderIds + ") order by pm.ProduceMaterialDate,pm.ProduceMaterialID";
+
+            return this.DataReaderBind<Model.ProduceMaterialdetails>(sql, null, CommandType.Text);
+        }
     }
 }
