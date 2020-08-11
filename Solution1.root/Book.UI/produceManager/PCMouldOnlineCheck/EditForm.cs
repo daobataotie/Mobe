@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using System.Reflection;
 
 namespace Book.UI.produceManager.PCMouldOnlineCheck
 {
@@ -15,8 +17,9 @@ namespace Book.UI.produceManager.PCMouldOnlineCheck
         BL.PCMouldOnlineCheckManager manager = new Book.BL.PCMouldOnlineCheckManager();
         BL.ProductManager productManager = new Book.BL.ProductManager();
         BL.InvoiceXOManager invoiceXOManager = new Book.BL.InvoiceXOManager();
-
         int LastFlag = 0;
+        List<ColumnHelper> listColumn = new List<ColumnHelper>();
+
         public EditForm()
         {
             InitializeComponent();
@@ -28,6 +31,60 @@ namespace Book.UI.produceManager.PCMouldOnlineCheck
             this.action = "view";
             this.nccEmployee.Choose = new Settings.BasicData.Employees.ChooseEmployee();
             this.bindingSourceEmployee.DataSource = new BL.EmployeeManager().SelectOnActive();
+
+            #region LookUpEditor
+
+            DataTable dt = new DataTable();
+            //DataColumn dc = new DataColumn("id", typeof(string));
+            DataColumn dc1 = new DataColumn("name", typeof(string));
+            //dt.Columns.Add(dc);
+            dt.Columns.Add(dc1);
+            DataRow dr;
+            dr = dt.NewRow();
+            //dr[0] = "-1";
+            dr[0] = string.Empty;
+            dt.Rows.Add(dr);
+            dr = dt.NewRow();
+            //dr[0] = "0";
+            dr[0] = "√";
+            dt.Rows.Add(dr);
+            dr = dt.NewRow();
+            //dr[0] = "1";
+            dr[0] = "△";
+            dt.Rows.Add(dr);
+            dr = dt.NewRow();
+            //dr[0] = "2";
+            dr[0] = "X";
+            dt.Rows.Add(dr);
+
+            for (int i = 0; i < this.gridView1.Columns.Count; i++)
+            {
+                if (this.gridView1.Columns[i].ColumnEdit is DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit && this.gridView1.Columns[i].Name != "gridColumnEmployee")
+                {
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).DataSource = dt;
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).Columns.Clear();
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+                    new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name",25, "标识"),
+                     });
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).DisplayMember = "name";
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).ValueMember = "name";
+                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).NullText = "";
+
+                    //获取此类型列的集合
+                    listColumn.Add(new ColumnHelper
+                    {
+                        ColumnName = this.gridView1.Columns[i].Name,
+                        ColumnCaption = this.gridView1.Columns[i].Caption,
+                        ColumnFieldName = this.gridView1.Columns[i].FieldName
+                    });
+                }
+            }
+
+            #endregion
+
+            this.ccob_AutoFillColumn.Properties.DataSource = listColumn;
+            this.ccob_AutoFillColumn.Properties.DisplayMember = "ColumnCaption";
+            this.ccob_AutoFillColumn.Properties.ValueMember = "ColumnFieldName";
         }
 
         public EditForm(Model.PCMouldOnlineCheck model)
@@ -137,47 +194,6 @@ namespace Book.UI.produceManager.PCMouldOnlineCheck
             this.dateEdit1.EditValue = this._pCMouldOnlineCheck.PCMouldOnlineCheckDate;
             this.nccEmployee.EditValue = this._pCMouldOnlineCheck.Employee;
 
-            #region LookUpEditor
-
-            DataTable dt = new DataTable();
-            //DataColumn dc = new DataColumn("id", typeof(string));
-            DataColumn dc1 = new DataColumn("name", typeof(string));
-            //dt.Columns.Add(dc);
-            dt.Columns.Add(dc1);
-            DataRow dr;
-            dr = dt.NewRow();
-            //dr[0] = "-1";
-            dr[0] = string.Empty;
-            dt.Rows.Add(dr);
-            dr = dt.NewRow();
-            //dr[0] = "0";
-            dr[0] = "√";
-            dt.Rows.Add(dr);
-            dr = dt.NewRow();
-            //dr[0] = "1";
-            dr[0] = "△";
-            dt.Rows.Add(dr);
-            dr = dt.NewRow();
-            //dr[0] = "2";
-            dr[0] = "X";
-            dt.Rows.Add(dr);
-
-            for (int i = 0; i < this.gridView1.Columns.Count; i++)
-            {
-                if (this.gridView1.Columns[i].ColumnEdit is DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit && this.gridView1.Columns[i].Name != "gridColumnEmployee")
-                {
-                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).DataSource = dt;
-                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).Columns.Clear();
-                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-                    new DevExpress.XtraEditors.Controls.LookUpColumnInfo("name",25, "标识"),
-                     });
-                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).DisplayMember = "name";
-                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).ValueMember = "name";
-                    ((DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)this.gridView1.Columns[i].ColumnEdit).NullText = "";
-                }
-            }
-
-            #endregion
 
             this.bindingSourceDetail.DataSource = this._pCMouldOnlineCheck.Detail;
 
@@ -320,5 +336,70 @@ namespace Book.UI.produceManager.PCMouldOnlineCheck
             return "PCMouldOnlineCheck" + "," + this._pCMouldOnlineCheck.PCMouldOnlineCheckId;
         }
         #endregion
+
+        private void btn_AutoFill_Click(object sender, EventArgs e)
+        {
+            List<PropertyInfo> listProInfo = new List<PropertyInfo>();
+
+            foreach (CheckedListBoxItem item in this.ccob_AutoFillColumn.Properties.Items)
+            {
+                if (item.CheckState == CheckState.Checked)
+                {
+                    PropertyInfo pi = new Book.Model.PCMouldOnlineCheckDetail().GetType().GetProperty(item.Value.ToString());
+                    if (pi != null)
+                        listProInfo.Add(pi);
+                }
+            }
+            var detailList = this.bindingSourceDetail.DataSource as IList<Model.PCMouldOnlineCheckDetail>;
+            if (detailList != null && detailList.Count > 0)
+            {
+                foreach (var detail in detailList)
+                {
+                    foreach (var item in listProInfo)
+                    {
+                        item.SetValue(detail, "√", null);
+                    }
+                }
+
+                this.gridControl1.RefreshDataSource();
+            }
+        }
+
+        private void btn_AutoClean_Click(object sender, EventArgs e)
+        {
+            List<PropertyInfo> listProInfo = new List<PropertyInfo>();
+
+            foreach (CheckedListBoxItem item in this.ccob_AutoFillColumn.Properties.Items)
+            {
+                if (item.CheckState == CheckState.Checked)
+                {
+                    PropertyInfo pi = new Book.Model.PCMouldOnlineCheckDetail().GetType().GetProperty(item.Value.ToString());
+                    if (pi != null)
+                        listProInfo.Add(pi);
+                }
+            }
+            var detailList = this.bindingSourceDetail.DataSource as IList<Model.PCMouldOnlineCheckDetail>;
+            if (detailList != null && detailList.Count > 0)
+            {
+                foreach (var detail in detailList)
+                {
+                    foreach (var item in listProInfo)
+                    {
+                        item.SetValue(detail, null, null);
+                    }
+                }
+
+                this.gridControl1.RefreshDataSource();
+            }
+        }
+    }
+
+    public class ColumnHelper
+    {
+        public string ColumnName { get; set; }
+
+        public string ColumnCaption { get; set; }
+
+        public string ColumnFieldName { get; set; }
     }
 }

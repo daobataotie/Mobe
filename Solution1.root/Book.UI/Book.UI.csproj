@@ -4530,6 +4530,30 @@
       <DependentUpon>ENEarProtectRO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\Editform.resx">
+      <DependentUpon>Editform.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\Editform.zh-CHT.resx">
+      <DependentUpon>Editform.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\List.resx">
+      <DependentUpon>List.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\List.zh-CHT.resx">
+      <DependentUpon>List.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\RO.resx">
+      <DependentUpon>RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\RO.zh-CHT.resx">
+      <DependentUpon>RO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCFlameRetardant\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -11715,6 +11739,24 @@
     </Compile>
     <Compile Include="produceManager\PCExportReportANSI\ENEarProtectRO.Designer.cs">
       <DependentUpon>ENEarProtectRO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCFirstOnlineCheck\Editform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCFirstOnlineCheck\Editform.Designer.cs">
+      <DependentUpon>Editform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCFirstOnlineCheck\List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCFirstOnlineCheck\List.Designer.cs">
+      <DependentUpon>List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCFirstOnlineCheck\RO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCFirstOnlineCheck\RO.Designer.cs">
+      <DependentUpon>RO.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCFlameRetardant\ConditionForm.cs">
       <SubType>Form</SubType>

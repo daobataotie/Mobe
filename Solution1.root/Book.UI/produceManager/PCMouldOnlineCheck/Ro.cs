@@ -35,6 +35,9 @@ namespace Book.UI.produceManager.PCMouldOnlineCheck
             this.TCMark.DataBindings.Add("Text", this.DataSource, Model.PCMouldOnlineCheckDetail.PRO_Mark);
             this.TCAbnormal.DataBindings.Add("Text", this.DataSource, Model.PCMouldOnlineCheckDetail.PRO_Abnormal);
             this.TCEmployee.DataBindings.Add("Text", this.DataSource, "Employee." + Model.Employee.PROPERTY_EMPLOYEENAME);
+
+            //2018年8月30日17:49:26
+            this.TCAppearance.DataBindings.Add("Text", this.DataSource, Model.PCMouldOnlineCheckDetail.PRO_Appearance);
         }
     }
 }

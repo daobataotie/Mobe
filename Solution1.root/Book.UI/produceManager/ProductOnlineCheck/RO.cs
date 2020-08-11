@@ -18,7 +18,7 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             : this()
         {
             this.lbl_CompanyName.Text = BL.Settings.CompanyChineseName;
-            this.lbl_ReportName.Text = Properties.Resources.ProductOnlineCheck;
+            this.lbl_ReportName.Text = "首件上线检查表";  //Properties.Resources.ProductOnlineCheck;
             //this.lbl_PrintDate.Text += DateTime.Now.ToString("yyyy-MM-dd");
 
             this.lbl_Id.Text = model.ProductOnlineCheckId;

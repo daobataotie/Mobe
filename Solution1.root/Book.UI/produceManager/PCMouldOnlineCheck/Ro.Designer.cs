@@ -43,6 +43,7 @@
             this.TCFlap = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCSandwichedConfirm = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCMark = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCAppearance = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCAbnormal = new DevExpress.XtraReports.UI.XRTableCell();
             this.TCEmployee = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
@@ -63,6 +64,7 @@
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
@@ -110,6 +112,7 @@
             this.TCFlap,
             this.TCSandwichedConfirm,
             this.TCMark,
+            this.TCAppearance,
             this.TCAbnormal,
             this.TCEmployee});
             resources.ApplyResources(this.xrTableRow2, "xrTableRow2");
@@ -134,37 +137,37 @@
             // 
             resources.ApplyResources(this.TCOnlineDate, "TCOnlineDate");
             this.TCOnlineDate.Name = "TCOnlineDate";
-            this.TCOnlineDate.Weight = 0.37608717355355992;
+            this.TCOnlineDate.Weight = 0.31213182250562221;
             // 
             // TCCheckDate
             // 
             resources.ApplyResources(this.TCCheckDate, "TCCheckDate");
             this.TCCheckDate.Name = "TCCheckDate";
-            this.TCCheckDate.Weight = 0.32994340460315108;
+            this.TCCheckDate.Weight = 0.31395479736306875;
             // 
             // TCBurr
             // 
             resources.ApplyResources(this.TCBurr, "TCBurr");
             this.TCBurr.Name = "TCBurr";
-            this.TCBurr.Weight = 0.12209085584146925;
+            this.TCBurr.Weight = 0.12608792120577658;
             // 
             // TCBruise
             // 
             resources.ApplyResources(this.TCBruise, "TCBruise");
             this.TCBruise.Name = "TCBruise";
-            this.TCBruise.Weight = 0.13408094530575673;
+            this.TCBruise.Weight = 0.11409513438822581;
             // 
             // TCShrink
             // 
             resources.ApplyResources(this.TCShrink, "TCShrink");
             this.TCShrink.Name = "TCShrink";
-            this.TCShrink.Weight = 0.13099545964067866;
+            this.TCShrink.Weight = 0.11900426354775673;
             // 
             // TCForColor
             // 
             resources.ApplyResources(this.TCForColor, "TCForColor");
             this.TCForColor.Name = "TCForColor";
-            this.TCForColor.Weight = 0.13099582841396817;
+            this.TCForColor.Weight = 0.11900389465095962;
             // 
             // TCFlap
             // 
@@ -176,25 +179,31 @@
             // 
             resources.ApplyResources(this.TCSandwichedConfirm, "TCSandwichedConfirm");
             this.TCSandwichedConfirm.Name = "TCSandwichedConfirm";
-            this.TCSandwichedConfirm.Weight = 0.12899766317728728;
+            this.TCSandwichedConfirm.Weight = 0.10901196752070738;
             // 
             // TCMark
             // 
             resources.ApplyResources(this.TCMark, "TCMark");
             this.TCMark.Name = "TCMark";
-            this.TCMark.Weight = 0.11521152224350947;
+            this.TCMark.Weight = 0.1275564335898709;
+            // 
+            // TCAppearance
+            // 
+            resources.ApplyResources(this.TCAppearance, "TCAppearance");
+            this.TCAppearance.Name = "TCAppearance";
+            this.TCAppearance.Weight = 0.23148345257725081;
             // 
             // TCAbnormal
             // 
             resources.ApplyResources(this.TCAbnormal, "TCAbnormal");
             this.TCAbnormal.Name = "TCAbnormal";
-            this.TCAbnormal.Weight = 0.23136045474463421;
+            this.TCAbnormal.Weight = 0.25934083438239364;
             // 
             // TCEmployee
             // 
             resources.ApplyResources(this.TCEmployee, "TCEmployee");
             this.TCEmployee.Name = "TCEmployee";
-            this.TCEmployee.Weight = 0.21412147526127567;
+            this.TCEmployee.Weight = 0.17414971511307259;
             // 
             // TopMargin
             // 
@@ -258,6 +267,7 @@
             this.xrTableCell6,
             this.xrTableCell7,
             this.xrTableCell11,
+            this.xrTableCell14,
             this.xrTableCell12,
             this.xrTableCell13});
             resources.ApplyResources(this.xrTableRow1, "xrTableRow1");
@@ -281,67 +291,73 @@
             // 
             resources.ApplyResources(this.xrTableCell2, "xrTableCell2");
             this.xrTableCell2.Name = "xrTableCell2";
-            this.xrTableCell2.Weight = 0.3760868969272777;
+            this.xrTableCell2.Weight = 0.3121317302968617;
             // 
             // xrTableCell5
             // 
             resources.ApplyResources(this.xrTableCell5, "xrTableCell5");
             this.xrTableCell5.Name = "xrTableCell5";
-            this.xrTableCell5.Weight = 0.32994370428162367;
+            this.xrTableCell5.Weight = 0.31395488957182949;
             // 
             // xrTableCell8
             // 
             resources.ApplyResources(this.xrTableCell8, "xrTableCell8");
             this.xrTableCell8.Name = "xrTableCell8";
-            this.xrTableCell8.Weight = 0.12209067142394763;
+            this.xrTableCell8.Weight = 0.12608792120577661;
             // 
             // xrTableCell3
             // 
             resources.ApplyResources(this.xrTableCell3, "xrTableCell3");
             this.xrTableCell3.Name = "xrTableCell3";
-            this.xrTableCell3.Weight = 0.13408131414080013;
+            this.xrTableCell3.Weight = 0.11409514591432102;
             // 
             // xrTableCell9
             // 
             resources.ApplyResources(this.xrTableCell9, "xrTableCell9");
             this.xrTableCell9.Name = "xrTableCell9";
-            this.xrTableCell9.Weight = 0.13099526369706194;
+            this.xrTableCell9.Weight = 0.11900426354775674;
             // 
             // xrTableCell10
             // 
             resources.ApplyResources(this.xrTableCell10, "xrTableCell10");
             this.xrTableCell10.Name = "xrTableCell10";
-            this.xrTableCell10.Weight = 0.13099582841396817;
+            this.xrTableCell10.Weight = 0.11900407906848126;
             // 
             // xrTableCell6
             // 
             resources.ApplyResources(this.xrTableCell6, "xrTableCell6");
             this.xrTableCell6.Name = "xrTableCell6";
-            this.xrTableCell6.Weight = 0.11809249949275955;
+            this.xrTableCell6.Weight = 0.11809249949275953;
             // 
             // xrTableCell7
             // 
             resources.ApplyResources(this.xrTableCell7, "xrTableCell7");
             this.xrTableCell7.Name = "xrTableCell7";
-            this.xrTableCell7.Weight = 0.128997847594809;
+            this.xrTableCell7.Weight = 0.10901196752070747;
             // 
             // xrTableCell11
             // 
             resources.ApplyResources(this.xrTableCell11, "xrTableCell11");
             this.xrTableCell11.Name = "xrTableCell11";
-            this.xrTableCell11.Weight = 0.11521152224350945;
+            this.xrTableCell11.Weight = 0.12755643358987093;
+            // 
+            // xrTableCell14
+            // 
+            resources.ApplyResources(this.xrTableCell14, "xrTableCell14");
+            this.xrTableCell14.Name = "xrTableCell14";
+            this.xrTableCell14.Weight = 0.23148345257725084;
             // 
             // xrTableCell12
             // 
             resources.ApplyResources(this.xrTableCell12, "xrTableCell12");
             this.xrTableCell12.Name = "xrTableCell12";
-            this.xrTableCell12.Weight = 0.2313604432185391;
+            this.xrTableCell12.Weight = 0.25934082285629856;
             // 
             // xrTableCell13
             // 
             resources.ApplyResources(this.xrTableCell13, "xrTableCell13");
             this.xrTableCell13.Name = "xrTableCell13";
-            this.xrTableCell13.Weight = 0.21412129084375403;
+            this.xrTableCell13.Weight = 0.174149530695551;
             // 
             // xrLabel2
             // 
@@ -419,7 +435,7 @@
             this.ReportFooter,
             this.PageFooter});
             resources.ApplyResources(this, "$this");
-            this.Margins = new System.Drawing.Printing.Margins(79, 79, 79, 79);
+            this.Margins = new System.Drawing.Printing.Margins(50, 50, 79, 79);
             this.PageHeight = 2794;
             this.PageWidth = 2159;
             this.Version = "10.2";
@@ -476,5 +492,7 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell12;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell13;
         private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
+        private DevExpress.XtraReports.UI.XRTableCell TCAppearance;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
     }
 }

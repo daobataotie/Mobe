@@ -20,6 +20,7 @@
       <result property="Mark" column="Mark" />
       <result property="Abnormal" column="Abnormal" />
       <result property="EmployeeId" column="EmployeeId" />
+      <result property="Appearance" column="Appearance"/>
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo" />
       <result property="PCMouldOnlineCheck" column="PCMouldOnlineCheckId" lazyLoad="false" select="PCMouldOnlineCheck.select_by_primary_key" />

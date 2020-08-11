@@ -22,6 +22,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="Mark" column="Mark" />
       <result property="Abnormal" column="Abnormal" />
       <result property="EmployeeId" column="EmployeeId" />
+      <result property="Appearance" column="Appearance"/>
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo" />
       <result property="PCMouldOnlineCheck" column="PCMouldOnlineCheckId" lazyLoad="false" select="PCMouldOnlineCheck.select_by_primary_key" />
@@ -70,7 +71,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[SandwichedConfirm],
 				[Mark],
 				[Abnormal],
-				[EmployeeId]
+				[EmployeeId],
+        [Appearance]
 			FROM
 				[dbo].[PCMouldOnlineCheckDetail]
 			WHERE
@@ -139,7 +141,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[SandwichedConfirm],
 				[Mark],
 				[Abnormal],
-				[EmployeeId]
+				[EmployeeId],
+        [Appearance]
 			) 
 			VALUES 
 			(
@@ -158,7 +161,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#SandwichedConfirm#,
 				#Mark#,
 				#Abnormal#,
-				#EmployeeId#
+				#EmployeeId#,
+        #Appearance#
 			)
              ]]>
     </insert>
@@ -180,7 +184,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[SandwichedConfirm] = #SandwichedConfirm#,
 				[Mark] = #Mark#,
 				[Abnormal] = #Abnormal#,
-				[EmployeeId] = #EmployeeId#
+				[EmployeeId] = #EmployeeId#,
+        [Appearance] = #Appearance#
 			WHERE
 				[PCMouldOnlineCheckDetailId] = #PCMouldOnlineCheckDetailId#
                     ]]>

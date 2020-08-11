@@ -436,13 +436,85 @@
 </value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_AutoClean.Location" type="System.Drawing.Point, System.Drawing">
+    <value>752, 416</value>
+  </data>
+  <data name="btn_AutoClean.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 22</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btn_AutoClean.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="btn_AutoClean.Text" xml:space="preserve">
+    <value>一键清除</value>
+  </data>
+  <data name="&gt;&gt;btn_AutoClean.Name" xml:space="preserve">
+    <value>btn_AutoClean</value>
+  </data>
+  <data name="&gt;&gt;btn_AutoClean.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btn_AutoClean.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;btn_AutoClean.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btn_AutoFill.Location" type="System.Drawing.Point, System.Drawing">
+    <value>663, 416</value>
+  </data>
+  <data name="btn_AutoFill.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 22</value>
+  </data>
+  <data name="btn_AutoFill.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="btn_AutoFill.Text" xml:space="preserve">
+    <value>一键填写</value>
+  </data>
+  <data name="&gt;&gt;btn_AutoFill.Name" xml:space="preserve">
+    <value>btn_AutoFill</value>
+  </data>
+  <data name="&gt;&gt;btn_AutoFill.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btn_AutoFill.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;btn_AutoFill.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ccob_AutoFillColumn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>561, 416</value>
+  </data>
+  <data name="ccob_AutoFillColumn.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
+    <value>Combo</value>
+  </data>
+  <data name="ccob_AutoFillColumn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 21</value>
+  </data>
+  <data name="ccob_AutoFillColumn.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;ccob_AutoFillColumn.Name" xml:space="preserve">
+    <value>ccob_AutoFillColumn</value>
+  </data>
+  <data name="&gt;&gt;ccob_AutoFillColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckedComboBoxEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;ccob_AutoFillColumn.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;ccob_AutoFillColumn.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="simpleButton1.Location" type="System.Drawing.Point, System.Drawing">
     <value>614, 12</value>
   </data>
   <data name="simpleButton1.Size" type="System.Drawing.Size, System.Drawing">
     <value>99, 22</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="simpleButton1.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
@@ -459,7 +531,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;simpleButton1.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="simpleButtonXO.Location" type="System.Drawing.Point, System.Drawing">
     <value>717, 12</value>
@@ -483,23 +555,27 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;simpleButtonXO.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <assembly alias="DevExpress.XtraEditors.v10.2" name="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="labelControl1.AutoSizeMode" type="DevExpress.XtraEditors.LabelAutoSizeMode, DevExpress.XtraEditors.v10.2">
     <value>None</value>
   </data>
   <data name="labelControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>419, 416</value>
+    <value>280, 416</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="labelControl1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 3, 0, 0</value>
   </data>
   <data name="labelControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>418, 14</value>
+    <value>201, 17</value>
   </data>
   <data name="labelControl1.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
   <data name="labelControl1.Text" xml:space="preserve">
-    <value>說明：√合格 ×不合格 △無此項</value>
+    <value>说明：√合格 ×不合格 △无此项</value>
   </data>
   <data name="&gt;&gt;labelControl1.Name" xml:space="preserve">
     <value>labelControl1</value>
@@ -511,13 +587,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;labelControl1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="simpleButtonRemove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>225, 416</value>
+    <value>146, 416</value>
   </data>
   <data name="simpleButtonRemove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 22</value>
+    <value>130, 22</value>
   </data>
   <data name="simpleButtonRemove.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -535,13 +611,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;simpleButtonRemove.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="simpleButtonAdd.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 416</value>
   </data>
   <data name="simpleButtonAdd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 22</value>
+    <value>130, 22</value>
   </data>
   <data name="simpleButtonAdd.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -562,13 +638,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;simpleButtonAdd.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>11</value>
   </data>
   <data name="nccEmployee.Location" type="System.Drawing.Point, System.Drawing">
-    <value>429, 12</value>
+    <value>465, 12</value>
   </data>
   <data name="nccEmployee.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 21</value>
+    <value>145, 21</value>
   </data>
   <data name="nccEmployee.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -583,16 +659,16 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;nccEmployee.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="dateEdit1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>254, 12</value>
+    <value>290, 12</value>
   </data>
   <data name="dateEdit1.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
     <value>Combo</value>
   </data>
   <data name="dateEdit1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 21</value>
+    <value>95, 21</value>
   </data>
   <data name="dateEdit1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -607,7 +683,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;dateEdit1.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>13</value>
   </data>
   <metadata name="bindingSourceDetail.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>499, 17</value>
@@ -780,6 +856,21 @@
   <data name="gridColumn11.VisibleIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
+  <data name="gridColumn14.Caption" xml:space="preserve">
+    <value>外观/软料附着度</value>
+  </data>
+  <data name="repositoryItemLookUpEdit10.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemLookUpEdit10.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v10.2">
+    <value>Combo</value>
+  </data>
+  <data name="gridColumn14.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn14.VisibleIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
   <data name="gridColumn12.Caption" xml:space="preserve">
     <value>异常情况</value>
   </data>
@@ -787,7 +878,7 @@
     <value>True</value>
   </data>
   <data name="gridColumn12.VisibleIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="gridColumnEmployee.Caption" xml:space="preserve">
     <value>填表人</value>
@@ -802,7 +893,7 @@
     <value>EmployeeName</value>
   </data>
   <data name="repositoryItemLookUpEdit7.Columns1" xml:space="preserve">
-    <value>員工</value>
+    <value>员工</value>
   </data>
   <metadata name="bindingSourceEmployee.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>303, 17</value>
@@ -814,7 +905,7 @@
     <value>True</value>
   </data>
   <data name="gridColumnEmployee.VisibleIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="gridColumn13.Caption" xml:space="preserve">
     <value>商品描述</value>
@@ -823,7 +914,7 @@
     <value>True</value>
   </data>
   <data name="gridColumn13.VisibleIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="gridColumn13.Width" type="System.Int32, mscorlib">
     <value>80</value>
@@ -862,13 +953,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;gridControl1.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>14</value>
   </data>
   <data name="txt_Id.Location" type="System.Drawing.Point, System.Drawing">
-    <value>52, 12</value>
+    <value>88, 12</value>
   </data>
   <data name="txt_Id.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 21</value>
+    <value>122, 21</value>
   </data>
   <data name="txt_Id.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -883,9 +974,8 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;txt_Id.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>15</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -949,6 +1039,24 @@
   <data name="layoutControlItem9.Text" xml:space="preserve">
     <value>layoutControlItem9</value>
   </data>
+  <data name="layoutControlItem10.CustomizationFormText" xml:space="preserve">
+    <value>自动填充列：</value>
+  </data>
+  <data name="layoutControlItem10.Text" xml:space="preserve">
+    <value>自动填充列：</value>
+  </data>
+  <data name="layoutControlItem11.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem11</value>
+  </data>
+  <data name="layoutControlItem11.Text" xml:space="preserve">
+    <value>layoutControlItem11</value>
+  </data>
+  <data name="layoutControlItem12.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem12</value>
+  </data>
+  <data name="layoutControlItem12.Text" xml:space="preserve">
+    <value>layoutControlItem12</value>
+  </data>
   <data name="layoutControlGroup1.Text" xml:space="preserve">
     <value>layoutControlGroup1</value>
   </data>
@@ -983,7 +1091,7 @@
     <value>849, 497</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>模具上線檢查表</value>
+    <value>模具上线检查表</value>
   </data>
   <data name="&gt;&gt;barManager1.Name" xml:space="preserve">
     <value>barManager1</value>
@@ -1147,6 +1255,18 @@
   <data name="&gt;&gt;repositoryItemLookUpEdit9.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;gridColumn14.Name" xml:space="preserve">
+    <value>gridColumn14</value>
+  </data>
+  <data name="&gt;&gt;gridColumn14.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;repositoryItemLookUpEdit10.Name" xml:space="preserve">
+    <value>repositoryItemLookUpEdit10</value>
+  </data>
+  <data name="&gt;&gt;repositoryItemLookUpEdit10.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit, DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;gridColumn12.Name" xml:space="preserve">
     <value>gridColumn12</value>
   </data>
@@ -1259,6 +1379,24 @@
     <value>layoutControlItem9</value>
   </data>
   <data name="&gt;&gt;layoutControlItem9.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem10.Name" xml:space="preserve">
+    <value>layoutControlItem10</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem10.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem11.Name" xml:space="preserve">
+    <value>layoutControlItem11</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem11.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem12.Name" xml:space="preserve">
+    <value>layoutControlItem12</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem12.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;barButtonItem1.Name" xml:space="preserve">

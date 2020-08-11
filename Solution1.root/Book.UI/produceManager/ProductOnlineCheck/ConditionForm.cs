@@ -16,6 +16,8 @@ namespace Book.UI.produceManager.ProductOnlineCheck
             InitializeComponent();
             this.dateEditStart.EditValue = DateTime.Now.AddMonths(-1);
             this.dateEditEnd.EditValue = DateTime.Now;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public Condition condition { get; set; }

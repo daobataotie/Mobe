@@ -18,12 +18,11 @@ namespace Book.UI
         private static IDictionary<string, Delegate> operations;
 
         static Operations()
-
         {
             operations = new Dictionary<string, Delegate>();
 
             operations.Add("invoices.xo.edit-detail", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ROInvoiceXO", new Book.UI.Query.ConditionXChooseForm()); });
-            
+
             //销售订单明细表
             operations.Add("invoices.xo.edit-detail1", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ROInvoiceXOlist", new Book.UI.Query.ConditionXChooseForm()); });
             operations.Add("invoices.co.edit-detail", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.ROInvoiceCO", new Book.UI.Query.ConditionCOChooseForm()); });
@@ -756,9 +755,6 @@ namespace Book.UI
             //模具上线检验单
             operations.Add("produceManager.PCMouldOnlineCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCMouldOnlineCheck.EditForm", form); });
 
-            //产品上线检验单  对应易达的 模具上线检验单
-            operations.Add("produceManager.ProductOnlineCheck.Editform", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.ProductOnlineCheck.Editform", form); });
-
             //入料检验单(新)
             operations.Add("produceManager.PCInputCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCInputCheck.EditForm", form); });
 
@@ -793,10 +789,15 @@ namespace Book.UI
             operations.Add("Query.PendingAreaStock", (D1)delegate(System.Windows.Forms.Form form) { M1("Query.PendingAreaStock", form); });
 
             //客戶商品年度出貨查詢
-            operations.Add("Book.UI.Settings.BasicData.Customs.AnnualShipment", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.BasicData.Customs.AnnualShipmentByCustomer", form); });  
+            operations.Add("Book.UI.Settings.BasicData.Customs.AnnualShipment", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.BasicData.Customs.AnnualShipmentByCustomer", form); });
             //EN耳护外销报告
             operations.Add("produceManager.PCExportReportANSI.ENEarProtectEditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCExportReportANSI.ENEarProtectEditForm", form); });
 
+            //首件上线检查表     原名 产品上线检验单  对应易达的 模具上线检验单 
+            operations.Add("produceManager.ProductOnlineCheck.Editform", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.ProductOnlineCheck.Editform", form); });
+
+            //首件上线检查表(新)
+            operations.Add("produceManager.PCFirstOnlineCheck.Editform", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCFirstOnlineCheck.Editform", form); });
         }
 
         static Form CreateForm(string formTypeName)

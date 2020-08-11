@@ -110,6 +110,12 @@ namespace Book.Model
 		/// 产品
 		/// </summary>
 		private Product _product;
+
+        //2018年8月30日16:45:20
+        /// <summary>
+        /// 外观/软料附着度
+        /// </summary>
+        private string _appearance;
 		 
 		#endregion
 		
@@ -415,6 +421,17 @@ namespace Book.Model
 			}
 			
 		}
+
+        //2018年8月30日16:46:18
+        /// <summary>
+        /// 外观/软料附着度
+        /// </summary>
+        public string Appearance
+        {
+            get { return _appearance; }
+            set { _appearance = value; }
+        }
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -494,7 +511,8 @@ namespace Book.Model
 		/// 
 		/// </summary>
 		public readonly static string PRO_EmployeeId = "EmployeeId";
-		
+
+        public readonly static string PRO_Appearance = "Appearance";
 
 		#endregion
 	}
