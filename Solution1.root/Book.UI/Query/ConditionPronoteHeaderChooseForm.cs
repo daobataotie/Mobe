@@ -184,7 +184,7 @@ namespace Book.UI.Query
                 item.ProductDesc = rtBox.Text.Trim();
             }
 
-            var listPronoteHeaderFilter = listPronoteHeader.Where(l => l.ProductDesc == "保税");
+            var listPronoteHeaderFilter = this.chk_Baoshui.Checked ? listPronoteHeader.Where(l => l.ProductDesc == "保税") : listPronoteHeader;
 
             if (listPronoteHeaderFilter == null || listPronoteHeaderFilter.Count() == 0)
             {
@@ -194,15 +194,15 @@ namespace Book.UI.Query
 
 
             //根据加工单号查询对应的领料单
-            var listPronoteHeaderIds = listPronoteHeaderFilter.GroupBy(l => l.PronoteHeaderID).Select(g => g.Key);
-            string pronoteHeaderIds = string.Empty;
-            foreach (var item in listPronoteHeaderIds)
-            {
-                pronoteHeaderIds += "'" + item + "',";
-            }
+            //var listPronoteHeaderIds = listPronoteHeaderFilter.GroupBy(l => l.PronoteHeaderID).Select(g => g.Key);
+            //string pronoteHeaderIds = string.Empty;
+            //foreach (var item in listPronoteHeaderIds)
+            //{
+            //    pronoteHeaderIds += "'" + item + "',";
+            //}
 
-            pronoteHeaderIds = pronoteHeaderIds.TrimEnd(',');
-            IList<Model.ProduceMaterialdetails> listProduceMaterialdetails = new BL.ProduceMaterialdetailsManager().GetDataByPronoteHeaders(pronoteHeaderIds);
+            //pronoteHeaderIds = pronoteHeaderIds.TrimEnd(',');
+            //IList<Model.ProduceMaterialdetails> listProduceMaterialdetails = new BL.ProduceMaterialdetailsManager().GetDataByPronoteHeaders(pronoteHeaderIds);
 
 
             try
@@ -279,61 +279,61 @@ namespace Book.UI.Query
 
                 #region 生产领料
 
-                if (listProduceMaterialdetails != null && listProduceMaterialdetails.Count > 0)
-                {
-                    excel.Worksheets.Add(Missing.Value, sheet, Missing.Value, Missing.Value);
-                    Microsoft.Office.Interop.Excel.Worksheet sheet2 = (Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[2];
-                    sheet2.Name = "生产领料";
+                //if (listProduceMaterialdetails != null && listProduceMaterialdetails.Count > 0)
+                //{
+                //    excel.Worksheets.Add(Missing.Value, sheet, Missing.Value, Missing.Value);
+                //    Microsoft.Office.Interop.Excel.Worksheet sheet2 = (Microsoft.Office.Interop.Excel.Worksheet)excel.Worksheets[2];
+                //    sheet2.Name = "生产领料";
 
-                    sheet2.Rows.AutoFit();
-                    sheet2.Rows.WrapText = true;
-                    sheet2.Rows.RowHeight = 15;
-                    sheet2.Rows.Font.Size = 9;
-                    sheet2.Columns.ColumnWidth = 13;
+                //    sheet2.Rows.AutoFit();
+                //    sheet2.Rows.WrapText = true;
+                //    sheet2.Rows.RowHeight = 15;
+                //    sheet2.Rows.Font.Size = 9;
+                //    sheet2.Columns.ColumnWidth = 13;
 
-                    sheet2.get_Range(sheet2.Cells[1, 1], sheet2.Cells[1, 14]).Interior.ColorIndex = 15;   //浅灰色
-                    sheet2.get_Range(sheet2.Cells[1, 1], sheet2.Cells[1, 14]).HorizontalAlignment = -4108;
-                    sheet2.get_Range(sheet2.Cells[1, 1], sheet2.Cells[listProduceMaterialdetails.Count + 1, 14]).Borders.Value = 1;
-                    sheet2.get_Range(sheet2.Cells[2, 2], sheet2.Cells[listProduceMaterialdetails.Count + 1, 2]).NumberFormat = "yyyy/MM/dd";
-                    sheet2.get_Range(sheet2.Cells[1, 4], sheet2.Cells[1, 4]).ColumnWidth = 30;
+                //    sheet2.get_Range(sheet2.Cells[1, 1], sheet2.Cells[1, 14]).Interior.ColorIndex = 15;   //浅灰色
+                //    sheet2.get_Range(sheet2.Cells[1, 1], sheet2.Cells[1, 14]).HorizontalAlignment = -4108;
+                //    sheet2.get_Range(sheet2.Cells[1, 1], sheet2.Cells[listProduceMaterialdetails.Count + 1, 14]).Borders.Value = 1;
+                //    sheet2.get_Range(sheet2.Cells[2, 2], sheet2.Cells[listProduceMaterialdetails.Count + 1, 2]).NumberFormat = "yyyy/MM/dd";
+                //    sheet2.get_Range(sheet2.Cells[1, 4], sheet2.Cells[1, 4]).ColumnWidth = 30;
 
-                    sheet2.Cells[1, 1] = "编号";
-                    sheet2.Cells[1, 2] = "领料日期";
-                    sheet2.Cells[1, 3] = "商品编号";
-                    sheet2.Cells[1, 4] = "商品名称";
-                    sheet2.Cells[1, 5] = "客户型号";
-                    sheet2.Cells[1, 6] = "手册号";
-                    sheet2.Cells[1, 7] = "手册项号";
-                    sheet2.Cells[1, 8] = "数量";
-                    sheet2.Cells[1, 9] = "生产站";
-                    sheet2.Cells[1, 10] = "已分配量";
-                    sheet2.Cells[1, 11] = "客户订单编号";
-                    sheet2.Cells[1, 12] = "库存";
-                    sheet2.Cells[1, 13] = "描述";
-                    sheet2.Cells[1, 14] = "来源单据";
+                //    sheet2.Cells[1, 1] = "编号";
+                //    sheet2.Cells[1, 2] = "领料日期";
+                //    sheet2.Cells[1, 3] = "商品编号";
+                //    sheet2.Cells[1, 4] = "商品名称";
+                //    sheet2.Cells[1, 5] = "客户型号";
+                //    sheet2.Cells[1, 6] = "手册号";
+                //    sheet2.Cells[1, 7] = "手册项号";
+                //    sheet2.Cells[1, 8] = "数量";
+                //    sheet2.Cells[1, 9] = "生产站";
+                //    sheet2.Cells[1, 10] = "已分配量";
+                //    sheet2.Cells[1, 11] = "客户订单编号";
+                //    sheet2.Cells[1, 12] = "库存";
+                //    sheet2.Cells[1, 13] = "描述";
+                //    sheet2.Cells[1, 14] = "来源单据";
 
 
-                    int row2 = 2;
-                    foreach (var item in listProduceMaterialdetails)
-                    {
-                        sheet2.Cells[row2, 1] = item.ProduceMaterialID;
-                        sheet2.Cells[row2, 2] = item.ProduceMaterialDate;
-                        sheet2.Cells[row2, 3] = item.PID;
-                        sheet2.Cells[row2, 4] = item.ProductName;
-                        sheet2.Cells[row2, 5] = item.CustomerProductName;
-                        sheet2.Cells[row2, 6] = item.HandbookId;
-                        sheet2.Cells[row2, 7] = item.HandbookProductId;
-                        sheet2.Cells[row2, 8] = item.Materialprocessum;
-                        sheet2.Cells[row2, 9] = item.WorkhouseName;
-                        sheet2.Cells[row2, 10] = item.Distributioned;
-                        sheet2.Cells[row2, 11] = item.CusXOId;
-                        sheet2.Cells[row2, 12] = item.ProductStock;
-                        sheet2.Cells[row2, 13] = item.ProduceMaterialdesc;
-                        sheet2.Cells[row2, 14] = item.PronoteHeaderID;
+                //    int row2 = 2;
+                //    foreach (var item in listProduceMaterialdetails)
+                //    {
+                //        sheet2.Cells[row2, 1] = item.ProduceMaterialID;
+                //        sheet2.Cells[row2, 2] = item.ProduceMaterialDate;
+                //        sheet2.Cells[row2, 3] = item.PID;
+                //        sheet2.Cells[row2, 4] = item.ProductName;
+                //        sheet2.Cells[row2, 5] = item.CustomerProductName;
+                //        sheet2.Cells[row2, 6] = item.HandbookId;
+                //        sheet2.Cells[row2, 7] = item.HandbookProductId;
+                //        sheet2.Cells[row2, 8] = item.Materialprocessum;
+                //        sheet2.Cells[row2, 9] = item.WorkhouseName;
+                //        sheet2.Cells[row2, 10] = item.Distributioned;
+                //        sheet2.Cells[row2, 11] = item.CusXOId;
+                //        sheet2.Cells[row2, 12] = item.ProductStock;
+                //        sheet2.Cells[row2, 13] = item.ProduceMaterialdesc;
+                //        sheet2.Cells[row2, 14] = item.PronoteHeaderID;
 
-                        row2++;
-                    }
-                }
+                //        row2++;
+                //    }
+                //}
 
                 #endregion
 

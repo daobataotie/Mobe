@@ -806,10 +806,11 @@ namespace Book.UI.produceManager.MRSHeader
             {
                 if (!this.gridView1.PostEditor() || !this.gridView1.UpdateCurrentRow())
                     return;
-                var invoices = from c in this.mrsheader.Details
-                               where c.CheckSign.HasValue && c.CheckSign == true
-                               select c;
-                if (invoices == null || invoices.Count() == 0)
+                //var invoices = from c in this.mrsheader.Details
+                //               where c.CheckSign.HasValue && c.CheckSign == true
+                //               select c;
+                IEnumerable<string> checkedDetails = this.mrsheader.Details.Where(m => m.CheckSign == true).Select(n => n.MRSdetailsId);
+                if (checkedDetails == null || checkedDetails.Count() == 0)
                 {
                     MessageBox.Show("請選擇需要排單的商品！", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -817,11 +818,26 @@ namespace Book.UI.produceManager.MRSHeader
 
                 int no = 0;
 
+                //更新明细，防止多次排单
+                this.mrsheader.Details = mrsdetailManager.Select(this.mrsheader);
+                foreach (var item in this.mrsheader.Details)
+                {
+                    if (checkedDetails.Contains(item.MRSdetailsId))
+                        item.CheckSign = true;
+                }
+
+                var invoices = from c in this.mrsheader.Details
+                               where c.CheckSign.HasValue && c.CheckSign == true
+                               select c;
+
                 foreach (Model.MRSdetails _mrsdetail in invoices)
                 {
                     if (!string.IsNullOrEmpty(_mrsdetail.ArrangeDesc))
                     {
                         MessageBox.Show("選擇的商品中包含已經排單的商品!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                        this.bindingSourceDetails.DataSource = this.mrsheader.Details;
+                        this.gridControl1.RefreshDataSource();
                         return;
                     }
                 }
@@ -1003,11 +1019,11 @@ namespace Book.UI.produceManager.MRSHeader
                                 //    if (!string.IsNullOrEmpty(item.ArrangeDesc)) continue;
                                 //item.DetailsFlag = 2;
                                 //item.MRSHasSingleSum = item.MRSdetailssum;
-                                item.ArrangeDesc = "已經排單";
+                                item.ArrangeDesc = "已經排單";       //保存加工单时更改物料需求的排单描述，此处只是修改显示（刷新前排单描述为空，这里先加上）
                                 //this.mrsdetailManager.Update(item);
                                 //}
                             }
-                            this.gridControl1.RefreshDataSource();
+                            //this.gridControl1.RefreshDataSource();
 
                         }
                     }
@@ -1015,6 +1031,8 @@ namespace Book.UI.produceManager.MRSHeader
                     BL.V.CommitTransaction();
                     MessageBox.Show("單據形成成功", this.Text, MessageBoxButtons.OK);
                     this.checkEditCheck.Checked = false;
+                    this.bindingSourceDetails.DataSource = this.mrsheader.Details;
+                    this.gridControl1.RefreshDataSource();
                 }
                 catch (Exception ex)
                 {
@@ -1031,7 +1049,6 @@ namespace Book.UI.produceManager.MRSHeader
                     MessageBox.Show("單據形成失敗", this.Text, MessageBoxButtons.OK);
 
 
-                    this.gridControl1.RefreshDataSource();
                     return;
                 }
                 //if (pronoteHeader != null && !string.IsNullOrEmpty(pronoteHeader.PronoteHeaderID))
@@ -1100,14 +1117,45 @@ namespace Book.UI.produceManager.MRSHeader
             {
                 if (!this.gridView1.PostEditor() || !this.gridView1.UpdateCurrentRow())
                     return;
+                //var invoices = from c in this.mrsheader.Details
+                //               where c.CheckSign.HasValue && c.CheckSign.Value
+                //               group c by c.SupplierId;
+
+                //if (invoices == null || invoices.Count() == 0)
+                //{
+                //    MessageBox.Show("沒有要生成的數據！", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    return;
+                //}
+
+                IEnumerable<string> checkedDetails = this.mrsheader.Details.Where(m => m.CheckSign == true).Select(n => n.MRSdetailsId);
+                if (checkedDetails == null || checkedDetails.Count() == 0)
+                {
+                    MessageBox.Show("請選擇需要排單的商品！", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                //更新明细，防止多次排单
+                this.mrsheader.Details = mrsdetailManager.Select(this.mrsheader);
+                foreach (var item in this.mrsheader.Details)
+                {
+                    if (checkedDetails.Contains(item.MRSdetailsId))
+                        item.CheckSign = true;
+                }
+
                 var invoices = from c in this.mrsheader.Details
-                               where c.CheckSign.HasValue && c.CheckSign.Value && string.IsNullOrEmpty(c.ArrangeDesc)
+                               where c.CheckSign.HasValue && c.CheckSign.Value
                                group c by c.SupplierId;
 
-                if (invoices == null || invoices.Count() == 0)
+                foreach (IGrouping<string, Model.MRSdetails> groups in invoices)
                 {
-                    MessageBox.Show("沒有要生成的數據！", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    if (groups.Any(g => !string.IsNullOrEmpty(g.ArrangeDesc)))
+                    {
+                        MessageBox.Show("選擇的商品中包含已經排單的商品!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                        this.bindingSourceDetails.DataSource = this.mrsheader.Details;
+                        this.gridControl1.RefreshDataSource();
+                        return;
+                    }
                 }
 
                 foreach (IGrouping<string, Model.MRSdetails> groups in invoices)
@@ -1278,6 +1326,8 @@ namespace Book.UI.produceManager.MRSHeader
                 MessageBox.Show("單據生成成功！", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.simpleButton_ViewInvoiceCO.Enabled = true;
                 this.checkEditCheck.Checked = false;
+                this.bindingSourceDetails.DataSource = this.mrsheader.Details;
+                this.gridControl1.RefreshDataSource();
             }
             //else
             //{
@@ -1346,14 +1396,46 @@ namespace Book.UI.produceManager.MRSHeader
                     PriceRange.Add(item.ProductId, SupProManager.GetPriceRangeForSupAndProduct(item.SupplierId, item.ProductId));
                 }
 
+                //var compacts = from cs in this.mrsheader.Details
+                //               where cs.CheckSign != null && cs.CheckSign.Value == true
+                //               group cs by cs.Product.SupplierId;
+
+                //if (compacts == null || compacts.Count() == 0)
+                //{
+                //    MessageBox.Show("沒有要生成的數據！", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    return;
+                //}
+
+                IEnumerable<string> checkedDetails = this.mrsheader.Details.Where(m => m.CheckSign == true).Select(n => n.MRSdetailsId);
+                if (checkedDetails == null || checkedDetails.Count() == 0)
+                {
+                    MessageBox.Show("請選擇需要排單的商品！", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+
+                //更新明细，防止多次排单
+                this.mrsheader.Details = mrsdetailManager.Select(this.mrsheader);
+                foreach (var item in this.mrsheader.Details)
+                {
+                    if (checkedDetails.Contains(item.MRSdetailsId))
+                        item.CheckSign = true;
+                }
+
                 var compacts = from cs in this.mrsheader.Details
-                               where cs.CheckSign != null && cs.CheckSign.Value == true && string.IsNullOrEmpty(cs.ArrangeDesc)
+                               where cs.CheckSign != null && cs.CheckSign.Value == true
                                group cs by cs.Product.SupplierId;
 
-                if (compacts == null || compacts.Count() == 0)
+                foreach (IGrouping<string, Model.MRSdetails> groups in compacts)
                 {
-                    MessageBox.Show("沒有要生成的數據！", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    if (groups.Any(g => !string.IsNullOrEmpty(g.ArrangeDesc)))
+                    {
+                        MessageBox.Show("選擇的商品中包含已經排單的商品!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                        this.bindingSourceDetails.DataSource = this.mrsheader.Details;
+                        this.gridControl1.RefreshDataSource();
+                        return;
+                    }
                 }
 
                 foreach (IGrouping<string, Model.MRSdetails> groups in compacts)
@@ -1567,6 +1649,8 @@ namespace Book.UI.produceManager.MRSHeader
                 MessageBox.Show("單據生成成功！", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.simpleButton_ViewTrust.Enabled = true;
                 this.checkEditCheck.Checked = false;
+                this.bindingSourceDetails.DataSource = this.mrsheader.Details;
+                this.gridControl1.RefreshDataSource();
             }
         }
 

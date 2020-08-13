@@ -54,6 +54,8 @@
             this.ccb_BGHandBookIds = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.btn_ExportExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.chk_Baoshui = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditEndDate.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditEndDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditStartDate.Properties.VistaTimeProperties)).BeginInit();
@@ -71,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TXTproNameKey.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ccb_BGHandBookIds.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_Baoshui.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -109,6 +112,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(),
             new DevExpress.XtraEditors.Controls.EditorButton(),
             new DevExpress.XtraEditors.Controls.EditorButton(),
+            new DevExpress.XtraEditors.Controls.EditorButton(),
             new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
             // labelControl2
@@ -119,6 +123,7 @@
             // 
             resources.ApplyResources(this.dateEditStartDate, "dateEditStartDate");
             this.dateEditStartDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(),
             new DevExpress.XtraEditors.Controls.EditorButton(),
             new DevExpress.XtraEditors.Controls.EditorButton(),
             new DevExpress.XtraEditors.Controls.EditorButton(),
@@ -325,10 +330,23 @@
             this.btn_ExportExcel.Name = "btn_ExportExcel";
             this.btn_ExportExcel.Click += new System.EventHandler(this.btn_ExportExcel_Click);
             // 
+            // chk_Baoshui
+            // 
+            resources.ApplyResources(this.chk_Baoshui, "chk_Baoshui");
+            this.chk_Baoshui.Name = "chk_Baoshui";
+            this.chk_Baoshui.Properties.Caption = resources.GetString("checkEdit1.Properties.Caption");
+            // 
+            // labelControl13
+            // 
+            resources.ApplyResources(this.labelControl13, "labelControl13");
+            this.labelControl13.Name = "labelControl13";
+            // 
             // ConditionPronoteHeaderChooseForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelControl13);
+            this.Controls.Add(this.chk_Baoshui);
             this.Controls.Add(this.btn_ExportExcel);
             this.Controls.Add(this.labelControl12);
             this.Controls.Add(this.ccb_BGHandBookIds);
@@ -379,6 +397,8 @@
             this.Controls.SetChildIndex(this.ccb_BGHandBookIds, 0);
             this.Controls.SetChildIndex(this.labelControl12, 0);
             this.Controls.SetChildIndex(this.btn_ExportExcel, 0);
+            this.Controls.SetChildIndex(this.chk_Baoshui, 0);
+            this.Controls.SetChildIndex(this.labelControl13, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dateEditEndDate.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditEndDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditStartDate.Properties.VistaTimeProperties)).EndInit();
@@ -396,6 +416,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TXTproNameKey.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ccb_BGHandBookIds.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_Baoshui.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,5 +449,7 @@
         private DevExpress.XtraEditors.CheckedComboBoxEdit ccb_BGHandBookIds;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.SimpleButton btn_ExportExcel;
+        private DevExpress.XtraEditors.CheckEdit chk_Baoshui;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
     }
 }

@@ -53,7 +53,8 @@ namespace Book.DA.SQLServer
 
         public IList<string> SelectAllId()
         {
-            return sqlmapper.QueryForList<string>("BGHandbook.SelectAllId", null);
+            IList<string> list = sqlmapper.QueryForList<string>("BGHandbook.SelectAllId", null);
+            return (list == null ? new List<string>() : list);
         }
     }
 }
