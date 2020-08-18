@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-<sqlMap namespace="BGHandbook" xmlns="http://ibatis.apache.org/mapping" 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BGHandbook" xmlns="http://ibatis.apache.org/mapping"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <statements>
     <select id="select_byId" resultMap="BGHandbookResult" parameterClass="string">
@@ -21,7 +21,9 @@
 
     <select id="SelectAllId" resultClass="string">
       <![CDATA[
-      select Id from BGHandbook group by Id
+      select Id from BGHandbook where id is not null group by Id
+      union 
+      select BGHangBookId as Id from BGHandbookIdSet
       ]]>
     </select>
   </statements>
