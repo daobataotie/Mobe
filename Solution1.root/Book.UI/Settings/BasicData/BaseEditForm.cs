@@ -929,13 +929,24 @@ namespace Book.UI.Settings.BasicData
         protected void Visibles()
         {
             if (this.bar1.ItemLinks.Count < 7) return;
+            //this.bar1.ItemLinks[5].Visible = false;
+
+            //this.bar1.ItemLinks[6].Visible = false;
+
+            //this.bar1.ItemLinks[7].Visible = false;
+
+            //this.bar1.ItemLinks[8].Visible = false;
+
+            //this.bar1.ItemLinks[9].Visible = false;
+
+            //删除位置调整后，重新设定隐藏按钮的顺序
+            this.bar1.ItemLinks[4].Visible = false;
+
             this.bar1.ItemLinks[5].Visible = false;
 
             this.bar1.ItemLinks[6].Visible = false;
 
             this.bar1.ItemLinks[7].Visible = false;
-
-            this.bar1.ItemLinks[8].Visible = false;
 
             this.bar1.ItemLinks[9].Visible = false;
         }

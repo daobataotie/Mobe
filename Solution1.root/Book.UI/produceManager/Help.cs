@@ -55,8 +55,9 @@ namespace Book.UI.produceManager
         /// <summary>
         /// 获取该商品对应的母件的商品型号(如果同一笔订单里面多个母件都引用该子件，计算物料需求时该子件用量将合并为一笔，因此要带出所有母件的型号)
         /// </summary>
-        /// <param name="pronoteHeaderId">加工单号</param>
+        /// <param name="pronoteHeaderId">加工单</param>
         /// <param name="productId">商品编号</param>
+        /// <param name="handbookProductId">手册项号</param>
         /// <returns></returns>
         internal string GetCustomerProductNameByPronoteHeaderId(Model.PronoteHeader pronoteHeader, string productId, string handbookProductId)
         {

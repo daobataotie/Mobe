@@ -182,6 +182,11 @@ namespace Book.UI.Query
             {
                 rtBox.Rtf = item.ProductDesc;
                 item.ProductDesc = rtBox.Text.Trim();
+
+                if (string.IsNullOrEmpty(item.CustomerProductName))
+                {
+                    item.CustomerProductName = new produceManager.Help().GetCustomerProductNameByPronoteHeaderId(item, item.ProductId, item.HandbookProductId);
+                }
             }
 
             var listPronoteHeaderFilter = this.chk_Baoshui.Checked ? listPronoteHeader.Where(l => l.ProductDesc == "保税") : listPronoteHeader;
