@@ -183,13 +183,22 @@ namespace Book.UI.Query
                 rtBox.Rtf = item.ProductDesc;
                 item.ProductDesc = rtBox.Text.Trim();
 
+                //放在这里太耗性能，筛选完“保税”后，在查询 商品型号
+                //if (string.IsNullOrEmpty(item.CustomerProductName))
+                //{
+                //    item.CustomerProductName = new produceManager.Help().GetCustomerProductNameByPronoteHeaderId(item, item.ProductId, item.HandbookProductId);
+                //}
+            }
+
+            var listPronoteHeaderFilter = this.chk_Baoshui.Checked ? listPronoteHeader.Where(l => l.ProductDesc == "保税") : listPronoteHeader;
+
+            foreach (var item in listPronoteHeaderFilter)
+            {
                 if (string.IsNullOrEmpty(item.CustomerProductName))
                 {
                     item.CustomerProductName = new produceManager.Help().GetCustomerProductNameByPronoteHeaderId(item, item.ProductId, item.HandbookProductId);
                 }
             }
-
-            var listPronoteHeaderFilter = this.chk_Baoshui.Checked ? listPronoteHeader.Where(l => l.ProductDesc == "保税") : listPronoteHeader;
 
             if (listPronoteHeaderFilter == null || listPronoteHeaderFilter.Count() == 0)
             {
