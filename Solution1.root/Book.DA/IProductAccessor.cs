@@ -64,7 +64,7 @@ namespace Book.DA
 
         void UpdateSimple(Book.Model.Product product);
 
-        IList<Model.Product> SelectIdAndStock(string categoryId);
+        IList<Model.Product> SelectIdAndStock(string startCategory_Id, string endCategory_Id);
 
         IList<Model.Product> SelectProductIdAndName();
 

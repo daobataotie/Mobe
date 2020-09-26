@@ -35,8 +35,9 @@ namespace Book.Model
         {
             get
             {
-                return this._product == null ? null : this._product.ProductDescription;
+                return this._product == null ? productDescription : this._product.ProductDescription;
             }
+            set { productDescription = value; }
         }
 
         private string _ProductName;

@@ -212,7 +212,7 @@
             this.lue_ProductCategory.Properties.DataSource = this.bindingSourceProductCategory;
             this.lue_ProductCategory.Properties.DisplayMember = "ProductCategoryName";
             this.lue_ProductCategory.Properties.NullText = "";
-            this.lue_ProductCategory.Properties.ValueMember = "ProductCategoryId";
+            this.lue_ProductCategory.Properties.ValueMember = "Id";
             this.lue_ProductCategory.Size = new System.Drawing.Size(226, 21);
             this.lue_ProductCategory.StyleController = this.layoutControl1;
             this.lue_ProductCategory.TabIndex = 6;
@@ -317,7 +317,7 @@
             this.gridColumn5.FieldName = "TotalQty";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 7;
+            this.gridColumn5.VisibleIndex = 6;
             this.gridColumn5.Width = 115;
             // 
             // gridView2

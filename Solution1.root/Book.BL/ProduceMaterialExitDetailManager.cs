@@ -7,6 +7,7 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Book.BL
 {
@@ -117,6 +118,11 @@ namespace Book.BL
         public IList<Book.Model.ProduceMaterialExitDetail> SelectForListForm(DateTime startDate, DateTime endDate, string startPMEId, string endPMEId, string startPronoteHeaderId, string endPronoteHeaderId, Book.Model.Product startProduct, Book.Model.Product endProduct, string workhouseId, string invoiceXOCusId, string handBookId)
         {
             return accessor.SelectForListForm(startDate, endDate, startPMEId, endPMEId, startPronoteHeaderId, endPronoteHeaderId, startProduct, endProduct, workhouseId, invoiceXOCusId, handBookId);
+        }
+
+        public DataTable SelectForExcel(DateTime startDate, DateTime endDate, string startPMEId, string endPMEId, string startPronoteHeaderId, string endPronoteHeaderId, Book.Model.Product startProduct, Book.Model.Product endProduct, string workhouseId, string invoiceXOCusId, string handBookId)
+        {
+            return accessor.SelectForExcel(startDate, endDate, startPMEId, endPMEId, startPronoteHeaderId, endPronoteHeaderId, startProduct, endProduct, workhouseId, invoiceXOCusId, handBookId);
         }
     }
 }

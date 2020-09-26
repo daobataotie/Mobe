@@ -26,6 +26,7 @@ namespace Book.DA
         IList<Model.InvoiceXO> SelectDateRangCusXOCustomer(DateTime startdate, DateTime enddate, string cusxoid, Model.Customer customer);
         Model.InvoiceXO SelectMpsIsClose(string mpsheader);
         string SelectCusXOIdByPronoteHeaderId(string id);
+        bool IsHasMPSheader(string invoiceid);
     }
 }
 

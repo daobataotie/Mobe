@@ -8,6 +8,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Book.DA
 {
@@ -24,6 +25,9 @@ namespace Book.DA
         IList<Model.ProduceMaterialExitDetail> SelectSumQtyFromZuzhuangByPros(string productIds, DateTime dateStart, DateTime dateEnd, string workHouseId, string allInvoiceXOIds);
         double SelectSumQtyFromZuzhuangAll(string productId, DateTime dateEnd, string workHouseId);
         IList<Book.Model.ProduceMaterialExitDetail> SelectForListForm(DateTime startDate, DateTime endDate, string startPMEId, string endPMEId, string startPronoteHeaderId, string endPronoteHeaderId, Book.Model.Product startProduct, Book.Model.Product endProduct, string workhouseId, string invoiceXOCusId, string handBookId);
+
+        DataTable SelectForExcel(DateTime startDate, DateTime endDate, string startPMEId, string endPMEId, string startPronoteHeaderId, string endPronoteHeaderId, Book.
+Model.Product startProduct, Book.Model.Product endProduct, string workhouseId, string invoiceXOCusId, string handBookId);
     }
 }
 

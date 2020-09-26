@@ -51,7 +51,7 @@ namespace Book.UI.Query
             DateTime dateEnd = this.date_End.DateTime.Date.AddDays(1);
             string handBookId = this.cob_HandBookId.Text;
 
-            listProduct = productManager.SelectIdAndStock(this.lue_ProductCategory.EditValue == null ? null : this.lue_ProductCategory.EditValue.ToString());
+            listProduct = productManager.SelectIdAndStock(this.lue_ProductCategory.EditValue == null ? null : this.lue_ProductCategory.EditValue.ToString(), null);
 
             IList<Model.StockSeach> stockList = new List<Model.StockSeach>();
 

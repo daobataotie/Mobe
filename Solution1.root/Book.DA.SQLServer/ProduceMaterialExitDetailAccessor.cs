@@ -23,6 +23,7 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForList<Model.ProduceMaterialExitDetail>("ProduceMaterialExitDetail.select_byProduceExitMaterialId", ProduceMaterialExit.ProduceMaterialExitId);
         }
+
         public IList<Book.Model.ProduceMaterialExitDetail> Select(string houseid, DateTime startDate, DateTime endDate)
         {
             Hashtable ht = new Hashtable();
@@ -49,7 +50,7 @@ namespace Book.DA.SQLServer
         }
         public void Delete(Model.ProduceMaterialExit produceMaterialExit)
         {
-            sqlmapper.Delete("ProduceMaterialExitDetail.delete_byheader", produceMaterialExit.ProduceMaterialExitId);
+            sqlmapper.Delete("ProduceMaterialExitDetail.selectByCondition", produceMaterialExit.ProduceMaterialExitId);
         }
 
         public double SelectSumQtyFromZuzhuang(string productId, DateTime dateStart, DateTime dateEnd, string workHouseId, string allInvoiceXOIds)
@@ -114,6 +115,46 @@ namespace Book.DA.SQLServer
             }
 
             return sqlmapper.QueryForList<Model.ProduceMaterialExitDetail>("ProduceMaterialExitDetail.SelectForListForm", sb.ToString());
+        }
+
+        public DataTable SelectForExcel(DateTime startDate, DateTime endDate, string startPMEId, string endPMEId, string startPronoteHeaderId, string endPronoteHeaderId, Book.Model.Product startProduct, Book.Model.Product endProduct, string workhouseId, string invoiceXOCusId, string handBookId)
+        {
+            StringBuilder sb = new StringBuilder("select xo.CustomerInvoiceXOId,p1.CustomerProductName,ph.PronoteDate,ph.PronoteHeaderID,p1.Id,p1.ProductName,ph.InvoiceXODetailQuantity,ph.DetailsSum,p2.Id as MId,p2.ProductName as MProductName,(select sum(pmd.Materialprocesedsum) from ProduceMaterialdetails pmd  where pmd.PronoteHeaderID=ph.PronoteHeaderID and pmd.ProductId=p2.ProductId) as Materialprocesedsum ,(select top 1 pm.ProduceMaterialDate  from ProduceMaterialdetails pmd left join ProduceMaterial pm on pm.ProduceMaterialID=pmd.ProduceMaterialID  where pmd.PronoteHeaderID=ph.PronoteHeaderID and pmd.ProductId=p2.ProductId) as ProduceMaterialDate,pe.ProduceExitMaterialDate,ped.ProduceQuantity,wh.Workhousename,ped.HandbookId,ped.HandbookProductId,ph.MRSHeaderId,p2.ProductDescription,p2.ProductId from ProduceMaterialExitDetail ped left join ProduceMaterialExit pe on pe.ProduceMaterialExitId=ped.ProduceMaterialExitId left join PronoteHeader ph on ph.PronoteHeaderID=ped.PronoteHeaderId left join InvoiceXO xo on xo.InvoiceId=ph.InvoiceXOId left join Product p1 on p1.ProductId=ph.ProductId left join Product p2 on p2.ProductId=ped.ProductId left join WorkHouse wh on wh.WorkHouseId=pe.WorkHouseId where 1=1 ");
+            sb.Append(" AND pe.ProduceExitMaterialDate BETWEEN '" + startDate.ToString("yyyy-MM-dd") + "' AND '" + endDate.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss") + "'");
+
+            if (!string.IsNullOrEmpty(startPMEId) && !string.IsNullOrEmpty(endPMEId))
+            {
+                sb.Append(" AND ped.ProduceMaterialExitId BETWEEN '" + startPMEId + "' AND '" + endPMEId + "'");
+            }
+
+            if (!string.IsNullOrEmpty(startPronoteHeaderId) && !string.IsNullOrEmpty(endPronoteHeaderId))
+            {
+                sb.Append(" and ped.PronoteHeaderID between '" + startPronoteHeaderId + "' and '" + endPronoteHeaderId + "'");
+            }
+
+            if (startProduct != null & endProduct != null)
+            {
+                sb.Append(" and p2.Id between '" + startProduct.Id + "' and '" + endProduct.Id + "'");
+            }
+            if (!string.IsNullOrEmpty(workhouseId))
+            {
+                sb.Append(" and pe.WorkHouseId ='" + workhouseId + "'");
+            }
+            if (!string.IsNullOrEmpty(invoiceXOCusId))
+            {
+                sb.Append(" and xo.CustomerInvoiceXOId='" + invoiceXOCusId + "'");
+            }
+            if (!string.IsNullOrEmpty(handBookId))
+            {
+                sb.Append(" and ped.HandbookId='" + handBookId + "'");
+            }
+            sb.Append(" order by pe.ProduceMaterialExitId");
+
+            SqlDataAdapter sda = new SqlDataAdapter(sb.ToString(), sqlmapper.DataSource.ConnectionString);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            return dt;
         }
     }
 }

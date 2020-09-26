@@ -32,6 +32,7 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cob_HandBookId = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.lue_Depot = new DevExpress.XtraEditors.LookUpEdit();
+            this.bindingSourceDepot = new System.Windows.Forms.BindingSource(this.components);
             this.btn_EndCategory = new DevExpress.XtraEditors.ButtonEdit();
             this.btn_StartCategory = new DevExpress.XtraEditors.ButtonEdit();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
@@ -48,11 +49,11 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bindingSourceDepot = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Depot.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_EndCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_StartCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties.VistaTimeProperties)).BeginInit();
@@ -69,7 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepot)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -315,6 +315,7 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Depot.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_EndCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_StartCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_End.Properties.VistaTimeProperties)).EndInit();
@@ -331,7 +332,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDepot)).EndInit();
             this.ResumeLayout(false);
 
         }

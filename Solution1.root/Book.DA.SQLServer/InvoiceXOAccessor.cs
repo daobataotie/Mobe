@@ -106,6 +106,13 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForObject<string>("InvoiceXO.SelectCusXOIdByPronoteHeaderId", id);
         }
+
+
+        public bool IsHasMPSheader(string invoiceid)
+        {
+            return sqlmapper.QueryForObject<bool>("InvoiceXO.IsHasMPSheader", invoiceid);
+        }
+
         #endregion
     }
 }

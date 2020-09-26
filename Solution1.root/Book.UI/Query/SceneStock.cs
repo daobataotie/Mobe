@@ -106,7 +106,7 @@ namespace Book.UI.Query
             resultList.Clear();
 
             DateTime dateEnd = global::Helper.DateTimeParse.EndDate;
-            IList<Model.Product> listProduct = productManager.SelectIdAndStock(this.lue_ProductCategory.EditValue == null ? null : this.lue_ProductCategory.EditValue.ToString());
+            IList<Model.Product> listProduct = productManager.SelectIdAndStock(this.lue_ProductCategory.EditValue == null ? null : this.lue_ProductCategory.EditValue.ToString(),null);
 
             string workHouseYanpian = workHouseManager.SelectWorkHouseIdByName("验片");
             string workHouseZuzhuang = workHouseManager.SelectWorkHouseIdByName("组装现场仓");

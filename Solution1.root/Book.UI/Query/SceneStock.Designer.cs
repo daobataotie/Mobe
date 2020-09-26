@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SceneStock));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.lue_ProductCategory = new DevExpress.XtraEditors.LookUpEdit();
+            this.cob_HandBookId = new DevExpress.XtraEditors.ComboBoxEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barExportExcel = new DevExpress.XtraBars.BarButtonItem();
@@ -41,6 +41,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
+            this.lue_ProductCategory = new DevExpress.XtraEditors.LookUpEdit();
             this.bindingSourceProductCategory = new System.Windows.Forms.BindingSource(this.components);
             this.btn_Search = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -57,13 +58,13 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cob_HandBookId = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProductCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProduct)).BeginInit();
@@ -73,7 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,22 +91,17 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // lue_ProductCategory
+            // cob_HandBookId
             // 
-            this.lue_ProductCategory.Location = new System.Drawing.Point(76, 12);
-            this.lue_ProductCategory.MenuManager = this.barManager1;
-            this.lue_ProductCategory.Name = "lue_ProductCategory";
-            this.lue_ProductCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cob_HandBookId.Location = new System.Drawing.Point(514, 12);
+            this.cob_HandBookId.MenuManager = this.barManager1;
+            this.cob_HandBookId.Name = "cob_HandBookId";
+            this.cob_HandBookId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lue_ProductCategory.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "编号"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ProductCategoryName", "名称")});
-            this.lue_ProductCategory.Properties.DataSource = this.bindingSourceProductCategory;
-            this.lue_ProductCategory.Properties.NullText = "";
-            this.lue_ProductCategory.Properties.ValueMember = "ProductCategoryId";
-            this.lue_ProductCategory.Size = new System.Drawing.Size(370, 21);
-            this.lue_ProductCategory.StyleController = this.layoutControl1;
-            this.lue_ProductCategory.TabIndex = 8;
+            this.cob_HandBookId.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cob_HandBookId.Size = new System.Drawing.Size(129, 21);
+            this.cob_HandBookId.StyleController = this.layoutControl1;
+            this.cob_HandBookId.TabIndex = 9;
             // 
             // barManager1
             // 
@@ -186,6 +181,23 @@
             // 
             this.imageCollection1.ImageSize = new System.Drawing.Size(24, 24);
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
+            // 
+            // lue_ProductCategory
+            // 
+            this.lue_ProductCategory.Location = new System.Drawing.Point(76, 12);
+            this.lue_ProductCategory.MenuManager = this.barManager1;
+            this.lue_ProductCategory.Name = "lue_ProductCategory";
+            this.lue_ProductCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_ProductCategory.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "编号"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ProductCategoryName", "名称")});
+            this.lue_ProductCategory.Properties.DataSource = this.bindingSourceProductCategory;
+            this.lue_ProductCategory.Properties.NullText = "";
+            this.lue_ProductCategory.Properties.ValueMember = "Id";
+            this.lue_ProductCategory.Size = new System.Drawing.Size(370, 21);
+            this.lue_ProductCategory.StyleController = this.layoutControl1;
+            this.lue_ProductCategory.TabIndex = 8;
             // 
             // btn_Search
             // 
@@ -331,18 +343,6 @@
             this.layoutControlItem2.Text = "商品类别：";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(60, 14);
             // 
-            // cob_HandBookId
-            // 
-            this.cob_HandBookId.Location = new System.Drawing.Point(514, 12);
-            this.cob_HandBookId.MenuManager = this.barManager1;
-            this.cob_HandBookId.Name = "cob_HandBookId";
-            this.cob_HandBookId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cob_HandBookId.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cob_HandBookId.Size = new System.Drawing.Size(129, 21);
-            this.cob_HandBookId.StyleController = this.layoutControl1;
-            this.cob_HandBookId.TabIndex = 9;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.cob_HandBookId;
@@ -367,9 +367,10 @@
             this.Text = "现场库存";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProductCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProduct)).EndInit();
@@ -379,7 +380,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 

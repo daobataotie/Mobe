@@ -241,6 +241,7 @@ namespace Book.UI.Query
                 sheet.get_Range(sheet.Cells[1, 1], sheet.Cells[2, 16]).HorizontalAlignment = -4108;  //居中对齐
                 sheet.get_Range(sheet.Cells[1, 1], sheet.Cells[listPronoteHeaderFilter.Count() + 2, 16]).Borders.Value = 1;
                 sheet.get_Range(sheet.Cells[3, 4], sheet.Cells[listPronoteHeaderFilter.Count() + 2, 4]).NumberFormat = "yyyy/MM/dd";
+                sheet.get_Range(sheet.Cells[3, 2], sheet.Cells[listPronoteHeaderFilter.Count() + 2, 2]).NumberFormat = "@";
 
                 sheet.get_Range(sheet.Cells[2, 6], sheet.Cells[2, 6]).ColumnWidth = 30;
                 sheet.get_Range(sheet.Cells[2, 10], sheet.Cells[2, 10]).ColumnWidth = 30;

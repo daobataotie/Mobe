@@ -56,6 +56,7 @@ namespace Book.UI.produceManager.ProduceMaterialExit
 
             //明细
             this.TCInumber.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialExitDetail.PRO_Inumber);
+            this.TC_Pro_Id.DataBindings.Add("Text", this.DataSource, "Product.Id");
             this.xrTableproductName.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_ProductName);
             this.xrDepotPosi.DataBindings.Add("Text", this.DataSource, "DepotPosition." + Model.DepotPosition.PROPERTY_ID);
             this.xrUnit.DataBindings.Add("Text", this.DataSource, Model.ProduceMaterialExitDetail.PRO_ProductUnit);

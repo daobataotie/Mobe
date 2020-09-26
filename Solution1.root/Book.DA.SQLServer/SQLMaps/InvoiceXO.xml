@@ -169,5 +169,11 @@
       select CustomerInvoiceXOId from InvoiceXO where InvoiceId = (select InvoiceXOId from PronoteHeader where PronoteHeaderID=#value#)
       ]]>
     </select>
+
+    <select  id="IsHasMPSheader" resultClass="bool" parameterClass="String">
+      <![CDATA[
+      select case when exists (select * from MPSheader where InvoiceXOId=#value#) then 1 else 0 end    
+      ]]>
+    </select>
   </statements>
 </sqlMap>

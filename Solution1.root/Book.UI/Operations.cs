@@ -531,6 +531,8 @@ namespace Book.UI
             operations.Add("query.q48", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.Q48", new Book.UI.Query.ConditionMPShooseForm()); });
             //生产加工明细表
             operations.Add("query.q49", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.Q49", new Book.UI.Query.ConditionPronoteHeaderChooseForm()); });
+
+            //加工领料明细表
             operations.Add("query.q50", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.Q50", new Book.UI.Query.ConditionMaterialChooseForm()); });
             //operations.Add("query.q51", (D1)delegate(System.Windows.Forms.Form form) { MM("Query.Q51", new Book.UI.Query.ConditionMaterialChooseForm()); });
             //生产退料明细

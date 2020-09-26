@@ -83,7 +83,7 @@ namespace Book.DA.SQLServer
             {
                 //str = " ProductCategoryId = '" + Category.ProductCategoryId + "' and (productCategoryid2='' or productCategoryid2 is null) and ( productCategoryid3='' or productCategoryid3 is null)";
                 //点击大类，显示该类别下所有商品
-                str = " ProductCategoryId = '" + Category.ProductCategoryId+"'";
+                str = " ProductCategoryId = '" + Category.ProductCategoryId + "'";
             }
             else if (Category.CategoryLevel == 2)
                 str = " productCategoryid2='" + Category.ProductCategoryId + "' and ( productCategoryid3='' or productCategoryid3 is null)";
@@ -349,13 +349,19 @@ namespace Book.DA.SQLServer
             sqlmapper.Update("Product.Update_SimpleProduct", product);
         }
 
-        public IList<Model.Product> SelectIdAndStock(string categoryId)
+        public IList<Model.Product> SelectIdAndStock(string startCategory_Id, string endCategory_Id)
         {
-            string sql = string.Empty;
-            if (string.IsNullOrEmpty(categoryId))
-                sql = "select p.id,ProductId,ProductName,ProductVersion,isnull(StocksQuantity,0) as StocksQuantity,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum,(select CnName from ProductUnit where ProductUnitId=p.DepotUnitId) as CnName from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId ";
-            else
-                sql = "select p.id,ProductId,ProductName,ProductVersion,isnull(StocksQuantity,0) as StocksQuantity,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum,(select CnName from ProductUnit where ProductUnitId=p.DepotUnitId) as CnName from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId  where pc1.ProductCategoryId='" + categoryId + "'";
+            string sql = "select p.id,ProductId,ProductName,ProductVersion,isnull(StocksQuantity,0) as StocksQuantity,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum,(select CnName from ProductUnit where ProductUnitId=p.DepotUnitId) as CnName from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId ";
+
+            if (!string.IsNullOrEmpty(startCategory_Id))
+            {
+                if (!string.IsNullOrEmpty(endCategory_Id))
+                    sql += " where pc1.Id between '" + startCategory_Id + "' and '" + endCategory_Id + "'";
+
+                else
+                    sql += " where pc1.Id ='" + startCategory_Id + "'";
+            }
+
 
             return this.DataReaderBind<Model.Product>(sql, null, CommandType.Text);
         }
