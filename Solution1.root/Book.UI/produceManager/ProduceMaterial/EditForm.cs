@@ -209,7 +209,13 @@ namespace Book.UI.produceManager.ProduceMaterial
                 //}
                 produceMaterialdetails.NextWorkHouse = mRSdetails.WorkHouseNext;
                 produceMaterialdetails.NextWorkHouseId = mRSdetails.WorkHouseNextId;
-                produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailssum;     //修改：领料数量=需求数量
+
+                if (mRSdetails.MRSHeader.SourceType == "1")
+                    produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailsQuantity;
+                else
+                    produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailssum;
+
+                //produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailssum;     //修改：领料数量=需求数量
                 //produceMaterialdetails.Materialprocesedsum = PronoteMaterial.DetailsSum;                   
                 produceMaterialdetails.ProduceMaterialID = this._produceMaterial.ProduceMaterialID;
                 produceMaterialdetails.MPSDetailsSum = mRSdetails.MRSdetailsQuantity;
@@ -238,8 +244,10 @@ namespace Book.UI.produceManager.ProduceMaterial
                                                  Materialprocessum = (from m in pm select m.Materialprocessum).Sum(),
                                                  ProduceMaterialID = this._produceMaterial.ProduceMaterialID,
                                                  MPSDetailsSum = pm.First().MPSDetailsSum,
-                                                 //NextWorkHouseId = pm.First().NextWorkHouseId,
-                                                 //NextWorkHouse = pm.First().NextWorkHouse
+                                                 NextWorkHouseId = pm.First().NextWorkHouseId,
+                                                 NextWorkHouse = pm.First().NextWorkHouse,
+                                                 HandbookProductId = pm.First().HandbookProductId,
+                                                 HandbookId = pm.First().HandbookId
                                              }).ToList<Model.ProduceMaterialdetails>();
             this.bindingSourceDetails.DataSource = this._produceMaterial.Details;
 
@@ -771,6 +779,7 @@ namespace Book.UI.produceManager.ProduceMaterial
             }
         }
 
+        //选择加工单
         private void simpleButtonXO_Click(object sender, EventArgs e)
         {
 
@@ -847,8 +856,11 @@ namespace Book.UI.produceManager.ProduceMaterial
                 if (!string.IsNullOrEmpty(xoid))
                 {
                     Model.InvoiceXO invoiceXO = this.invoiceXOManager.Get(xoid);
-                    this.textEditCustomerXOId.Text = invoiceXO.CustomerInvoiceXOId;
-                    this._produceMaterial.InvoiceXOId = xoid;
+                    if (invoiceXO != null)
+                    {
+                        this.textEditCustomerXOId.Text = invoiceXO.CustomerInvoiceXOId;
+                        this._produceMaterial.InvoiceXOId = xoid;
+                    }
                 }
                 else
                     this.textEditCustomerXOId.Text = string.Empty;
@@ -881,7 +893,13 @@ namespace Book.UI.produceManager.ProduceMaterial
                     produceMaterialdetails.ProductSpecification = mRSdetails.Product.ProductSpecification;
                     produceMaterialdetails.NextWorkHouse = mRSdetails.WorkHouseNext;
                     produceMaterialdetails.NextWorkHouseId = mRSdetails.WorkHouseNextId;
-                    produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailssum;
+
+                    if (mRSdetails.MRSHeader.SourceType == "1")
+                        produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailsQuantity;
+                    else
+                        produceMaterialdetails.Materialprocessum = mRSdetails.MRSdetailssum;
+
+
                     //produceMaterialdetails.Materialprocesedsum = PronoteMaterial.DetailsSum;                   
                     produceMaterialdetails.ProduceMaterialID = this._produceMaterial.ProduceMaterialID;
                     produceMaterialdetails.MPSDetailsSum = mRSdetails.MRSdetailsQuantity;

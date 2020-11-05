@@ -95,8 +95,7 @@ namespace Book.DA.SQLServer
         }
 
 
-        //为组装成品检验单所加
-
+        #region 为组装成品检验单所加
         public Book.Model.OpticsTest FGetFirst(string PCFinishCheckId)
         {
             return sqlmapper.QueryForObject<Model.OpticsTest>("OpticsTest.FGetFirst", PCFinishCheckId);
@@ -157,7 +156,75 @@ namespace Book.DA.SQLServer
             ht.Add("PCFinishCheckId", PCFinishCheckId);
 
             return sqlmapper.QueryForList<Model.OpticsTest>("OpticsTest.FSelectByDateRage", ht);
+        } 
+        #endregion
+
+
+
+        #region 适用于首件上线检查表
+
+        public Book.Model.OpticsTest PFCGetFirst(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForObject<Model.OpticsTest>("OpticsTest.PFCGetFirst", PCFirstOnlineCheckDetailId);
         }
+
+        public Book.Model.OpticsTest PFCGetLast(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForObject<Model.OpticsTest>("OpticsTest.PFCGetLast", PCFirstOnlineCheckDetailId);
+        }
+
+        public Book.Model.OpticsTest PFCGetPrev(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertDate", InsertDate);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<Model.OpticsTest>("OpticsTest.PFCGetPrev", ht);
+        }
+
+        public Book.Model.OpticsTest PFCGetNext(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertDate", InsertDate);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<Model.OpticsTest>("OpticsTest.PFCGetNext", ht);
+        }
+
+        public bool PFCHasRows(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForObject<bool>("OpticsTest.PFCHasRows", PCFirstOnlineCheckDetailId);
+        }
+
+        public bool PFCHasRowsBefore(Book.Model.OpticsTest e, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertTime", e.InsertTime.Value);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<bool>("OpticsTest.PFCHasRowsBefore", ht);
+        }
+
+        public bool PFCHasRowsAfter(Book.Model.OpticsTest e, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertTime", e.InsertTime.Value);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<bool>("OpticsTest.PFCHasRowsAfter", ht);
+        }
+
+        public IList<Book.Model.OpticsTest> PFCSelect(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForList<Model.OpticsTest>("OpticsTest.PFCSelect", PCFirstOnlineCheckDetailId);
+        }
+
+        public IList<Book.Model.OpticsTest> PFCSelectByDateRage(DateTime startdate, DateTime enddate, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("startdate", startdate.ToString("yyyy-MM-dd HH:mm:ss"));
+            ht.Add("enddate", enddate.ToString("yyyy-MM-dd HH:mm:ss"));
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+
+            return sqlmapper.QueryForList<Model.OpticsTest>("OpticsTest.PFCSelectByDateRage", ht);
+        } 
+        #endregion
 
     }
 }

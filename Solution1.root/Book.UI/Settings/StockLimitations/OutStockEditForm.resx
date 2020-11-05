@@ -120,6 +120,15 @@
   <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>172, 17</value>
   </metadata>
+  <data name="barButtonItem3.Caption" xml:space="preserve">
+    <value>领料单</value>
+  </data>
+  <data name="barButtonItem4.Caption" xml:space="preserve">
+    <value>委外领料单</value>
+  </data>
+  <data name="barButtonItem5.Caption" xml:space="preserve">
+    <value>查询</value>
+  </data>
   <metadata name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -863,9 +872,6 @@
   <data name="gridColumnDepotPosition.Caption" xml:space="preserve">
     <value>货位</value>
   </data>
-  <metadata name="bindingSourceDepotPosition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>892, 17</value>
-  </metadata>
   <data name="repositoryItemLookUpEdit5.AutoHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -899,6 +905,9 @@
   <data name="repositoryItemLookUpEdit5.Columns8" type="DevExpress.Utils.HorzAlignment, DevExpress.Data.v10.2">
     <value>Default</value>
   </data>
+  <metadata name="bindingSourceDepotPosition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>892, 17</value>
+  </metadata>
   <data name="repositoryItemLookUpEdit5.NullText" xml:space="preserve">
     <value />
   </data>
@@ -1010,6 +1019,9 @@
   <data name="gridColumn14.VisibleIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
+  <data name="gridColumn14.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
   <data name="gridColumn15.Caption" xml:space="preserve">
     <value>批号</value>
   </data>
@@ -1018,6 +1030,18 @@
   </data>
   <data name="gridColumn15.VisibleIndex" type="System.Int32, mscorlib">
     <value>18</value>
+  </data>
+  <data name="gridColumn16.Caption" xml:space="preserve">
+    <value>来源单号</value>
+  </data>
+  <data name="gridColumn16.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn16.VisibleIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="gridColumn16.Width" type="System.Int32, mscorlib">
+    <value>120</value>
   </data>
   <data name="gridControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>976, 255</value>
@@ -1179,9 +1203,6 @@
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="bindingSourceDepotPosition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>892, 17</value>
-  </metadata>
   <metadata name="bindingSourceProduct.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>708, 17</value>
   </metadata>
@@ -1190,15 +1211,6 @@
   </data>
   <data name="barButtonItem2.Caption" xml:space="preserve">
     <value>领料单</value>
-  </data>
-  <data name="barButtonItem3.Caption" xml:space="preserve">
-    <value>领料单</value>
-  </data>
-  <data name="barButtonItem4.Caption" xml:space="preserve">
-    <value>委外领料单</value>
-  </data>
-  <data name="barButtonItem5.Caption" xml:space="preserve">
-    <value>查询</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1443,6 +1455,18 @@
   <data name="&gt;&gt;gridColumn14.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;gridColumn15.Name" xml:space="preserve">
+    <value>gridColumn15</value>
+  </data>
+  <data name="&gt;&gt;gridColumn15.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridColumn16.Name" xml:space="preserve">
+    <value>gridColumn16</value>
+  </data>
+  <data name="&gt;&gt;gridColumn16.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;layoutControlGroup1.Name" xml:space="preserve">
     <value>layoutControlGroup1</value>
   </data>
@@ -1551,6 +1575,12 @@
   <data name="&gt;&gt;layoutControlItem13.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;layoutControlItem16.Name" xml:space="preserve">
+    <value>layoutControlItem16</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem16.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;bindingSourceProduct.Name" xml:space="preserve">
     <value>bindingSourceProduct</value>
   </data>
@@ -1586,18 +1616,6 @@
   </data>
   <data name="&gt;&gt;barButtonItem5.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItem16.Name" xml:space="preserve">
-    <value>layoutControlItem16</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItem16.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;gridColumn15.Name" xml:space="preserve">
-    <value>gridColumn15</value>
-  </data>
-  <data name="&gt;&gt;gridColumn15.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>OutStockEditForm</value>

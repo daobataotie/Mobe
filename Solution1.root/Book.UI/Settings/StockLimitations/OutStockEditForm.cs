@@ -621,6 +621,12 @@ namespace Book.UI.Settings.StockLimitations
                     e.DisplayText = temp.Product.CustomerProductName;
                     break;
 
+                case "gridColumn16":   //加工单号
+                    if (!string.IsNullOrEmpty(temp.ProduceMaterialdetailsID))
+                    {
+                        e.DisplayText = produceMaterialDetailManager.SelectPNTOrMRSId(temp.ProduceMaterialdetailsID);
+                    }
+                    break;
             }
         }
 

@@ -110,6 +110,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.LbClearJudge = new DevExpress.XtraReports.UI.XRLabel();
             this.LbClearTestAmount = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_VerifiedBy = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
@@ -178,6 +180,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lbl_VerifiedBy,
+            this.xrLabel43,
             this.lbl_Signature,
             this.xrLabel121,
             this.xrLabel118,
@@ -990,6 +994,24 @@ namespace Book.UI.produceManager.PCExportReportANSI
             resources.ApplyResources(this.PageFooter, "PageFooter");
             this.PageFooter.Name = "PageFooter";
             // 
+            // xrLabel43
+            // 
+            this.xrLabel43.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            resources.ApplyResources(this.xrLabel43, "xrLabel43");
+            this.xrLabel43.Name = "xrLabel43";
+            this.xrLabel43.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel43.StylePriority.UseBorders = false;
+            this.xrLabel43.StylePriority.UseTextAlignment = false;
+            // 
+            // lbl_VerifiedBy
+            // 
+            this.lbl_VerifiedBy.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            resources.ApplyResources(this.lbl_VerifiedBy, "lbl_VerifiedBy");
+            this.lbl_VerifiedBy.Name = "lbl_VerifiedBy";
+            this.lbl_VerifiedBy.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_VerifiedBy.StylePriority.UseBorders = false;
+            this.lbl_VerifiedBy.StylePriority.UseTextAlignment = false;
+            // 
             // CSARO
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1099,5 +1121,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel8;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
+        private DevExpress.XtraReports.UI.XRLabel lbl_VerifiedBy;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel43;
     }
 }

@@ -50,5 +50,12 @@ SELECT * FROM ProduceMaterialdetails WHERE ProduceMaterialID=#produceMaterialId#
       select * from ProduceMaterialdetails where ProductId=#productid# and  ProduceMaterialID in (select ProduceMaterialID from ProduceMaterial where InsertTime>#InsertTime#)
       ]]>
     </select>
+
+    <select id="SelectPNTOrMRSId" resultClass="string">
+      <![CDATA[
+      select isnull(PronoteHeaderID,'')+isnull(MRSHeaderId,'') from ProduceMaterialdetails where ProduceMaterialdetailsID=#value#
+      ]]>
+    </select>
+
   </statements>
 </sqlMap>

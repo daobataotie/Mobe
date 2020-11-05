@@ -108,6 +108,9 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.LbJudgeMK.Text = "PASS";
             this.LbJudgePackaging.Text = "PASS";
             this.LbJudgeUT.Text = "PASS";
+
+
+            this.lbl_VerifiedBy.Text = string.Format("{0} {1}", _PCExportReportANSI.AuditEmp == null ? "" : _PCExportReportANSI.AuditEmp.EmployeeName, _PCExportReportANSI.ReportDate.HasValue ? _PCExportReportANSI.ReportDate.Value.ToString("yyyy-MM-dd") : "");
         }
 
     }

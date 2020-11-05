@@ -326,7 +326,7 @@ namespace Book.Model
         }
 
         /// <summary>
-        /// 
+        /// 0 自製;1 外購;2 耗用;3 委外;4 自製(組裝);5 自製(半成品加工);6 委外(半成品加工)
         /// </summary>
         public string SourceType
         {

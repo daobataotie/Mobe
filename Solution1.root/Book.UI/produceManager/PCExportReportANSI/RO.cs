@@ -77,6 +77,9 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.lblShouCeShu10.Text = (_PCExpANSI.ShouCeShu10.HasValue ? _PCExpANSI.ShouCeShu10.ToString() : "0") + "PCS";
             this.lblShouCeShu11.Text = (_PCExpANSI.ShouCeShu11.HasValue ? _PCExpANSI.ShouCeShu11.ToString() : "0") + "PCS";
             this.lblShouCeShu12.Text = (_PCExpANSI.ShouCeShu12.HasValue ? _PCExpANSI.ShouCeShu12.ToString() : "0") + "PCS";
+
+
+            this.lbl_VerifiedBy.Text = string.Format("{0} {1}", _PCExpANSI.AuditEmp == null ? "" : _PCExpANSI.AuditEmp.EmployeeName, _PCExpANSI.ReportDate.HasValue ? _PCExpANSI.ReportDate.Value.ToString("yyyy-MM-dd") : "");
         }
     }
 }

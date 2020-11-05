@@ -8,5 +8,77 @@
       SELECT * FROM PCImpactCheck WHERE PCImpactCheck.PCImpactCheckDate BETWEEN #startdate# AND #enddate# $sql$ ORDER BY PCImpactCheck.PCImpactCheckId DESC
       ]]>
     </select>
+
+
+
+    <select id="PFCHasRows" resultClass="bool"  parameterClass="string">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCImpactCheck]
+          where PCFirstOnlineCheckDetailId=#value#
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="PFCGetFirst" resultMap="PCImpactCheckResult"  parameterClass="string">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCImpactCheck
+			where PCFirstOnlineCheckDetailId=#value#
+			order by InsertTime 
+			]]>
+    </select>
+    <select id="PFCGetLast" resultMap="PCImpactCheckResult"  parameterClass="string">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCImpactCheck
+			where PCFirstOnlineCheckDetailId=#value#			
+      order by InsertTime desc
+			]]>
+
+    </select>
+    <select id="PFCGetPrev" resultMap="PCImpactCheckResult" parameterClass="Map">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCImpactCheck
+			where InsertTime < #InsertTime#	
+      and PCFirstOnlineCheckDetailId=#PCFirstOnlineCheckDetailId#			      			          
+            order by InsertTime desc
+			]]>
+    </select>
+    <select id="PFCGetNext" resultMap="PCImpactCheckResult" parameterClass="Map">
+      <![CDATA[
+			select top 1 *
+			from dbo.PCImpactCheck
+			where InsertTime > #InsertTime#	
+      and PCFirstOnlineCheckDetailId=#PCFirstOnlineCheckDetailId#			          			                   
+            order by InsertTime
+			]]>
+    </select>
+
+    <select id="PFCHasRowsBefore" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCImpactCheck
+				where InsertTime < #InsertTime#
+        and PCFirstOnlineCheckDetailId=#PCFirstOnlineCheckDetailId#			        			                   
+				) then 1 else 0 end
+			]]>
+    </select>
+
+    <select id="PFCHasRowsAfter" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+			select case when exists(
+				select * 
+				from dbo.PCImpactCheck
+				where InsertTime > #InsertTime#
+        and PCFirstOnlineCheckDetailId=#PCFirstOnlineCheckDetailId#			        			          
+         
+				) then 1 else 0 end
+			]]>
+    </select>
   </statements>
 </sqlMap>

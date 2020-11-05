@@ -212,6 +212,54 @@ namespace Book.BL
         }
         #endregion
 
+
+
+        #region 适用于首件上线检查表
+        public Model.ThicknessTest PFCGetFirst(string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCGetFirst(PCFirstOnlineCheckDetailId);
+        }
+
+        public Model.ThicknessTest PFCGetLast(string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCGetLast(PCFirstOnlineCheckDetailId);
+        }
+
+        public Model.ThicknessTest PFCGetPrev(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCGetPrev(InsertDate, PCFirstOnlineCheckDetailId);
+        }
+
+        public Model.ThicknessTest PFCGetNext(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCGetNext(InsertDate, PCFirstOnlineCheckDetailId);
+        }
+
+        public bool PFCHasRows(string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCHasRows(PCFirstOnlineCheckDetailId);
+        }
+
+        public bool PFCHasRowsBefore(Model.ThicknessTest e, string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCHasRowsBefore(e, PCFirstOnlineCheckDetailId);
+        }
+
+        public bool PFCHasRowsAfter(Model.ThicknessTest e, string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCHasRowsAfter(e, PCFirstOnlineCheckDetailId);
+        }
+
+        public IList<Model.ThicknessTest> PFCSelect(string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCSelect(PCFirstOnlineCheckDetailId);
+        }
+
+        public IList<Model.ThicknessTest> PFCSelectByDateRage(DateTime startdate, DateTime enddate, string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCSelectByDateRage(startdate, enddate, PCFirstOnlineCheckDetailId);
+        }
+        #endregion
     }
 }
 

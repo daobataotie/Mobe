@@ -14,7 +14,13 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
         public Model.ThicknessTest _ThicknessTest;
         public BL.ThicknessTestManager _ThicknessTestManager = new Book.BL.ThicknessTestManager();
         private string _PCPGOnlineCheckDetailId = string.Empty;
+        private string _PCFirstOnlineCheckDetailId = string.Empty;
         IList<string> HoduBiao = new List<string>();
+
+        /// <summary>
+        /// 0，光学厚度表；1，首件上线检查表
+        /// </summary>
+        int sourceInvoice = 0;
 
         public ThicknessTest()
         {
@@ -49,12 +55,21 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this._PCPGOnlineCheckDetailId = PCPGOnlineCheckDetailId;
         }
 
+        public ThicknessTest(string PCFirstOnlineCheckDetailId, int i)
+            : this()
+        {
+            this._PCFirstOnlineCheckDetailId = PCFirstOnlineCheckDetailId;
+            sourceInvoice = i;
+        }
+
         protected override void AddNew()
         {
             this._ThicknessTest = new Model.ThicknessTest();
             this._ThicknessTest.ThicknessTestId = this._ThicknessTestManager.GetId();
-            this._ThicknessTest.PCPGOnlineCheckDetailId = this._PCPGOnlineCheckDetailId;
+            //this._ThicknessTest.PCPGOnlineCheckDetailId = this._PCPGOnlineCheckDetailId;
             this._ThicknessTest.ThicknessTestDate = DateTime.Now;
+            this._ThicknessTest.Employee = BL.V.ActiveOperator.Employee;
+            this._ThicknessTest.EmployeeId = BL.V.ActiveOperator.EmployeeId;
 
             this._ThicknessTest.Details = new List<Model.ThicknessTestDetails>();
 
@@ -68,26 +83,64 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
                 return;
             //this._ThicknessTestManager.DeleteByPCPGOnlineCheckDetailId(this._ThicknessTest.ThicknessTestId);
             this._ThicknessTestManager.Delete(this._ThicknessTest.ThicknessTestId);
-            this._ThicknessTest = this._ThicknessTestManager.mGetNext(this._ThicknessTest.InsertTime.Value, this._PCPGOnlineCheckDetailId);
-            if (this._ThicknessTest == null)
+
+            if (this.sourceInvoice == 0)
             {
-                this._ThicknessTest = this._ThicknessTestManager.mGetLast(this._PCPGOnlineCheckDetailId);
+                this._ThicknessTest = this._ThicknessTestManager.mGetNext(this._ThicknessTest.InsertTime.Value, this._PCPGOnlineCheckDetailId);
+                if (this._ThicknessTest == null)
+                {
+                    this._ThicknessTest = this._ThicknessTestManager.mGetLast(this._PCPGOnlineCheckDetailId);
+                }
+            }
+            else if (this.sourceInvoice == 1)
+            {
+                this._ThicknessTest = this._ThicknessTestManager.PFCGetNext(this._ThicknessTest.InsertTime.Value, this._PCFirstOnlineCheckDetailId);
+                if (this._ThicknessTest == null)
+                {
+                    this._ThicknessTest = this._ThicknessTestManager.PFCGetLast(this._PCFirstOnlineCheckDetailId);
+                }
             }
         }
 
         protected override void MoveLast()
         {
-            this._ThicknessTest = this._ThicknessTestManager.Get(this._ThicknessTestManager.mGetLast(this._PCPGOnlineCheckDetailId) == null ? "" : this._ThicknessTestManager.mGetLast(this._PCPGOnlineCheckDetailId).ThicknessTestId);
+            //this._ThicknessTest = this._ThicknessTestManager.Get(this._ThicknessTestManager.mGetLast(this._PCPGOnlineCheckDetailId) == null ? "" : this._ThicknessTestManager.mGetLast(this._PCPGOnlineCheckDetailId).ThicknessTestId);
+            if (this.sourceInvoice == 0)
+            {
+                this._ThicknessTest = this._ThicknessTestManager.mGetLast(this._PCPGOnlineCheckDetailId);
+            }
+            else if (this.sourceInvoice == 1)
+            {
+                this._ThicknessTest = this._ThicknessTestManager.PFCGetLast(this._PCFirstOnlineCheckDetailId);
+            }
         }
 
         protected override void MoveFirst()
         {
-            this._ThicknessTest = this._ThicknessTestManager.Get(this._ThicknessTestManager.mGetFirst(this._PCPGOnlineCheckDetailId) == null ? "" : this._ThicknessTestManager.mGetFirst(this._PCPGOnlineCheckDetailId).ThicknessTestId);
+            //this._ThicknessTest = this._ThicknessTestManager.Get(this._ThicknessTestManager.mGetFirst(this._PCPGOnlineCheckDetailId) == null ? "" : this._ThicknessTestManager.mGetFirst(this._PCPGOnlineCheckDetailId).ThicknessTestId);
+            if (this.sourceInvoice == 0)
+            {
+                this._ThicknessTest = this._ThicknessTestManager.mGetFirst(this._PCPGOnlineCheckDetailId);
+            }
+            else if (this.sourceInvoice == 1)
+            {
+                this._ThicknessTest = this._ThicknessTestManager.PFCGetFirst(this._PCFirstOnlineCheckDetailId);
+            }
         }
 
         protected override void MovePrev()
         {
-            Model.ThicknessTest mThicknessTest = this._ThicknessTestManager.mGetPrev(this._ThicknessTest.InsertTime.Value, this._PCPGOnlineCheckDetailId);
+            //Model.ThicknessTest mThicknessTest = this._ThicknessTestManager.mGetPrev(this._ThicknessTest.InsertTime.Value, this._PCPGOnlineCheckDetailId);
+            Model.ThicknessTest mThicknessTest = null;
+            if (this.sourceInvoice == 0)
+            {
+                mThicknessTest = this._ThicknessTestManager.mGetPrev(this._ThicknessTest.InsertTime.Value, this._PCPGOnlineCheckDetailId);
+            }
+            else if (this.sourceInvoice == 1)
+            {
+                mThicknessTest = this._ThicknessTestManager.PFCGetPrev(this._ThicknessTest.InsertTime.Value, this._PCFirstOnlineCheckDetailId);
+            }
+
             if (mThicknessTest == null)
                 throw new InvalidOperationException(Properties.Resources.ErrorNoMoreRows);
             this._ThicknessTest = this._ThicknessTestManager.Get(mThicknessTest.ThicknessTestId);
@@ -95,7 +148,17 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
 
         protected override void MoveNext()
         {
-            Model.ThicknessTest mThicknessTest = this._ThicknessTestManager.mGetNext(this._ThicknessTest.InsertTime.Value, this._PCPGOnlineCheckDetailId);
+            //Model.ThicknessTest mThicknessTest = this._ThicknessTestManager.mGetNext(this._ThicknessTest.InsertTime.Value, this._PCPGOnlineCheckDetailId);
+            Model.ThicknessTest mThicknessTest = null;
+            if (this.sourceInvoice == 0)
+            {
+                mThicknessTest = this._ThicknessTestManager.mGetNext(this._ThicknessTest.InsertTime.Value, this._PCPGOnlineCheckDetailId);
+            }
+            else if (this.sourceInvoice == 1)
+            {
+                mThicknessTest = this._ThicknessTestManager.PFCGetNext(this._ThicknessTest.InsertTime.Value, this._PCFirstOnlineCheckDetailId);
+            }
+
             if (mThicknessTest == null)
                 throw new InvalidOperationException(Properties.Resources.ErrorNoMoreRows);
             this._ThicknessTest = this._ThicknessTestManager.Get(mThicknessTest.ThicknessTestId);
@@ -103,17 +166,42 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
 
         protected override bool HasRows()
         {
-            return this._ThicknessTestManager.mHasRows(this._PCPGOnlineCheckDetailId);
+            //return this._ThicknessTestManager.mHasRows(this._PCPGOnlineCheckDetailId);
+            if (this.sourceInvoice == 0)
+            {
+                return this._ThicknessTestManager.mHasRows(this._PCPGOnlineCheckDetailId);
+            }
+            else
+            {
+                return this._ThicknessTestManager.PFCHasRows(this._PCFirstOnlineCheckDetailId);
+            }
         }
 
         protected override bool HasRowsNext()
         {
-            return this._ThicknessTestManager.mHasRowsAfter(this._ThicknessTest, this._PCPGOnlineCheckDetailId);
+            //return this._ThicknessTestManager.mHasRowsAfter(this._ThicknessTest, this._PCPGOnlineCheckDetailId);
+            if (this.sourceInvoice == 0)
+            {
+                return this._ThicknessTestManager.mHasRowsAfter(this._ThicknessTest, this._PCPGOnlineCheckDetailId);
+            }
+            else
+            {
+                return this._ThicknessTestManager.PFCHasRowsAfter(this._ThicknessTest, this._PCFirstOnlineCheckDetailId);
+            }
         }
 
         protected override bool HasRowsPrev()
         {
-            return this._ThicknessTestManager.mHasRowsBefore(this._ThicknessTest, this._PCPGOnlineCheckDetailId);
+            //return this._ThicknessTestManager.mHasRowsBefore(this._ThicknessTest, this._PCPGOnlineCheckDetailId);
+
+            if (this.sourceInvoice == 0)
+            {
+                return this._ThicknessTestManager.mHasRowsBefore(this._ThicknessTest, this._PCPGOnlineCheckDetailId);
+            }
+            else
+            {
+                return this._ThicknessTestManager.PFCHasRowsBefore(this._ThicknessTest, this._PCFirstOnlineCheckDetailId);
+            }
         }
 
         protected override void Save()
@@ -128,6 +216,15 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             if (this._ThicknessTest.Employee != null)
             {
                 this._ThicknessTest.EmployeeId = this._ThicknessTest.Employee.EmployeeId;
+            }
+
+            if (this.sourceInvoice == 0)
+            {
+                this._ThicknessTest.PCPGOnlineCheckDetailId = this._PCPGOnlineCheckDetailId;
+            }
+            else if (this.sourceInvoice == 1)
+            {
+                this._ThicknessTest.PCFirstOnlineCheckDetailId = this._PCFirstOnlineCheckDetailId;
             }
 
             if (!this.gridView1.PostEditor() || !this.gridView1.UpdateCurrentRow())

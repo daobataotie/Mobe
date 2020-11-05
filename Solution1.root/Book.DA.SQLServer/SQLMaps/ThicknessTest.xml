@@ -90,5 +90,80 @@
       DELETE FROM ThicknessTest WHERE PCPGOnlineCheckDetailId=#value#
       ]]>
     </select>
+    
+    
+    
+
+    <select id="PFCGetFirst" resultMap="ThicknessTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM ThicknessTest
+      WHERE PCFirstOnlineCheckDetailId = #value#
+      ORDER BY InsertTime ASC
+			]]>
+    </select>
+
+    <select id="PFCGetLast" resultMap="ThicknessTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM ThicknessTest
+      WHERE PCFirstOnlineCheckDetailId = #value#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="PFCGetPrev" resultMap="ThicknessTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM ThicknessTest
+      WHERE InsertTime < #InsertDate#
+      AND PCFirstOnlineCheckDetailId = #PCFirstOnlineCheckDetailId#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="PFCGetNext" resultMap="ThicknessTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM ThicknessTest
+      WHERE InsertTime > #InsertDate#
+      AND PCFirstOnlineCheckDetailId = #PCFirstOnlineCheckDetailId#
+      ORDER BY InsertTime ASC
+      ]]>
+    </select>
+
+    <select id="PFCHasRows" resultClass="bool" parameterClass="string">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM ThicknessTest WHERE PCFirstOnlineCheckDetailId = #value#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="PFCHasRowsBefore" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM ThicknessTest WHERE InsertTime < #InsertTime# AND PCFirstOnlineCheckDetailId = #PCFirstOnlineCheckDetailId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="PFCHasRowsAfter" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM ThicknessTest WHERE InsertTime > #InsertTime# AND PCFirstOnlineCheckDetailId = #PCFirstOnlineCheckDetailId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="PFCSelect" resultMap="ThicknessTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM ThicknessTest WHERE PCFirstOnlineCheckDetailId = #value#
+      ]]>
+    </select>
+
+    <select id="PFCSelectByDateRage" resultMap="ThicknessTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM ThicknessTest WHERE ThicknessTestDate BETWEEN #startdate# AND #enddate# 
+      AND PCFirstOnlineCheckDetailId = #PCFirstOnlineCheckDetailId#
+      ]]>
+    </select>
+    
   </statements>
 </sqlMap>

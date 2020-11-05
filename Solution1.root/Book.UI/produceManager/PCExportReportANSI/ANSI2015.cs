@@ -146,7 +146,12 @@ namespace Book.UI.produceManager.PCExportReportANSI
             {
                 this._PCExportReportANSI.ProductId = this._PCExportReportANSI.Product.ProductId;
             }
-
+            this._PCExportReportANSI.AuditEmp = this.newChooseContorlAuditEmp.EditValue as Model.Employee;
+            if (this._PCExportReportANSI.AuditEmp != null)
+            {
+                this._PCExportReportANSI.AuditEmpId = this._PCExportReportANSI.AuditEmp.EmployeeId;
+                //this._PCExportReportANSI.AuditState = (int)global::Helper.InvoiceAudit.Audited;
+            }
 
             this._PCExportReportANSI.QuYangShu1 = this.spe_Quyang1.EditValue == null ? 0 : double.Parse(this.spe_Quyang1.EditValue.ToString());
             this._PCExportReportANSI.QuYangShu2 = this.spe_Quyang2.EditValue == null ? 0 : double.Parse(this.spe_Quyang2.EditValue.ToString());

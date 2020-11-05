@@ -93,5 +93,69 @@ namespace Book.DA.SQLServer
         {
             sqlmapper.Delete("ThicknessTest.DeleteByPCPGOnlineCheckDetailId", PCPGOnlineCheckDetailId);
         }
+
+
+
+        public Book.Model.ThicknessTest PFCGetFirst(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForObject<Model.ThicknessTest>("ThicknessTest.PFCGetFirst", PCFirstOnlineCheckDetailId);
+        }
+
+        public Book.Model.ThicknessTest PFCGetLast(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForObject<Model.ThicknessTest>("ThicknessTest.PFCGetLast", PCFirstOnlineCheckDetailId);
+        }
+
+        public Book.Model.ThicknessTest PFCGetPrev(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertDate", InsertDate);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<Model.ThicknessTest>("ThicknessTest.PFCGetPrev", ht);
+        }
+
+        public Book.Model.ThicknessTest PFCGetNext(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertDate", InsertDate);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<Model.ThicknessTest>("ThicknessTest.PFCGetNext", ht);
+        }
+
+        public bool PFCHasRows(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForObject<bool>("ThicknessTest.PFCHasRows", PCFirstOnlineCheckDetailId);
+        }
+
+        public bool PFCHasRowsBefore(Book.Model.ThicknessTest e, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertTime", e.InsertTime.Value);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<bool>("ThicknessTest.PFCHasRowsBefore", ht);
+        }
+
+        public bool PFCHasRowsAfter(Book.Model.ThicknessTest e, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertTime", e.InsertTime.Value);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<bool>("ThicknessTest.PFCHasRowsAfter", ht);
+        }
+
+        public IList<Book.Model.ThicknessTest> PFCSelect(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForList<Model.ThicknessTest>("ThicknessTest.PFCSelect", PCFirstOnlineCheckDetailId);
+        }
+
+        public IList<Book.Model.ThicknessTest> PFCSelectByDateRage(DateTime startdate, DateTime enddate, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("startdate", startdate.ToString("yyyy-MM-dd HH:mm:ss"));
+            ht.Add("enddate", enddate.ToString("yyyy-MM-dd HH:mm:ss"));
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+
+            return sqlmapper.QueryForList<Model.ThicknessTest>("ThicknessTest.PFCSelectByDateRage", ht);
+        }
     }
 }

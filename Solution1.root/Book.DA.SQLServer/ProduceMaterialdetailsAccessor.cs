@@ -263,5 +263,10 @@ namespace Book.DA.SQLServer
 
             return this.DataReaderBind<Model.ProduceMaterialdetails>(sql, null, CommandType.Text);
         }
+
+        public string SelectPNTOrMRSId(string produceMaterialdetailsID)
+        {
+            return sqlmapper.QueryForObject<string>("ProduceMaterialdetails.SelectPNTOrMRSId", produceMaterialdetailsID);
+        }
     }
 }

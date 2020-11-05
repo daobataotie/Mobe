@@ -17,6 +17,21 @@ namespace Book.DA
     public partial interface IPCImpactCheckAccessor : IAccessor
     {
         IList<Book.Model.PCImpactCheck> SelectByDateRage(DateTime StartDate, DateTime EndDate, Model.Product product, Model.Customer customer, string CusXOId);
+
+
+        Model.PCImpactCheck PFCGetFirst(string PCFirstOnlineCheckDetailId);
+
+        Model.PCImpactCheck PFCGetLast(string PCFirstOnlineCheckDetailId);
+
+        Model.PCImpactCheck PFCGetPrev(DateTime InsertDate, string PCFirstOnlineCheckDetailId);
+
+        Model.PCImpactCheck PFCGetNext(DateTime InsertDate, string PCFirstOnlineCheckDetailId);
+
+        bool PFCHasRows(string PCFirstOnlineCheckDetailId);
+
+        bool PFCHasRowsBefore(Model.PCImpactCheck e, string PCFirstOnlineCheckDetailId);
+
+        bool PFCHasRowsAfter(Model.PCImpactCheck e, string PCFirstOnlineCheckDetailId);
     }
 }
 

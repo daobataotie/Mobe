@@ -65,6 +65,8 @@ namespace Book.Model
 
         private string _condition;
 
+        private string _pCFirstOnlineCheckDetailId;
+
         private Employee _auditEmp;
 		
 		/// <summary>
@@ -248,6 +250,15 @@ namespace Book.Model
         {
             get { return _condition; }
             set { _condition = value; }
+        }
+
+        /// <summary>
+        /// 首件上线检查表明细Id
+        /// </summary>
+        public string PCFirstOnlineCheckDetailId
+        {
+            get { return _pCFirstOnlineCheckDetailId; }
+            set { _pCFirstOnlineCheckDetailId = value; }
         }
 
         public virtual Employee AuditEmp

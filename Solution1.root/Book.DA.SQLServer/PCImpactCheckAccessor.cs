@@ -36,5 +36,52 @@ namespace Book.DA.SQLServer
             return a;
         }
 
+
+        public Book.Model.PCImpactCheck PFCGetFirst(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForObject<Model.PCImpactCheck>("PCImpactCheck.PFCGetFirst", PCFirstOnlineCheckDetailId);
+        }
+
+        public Book.Model.PCImpactCheck PFCGetLast(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForObject<Model.PCImpactCheck>("PCImpactCheck.PFCGetLast", PCFirstOnlineCheckDetailId);
+        }
+
+        public Book.Model.PCImpactCheck PFCGetPrev(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertDate", InsertDate);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<Model.PCImpactCheck>("PCImpactCheck.PFCGetPrev", ht);
+        }
+
+        public Book.Model.PCImpactCheck PFCGetNext(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertDate", InsertDate);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<Model.PCImpactCheck>("PCImpactCheck.PFCGetNext", ht);
+        }
+
+        public bool PFCHasRows(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForObject<bool>("PCImpactCheck.PFCHasRows", PCFirstOnlineCheckDetailId);
+        }
+
+        public bool PFCHasRowsBefore(Book.Model.PCImpactCheck e, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertTime", e.InsertTime.Value);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<bool>("PCImpactCheck.PFCHasRowsBefore", ht);
+        }
+
+        public bool PFCHasRowsAfter(Book.Model.PCImpactCheck e, string PCFirstOnlineCheckDetailId)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add("InsertTime", e.InsertTime.Value);
+            ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
+            return sqlmapper.QueryForObject<bool>("PCImpactCheck.PFCHasRowsAfter", ht);
+        }
     }
 }

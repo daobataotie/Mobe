@@ -128,6 +128,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblCompanyName = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_VerifiedBy = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -152,6 +154,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lbl_VerifiedBy,
+            this.xrLabel14,
             this.xrLine1,
             this.lblShouCeShu12,
             this.lblQuYangShu12,
@@ -1370,6 +1374,20 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.lblCompanyName.StylePriority.UseFont = false;
             this.lblCompanyName.StylePriority.UseTextAlignment = false;
             // 
+            // xrLabel14
+            // 
+            resources.ApplyResources(this.xrLabel14, "xrLabel14");
+            this.xrLabel14.Name = "xrLabel14";
+            this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel14.StylePriority.UseTextAlignment = false;
+            // 
+            // lbl_VerifiedBy
+            // 
+            resources.ApplyResources(this.lbl_VerifiedBy, "lbl_VerifiedBy");
+            this.lbl_VerifiedBy.Name = "lbl_VerifiedBy";
+            this.lbl_VerifiedBy.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_VerifiedBy.StylePriority.UseTextAlignment = false;
+            // 
             // RO
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1489,5 +1507,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
         private DevExpress.XtraReports.UI.XRLabel xrLabel13;
         private DevExpress.XtraReports.UI.XRLabel xrLabel8;
         private DevExpress.XtraReports.UI.XRLine xrLine1;
+        private DevExpress.XtraReports.UI.XRLabel lbl_VerifiedBy;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel14;
     }
 }

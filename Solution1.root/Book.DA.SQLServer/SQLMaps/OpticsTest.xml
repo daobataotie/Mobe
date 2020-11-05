@@ -165,5 +165,79 @@
       AND PCFinishCheckId = #PCFinishCheckId#
       ]]>
     </select>
+    
+    
+    
+
+    <select id="PFCGetFirst" resultMap="OpticsTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE PCFirstOnlineCheckDetailId = #value#
+      ORDER BY InsertTime ASC
+			]]>
+    </select>
+
+    <select id="PFCGetLast" resultMap="OpticsTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE PCFirstOnlineCheckDetailId = #value#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="PFCGetPrev" resultMap="OpticsTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE InsertTime < #InsertDate#
+      AND PCFirstOnlineCheckDetailId = #PCFirstOnlineCheckDetailId#
+      ORDER BY InsertTime DESC
+      ]]>
+    </select>
+
+    <select id="PFCGetNext" resultMap="OpticsTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT TOP 1 * FROM OpticsTest
+      WHERE InsertTime > #InsertDate#
+      AND PCFirstOnlineCheckDetailId = #PCFirstOnlineCheckDetailId#
+      ORDER BY InsertTime ASC
+      ]]>
+    </select>
+
+    <select id="PFCHasRows" resultClass="bool" parameterClass="string">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM OpticsTest WHERE PCFirstOnlineCheckDetailId = #value#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="PFCHasRowsBefore" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM OpticsTest WHERE InsertTime < #InsertTime# AND PCFirstOnlineCheckDetailId = #PCFirstOnlineCheckDetailId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="PFCHasRowsAfter" resultClass="bool" parameterClass="Map">
+      <![CDATA[
+      SELECT CASE WHEN EXISTS
+      (SELECT * FROM OpticsTest WHERE InsertTime > #InsertTime# AND PCFirstOnlineCheckDetailId = #PCFirstOnlineCheckDetailId#)
+      THEN 1 ELSE 0 END
+      ]]>
+    </select>
+
+    <select id="PFCSelect" resultMap="OpticsTestResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM OpticsTest WHERE PCFirstOnlineCheckDetailId = #value# ORDER BY OpticsTest.OptiscTestDate asc
+      ]]>
+    </select>
+
+    <select id="PFCSelectByDateRage" resultMap="OpticsTestResult" parameterClass="Map">
+      <![CDATA[
+      SELECT * FROM OpticsTest WHERE OpticsTest.OptiscTestDate BETWEEN #startdate# AND #enddate# 
+      AND PCFirstOnlineCheckDetailId = #PCFirstOnlineCheckDetailId#
+      ]]>
+    </select>
   </statements>
 </sqlMap>

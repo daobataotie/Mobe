@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PCFirstOnlineCheckDetail" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="PCFirstOnlineCheckDetail" type="Book.Model.PCFirstOnlineCheckDetail, Book.Model" />
+  </alias>
+  <resultMaps>
+    <resultMap id="PCFirstOnlineCheckDetailResult" class="PCFirstOnlineCheckDetail">
+      <result property="PCFirstOnlineCheckDetailId" column="PCFirstOnlineCheckDetailId" />
+      <result property="PCFirstOnlineCheckId" column="PCFirstOnlineCheckId" />
+      <result property="InvoiceXOId" column="InvoiceXOId" />
+      <result property="ProductId" column="ProductId" />
+      <result property="CheckDate" column="CheckDate" />
+      <result property="BusinessHoursId" column="BusinessHoursId" />
+      <result property="DuibiXiandu" column="DuibiXiandu" />
+      <result property="Jihao" column="Jihao" />
+      <result property="Waiguan" column="Waiguan" />
+      <result property="Remark" column="Remark" />
+      <result property="EmployeeId" column="EmployeeId" />
+      <result property="GBToushilv" column="GBToushilv"/>
+      <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key" />
+      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
+      <result property="PCFirstOnlineCheck" column="PCFirstOnlineCheckId" lazyLoad="false" select="PCFirstOnlineCheck.select_by_primary_key" />
+      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="has_rows_of" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCFirstOnlineCheckDetail]
+				WHERE
+				[PCFirstOnlineCheckDetailId] = #PCFirstOnlineCheckDetailId#
+                        			                   
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <select id="has_rows" resultClass="bool">
+      <![CDATA[select case when exists(
+				SELECT
+					*
+				FROM
+					[dbo].[PCFirstOnlineCheckDetail]
+ 								
+				) then 1 else 0 end
+                ]]>
+    </select>
+    <!-- select by primary key -->
+    <select id="select_by_primary_key" resultMap="PCFirstOnlineCheckDetailResult" parameterClass="PCFirstOnlineCheckDetail">
+      <![CDATA[SELECT
+				[PCFirstOnlineCheckDetailId],
+				[PCFirstOnlineCheckId],
+				[InvoiceXOId],
+				[ProductId],
+				[CheckDate],
+				[BusinessHoursId],
+				[DuibiXiandu],
+				[Jihao],
+				[Waiguan],
+				[Remark],
+				[EmployeeId],
+        [GBToushilv]
+			FROM
+				[dbo].[PCFirstOnlineCheckDetail]
+			WHERE
+				[PCFirstOnlineCheckDetailId] = #PCFirstOnlineCheckDetailId#
+                			          
+         		]]>
+    </select>
+
+    <!-- delete -->
+    <delete id="delete" parameterClass="string">
+      <![CDATA[                
+                DELETE FROM [dbo].[PCFirstOnlineCheckDetail]
+			WHERE            
+				[PCFirstOnlineCheckDetailId] = #PCFirstOnlineCheckDetailId#
+                    		]]>
+    </delete>
+
+    <!-- select all -->
+    <select id="select_all" resultMap="PCFirstOnlineCheckDetailResult" >
+      <![CDATA[SELECT *
+			FROM 
+				[dbo].[PCFirstOnlineCheckDetail]
+                			                   
+
+			]]>
+    </select>
+
+    <select id="count_all" resultClass="int">
+      <![CDATA[	select count(*)
+			from 
+				[dbo].[PCFirstOnlineCheckDetail]
+                			          
+         ]]>
+    </select>
+
+    <select id="select_all_with_paging" resultMap="PCFirstOnlineCheckDetailResult">
+      <![CDATA[    SELECT *
+            FROM
+            (
+                SELECT *, row_number() over(order by $OrderStatement$) rownumber
+                FROM    
+                    [dbo].[PCFirstOnlineCheckDetail]
+                    			          
+         
+            ) t
+            WHERE t.rownumber between #Row1# and #Row2#
+             ]]>
+    </select>
+
+    <!-- insert -->
+    <insert id="insert" parameterClass="PCFirstOnlineCheckDetail">
+      <![CDATA[ INSERT INTO [dbo].[PCFirstOnlineCheckDetail] 
+			(
+				[PCFirstOnlineCheckDetailId],
+				[PCFirstOnlineCheckId],
+				[InvoiceXOId],
+				[ProductId],
+				[CheckDate],
+				[BusinessHoursId],
+				[DuibiXiandu],
+				[Jihao],
+				[Waiguan],
+				[Remark],
+				[EmployeeId],
+        [GBToushilv]
+			) 
+			VALUES 
+			(
+				#PCFirstOnlineCheckDetailId#,
+				#PCFirstOnlineCheckId#,
+				#InvoiceXOId#,
+				#ProductId#,
+				#CheckDate#,
+				#BusinessHoursId#,
+				#DuibiXiandu#,
+				#Jihao#,
+				#Waiguan#,
+				#Remark#,
+				#EmployeeId#,
+        #GBToushilv#
+			)
+             ]]>
+    </insert>
+
+    <!-- update -->
+    <update id="update" parameterClass="PCFirstOnlineCheckDetail">
+      <![CDATA[ 	UPDATE [PCFirstOnlineCheckDetail] SET
+				[PCFirstOnlineCheckId] = #PCFirstOnlineCheckId#,
+				[InvoiceXOId] = #InvoiceXOId#,
+				[ProductId] = #ProductId#,
+				[CheckDate] = #CheckDate#,
+				[BusinessHoursId] = #BusinessHoursId#,
+				[DuibiXiandu] = #DuibiXiandu#,
+				[Jihao] = #Jihao#,
+				[Waiguan] = #Waiguan#,
+				[Remark] = #Remark#,
+				[EmployeeId] = #EmployeeId#,
+        [GBToushilv]=#GBToushilv#
+			WHERE
+				[PCFirstOnlineCheckDetailId] = #PCFirstOnlineCheckDetailId#
+                    ]]>
+    </update>
+    <select id="existsPrimary" resultClass="bool" parameterClass="string">
+      <![CDATA[
+			select case when exists(
+				select *
+				from [dbo].[PCFirstOnlineCheckDetail]
+				where  PCFirstOnlineCheckDetailId = #value#                 			                   
+				)
+				then 1 else 0 end
+			]]>
+    </select>
+
+  </statements>
+</sqlMap>

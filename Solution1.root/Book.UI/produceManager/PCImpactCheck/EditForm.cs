@@ -19,6 +19,12 @@ namespace Book.UI.produceManager.PCImpactCheck
         Model.PCImpactCheck _PCIC = null;
         BL.PCImpactCheckManager _PCICManager = new Book.BL.PCImpactCheckManager();
         private BL.ProduceOtherCompactDetailManager OtherCompactDetailManager = new Book.BL.ProduceOtherCompactDetailManager();
+        private string _PCFirstOnlineCheckDetailId;
+
+        /// <summary>
+        /// 0，本身；1，首件上线检查表
+        /// </summary>
+        int sourceInvoice = 0;
 
         public EditForm()
         {
@@ -117,6 +123,13 @@ namespace Book.UI.produceManager.PCImpactCheck
             this.action = action;
             if (this.action == "view")
                 LastFlag = 1;
+        }
+
+        public EditForm(string PCFirstOnlineCheckDetailId, int i)
+            : this()
+        {
+            this._PCFirstOnlineCheckDetailId = PCFirstOnlineCheckDetailId;
+            sourceInvoice = i;
         }
 
         protected override void AddNew()

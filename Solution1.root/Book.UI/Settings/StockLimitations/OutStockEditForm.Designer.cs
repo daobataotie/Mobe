@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutStockEditForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.txt_ParentProduct = new DevExpress.XtraEditors.TextEdit();
             this.newChooseContorlAuditEmp = new Book.UI.Invoices.NewChooseContorl();
             this.txt_AuditState = new DevExpress.XtraEditors.TextEdit();
             this.newChooseWorkHouse = new Book.UI.Invoices.NewChooseContorl();
@@ -79,6 +80,8 @@
             this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -97,19 +100,18 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSourceProduct = new System.Windows.Forms.BindingSource(this.components);
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.txt_ParentProduct = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_ParentProduct.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_AuditState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCostumeXOId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxInvioiceId.Properties)).BeginInit();
@@ -148,9 +150,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ParentProduct.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -202,6 +203,13 @@
             resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
+            // 
+            // txt_ParentProduct
+            // 
+            resources.ApplyResources(this.txt_ParentProduct, "txt_ParentProduct");
+            this.txt_ParentProduct.MenuManager = this.barManager1;
+            this.txt_ParentProduct.Name = "txt_ParentProduct";
+            this.txt_ParentProduct.StyleController = this.layoutControl1;
             // 
             // newChooseContorlAuditEmp
             // 
@@ -353,7 +361,8 @@
             this.gridColumn10,
             this.gridColumn13,
             this.gridColumn14,
-            this.gridColumn15});
+            this.gridColumn15,
+            this.gridColumn16});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ColumnAutoWidth = false;
@@ -580,6 +589,18 @@
             this.gridColumn14.FieldName = "InvoiceId";
             this.gridColumn14.Name = "gridColumn14";
             // 
+            // gridColumn15
+            // 
+            resources.ApplyResources(this.gridColumn15, "gridColumn15");
+            this.gridColumn15.FieldName = "Pihao";
+            this.gridColumn15.Name = "gridColumn15";
+            // 
+            // gridColumn16
+            // 
+            resources.ApplyResources(this.gridColumn16, "gridColumn16");
+            this.gridColumn16.FieldName = "PronoteHeaderId";
+            this.gridColumn16.Name = "gridColumn16";
+            // 
             // layoutControlGroup1
             // 
             resources.ApplyResources(this.layoutControlGroup1, "layoutControlGroup1");
@@ -764,6 +785,15 @@
             this.layoutControlItem13.Size = new System.Drawing.Size(375, 24);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(84, 14);
             // 
+            // layoutControlItem16
+            // 
+            this.layoutControlItem16.Control = this.txt_ParentProduct;
+            resources.ApplyResources(this.layoutControlItem16, "layoutControlItem16");
+            this.layoutControlItem16.Location = new System.Drawing.Point(0, 74);
+            this.layoutControlItem16.Name = "layoutControlItem16";
+            this.layoutControlItem16.Size = new System.Drawing.Size(980, 25);
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(84, 14);
+            // 
             // barButtonItem1
             // 
             resources.ApplyResources(this.barButtonItem1, "barButtonItem1");
@@ -803,28 +833,6 @@
             this.barButtonItem5.Name = "barButtonItem5";
             this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
             // 
-            // txt_ParentProduct
-            // 
-            resources.ApplyResources(this.txt_ParentProduct, "txt_ParentProduct");
-            this.txt_ParentProduct.MenuManager = this.barManager1;
-            this.txt_ParentProduct.Name = "txt_ParentProduct";
-            this.txt_ParentProduct.StyleController = this.layoutControl1;
-            // 
-            // layoutControlItem16
-            // 
-            this.layoutControlItem16.Control = this.txt_ParentProduct;
-            resources.ApplyResources(this.layoutControlItem16, "layoutControlItem16");
-            this.layoutControlItem16.Location = new System.Drawing.Point(0, 74);
-            this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(980, 25);
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(84, 14);
-            // 
-            // gridColumn15
-            // 
-            resources.ApplyResources(this.gridColumn15, "gridColumn15");
-            this.gridColumn15.FieldName = "Pihao";
-            this.gridColumn15.Name = "gridColumn15";
-            // 
             // OutStockEditForm
             // 
             resources.ApplyResources(this, "$this");
@@ -836,6 +844,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txt_ParentProduct.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_AuditState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditCostumeXOId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxInvioiceId.Properties)).EndInit();
@@ -874,9 +883,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ParentProduct.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProduct)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -959,5 +967,6 @@
         private DevExpress.XtraEditors.TextEdit txt_ParentProduct;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
     }
 }

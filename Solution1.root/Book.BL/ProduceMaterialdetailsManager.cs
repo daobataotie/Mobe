@@ -132,6 +132,11 @@ namespace Book.BL
         {
             return accessor.GetDataByPronoteHeaders(pronoteHeaderIds);
         }
+
+        public string SelectPNTOrMRSId(string produceMaterialdetailsID)
+        {
+            return accessor.SelectPNTOrMRSId(produceMaterialdetailsID);
+        }
     }
 }
 

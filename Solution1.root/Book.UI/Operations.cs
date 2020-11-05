@@ -754,9 +754,6 @@ namespace Book.UI
             //商品关键字分类
             operations.Add("Settings.BasicData.Products.ProductClassifyForm", (D1)delegate(System.Windows.Forms.Form form) { M1("Settings.BasicData.Products.ProductClassifyForm", form); });
 
-            //模具上线检验单
-            operations.Add("produceManager.PCMouldOnlineCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCMouldOnlineCheck.EditForm", form); });
-
             //入料检验单(新)
             operations.Add("produceManager.PCInputCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCInputCheck.EditForm", form); });
 
@@ -795,7 +792,11 @@ namespace Book.UI
             //EN耳护外销报告
             operations.Add("produceManager.PCExportReportANSI.ENEarProtectEditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCExportReportANSI.ENEarProtectEditForm", form); });
 
-            //首件上线检查表     原名 产品上线检验单  对应易达的 模具上线检验单 
+
+            //模具上线检验单  
+            operations.Add("produceManager.PCMouldOnlineCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCMouldOnlineCheck.EditForm", form); });
+
+            //首件上线检查表(旧版)    原名 产品上线检验单，后改为模具上线检验单，因为新加模具上线检验单，再次改名为 首件上线检查表，但是又增加了一个同名表单，所以这是老版
             operations.Add("produceManager.ProductOnlineCheck.Editform", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.ProductOnlineCheck.Editform", form); });
 
             //首件上线检查表(新)

@@ -156,6 +156,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.LbOrderId = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.xrLabel43 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_VerifiedBy = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -205,6 +207,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lbl_VerifiedBy,
+            this.xrLabel43,
             this.xrTable1,
             this.lbl_PanDing13,
             this.lbl_PanDing14,
@@ -1430,6 +1434,20 @@ namespace Book.UI.produceManager.PCExportReportANSI
             resources.ApplyResources(this.PageFooter, "PageFooter");
             this.PageFooter.Name = "PageFooter";
             // 
+            // xrLabel43
+            // 
+            resources.ApplyResources(this.xrLabel43, "xrLabel43");
+            this.xrLabel43.Name = "xrLabel43";
+            this.xrLabel43.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel43.StylePriority.UseTextAlignment = false;
+            // 
+            // lbl_VerifiedBy
+            // 
+            resources.ApplyResources(this.lbl_VerifiedBy, "lbl_VerifiedBy");
+            this.lbl_VerifiedBy.Name = "lbl_VerifiedBy";
+            this.lbl_VerifiedBy.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_VerifiedBy.StylePriority.UseTextAlignment = false;
+            // 
             // ANSI2015RO
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1578,5 +1596,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell5;
+        private DevExpress.XtraReports.UI.XRLabel lbl_VerifiedBy;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel43;
     }
 }

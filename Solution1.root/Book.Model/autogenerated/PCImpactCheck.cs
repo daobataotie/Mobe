@@ -109,6 +109,8 @@ namespace Book.Model
 
         private string _materialUnit;
 
+        private string _pCFirstOnlineCheckDetailId;
+
         #endregion
 
         #region Properties
@@ -430,6 +432,12 @@ namespace Book.Model
             set { _materialUnit = value; }
         }
 
+        public string PCFirstOnlineCheckDetailId
+        {
+            get { return _pCFirstOnlineCheckDetailId; }
+            set { _pCFirstOnlineCheckDetailId = value; }
+        }
+
         /// <summary>
         /// 主键编号
         /// </summary>
@@ -507,6 +515,8 @@ namespace Book.Model
         public readonly static string PRO_ProductUnitId = "ProductUnitId";
 
         public readonly static string PRO_MaterialUnit = "MaterialUnit";
+
+        public readonly static string PRO_PCFirstOnlineCheckDetailId = "PCFirstOnlineCheckDetailId";
         #endregion
     }
 }

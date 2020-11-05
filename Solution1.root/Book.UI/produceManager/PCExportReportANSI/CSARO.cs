@@ -62,6 +62,9 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.LbFogJudge.Text = (_PCExportReportANSI.PanDing3.HasValue ? _PCExportReportANSI.PanDing3.ToString() : "0") + "PASS";
             this.LbLightJudge.Text = (_PCExportReportANSI.PanDing4.HasValue ? _PCExportReportANSI.PanDing4.ToString() : "0") + "PASS";
             this.LbImpactJudge.Text = (_PCExportReportANSI.PanDing5.HasValue ? _PCExportReportANSI.PanDing5.ToString() : "0") + "PASS";
+
+
+            this.lbl_VerifiedBy.Text = string.Format("{0} {1}", _PCExportReportANSI.AuditEmp == null ? "" : _PCExportReportANSI.AuditEmp.EmployeeName, _PCExportReportANSI.ReportDate.HasValue ? _PCExportReportANSI.ReportDate.Value.ToString("yyyy-MM-dd") : "");
         }
     }
 }
