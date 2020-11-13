@@ -96,6 +96,30 @@
             this.repositoryItemLookUpEdit37 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckedComboBoxEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit38 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit39 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit40 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit41 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit42 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit43 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit44 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit45 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit46 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit47 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit48 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit49 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.RICBattr60L = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -157,7 +181,6 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -165,30 +188,6 @@
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.cob_MaterialUnit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemLookUpEdit38 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit39 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit40 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit41 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit42 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit43 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit44 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit45 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit46 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit47 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemLookUpEdit48 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemLookUpEdit49 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -209,6 +208,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit37)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit41)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit42)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit43)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit44)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit45)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit46)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit48)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit49)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RICBattr60L)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
@@ -269,7 +280,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
@@ -277,18 +287,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cob_MaterialUnit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit38)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit39)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit40)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit41)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit42)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit43)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit44)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit45)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit46)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit47)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit48)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit49)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -941,6 +939,174 @@
             this.repositoryItemCheckedComboBoxEdit1.Name = "repositoryItemCheckedComboBoxEdit1";
             this.repositoryItemCheckedComboBoxEdit1.EditValueChanged += new System.EventHandler(this.repositoryItemCheckedComboBoxEdit1_EditValueChanged);
             // 
+            // gridColumn4
+            // 
+            resources.ApplyResources(this.gridColumn4, "gridColumn4");
+            this.gridColumn4.ColumnEdit = this.repositoryItemLookUpEdit38;
+            this.gridColumn4.FieldName = "HM500gL";
+            this.gridColumn4.Name = "gridColumn4";
+            // 
+            // repositoryItemLookUpEdit38
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit38, "repositoryItemLookUpEdit38");
+            this.repositoryItemLookUpEdit38.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit38.Buttons"))))});
+            this.repositoryItemLookUpEdit38.Name = "repositoryItemLookUpEdit38";
+            // 
+            // gridColumn5
+            // 
+            resources.ApplyResources(this.gridColumn5, "gridColumn5");
+            this.gridColumn5.ColumnEdit = this.repositoryItemLookUpEdit39;
+            this.gridColumn5.FieldName = "HM500gR";
+            this.gridColumn5.Name = "gridColumn5";
+            // 
+            // repositoryItemLookUpEdit39
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit39, "repositoryItemLookUpEdit39");
+            this.repositoryItemLookUpEdit39.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit39.Buttons"))))});
+            this.repositoryItemLookUpEdit39.Name = "repositoryItemLookUpEdit39";
+            // 
+            // gridColumn6
+            // 
+            resources.ApplyResources(this.gridColumn6, "gridColumn6");
+            this.gridColumn6.ColumnEdit = this.repositoryItemLookUpEdit40;
+            this.gridColumn6.FieldName = "Zhuiqiu68gL";
+            this.gridColumn6.Name = "gridColumn6";
+            // 
+            // repositoryItemLookUpEdit40
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit40, "repositoryItemLookUpEdit40");
+            this.repositoryItemLookUpEdit40.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit40.Buttons"))))});
+            this.repositoryItemLookUpEdit40.Name = "repositoryItemLookUpEdit40";
+            // 
+            // gridColumn7
+            // 
+            resources.ApplyResources(this.gridColumn7, "gridColumn7");
+            this.gridColumn7.ColumnEdit = this.repositoryItemLookUpEdit41;
+            this.gridColumn7.FieldName = "Zhuiqiu68gR";
+            this.gridColumn7.Name = "gridColumn7";
+            // 
+            // repositoryItemLookUpEdit41
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit41, "repositoryItemLookUpEdit41");
+            this.repositoryItemLookUpEdit41.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit41.Buttons"))))});
+            this.repositoryItemLookUpEdit41.Name = "repositoryItemLookUpEdit41";
+            // 
+            // gridColumn8
+            // 
+            resources.ApplyResources(this.gridColumn8, "gridColumn8");
+            this.gridColumn8.ColumnEdit = this.repositoryItemLookUpEdit42;
+            this.gridColumn8.FieldName = "Zhuiqiu44gL";
+            this.gridColumn8.Name = "gridColumn8";
+            // 
+            // repositoryItemLookUpEdit42
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit42, "repositoryItemLookUpEdit42");
+            this.repositoryItemLookUpEdit42.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit42.Buttons"))))});
+            this.repositoryItemLookUpEdit42.Name = "repositoryItemLookUpEdit42";
+            // 
+            // gridColumn9
+            // 
+            resources.ApplyResources(this.gridColumn9, "gridColumn9");
+            this.gridColumn9.ColumnEdit = this.repositoryItemLookUpEdit43;
+            this.gridColumn9.FieldName = "Zhuiqiu44gR";
+            this.gridColumn9.Name = "gridColumn9";
+            // 
+            // repositoryItemLookUpEdit43
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit43, "repositoryItemLookUpEdit43");
+            this.repositoryItemLookUpEdit43.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit43.Buttons"))))});
+            this.repositoryItemLookUpEdit43.Name = "repositoryItemLookUpEdit43";
+            // 
+            // gridColumn10
+            // 
+            resources.ApplyResources(this.gridColumn10, "gridColumn10");
+            this.gridColumn10.ColumnEdit = this.repositoryItemLookUpEdit44;
+            this.gridColumn10.FieldName = "Zhuiqiu43gL";
+            this.gridColumn10.Name = "gridColumn10";
+            // 
+            // repositoryItemLookUpEdit44
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit44, "repositoryItemLookUpEdit44");
+            this.repositoryItemLookUpEdit44.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit44.Buttons"))))});
+            this.repositoryItemLookUpEdit44.Name = "repositoryItemLookUpEdit44";
+            // 
+            // gridColumn11
+            // 
+            resources.ApplyResources(this.gridColumn11, "gridColumn11");
+            this.gridColumn11.ColumnEdit = this.repositoryItemLookUpEdit45;
+            this.gridColumn11.FieldName = "Zhuiqiu43gR";
+            this.gridColumn11.Name = "gridColumn11";
+            // 
+            // repositoryItemLookUpEdit45
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit45, "repositoryItemLookUpEdit45");
+            this.repositoryItemLookUpEdit45.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit45.Buttons"))))});
+            this.repositoryItemLookUpEdit45.Name = "repositoryItemLookUpEdit45";
+            // 
+            // gridColumn12
+            // 
+            resources.ApplyResources(this.gridColumn12, "gridColumn12");
+            this.gridColumn12.ColumnEdit = this.repositoryItemLookUpEdit46;
+            this.gridColumn12.FieldName = "Zhuiqiu42gL";
+            this.gridColumn12.Name = "gridColumn12";
+            // 
+            // repositoryItemLookUpEdit46
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit46, "repositoryItemLookUpEdit46");
+            this.repositoryItemLookUpEdit46.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit46.Buttons"))))});
+            this.repositoryItemLookUpEdit46.Name = "repositoryItemLookUpEdit46";
+            // 
+            // gridColumn13
+            // 
+            resources.ApplyResources(this.gridColumn13, "gridColumn13");
+            this.gridColumn13.ColumnEdit = this.repositoryItemLookUpEdit47;
+            this.gridColumn13.FieldName = "Zhuiqiu42gR";
+            this.gridColumn13.Name = "gridColumn13";
+            // 
+            // repositoryItemLookUpEdit47
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit47, "repositoryItemLookUpEdit47");
+            this.repositoryItemLookUpEdit47.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit47.Buttons"))))});
+            this.repositoryItemLookUpEdit47.Name = "repositoryItemLookUpEdit47";
+            // 
+            // gridColumn14
+            // 
+            resources.ApplyResources(this.gridColumn14, "gridColumn14");
+            this.gridColumn14.ColumnEdit = this.repositoryItemLookUpEdit48;
+            this.gridColumn14.FieldName = "Chuantou442gL";
+            this.gridColumn14.Name = "gridColumn14";
+            // 
+            // repositoryItemLookUpEdit48
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit48, "repositoryItemLookUpEdit48");
+            this.repositoryItemLookUpEdit48.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit48.Buttons"))))});
+            this.repositoryItemLookUpEdit48.Name = "repositoryItemLookUpEdit48";
+            // 
+            // gridColumn15
+            // 
+            resources.ApplyResources(this.gridColumn15, "gridColumn15");
+            this.gridColumn15.ColumnEdit = this.repositoryItemLookUpEdit49;
+            this.gridColumn15.FieldName = "Chuantou442gR";
+            this.gridColumn15.Name = "gridColumn15";
+            // 
+            // repositoryItemLookUpEdit49
+            // 
+            resources.ApplyResources(this.repositoryItemLookUpEdit49, "repositoryItemLookUpEdit49");
+            this.repositoryItemLookUpEdit49.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit49.Buttons"))))});
+            this.repositoryItemLookUpEdit49.Name = "repositoryItemLookUpEdit49";
+            // 
             // RICBattr60L
             // 
             resources.ApplyResources(this.RICBattr60L, "RICBattr60L");
@@ -1315,7 +1481,6 @@
             this.layoutControlItem3,
             this.layoutControlItem13,
             this.layoutControlItem15,
-            this.emptySpaceItem4,
             this.layoutControlItem16,
             this.layoutControlItem17,
             this.layoutControlItem18,
@@ -1486,7 +1651,7 @@
             resources.ApplyResources(this.layoutControlItem13, "layoutControlItem13");
             this.layoutControlItem13.Location = new System.Drawing.Point(585, 50);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(90, 26);
+            this.layoutControlItem13.Size = new System.Drawing.Size(84, 26);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextToControlDistance = 0;
             this.layoutControlItem13.TextVisible = false;
@@ -1495,20 +1660,12 @@
             // 
             this.layoutControlItem15.Control = this.btnGetOtherPacmt;
             resources.ApplyResources(this.layoutControlItem15, "layoutControlItem15");
-            this.layoutControlItem15.Location = new System.Drawing.Point(675, 50);
+            this.layoutControlItem15.Location = new System.Drawing.Point(669, 50);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(84, 26);
+            this.layoutControlItem15.Size = new System.Drawing.Size(86, 26);
             this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem15.TextToControlDistance = 0;
             this.layoutControlItem15.TextVisible = false;
-            // 
-            // emptySpaceItem4
-            // 
-            resources.ApplyResources(this.emptySpaceItem4, "emptySpaceItem4");
-            this.emptySpaceItem4.Location = new System.Drawing.Point(535, 50);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(50, 26);
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem16
             // 
@@ -1552,9 +1709,9 @@
             // 
             this.layoutControlItem20.Control = this.btn_InvoiceCO;
             resources.ApplyResources(this.layoutControlItem20, "layoutControlItem20");
-            this.layoutControlItem20.Location = new System.Drawing.Point(759, 50);
+            this.layoutControlItem20.Location = new System.Drawing.Point(755, 50);
             this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(86, 26);
+            this.layoutControlItem20.Size = new System.Drawing.Size(90, 26);
             this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem20.TextToControlDistance = 0;
             this.layoutControlItem20.TextVisible = false;
@@ -1574,176 +1731,8 @@
             resources.ApplyResources(this.layoutControlItem21, "layoutControlItem21");
             this.layoutControlItem21.Location = new System.Drawing.Point(358, 50);
             this.layoutControlItem21.Name = "layoutControlItem21";
-            this.layoutControlItem21.Size = new System.Drawing.Size(177, 26);
+            this.layoutControlItem21.Size = new System.Drawing.Size(227, 26);
             this.layoutControlItem21.TextSize = new System.Drawing.Size(84, 14);
-            // 
-            // gridColumn4
-            // 
-            resources.ApplyResources(this.gridColumn4, "gridColumn4");
-            this.gridColumn4.ColumnEdit = this.repositoryItemLookUpEdit38;
-            this.gridColumn4.FieldName = "HM500gL";
-            this.gridColumn4.Name = "gridColumn4";
-            // 
-            // gridColumn5
-            // 
-            resources.ApplyResources(this.gridColumn5, "gridColumn5");
-            this.gridColumn5.ColumnEdit = this.repositoryItemLookUpEdit39;
-            this.gridColumn5.FieldName = "HM500gR";
-            this.gridColumn5.Name = "gridColumn5";
-            // 
-            // gridColumn6
-            // 
-            resources.ApplyResources(this.gridColumn6, "gridColumn6");
-            this.gridColumn6.ColumnEdit = this.repositoryItemLookUpEdit40;
-            this.gridColumn6.FieldName = "Zhuiqiu68gL";
-            this.gridColumn6.Name = "gridColumn6";
-            // 
-            // gridColumn7
-            // 
-            resources.ApplyResources(this.gridColumn7, "gridColumn7");
-            this.gridColumn7.ColumnEdit = this.repositoryItemLookUpEdit41;
-            this.gridColumn7.FieldName = "Zhuiqiu68gR";
-            this.gridColumn7.Name = "gridColumn7";
-            // 
-            // gridColumn8
-            // 
-            resources.ApplyResources(this.gridColumn8, "gridColumn8");
-            this.gridColumn8.ColumnEdit = this.repositoryItemLookUpEdit42;
-            this.gridColumn8.FieldName = "Zhuiqiu44gL";
-            this.gridColumn8.Name = "gridColumn8";
-            // 
-            // gridColumn9
-            // 
-            resources.ApplyResources(this.gridColumn9, "gridColumn9");
-            this.gridColumn9.ColumnEdit = this.repositoryItemLookUpEdit43;
-            this.gridColumn9.FieldName = "Zhuiqiu44gR";
-            this.gridColumn9.Name = "gridColumn9";
-            // 
-            // gridColumn10
-            // 
-            resources.ApplyResources(this.gridColumn10, "gridColumn10");
-            this.gridColumn10.ColumnEdit = this.repositoryItemLookUpEdit44;
-            this.gridColumn10.FieldName = "Zhuiqiu43gL";
-            this.gridColumn10.Name = "gridColumn10";
-            // 
-            // gridColumn11
-            // 
-            resources.ApplyResources(this.gridColumn11, "gridColumn11");
-            this.gridColumn11.ColumnEdit = this.repositoryItemLookUpEdit45;
-            this.gridColumn11.FieldName = "Zhuiqiu43gR";
-            this.gridColumn11.Name = "gridColumn11";
-            // 
-            // gridColumn12
-            // 
-            resources.ApplyResources(this.gridColumn12, "gridColumn12");
-            this.gridColumn12.ColumnEdit = this.repositoryItemLookUpEdit46;
-            this.gridColumn12.FieldName = "Zhuiqiu42gL";
-            this.gridColumn12.Name = "gridColumn12";
-            // 
-            // gridColumn13
-            // 
-            resources.ApplyResources(this.gridColumn13, "gridColumn13");
-            this.gridColumn13.ColumnEdit = this.repositoryItemLookUpEdit47;
-            this.gridColumn13.FieldName = "Zhuiqiu42gR";
-            this.gridColumn13.Name = "gridColumn13";
-            // 
-            // gridColumn14
-            // 
-            resources.ApplyResources(this.gridColumn14, "gridColumn14");
-            this.gridColumn14.ColumnEdit = this.repositoryItemLookUpEdit48;
-            this.gridColumn14.FieldName = "Chuantou442gL";
-            this.gridColumn14.Name = "gridColumn14";
-            // 
-            // repositoryItemLookUpEdit38
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit38, "repositoryItemLookUpEdit38");
-            this.repositoryItemLookUpEdit38.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit38.Buttons"))))});
-            this.repositoryItemLookUpEdit38.Name = "repositoryItemLookUpEdit38";
-            // 
-            // repositoryItemLookUpEdit39
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit39, "repositoryItemLookUpEdit39");
-            this.repositoryItemLookUpEdit39.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit39.Buttons"))))});
-            this.repositoryItemLookUpEdit39.Name = "repositoryItemLookUpEdit39";
-            // 
-            // repositoryItemLookUpEdit40
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit40, "repositoryItemLookUpEdit40");
-            this.repositoryItemLookUpEdit40.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit40.Buttons"))))});
-            this.repositoryItemLookUpEdit40.Name = "repositoryItemLookUpEdit40";
-            // 
-            // repositoryItemLookUpEdit41
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit41, "repositoryItemLookUpEdit41");
-            this.repositoryItemLookUpEdit41.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit41.Buttons"))))});
-            this.repositoryItemLookUpEdit41.Name = "repositoryItemLookUpEdit41";
-            // 
-            // repositoryItemLookUpEdit42
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit42, "repositoryItemLookUpEdit42");
-            this.repositoryItemLookUpEdit42.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit42.Buttons"))))});
-            this.repositoryItemLookUpEdit42.Name = "repositoryItemLookUpEdit42";
-            // 
-            // repositoryItemLookUpEdit43
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit43, "repositoryItemLookUpEdit43");
-            this.repositoryItemLookUpEdit43.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit43.Buttons"))))});
-            this.repositoryItemLookUpEdit43.Name = "repositoryItemLookUpEdit43";
-            // 
-            // repositoryItemLookUpEdit44
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit44, "repositoryItemLookUpEdit44");
-            this.repositoryItemLookUpEdit44.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit44.Buttons"))))});
-            this.repositoryItemLookUpEdit44.Name = "repositoryItemLookUpEdit44";
-            // 
-            // repositoryItemLookUpEdit45
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit45, "repositoryItemLookUpEdit45");
-            this.repositoryItemLookUpEdit45.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit45.Buttons"))))});
-            this.repositoryItemLookUpEdit45.Name = "repositoryItemLookUpEdit45";
-            // 
-            // repositoryItemLookUpEdit46
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit46, "repositoryItemLookUpEdit46");
-            this.repositoryItemLookUpEdit46.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit46.Buttons"))))});
-            this.repositoryItemLookUpEdit46.Name = "repositoryItemLookUpEdit46";
-            // 
-            // repositoryItemLookUpEdit47
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit47, "repositoryItemLookUpEdit47");
-            this.repositoryItemLookUpEdit47.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit47.Buttons"))))});
-            this.repositoryItemLookUpEdit47.Name = "repositoryItemLookUpEdit47";
-            // 
-            // repositoryItemLookUpEdit48
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit48, "repositoryItemLookUpEdit48");
-            this.repositoryItemLookUpEdit48.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit48.Buttons"))))});
-            this.repositoryItemLookUpEdit48.Name = "repositoryItemLookUpEdit48";
-            // 
-            // gridColumn15
-            // 
-            resources.ApplyResources(this.gridColumn15, "gridColumn15");
-            this.gridColumn15.ColumnEdit = this.repositoryItemLookUpEdit49;
-            this.gridColumn15.FieldName = "Chuantou442gR";
-            this.gridColumn15.Name = "gridColumn15";
-            // 
-            // repositoryItemLookUpEdit49
-            // 
-            resources.ApplyResources(this.repositoryItemLookUpEdit49, "repositoryItemLookUpEdit49");
-            this.repositoryItemLookUpEdit49.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit49.Buttons"))))});
-            this.repositoryItemLookUpEdit49.Name = "repositoryItemLookUpEdit49";
             // 
             // EditForm
             // 
@@ -1771,6 +1760,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit37)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckedComboBoxEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit41)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit42)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit43)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit44)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit45)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit46)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit48)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit49)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RICBattr60L)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
@@ -1831,7 +1832,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
@@ -1839,18 +1839,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cob_MaterialUnit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit38)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit39)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit40)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit41)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit42)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit43)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit44)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit45)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit46)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit47)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit48)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit49)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1969,7 +1957,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
         private DevExpress.XtraEditors.TextEdit txtCheckStandard;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraEditors.CalcEdit calcInvoiceXOQuantity;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
         private DevExpress.XtraGrid.Columns.GridColumn attrFootL;
@@ -1990,8 +1977,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit37;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckedComboBoxEdit repositoryItemCheckedComboBoxEdit1;
-        private DevExpress.XtraEditors.ComboBoxEdit cob_MaterialUnit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem21;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
@@ -2016,5 +2001,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit48;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit49;
+        private DevExpress.XtraEditors.ComboBoxEdit cob_MaterialUnit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem21;
     }
 }

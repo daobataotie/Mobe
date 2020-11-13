@@ -17,7 +17,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="Waiguan" column="Waiguan" />
       <result property="Remark" column="Remark" />
       <result property="EmployeeId" column="EmployeeId" />
-      <result property="GBToushilv" column="GBToushilv"/>
       <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key" />
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="PCFirstOnlineCheck" column="PCFirstOnlineCheckId" lazyLoad="false" select="PCFirstOnlineCheck.select_by_primary_key" />
@@ -61,8 +60,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[Jihao],
 				[Waiguan],
 				[Remark],
-				[EmployeeId],
-        [GBToushilv]
+				[EmployeeId]
 			FROM
 				[dbo].[PCFirstOnlineCheckDetail]
 			WHERE
@@ -126,8 +124,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[Jihao],
 				[Waiguan],
 				[Remark],
-				[EmployeeId],
-        [GBToushilv]
+				[EmployeeId]
 			) 
 			VALUES 
 			(
@@ -141,8 +138,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#Jihao#,
 				#Waiguan#,
 				#Remark#,
-				#EmployeeId#,
-        #GBToushilv#
+				#EmployeeId#
 			)
              ]]>
     </insert>
@@ -159,8 +155,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[Jihao] = #Jihao#,
 				[Waiguan] = #Waiguan#,
 				[Remark] = #Remark#,
-				[EmployeeId] = #EmployeeId#,
-        [GBToushilv]=#GBToushilv#
+				[EmployeeId] = #EmployeeId#
 			WHERE
 				[PCFirstOnlineCheckDetailId] = #PCFirstOnlineCheckDetailId#
                     ]]>

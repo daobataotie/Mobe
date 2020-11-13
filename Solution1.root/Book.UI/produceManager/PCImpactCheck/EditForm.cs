@@ -156,10 +156,22 @@ namespace Book.UI.produceManager.PCImpactCheck
             if (MessageBox.Show(Properties.Resources.ConfirmToDelete, this.Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
             this._PCICManager.Delete(this._PCIC);
-            this._PCIC = this._PCICManager.GetNext(this._PCIC);
-            if (this._PCIC == null)
+
+            if (this.sourceInvoice == 0)
             {
-                this._PCIC = this._PCICManager.GetLast();
+                this._PCIC = this._PCICManager.GetNext(this._PCIC);
+                if (this._PCIC == null)
+                {
+                    this._PCIC = this._PCICManager.GetLast();
+                }
+            }
+            else if (this.sourceInvoice == 1)
+            {
+                this._PCIC = this._PCICManager.PFCGetNext(this._PCIC.InsertTime.Value, this._PCFirstOnlineCheckDetailId);
+                if (this._PCIC == null)
+                {
+                    this._PCIC = this._PCICManager.PFCGetLast(this._PCFirstOnlineCheckDetailId);
+                }
             }
         }
 
@@ -170,17 +182,42 @@ namespace Book.UI.produceManager.PCImpactCheck
                 this.LastFlag = 0;
                 return;
             }
-            this._PCIC = this._PCICManager.Get(this._PCICManager.GetLast() == null ? "" : this._PCICManager.GetLast().PCImpactCheckId);
+
+            if (this.sourceInvoice == 0)
+            {
+                this._PCIC = this._PCICManager.Get(this._PCICManager.GetLast() == null ? "" : this._PCICManager.GetLast().PCImpactCheckId);
+            }
+            else if (this.sourceInvoice == 1)
+            {
+                this._PCIC = this._PCICManager.Get(this._PCICManager.PFCGetLast(this._PCFirstOnlineCheckDetailId) == null ? "" : this._PCICManager.PFCGetLast(this._PCFirstOnlineCheckDetailId).PCImpactCheckId);
+            }
         }
 
         protected override void MoveFirst()
         {
-            this._PCIC = this._PCICManager.Get(this._PCICManager.GetFirst() == null ? "" : this._PCICManager.GetFirst().PCImpactCheckId);
+            //this._PCIC = this._PCICManager.Get(this._PCICManager.GetFirst() == null ? "" : this._PCICManager.GetFirst().PCImpactCheckId);
+            if (this.sourceInvoice == 0)
+            {
+                this._PCIC = this._PCICManager.GetFirst();
+            }
+            else if (this.sourceInvoice == 1)
+            {
+                this._PCIC = this._PCICManager.PFCGetFirst(this._PCFirstOnlineCheckDetailId);
+            }
         }
 
         protected override void MovePrev()
         {
-            Model.PCImpactCheck pcic = this._PCICManager.GetPrev(this._PCIC);
+            Model.PCImpactCheck pcic = null;
+            if (this.sourceInvoice == 0)
+            {
+                pcic = this._PCICManager.GetPrev(this._PCIC);
+            }
+            else if (this.sourceInvoice == 1)
+            {
+                pcic = this._PCICManager.PFCGetPrev(this._PCIC.InsertTime.Value, this._PCFirstOnlineCheckDetailId);
+            }
+
             if (pcic == null)
                 throw new InvalidOperationException(Properties.Resources.ErrorNoMoreRows);
             this._PCIC = this._PCICManager.Get(pcic.PCImpactCheckId);
@@ -188,7 +225,17 @@ namespace Book.UI.produceManager.PCImpactCheck
 
         protected override void MoveNext()
         {
-            Model.PCImpactCheck pcic = this._PCICManager.GetNext(this._PCIC);
+            Model.PCImpactCheck pcic = null;
+            if (this.sourceInvoice == 0)
+            {
+                pcic = this._PCICManager.GetNext(this._PCIC);
+            }
+            else if (this.sourceInvoice == 1)
+            {
+                pcic = this._PCICManager.PFCGetNext(this._PCIC.InsertTime.Value, this._PCFirstOnlineCheckDetailId);
+            }
+
+
             if (pcic == null)
                 throw new InvalidOperationException(Properties.Resources.ErrorNoMoreRows);
             this._PCIC = this._PCICManager.Get(pcic.PCImpactCheckId);
@@ -196,17 +243,38 @@ namespace Book.UI.produceManager.PCImpactCheck
 
         protected override bool HasRows()
         {
-            return this._PCICManager.HasRows();
+            if (this.sourceInvoice == 0)
+            {
+                return this._PCICManager.HasRows();
+            }
+            else
+            {
+                return this._PCICManager.PFCHasRows(this._PCFirstOnlineCheckDetailId);
+            }
         }
 
         protected override bool HasRowsNext()
         {
-            return this._PCICManager.HasRowsAfter(this._PCIC);
+            if (this.sourceInvoice == 0)
+            {
+                return this._PCICManager.HasRowsAfter(this._PCIC);
+            }
+            else
+            {
+                return this._PCICManager.PFCHasRowsAfter(this._PCIC, this._PCFirstOnlineCheckDetailId);
+            }
         }
 
         protected override bool HasRowsPrev()
         {
-            return this._PCICManager.HasRowsBefore(this._PCIC);
+            if (this.sourceInvoice == 0)
+            {
+                return this._PCICManager.HasRowsBefore(this._PCIC);
+            }
+            else
+            {
+                return this._PCICManager.PFCHasRowsBefore(this._PCIC, this._PCFirstOnlineCheckDetailId);
+            }
         }
 
         protected override void Save()
@@ -239,6 +307,11 @@ namespace Book.UI.produceManager.PCImpactCheck
             this._PCIC.ProductUnitId = this.lookUpEditUnit.EditValue == null ? null : this.lookUpEditUnit.EditValue.ToString();
 
             this._PCIC.MaterialUnit = this.cob_MaterialUnit.Text;
+
+            if (this.sourceInvoice == 1)
+            {
+                this._PCIC.PCFirstOnlineCheckDetailId = this._PCFirstOnlineCheckDetailId;
+            }
 
             if (!this.gridView1.PostEditor() || !this.gridView1.UpdateCurrentRow())
                 return;

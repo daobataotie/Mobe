@@ -164,6 +164,44 @@ namespace Book.BL
                 TiGuiExists(model);
             }
         }
+
+
+
+        public Model.PCImpactCheck PFCGetFirst(string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCGetFirst(PCFirstOnlineCheckDetailId);
+        }
+
+        public Model.PCImpactCheck PFCGetLast(string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCGetLast(PCFirstOnlineCheckDetailId);
+        }
+
+        public Model.PCImpactCheck PFCGetPrev(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCGetPrev(InsertDate, PCFirstOnlineCheckDetailId);
+        }
+
+        public Model.PCImpactCheck PFCGetNext(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCGetNext(InsertDate, PCFirstOnlineCheckDetailId);
+        }
+
+        public bool PFCHasRows(string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCHasRows(PCFirstOnlineCheckDetailId);
+        }
+
+        public bool PFCHasRowsBefore(Model.PCImpactCheck e, string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCHasRowsBefore(e, PCFirstOnlineCheckDetailId);
+        }
+
+        public bool PFCHasRowsAfter(Model.PCImpactCheck e, string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCHasRowsAfter(e, PCFirstOnlineCheckDetailId);
+        }
+
     }
 }
 

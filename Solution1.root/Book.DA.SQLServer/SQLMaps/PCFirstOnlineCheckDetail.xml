@@ -16,7 +16,6 @@
       <result property="Remark" column="Remark" />
       <result property="EmployeeId" column="EmployeeId" />
       <result property="InvoiceXOCusId" column="InvoiceXOCusId" />
-      <result property="GBToushilv" column="GBToushilv"/>
       <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key" />
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="PCFirstOnlineCheck" column="PCFirstOnlineCheckId" lazyLoad="false" select="PCFirstOnlineCheck.select_by_primary_key" />

@@ -68,8 +68,6 @@ namespace Book.Model
 		/// 
 		/// </summary>
 		private string _employeeId;
-
-        private string _gBToushilv;
 		
 		/// <summary>
 		/// 班别
@@ -226,13 +224,6 @@ namespace Book.Model
 				this._waiguan = value;
 			}
         }
-
-        public string GBToushilv
-        {
-            get { return _gBToushilv; }
-            set { _gBToushilv = value; }
-        }
-
 		/// <summary>
 		/// 
 		/// </summary>
@@ -377,8 +368,6 @@ namespace Book.Model
 		/// 
 		/// </summary>
 		public readonly static string PRO_EmployeeId = "EmployeeId";
-
-        public readonly static string PRO_GBToushilv = "GBToushilv";
 
 		#endregion
 	}

@@ -299,7 +299,6 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
                         model.InvoiceXOCusId = item.InvoiceCusId;
                         model.ProductName = item.ProductName;
                         model.ProductId = item.ProductId;
-                        model.GBToushilv = "PASS";
                         model.Employee = BL.V.ActiveOperator.Employee;
                         model.EmployeeId = BL.V.ActiveOperator.EmployeeId;
 
@@ -395,7 +394,8 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             Model.PCFirstOnlineCheckDetail d = (this.bindingSourceDetail.Current as Model.PCFirstOnlineCheckDetail);
             if (d != null)
             {
-                PCImpactCheck.EditForm f = new Book.UI.produceManager.PCImpactCheck.EditForm();
+                PCImpactCheck.EditForm f = new Book.UI.produceManager.PCImpactCheck.EditForm(d.PCFirstOnlineCheckDetailId, 1);
+                f.ShowDialog();
             }
         }
     }

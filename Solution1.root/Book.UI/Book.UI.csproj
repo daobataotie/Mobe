@@ -24,7 +24,7 @@
     <ManifestKeyFile>Book.UI_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>false</SignManifests>
-    <ApplicationIcon>AccountPayable\Resources\1.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\1.ico</ApplicationIcon>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -4538,23 +4538,11 @@
       <DependentUpon>Editform.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\Editform.zh-CHT.resx">
-      <DependentUpon>Editform.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\List.resx">
       <DependentUpon>List.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\List.zh-CHT.resx">
-      <DependentUpon>List.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\RO.resx">
-      <DependentUpon>RO.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\RO.zh-CHT.resx">
       <DependentUpon>RO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -13161,11 +13149,11 @@
     <Compile Include="Workflow\AuditForm.Designer.cs">
       <DependentUpon>AuditForm.cs</DependentUpon>
     </Compile>
-    <None Include="AccountPayable\Resources\0503.GIF" />
-    <None Include="AccountPayable\Resources\1.ico" />
-    <None Include="AccountPayable\Resources\typeyourdata.jpg" />
-    <None Include="AccountPayable\Resources\登陆.PNG" />
-    <None Include="AccountPayable\Resources\选择数据库连接.PNG" />
+    <None Include="Resources\0503.GIF" />
+    <None Include="Resources\1.ico" />
+    <None Include="Resources\typeyourdata.jpg" />
+    <None Include="Resources\登陆.PNG" />
+    <None Include="Resources\选择数据库连接.PNG" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Book.BL\Book.BL.csproj">
@@ -13229,22 +13217,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Invoices\readme.txt" />
-    <Content Include="AccountPayable\Resources\4.jpg" />
-    <Content Include="AccountPayable\Resources\5.jpg" />
+    <Content Include="Resources\4.jpg" />
+    <Content Include="Resources\5.jpg" />
     <None Include="Book.SQLServer.SQLMap2.config">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="AccountPayable\Resources\Access.png" />
-    <None Include="AccountPayable\Resources\Excel.png" />
-    <None Include="AccountPayable\Resources\muisc.PNG" />
-    <None Include="AccountPayable\Resources\pdf.png" />
-    <None Include="AccountPayable\Resources\PowerPoint.png" />
-    <None Include="AccountPayable\Resources\realplay.png" />
-    <None Include="AccountPayable\Resources\txt.png" />
-    <None Include="AccountPayable\Resources\Word.png" />
-    <None Include="AccountPayable\Resources\img_default.png" />
-    <None Include="AccountPayable\Resources\img_pic.png" />
+    <None Include="Resources\Access.png" />
+    <None Include="Resources\Excel.png" />
+    <None Include="Resources\muisc.PNG" />
+    <None Include="Resources\pdf.png" />
+    <None Include="Resources\PowerPoint.png" />
+    <None Include="Resources\realplay.png" />
+    <None Include="Resources\txt.png" />
+    <None Include="Resources\Word.png" />
+    <None Include="Resources\img_default.png" />
+    <None Include="Resources\img_pic.png" />
     <None Include="Service References\ServiceReference1\Service1.wsdl" />
     <None Include="Service References\ServiceReference1\Service1.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />

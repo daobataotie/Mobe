@@ -86,7 +86,6 @@
             this.barPronoteHeader = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -277,7 +276,6 @@
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn8,
-            this.gridColumn12,
             this.gridColumn9,
             this.gridColumn10,
             this.gridColumn11,
@@ -651,12 +649,6 @@
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
-            // gridColumn12
-            // 
-            resources.ApplyResources(this.gridColumn12, "gridColumn12");
-            this.gridColumn12.FieldName = "GBToushilv";
-            this.gridColumn12.Name = "gridColumn12";
-            // 
             // Editform
             // 
             resources.ApplyResources(this, "$this");
@@ -767,6 +759,5 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit4;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit5;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
     }
 }

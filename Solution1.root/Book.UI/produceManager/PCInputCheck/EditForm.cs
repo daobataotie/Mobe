@@ -191,6 +191,7 @@ namespace Book.UI.produceManager.PCInputCheck
             this._PCInputCheck.UVvalue = string.IsNullOrEmpty(this.rdo_UV.SelectedIndex.ToString()) ? "0" : this.rdo_UV.SelectedIndex.ToString();
             //this._PCInputCheck.Wudu = this.rdo_Wudu.SelectedIndex.ToString();
             this._PCInputCheck.Wudu = this.txt_Wudu.Text;
+            this._PCInputCheck.GBToushilv = this.txt_GBToushilv.Text;
 
             this._PCInputCheck.ANSICSAToushilv = this.txt_ANSICSA.Text;
             this._PCInputCheck.ENToushilv = this.txt_EN.Text;
@@ -264,6 +265,7 @@ namespace Book.UI.produceManager.PCInputCheck
             this.rdo_UV.EditValue = string.IsNullOrEmpty(this._PCInputCheck.UVvalue) ? "0" : this._PCInputCheck.UVvalue;
             //this.rdo_Wudu.EditValue = this._PCInputCheck.Wudu;
             this.txt_Wudu.EditValue = this._PCInputCheck.Wudu;
+            this.txt_GBToushilv.EditValue = this._PCInputCheck.GBToushilv;
 
             this.txt_ANSICSA.EditValue = this._PCInputCheck.ANSICSAToushilv;
             this.txt_EN.EditValue = this._PCInputCheck.ENToushilv;

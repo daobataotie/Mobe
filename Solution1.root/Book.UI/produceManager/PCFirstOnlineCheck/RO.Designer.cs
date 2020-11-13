@@ -74,8 +74,6 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.TC_GBToushilv = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -110,7 +108,6 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             this.TC_Biduixiandu,
             this.TC_Jihao,
             this.TC_Waiguan,
-            this.TC_GBToushilv,
             this.TC_Note,
             this.TC_Employee});
             resources.ApplyResources(this.xrTableRow2, "xrTableRow2");
@@ -171,14 +168,14 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             resources.ApplyResources(this.TC_Note, "TC_Note");
             this.TC_Note.Name = "TC_Note";
             this.TC_Note.StylePriority.UseTextAlignment = false;
-            this.TC_Note.Weight = 0.23290601351894016;
+            this.TC_Note.Weight = 0.32064781372508383;
             // 
             // TC_Employee
             // 
             resources.ApplyResources(this.TC_Employee, "TC_Employee");
             this.TC_Employee.Name = "TC_Employee";
             this.TC_Employee.StylePriority.UseTextAlignment = false;
-            this.TC_Employee.Weight = 0.18763275266044638;
+            this.TC_Employee.Weight = 0.23652770486032848;
             // 
             // TopMargin
             // 
@@ -298,7 +295,6 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             this.xrTableCell2,
             this.xrTableCell3,
             this.xrTableCell4,
-            this.xrTableCell10,
             this.xrTableCell6,
             this.xrTableCell5});
             resources.ApplyResources(this.xrTableRow1, "xrTableRow1");
@@ -359,14 +355,14 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             resources.ApplyResources(this.xrTableCell6, "xrTableCell6");
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
-            this.xrTableCell6.Weight = 0.61037850663615512;
+            this.xrTableCell6.Weight = 0.84032407328261838;
             // 
             // xrTableCell5
             // 
             resources.ApplyResources(this.xrTableCell5, "xrTableCell5");
             this.xrTableCell5.Name = "xrTableCell5";
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
-            this.xrTableCell5.Weight = 0.49173084375323373;
+            this.xrTableCell5.Weight = 0.61987007987052356;
             // 
             // xrLabel8
             // 
@@ -438,19 +434,6 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
             // 
-            // xrTableCell10
-            // 
-            resources.ApplyResources(this.xrTableCell10, "xrTableCell10");
-            this.xrTableCell10.Name = "xrTableCell10";
-            this.xrTableCell10.StylePriority.UseTextAlignment = false;
-            this.xrTableCell10.Weight = 0.64883232608171737;
-            // 
-            // TC_GBToushilv
-            // 
-            resources.ApplyResources(this.TC_GBToushilv, "TC_GBToushilv");
-            this.TC_GBToushilv.Name = "TC_GBToushilv";
-            this.TC_GBToushilv.Weight = 0.24757914042944235;
-            // 
             // RO
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -462,7 +445,7 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             this.ReportFooter,
             this.PageFooter});
             resources.ApplyResources(this, "$this");
-            this.Margins = new System.Drawing.Printing.Margins(50, 50, 80, 80);
+            this.Margins = new System.Drawing.Printing.Margins(80, 80, 80, 80);
             this.PageHeight = 2794;
             this.PageWidth = 2159;
             this.Version = "10.2";
@@ -519,7 +502,5 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
         private DevExpress.XtraReports.UI.XRTableCell TC_Product;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
-        private DevExpress.XtraReports.UI.XRTableCell TC_GBToushilv;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;
     }
 }

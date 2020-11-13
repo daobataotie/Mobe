@@ -234,6 +234,8 @@ namespace Book.Model
 
         private string _pCFlameRetardantId;
 
+        private string _gBToushilv;
+
         #endregion
 
         #region Properties
@@ -931,6 +933,12 @@ namespace Book.Model
             set { _pCFlameRetardantId = value; }
         }
 
+        public string GBToushilv
+        {
+            get { return _gBToushilv; }
+            set { _gBToushilv = value; }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -1117,6 +1125,8 @@ namespace Book.Model
         public readonly static string PRO_PCFlameRetardantId = "PCFlameRetardantId";
 
         public readonly static string PRO_TestProductUnit = "TestProductUnit";
+
+        public readonly static string PRO_GBToushilv = "GBToushilv";
 
         #endregion
     }

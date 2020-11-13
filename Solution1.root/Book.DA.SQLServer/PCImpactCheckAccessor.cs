@@ -50,7 +50,7 @@ namespace Book.DA.SQLServer
         public Book.Model.PCImpactCheck PFCGetPrev(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
         {
             Hashtable ht = new Hashtable();
-            ht.Add("InsertDate", InsertDate);
+            ht.Add("InsertTime", InsertDate);
             ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
             return sqlmapper.QueryForObject<Model.PCImpactCheck>("PCImpactCheck.PFCGetPrev", ht);
         }
@@ -58,7 +58,7 @@ namespace Book.DA.SQLServer
         public Book.Model.PCImpactCheck PFCGetNext(DateTime InsertDate, string PCFirstOnlineCheckDetailId)
         {
             Hashtable ht = new Hashtable();
-            ht.Add("InsertDate", InsertDate);
+            ht.Add("InsertTime", InsertDate);
             ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
             return sqlmapper.QueryForObject<Model.PCImpactCheck>("PCImpactCheck.PFCGetNext", ht);
         }

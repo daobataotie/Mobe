@@ -74,6 +74,7 @@ namespace Book.UI.produceManager.PCInputCheck
             this.TCAS.Text = PCInputCheck.ASToushilv;
             this.TCJIS.Text = PCInputCheck.JISToushilv;
             this.TC_Wudu.Text = PCInputCheck.Wudu;
+            this.TC_GBToushilv.Text = PCInputCheck.GBToushilv;
 
             this.TCDuiseEmp.Text = PCInputCheck.DuiseEmployee == null ? null : PCInputCheck.DuiseEmployee.EmployeeName;
             this.TCChongjiEmp.Text = PCInputCheck.ChongjiEmployee == null ? null : PCInputCheck.ChongjiEmployee.EmployeeName;

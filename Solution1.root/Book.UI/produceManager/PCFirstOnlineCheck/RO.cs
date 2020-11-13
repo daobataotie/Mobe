@@ -38,7 +38,6 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             this.xrTBusinessHours.DataBindings.Add("Text", DataSource, "BusinessHours." + Model.BusinessHours.PROPERTY_BUSINESSHOURSNAME);
             this.TC_Jihao.DataBindings.Add("Text", DataSource, Model.PCFirstOnlineCheckDetail.PRO_Jihao);
             this.TC_Waiguan.DataBindings.Add("Text", DataSource, Model.PCFirstOnlineCheckDetail.PRO_Waiguan);
-            this.TC_GBToushilv.DataBindings.Add("Text", DataSource, Model.PCFirstOnlineCheckDetail.PRO_GBToushilv);
             this.TC_Note.DataBindings.Add("Text", DataSource, Model.PCFirstOnlineCheckDetail.PRO_Remark);
             this.TC_Employee.DataBindings.Add("Text", DataSource, "Employee.EmployeeName");
         }
