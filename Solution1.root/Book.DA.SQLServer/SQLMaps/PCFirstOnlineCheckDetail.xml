@@ -15,6 +15,9 @@
       <result property="Waiguan" column="Waiguan" />
       <result property="Remark" column="Remark" />
       <result property="EmployeeId" column="EmployeeId" />
+      <result property="Guangxue" column="Guangxue"/>
+      <result property="Houdu" column="Houdu"/>
+      <result property="Chongji" column="Chongji"/>
       <result property="InvoiceXOCusId" column="InvoiceXOCusId" />
       <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key" />
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />

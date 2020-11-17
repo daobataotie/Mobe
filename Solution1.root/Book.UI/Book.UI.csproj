@@ -4534,13 +4534,22 @@
       <DependentUpon>ConditionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\ConditionForm.zh-CHT.resx">
+      <DependentUpon>ConditionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\Editform.resx">
       <DependentUpon>Editform.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\Editform.zh-CHT.resx">
+      <DependentUpon>Editform.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\List.resx">
       <DependentUpon>List.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\List.zh-CHT.resx">
+      <DependentUpon>List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\RO.resx">
       <DependentUpon>RO.cs</DependentUpon>
@@ -4568,6 +4577,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCFlameRetardant\RO.resx">
       <DependentUpon>RO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\ROImpactCheck.resx">
+      <DependentUpon>ROImpactCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\ROImpactCheck.zh-CHT.resx">
+      <DependentUpon>ROImpactCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCIncomingCheck\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
@@ -11780,6 +11797,12 @@
     </Compile>
     <Compile Include="produceManager\PCFlameRetardant\RO.Designer.cs">
       <DependentUpon>RO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCFirstOnlineCheck\ROImpactCheck.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCFirstOnlineCheck\ROImpactCheck.Designer.cs">
+      <DependentUpon>ROImpactCheck.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCIncomingCheck\Condition.cs" />
     <Compile Include="produceManager\PCIncomingCheck\ConditionForm.cs">

@@ -68,6 +68,12 @@ namespace Book.Model
 		/// 
 		/// </summary>
 		private string _employeeId;
+
+        private string _guangxue;
+
+        private string _houdu;
+
+        private string _chongji;
 		
 		/// <summary>
 		/// 班别
@@ -252,7 +258,25 @@ namespace Book.Model
 			{
 				this._employeeId = value;
 			}
-		}
+        }
+
+        public string Guangxue
+        {
+            get { return _guangxue; }
+            set { _guangxue = value; }
+        }
+
+        public string Houdu
+        {
+            get { return _houdu; }
+            set { _houdu = value; }
+        }
+
+        public string Chongji
+        {
+            get { return _chongji; }
+            set { _chongji = value; }
+        }
 	
 		/// <summary>
 		/// 班别
@@ -368,6 +392,12 @@ namespace Book.Model
 		/// 
 		/// </summary>
 		public readonly static string PRO_EmployeeId = "EmployeeId";
+
+        public readonly static string PRO_Guangxue = "Guangxue";
+
+        public readonly static string PRO_Houdu = "Houdu";
+
+        public readonly static string PRO_Chongji = "Chongji";
 
 		#endregion
 	}

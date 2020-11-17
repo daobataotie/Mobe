@@ -11,6 +11,11 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
     {
         private BL.ThicknessTestManager _ThicknessTestManager = new BL.ThicknessTestManager();
 
+        /// <summary>
+        /// 空：光学/厚度表；2：首件上线检查表(新)
+        /// </summary>
+        string sign = string.Empty;
+
         public subReportHD()
         {
             InitializeComponent();
@@ -25,11 +30,24 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.subThicknessTestDetails.ReportSource = new subReportHDDetail();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="s">空：光学/厚度表；2：首件上线检查表(新)</param>
+        public subReportHD(string s)
+            : this()
+        {
+            this.sign = s;
+        }
+
         public string _PCPGOnlineCheckDetailId { get; set; }
 
         private void subReportHD_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            this.DataSource = this._ThicknessTestManager.mSelect(this._PCPGOnlineCheckDetailId);
+            if (this.sign == string.Empty)
+                this.DataSource = this._ThicknessTestManager.mSelect(this._PCPGOnlineCheckDetailId);
+            else if (this.sign == "2")
+                this.DataSource = this._ThicknessTestManager.PFCSelect(this._PCPGOnlineCheckDetailId);
 
             subReportHDDetail subHDDetails = this.subThicknessTestDetails.ReportSource as subReportHDDetail;
             subHDDetails._ThicknessTestId = (this.GetCurrentRow() as Model.ThicknessTest) == null ? "" : (this.GetCurrentRow() as Model.ThicknessTest).ThicknessTestId;

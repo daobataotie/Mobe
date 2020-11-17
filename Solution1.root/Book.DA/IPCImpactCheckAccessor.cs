@@ -32,6 +32,8 @@ namespace Book.DA
         bool PFCHasRowsBefore(Model.PCImpactCheck e, string PCFirstOnlineCheckDetailId);
 
         bool PFCHasRowsAfter(Model.PCImpactCheck e, string PCFirstOnlineCheckDetailId);
+
+        IList<Model.PCImpactCheck> PFCSelect(string PCFirstOnlineCheckDetailId);
     }
 }
 

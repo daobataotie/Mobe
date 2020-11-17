@@ -202,6 +202,10 @@ namespace Book.BL
             return accessor.PFCHasRowsAfter(e, PCFirstOnlineCheckDetailId);
         }
 
+        public IList<Model.PCImpactCheck> PFCSelect(string PCFirstOnlineCheckDetailId)
+        {
+            return accessor.PFCSelect(PCFirstOnlineCheckDetailId);
+        }
     }
 }
 

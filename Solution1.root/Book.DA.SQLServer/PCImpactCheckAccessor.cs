@@ -83,5 +83,10 @@ namespace Book.DA.SQLServer
             ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
             return sqlmapper.QueryForObject<bool>("PCImpactCheck.PFCHasRowsAfter", ht);
         }
+
+        public IList<Model.PCImpactCheck> PFCSelect(string PCFirstOnlineCheckDetailId)
+        {
+            return sqlmapper.QueryForList<Model.PCImpactCheck>("PCImpactCheck.PFCSelect", PCFirstOnlineCheckDetailId);
+        }
     }
 }

@@ -52,6 +52,9 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             this.repositoryItemLookUpEdit4.DataSource = dt;
             this.repositoryItemLookUpEdit5.DataSource = dt;
             this.repositoryItemLookUpEdit6.DataSource = dt;
+            this.repositoryItemLookUpEdit7.DataSource = dt;
+            this.repositoryItemLookUpEdit8.DataSource = dt;
+            this.repositoryItemLookUpEdit9.DataSource = dt;
 
 
             #endregion
@@ -255,7 +258,14 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
 
         protected override DevExpress.XtraReports.UI.XtraReport GetReport()
         {
-            return new RO(this._PCFirstOnlineCheck);
+            //return new RO(this._PCFirstOnlineCheck);
+            //首次上线检查表打印，附带光学厚度测试
+            RO ro = new RO(this._PCFirstOnlineCheck);
+            ro.ShowPreviewDialog();
+
+
+
+            return null;
         }
 
 

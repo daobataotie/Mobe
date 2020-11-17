@@ -80,5 +80,11 @@
 				) then 1 else 0 end
 			]]>
     </select>
+
+    <select id="PFCSelect" resultMap="PCImpactCheckResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM PCImpactCheck WHERE PCFirstOnlineCheckDetailId=#PCFirstOnlineCheckDetailId#	
+      ]]>
+    </select>
   </statements>
 </sqlMap>

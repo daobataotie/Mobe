@@ -9,6 +9,9 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
 {
     public partial class subReportGX : DevExpress.XtraReports.UI.XtraReport
     {
+        /// <summary>
+        /// 空：光学/厚度表；1：成品检验单；2：首件上线检查表(新)
+        /// </summary>
         string sign = string.Empty;
         private BL.OpticsTestManager _OpticsTestManager = new Book.BL.OpticsTestManager();
 
@@ -25,7 +28,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.TCxztj.DataBindings.Add("Text", this.DataSource, Model.OpticsTest.PRO_Condition);
             this.TCcsyg.DataBindings.Add("Text", this.DataSource, "Employee." + Model.Employee.PROPERTY_EMPLOYEENAME);
 
-            this.TCls.DataBindings.Add("Text", this.DataSource, Model.OpticsTest.PRO_LattrS,"{0:F2}");
+            this.TCls.DataBindings.Add("Text", this.DataSource, Model.OpticsTest.PRO_LattrS, "{0:F2}");
             this.TCla.DataBindings.Add("Text", this.DataSource, Model.OpticsTest.PRO_LattrA, "{0:F2}");
             this.TClc.DataBindings.Add("Text", this.DataSource, Model.OpticsTest.PRO_LattrC, "{0:F2}");
             this.TClin.DataBindings.Add("Text", this.DataSource, Model.OpticsTest.PRO_LinPSM, "{0:F2}");
@@ -41,6 +44,11 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.TCrup.DataBindings.Add("Text", this.DataSource, Model.OpticsTest.PRO_RupPSM, "{0:F2}");
             this.TCrdown.DataBindings.Add("Text", this.DataSource, Model.OpticsTest.PRO_RdowmPSM);
         }
+
+        /// <summary>
+        /// 打印光学表
+        /// </summary>
+        /// <param name="s">空：光学/厚度表；1：成品检验单；2：首件上线检查表(新)</param>
         public subReportGX(string s)
             : this()
         {
@@ -53,8 +61,10 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
         {
             if (this.sign == string.Empty)
                 this.DataSource = this._OpticsTestManager.mSelect(this._PCPGOnlineCheckDetailId);
-            else
+            else if (this.sign == "1")
                 this.DataSource = this._OpticsTestManager.FSelect(this._PCPGOnlineCheckDetailId);
+            else
+                this.DataSource = this._OpticsTestManager.PFCSelect(this._PCPGOnlineCheckDetailId);
 
             IList<Model.OpticsTest> list = this.DataSource as List<Model.OpticsTest>;
             if (list != null)
