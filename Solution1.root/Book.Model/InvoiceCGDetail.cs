@@ -186,7 +186,13 @@ namespace Book.Model
 
         public double? xiaoji
         {
-            get { return Convert.ToDouble(this.InvoiceCODetail.InvoiceCODetailPrice) * this.InvoiceCGDetailQuantity; }
+            get
+            {
+                if (this.InvoiceCODetail == null)
+                    return null;
+                else
+                    return Convert.ToDouble(this.InvoiceCODetail.InvoiceCODetailPrice) * this.InvoiceCGDetailQuantity;
+            }
         }
 
         private bool _Checked;

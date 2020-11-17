@@ -793,7 +793,7 @@ namespace Book.UI
             operations.Add("produceManager.PCExportReportANSI.ENEarProtectEditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCExportReportANSI.ENEarProtectEditForm", form); });
 
 
-            //模具上线检验单  
+            //模具上线检验单,从亦达复制过来
             operations.Add("produceManager.PCMouldOnlineCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCMouldOnlineCheck.EditForm", form); });
 
             //首件上线检查表(旧版)    原名 产品上线检验单，后改为模具上线检验单，因为新加模具上线检验单，再次改名为 首件上线检查表，但是又增加了一个同名表单，所以这是老版

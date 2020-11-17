@@ -767,8 +767,8 @@ namespace Book.UI.produceManager.MPSheader
                     //else
                     //    a = details.MPSdetailssum / bompackage.UseQuantity;
 
-                    component.MpsQuantity = details.MPSdetailssum / (bompackage.UseQuantity==0?1:bompackage.UseQuantity);
-                    component.MrpQuantity = details.MPSdetailssum / (bompackage.UseQuantity==0?1:bompackage.UseQuantity) - (bompackage.Product.StocksQuantity == null ? 0 : bompackage.Product.StocksQuantity - (bompackage.Product.MRSStockQuantity == null ? 0 : bompackage.Product.MRSStockQuantity)) + bompackage.Product.SafeStock;
+                    component.MpsQuantity = details.MPSdetailssum / (bompackage.UseQuantity == 0 ? 1 : bompackage.UseQuantity);
+                    component.MrpQuantity = details.MPSdetailssum / (bompackage.UseQuantity == 0 ? 1 : bompackage.UseQuantity) - (bompackage.Product.StocksQuantity == null ? 0 : bompackage.Product.StocksQuantity - (bompackage.Product.MRSStockQuantity == null ? 0 : bompackage.Product.MRSStockQuantity)) + bompackage.Product.SafeStock;
                     if (component.MrpQuantity <= 0)
                     {
                         component.MrpQuantity = 0;
@@ -919,6 +919,7 @@ namespace Book.UI.produceManager.MPSheader
                 }
             }
 
+
             Model.MRSHeader mRSHeader1;//自制
             Model.MRSdetails mRSdetails1;//自制
             Model.MRSHeader mRSHeader2;//外购
@@ -1041,8 +1042,8 @@ namespace Book.UI.produceManager.MPSheader
                     mRSdetails5 = new Book.Model.MRSdetails();
                     mRSdetails5.MRSdetailsId = Guid.NewGuid().ToString();
                     mRSdetails5.MRSHeaderId = mrpid1;
-                    mRSdetails5.MRSdetailssum = bomcom.MrpQuantity < 0 ? 0 : double.Parse(bomcom.MrpQuantity.ToString("f0"));
                     mRSdetails5.MRSdetailsQuantity = bomcom.MpsQuantity < 0 ? 0 : double.Parse(bomcom.MpsQuantity.ToString("f0"));
+                    mRSdetails5.MRSdetailssum = bomcom.MrpQuantity < 0 ? 0 : double.Parse(bomcom.MrpQuantity.ToString("f0"));
                     mRSdetails5.MPSheaderId = this.mpsheader.MPSheaderId;
                     mRSdetails5.MPSdetailsId = bomcom.MPSdetailsId;
                     mRSdetails5.Product = bomcom.Product;
@@ -1057,6 +1058,16 @@ namespace Book.UI.produceManager.MPSheader
                     mRSdetails5.Inumber = InumerSum;
                     mRSdetails5.HandbookId = bomcom.HandbookId;
                     mRSdetails5.HandbookProductId = bomcom.HandbookProductId;
+
+
+                    //如果生產計劃裏面有多比明細，假設其中2筆明細數據都需要自製商品“A”，在上面循環生產計劃明細的時候，“bom.MrpQuantity”每次都會減一次商品庫存，2筆減了兩次，其實真實的生產數量只需要減一次商品库存，所以下面判斷生產數量和理論計算值不一致，直接用理論計算值，即訂單數量-商品庫存
+                    double productStockQTY = mRSdetails5.Product.StocksQuantity.HasValue ? mRSdetails5.Product.StocksQuantity.Value : 0;
+                    if (productStockQTY > 0)
+                    {
+                        double needProduceQTY = mRSdetails5.MRSdetailsQuantity.Value - productStockQTY;
+                        if (needProduceQTY > mRSdetails5.MRSdetailssum)
+                            mRSdetails5.MRSdetailssum = needProduceQTY;
+                    }
 
                     new BL.MRSdetailsManager().Insert(mRSdetails5);
                 }
@@ -1136,6 +1147,15 @@ namespace Book.UI.produceManager.MPSheader
                     mRSdetails6.HandbookId = bomcom.HandbookId;
                     mRSdetails6.HandbookProductId = bomcom.HandbookProductId;
 
+                    //如果生產計劃裏面有多比明細，假設其中2筆明細數據都需要自製商品“A”，在上面循環生產計劃明細的時候，“bom.MrpQuantity”每次都會減一次商品庫存，2筆減了兩次，其實真實的生產數量只需要減一次，所以下面判斷生產數量和理論計算值不一致，直接用理論計算值，即訂單數量-商品庫存
+                    double productStockQTY = mRSdetails6.Product.StocksQuantity.HasValue ? mRSdetails6.Product.StocksQuantity.Value : 0;
+                    if (productStockQTY > 0)
+                    {
+                        double needProduceQTY = mRSdetails6.MRSdetailsQuantity.Value - productStockQTY;
+                        if (needProduceQTY > mRSdetails6.MRSdetailssum)
+                            mRSdetails6.MRSdetailssum = needProduceQTY;
+                    }
+
                     new BL.MRSdetailsManager().Insert(mRSdetails6);
                 }
             }
@@ -1204,8 +1224,8 @@ namespace Book.UI.produceManager.MPSheader
                     InumerSum += 1;
                     mRSdetails1 = new Book.Model.MRSdetails();
                     mRSdetails1.MRSdetailsId = Guid.NewGuid().ToString();
-                    mRSdetails1.MRSdetailssum = bomcom.MrpQuantity < 0 ? 0 : double.Parse(bomcom.MrpQuantity.ToString("f0"));
                     mRSdetails1.MRSdetailsQuantity = bomcom.MpsQuantity < 0 ? 0 : double.Parse(bomcom.MpsQuantity.ToString("f0"));
+                    mRSdetails1.MRSdetailssum = bomcom.MrpQuantity < 0 ? 0 : double.Parse(bomcom.MrpQuantity.ToString("f0"));
                     mRSdetails1.MPSheaderId = this.mpsheader.MPSheaderId;
                     mRSdetails1.MPSdetailsId = bomcom.MPSdetailsId;
                     mRSdetails1.MRSHeaderId = mrpid1;
@@ -1221,6 +1241,16 @@ namespace Book.UI.produceManager.MPSheader
                         mRSdetails1.CustomerId = mRSdetails1.Customer.CustomerId;
                     mRSdetails1.HandbookId = bomcom.HandbookId;
                     mRSdetails1.HandbookProductId = bomcom.HandbookProductId;
+
+
+                    //如果生產計劃裏面有多比明細，假設其中2筆明細數據都需要自製商品“A”，在上面循環生產計劃明細的時候，“bom.MrpQuantity”每次都會減一次商品庫存，2筆減了兩次，其實真實的生產數量只需要減一次，所以下面判斷生產數量和理論計算值不一致，直接用理論計算值，即訂單數量-商品庫存
+                    double productStockQTY = mRSdetails1.Product.StocksQuantity.HasValue ? mRSdetails1.Product.StocksQuantity.Value : 0;
+                    if (productStockQTY > 0)
+                    {
+                        double needProduceQTY = mRSdetails1.MRSdetailsQuantity.Value - productStockQTY;
+                        if (needProduceQTY > mRSdetails1.MRSdetailssum)
+                            mRSdetails1.MRSdetailssum = needProduceQTY;
+                    }
 
                     new BL.MRSdetailsManager().Insert(mRSdetails1);
                 }
@@ -1318,6 +1348,16 @@ namespace Book.UI.produceManager.MPSheader
                     mRSdetails2.Inumber = InumerSum;
                     mRSdetails2.HandbookId = bomcom.HandbookId;
                     mRSdetails2.HandbookProductId = bomcom.HandbookProductId;
+
+                    //如果生產計劃裏面有多比明細，假設其中2筆明細數據都需要自製商品“A”，在上面循環生產計劃明細的時候，“bom.MrpQuantity”每次都會減一次商品庫存，2筆減了兩次，其實真實的生產數量只需要減一次，所以下面判斷生產數量和理論計算值不一致，直接用理論計算值，即訂單數量-商品庫存
+                    double productStockQTY = mRSdetails2.Product.StocksQuantity.HasValue ? mRSdetails2.Product.StocksQuantity.Value : 0;
+                    if (productStockQTY > 0)
+                    {
+                        double needProduceQTY = mRSdetails2.MRSdetailsQuantity.Value - productStockQTY;
+                        if (needProduceQTY > mRSdetails2.MRSdetailssum)
+                            mRSdetails2.MRSdetailssum = needProduceQTY;
+                    }
+
                     new BL.MRSdetailsManager().Insert(mRSdetails2);
                 }
 
@@ -1412,6 +1452,14 @@ namespace Book.UI.produceManager.MPSheader
                     mRSdetails3.HandbookId = bomcom.HandbookId;
                     mRSdetails3.HandbookProductId = bomcom.HandbookProductId;
 
+                    //如果生產計劃裏面有多比明細，假設其中2筆明細數據都需要自製商品“A”，在上面循環生產計劃明細的時候，“bom.MrpQuantity”每次都會減一次商品庫存，2筆減了兩次，其實真實的生產數量只需要減一次，所以下面判斷生產數量和理論計算值不一致，直接用理論計算值，即訂單數量-商品庫存
+                    double productStockQTY = mRSdetails3.Product.StocksQuantity.HasValue ? mRSdetails3.Product.StocksQuantity.Value : 0;
+                    if (productStockQTY > 0)
+                    {
+                        double needProduceQTY = mRSdetails3.MRSdetailsQuantity.Value - productStockQTY;
+                        if (needProduceQTY > mRSdetails3.MRSdetailssum)
+                            mRSdetails3.MRSdetailssum = needProduceQTY;
+                    }
 
                     new BL.MRSdetailsManager().Insert(mRSdetails3);
                 }
