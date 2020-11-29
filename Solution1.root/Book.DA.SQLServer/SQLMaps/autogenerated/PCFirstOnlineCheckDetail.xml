@@ -20,6 +20,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="Guangxue" column="Guangxue"/>
       <result property="Houdu" column="Houdu"/>
       <result property="Chongji" column="Chongji"/>
+      <result property="Jiagongbie" column="Jiagongbie"/>
+      <result property="Sehao" column="Sehao"/>
       <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key" />
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="PCFirstOnlineCheck" column="PCFirstOnlineCheckId" lazyLoad="false" select="PCFirstOnlineCheck.select_by_primary_key" />
@@ -66,7 +68,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[EmployeeId],
         [Guangxue],
         [Houdu],
-        [Chongji]
+        [Chongji],
+        [Jiagongbie],
+        [Sehao]
 			FROM
 				[dbo].[PCFirstOnlineCheckDetail]
 			WHERE
@@ -133,7 +137,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[EmployeeId],
         [Guangxue],
         [Houdu],
-        [Chongji]
+        [Chongji],
+        [Jiagongbie],
+        [Sehao]
 			) 
 			VALUES 
 			(
@@ -150,7 +156,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#EmployeeId#,
         #Guangxue#,
         #Houdu#,
-        #Chongji#
+        #Chongji#,
+        #Jiagongbie#,
+        #Sehao#
 			)
              ]]>
     </insert>
@@ -170,7 +178,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[EmployeeId] = #EmployeeId#,
         [Guangxue]=#Guangxue#,
         [Houdu]=#Houdu#,
-        [Chongji]=#Chongji#
+        [Chongji]=#Chongji#,
+        [Jiagongbie]=#Jiagongbie#,
+        [Sehao]=#Sehao#
 			WHERE
 				[PCFirstOnlineCheckDetailId] = #PCFirstOnlineCheckDetailId#
                     ]]>

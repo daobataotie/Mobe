@@ -37,6 +37,8 @@ namespace Book.DA.SQLServer
         }
 
 
+        #region 适用于首件上线检查表
+
         public Book.Model.PCImpactCheck PFCGetFirst(string PCFirstOnlineCheckDetailId)
         {
             return sqlmapper.QueryForObject<Model.PCImpactCheck>("PCImpactCheck.PFCGetFirst", PCFirstOnlineCheckDetailId);
@@ -88,5 +90,7 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForList<Model.PCImpactCheck>("PCImpactCheck.PFCSelect", PCFirstOnlineCheckDetailId);
         }
+        
+        #endregion
     }
 }

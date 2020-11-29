@@ -74,6 +74,10 @@ namespace Book.Model
         private string _houdu;
 
         private string _chongji;
+
+        private string _jiagongbie;
+
+        private string _sehao;
 		
 		/// <summary>
 		/// 班别
@@ -277,6 +281,18 @@ namespace Book.Model
             get { return _chongji; }
             set { _chongji = value; }
         }
+
+        public string Jiagongbie
+        {
+            get { return _jiagongbie; }
+            set { _jiagongbie = value; }
+        }
+
+        public string Sehao
+        {
+            get { return _sehao; }
+            set { _sehao = value; }
+        }
 	
 		/// <summary>
 		/// 班别
@@ -398,6 +414,10 @@ namespace Book.Model
         public readonly static string PRO_Houdu = "Houdu";
 
         public readonly static string PRO_Chongji = "Chongji";
+
+        public readonly static string PRO_Jiagongbie = "Jiagongbie";
+
+        public readonly static string PRO_Sehao = "Sehao";
 
 		#endregion
 	}

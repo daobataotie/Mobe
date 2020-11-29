@@ -76,6 +76,8 @@
             this.lblEmployee = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.lbl_Note = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -384,6 +386,8 @@
             // ReportFooter
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel3,
+            this.lbl_Note,
             this.xrLabel5,
             this.xrLabel4,
             this.lblEmployee});
@@ -423,6 +427,20 @@
             this.xrPageInfo1});
             resources.ApplyResources(this.PageFooter, "PageFooter");
             this.PageFooter.Name = "PageFooter";
+            // 
+            // lbl_Note
+            // 
+            resources.ApplyResources(this.lbl_Note, "lbl_Note");
+            this.lbl_Note.Name = "lbl_Note";
+            this.lbl_Note.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_Note.StylePriority.UseTextAlignment = false;
+            // 
+            // xrLabel3
+            // 
+            resources.ApplyResources(this.xrLabel3, "xrLabel3");
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel3.StylePriority.UseTextAlignment = false;
             // 
             // Ro
             // 
@@ -494,5 +512,7 @@
         private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
         private DevExpress.XtraReports.UI.XRTableCell TCAppearance;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
+        private DevExpress.XtraReports.UI.XRLabel lbl_Note;
     }
 }

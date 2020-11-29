@@ -13,6 +13,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="EmployeeId" column="EmployeeId" />
       <result property ="AuditState" column="AuditState"/>
       <result property ="AuditEmpId" column="AuditEmpId"/>
+      <result property="Note" column="Note"/>
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_by_primary_key" />
       <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
     </resultMap>
@@ -108,7 +109,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[UpdateTime],
 				[EmployeeId],
         [AuditState],
-        [AuditEmpId]
+        [AuditEmpId],
+        [Note]
 			FROM
 				[dbo].[PCMouldOnlineCheck]
 			WHERE
@@ -168,7 +170,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[UpdateTime],
 				[EmployeeId],
         [AuditState],
-        [AuditEmpId]
+        [AuditEmpId],
+        [Note]
 			) 
 			VALUES 
 			(
@@ -178,7 +181,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#UpdateTime#,
 				#EmployeeId#,
         #AuditState#,
-        #AuditEmpId#
+        #AuditEmpId#,
+        #Note#
 			)
              ]]>
     </insert>
@@ -191,7 +195,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[UpdateTime] = #UpdateTime#,
 				[EmployeeId] = #EmployeeId#,
         [AuditState]=#AuditState#,
-        [AuditEmpId]=#AuditEmpId#
+        [AuditEmpId]=#AuditEmpId#,
+        [Note]=#Note#
 			WHERE
 				[PCMouldOnlineCheckId] = #PCMouldOnlineCheckId#
                     ]]>

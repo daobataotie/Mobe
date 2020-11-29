@@ -21,6 +21,7 @@ namespace Book.UI.produceManager.PCMouldOnlineCheck
             this.lblCompanyName.Text = BL.Settings.CompanyChineseName;
             this.lblDate.Text = model.PCMouldOnlineCheckDate.Value.ToString("yyyy-MM-dd");
             this.lblEmployee.Text = model.Employee == null ? null : model.Employee.EmployeeName;
+            this.lbl_Note.Text = model.Note;
 
             this.TCProductName.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_ProductName);
             this.TCInvoiceCusId.DataBindings.Add("Text", this.DataSource, "InvoiceXO." + Model.InvoiceXO.PRO_CustomerInvoiceXOId);

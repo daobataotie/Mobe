@@ -166,6 +166,7 @@ namespace Book.BL
         }
 
 
+        #region 适用于首件上线检查表
 
         public Model.PCImpactCheck PFCGetFirst(string PCFirstOnlineCheckDetailId)
         {
@@ -205,7 +206,8 @@ namespace Book.BL
         public IList<Model.PCImpactCheck> PFCSelect(string PCFirstOnlineCheckDetailId)
         {
             return accessor.PFCSelect(PCFirstOnlineCheckDetailId);
-        }
+        } 
+        #endregion
     }
 }
 

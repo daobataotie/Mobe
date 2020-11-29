@@ -147,6 +147,8 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             // 
             resources.ApplyResources(this.TCxzjx, "TCxzjx");
             this.TCxzjx.Name = "TCxzjx";
+            this.TCxzjx.Padding = new DevExpress.XtraPrinting.PaddingInfo(3, 0, 0, 0, 254F);
+            this.TCxzjx.StylePriority.UsePadding = false;
             this.TCxzjx.StylePriority.UseTextAlignment = false;
             this.TCxzjx.Weight = 0.58338545290534094;
             // 
@@ -161,6 +163,8 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             // 
             resources.ApplyResources(this.TCxztj, "TCxztj");
             this.TCxztj.Name = "TCxztj";
+            this.TCxztj.Padding = new DevExpress.XtraPrinting.PaddingInfo(3, 0, 0, 0, 254F);
+            this.TCxztj.StylePriority.UsePadding = false;
             this.TCxztj.StylePriority.UseTextAlignment = false;
             this.TCxztj.Weight = 0.6270628450288187;
             // 
@@ -175,6 +179,8 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             // 
             resources.ApplyResources(this.TCcsyg, "TCcsyg");
             this.TCcsyg.Name = "TCcsyg";
+            this.TCcsyg.Padding = new DevExpress.XtraPrinting.PaddingInfo(3, 0, 0, 0, 254F);
+            this.TCcsyg.StylePriority.UsePadding = false;
             this.TCcsyg.StylePriority.UseTextAlignment = false;
             this.TCcsyg.Weight = 0.67761965426312454;
             // 
@@ -214,6 +220,8 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             // 
             resources.ApplyResources(this.TCcsbh, "TCcsbh");
             this.TCcsbh.Name = "TCcsbh";
+            this.TCcsbh.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 0, 0, 0, 254F);
+            this.TCcsbh.StylePriority.UsePadding = false;
             this.TCcsbh.StylePriority.UseTextAlignment = false;
             this.TCcsbh.Weight = 0.58338540710606868;
             // 
@@ -228,6 +236,8 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             // 
             resources.ApplyResources(this.TCsdcsbh, "TCsdcsbh");
             this.TCsdcsbh.Name = "TCsdcsbh";
+            this.TCsdcsbh.Padding = new DevExpress.XtraPrinting.PaddingInfo(3, 0, 0, 0, 254F);
+            this.TCsdcsbh.StylePriority.UsePadding = false;
             this.TCsdcsbh.StylePriority.UseTextAlignment = false;
             this.TCsdcsbh.Weight = 0.62706311982445329;
             // 
@@ -242,6 +252,8 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             // 
             resources.ApplyResources(this.TCcsrq, "TCcsrq");
             this.TCcsrq.Name = "TCcsrq";
+            this.TCcsrq.Padding = new DevExpress.XtraPrinting.PaddingInfo(3, 0, 0, 0, 254F);
+            this.TCcsrq.StylePriority.UsePadding = false;
             this.TCcsrq.StylePriority.UseTextAlignment = false;
             this.TCcsrq.Weight = 0.67761965426312454;
             // 

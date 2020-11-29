@@ -58,9 +58,14 @@ namespace Book.Model
 
         private string _auditEmpId;
 
+        private string _checkedStandard;
+
+        private string _note;
+
         /// <summary>
         /// 生产通知头
         /// </summary>
+        
         private PronoteHeader _pronoteHeader;
 
         private Employee _auditEmp;
@@ -200,6 +205,19 @@ namespace Book.Model
             get { return _auditEmpId; }
             set { _auditEmpId = value; }
         }
+        
+        public string CheckedStandard
+        {
+            get { return _checkedStandard; }
+            set { _checkedStandard = value; }
+        }
+
+        public string Note
+        {
+            get { return _note; }
+            set { _note = value; }
+        }
+
 
         /// <summary>
         /// 生产通知头
@@ -266,6 +284,10 @@ namespace Book.Model
         public readonly static string PRO_AuditState = "AuditState";
 
         public readonly static string PRO_AuditEmpId = "AuditEmpId";
+
+        public readonly static string PRO_CheckedStandard = "CheckedStandard";
+
+        public readonly static string PRO_Note = "Note";
 
         #endregion
     }

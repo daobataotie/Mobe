@@ -38,6 +38,8 @@ namespace Book.Model
 		/// 
 		/// </summary>
 		private string _employeeId;
+
+        private string _note;
 		
 		/// <summary>
 		/// 员工
@@ -170,6 +172,12 @@ namespace Book.Model
             }
         }
 
+        public string Note
+        {
+            get { return _note; }
+            set { _note = value; }
+        }
+
         public virtual Employee AuditEmp
         {
             get
@@ -211,6 +219,8 @@ namespace Book.Model
         public readonly static string PRO_AuditState = "AuditState";
 
         public readonly static string PRO_AuditEmpId = "AuditEmpId";
+
+        public readonly static string PRO_Note = "Note";
 		
 
 		#endregion

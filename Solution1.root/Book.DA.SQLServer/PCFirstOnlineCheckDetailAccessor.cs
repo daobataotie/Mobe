@@ -36,7 +36,7 @@ namespace Book.DA.SQLServer
             ht.Add("endDate", endDate.Date.AddDays(1).AddSeconds(-1).ToString("yyyy-MM-dd HH:mm:ss"));
 
             if (!string.IsNullOrEmpty(CustomerInvoiceXOId))
-                ht.Add("sql", "and xo.CustomerInvoiceXOId='" + CustomerInvoiceXOId + "'");
+                ht.Add("sql", "and ph.InvoiceCusId='" + CustomerInvoiceXOId + "'");
             //else
             //    ht.Add("sql", null);
 

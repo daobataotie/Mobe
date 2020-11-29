@@ -19,6 +19,8 @@ namespace Book.DA
         IList<Book.Model.PCImpactCheck> SelectByDateRage(DateTime StartDate, DateTime EndDate, Model.Product product, Model.Customer customer, string CusXOId);
 
 
+        #region 适用于首件上线检查表
+
         Model.PCImpactCheck PFCGetFirst(string PCFirstOnlineCheckDetailId);
 
         Model.PCImpactCheck PFCGetLast(string PCFirstOnlineCheckDetailId);
@@ -34,6 +36,8 @@ namespace Book.DA
         bool PFCHasRowsAfter(Model.PCImpactCheck e, string PCFirstOnlineCheckDetailId);
 
         IList<Model.PCImpactCheck> PFCSelect(string PCFirstOnlineCheckDetailId);
+        
+        #endregion
     }
 }
 

@@ -432,6 +432,9 @@ namespace Book.Model
             set { _materialUnit = value; }
         }
 
+        /// <summary>
+        /// 首件上线检查表ID
+        /// </summary>
         public string PCFirstOnlineCheckDetailId
         {
             get { return _pCFirstOnlineCheckDetailId; }

@@ -90,7 +90,10 @@ namespace Book.Model
         }
 
         private string _CustomerCheckStandard;
-
+        
+        /// <summary>
+        /// 质检标准
+        /// </summary>
         public string CustomerCheckStandard
         {
             get { return _CustomerCheckStandard; }

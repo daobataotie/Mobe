@@ -10,7 +10,7 @@
     </select>
 
 
-
+    <!--适用于首件上线检查表-->
     <select id="PFCHasRows" resultClass="bool"  parameterClass="string">
       <![CDATA[select case when exists(
 				SELECT

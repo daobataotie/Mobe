@@ -16,6 +16,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="ProductUnit" column="ProductUnit" />
       <result property="AuditState" column="AuditState"/>
       <result property="AuditEmpId" column="AuditEmpId"/>
+      <result property="CheckedStandard" column="CheckedStandard"/>
+      <result property="Note" column="Note"/>
       <result property="PronoteHeader" column="PronoteHeaderId" lazyLoad="false" select="PronoteHeader.select_by_primary_key" />
       <result property="AuditEmp" column="AuditEmpId" lazyLoad="false" select="Employee.select_SimpleEmployee"/>
     </resultMap>
@@ -114,8 +116,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[PassNum],
 				[ProductUnit],
         [AuditState],
-        [AuditEmpId]
-        
+        [AuditEmpId],
+        [CheckedStandard],
+        [Note]
 			FROM
 				[dbo].[PCFirstOnlineCheck]
 			WHERE
@@ -178,7 +181,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[PassNum],
 				[ProductUnit],
         [AuditState],
-        [AuditEmpId]
+        [AuditEmpId],
+        [CheckedStandard],
+        [Note]
 			) 
 			VALUES 
 			(
@@ -191,7 +196,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#PassNum#,
 				#ProductUnit#,
         #AuditState#,
-        #AuditEmpId#
+        #AuditEmpId#,
+        #CheckedStandard#,
+        #Note#
 			)
              ]]>
     </insert>
@@ -207,7 +214,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[PassNum] = #PassNum#,
 				[ProductUnit] = #ProductUnit#,        
         [AuditState]=#AuditState#,
-        [AuditEmpId]=#AuditEmpId#
+        [AuditEmpId]=#AuditEmpId#,
+        [CheckedStandard]=#CheckedStandard#,
+        [Note]=#Note#
 			WHERE
 				[PCFirstOnlineCheckId] = #PCFirstOnlineCheckId#
                     ]]>

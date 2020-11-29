@@ -95,6 +95,7 @@ namespace Book.DA.SQLServer
         }
 
 
+        #region 适用于首件上线检查表
 
         public Book.Model.ThicknessTest PFCGetFirst(string PCFirstOnlineCheckDetailId)
         {
@@ -156,6 +157,8 @@ namespace Book.DA.SQLServer
             ht.Add("PCFirstOnlineCheckDetailId", PCFirstOnlineCheckDetailId);
 
             return sqlmapper.QueryForList<Model.ThicknessTest>("ThicknessTest.PFCSelectByDateRage", ht);
-        }
+        } 
+
+        #endregion
     }
 }

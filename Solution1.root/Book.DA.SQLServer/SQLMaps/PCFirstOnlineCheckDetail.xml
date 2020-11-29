@@ -1,35 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <sqlMap namespace="PCFirstOnlineCheckDetail" xmlns="http://ibatis.apache.org/mapping"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  
-  <resultMaps>
-    <resultMap id="PCFirstOnlineCheckDetailResult2" class="PCFirstOnlineCheckDetail">
-      <result property="PCFirstOnlineCheckDetailId" column="PCFirstOnlineCheckDetailId" />
-      <result property="PCFirstOnlineCheckId" column="PCFirstOnlineCheckId" />
-      <result property="InvoiceXOId" column="InvoiceXOId" />
-      <result property="ProductId" column="ProductId" />
-      <result property="CheckDate" column="CheckDate" />
-      <result property="BusinessHoursId" column="BusinessHoursId" />
-      <result property="DuibiXiandu" column="DuibiXiandu" />
-      <result property="Jihao" column="Jihao" />
-      <result property="Waiguan" column="Waiguan" />
-      <result property="Remark" column="Remark" />
-      <result property="EmployeeId" column="EmployeeId" />
-      <result property="Guangxue" column="Guangxue"/>
-      <result property="Houdu" column="Houdu"/>
-      <result property="Chongji" column="Chongji"/>
-      <result property="InvoiceXOCusId" column="InvoiceXOCusId" />
-      <result property="BusinessHours" column="BusinessHoursId" lazyLoad="false" select="BusinessHours.select_by_primary_key" />
-      <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
-      <result property="PCFirstOnlineCheck" column="PCFirstOnlineCheckId" lazyLoad="false" select="PCFirstOnlineCheck.select_by_primary_key" />
-      <result property="Product" column="ProductId" lazyLoad="false" select="Product.select_SimpleProduct" />
-    </resultMap>
-  </resultMaps>
-  
+
   <statements>
-    <select id="SelectByHeaderId" parameterClass="string" resultMap="PCFirstOnlineCheckDetailResult2">
+    <select id="SelectByHeaderId" parameterClass="string" resultMap="PCFirstOnlineCheckDetailResult">
       <![CDATA[
-       select pfd.*,xo.CustomerInvoiceXOId as InvoiceXOCusId from PCFirstOnlineCheckDetail pfd left join InvoiceXO xo on pfd.InvoiceXOId=xo.InvoiceId  where pfd.PCFirstOnlineCheckId=#value# order by pfd.CheckDate
+       select pfd.* from PCFirstOnlineCheckDetail pfd  where pfd.PCFirstOnlineCheckId=#value# order by pfd.CheckDate
       ]]>
     </select>
 
@@ -39,9 +15,9 @@
       ]]>
     </delete>
 
-    <select id="SelectByCondition" parameterClass="Map" resultMap="PCFirstOnlineCheckDetailResult2">
+    <select id="SelectByCondition" parameterClass="Map" resultMap="PCFirstOnlineCheckDetailResult">
       <![CDATA[
-       select pfd.*,xo.CustomerInvoiceXOId as InvoiceXOCusId from PCFirstOnlineCheckDetail pfd left join InvoiceXO xo on pfd.InvoiceXOId=xo.InvoiceId left join PCFirstOnlineCheck pf on pf.PCFirstOnlineCheckId=pfd.PCFirstOnlineCheckId where pf.OnlineDate between #startDate# and #endDate# $sql$ order by pf.PCFirstOnlineCheckId,pfd.CheckDate
+      select pfd.* from PCFirstOnlineCheckDetail pfd  left join PCFirstOnlineCheck pf on pf.PCFirstOnlineCheckId=pfd.PCFirstOnlineCheckId  left join PronoteHeader  ph on ph.PronoteHeaderID=pf.PronoteHeaderId where pf.OnlineDate  between #startDate# and #endDate# $sql$ order by pf.PCFirstOnlineCheckId,pfd.CheckDate
       ]]>
     </select>
   </statements>

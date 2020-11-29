@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Book.UI.produceManager.PCPGOnlineCheck;
+using System.Linq;
 
 namespace Book.UI.produceManager.PCFirstOnlineCheck
 {
@@ -55,7 +56,7 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             this.repositoryItemLookUpEdit7.DataSource = dt;
             this.repositoryItemLookUpEdit8.DataSource = dt;
             this.repositoryItemLookUpEdit9.DataSource = dt;
-
+            this.repositoryItemLookUpEdit10.DataSource = dt;
 
             #endregion
 
@@ -192,6 +193,26 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             this.spinEditPassNum.EditValue = this._PCFirstOnlineCheck.PassNum;
             this.cobProductUnit.EditValue = this._PCFirstOnlineCheck.ProductUnit;
 
+            this.txt_CheckedStandard.EditValue = this._PCFirstOnlineCheck.CheckedStandard;
+            this.txt_Note.EditValue = this._PCFirstOnlineCheck.Note;
+
+            if (this._PCFirstOnlineCheck.PronoteHeader != null)
+            {
+                this.txt_Product.EditValue = this._PCFirstOnlineCheck.PronoteHeader.Product.ProductName;
+                this.txt_CusXOId.EditValue = this._PCFirstOnlineCheck.PronoteHeader.InvoiceCusId;
+
+                if (!string.IsNullOrEmpty(this._PCFirstOnlineCheck.PronoteHeader.Product.CustomerProductName))
+                    this.txt_CustomerProduct.EditValue = this._PCFirstOnlineCheck.PronoteHeader.Product.CustomerProductName;
+                else
+                    this.txt_CustomerProduct.EditValue = new Help().GetCustomerProductNameByPronoteHeaderId(this._PCFirstOnlineCheck.PronoteHeaderId, this._PCFirstOnlineCheck.PronoteHeader.ProductId);
+            }
+            else
+            {
+                this.txt_Product.EditValue = "";
+                this.txt_CustomerProduct.EditValue = "";
+                this.txt_CusXOId.EditValue = "";
+            }
+
             this.bindingSourceDetail.DataSource = this._PCFirstOnlineCheck.Detail;
 
             this.gridControl1.RefreshDataSource();
@@ -231,6 +252,10 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
 
             this.txt_Id.Enabled = true;
             this.txt_Id.Properties.ReadOnly = true;
+            this.txt_CustomerProduct.Properties.ReadOnly = true;
+            this.txt_Product.Properties.ReadOnly = true;
+            this.txt_CusXOId.Properties.ReadOnly = true;
+            this.txt_CheckedStandard.Properties.ReadOnly = true;
         }
 
         protected override void Save()
@@ -244,6 +269,9 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             this._PCFirstOnlineCheck.CheckNum = this.spinEditCheckNum.Value;
             this._PCFirstOnlineCheck.PassNum = this.spinEditPassNum.Value;
             this._PCFirstOnlineCheck.ProductUnit = this.cobProductUnit.EditValue == null ? null : this.cobProductUnit.Text;
+
+            this._PCFirstOnlineCheck.CheckedStandard = this.txt_CheckedStandard.Text;
+            this._PCFirstOnlineCheck.Note = this.txt_Note.Text;
 
             switch (this.action)
             {
@@ -259,16 +287,25 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
         protected override DevExpress.XtraReports.UI.XtraReport GetReport()
         {
             //return new RO(this._PCFirstOnlineCheck);
-            //首次上线检查表打印，附带光学厚度测试
-            RO ro = new RO(this._PCFirstOnlineCheck);
-            ro.ShowPreviewDialog();
 
+            //if (this._PCFirstOnlineCheck.Detail == null || !this._PCFirstOnlineCheck.Detail.Any(d => d.Guangxue == "△" || d.Houdu == "△" || d.Chongji == "△"))
+            //{
+            //    //首次上线检查表打印，附带光学厚度冲击测试
+            //    RO ro = new RO(this._PCFirstOnlineCheck);
+            //    ro.ShowPreviewDialog();
+            //}
+            //else
+            //{
+            //首次上线检查表打印，不带光学厚度冲击测试
+            //RO2 ro = new RO2(this._PCFirstOnlineCheck);
+            //ro.ShowPreviewDialog();
+            //}
+            //return null;
 
-
-            return null;
+            return new RO(this._PCFirstOnlineCheck);
         }
 
-
+        //加工单
         private void barPronoteHeader_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             PronoteHeader.ChoosePronoteHeaderDetailsForm f = new Book.UI.produceManager.PronoteHeader.ChoosePronoteHeaderDetailsForm();
@@ -300,15 +337,18 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
                     foreach (var item in f.SelectItems)
                     {
                         this.txt_PronoteHeaderId.EditValue = item.PronoteHeaderID;
-
+                        this.txt_CustomerProduct.EditValue = item.Product == null ? "" : item.Product.CustomerProductName;
+                        this.txt_CheckedStandard.EditValue = item.CustomerCheckStandard;
+                        this.txt_Product.EditValue = item.ProductName;
+                        this.txt_CusXOId.EditValue = item.InvoiceCusId;
 
                         Model.PCFirstOnlineCheckDetail model = new Book.Model.PCFirstOnlineCheckDetail();
                         model.PCFirstOnlineCheckDetailId = Guid.NewGuid().ToString();
                         model.PCFirstOnlineCheckId = this._PCFirstOnlineCheck.PCFirstOnlineCheckId;
-                        model.InvoiceXOId = item.InvoiceXOId;
-                        model.InvoiceXOCusId = item.InvoiceCusId;
-                        model.ProductName = item.ProductName;
-                        model.ProductId = item.ProductId;
+                        //model.InvoiceXOId = item.InvoiceXOId;
+                        //model.InvoiceXOCusId = item.InvoiceCusId;
+                        //model.ProductName = item.ProductName;
+                        //model.ProductId = item.ProductId;
                         model.Employee = BL.V.ActiveOperator.Employee;
                         model.EmployeeId = BL.V.ActiveOperator.EmployeeId;
 
@@ -328,6 +368,8 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
             model.PCFirstOnlineCheckDetailId = Guid.NewGuid().ToString();
             model.PCFirstOnlineCheckId = this._PCFirstOnlineCheck.PCFirstOnlineCheckId;
             model.CheckDate = DateTime.Now;
+            model.Employee = BL.V.ActiveOperator.Employee;
+            model.EmployeeId = BL.V.ActiveOperator.EmployeeId;
 
             this.bindingSourceDetail.Add(model);
             this.gridControl1.RefreshDataSource();

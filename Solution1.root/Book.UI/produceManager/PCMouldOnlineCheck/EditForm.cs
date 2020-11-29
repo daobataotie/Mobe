@@ -169,6 +169,8 @@ namespace Book.UI.produceManager.PCMouldOnlineCheck
             this._pCMouldOnlineCheck.Employee = this.nccEmployee.EditValue as Model.Employee;
             this._pCMouldOnlineCheck.EmployeeId = this._pCMouldOnlineCheck.Employee == null ? null : this._pCMouldOnlineCheck.Employee.EmployeeId;
 
+            this._pCMouldOnlineCheck.Note = this.txt_Note.Text;
+
             switch (this.action)
             {
                 case "insert":
@@ -194,6 +196,7 @@ namespace Book.UI.produceManager.PCMouldOnlineCheck
             this.dateEdit1.EditValue = this._pCMouldOnlineCheck.PCMouldOnlineCheckDate;
             this.nccEmployee.EditValue = this._pCMouldOnlineCheck.Employee;
 
+            this.txt_Note.Text = this._pCMouldOnlineCheck.Note;
 
             this.bindingSourceDetail.DataSource = this._pCMouldOnlineCheck.Detail;
 

@@ -26,6 +26,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             this.TCcsrq.DataBindings.Add("Text", this.DataSource, Model.ThicknessTest.PRO_ThicknessTestDate, "{0:yyyy-MM-dd}");
             this.TCcsyg.DataBindings.Add("Text", this.DataSource, "Employee." + Model.Employee.PROPERTY_EMPLOYEENAME);
             this.TCbeizhu.DataBindings.Add("Text", this.DataSource, Model.ThicknessTest.PRO_ThicknessDescript);
+            this.TC_Condition.DataBindings.Add("Text", this.DataSource, Model.ThicknessTest.PRO_Condition);
 
             this.subThicknessTestDetails.ReportSource = new subReportHDDetail();
         }

@@ -168,7 +168,7 @@
     
     
     
-
+<!--适用于首件上线检查表-->
     <select id="PFCGetFirst" resultMap="OpticsTestResult" parameterClass="string">
       <![CDATA[
       SELECT TOP 1 * FROM OpticsTest

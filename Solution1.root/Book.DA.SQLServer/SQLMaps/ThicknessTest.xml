@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-<sqlMap namespace="ThicknessTest" xmlns="http://ibatis.apache.org/mapping" 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="ThicknessTest" xmlns="http://ibatis.apache.org/mapping"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <statements>
     <select id="mGetFirst" resultMap="ThicknessTestResult" parameterClass="string">
@@ -72,7 +72,7 @@
       AND PCPGOnlineCheckDetailId = #PCPGOnlineCheckDetailId#
       ]]>
     </select>
-    
+
     <select id="ExistsManualId" parameterClass="Map" resultClass="bool">
       <![CDATA[
       select case when exists(
@@ -90,10 +90,10 @@
       DELETE FROM ThicknessTest WHERE PCPGOnlineCheckDetailId=#value#
       ]]>
     </select>
-    
-    
-    
 
+
+
+    <!--适用于首件上线检查表-->
     <select id="PFCGetFirst" resultMap="ThicknessTestResult" parameterClass="string">
       <![CDATA[
       SELECT TOP 1 * FROM ThicknessTest
@@ -164,6 +164,6 @@
       AND PCFirstOnlineCheckDetailId = #PCFirstOnlineCheckDetailId#
       ]]>
     </select>
-    
+
   </statements>
 </sqlMap>
