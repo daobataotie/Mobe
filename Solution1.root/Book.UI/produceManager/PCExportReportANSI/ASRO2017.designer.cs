@@ -172,6 +172,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.xrLabel68 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel59 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel67 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
@@ -228,6 +229,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             // PageHeader
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLine1,
             this.xrLabel83,
             this.xrLabel81,
             this.xrLabel4,
@@ -1551,6 +1553,13 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.xrLabel67.StylePriority.UseFont = false;
             this.xrLabel67.StylePriority.UseTextAlignment = false;
             // 
+            // xrLine1
+            // 
+            resources.ApplyResources(this.xrLine1, "xrLine1");
+            this.xrLine1.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.xrLine1.LineWidth = 3;
+            this.xrLine1.Name = "xrLine1";
+            // 
             // ASRO2017
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1718,5 +1727,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
         private DevExpress.XtraReports.UI.XRLabel lbl_Signature;
         private DevExpress.XtraReports.UI.XRLabel LbTester;
         private DevExpress.XtraReports.UI.XRLabel xrLabel79;
+        private DevExpress.XtraReports.UI.XRLine xrLine1;
     }
 }

@@ -58,7 +58,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.lbl_ShouCe18.Text = (_PCExportReportANSI.QuYangShu18.HasValue ? _PCExportReportANSI.QuYangShu18.ToString() : "0") + " PCS";
 
 
-            //this.lbl_PanDing1.Text = (_PCExportReportANSI.PanDing1.HasValue ? _PCExportReportANSI.PanDing1.ToString() : "0") + " PASS";
+            this.lbl_PanDing1.Text = (_PCExportReportANSI.PanDing1.HasValue ? _PCExportReportANSI.PanDing1.ToString() : "0") + " PASS";
             this.lbl_PanDing2.Text = (_PCExportReportANSI.PanDing2.HasValue ? _PCExportReportANSI.PanDing2.ToString() : "0") + " PASS";
             this.lbl_PanDing3.Text = (_PCExportReportANSI.PanDing3.HasValue ? _PCExportReportANSI.PanDing3.ToString() : "0") + " PASS";
             this.lbl_PanDing4.Text = (_PCExportReportANSI.PanDing4.HasValue ? _PCExportReportANSI.PanDing4.ToString() : "0") + " PASS";
@@ -71,7 +71,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.lbl_PanDing11.Text = (_PCExportReportANSI.PanDing11.HasValue ? _PCExportReportANSI.PanDing11.ToString() : "0") + " PASS";
             this.lbl_PanDing12.Text = (_PCExportReportANSI.PanDingShu12.HasValue ? _PCExportReportANSI.PanDingShu12.ToString() : "0") + " PASS";
             this.lbl_PanDing13.Text = (_PCExportReportANSI.PanDingShu13.HasValue ? _PCExportReportANSI.PanDingShu13.ToString() : "0") + " PASS";
-            //this.lbl_PanDing14.Text = (_PCExportReportANSI.PanDingShu14.HasValue ? _PCExportReportANSI.PanDingShu14.ToString() : "0") + " PASS";
+            this.lbl_PanDing14.Text = (_PCExportReportANSI.PanDingShu14.HasValue ? _PCExportReportANSI.PanDingShu14.ToString() : "0") + " PASS";
             this.lbl_PanDing15.Text = (_PCExportReportANSI.PanDingShu15.HasValue ? _PCExportReportANSI.PanDingShu15.ToString() : "0") + " PASS";
             this.lbl_PanDing16.Text = (_PCExportReportANSI.PanDingShu16.HasValue ? _PCExportReportANSI.PanDingShu16.ToString() : "0") + " PASS";
             this.lbl_PanDing17.Text = (_PCExportReportANSI.PanDingShu17.HasValue ? _PCExportReportANSI.PanDingShu17.ToString() : "0") + " PASS";
