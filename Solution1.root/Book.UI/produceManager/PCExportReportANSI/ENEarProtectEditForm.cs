@@ -174,6 +174,12 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._pcExpANSI.PanDing5 = this.spinEditPanDing5.EditValue == null ? 0 : double.Parse(this.spinEditPanDing5.EditValue.ToString());
             this._pcExpANSI.PanDing6 = this.spinEditPanDing6.EditValue == null ? 0 : double.Parse(this.spinEditPanDing6.EditValue.ToString());
 
+            this._pcExpANSI.AuditEmp = this.newChooseContorlAuditEmp.EditValue as Model.Employee;
+            if (this._pcExpANSI.AuditEmp != null)
+            {
+                this._pcExpANSI.AuditEmpId = this._pcExpANSI.AuditEmp.EmployeeId;
+            }
+
             switch (this.action)
             {
                 case "insert":

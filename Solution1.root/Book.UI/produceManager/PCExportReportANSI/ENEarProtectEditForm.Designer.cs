@@ -39,6 +39,13 @@
             this.txtCusXOid = new DevExpress.XtraEditors.TextEdit();
             this.btnEditProduct = new DevExpress.XtraEditors.ButtonEdit();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.spinEditPanDing5 = new DevExpress.XtraEditors.SpinEdit();
+            this.spinEditShouce5 = new DevExpress.XtraEditors.SpinEdit();
+            this.cob_EarmuffsAbove = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lbl_ValueB2 = new DevExpress.XtraEditors.LabelControl();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -62,11 +69,6 @@
             this.spinEditShouCe3 = new DevExpress.XtraEditors.SpinEdit();
             this.label20 = new System.Windows.Forms.Label();
             this.spinEditPanDing3 = new DevExpress.XtraEditors.SpinEdit();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.spinEditPanDing5 = new DevExpress.XtraEditors.SpinEdit();
-            this.spinEditShouce5 = new DevExpress.XtraEditors.SpinEdit();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -115,8 +117,6 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barPrintAlan = new DevExpress.XtraBars.BarButtonItem();
             this.barPrintPPE = new DevExpress.XtraBars.BarButtonItem();
-            this.lbl_ValueB2 = new DevExpress.XtraEditors.LabelControl();
-            this.cob_EarmuffsAbove = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -127,6 +127,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCusXOid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditProduct.Properties)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEditShouce5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cob_EarmuffsAbove.Properties)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditShouce6.Properties)).BeginInit();
@@ -137,9 +141,6 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditShouCe3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing3.Properties)).BeginInit();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditShouce5.Properties)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditShouCe4.Properties)).BeginInit();
@@ -166,7 +167,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cob_EarmuffsAbove.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -264,6 +264,7 @@
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.cob_EarmuffsAbove);
             this.panel1.Controls.Add(this.lbl_ValueB2);
             this.panel1.Controls.Add(this.panel7);
@@ -277,7 +278,6 @@
             this.panel1.Controls.Add(this.cob_Size324);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label5);
@@ -292,6 +292,60 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Name = "panel1";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.label24);
+            this.panel6.Controls.Add(this.label25);
+            this.panel6.Controls.Add(this.spinEditPanDing5);
+            this.panel6.Controls.Add(this.spinEditShouce5);
+            resources.ApplyResources(this.panel6, "panel6");
+            this.panel6.Name = "panel6";
+            // 
+            // label24
+            // 
+            resources.ApplyResources(this.label24, "label24");
+            this.label24.Name = "label24";
+            // 
+            // label25
+            // 
+            resources.ApplyResources(this.label25, "label25");
+            this.label25.Name = "label25";
+            // 
+            // spinEditPanDing5
+            // 
+            resources.ApplyResources(this.spinEditPanDing5, "spinEditPanDing5");
+            this.spinEditPanDing5.Name = "spinEditPanDing5";
+            this.spinEditPanDing5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            // 
+            // spinEditShouce5
+            // 
+            resources.ApplyResources(this.spinEditShouce5, "spinEditShouce5");
+            this.spinEditShouce5.Name = "spinEditShouce5";
+            this.spinEditShouce5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            // 
+            // cob_EarmuffsAbove
+            // 
+            resources.ApplyResources(this.cob_EarmuffsAbove, "cob_EarmuffsAbove");
+            this.cob_EarmuffsAbove.MaximumSize = new System.Drawing.Size(80, 18);
+            this.cob_EarmuffsAbove.MenuManager = this.barManager1;
+            this.cob_EarmuffsAbove.MinimumSize = new System.Drawing.Size(0, 18);
+            this.cob_EarmuffsAbove.Name = "cob_EarmuffsAbove";
+            this.cob_EarmuffsAbove.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("cob_EarmuffsAbove.Properties.Buttons"))))});
+            this.cob_EarmuffsAbove.Properties.Items.AddRange(new object[] {
+            resources.GetString("cob_EarmuffsAbove.Properties.Items"),
+            resources.GetString("cob_EarmuffsAbove.Properties.Items1")});
+            this.cob_EarmuffsAbove.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            // 
+            // lbl_ValueB2
+            // 
+            resources.ApplyResources(this.lbl_ValueB2, "lbl_ValueB2");
+            this.lbl_ValueB2.Name = "lbl_ValueB2";
             // 
             // panel7
             // 
@@ -380,6 +434,8 @@
             this.cob_Size324.MenuManager = this.barManager1;
             this.cob_Size324.MinimumSize = new System.Drawing.Size(0, 18);
             this.cob_Size324.Name = "cob_Size324";
+            this.cob_Size324.Properties.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("cob_Size324.Properties.Appearance.Font")));
+            this.cob_Size324.Properties.Appearance.Options.UseFont = true;
             this.cob_Size324.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("cob_Size324.Properties.Buttons"))))});
             this.cob_Size324.Properties.Items.AddRange(new object[] {
@@ -457,41 +513,6 @@
             resources.ApplyResources(this.spinEditPanDing3, "spinEditPanDing3");
             this.spinEditPanDing3.Name = "spinEditPanDing3";
             this.spinEditPanDing3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.label24);
-            this.panel6.Controls.Add(this.label25);
-            this.panel6.Controls.Add(this.spinEditPanDing5);
-            this.panel6.Controls.Add(this.spinEditShouce5);
-            resources.ApplyResources(this.panel6, "panel6");
-            this.panel6.Name = "panel6";
-            // 
-            // label24
-            // 
-            resources.ApplyResources(this.label24, "label24");
-            this.label24.Name = "label24";
-            // 
-            // label25
-            // 
-            resources.ApplyResources(this.label25, "label25");
-            this.label25.Name = "label25";
-            // 
-            // spinEditPanDing5
-            // 
-            resources.ApplyResources(this.spinEditPanDing5, "spinEditPanDing5");
-            this.spinEditPanDing5.Name = "spinEditPanDing5";
-            this.spinEditPanDing5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            // 
-            // spinEditShouce5
-            // 
-            resources.ApplyResources(this.spinEditShouce5, "spinEditShouce5");
-            this.spinEditShouce5.Name = "spinEditShouce5";
-            this.spinEditShouce5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
             // panel5
@@ -719,7 +740,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(940, 656);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(990, 656);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -729,7 +750,7 @@
             resources.ApplyResources(this.layoutControlItem1, "layoutControlItem1");
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(315, 25);
+            this.layoutControlItem1.Size = new System.Drawing.Size(332, 25);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem9
@@ -738,7 +759,7 @@
             resources.ApplyResources(this.layoutControlItem9, "layoutControlItem9");
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 100);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(930, 546);
+            this.layoutControlItem9.Size = new System.Drawing.Size(980, 546);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextToControlDistance = 0;
             this.layoutControlItem9.TextVisible = false;
@@ -747,18 +768,18 @@
             // 
             this.layoutControlItem13.Control = this.txt_AuditState;
             resources.ApplyResources(this.layoutControlItem13, "layoutControlItem13");
-            this.layoutControlItem13.Location = new System.Drawing.Point(667, 75);
+            this.layoutControlItem13.Location = new System.Drawing.Point(703, 75);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(263, 25);
+            this.layoutControlItem13.Size = new System.Drawing.Size(277, 25);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.label1;
             resources.ApplyResources(this.layoutControlItem11, "layoutControlItem11");
-            this.layoutControlItem11.Location = new System.Drawing.Point(315, 0);
+            this.layoutControlItem11.Location = new System.Drawing.Point(332, 0);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(101, 25);
+            this.layoutControlItem11.Size = new System.Drawing.Size(106, 25);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextToControlDistance = 0;
             this.layoutControlItem11.TextVisible = false;
@@ -767,9 +788,9 @@
             // 
             this.layoutControlItem12.Control = this.label2;
             resources.ApplyResources(this.layoutControlItem12, "layoutControlItem12");
-            this.layoutControlItem12.Location = new System.Drawing.Point(416, 0);
+            this.layoutControlItem12.Location = new System.Drawing.Point(438, 0);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(251, 25);
+            this.layoutControlItem12.Size = new System.Drawing.Size(265, 25);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextToControlDistance = 0;
             this.layoutControlItem12.TextVisible = false;
@@ -780,16 +801,16 @@
             resources.ApplyResources(this.layoutControlItem10, "layoutControlItem10");
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(315, 25);
+            this.layoutControlItem10.Size = new System.Drawing.Size(332, 25);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.nccCustomer;
             resources.ApplyResources(this.layoutControlItem2, "layoutControlItem2");
-            this.layoutControlItem2.Location = new System.Drawing.Point(667, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(703, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(263, 25);
+            this.layoutControlItem2.Size = new System.Drawing.Size(277, 25);
             this.layoutControlItem2.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(60, 14);
             this.layoutControlItem2.TextToControlDistance = 5;
@@ -798,9 +819,9 @@
             // 
             this.layoutControlItem3.Control = this.btnEditProduct;
             resources.ApplyResources(this.layoutControlItem3, "layoutControlItem3");
-            this.layoutControlItem3.Location = new System.Drawing.Point(315, 25);
+            this.layoutControlItem3.Location = new System.Drawing.Point(332, 25);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(352, 25);
+            this.layoutControlItem3.Size = new System.Drawing.Size(371, 25);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem4
@@ -809,25 +830,25 @@
             resources.ApplyResources(this.layoutControlItem4, "layoutControlItem4");
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(315, 25);
+            this.layoutControlItem4.Size = new System.Drawing.Size(332, 25);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.spinEditCSSL;
             resources.ApplyResources(this.layoutControlItem5, "layoutControlItem5");
-            this.layoutControlItem5.Location = new System.Drawing.Point(315, 50);
+            this.layoutControlItem5.Location = new System.Drawing.Point(332, 50);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(352, 25);
+            this.layoutControlItem5.Size = new System.Drawing.Size(371, 25);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.lookUpEditUnit;
             resources.ApplyResources(this.layoutControlItem14, "layoutControlItem14");
-            this.layoutControlItem14.Location = new System.Drawing.Point(667, 50);
+            this.layoutControlItem14.Location = new System.Drawing.Point(703, 50);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(263, 25);
+            this.layoutControlItem14.Size = new System.Drawing.Size(277, 25);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem7
@@ -836,25 +857,25 @@
             resources.ApplyResources(this.layoutControlItem7, "layoutControlItem7");
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 75);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(314, 25);
+            this.layoutControlItem7.Size = new System.Drawing.Size(331, 25);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.dateEditReport;
             resources.ApplyResources(this.layoutControlItem8, "layoutControlItem8");
-            this.layoutControlItem8.Location = new System.Drawing.Point(667, 25);
+            this.layoutControlItem8.Location = new System.Drawing.Point(703, 25);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(263, 25);
+            this.layoutControlItem8.Size = new System.Drawing.Size(277, 25);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.newChooseContorlAuditEmp;
             resources.ApplyResources(this.layoutControlItem6, "layoutControlItem6");
-            this.layoutControlItem6.Location = new System.Drawing.Point(314, 75);
+            this.layoutControlItem6.Location = new System.Drawing.Point(331, 75);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(353, 25);
+            this.layoutControlItem6.Size = new System.Drawing.Size(372, 25);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(84, 14);
             // 
             // barBtnInvoiceXO
@@ -891,25 +912,6 @@
             this.barPrintPPE.Name = "barPrintPPE";
             this.barPrintPPE.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barPrintPPE_ItemClick);
             // 
-            // lbl_ValueB2
-            // 
-            resources.ApplyResources(this.lbl_ValueB2, "lbl_ValueB2");
-            this.lbl_ValueB2.Name = "lbl_ValueB2";
-            // 
-            // cob_EarmuffsAbove
-            // 
-            resources.ApplyResources(this.cob_EarmuffsAbove, "cob_EarmuffsAbove");
-            this.cob_EarmuffsAbove.MaximumSize = new System.Drawing.Size(80, 18);
-            this.cob_EarmuffsAbove.MenuManager = this.barManager1;
-            this.cob_EarmuffsAbove.MinimumSize = new System.Drawing.Size(0, 18);
-            this.cob_EarmuffsAbove.Name = "cob_EarmuffsAbove";
-            this.cob_EarmuffsAbove.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("comboBoxEdit1.Properties.Buttons"))))});
-            this.cob_EarmuffsAbove.Properties.Items.AddRange(new object[] {
-            resources.GetString("comboBoxEdit1.Properties.Items"),
-            resources.GetString("comboBoxEdit1.Properties.Items1")});
-            this.cob_EarmuffsAbove.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            // 
             // ENEarProtectEditForm
             // 
             resources.ApplyResources(this, "$this");
@@ -929,6 +931,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnEditProduct.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEditShouce5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cob_EarmuffsAbove.Properties)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing6.Properties)).EndInit();
@@ -942,10 +949,6 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditShouCe3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing3.Properties)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditShouce5.Properties)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditPanDing4.Properties)).EndInit();
@@ -974,7 +977,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cob_EarmuffsAbove.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

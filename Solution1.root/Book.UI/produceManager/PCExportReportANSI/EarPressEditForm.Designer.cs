@@ -106,6 +106,8 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barPrintAlan = new DevExpress.XtraBars.BarButtonItem();
             this.barPrintPPE = new DevExpress.XtraBars.BarButtonItem();
+            this.label26 = new System.Windows.Forms.Label();
+            this.spinEditShouCe3 = new DevExpress.XtraEditors.SpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -151,6 +153,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEditShouCe3.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -335,6 +338,8 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label26);
+            this.panel4.Controls.Add(this.spinEditShouCe3);
             this.panel4.Controls.Add(this.label20);
             this.panel4.Controls.Add(this.label21);
             this.panel4.Controls.Add(this.spinEditPanDing3);
@@ -803,6 +808,18 @@
             this.barPrintPPE.Name = "barPrintPPE";
             this.barPrintPPE.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barPrintPPE_ItemClick);
             // 
+            // label26
+            // 
+            resources.ApplyResources(this.label26, "label26");
+            this.label26.Name = "label26";
+            // 
+            // spinEditShouCe3
+            // 
+            resources.ApplyResources(this.spinEditShouCe3, "spinEditShouCe3");
+            this.spinEditShouCe3.Name = "spinEditShouCe3";
+            this.spinEditShouCe3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            // 
             // EarPressEditForm
             // 
             resources.ApplyResources(this, "$this");
@@ -862,6 +879,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEditShouCe3.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -944,5 +962,7 @@
         private DevExpress.XtraEditors.ComboBoxEdit cob_Size324;
         private DevExpress.XtraEditors.LabelControl lbl_ValueB324;
         private DevExpress.XtraEditors.LabelControl lbl_ValueA324;
+        private System.Windows.Forms.Label label26;
+        private DevExpress.XtraEditors.SpinEdit spinEditShouCe3;
     }
 }

@@ -34,12 +34,13 @@ namespace Book.UI.produceManager.PCExportReportANSI
             xrTableCell9.Text = xrTableCell9.Text.Replace("**", earmuffsAbove);
 
             this.lblCeShiBaoGaoRiQi.Text = _PCExpANSI.ReportDate.Value.ToShortDateString();
-            this.lblCeShiShuLiang.Text = (_PCExpANSI.AmountTest.HasValue ? _PCExpANSI.AmountTest.ToString() : "0") + "pcs";
+            this.lblCeShiShuLiang.Text = (_PCExpANSI.AmountTest.HasValue ? _PCExpANSI.AmountTest.ToString() : "0") + "PCS";
             this.lblChanpingpingming.Text = _PCExpANSI.Product.CustomerProductName == null ? "" : _PCExpANSI.Product.CustomerProductName.ToString();
             this.lblDingDanBianHao.Text = _PCExpANSI.InvoiceCusXOId;
-            this.lblDingDanShuLiang.Text = (_PCExpANSI.Amount.HasValue ? _PCExpANSI.Amount.ToString() : "0") + "pcs";
+            this.lblDingDanShuLiang.Text = (_PCExpANSI.Amount.HasValue ? _PCExpANSI.Amount.ToString() : "0") + "PCS";
             this.lblKehu.Text = _PCExpANSI.Customer == null ? "" : _PCExpANSI.Customer.CustomerName;
             this.lblZhiXingCeShiYuan.Text = _PCExpANSI.Employee == null ? "" : _PCExpANSI.Employee.ToString();
+            this.lbl_VerifiedBy.Text = _PCExpANSI.AuditEmp == null ? null : _PCExpANSI.AuditEmp.ToString() + " " + (_PCExpANSI.ReportDate.HasValue ? _PCExpANSI.ReportDate.Value.ToString("yyyy-MM-dd") : ""); ;
 
             this.lblShouCe1.Text = _PCExpANSI.ShouCeShu1.HasValue ? _PCExpANSI.ShouCeShu1.Value.ToString() : "0";
             this.lblShouCe2.Text = _PCExpANSI.ShouCeShu2.HasValue ? _PCExpANSI.ShouCeShu2.Value.ToString() : "0";

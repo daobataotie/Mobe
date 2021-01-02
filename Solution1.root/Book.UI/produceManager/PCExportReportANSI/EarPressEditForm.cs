@@ -163,6 +163,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
 
             this._pcExpANSI.ShouCeShu1 = this.spinEditShouCe1.EditValue == null ? 0 : double.Parse(this.spinEditShouCe1.EditValue.ToString());
             this._pcExpANSI.ShouCeShu2 = this.spinEditShouCe2.EditValue == null ? 0 : double.Parse(this.spinEditShouCe2.EditValue.ToString());
+            this._pcExpANSI.ShouCeShu3 = this.spinEditShouCe3.EditValue == null ? 0 : double.Parse(this.spinEditShouCe3.EditValue.ToString());
             this._pcExpANSI.ShouCeShu4 = this.spinEditShouCe4.EditValue == null ? 0 : double.Parse(this.spinEditShouCe4.EditValue.ToString());
             this._pcExpANSI.ShouCeShu5 = this.spinEditShouce5.EditValue == null ? 0 : double.Parse(this.spinEditShouce5.EditValue.ToString());
             this._pcExpANSI.PanDing1 = this.spinEditPanDing1.EditValue == null ? 0 : double.Parse(this.spinEditPanDing1.EditValue.ToString());
@@ -170,6 +171,12 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._pcExpANSI.PanDing3 = this.spinEditPanDing3.EditValue == null ? 0 : double.Parse(this.spinEditPanDing3.EditValue.ToString());
             this._pcExpANSI.PanDing4 = this.spinEditPanDing4.EditValue == null ? 0 : double.Parse(this.spinEditPanDing4.EditValue.ToString());
             this._pcExpANSI.PanDing5 = this.spinEditPanDing5.EditValue == null ? 0 : double.Parse(this.spinEditPanDing5.EditValue.ToString());
+
+            this._pcExpANSI.AuditEmp = this.newChooseContorlAuditEmp.EditValue as Model.Employee;
+            if (this._pcExpANSI.AuditEmp != null)
+            {
+                this._pcExpANSI.AuditEmpId = this._pcExpANSI.AuditEmp.EmployeeId;
+            }
 
             switch (this.action)
             {
@@ -265,6 +272,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
 
             this.spinEditShouCe1.EditValue = this._pcExpANSI.ShouCeShu1.HasValue ? this._pcExpANSI.ShouCeShu1.Value : 0;
             this.spinEditShouCe2.EditValue = this._pcExpANSI.ShouCeShu2.HasValue ? this._pcExpANSI.ShouCeShu2.Value : 0;
+            this.spinEditShouCe3.EditValue = this._pcExpANSI.ShouCeShu3.HasValue ? this._pcExpANSI.ShouCeShu3.Value : 0;
             this.spinEditShouCe4.EditValue = this._pcExpANSI.ShouCeShu4.HasValue ? this._pcExpANSI.ShouCeShu4.Value : 0;
             this.spinEditShouce5.EditValue = this._pcExpANSI.ShouCeShu5.HasValue ? this._pcExpANSI.ShouCeShu5.Value : 0;
             this.spinEditPanDing1.EditValue = this._pcExpANSI.PanDing1.HasValue ? this._pcExpANSI.PanDing1.Value : 0;
