@@ -20,6 +20,7 @@
       <result property="ProductVersion" column="ProductVersion" />
       <result property="ProductCategoryId2" column="ProductCategoryId2"/>
       <result property="ProductCategoryId3" column="ProductCategoryId3"/>
+      <result property="IsPU" column="IsPU"/>
       <result property="DepotUnit" column="DepotUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
       <result property="MainUnit" column="MainUnitId" lazyLoad="false" select="ProductUnit.select_by_primary_key" />
       <result property="BasedUnitGroup" column="BasedUnitGroupId" lazyLoad="false" select="UnitGroup.select_by_primary_key" />
@@ -42,6 +43,7 @@
       <result property="StocksQuantity" column="StocksQuantity" />
       <result property="ProductCategoryId2" column="ProductCategoryId2"/>
       <result property="ProductCategoryId3" column="ProductCategoryId3"/>
+      <result property="IsPU" column="IsPU"/>
     </resultMap>
     <resultMap id="ProductResult3" class="Product">
       <result property="ProductId" column="ProductId" />
@@ -181,6 +183,7 @@
       <result property="ProductState" column="ProductState"/>
       <result property="ProductCategoryId2" column="ProductCategoryId2"/>
       <result property="ProductCategoryId3" column="ProductCategoryId3"/>
+      <result property="IsPU" column="IsPU"/>
       <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
       <result property="CustomInspectionRule" column="CustomInspectionRuleId" lazyLoad="false" select="CustomInspectionRule.select_by_primary_key" />
       <result property="Depot" column="DepotId" lazyLoad="false" select="Depot.select_by_primary_key" />
@@ -254,6 +257,7 @@
       <result property="MaterialNum" column="MaterialNum"/>
       <result property="ProductCategoryId2" column="ProductCategoryId2"/>
       <result property="ProductCategoryId3" column="ProductCategoryId3"/>
+      <result property="IsPU" column="IsPU"/>
       <result property="ProductCategory" column="ProductCategoryId" lazyLoad="false" select="ProductCategory.select_by_primary_key" />
       <result property="ProductCategory2" column="ProductCategoryId2" lazyLoad="false" select="ProductCategory.select_by_primary_key"/>
       <result property="ProductCategory3" column="ProductCategoryId3" lazyLoad="false" select="ProductCategory.select_by_primary_key"/>
@@ -318,7 +322,8 @@
       MaterialIds,
       MaterialNum,
       ProductCategoryId2,
-      ProductCategoryId3
+      ProductCategoryId3,
+      IsPU
       from product
       WHERE
 				[ProductId] = #ProductId#
@@ -505,7 +510,8 @@ where ProductId = #productid#
       [ProductVersion],
       [ProductState],
       [ProductCategoryId2],
-      [ProductCategoryId3]
+      [ProductCategoryId3],
+      [IsPU]
       from product
       WHERE 1=1 and $sql$
     </select>
@@ -538,7 +544,7 @@ where ProductId = #productid#
     <!--查询指定客户的货品和公司货品-->
     <select id="SelectByCustomer" resultMap="ProductResult1" parameterClass="string">
       <![CDATA[
-      select ProductId,ProductName,product.ProductCategoryId,ProductVersion,ProduceUnitId,SupplierId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,ProductDescription, product.Id,MainUnitId,BasedUnitGroupId,CustomerProductName,CustomerId,ProductCategoryId2,ProductCategoryId3 from product left join ProductCategory
+      select ProductId,ProductName,product.ProductCategoryId,ProductVersion,ProduceUnitId,SupplierId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,ProductDescription, product.Id,MainUnitId,BasedUnitGroupId,CustomerProductName,CustomerId,ProductCategoryId2,ProductCategoryId3,IsPU from product left join ProductCategory
       on ProductCategory.ProductCategoryId=Product.ProductCategoryId order by Id    
       ]]>
       <!--CustomerProductName desc-->
@@ -546,7 +552,7 @@ where ProductId = #productid#
     <!--查询指定客户的货品-->
     <select id="SelectProductByCustomer" resultMap="ProductResult1" parameterClass="Map">
       <![CDATA[
-      select ProductId,ProductName,product.ProductCategoryId,ProductVersion,ProduceUnitId,SupplierId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,ProductDescription, product.Id,MainUnitId,BasedUnitGroupId,CustomerProductName,CustomerId,ProductCategoryId2,ProductCategoryId3 from product left join ProductCategory
+      select ProductId,ProductName,product.ProductCategoryId,ProductVersion,ProduceUnitId,SupplierId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,ProductDescription, product.Id,MainUnitId,BasedUnitGroupId,CustomerProductName,CustomerId,ProductCategoryId2,ProductCategoryId3,IsPU from product left join ProductCategory
       on ProductCategory.ProductCategoryId=Product.ProductCategoryId
       where customerid=#CustomerId# 
       AND (ProductDeadDate IS NULL 
@@ -581,7 +587,7 @@ where ProductId = #productid#
     </select>
 
     <select id="GetProduct" resultMap="ProductResult1">
-      SELECT product.Id,ProductId,ProductName,ProductVersion,product.ProductCategoryId,SupplierId,ProduceUnitId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,CustomerProductName,BasedUnitGroupId,MainUnitId,ProductDescription,CustomerId,ProductCategoryId2,ProductCategoryId3 FROM Product left join ProductCategory
+      SELECT product.Id,ProductId,ProductName,ProductVersion,product.ProductCategoryId,SupplierId,ProduceUnitId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,CustomerProductName,BasedUnitGroupId,MainUnitId,ProductDescription,CustomerId,ProductCategoryId2,ProductCategoryId3,IsPU FROM Product left join ProductCategory
       on ProductCategory.ProductCategoryId=Product.ProductCategoryId order by  ProductName
     </select>
 
@@ -594,21 +600,21 @@ where ProductId = #productid#
     </select>
 
     <select id="select_byCategoryTo" resultMap="ProductResult2">
-      SELECT Id,ProductId,ProductName,ProductCategoryId,CustomerProductName,StocksQuantity,ProductDescription,IsCustomerProduct,ProductCategoryId2,ProductCategoryId3 FROM Product  where    ProductCategoryId = #value# order by ProductName
+      SELECT Id,ProductId,ProductName,ProductCategoryId,CustomerProductName,StocksQuantity,ProductDescription,IsCustomerProduct,ProductCategoryId2,ProductCategoryId3,IsPU FROM Product  where    ProductCategoryId = #value# order by ProductName
     </select>
     <select id="select_notcustomer" resultMap="ProductResult1">
-      select  product.Id,ProductId,ProductName,ProductVersion,product.ProductCategoryId,SupplierId,ProduceUnitId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,CustomerProductName,BasedUnitGroupId,MainUnitId,ProductDescription,CustomerId,ProductCategoryId2,ProductCategoryId3 FROM Product left join ProductCategory
+      select  product.Id,ProductId,ProductName,ProductVersion,product.ProductCategoryId,SupplierId,ProduceUnitId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,CustomerProductName,BasedUnitGroupId,MainUnitId,ProductDescription,CustomerId,ProductCategoryId2,ProductCategoryId3,IsPU FROM Product left join ProductCategory
       on ProductCategory.ProductCategoryId=Product.ProductCategoryId  where IsCustomerProduct=0 or IsCustomerProduct is null order by ProductName
     </select>
     <select id="select_notcustomer1" resultMap="ProductResult3">
       select  Id,ProductId,ProductName from Product  where IsCustomerProduct=0 or IsCustomerProduct is null order by ProductName
     </select>
     <select id="select_notcustomerByCate" resultMap="ProductResult1" parameterClass="string">
-      select  product.Id,ProductId,ProductName,ProductVersion,product.ProductCategoryId,SupplierId,ProduceUnitId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,CustomerProductName,BasedUnitGroupId,MainUnitId,ProductDescription,CustomerId,ProductCategoryId2,ProductCategoryId3 FROM Product left join ProductCategory
+      select  product.Id,ProductId,ProductName,ProductVersion,product.ProductCategoryId,SupplierId,ProduceUnitId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,CustomerProductName,BasedUnitGroupId,MainUnitId,ProductDescription,CustomerId,ProductCategoryId2,ProductCategoryId3,IsPU FROM Product left join ProductCategory
       on ProductCategory.ProductCategoryId=Product.ProductCategoryId  where (IsCustomerProduct=0 or IsCustomerProduct is null) and product.ProductCategoryId=#value#  order by ProductName
     </select>
     <select id="select_byIdOrNameKey" resultMap="ProductResult1" parameterClass="string">
-      SELECT product.Id,ProductId,ProductName,ProductVersion,product.ProductCategoryId,ProduceUnitId,SupplierId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,CustomerProductName,BasedUnitGroupId,MainUnitId,ProductDescription,CustomerId,ProductCategoryId2,ProductCategoryId3 FROM Product left join ProductCategory
+      SELECT product.Id,ProductId,ProductName,ProductVersion,product.ProductCategoryId,ProduceUnitId,SupplierId,StocksQuantity,ProductCategoryName,DepotPositionId,DepotUnitId,CustomerProductName,BasedUnitGroupId,MainUnitId,ProductDescription,CustomerId,ProductCategoryId2,ProductCategoryId3,IsPU FROM Product left join ProductCategory
       on ProductCategory.ProductCategoryId=Product.ProductCategoryId where ( product.id like '%$id$%' or #id# is null) and (ProductName like '%$name$%' or #name# is null) and (CustomerProductName like '%$customerProductName$%' or #customerProductName# is null)
     </select>
     <select id="select_ProceProduct" resultMap="ProductResult"  parameterClass="Map">
@@ -718,7 +724,8 @@ where ProductId = #productid#
       [ProductVersion],
       [ProductState],
       [ProductCategoryId2],
-      [ProductCategoryId3]
+      [ProductCategoryId3],
+      [IsPU]
       from product where (id like '%$id$%' or #id# is null) and (ProductName like '%$name$%' or #name# is null) and (CustomerProductName like '%$customerProductName$%' or #customerProductName# is null)
     </select>
     <update id="update_stock" parameterClass="string">
@@ -731,7 +738,7 @@ where ProductId = #productid#
 			]]>
     </update>
     <select id="select_by_primary_key2" resultMap="ProductResult2">
-      SELECT Id,ProductId,ProductName,ProductCategoryId,CustomerProductName,ProductDescription,StocksQuantity,IsCustomerProduct,ProductCategoryId2,ProductCategoryId3 FROM Product  where    ProductCategoryId = #value# order by ProductName
+      SELECT Id,ProductId,ProductName,ProductCategoryId,CustomerProductName,ProductDescription,StocksQuantity,IsCustomerProduct,ProductCategoryId2,ProductCategoryId3,IsPU FROM Product  where    ProductCategoryId = #value# order by ProductName
     </select>
     <select id="select_by_primary_key3" resultMap="ProductResultBomPar">
       SELECT Id,ProductId,CustomerId,ProductName,ProductCategoryId,CustomerProductName,ProductDescription,StocksQuantity,IsCustomerProduct,OutSourcing,TrustOut,HomeMade,IsProcee FROM Product  where    ProductId = #value#
@@ -835,7 +842,8 @@ where ProductId = #productid#
       [ProductVersion],
       [ProductState],
       [ProductCategoryId2],
-      [ProductCategoryId3]
+      [ProductCategoryId3],
+      [IsPU]
       FROM
       [dbo].[Product]
       WHERE

@@ -131,6 +131,17 @@ namespace Book.UI.produceManager.PCParameterSet
             dr["SettingName"] = "JIS外銷報告技術標準";
             da.Rows.Add(dr);
 
+
+            dr = da.NewRow();
+            dr["SettingSetId"] = "CEENJiShuBiaoZhun";
+            dr["SettingName"] = "CEEN外銷報告技術標準";
+            da.Rows.Add(dr);
+            
+            dr = da.NewRow();
+            dr["SettingSetId"] = "ASJiShuBiaoZhun";
+            dr["SettingName"] = "AS外銷報告技術標準";
+            da.Rows.Add(dr);
+
             this._detail = this.settingManager.SelectTagOrderDefault("PCISO");
             this.requireValueExceptions.Add(Model.Setting.PRO_SettingName, new AA(Properties.Resources.NameIsNotNull, this.gridControl1));
 

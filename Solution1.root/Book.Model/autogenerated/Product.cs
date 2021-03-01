@@ -523,6 +523,8 @@ namespace Book.Model
 
         private string _productCategoryId3;
 
+        private bool? _IsPU;
+
         /// <summary>
         /// 客户
         /// </summary>
@@ -2485,6 +2487,14 @@ namespace Book.Model
             { return this._isNoQiangFang; }
             set { this._isNoQiangFang = value; }
         }
+
+
+        public bool? IsPU
+        {
+            get { return _IsPU; }
+            set { _IsPU = value; }
+        }
+
         /// <summary>
         /// 强化
         /// </summary>
@@ -3006,6 +3016,9 @@ namespace Book.Model
         public readonly static string PRO_ProductCategoryId2 = "ProductCategoryId2";
 
         public readonly static string PRO_ProductCategoryId3 = "ProductCategoryId3";
+
+        public readonly static string PRO_IsPU = "IsPU";
+
         #endregion
     }
 }

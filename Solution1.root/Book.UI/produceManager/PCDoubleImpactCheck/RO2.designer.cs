@@ -315,21 +315,21 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             resources.ApplyResources(this.TCattrS_SZhongL, "TCattrS_SZhongL");
             this.TCattrS_SZhongL.Name = "TCattrS_SZhongL";
             this.TCattrS_SZhongL.StylePriority.UseTextAlignment = false;
-            this.TCattrS_SZhongL.Weight = 0.286351712585585;
+            this.TCattrS_SZhongL.Weight = 0.43385830315355189;
             // 
             // TCattrS_SShangL
             // 
             resources.ApplyResources(this.TCattrS_SShangL, "TCattrS_SShangL");
             this.TCattrS_SShangL.Name = "TCattrS_SShangL";
             this.TCattrS_SShangL.StylePriority.UseTextAlignment = false;
-            this.TCattrS_SShangL.Weight = 0.27503643882260986;
+            this.TCattrS_SShangL.Weight = 0.26832968152548642;
             // 
             // TCattrS_SXiaL
             // 
             resources.ApplyResources(this.TCattrS_SXiaL, "TCattrS_SXiaL");
             this.TCattrS_SXiaL.Name = "TCattrS_SXiaL";
             this.TCattrS_SXiaL.StylePriority.UseTextAlignment = false;
-            this.TCattrS_SXiaL.Weight = 0.28795533587877142;
+            this.TCattrS_SXiaL.Weight = 0.27454769870662904;
             // 
             // xrTable4
             // 
@@ -374,21 +374,21 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             resources.ApplyResources(this.TCattrS_SZhongR, "TCattrS_SZhongR");
             this.TCattrS_SZhongR.Name = "TCattrS_SZhongR";
             this.TCattrS_SZhongR.StylePriority.UseTextAlignment = false;
-            this.TCattrS_SZhongR.Weight = 0.31092724135293232;
+            this.TCattrS_SZhongR.Weight = 0.471094028336267;
             // 
             // TCattrS_SShangR
             // 
             resources.ApplyResources(this.TCattrS_SShangR, "TCattrS_SShangR");
             this.TCattrS_SShangR.Name = "TCattrS_SShangR";
             this.TCattrS_SShangR.StylePriority.UseTextAlignment = false;
-            this.TCattrS_SShangR.Weight = 0.29864168712339717;
+            this.TCattrS_SShangR.Weight = 0.29135866099733676;
             // 
             // TCattrS_SXiaR
             // 
             resources.ApplyResources(this.TCattrS_SXiaR, "TCattrS_SXiaR");
             this.TCattrS_SXiaR.Name = "TCattrS_SXiaR";
             this.TCattrS_SXiaR.StylePriority.UseTextAlignment = false;
-            this.TCattrS_SXiaR.Weight = 0.31266864771311714;
+            this.TCattrS_SXiaR.Weight = 0.29811065673605175;
             // 
             // TCEmployee
             // 
@@ -914,7 +914,7 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.xrTableCell11.Name = "xrTableCell11";
             this.xrTableCell11.StylePriority.UseFont = false;
             this.xrTableCell11.StylePriority.UseTextAlignment = false;
-            this.xrTableCell11.Weight = 0.17573824856615056;
+            this.xrTableCell11.Weight = 0.26626458682300874;
             // 
             // xrTableCell14
             // 
@@ -922,7 +922,7 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.xrTableCell14.Name = "xrTableCell14";
             this.xrTableCell14.StylePriority.UseFont = false;
             this.xrTableCell14.StylePriority.UseTextAlignment = false;
-            this.xrTableCell14.Weight = 0.16879324513375366;
+            this.xrTableCell14.Weight = 0.16467807071861579;
             // 
             // xrTableCell10
             // 
@@ -930,42 +930,42 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.StylePriority.UseFont = false;
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
-            this.xrTableCell10.Weight = 0.17672250094918979;
+            this.xrTableCell10.Weight = 0.16849310134374629;
             // 
             // xrTableCell6
             // 
             resources.ApplyResources(this.xrTableCell6, "xrTableCell6");
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
-            this.xrTableCell6.Weight = 0.20779879299986709;
+            this.xrTableCell6.Weight = 0.19956901370449076;
             // 
             // xrTableCell13
             // 
             resources.ApplyResources(this.xrTableCell13, "xrTableCell13");
             this.xrTableCell13.Name = "xrTableCell13";
             this.xrTableCell13.StylePriority.UseTextAlignment = false;
-            this.xrTableCell13.Weight = 0.1443049546080514;
+            this.xrTableCell13.Weight = 0.13196047550995327;
             // 
             // xrTableCell17
             // 
             resources.ApplyResources(this.xrTableCell17, "xrTableCell17");
             this.xrTableCell17.Name = "xrTableCell17";
             this.xrTableCell17.StylePriority.UseTextAlignment = false;
-            this.xrTableCell17.Weight = 0.12492348899323262;
+            this.xrTableCell17.Weight = 0.12903837864092083;
             // 
             // xrTableCell18
             // 
             resources.ApplyResources(this.xrTableCell18, "xrTableCell18");
             this.xrTableCell18.Name = "xrTableCell18";
             this.xrTableCell18.StylePriority.UseTextAlignment = false;
-            this.xrTableCell18.Weight = 0.20699840570100322;
+            this.xrTableCell18.Weight = 0.206999165080869;
             // 
             // xrTableCell19
             // 
             resources.ApplyResources(this.xrTableCell19, "xrTableCell19");
             this.xrTableCell19.Name = "xrTableCell19";
             this.xrTableCell19.StylePriority.UseTextAlignment = false;
-            this.xrTableCell19.Weight = 0.12881683218115725;
+            this.xrTableCell19.Weight = 0.12706000686167832;
             // 
             // xrTableCell3
             // 
@@ -973,7 +973,7 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.StylePriority.UseFont = false;
             this.xrTableCell3.StylePriority.UseTextAlignment = false;
-            this.xrTableCell3.Weight = 0.19542298877358871;
+            this.xrTableCell3.Weight = 0.17660479631972739;
             // 
             // lblProduct
             // 
@@ -1093,7 +1093,7 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.PageFooter,
             this.ReportHeader});
             resources.ApplyResources(this, "$this");
-            this.Margins = new System.Drawing.Printing.Margins(51, 38, 79, 79);
+            this.Margins = new System.Drawing.Printing.Margins(35, 30, 79, 79);
             this.PageHeight = 2794;
             this.PageWidth = 2159;
             this.Version = "10.2";

@@ -149,7 +149,6 @@ namespace Book.UI.Settings.BasicData.Products
                     productCategory = this.product.ProductCategory.Id;
             }
 
-
         }
 
         /// <summary>
@@ -631,6 +630,9 @@ namespace Book.UI.Settings.BasicData.Products
             //this.product.MaterialIds = this.checkedComboBoxEditJWeight.EditValue == null ? null : this.checkedComboBoxEditJWeight.EditValue.ToString();
             this.product.MaterialIds = string.IsNullOrEmpty(this.materialIds) ? this.product.MaterialIds : this.materialIds;
             this.product.MaterialNum = string.IsNullOrEmpty(this.materialNum) ? this.product.MaterialNum : this.materialNum;
+
+            //2021年1月17日16:18:26
+            this.product.IsPU = this.checkEditIsPU.Checked;
 
             switch (this.action)
             {
@@ -1167,6 +1169,10 @@ namespace Book.UI.Settings.BasicData.Products
             this.de_UpdateTime.EditValue = this.product.UpdateTime;
             this.calcEditStock0.EditValue = this.stockManager.SelectStockQuantity0(this.product.ProductId);
             this.calcEditStock1.EditValue = this.product.StocksQuantity;
+
+            //2021年1月17日16:20:02
+            this.checkEditIsPU.EditValue = this.product.IsPU;
+
             switch (this.action)
             {
                 case "insert":

@@ -112,6 +112,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="MaterialNum" column="MaterialNum"/>
       <result property="ProductCategoryId2" column="ProductCategoryId2"/>
       <result property="ProductCategoryId3" column="ProductCategoryId3"/>
+      <result property="IsPU" column="IsPU"/>
       <result property="Customer" column="CustomerId" lazyLoad="false" select="Customer.select_SimpleCustomer" />
       <result property="EmployeeChange" column="EmployeeChangeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="EmployeeCreator" column="EmployeeCreatorId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
@@ -327,7 +328,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       [MaterialIds],
       [MaterialNum],
       [ProductCategoryId2],
-      [ProductCategoryId3]
+      [ProductCategoryId3],
+      [IsPU]
       FROM
       [dbo].[Product]
       WHERE
@@ -487,7 +489,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       [MaterialIds],
       [MaterialNum],
       [ProductCategoryId2],
-      [ProductCategoryId3]
+      [ProductCategoryId3],
+      [IsPU]
       )
       VALUES
       (
@@ -596,7 +599,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       #MaterialIds#,
       #MaterialNum#,
       #ProductCategoryId2#,
-      #ProductCategoryId3#
+      #ProductCategoryId3#,
+      #IsPU#
       )
 
     </insert>
@@ -708,7 +712,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       [MaterialIds]=#MaterialIds#,
       [MaterialNum]=#MaterialNum#,
       [ProductCategoryId2]=#ProductCategoryId2#,
-      [ProductCategoryId3]=#ProductCategoryId3#
+      [ProductCategoryId3]=#ProductCategoryId3#,
+      [IsPU]=#IsPU#
       WHERE
       [ProductId] = #ProductId#
 

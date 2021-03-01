@@ -49,6 +49,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             }
 
             var jiShuBiaoZhun = new BL.SettingManager().SelectByName("CSAJiShuBiaoZhun");
+            jiShuBiaoZhun = jiShuBiaoZhun.OrderByDescending(j => j.IdNO).ToList();
             foreach (var item in jiShuBiaoZhun)
             {
                 comboBoxEdit1.Properties.Items.Add(item.SettingCurrentValue);
@@ -124,9 +125,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._PCExportReportANSI.ReportDate = DateTime.Now.Date;
             this._PCExportReportANSI.Employee = BL.V.ActiveOperator.Employee;
             this._PCExportReportANSI.ExpType = "CSA";
-
-            var jiShuBiaoZhun = new BL.SettingManager().SelectByName("CSAJiShuBiaoZhun").FirstOrDefault(D => D.SettingCurrentValue.Contains("2015"));
-            this._PCExportReportANSI.CSAJiShuBiaoZhun = jiShuBiaoZhun == null ? "CSA Z94.3-2015" : jiShuBiaoZhun.SettingCurrentValue;
+            this._PCExportReportANSI.CSAJiShuBiaoZhun = comboBoxEdit1.Properties.Items.Count > 0 ? comboBoxEdit1.Properties.Items[0].ToString() : "CSA Z94.3-2015";
 
             this._PCExportReportANSI.CeShiSuLi = this.comboBox1.Items.Count > 0 ? this.comboBox1.Items[0].ToString() : null;
         }

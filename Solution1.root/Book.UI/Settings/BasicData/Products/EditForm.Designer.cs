@@ -416,14 +416,33 @@ namespace Book.UI.Settings.BasicData.Products
             this.layoutControlItem101 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabPage10 = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl10 = new DevExpress.XtraLayout.LayoutControl();
+            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.bindingSourceInvoiceCoDetail = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnInvoiceId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnOrderQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnInvoiceCODetailPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnInvoiceCODetailMoney = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnNoArrivalQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnArrivalQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnInvoiceProductUnit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnInvoiceCODetailNote = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn50 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn51 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn57 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemRichTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
             this.simpleButton_search = new DevExpress.XtraEditors.SimpleButton();
             this.dateEditcoenddate = new DevExpress.XtraEditors.DateEdit();
             this.dateEditcostartdate = new DevExpress.XtraEditors.DateEdit();
-            this.bindingSourceInvoiceCoDetail = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlGroup11 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem106 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem107 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem108 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem105 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabPage11 = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl11 = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButtonMation = new DevExpress.XtraEditors.SimpleButton();
@@ -505,25 +524,8 @@ namespace Book.UI.Settings.BasicData.Products
             this.barButtonItemList = new DevExpress.XtraBars.BarButtonItem();
             this.layoutControlItem161 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem18 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumnInvoiceId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnOrderQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnInvoiceCODetailPrice = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnInvoiceCODetailMoney = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnNoArrivalQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnArrivalQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnInvoiceProductUnit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnInvoiceCODetailNote = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn50 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn51 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn57 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemRichTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
-            this.layoutControlItem105 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.checkEditIsPU = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlItem172 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -893,15 +895,19 @@ namespace Book.UI.Settings.BasicData.Products
             this.xtraTabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl10)).BeginInit();
             this.layoutControl10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInvoiceCoDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditcoenddate.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditcoenddate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditcostartdate.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditcostartdate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInvoiceCoDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem106)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem107)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem108)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem105)).BeginInit();
             this.xtraTabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl11)).BeginInit();
             this.layoutControl11.SuspendLayout();
@@ -951,10 +957,8 @@ namespace Book.UI.Settings.BasicData.Products
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem105)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditIsPU.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem172)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -1079,6 +1083,7 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.checkEditIsPU);
             this.layoutControl1.Controls.Add(this.nccProductCategoryThree);
             this.layoutControl1.Controls.Add(this.nccProductCategoryTwo);
             this.layoutControl1.Controls.Add(this.checkEditFang);
@@ -1202,10 +1207,11 @@ namespace Book.UI.Settings.BasicData.Products
             resources.ApplyResources(this.radioProductType, "radioProductType");
             this.radioProductType.Name = "radioProductType";
             this.radioProductType.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.radioProductType.Properties.Columns = 2;
+            this.radioProductType.Properties.Columns = 3;
             this.radioProductType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(resources.GetString("radioProductType.Properties.Items"), resources.GetString("radioProductType.Properties.Items1")),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(resources.GetString("radioProductType.Properties.Items2"), resources.GetString("radioProductType.Properties.Items3"))});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(resources.GetString("radioProductType.Properties.Items2"), resources.GetString("radioProductType.Properties.Items3")),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(resources.GetString("radioProductType.Properties.Items4"), resources.GetString("radioProductType.Properties.Items5"))});
             this.radioProductType.StyleController = this.layoutControl1;
             // 
             // checkEditIsProcess
@@ -1570,7 +1576,6 @@ namespace Book.UI.Settings.BasicData.Products
             this.layoutControlItem39,
             this.layoutControlItem33,
             this.layoutControlItem34,
-            this.layoutControlItem40,
             this.layoutControlItem134,
             this.layoutControlItem157,
             this.layoutControlItem158,
@@ -1583,7 +1588,9 @@ namespace Book.UI.Settings.BasicData.Products
             this.emptySpaceItem6,
             this.layoutControlItem14,
             this.layoutControlItem170,
-            this.layoutControlItem171});
+            this.layoutControlItem171,
+            this.layoutControlItem40,
+            this.layoutControlItem172});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Size = new System.Drawing.Size(650, 408);
@@ -1604,9 +1611,9 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem16.Control = this.checkEditHomeMade;
             resources.ApplyResources(this.layoutControlItem16, "layoutControlItem16");
-            this.layoutControlItem16.Location = new System.Drawing.Point(195, 252);
+            this.layoutControlItem16.Location = new System.Drawing.Point(267, 252);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(67, 27);
+            this.layoutControlItem16.Size = new System.Drawing.Size(87, 27);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextToControlDistance = 0;
             this.layoutControlItem16.TextVisible = false;
@@ -1638,9 +1645,9 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem17.Control = this.checkEditOutSourcing;
             resources.ApplyResources(this.layoutControlItem17, "layoutControlItem17");
-            this.layoutControlItem17.Location = new System.Drawing.Point(332, 252);
+            this.layoutControlItem17.Location = new System.Drawing.Point(441, 252);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(68, 27);
+            this.layoutControlItem17.Size = new System.Drawing.Size(85, 27);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextToControlDistance = 0;
             this.layoutControlItem17.TextVisible = false;
@@ -1649,9 +1656,9 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem27.Control = this.checkEditConsume;
             resources.ApplyResources(this.layoutControlItem27, "layoutControlItem27");
-            this.layoutControlItem27.Location = new System.Drawing.Point(262, 252);
+            this.layoutControlItem27.Location = new System.Drawing.Point(354, 252);
             this.layoutControlItem27.Name = "layoutControlItem27";
-            this.layoutControlItem27.Size = new System.Drawing.Size(70, 27);
+            this.layoutControlItem27.Size = new System.Drawing.Size(87, 27);
             this.layoutControlItem27.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem27.TextToControlDistance = 0;
             this.layoutControlItem27.TextVisible = false;
@@ -1660,9 +1667,9 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem26.Control = this.checkEditTrustOut;
             resources.ApplyResources(this.layoutControlItem26, "layoutControlItem26");
-            this.layoutControlItem26.Location = new System.Drawing.Point(400, 252);
+            this.layoutControlItem26.Location = new System.Drawing.Point(526, 252);
             this.layoutControlItem26.Name = "layoutControlItem26";
-            this.layoutControlItem26.Size = new System.Drawing.Size(65, 27);
+            this.layoutControlItem26.Size = new System.Drawing.Size(104, 27);
             this.layoutControlItem26.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem26.TextToControlDistance = 0;
             this.layoutControlItem26.TextVisible = false;
@@ -1822,9 +1829,9 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem40.Control = this.checkEditIsProcess;
             resources.ApplyResources(this.layoutControlItem40, "layoutControlItem40");
-            this.layoutControlItem40.Location = new System.Drawing.Point(465, 252);
+            this.layoutControlItem40.Location = new System.Drawing.Point(91, 279);
             this.layoutControlItem40.Name = "layoutControlItem40";
-            this.layoutControlItem40.Size = new System.Drawing.Size(165, 27);
+            this.layoutControlItem40.Size = new System.Drawing.Size(104, 23);
             this.layoutControlItem40.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem40.TextToControlDistance = 0;
             this.layoutControlItem40.TextVisible = false;
@@ -1835,7 +1842,7 @@ namespace Book.UI.Settings.BasicData.Products
             resources.ApplyResources(this.layoutControlItem134, "layoutControlItem134");
             this.layoutControlItem134.Location = new System.Drawing.Point(0, 252);
             this.layoutControlItem134.Name = "layoutControlItem134";
-            this.layoutControlItem134.Size = new System.Drawing.Size(195, 27);
+            this.layoutControlItem134.Size = new System.Drawing.Size(267, 27);
             this.layoutControlItem134.TextSize = new System.Drawing.Size(84, 14);
             // 
             // layoutControlItem157
@@ -1878,9 +1885,9 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem166.Control = this.checkEditNoQiang;
             resources.ApplyResources(this.layoutControlItem166, "layoutControlItem166");
-            this.layoutControlItem166.Location = new System.Drawing.Point(248, 279);
+            this.layoutControlItem166.Location = new System.Drawing.Point(354, 279);
             this.layoutControlItem166.Name = "layoutControlItem166";
-            this.layoutControlItem166.Size = new System.Drawing.Size(382, 23);
+            this.layoutControlItem166.Size = new System.Drawing.Size(87, 23);
             this.layoutControlItem166.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem166.TextToControlDistance = 0;
             this.layoutControlItem166.TextVisible = false;
@@ -1889,9 +1896,9 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem165.Control = this.checkEditFang;
             resources.ApplyResources(this.layoutControlItem165, "layoutControlItem165");
-            this.layoutControlItem165.Location = new System.Drawing.Point(158, 279);
+            this.layoutControlItem165.Location = new System.Drawing.Point(267, 279);
             this.layoutControlItem165.Name = "layoutControlItem165";
-            this.layoutControlItem165.Size = new System.Drawing.Size(90, 23);
+            this.layoutControlItem165.Size = new System.Drawing.Size(87, 23);
             this.layoutControlItem165.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem165.TextToControlDistance = 0;
             this.layoutControlItem165.TextVisible = false;
@@ -1900,9 +1907,9 @@ namespace Book.UI.Settings.BasicData.Products
             // 
             this.layoutControlItem164.Control = this.checkEditQiang;
             resources.ApplyResources(this.layoutControlItem164, "layoutControlItem164");
-            this.layoutControlItem164.Location = new System.Drawing.Point(79, 279);
+            this.layoutControlItem164.Location = new System.Drawing.Point(195, 279);
             this.layoutControlItem164.Name = "layoutControlItem164";
-            this.layoutControlItem164.Size = new System.Drawing.Size(79, 23);
+            this.layoutControlItem164.Size = new System.Drawing.Size(72, 23);
             this.layoutControlItem164.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem164.TextToControlDistance = 0;
             this.layoutControlItem164.TextVisible = false;
@@ -1912,7 +1919,7 @@ namespace Book.UI.Settings.BasicData.Products
             resources.ApplyResources(this.emptySpaceItem4, "emptySpaceItem4");
             this.emptySpaceItem4.Location = new System.Drawing.Point(0, 279);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(79, 23);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(91, 23);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
@@ -5210,6 +5217,134 @@ namespace Book.UI.Settings.BasicData.Products
             this.layoutControl10.Name = "layoutControl10";
             this.layoutControl10.Root = this.layoutControlGroup11;
             // 
+            // gridControl3
+            // 
+            this.gridControl3.DataSource = this.bindingSourceInvoiceCoDetail;
+            resources.ApplyResources(this.gridControl3, "gridControl3");
+            this.gridControl3.MainView = this.gridView2;
+            this.gridControl3.MenuManager = this.barManager1;
+            this.gridControl3.Name = "gridControl3";
+            this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemRichTextEdit2});
+            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnInvoiceId,
+            this.gridColumnOrderQuantity,
+            this.gridColumnInvoiceCODetailPrice,
+            this.gridColumnInvoiceCODetailMoney,
+            this.gridColumnNoArrivalQuantity,
+            this.gridColumnArrivalQuantity,
+            this.gridColumnInvoiceProductUnit,
+            this.gridColumnInvoiceCODetailNote,
+            this.gridColumn50,
+            this.gridColumn13,
+            this.gridColumn29,
+            this.gridColumn33,
+            this.gridColumn51,
+            this.gridColumn52,
+            this.gridColumn57});
+            this.gridView2.GridControl = this.gridControl3;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsView.ColumnAutoWidth = false;
+            this.gridView2.OptionsView.RowAutoHeight = true;
+            // 
+            // gridColumnInvoiceId
+            // 
+            resources.ApplyResources(this.gridColumnInvoiceId, "gridColumnInvoiceId");
+            this.gridColumnInvoiceId.FieldName = "InvoiceId";
+            this.gridColumnInvoiceId.Name = "gridColumnInvoiceId";
+            // 
+            // gridColumnOrderQuantity
+            // 
+            resources.ApplyResources(this.gridColumnOrderQuantity, "gridColumnOrderQuantity");
+            this.gridColumnOrderQuantity.FieldName = "OrderQuantity";
+            this.gridColumnOrderQuantity.Name = "gridColumnOrderQuantity";
+            // 
+            // gridColumnInvoiceCODetailPrice
+            // 
+            resources.ApplyResources(this.gridColumnInvoiceCODetailPrice, "gridColumnInvoiceCODetailPrice");
+            this.gridColumnInvoiceCODetailPrice.FieldName = "InvoiceCODetailPrice";
+            this.gridColumnInvoiceCODetailPrice.Name = "gridColumnInvoiceCODetailPrice";
+            // 
+            // gridColumnInvoiceCODetailMoney
+            // 
+            resources.ApplyResources(this.gridColumnInvoiceCODetailMoney, "gridColumnInvoiceCODetailMoney");
+            this.gridColumnInvoiceCODetailMoney.FieldName = "InvoiceCODetailMoney";
+            this.gridColumnInvoiceCODetailMoney.Name = "gridColumnInvoiceCODetailMoney";
+            // 
+            // gridColumnNoArrivalQuantity
+            // 
+            resources.ApplyResources(this.gridColumnNoArrivalQuantity, "gridColumnNoArrivalQuantity");
+            this.gridColumnNoArrivalQuantity.FieldName = "NoArrivalQuantity";
+            this.gridColumnNoArrivalQuantity.Name = "gridColumnNoArrivalQuantity";
+            // 
+            // gridColumnArrivalQuantity
+            // 
+            resources.ApplyResources(this.gridColumnArrivalQuantity, "gridColumnArrivalQuantity");
+            this.gridColumnArrivalQuantity.FieldName = "ArrivalQuantity";
+            this.gridColumnArrivalQuantity.Name = "gridColumnArrivalQuantity";
+            // 
+            // gridColumnInvoiceProductUnit
+            // 
+            resources.ApplyResources(this.gridColumnInvoiceProductUnit, "gridColumnInvoiceProductUnit");
+            this.gridColumnInvoiceProductUnit.FieldName = "InvoiceProductUnit";
+            this.gridColumnInvoiceProductUnit.Name = "gridColumnInvoiceProductUnit";
+            // 
+            // gridColumnInvoiceCODetailNote
+            // 
+            resources.ApplyResources(this.gridColumnInvoiceCODetailNote, "gridColumnInvoiceCODetailNote");
+            this.gridColumnInvoiceCODetailNote.FieldName = "InvoiceCODetailNote";
+            this.gridColumnInvoiceCODetailNote.Name = "gridColumnInvoiceCODetailNote";
+            // 
+            // gridColumn50
+            // 
+            resources.ApplyResources(this.gridColumn50, "gridColumn50");
+            this.gridColumn50.FieldName = "NextWorkHouse";
+            this.gridColumn50.Name = "gridColumn50";
+            // 
+            // gridColumn13
+            // 
+            resources.ApplyResources(this.gridColumn13, "gridColumn13");
+            this.gridColumn13.FieldName = "OrderDate";
+            this.gridColumn13.Name = "gridColumn13";
+            // 
+            // gridColumn29
+            // 
+            resources.ApplyResources(this.gridColumn29, "gridColumn29");
+            this.gridColumn29.Name = "gridColumn29";
+            // 
+            // gridColumn33
+            // 
+            resources.ApplyResources(this.gridColumn33, "gridColumn33");
+            this.gridColumn33.FieldName = "Invoice.Supplier";
+            this.gridColumn33.Name = "gridColumn33";
+            // 
+            // gridColumn51
+            // 
+            resources.ApplyResources(this.gridColumn51, "gridColumn51");
+            this.gridColumn51.FieldName = "InvoiceYjrq";
+            this.gridColumn51.Name = "gridColumn51";
+            // 
+            // gridColumn52
+            // 
+            resources.ApplyResources(this.gridColumn52, "gridColumn52");
+            this.gridColumn52.FieldName = "CustomerInvoiceXOId";
+            this.gridColumn52.Name = "gridColumn52";
+            // 
+            // gridColumn57
+            // 
+            resources.ApplyResources(this.gridColumn57, "gridColumn57");
+            this.gridColumn57.FieldName = "CustomerLotNumber";
+            this.gridColumn57.Name = "gridColumn57";
+            // 
+            // repositoryItemRichTextEdit2
+            // 
+            this.repositoryItemRichTextEdit2.Name = "repositoryItemRichTextEdit2";
+            // 
             // simpleButton_search
             // 
             resources.ApplyResources(this.simpleButton_search, "simpleButton_search");
@@ -5285,6 +5420,17 @@ namespace Book.UI.Settings.BasicData.Products
             this.layoutControlItem108.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem108.TextToControlDistance = 0;
             this.layoutControlItem108.TextVisible = false;
+            // 
+            // layoutControlItem105
+            // 
+            this.layoutControlItem105.Control = this.gridControl3;
+            resources.ApplyResources(this.layoutControlItem105, "layoutControlItem105");
+            this.layoutControlItem105.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem105.Name = "layoutControlItem105";
+            this.layoutControlItem105.Size = new System.Drawing.Size(630, 362);
+            this.layoutControlItem105.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem105.TextToControlDistance = 0;
+            this.layoutControlItem105.TextVisible = false;
             // 
             // xtraTabPage11
             // 
@@ -5958,144 +6104,25 @@ namespace Book.UI.Settings.BasicData.Products
             this.emptySpaceItem18.Size = new System.Drawing.Size(654, 23);
             this.emptySpaceItem18.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // gridControl3
+            // checkEditIsPU
             // 
-            this.gridControl3.DataSource = this.bindingSourceInvoiceCoDetail;
-            resources.ApplyResources(this.gridControl3, "gridControl3");
-            this.gridControl3.MainView = this.gridView2;
-            this.gridControl3.MenuManager = this.barManager1;
-            this.gridControl3.Name = "gridControl3";
-            this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemRichTextEdit2});
-            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            resources.ApplyResources(this.checkEditIsPU, "checkEditIsPU");
+            this.checkEditIsPU.MenuManager = this.barManager1;
+            this.checkEditIsPU.Name = "checkEditIsPU";
+            this.checkEditIsPU.Properties.Caption = resources.GetString("checkEdit1.Properties.Caption");
+            this.checkEditIsPU.Properties.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+            this.checkEditIsPU.StyleController = this.layoutControl1;
             // 
-            // gridView2
+            // layoutControlItem172
             // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumnInvoiceId,
-            this.gridColumnOrderQuantity,
-            this.gridColumnInvoiceCODetailPrice,
-            this.gridColumnInvoiceCODetailMoney,
-            this.gridColumnNoArrivalQuantity,
-            this.gridColumnArrivalQuantity,
-            this.gridColumnInvoiceProductUnit,
-            this.gridColumnInvoiceCODetailNote,
-            this.gridColumn50,
-            this.gridColumn13,
-            this.gridColumn29,
-            this.gridColumn33,
-            this.gridColumn51,
-            this.gridColumn52,
-            this.gridColumn57});
-            this.gridView2.GridControl = this.gridControl3;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsView.ColumnAutoWidth = false;
-            this.gridView2.OptionsView.RowAutoHeight = true;
-            // 
-            // gridColumnInvoiceId
-            // 
-            resources.ApplyResources(this.gridColumnInvoiceId, "gridColumnInvoiceId");
-            this.gridColumnInvoiceId.FieldName = "InvoiceId";
-            this.gridColumnInvoiceId.Name = "gridColumnInvoiceId";
-            // 
-            // gridColumnOrderQuantity
-            // 
-            resources.ApplyResources(this.gridColumnOrderQuantity, "gridColumnOrderQuantity");
-            this.gridColumnOrderQuantity.FieldName = "OrderQuantity";
-            this.gridColumnOrderQuantity.Name = "gridColumnOrderQuantity";
-            // 
-            // gridColumnInvoiceCODetailPrice
-            // 
-            resources.ApplyResources(this.gridColumnInvoiceCODetailPrice, "gridColumnInvoiceCODetailPrice");
-            this.gridColumnInvoiceCODetailPrice.FieldName = "InvoiceCODetailPrice";
-            this.gridColumnInvoiceCODetailPrice.Name = "gridColumnInvoiceCODetailPrice";
-            // 
-            // gridColumnInvoiceCODetailMoney
-            // 
-            resources.ApplyResources(this.gridColumnInvoiceCODetailMoney, "gridColumnInvoiceCODetailMoney");
-            this.gridColumnInvoiceCODetailMoney.FieldName = "InvoiceCODetailMoney";
-            this.gridColumnInvoiceCODetailMoney.Name = "gridColumnInvoiceCODetailMoney";
-            // 
-            // gridColumnNoArrivalQuantity
-            // 
-            resources.ApplyResources(this.gridColumnNoArrivalQuantity, "gridColumnNoArrivalQuantity");
-            this.gridColumnNoArrivalQuantity.FieldName = "NoArrivalQuantity";
-            this.gridColumnNoArrivalQuantity.Name = "gridColumnNoArrivalQuantity";
-            // 
-            // gridColumnArrivalQuantity
-            // 
-            resources.ApplyResources(this.gridColumnArrivalQuantity, "gridColumnArrivalQuantity");
-            this.gridColumnArrivalQuantity.FieldName = "ArrivalQuantity";
-            this.gridColumnArrivalQuantity.Name = "gridColumnArrivalQuantity";
-            // 
-            // gridColumnInvoiceProductUnit
-            // 
-            resources.ApplyResources(this.gridColumnInvoiceProductUnit, "gridColumnInvoiceProductUnit");
-            this.gridColumnInvoiceProductUnit.FieldName = "InvoiceProductUnit";
-            this.gridColumnInvoiceProductUnit.Name = "gridColumnInvoiceProductUnit";
-            // 
-            // gridColumnInvoiceCODetailNote
-            // 
-            resources.ApplyResources(this.gridColumnInvoiceCODetailNote, "gridColumnInvoiceCODetailNote");
-            this.gridColumnInvoiceCODetailNote.FieldName = "InvoiceCODetailNote";
-            this.gridColumnInvoiceCODetailNote.Name = "gridColumnInvoiceCODetailNote";
-            // 
-            // gridColumn50
-            // 
-            resources.ApplyResources(this.gridColumn50, "gridColumn50");
-            this.gridColumn50.FieldName = "NextWorkHouse";
-            this.gridColumn50.Name = "gridColumn50";
-            // 
-            // gridColumn13
-            // 
-            resources.ApplyResources(this.gridColumn13, "gridColumn13");
-            this.gridColumn13.FieldName = "OrderDate";
-            this.gridColumn13.Name = "gridColumn13";
-            // 
-            // gridColumn29
-            // 
-            resources.ApplyResources(this.gridColumn29, "gridColumn29");
-            this.gridColumn29.Name = "gridColumn29";
-            // 
-            // gridColumn33
-            // 
-            resources.ApplyResources(this.gridColumn33, "gridColumn33");
-            this.gridColumn33.FieldName = "Invoice.Supplier";
-            this.gridColumn33.Name = "gridColumn33";
-            // 
-            // gridColumn51
-            // 
-            resources.ApplyResources(this.gridColumn51, "gridColumn51");
-            this.gridColumn51.FieldName = "InvoiceYjrq";
-            this.gridColumn51.Name = "gridColumn51";
-            // 
-            // gridColumn52
-            // 
-            resources.ApplyResources(this.gridColumn52, "gridColumn52");
-            this.gridColumn52.FieldName = "CustomerInvoiceXOId";
-            this.gridColumn52.Name = "gridColumn52";
-            // 
-            // gridColumn57
-            // 
-            resources.ApplyResources(this.gridColumn57, "gridColumn57");
-            this.gridColumn57.FieldName = "CustomerLotNumber";
-            this.gridColumn57.Name = "gridColumn57";
-            // 
-            // repositoryItemRichTextEdit2
-            // 
-            this.repositoryItemRichTextEdit2.Name = "repositoryItemRichTextEdit2";
-            // 
-            // layoutControlItem105
-            // 
-            this.layoutControlItem105.Control = this.gridControl3;
-            resources.ApplyResources(this.layoutControlItem105, "layoutControlItem105");
-            this.layoutControlItem105.Location = new System.Drawing.Point(0, 26);
-            this.layoutControlItem105.Name = "layoutControlItem105";
-            this.layoutControlItem105.Size = new System.Drawing.Size(630, 362);
-            this.layoutControlItem105.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem105.TextToControlDistance = 0;
-            this.layoutControlItem105.TextVisible = false;
+            this.layoutControlItem172.Control = this.checkEditIsPU;
+            resources.ApplyResources(this.layoutControlItem172, "layoutControlItem172");
+            this.layoutControlItem172.Location = new System.Drawing.Point(441, 279);
+            this.layoutControlItem172.Name = "layoutControlItem172";
+            this.layoutControlItem172.Size = new System.Drawing.Size(189, 23);
+            this.layoutControlItem172.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem172.TextToControlDistance = 0;
+            this.layoutControlItem172.TextVisible = false;
             // 
             // EditForm
             // 
@@ -6476,15 +6503,19 @@ namespace Book.UI.Settings.BasicData.Products
             this.xtraTabPage10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl10)).EndInit();
             this.layoutControl10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInvoiceCoDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditcoenddate.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditcoenddate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditcostartdate.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditcostartdate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInvoiceCoDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem106)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem107)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem108)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem105)).EndInit();
             this.xtraTabPage11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl11)).EndInit();
             this.layoutControl11.ResumeLayout(false);
@@ -6534,10 +6565,8 @@ namespace Book.UI.Settings.BasicData.Products
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem105)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditIsPU.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem172)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -7038,5 +7067,7 @@ namespace Book.UI.Settings.BasicData.Products
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn57;
         private DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit repositoryItemRichTextEdit2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem105;
+        private DevExpress.XtraEditors.CheckEdit checkEditIsPU;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem172;
     }
 }

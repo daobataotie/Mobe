@@ -360,6 +360,15 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
                     this.gridColumn6.Caption = "坠球42g土0.5g(右)";
                     this.attrZhuiQiu68gL.Caption = "镜片上(左)(20mm)";
                     this.attrZhuiQiu68gR.Caption = "镜片上(右)(20mm)";
+
+                    attr45L.Caption = "眼球位置(左)";
+                    attr45R.Caption = "眼球位置(右)";
+                    attr60L.Caption = "s.s(90度中眼球位置)(左)";
+                    attr60R.Caption = "s.s(90度中眼球位置)(右)";
+                    attr60L.Width = 150;
+                    attr60R.Width = 150;
+
+
                     break;
                 default: break;
             }
