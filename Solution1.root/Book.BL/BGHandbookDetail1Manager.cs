@@ -75,34 +75,37 @@ namespace Book.BL
 
                 // 成品区
                 IList<Model.BGHandbookDetail1> detailList = _bGHandbook.Detail1.Where(d => d.Id.ToString() == HandbookProductId && !string.IsNullOrEmpty(d.ProName)).ToList<Model.BGHandbookDetail1>();
-                //  Model.BGHandbookDetail1 detail = accessor.SelectBGProduct(HandbookId, HandbookProductId);
 
-                //detailList[0].BeeQuantity = Convert.ToDouble(detailList[0].BeeQuantity) + quantity;
-                //detailList[0].UpQuantity = Convert.ToDouble(detailList[0].UpQuantity) - quantity;
-                detailList[0].YdycQuantity = Convert.ToDouble(detailList[0].YdycQuantity) + quantity;
-                //this.UpdateMap("update BGHandbookDetail1 set BeeQuantity=isnull( BeeQuantity,0)+" + quantity + ",UpQuantity= isnull(UpQuantity,0)-" + quantity + "  where BGHandbookId='" + _bGHandbook.BGHandbookId + "' and Id='" + xsdetail.HandbookProductId + "'");
-                accessor.Update(detailList[0]);
+                if (detailList.Count > 0)
+                {
+                    //  Model.BGHandbookDetail1 detail = accessor.SelectBGProduct(HandbookId, HandbookProductId);
 
-                //Model.BGHandbookDetail2 detail2;
-                ////子件 1区
-                //IList<Model.BGHandbookDetail1> detail1List = _bGHandbook.Detail1.Where(d => d.Id.ToString() == HandbookProductId && !string.IsNullOrEmpty(d.Column1)).ToList<Model.BGHandbookDetail1>();
+                    //detailList[0].BeeQuantity = Convert.ToDouble(detailList[0].BeeQuantity) + quantity;
+                    //detailList[0].UpQuantity = Convert.ToDouble(detailList[0].UpQuantity) - quantity;
+                    detailList[0].YdycQuantity = Convert.ToDouble(detailList[0].YdycQuantity) + quantity;
+                    //this.UpdateMap("update BGHandbookDetail1 set BeeQuantity=isnull( BeeQuantity,0)+" + quantity + ",UpQuantity= isnull(UpQuantity,0)-" + quantity + "  where BGHandbookId='" + _bGHandbook.BGHandbookId + "' and Id='" + xsdetail.HandbookProductId + "'");
+                    accessor.Update(detailList[0]);
+
+                    //Model.BGHandbookDetail2 detail2;
+                    ////子件 1区
+                    //IList<Model.BGHandbookDetail1> detail1List = _bGHandbook.Detail1.Where(d => d.Id.ToString() == HandbookProductId && !string.IsNullOrEmpty(d.Column1)).ToList<Model.BGHandbookDetail1>();
 
 
-                //foreach (Model.BGHandbookDetail1 detail1m in detail1List)
-                //{
-                //    detail2 = _bGHandbook.Detail2.Where(d => d.Id == detail1m.LId).ToList<Model.BGHandbookDetail2>()[0];
+                    //foreach (Model.BGHandbookDetail1 detail1m in detail1List)
+                    //{
+                    //    detail2 = _bGHandbook.Detail2.Where(d => d.Id == detail1m.LId).ToList<Model.BGHandbookDetail2>()[0];
 
-                //    double? a = detail2.LilunHaoYong - detail1m.LiLunHaoYongJingSun;
+                    //    double? a = detail2.LilunHaoYong - detail1m.LiLunHaoYongJingSun;
 
-                //    detail1m.LiLunHaoYongJing = (double)GetSiSheWuRu(Convert.ToDecimal(detailList[0].BeeQuantity) * Convert.ToDecimal(detail1m.LjingQuantity), 2);
-                //    detail1m.LiLunHaoYongJingSun = (double)GetSiSheWuRu(Convert.ToDecimal(detailList[0].BeeQuantity) * Convert.ToDecimal(detail1m.LjingQuantity) / (1 - Convert.ToDecimal(detail1m.Lsunhaolv) * 0.01M), 2);
+                    //    detail1m.LiLunHaoYongJing = (double)GetSiSheWuRu(Convert.ToDecimal(detailList[0].BeeQuantity) * Convert.ToDecimal(detail1m.LjingQuantity), 2);
+                    //    detail1m.LiLunHaoYongJingSun = (double)GetSiSheWuRu(Convert.ToDecimal(detailList[0].BeeQuantity) * Convert.ToDecimal(detail1m.LjingQuantity) / (1 - Convert.ToDecimal(detail1m.Lsunhaolv) * 0.01M), 2);
 
-                //    accessor.Update(detail1m);
+                    //    accessor.Update(detail1m);
 
-                //    detail2.LilunHaoYong = a + detail1m.LiLunHaoYongJingSun;
-                //    detail2.LilunStock = detail2.LbejinQuantity - detail2.LilunHaoYong;
-                //    Detail2Accessor.Update(detail2);
-
+                    //    detail2.LilunHaoYong = a + detail1m.LiLunHaoYongJingSun;
+                    //    detail2.LilunStock = detail2.LbejinQuantity - detail2.LilunHaoYong;
+                    //    Detail2Accessor.Update(detail2);
+                }
             }
 
         }

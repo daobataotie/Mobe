@@ -1889,8 +1889,8 @@ namespace Book.UI.Settings.BasicData.Products
                     //this.lookUpEditQualityTestUnitId.Properties.ReadOnly = true;
                     //this.lookUpProduceUnitId.Properties.ReadOnly = true;
                     //this.lookUpSellUnit.Properties.ReadOnly = true;
-                    this.newChooseContorlProductType.Properties.Buttons[0].Enabled = false;
-                    this.newChooseContorlProductType.Properties.ReadOnly = true;
+                    this.newChooseContorlProductType.Properties.Buttons[0].Enabled = true;
+                    this.newChooseContorlProductType.Properties.ReadOnly = false;
 
                     this.comboBoxEditAbcCategory.Properties.ReadOnly = true;
 
@@ -3277,7 +3277,7 @@ namespace Book.UI.Settings.BasicData.Products
             //if (hitInfo.InRow && !gridView5.IsGroupRow(hitInfo.RowHandle))
             //{
             //设置商品类别
-            if (this.gridView5.RowCount > 0)
+            if (this.gridView5.RowCount > 0 && this.gridView5.FocusedRowHandle >= 0)
             {
 
                 this.action = "view";

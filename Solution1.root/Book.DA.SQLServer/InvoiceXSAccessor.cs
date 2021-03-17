@@ -198,7 +198,7 @@ namespace Book.DA.SQLServer
                 if (!string.IsNullOrEmpty(invoicexoid1) && !string.IsNullOrEmpty(invoicexoid2))
                     xsDetailConditions += " and invoicexoid between '" + invoicexoid1 + "' and '" + invoicexoid2 + "'";
                 else
-                    xsDetailConditions += " and nvoicexoid='" + (string.IsNullOrEmpty(invoicexoid1) ? invoicexoid2 : invoicexoid1) + "'";
+                    xsDetailConditions += " and invoicexoid='" + (string.IsNullOrEmpty(invoicexoid1) ? invoicexoid2 : invoicexoid1) + "'";
             }
             if (product != null)
                 xsDetailConditions += " and productid='" + product.ProductId + "'";
