@@ -39,5 +39,12 @@
       SELECT Id FROM Material WHERE MaterialId=#value#
       ]]>
     </select>
+
+    <select id="SelectAllByPrimaryIds" resultMap="MaterialResult" parameterClass="string">
+      <![CDATA[
+      SELECT * FROM Material where 1=1 $sql$ ORDER BY MaterialCategoryName
+      ]]>
+    </select>
+    
   </statements>
 </sqlMap>

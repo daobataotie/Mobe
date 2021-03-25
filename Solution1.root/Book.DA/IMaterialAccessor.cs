@@ -24,6 +24,8 @@ namespace Book.DA
         IList<string> SelectMaterialCategory();
         IList<Model.Material> SelectAll();
         string SelectIdByPrimary(string Id);
+
+        IList<Model.Material> SelectAllByPrimaryIds(string Ids);
     }
 }
 

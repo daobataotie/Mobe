@@ -29,6 +29,7 @@ namespace Book.UI.Query
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        //查询
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             if (this.dateEdit1.EditValue == null)
@@ -201,6 +202,7 @@ namespace Book.UI.Query
             this.lookUpProductCategoryEnd.EditValue = this.LookUpProductCategoryStart.EditValue;
         }
 
+        // 导出Excel
         private void btn_ExportExcel_Click(object sender, EventArgs e)
         {
             if (dt == null || dt.Rows.Count == 0)
@@ -226,7 +228,7 @@ namespace Book.UI.Query
                 if (i == 0 || dt.Rows[i]["productid"].ToString() != dt.Rows[i - 1]["productid"].ToString())
                 {
                     //excelDT.Rows.Add(dt.Rows[i]["productid"].ToString(), dt.Rows[i]["spid"].ToString(), dt.Rows[i]["productName"].ToString(), dt.Rows[i]["Quantity"].ToString());
-                    list.Add(new Model.Product() { ProductId = dt.Rows[i]["productid"].ToString(), Id = dt.Rows[i]["spid"].ToString(), ProductName = dt.Rows[i]["productName"].ToString(), StocksQuantity = Convert.ToDouble(dt.Rows[i]["Quantity"]), CnName = dt.Rows[i]["CnName"].ToString() });
+                    list.Add(new Model.Product() { ProductId = dt.Rows[i]["productid"].ToString(), Id = dt.Rows[i]["spid"].ToString(), ProductName = dt.Rows[i]["productName"].ToString(), StocksQuantity = Convert.ToDouble(dt.Rows[i]["Quantity"]), CnName = dt.Rows[i]["CnName"].ToString(), NetWeight = Convert.ToDouble(dt.Rows[i]["NetWeight"]) });
                     productIDs += "'" + dt.Rows[i]["productid"].ToString() + "',";
                 }
                 else
@@ -292,6 +294,7 @@ namespace Book.UI.Query
                 excel.Cells[2, 2] = "商品名称";
                 excel.Cells[2, 3] = "即时库存";
                 excel.Cells[2, 4] = "单位";
+                excel.Cells[2, 5] = "单个商品净重";
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 4]).Interior.Color = "12566463";
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 2]).ColumnWidth = 50;
                 int row = 3;
@@ -342,6 +345,7 @@ namespace Book.UI.Query
                 excel.Cells[row, 2] = pro.ProductName;
                 excel.Cells[row, 3] = pro.StocksQuantity;
                 excel.Cells[row, 4] = pro.CnName;
+                excel.Cells[row, 5] = (pro.NetWeight.Value / 1000).ToString("0.#####");
 
                 int col = 6;
                 foreach (var dic in pro.MaterialDic)
@@ -351,23 +355,83 @@ namespace Book.UI.Query
 
                 row++;
             }
-            row++;
+
+            //每组数据之间不留空行
+            //row++;
         }
 
+        //换算原料净重
         private void ConvertMaterial(List<Model.Product> list)
         {
-            IList<string> str = materialManager.SelectMaterialCategory();
-            Dictionary<string, string> dic = new Dictionary<string, string>();
+            #region 老版，1，会查出所有原料种类；2，每个商品循环查数据库-原料
+            ////查询出所有原料种类
+            //IList<string> str = materialManager.SelectMaterialCategory();
+            //Dictionary<string, string> dic = new Dictionary<string, string>();
 
+            //foreach (var pro in list)
+            //{
+            //    pro.MaterialDic = new Dictionary<string, string>();
+            //    foreach (var item in str)
+            //    {
+            //        pro.MaterialDic.Add(item, "0");
+            //    }
+
+
+            //    if (!string.IsNullOrEmpty(pro.MaterialIds))
+            //    {
+            //        string[] materialIds = pro.MaterialIds.Split(',');
+            //        string[] materialnums = pro.MaterialNum.Split(',');
+
+            //        for (int i = 0; i < materialIds.Length; i++)
+            //        {
+            //            Model.Material model = materialManager.Get(materialIds[i]);
+            //            if (model != null)
+            //            {
+            //                double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * Convert.ToDouble(pro.StocksQuantity);
+
+            //                if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName))
+            //                {
+            //                    if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName.ToLower()))
+            //                        model.MaterialCategoryName = model.MaterialCategoryName.ToUpper();
+            //                    else
+            //                        model.MaterialCategoryName = model.MaterialCategoryName.ToLower();
+            //                }
+            //                pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");
+            //            }
+            //        }
+            //    }
+            //}
+            #endregion
+
+            //新版，只查用到的原料种类，且只查一次数据库-原料，缓存下来
+            string needMaterialIds = "(";
+            foreach (var item in list)
+            {
+                if (!string.IsNullOrEmpty(item.MaterialIds))
+                {
+                    string[] materialIds = item.MaterialIds.Split(',');
+                    for (int i = 0; i < materialIds.Length; i++)
+                    {
+                        needMaterialIds += "'" + materialIds[i] + "',";
+                    }
+                }
+            }
+            needMaterialIds = needMaterialIds.TrimEnd(',') + ")";
+            if (needMaterialIds.Length < 5)  //所有商品没有设置净重
+                return;
+
+            //根据上面获取的 原料主键Ids 查询所有原料
+            IList<Model.Material> listMaterial = materialManager.SelectAllByPrimaryIds(needMaterialIds);
+            //分組得到原料分類
+            List<string> materialCategory = listMaterial.Select(m => m.MaterialCategoryName).Distinct().OrderBy(o => o).ToList();
 
             foreach (var pro in list)
             {
                 pro.MaterialDic = new Dictionary<string, string>();
-                foreach (var item in str)
+                foreach (var item in materialCategory)
                 {
                     pro.MaterialDic.Add(item, "0");
                 }
-
 
                 if (!string.IsNullOrEmpty(pro.MaterialIds))
                 {
@@ -376,7 +440,7 @@ namespace Book.UI.Query
 
                     for (int i = 0; i < materialIds.Length; i++)
                     {
-                        Model.Material model = materialManager.Get(materialIds[i]);
+                        Model.Material model = listMaterial.FirstOrDefault(m => m.MaterialId == materialIds[i]);
                         if (model != null)
                         {
                             double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * Convert.ToDouble(pro.StocksQuantity);
@@ -393,6 +457,7 @@ namespace Book.UI.Query
                     }
                 }
             }
+
         }
     }
 }

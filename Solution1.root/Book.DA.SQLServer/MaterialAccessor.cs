@@ -60,5 +60,13 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForObject<string>("Material.SelectIdByPrimary", Id);
         }
+
+        public IList<Model.Material> SelectAllByPrimaryIds(string Ids)
+        {
+            Hashtable ht = new Hashtable();
+            Ids = " and MaterialId in " + Ids;
+            ht.Add("sql", Ids);
+            return sqlmapper.QueryForList<Model.Material>("Material.SelectAllByPrimaryIds", Ids);
+        }
     }
 }

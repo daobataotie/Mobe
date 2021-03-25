@@ -11,6 +11,9 @@ using Microsoft.Office.Interop.Excel;
 
 namespace Book.UI.Query
 {
+    /// <summary>
+    /// 即时库存(现场版)
+    /// </summary>
     public partial class ImmediateStock : DevExpress.XtraEditors.XtraForm
     {
         BL.ProductManager productManager = new Book.BL.ProductManager();

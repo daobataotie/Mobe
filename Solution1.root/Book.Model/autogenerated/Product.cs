@@ -2108,7 +2108,7 @@ namespace Book.Model
         }
 
         /// <summary>
-        /// 原料净重
+        /// 原料主键Ids
         /// </summary>
         public string MaterialIds
         {

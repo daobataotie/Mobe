@@ -131,6 +131,11 @@ namespace Book.BL
         {
             return accessor.SelectIdByPrimary(Id);
         }
+
+        public IList<Model.Material> SelectAllByPrimaryIds(string Ids)
+        {
+            return accessor.SelectAllByPrimaryIds(Ids);
+        }
     }
 }
 
