@@ -20,7 +20,7 @@ namespace Book.UI.AccountPayable.AccQuery
             IList<Model.AcInvoiceXOBillDetail> mdetail = new BL.AcInvoiceXOBillDetailManager().selectByConditionInvoiceXODetail(condition.StartDate, condition.EndDate, condition.StartXOid, condition.EndXOid, condition.mStartCustomer, condition.mEndCustomer);
 
             if (mdetail == null || mdetail.Count == 0)
-                throw new global::Helper.InvalidValueException();
+                throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
 
             this.DataSource = mdetail;
 

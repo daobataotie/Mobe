@@ -36,7 +36,7 @@ namespace Book.UI.Query
 
             if (list == null || list.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             }
 
             this.bindingSource1.DataSource = list;

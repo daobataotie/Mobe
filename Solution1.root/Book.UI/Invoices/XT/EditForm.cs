@@ -35,6 +35,7 @@ namespace Book.UI.Invoices.XT
             this.requireValueExceptions.Add("Depot", new AA(Properties.Resources.RequiredDataOfDepot, this.buttonEditDepot));
             this.requireValueExceptions.Add("Details", new AA(Properties.Resources.RequireDataForDetails, this.gridControl1));
             this.requireValueExceptions.Add("Company", new AA(Properties.Resources.RequireDataForCompany, this.buttonEditCompany));
+            this.requireValueExceptions.Add("QTY", new AA("数量不能为0", this.gridControl1));
 
             this.invalidValueExceptions.Add(Model.InvoiceXT.PROPERTY_INVOICEID, new AA(Properties.Resources.EntityExists, this.textEditInvoiceId));
             this.requireValueExceptions.Add(Model.InvoiceXSDetail.PRO_DepotPositionId, new AA(Properties.Resources.RequireChoosePosition, this.gridControl1));
@@ -229,6 +230,9 @@ namespace Book.UI.Invoices.XT
 
         protected override void Save(Helper.InvoiceStatus status)
         {
+            if (!this.gridView1.PostEditor() || !this.gridView1.UpdateCurrentRow())
+                return;
+
             this.invoice.InvoiceStatus = (int)status;
             this.invoice.InvoiceId = this.textEditInvoiceId.Text;
             this.invoice.InvoiceDate = this.dateEditInvoiceDate.DateTime;
@@ -272,8 +276,6 @@ namespace Book.UI.Invoices.XT
             this.invoice.Employee1 = this.buttonEditEmployee1.EditValue as Model.Employee;
             this.invoice.Employee2 = this.buttonEditEmployee2.EditValue as Model.Employee;
             this.invoice.AuditState = this.saveAuditState;
-            if (!this.gridView1.PostEditor() || !this.gridView1.UpdateCurrentRow())
-                return;
             switch (this.action)
             {
                 case "insert":

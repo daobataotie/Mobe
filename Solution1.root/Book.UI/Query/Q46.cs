@@ -33,7 +33,7 @@ namespace Book.UI.Query
             System.Collections.Generic.IList<Model.Product> list = this.productManager.Select(condition.Depot);
             if (list == null || list.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("無數據");
             }
 
             this.bindingSource1.DataSource = list;

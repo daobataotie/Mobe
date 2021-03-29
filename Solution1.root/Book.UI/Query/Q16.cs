@@ -55,7 +55,7 @@ namespace Book.UI.Query
             //}
             if (Details == null || Details.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             }
 
             this.bindingSource1.DataSource = Details;
@@ -120,7 +120,7 @@ namespace Book.UI.Query
             System.Collections.Generic.IList<Model.InvoiceCG> list = this.invoiceManager.Select(start, end);
             if (list == null || list.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             }
             this.bindingSource1.DataSource = list;
             this.xrLabelDateRange.Text = string.Format(Properties.Resources.DateRange, start.ToString("yyyy/MM/dd"), end.ToString("yyyy/MM/dd"));

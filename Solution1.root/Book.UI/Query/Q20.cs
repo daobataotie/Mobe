@@ -52,7 +52,7 @@ namespace Book.UI.Query
 
             if (xsdetails == null || xsdetails.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             }
 
             this.bindingSource1.DataSource = xsdetails;
@@ -134,7 +134,7 @@ namespace Book.UI.Query
 
             if (invoiceXS == null || invoiceXS.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             }
 
             this.bindingSource1.DataSource = invoiceXS;
@@ -188,7 +188,7 @@ namespace Book.UI.Query
 
             if (list == null || list.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             }
 
             this.bindingSource1.DataSource = list;
@@ -244,7 +244,7 @@ namespace Book.UI.Query
 
             if (this.bindingSource1.DataSource == null)
             {
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             }
             this.xrLabelInvoiceId.DataBindings.Add("Text", this.DataSource, Model.Invoice.PROPERTY_INVOICEID);
             this.xrLabelInvoiceDate.DataBindings.Add("Text", this.DataSource, Model.Invoice.PROPERTY_INVOICEDATE, "{0:yyyy-MM-dd}");

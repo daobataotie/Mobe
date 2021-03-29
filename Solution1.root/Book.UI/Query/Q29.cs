@@ -37,7 +37,7 @@ namespace Book.UI.Query
 
             if (list == null || list.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             }
 
             this.xrLabelCustomId.DataBindings.Add("Text", this.DataSource, Model.InvoiceXS.PRO_CustomerId);

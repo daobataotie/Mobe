@@ -33,7 +33,7 @@ namespace Book.UI.Query
             this.xrLabelEmployeeName.Text = string.Format(Properties.Resources.YeWuName, condition.Employee.EmployeeName);
             System.Collections.Generic.IList<Model.InvoiceXS> list = this.inoviceManager.Select(condition.StartDate, condition.EndDate, condition.Employee);
             if (list == null || list.Count <= 0)
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             this.bindingSource1.DataSource = list;
             this.GroupHeader1.GroupFields.Add(new GroupField(Model.InvoiceXS.PRO_CustomerId));
 

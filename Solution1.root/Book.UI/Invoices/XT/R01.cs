@@ -66,12 +66,14 @@ namespace Book.UI.Invoices.XT
             //Ã÷Ï¸ÐÅÏ¢
             this.xrTableCellProductId.DataBindings.Add("Text", this.DataSource, Model.InvoiceXTDetail.PRO_Inumber);
             this.xrTableCellProductName.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_ProductName);
+            this.TC_CustomerProduct.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_CustomerProductName);
             //this.xrTableCellProductGuige.DataBindings.Add("Text", this.DataSource, "Product." + Model.Product.PRO_ProductSpecification);
             this.xrTableCellProductUnit.DataBindings.Add("Text", this.DataSource, Model.InvoiceXTDetail.PRO_InvoiceXTDetailQuantity);
             this.xrTableCellQuantity.DataBindings.Add("Text", this.DataSource, Model.InvoiceXTDetail.PRO_InvoiceProductUnit);
             this.xrTableCellUintPrice.DataBindings.Add("Text", this.DataSource, Model.InvoiceXTDetail.PRO_InvoiceXTDetailPrice, "{0:0.###}");
-            this.xrCheckBoxIsZs.DataBindings.Add("CheckState", this.DataSource, Model.InvoiceXTDetail.PRO_InvoiceXTDetailZS);
+            //this.xrCheckBoxIsZs.DataBindings.Add("CheckState", this.DataSource, Model.InvoiceXTDetail.PRO_InvoiceXTDetailZS);
             this.xrTableCellMoney.DataBindings.Add("Text", this.DataSource, Model.InvoiceXTDetail.PRO_InvoiceXTDetailMoney1, "{0:0.###}");
+            this.TC_InvoiceCusXOId.DataBindings.Add("Text", this.DataSource, "InvoiceXO." + Model.InvoiceXO.PRO_CustomerInvoiceXOId);
         }
 
     }

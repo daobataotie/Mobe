@@ -17,7 +17,7 @@ namespace Book.UI.AccountPayable.AccQuery
         {
             DataSet ds = this.xobillmanager.SelectCuiShou(conn.Customer1, conn.Customer2, conn.Employee1, conn.Employee2, conn.YJDate);
              if (ds == null || ds.Tables.Count == 0)
-                throw new global::Helper.InvalidValueException();
+                 throw new global::Helper.InvalidValueException("無數據");
             this.DataSource = ds.Tables[0];
             this.xrLabelReportName.Text = "應收賬款超期跟催表";
             

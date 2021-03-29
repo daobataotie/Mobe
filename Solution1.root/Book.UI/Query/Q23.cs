@@ -35,7 +35,7 @@ namespace Book.UI.Query
 
             if (list == null || list.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             }
 
             this.bindingSource1.DataSource = list;
@@ -43,7 +43,7 @@ namespace Book.UI.Query
             this.xrLabelDateRange.Text = string.Format(Properties.Resources.DateRange, start.ToString("yyyy/MM/dd"), end.ToString("yyyy/MM/dd"));
             this.xrTableCellInvoiceId.DataBindings.Add("Text", this.DataSource, Model.Invoice.PROPERTY_INVOICEID);
             this.xrTableCellInvoiceDate.DataBindings.Add("Text", this.DataSource, Model.Invoice.PROPERTY_INVOICEDATE, "{0:yyyy-MM-dd}");
-            //this.xrTableCellCustomName.DataBindings.Add("Text", this.DataSource, "Company." + Model.Company.PROPERTY_COMPANYNAME1);
+            this.xrTableCellCustomName.DataBindings.Add("Text", this.DataSource, "Customer." + Model.Customer.PRO_CustomerFullName);
 
             this.xrLabelZongji.DataBindings.Add("Text", this.DataSource, Model.InvoiceXT.PROPERTY_INVOICEZONGJI, "{0:0}");
             this.xrLabelHeji.DataBindings.Add("Text", this.DataSource, Model.InvoiceXT.PROPERTY_INVOICEHEJI, "{0:0}");

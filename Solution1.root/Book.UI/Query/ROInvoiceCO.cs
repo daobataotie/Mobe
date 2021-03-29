@@ -41,7 +41,7 @@ namespace Book.UI.Query
 
             if (Details == null || Details.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             }
 
             this.bindingSource1.DataSource = Details;

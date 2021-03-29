@@ -33,7 +33,7 @@ namespace Book.UI.Query
             System.Collections.Generic.IList<Model.Stock> list = this.stockManager.Select(stock.Product.ProductId);
             if (list == null || list.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("無數據");
             }
             this.xrLabelRepotName.Text = String.Format("{0} 庫房貨存統計",stock.Product.ProductName);
             bindingSource1.DataSource = list;

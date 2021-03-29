@@ -21,7 +21,7 @@ namespace Book.UI.AccountPayable.AccQuery
             this.xrLabelReportName.Text = "‘ªÊÕÙ~¿îÃ÷¼šÙ~";
             DataSet ds = this.xobillmanager.SelectMayShou(conn.Customer1, conn.Customer2, conn.Employee1, conn.Employee2, conn.StartDate, conn.EndDate);
             if (ds == null || ds.Tables.Count == 0)
-                throw new global::Helper.InvalidValueException();
+                throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
 
             this.DataSource = ds.Tables[0];
             this.xrLabelDateRange.Text = conn.StartDate.ToString("yyyy-MM-dd") + " ~ " + conn.EndDate.ToString("yyyy-MM-dd");

@@ -19,7 +19,7 @@ namespace Book.UI.Query
             IList<Model.MRSHeader> list = this.mrsHeaderManager.SelectbyCondition(condition.MrsStart, condition.MrsEnd, condition.CustomerStart, condition.CustomerEnd, condition.StartDate, condition.EndDate ,condition.SourceType,condition.Id1,condition.Id2,condition.Cusxoid,condition.Product);
 
             if (list == null || list.Count <= 0)
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("Ÿo”µ“þ");
             this.DataSource = list;
             this.ReportName.Text = BL.Settings.CompanyChineseName;
             this.ReportTitle.Text = Properties.Resources.MRSDetails;

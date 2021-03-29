@@ -20,7 +20,7 @@ namespace Book.UI.produceManager.PronoteHeader
             IList<Model.PronoteHeader> list = pronoteHeaderManager.GetByDateMa(condition.StartDate, condition.EndDate, condition.Customer, condition.CusXOId, condition.Product, condition.PronoteHeaderIdStart, condition.PronoteHeaderIdEnd, condition.SourceTpye, null, false, condition.ProNameKey, condition.ProCusNameKey, condition.PronoteHeaderIdKey, false, false, false,condition.HandbookId);   //已经有了condition.SourceTpye条件
             if (list == null || list.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                throw new global::Helper.InvalidValueException("無數據");
 
             }
             foreach (Model.PronoteHeader detail in list)
@@ -55,7 +55,7 @@ namespace Book.UI.produceManager.PronoteHeader
             IList<Model.PronoteHeader> list = headerlist;
             if (list == null || list.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                throw new global::Helper.InvalidValueException("無數據");
 
             }
             foreach (Model.PronoteHeader detail in list)

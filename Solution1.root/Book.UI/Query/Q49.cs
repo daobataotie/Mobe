@@ -35,7 +35,7 @@ namespace Book.UI.Query
             IList<Model.PronoteHeader> list = detailManager.GetByDateMa(condition.StartDate, condition.EndDate, condition.Customer, condition.CusXOId, condition.Product, condition.PronoteHeaderIdStart, condition.PronoteHeaderIdEnd, condition.SourceTpye, null, false, condition.ProNameKey, condition.ProCusNameKey, condition.PronoteHeaderIdKey, false, false, false,condition.HandbookId);
             if (list == null || list.Count <= 0)
             {
-                throw new global::Helper.InvalidValueException();
+                    throw new global::Helper.InvalidValueException("無數據");
             }
             this.xrLabelPrintDate.Text += DateTime.Now.ToShortDateString();
             this.xrLabelRepotName.Text = BL.Settings.CompanyChineseName;

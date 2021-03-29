@@ -117,224 +117,210 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Detail.Name" xml:space="preserve">
-    <value>Detail</value>
-  </metadata>
-  <metadata name="xrTable2.Name" xml:space="preserve">
-    <value>xrTable2</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="xrTable2.Location" type="System.Drawing.Point, System.Drawing">
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="xrTable2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v10.2" name="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="xrTable2.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
     <value>0, 0</value>
   </data>
-  <metadata name="xrTableRow2.Name" xml:space="preserve">
-    <value>xrTableRow2</value>
-  </metadata>
-  <metadata name="xrTableCellProductId.Name" xml:space="preserve">
-    <value>xrTableCellProductId</value>
-  </metadata>
-  <data name="xrTableCellProductId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="xrTableCellProductId.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
-  <data name="xrTableCellProductId.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 50</value>
+  <assembly alias="DevExpress.Data.v10.2" name="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="xrTableCellProductId.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
   </data>
-  <data name="xrTableCellProductId.Text" xml:space="preserve">
-    <value>货品编号</value>
-  </data>
-  <metadata name="xrTableCellProductName.Name" xml:space="preserve">
-    <value>xrTableCellProductName</value>
-  </metadata>
-  <data name="xrTableCellProductName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 0</value>
-  </data>
-  <data name="xrTableCellProductName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>422, 50</value>
+  <data name="xrTableCellProductName.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCellProductName.Text" xml:space="preserve">
     <value>货品名称</value>
   </data>
-  <metadata name="xrTableCellGuiGe.Name" xml:space="preserve">
-    <value>xrTableCellGuiGe</value>
-  </metadata>
-  <data name="xrTableCellGuiGe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>672, 0</value>
+  <data name="xrTableCellProductName.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
   </data>
-  <data name="xrTableCellGuiGe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 50</value>
+  <data name="TC_CustomerProduct.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
-  <data name="xrTableCellGuiGe.Text" xml:space="preserve">
-    <value>规格</value>
+  <data name="TC_CustomerProduct.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
   </data>
-  <metadata name="xrTableCellQuantity.Name" xml:space="preserve">
-    <value>xrTableCellQuantity</value>
-  </metadata>
-  <data name="xrTableCellQuantity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>922, 0</value>
-  </data>
-  <data name="xrTableCellQuantity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 50</value>
+  <data name="xrTableCellQuantity.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCellQuantity.Text" xml:space="preserve">
     <value>数量</value>
   </data>
-  <metadata name="xrTableCellUnit.Name" xml:space="preserve">
-    <value>xrTableCellUnit</value>
-  </metadata>
-  <data name="xrTableCellUnit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1122, 0</value>
+  <data name="xrTableCellQuantity.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
   </data>
-  <data name="xrTableCellUnit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 50</value>
+  <data name="xrTableCellUnit.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCellUnit.Text" xml:space="preserve">
     <value>单位</value>
   </data>
-  <metadata name="xrTableCellPrice.Name" xml:space="preserve">
-    <value>xrTableCellPrice</value>
-  </metadata>
-  <data name="xrTableCellPrice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1272, 0</value>
+  <data name="xrTableCellUnit.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
   </data>
-  <data name="xrTableCellPrice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 50</value>
+  <data name="xrTableCellPrice.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCellPrice.Text" xml:space="preserve">
     <value>单价</value>
   </data>
-  <metadata name="xrTableCellTotalMoney.Name" xml:space="preserve">
-    <value>xrTableCellTotalMoney</value>
-  </metadata>
-  <data name="xrTableCellTotalMoney.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1472, 0</value>
+  <data name="xrTableCellPrice.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
   </data>
-  <data name="xrTableCellTotalMoney.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 50</value>
+  <data name="xrTableCellTotalMoney.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCellTotalMoney.Text" xml:space="preserve">
     <value>金额</value>
   </data>
-  <data name="xrTableRow2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1672, 50</value>
+  <data name="xrTableCellTotalMoney.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
   </data>
-  <data name="xrTable2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1672, 50</value>
+  <data name="TC_InvoiceCusXOId.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
-  <metadata name="bindingSource1.Name" xml:space="preserve">
-    <value>bindingSource1</value>
-  </metadata>
+  <data name="TC_InvoiceCusXOId.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrTableRow2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xrTable2.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>1950.14551, 50</value>
+  </data>
+  <data name="Detail.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="Detail.HeightF" type="System.Single, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="Detail.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>TopLeft</value>
+  </data>
   <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="GroupHeader1.Name" xml:space="preserve">
-    <value>GroupHeader1</value>
-  </metadata>
-  <metadata name="xrTable1.Name" xml:space="preserve">
-    <value>xrTable1</value>
-  </metadata>
+  <data name="xrTable1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
   <data name="xrTable1.ForeColor" type="System.Drawing.Color, System.Drawing">
     <value>0, 0, 160</value>
   </data>
-  <data name="xrTable1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="xrTable1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Utils.v10.2">
     <value>0, 3</value>
   </data>
-  <metadata name="xrTableRow1.Name" xml:space="preserve">
-    <value>xrTableRow1</value>
-  </metadata>
-  <metadata name="xrTableCell1.Name" xml:space="preserve">
-    <value>xrTableCell1</value>
-  </metadata>
-  <data name="xrTableCell1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="xrTableCell1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 50</value>
+  <data name="xrTableCell1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCell1.Text" xml:space="preserve">
-    <value>货品编号</value>
+    <value>序号</value>
   </data>
-  <metadata name="xrTableCell2.Name" xml:space="preserve">
-    <value>xrTableCell2</value>
-  </metadata>
-  <data name="xrTableCell2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 0</value>
+  <data name="xrTableCell1.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
   </data>
-  <data name="xrTableCell2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>422, 50</value>
+  <data name="xrTableCell2.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCell2.Text" xml:space="preserve">
     <value>货品名称</value>
   </data>
-  <metadata name="xrTableCell3.Name" xml:space="preserve">
-    <value>xrTableCell3</value>
-  </metadata>
-  <data name="xrTableCell3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>672, 0</value>
+  <data name="xrTableCell2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
   </data>
-  <data name="xrTableCell3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 50</value>
+  <data name="xrTableCell3.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCell3.Text" xml:space="preserve">
-    <value>规格</value>
+    <value>客户型号</value>
   </data>
-  <metadata name="xrTableCell5.Name" xml:space="preserve">
-    <value>xrTableCell5</value>
-  </metadata>
-  <data name="xrTableCell5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>922, 0</value>
+  <data name="xrTableCell3.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleLeft</value>
   </data>
-  <data name="xrTableCell5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 50</value>
+  <data name="xrTableCell5.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCell5.Text" xml:space="preserve">
     <value>数量</value>
   </data>
-  <metadata name="xrTableCell4.Name" xml:space="preserve">
-    <value>xrTableCell4</value>
-  </metadata>
-  <data name="xrTableCell4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1122, 0</value>
+  <data name="xrTableCell5.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
   </data>
-  <data name="xrTableCell4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 50</value>
+  <data name="xrTableCell4.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCell4.Text" xml:space="preserve">
     <value>单位</value>
   </data>
-  <metadata name="xrTableCell7.Name" xml:space="preserve">
-    <value>xrTableCell7</value>
-  </metadata>
-  <data name="xrTableCell7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1272, 0</value>
+  <data name="xrTableCell4.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
   </data>
-  <data name="xrTableCell7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 50</value>
+  <data name="xrTableCell7.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCell7.Text" xml:space="preserve">
     <value>单价</value>
   </data>
-  <metadata name="xrTableCell6.Name" xml:space="preserve">
-    <value>xrTableCell6</value>
-  </metadata>
-  <data name="xrTableCell6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1472, 0</value>
+  <data name="xrTableCell7.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
   </data>
-  <data name="xrTableCell6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 50</value>
+  <data name="xrTableCell6.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
   </data>
   <data name="xrTableCell6.Text" xml:space="preserve">
     <value>金额</value>
   </data>
-  <data name="xrTableRow1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1672, 50</value>
+  <data name="xrTableCell6.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleRight</value>
   </data>
-  <data name="xrTable1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1672, 50</value>
+  <data name="xrTableCell8.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTableCell8.Text" xml:space="preserve">
+    <value>客户订单号码</value>
+  </data>
+  <data name="xrTableCell8.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v10.2">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="xrTableRow1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="xrTable1.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>1950.14551, 50</value>
+  </data>
+  <data name="GroupHeader1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="GroupHeader1.HeightF" type="System.Single, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="topMarginBand1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="topMarginBand1.HeightF" type="System.Single, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="bottomMarginBand1.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <data name="bottomMarginBand1.HeightF" type="System.Single, mscorlib">
+    <value>80</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Name" xml:space="preserve">
-    <value>Q23_1</value>
-  </metadata>
+  <data name="$this.Dpi" type="System.Single, mscorlib">
+    <value>254</value>
+  </data>
+  <assembly alias="DevExpress.XtraReports.v10.2" name="DevExpress.XtraReports.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="$this.ReportUnit" type="DevExpress.XtraReports.UI.ReportUnit, DevExpress.XtraReports.v10.2">
+    <value>TenthsOfAMillimeter</value>
+  </data>
 </root>

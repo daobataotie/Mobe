@@ -352,7 +352,7 @@ namespace Book.BL
             {
                 if (detail.Product == null || string.IsNullOrEmpty(detail.Product.ProductId)) continue;
                 if (detail.InvoiceXTDetailQuantity == 0)
-                    throw new Helper.RequireValueException("Details");
+                    throw new Helper.RequireValueException("QTY");
                 if (string.IsNullOrEmpty(detail.DepotPositionId))
                 {
                     throw new Helper.RequireValueException(Model.InvoiceCGDetail.PRO_DepotPositionId);

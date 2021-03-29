@@ -104,7 +104,7 @@ namespace Book.UI.produceManager.PronoteHeader
         //    IList<Model.PronoteHeader> list = pronoteHeaderManager.GetByDate(condition.StartDate, condition.EndDate, condition.Customer, condition.CusXOId, condition.Product, condition.PronoteHeaderIdStart, condition.PronoteHeaderIdEnd, condition.SourceTpye);
         //    if (list == null || list.Count <= 0)
         //    {
-        //        throw new global::Helper.InvalidValueException();
+        //            throw new global::Helper.InvalidValueException("無數據");
 
         //    }
         //    this.DataSource = list;
