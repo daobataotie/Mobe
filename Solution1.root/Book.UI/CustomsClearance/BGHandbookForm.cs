@@ -263,7 +263,7 @@ namespace Book.UI.CustomsClearance
 
         private void ImportNew()
         {
-            Help.ExcelHelper eh = new Book.UI.Help.ExcelHelper();
+            Book.UI.Help.ExcelHelper eh = new Book.UI.Help.ExcelHelper();
             eh.OpenFile(openFileDialog1.FileName);
 
             try

@@ -40,7 +40,7 @@ namespace Book.UI.produceManager.PCImpactCheck
             if (_pcic.Product != null)
             {
                 if (string.IsNullOrEmpty(_pcic.Product.CustomerProductName))
-                    this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(_pcic.PronoteHeaderId, _pcic.ProductId);
+                    this.lbl_CustomerProductName.Text =  CommonHelp.GetCustomerProductNameByPronoteHeaderId(_pcic.PronoteHeaderId, _pcic.ProductId);
                 else
                     this.lbl_CustomerProductName.Text = _pcic.Product.CustomerProductName;
             }

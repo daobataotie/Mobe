@@ -85,5 +85,10 @@ namespace Book.DA.SQLServer
 
             return sqlmapper.QueryForList<string>("MRSHeader.SelectAllProductIdByMRSHeaderId", ht);
         }
+
+        public IList<string> SelectAllProductIdByInvoiceXOId(string invoiceXOId)
+        {
+            return sqlmapper.QueryForList<string>("MRSHeader.SelectAllProductIdByInvoiceXOId", invoiceXOId);
+        }
     }
 }

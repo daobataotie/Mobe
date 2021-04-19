@@ -57,7 +57,7 @@ namespace Book.UI.produceManager
             if (ANSIPCIC.Product != null)
             {
                 if (string.IsNullOrEmpty(ANSIPCIC.Product.CustomerProductName))
-                    this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(ANSIPCIC.PronoteHeaderId, ANSIPCIC.ProductId);
+                    this.lbl_CustomerProductName.Text = CommonHelp.GetCustomerProductNameByPronoteHeaderId(ANSIPCIC.PronoteHeaderId, ANSIPCIC.ProductId);
                 else
                     this.lbl_CustomerProductName.Text = ANSIPCIC.Product.CustomerProductName;
             }

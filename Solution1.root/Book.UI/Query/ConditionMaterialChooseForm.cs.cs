@@ -204,7 +204,7 @@ namespace Book.UI.Query
             {
                 if (string.IsNullOrEmpty(item.CustomerProductName))
                 {
-                    item.CustomerProductName = new produceManager.Help().GetCustomerProductNameByPronoteHeaderId(item.PronoteHeaderID, item.ProductId);
+                    item.CustomerProductName = CommonHelp.GetCustomerProductNameByPronoteHeaderId(item.PronoteHeaderID, item.ProductId);
                 }
             }
 

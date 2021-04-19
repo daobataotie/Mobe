@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImmediateStock));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.lue_ProductCategoryEnd = new DevExpress.XtraEditors.LookUpEdit();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barExportExcel = new DevExpress.XtraBars.BarButtonItem();
@@ -41,6 +41,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
+            this.lue_ProductCategoryEnd = new DevExpress.XtraEditors.LookUpEdit();
             this.bindingSourceProductCategory = new System.Windows.Forms.BindingSource(this.components);
             this.cob_HandBookId = new DevExpress.XtraEditors.ComboBoxEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -67,11 +68,13 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategoryEnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategoryEnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProductCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).BeginInit();
@@ -89,10 +92,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.checkEdit1);
             this.layoutControl1.Controls.Add(this.lue_ProductCategoryEnd);
             this.layoutControl1.Controls.Add(this.cob_HandBookId);
             this.layoutControl1.Controls.Add(this.simpleButton1);
@@ -104,27 +109,19 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 39);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(860, 500);
+            this.layoutControl1.Size = new System.Drawing.Size(860, 504);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // lue_ProductCategoryEnd
+            // checkEdit1
             // 
-            this.lue_ProductCategoryEnd.Location = new System.Drawing.Point(402, 12);
-            this.lue_ProductCategoryEnd.MenuManager = this.barManager1;
-            this.lue_ProductCategoryEnd.Name = "lue_ProductCategoryEnd";
-            this.lue_ProductCategoryEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lue_ProductCategoryEnd.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "编号"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ProductCategoryName", "名称")});
-            this.lue_ProductCategoryEnd.Properties.DataSource = this.bindingSourceProductCategory;
-            this.lue_ProductCategoryEnd.Properties.DisplayMember = "ProductCategoryName";
-            this.lue_ProductCategoryEnd.Properties.NullText = "";
-            this.lue_ProductCategoryEnd.Properties.ValueMember = "Id";
-            this.lue_ProductCategoryEnd.Size = new System.Drawing.Size(130, 21);
-            this.lue_ProductCategoryEnd.StyleController = this.layoutControl1;
-            this.lue_ProductCategoryEnd.TabIndex = 10;
+            this.checkEdit1.Location = new System.Drawing.Point(12, 38);
+            this.checkEdit1.MenuManager = this.barManager1;
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "显示组装现场0库存商品";
+            this.checkEdit1.Size = new System.Drawing.Size(836, 19);
+            this.checkEdit1.StyleController = this.layoutControl1;
+            this.checkEdit1.TabIndex = 11;
             // 
             // barManager1
             // 
@@ -183,27 +180,45 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 539);
-            this.barDockControlBottom.Size = new System.Drawing.Size(860, 27);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 543);
+            this.barDockControlBottom.Size = new System.Drawing.Size(860, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 39);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 500);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 504);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(860, 39);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 500);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 504);
             // 
             // imageCollection1
             // 
             this.imageCollection1.ImageSize = new System.Drawing.Size(24, 24);
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
+            // 
+            // lue_ProductCategoryEnd
+            // 
+            this.lue_ProductCategoryEnd.Location = new System.Drawing.Point(402, 12);
+            this.lue_ProductCategoryEnd.MenuManager = this.barManager1;
+            this.lue_ProductCategoryEnd.Name = "lue_ProductCategoryEnd";
+            this.lue_ProductCategoryEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_ProductCategoryEnd.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "编号"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ProductCategoryName", "名称")});
+            this.lue_ProductCategoryEnd.Properties.DataSource = this.bindingSourceProductCategory;
+            this.lue_ProductCategoryEnd.Properties.DisplayMember = "ProductCategoryName";
+            this.lue_ProductCategoryEnd.Properties.NullText = "";
+            this.lue_ProductCategoryEnd.Properties.ValueMember = "Id";
+            this.lue_ProductCategoryEnd.Size = new System.Drawing.Size(130, 21);
+            this.lue_ProductCategoryEnd.StyleController = this.layoutControl1;
+            this.lue_ProductCategoryEnd.TabIndex = 10;
             // 
             // cob_HandBookId
             // 
@@ -272,10 +287,10 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.bindingSourceProduct;
-            this.gridControl1.Location = new System.Drawing.Point(12, 38);
+            this.gridControl1.Location = new System.Drawing.Point(12, 61);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(836, 450);
+            this.gridControl1.Size = new System.Drawing.Size(836, 431);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1,
@@ -385,10 +400,11 @@
             this.layoutControlItem4,
             this.layoutControlItem5,
             this.layoutControlItem6,
-            this.layoutControlItem7});
+            this.layoutControlItem7,
+            this.layoutControlItem8});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(860, 500);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(860, 504);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
@@ -397,9 +413,9 @@
             // 
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 49);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(840, 454);
+            this.layoutControlItem1.Size = new System.Drawing.Size(840, 435);
             this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextToControlDistance = 0;
@@ -473,6 +489,18 @@
             this.layoutControlItem7.TextSize = new System.Drawing.Size(24, 14);
             this.layoutControlItem7.TextToControlDistance = 5;
             // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.checkEdit1;
+            this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(840, 23);
+            this.layoutControlItem8.Text = "layoutControlItem8";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextToControlDistance = 0;
+            this.layoutControlItem8.TextVisible = false;
+            // 
             // ImmediateStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -487,9 +515,10 @@
             this.Text = "即时库存(现场版)";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategoryEnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategoryEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProductCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cob_HandBookId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_ProductCategory.Properties)).EndInit();
@@ -507,6 +536,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -550,5 +580,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraEditors.LookUpEdit lue_ProductCategoryEnd;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
     }
 }

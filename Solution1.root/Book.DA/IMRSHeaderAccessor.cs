@@ -22,6 +22,8 @@ namespace Book.DA
         bool SelectIsCloseed(string mrsid);
 
         IList<string> SelectAllProductIdByMRSHeaderId(string MRSHerderId, string handBookProductId);
+
+        IList<string> SelectAllProductIdByInvoiceXOId(string invoiceXOId);
     }
 }
 

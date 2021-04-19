@@ -55,7 +55,7 @@ namespace Book.UI.produceManager.PCPGOnlineCheck
             if (pcpgoc.Product != null)
             {
                 if (string.IsNullOrEmpty(pcpgoc.Product.CustomerProductName))
-                    this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(pcpgoc.FromPCId, pcpgoc.ProductId);
+                    this.lbl_CustomerProductName.Text =  CommonHelp.GetCustomerProductNameByPronoteHeaderId(pcpgoc.FromPCId, pcpgoc.ProductId);
                 else
                     this.lbl_CustomerProductName.Text = pcpgoc.Product.CustomerProductName;
             }

@@ -46,7 +46,7 @@ namespace Book.UI.produceManager.PCFogCheck
             if (mPCFogC.Product != null)
             {
                 if (string.IsNullOrEmpty(mPCFogC.Product.CustomerProductName))
-                    this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(mPCFogC.PronoteHeaderId, mPCFogC.ProductId);
+                    this.lbl_CustomerProductName.Text =  CommonHelp.GetCustomerProductNameByPronoteHeaderId(mPCFogC.PronoteHeaderId, mPCFogC.ProductId);
                 else
                     this.lbl_CustomerProductName.Text = mPCFogC.Product.CustomerProductName;
             }

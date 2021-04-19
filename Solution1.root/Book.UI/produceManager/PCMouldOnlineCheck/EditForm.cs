@@ -297,6 +297,7 @@ namespace Book.UI.produceManager.PCMouldOnlineCheck
                         model.Product = this.productManager.Get(item.ProductId);
                         model.InvoiceXOId = item.InvoiceXOId;
                         model.InvoiceXO = this.invoiceXOManager.Get(item.InvoiceXOId);
+                        model.PronoteHeaderID = item.PronoteHeaderID;
                         this._pCMouldOnlineCheck.Detail.Add(model);
                     }
                 }

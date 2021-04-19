@@ -40,7 +40,7 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
                 if (!string.IsNullOrEmpty(model.PronoteHeader.Product.CustomerProductName))
                     this.lbl_CustomerProduct.Text = model.PronoteHeader.Product.CustomerProductName;
                 else
-                    this.lbl_CustomerProduct.Text = new Help().GetCustomerProductNameByPronoteHeaderId(model.PronoteHeaderId, model.PronoteHeader.ProductId);
+                    this.lbl_CustomerProduct.Text = CommonHelp.GetCustomerProductNameByPronoteHeaderId(model.PronoteHeaderId, model.PronoteHeader.ProductId);
             }
 
             this.DataSource = model.Detail.OrderBy(d => d.CheckDate).ToList();

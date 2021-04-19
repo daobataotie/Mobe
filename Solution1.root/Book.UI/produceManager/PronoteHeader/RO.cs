@@ -66,7 +66,7 @@ namespace Book.UI.produceManager.PronoteHeader
                 this.lbl_Pro_Id.Text = pronoteHeader.Product.Id;
 
                 if (string.IsNullOrEmpty(pronoteHeader.Product.CustomerProductName))
-                    this.xrLabelCustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(pronoteHeader, pronoteHeader.ProductId, pronoteHeader.HandbookProductId);
+                    this.xrLabelCustomerProductName.Text =  CommonHelp.GetCustomerProductNameByPronoteHeaderId(pronoteHeader, pronoteHeader.ProductId, pronoteHeader.HandbookProductId);
                 else
                     this.xrLabelCustomerProductName.Text = pronoteHeader.Product.CustomerProductName;
 

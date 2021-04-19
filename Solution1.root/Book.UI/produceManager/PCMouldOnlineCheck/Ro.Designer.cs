@@ -71,13 +71,15 @@
             this.lblDate = new DevExpress.XtraReports.UI.XRLabel();
             this.lblReportName = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbl_Note = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblEmployee = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.lbl_Note = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrTableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCCustomerProductName = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -104,6 +106,7 @@
                         | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.TCProductName,
+            this.TCCustomerProductName,
             this.TCInvoiceCusId,
             this.TCOnlineDate,
             this.TCCheckDate,
@@ -127,7 +130,7 @@
             // 
             resources.ApplyResources(this.TCProductName, "TCProductName");
             this.TCProductName.Name = "TCProductName";
-            this.TCProductName.Weight = 0.611921033775702;
+            this.TCProductName.Weight = 0.99961467167255147;
             // 
             // TCInvoiceCusId
             // 
@@ -259,6 +262,7 @@
             // 
             this.xrTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.xrTableCell1,
+            this.xrTableCell15,
             this.xrTableCell4,
             this.xrTableCell2,
             this.xrTableCell5,
@@ -281,7 +285,7 @@
             // 
             resources.ApplyResources(this.xrTableCell1, "xrTableCell1");
             this.xrTableCell1.Name = "xrTableCell1";
-            this.xrTableCell1.Weight = 0.61192114903665185;
+            this.xrTableCell1.Weight = 0.99961453870452255;
             // 
             // xrTableCell4
             // 
@@ -394,6 +398,20 @@
             resources.ApplyResources(this.ReportFooter, "ReportFooter");
             this.ReportFooter.Name = "ReportFooter";
             // 
+            // xrLabel3
+            // 
+            resources.ApplyResources(this.xrLabel3, "xrLabel3");
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel3.StylePriority.UseTextAlignment = false;
+            // 
+            // lbl_Note
+            // 
+            resources.ApplyResources(this.lbl_Note, "lbl_Note");
+            this.lbl_Note.Name = "lbl_Note";
+            this.lbl_Note.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_Note.StylePriority.UseTextAlignment = false;
+            // 
             // xrLabel5
             // 
             resources.ApplyResources(this.xrLabel5, "xrLabel5");
@@ -428,19 +446,17 @@
             resources.ApplyResources(this.PageFooter, "PageFooter");
             this.PageFooter.Name = "PageFooter";
             // 
-            // lbl_Note
+            // xrTableCell15
             // 
-            resources.ApplyResources(this.lbl_Note, "lbl_Note");
-            this.lbl_Note.Name = "lbl_Note";
-            this.lbl_Note.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lbl_Note.StylePriority.UseTextAlignment = false;
+            resources.ApplyResources(this.xrTableCell15, "xrTableCell15");
+            this.xrTableCell15.Name = "xrTableCell15";
+            this.xrTableCell15.Weight = 0.47198557730333962;
             // 
-            // xrLabel3
+            // TCCustomerProductName
             // 
-            resources.ApplyResources(this.xrLabel3, "xrLabel3");
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel3.StylePriority.UseTextAlignment = false;
+            resources.ApplyResources(this.TCCustomerProductName, "TCCustomerProductName");
+            this.TCCustomerProductName.Name = "TCCustomerProductName";
+            this.TCCustomerProductName.Weight = 0.47198542128312171;
             // 
             // Ro
             // 
@@ -453,9 +469,10 @@
             this.ReportFooter,
             this.PageFooter});
             resources.ApplyResources(this, "$this");
-            this.Margins = new System.Drawing.Printing.Margins(50, 50, 79, 79);
-            this.PageHeight = 2794;
-            this.PageWidth = 2159;
+            this.Margins = new System.Drawing.Printing.Margins(80, 80, 79, 79);
+            this.PageHeight = 2101;
+            this.PageWidth = 2790;
+            this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.Version = "10.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
@@ -514,5 +531,7 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell14;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.XRLabel lbl_Note;
+        private DevExpress.XtraReports.UI.XRTableCell TCCustomerProductName;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell15;
     }
 }

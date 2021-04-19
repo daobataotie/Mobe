@@ -204,7 +204,7 @@ namespace Book.UI.produceManager.PCFirstOnlineCheck
                 if (!string.IsNullOrEmpty(this._PCFirstOnlineCheck.PronoteHeader.Product.CustomerProductName))
                     this.txt_CustomerProduct.EditValue = this._PCFirstOnlineCheck.PronoteHeader.Product.CustomerProductName;
                 else
-                    this.txt_CustomerProduct.EditValue = new Help().GetCustomerProductNameByPronoteHeaderId(this._PCFirstOnlineCheck.PronoteHeaderId, this._PCFirstOnlineCheck.PronoteHeader.ProductId);
+                    this.txt_CustomerProduct.EditValue = CommonHelp.GetCustomerProductNameByPronoteHeaderId(this._PCFirstOnlineCheck.PronoteHeaderId, this._PCFirstOnlineCheck.PronoteHeader.ProductId);
             }
             else
             {

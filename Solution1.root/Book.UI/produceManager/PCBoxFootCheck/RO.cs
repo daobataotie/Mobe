@@ -73,7 +73,7 @@ namespace Book.UI.produceManager.PCBoxFootCheck
                 if (model.Product != null)
                 {
                     if (string.IsNullOrEmpty(model.Product.CustomerProductName))
-                        this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(model.PronoteHeaderId, model.ProductId);
+                        this.lbl_CustomerProductName.Text =  CommonHelp.GetCustomerProductNameByPronoteHeaderId(model.PronoteHeaderId, model.ProductId);
                     else
                         this.lbl_CustomerProductName.Text = model.Product.CustomerProductName;
                 }

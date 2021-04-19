@@ -39,7 +39,7 @@ namespace Book.UI.Query
             }
             DateTime date = this.dateEdit1.DateTime.Date.AddDays(1);
             IList<Model.StockSeach> stockList = new List<Model.StockSeach>();
-            dt = this.miscDataManager.SelectByCondition("Q15", this.lookUpEditDepotStar.EditValue == null ? null : this.lookUpEditDepotStar.EditValue.ToString(), lookUpEditDepotPosition.EditValue == null ? null : lookUpEditDepotPosition.EditValue.ToString(), null, this.textProductNameOrId.Text, this.btn_ProductNameStart.Text, this.btn_ProductNameEnd.Text, this.LookUpProductCategoryStart.EditValue == null ? null : this.LookUpProductCategoryStart.EditValue.ToString(), this.lookUpProductCategoryEnd.EditValue == null ? null : this.lookUpProductCategoryEnd.EditValue.ToString(), true);//this.checkEditShowZeroProduct.Checked 改为true，因为即时库存查的是当天库存，当天库存不为0，现在为0的情况就会查不出，故此，不显示为0库存要在查出以后做判断。
+            dt = this.miscDataManager.SelectByCondition("Q15", this.lookUpEditDepotStar.EditValue == null ? null : this.lookUpEditDepotStar.EditValue.ToString(), lookUpEditDepotPosition.EditValue == null ? null : lookUpEditDepotPosition.EditValue.ToString(), null, this.textProductNameOrId.Text, this.btn_ProductNameStart.Text, this.btn_ProductNameEnd.Text, this.LookUpProductCategoryStart.EditValue == null ? null : this.LookUpProductCategoryStart.EditValue.ToString(), this.lookUpProductCategoryEnd.EditValue == null ? null : this.lookUpProductCategoryEnd.EditValue.ToString(), true);//this.checkEditShowZeroProduct.Checked 改为true，因为用这种方式即时库存查的是当天库存，当天库存不为0，但现在为0的情况就会查不出。故此，不显示为0库存要在查出以后做判断。
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -58,7 +58,7 @@ namespace Book.UI.Query
                                orderby s.InvoiceDate.Value.Date descending
                                select s;
 
-                    if (list.Where(l => l.InvoiceTypeIndex == 3).Count() > 0)
+                    if (list.Where(l => l.InvoiceTypeIndex == 3).Count() > 0)     //若有盘点，以盘点后库存为准
                     {
 
                         Model.StockSeach seach = list.Where(l => l.InvoiceTypeIndex == 3)
@@ -105,7 +105,7 @@ namespace Book.UI.Query
                         }
 
                         var list1 = from s in stockList
-                                    where s.OutPositionName == dt.Rows[i]["posoid"].ToString() //挑拨单为出
+                                    where s.OutPositionName == dt.Rows[i]["posoid"].ToString() //调拨单为出
                                     orderby s.InvoiceDate.Value.Date descending
                                     select s;
 
@@ -266,7 +266,7 @@ namespace Book.UI.Query
             List<Model.Product> listHaveTwoCategory = list.Where(P => !string.IsNullOrEmpty(P.ProductCategoryName2) && string.IsNullOrEmpty(P.ProductCategoryName3)).ToList();
             List<Model.Product> listHaveOneCategory = list.Where(P => string.IsNullOrEmpty(P.ProductCategoryName2) && string.IsNullOrEmpty(P.ProductCategoryName3)).ToList();
 
-            ConvertMaterial(list);
+            CommonHelp.ConvertMaterial(list);
 
             try
             {
@@ -360,104 +360,105 @@ namespace Book.UI.Query
             //row++;
         }
 
+
         //换算原料净重
-        private void ConvertMaterial(List<Model.Product> list)
-        {
-            #region 老版，1，会查出所有原料种类；2，每个商品循环查数据库-原料
-            ////查询出所有原料种类
-            //IList<string> str = materialManager.SelectMaterialCategory();
-            //Dictionary<string, string> dic = new Dictionary<string, string>();
+        //private void ConvertMaterial(List<Model.Product> list)
+        //{
+        //    #region 老版，1，会查出所有原料种类；2，每个商品循环查数据库-原料
+        //    ////查询出所有原料种类
+        //    //IList<string> str = materialManager.SelectMaterialCategory();
+        //    //Dictionary<string, string> dic = new Dictionary<string, string>();
 
-            //foreach (var pro in list)
-            //{
-            //    pro.MaterialDic = new Dictionary<string, string>();
-            //    foreach (var item in str)
-            //    {
-            //        pro.MaterialDic.Add(item, "0");
-            //    }
+        //    //foreach (var pro in list)
+        //    //{
+        //    //    pro.MaterialDic = new Dictionary<string, string>();
+        //    //    foreach (var item in str)
+        //    //    {
+        //    //        pro.MaterialDic.Add(item, "0");
+        //    //    }
 
 
-            //    if (!string.IsNullOrEmpty(pro.MaterialIds))
-            //    {
-            //        string[] materialIds = pro.MaterialIds.Split(',');
-            //        string[] materialnums = pro.MaterialNum.Split(',');
+        //    //    if (!string.IsNullOrEmpty(pro.MaterialIds))
+        //    //    {
+        //    //        string[] materialIds = pro.MaterialIds.Split(',');
+        //    //        string[] materialnums = pro.MaterialNum.Split(',');
 
-            //        for (int i = 0; i < materialIds.Length; i++)
-            //        {
-            //            Model.Material model = materialManager.Get(materialIds[i]);
-            //            if (model != null)
-            //            {
-            //                double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * Convert.ToDouble(pro.StocksQuantity);
+        //    //        for (int i = 0; i < materialIds.Length; i++)
+        //    //        {
+        //    //            Model.Material model = materialManager.Get(materialIds[i]);
+        //    //            if (model != null)
+        //    //            {
+        //    //                double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * Convert.ToDouble(pro.StocksQuantity);
 
-            //                if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName))
-            //                {
-            //                    if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName.ToLower()))
-            //                        model.MaterialCategoryName = model.MaterialCategoryName.ToUpper();
-            //                    else
-            //                        model.MaterialCategoryName = model.MaterialCategoryName.ToLower();
-            //                }
-            //                pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");
-            //            }
-            //        }
-            //    }
-            //}
-            #endregion
+        //    //                if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName))
+        //    //                {
+        //    //                    if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName.ToLower()))
+        //    //                        model.MaterialCategoryName = model.MaterialCategoryName.ToUpper();
+        //    //                    else
+        //    //                        model.MaterialCategoryName = model.MaterialCategoryName.ToLower();
+        //    //                }
+        //    //                pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");
+        //    //            }
+        //    //        }
+        //    //    }
+        //    //}
+        //    #endregion
 
-            //新版，只查用到的原料种类，且只查一次数据库-原料，缓存下来
-            string needMaterialIds = "(";
-            foreach (var item in list)
-            {
-                if (!string.IsNullOrEmpty(item.MaterialIds))
-                {
-                    string[] materialIds = item.MaterialIds.Split(',');
-                    for (int i = 0; i < materialIds.Length; i++)
-                    {
-                        needMaterialIds += "'" + materialIds[i] + "',";
-                    }
-                }
-            }
-            needMaterialIds = needMaterialIds.TrimEnd(',') + ")";
-            if (needMaterialIds.Length < 5)  //所有商品没有设置净重
-                return;
+        //    //新版，只查用到的原料种类，且只查一次数据库-原料，缓存下来
+        //    string needMaterialIds = "(";
+        //    foreach (var item in list)
+        //    {
+        //        if (!string.IsNullOrEmpty(item.MaterialIds))
+        //        {
+        //            string[] materialIds = item.MaterialIds.Split(',');
+        //            for (int i = 0; i < materialIds.Length; i++)
+        //            {
+        //                needMaterialIds += "'" + materialIds[i] + "',";
+        //            }
+        //        }
+        //    }
+        //    needMaterialIds = needMaterialIds.TrimEnd(',') + ")";
+        //    if (needMaterialIds.Length < 5)  //所有商品没有设置净重
+        //        return;
 
-            //根据上面获取的 原料主键Ids 查询所有原料
-            IList<Model.Material> listMaterial = materialManager.SelectAllByPrimaryIds(needMaterialIds);
-            //分組得到原料分類
-            List<string> materialCategory = listMaterial.Select(m => m.MaterialCategoryName).Distinct().OrderBy(o => o).ToList();
+        //    //根据上面获取的 原料主键Ids 查询所有原料
+        //    IList<Model.Material> listMaterial = materialManager.SelectAllByPrimaryIds(needMaterialIds);
+        //    //分組得到原料分類
+        //    List<string> materialCategory = listMaterial.Select(m => m.MaterialCategoryName).Distinct().OrderBy(o => o).ToList();
 
-            foreach (var pro in list)
-            {
-                pro.MaterialDic = new Dictionary<string, string>();
-                foreach (var item in materialCategory)
-                {
-                    pro.MaterialDic.Add(item, "0");
-                }
+        //    foreach (var pro in list)
+        //    {
+        //        pro.MaterialDic = new Dictionary<string, string>();
+        //        foreach (var item in materialCategory)
+        //        {
+        //            pro.MaterialDic.Add(item, "0");
+        //        }
 
-                if (!string.IsNullOrEmpty(pro.MaterialIds))
-                {
-                    string[] materialIds = pro.MaterialIds.Split(',');
-                    string[] materialnums = pro.MaterialNum.Split(',');
+        //        if (!string.IsNullOrEmpty(pro.MaterialIds))
+        //        {
+        //            string[] materialIds = pro.MaterialIds.Split(',');
+        //            string[] materialnums = pro.MaterialNum.Split(',');
 
-                    for (int i = 0; i < materialIds.Length; i++)
-                    {
-                        Model.Material model = listMaterial.FirstOrDefault(m => m.MaterialId == materialIds[i]);
-                        if (model != null)
-                        {
-                            double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * Convert.ToDouble(pro.StocksQuantity);
+        //            for (int i = 0; i < materialIds.Length; i++)
+        //            {
+        //                Model.Material model = listMaterial.FirstOrDefault(m => m.MaterialId == materialIds[i]);
+        //                if (model != null)
+        //                {
+        //                    double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * Convert.ToDouble(pro.StocksQuantity);
 
-                            if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName))
-                            {
-                                if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName.ToLower()))
-                                    model.MaterialCategoryName = model.MaterialCategoryName.ToUpper();
-                                else
-                                    model.MaterialCategoryName = model.MaterialCategoryName.ToLower();
-                            }
-                            pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");
-                        }
-                    }
-                }
-            }
+        //                    if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName))
+        //                    {
+        //                        if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName.ToLower()))
+        //                            model.MaterialCategoryName = model.MaterialCategoryName.ToUpper();
+        //                        else
+        //                            model.MaterialCategoryName = model.MaterialCategoryName.ToLower();
+        //                    }
+        //                    pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");
+        //                }
+        //            }
+        //        }
+        //    }
 
-        }
+        //}
     }
 }

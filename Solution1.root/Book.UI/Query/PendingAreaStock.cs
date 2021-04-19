@@ -11,7 +11,7 @@ using Microsoft.Office.Interop.Excel;
 
 namespace Book.UI.Query
 {
-    //待转区库存查询，类似现场库存
+    //待转区库存查询，类似 即时库存(现场版)
     public partial class PendingAreaStock : DevExpress.XtraEditors.XtraForm
     {
         BL.ProductManager productManager = new Book.BL.ProductManager();

@@ -281,6 +281,11 @@ namespace Book.BL
         {
             return accessor.SelectAllProductIdByMRSHeaderId(MRSHerderId, handBookProductId);
         }
+
+        public IList<string> SelectAllProductIdByInvoiceXOId(string invoiceXOId)
+        {
+            return accessor.SelectAllProductIdByInvoiceXOId(invoiceXOId);
+        }
     }
 }
 

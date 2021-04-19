@@ -442,6 +442,7 @@ namespace Book.UI.produceManager.ANSIPCImpactCheck
             //this.coBoxLYBTXX.SelectedText = this._ansipcic.PrintDesc1;
             #endregion
 
+            //列印表头信息
             foreach (Model.Setting SET in new BL.SettingManager().SelectByName("LieYinBiaoTouXinXi"))
             {
                 this.coBoxLYBTXX.Properties.Items.Add(SET.SettingCurrentValue);

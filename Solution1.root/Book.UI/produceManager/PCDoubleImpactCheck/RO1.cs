@@ -76,7 +76,7 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             if (_pcdic.Product != null)
             {
                 if (string.IsNullOrEmpty(_pcdic.Product.CustomerProductName))
-                    this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(_pcdic.PronoteHeaderId, _pcdic.ProductId);
+                    this.lbl_CustomerProductName.Text =  CommonHelp.GetCustomerProductNameByPronoteHeaderId(_pcdic.PronoteHeaderId, _pcdic.ProductId);
                 else
                     this.lbl_CustomerProductName.Text = _pcdic.Product.CustomerProductName;
             }

@@ -61,7 +61,7 @@ namespace Book.UI.produceManager.PCEarProtectCheck
             if (PCEarProtectCheck.Product != null)
             {
                 if (string.IsNullOrEmpty(PCEarProtectCheck.Product.CustomerProductName))
-                    this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(PCEarProtectCheck.PronoteHeaderId, PCEarProtectCheck.ProductId);
+                    this.lbl_CustomerProductName.Text =  CommonHelp.GetCustomerProductNameByPronoteHeaderId(PCEarProtectCheck.PronoteHeaderId, PCEarProtectCheck.ProductId);
                 else
                     this.lbl_CustomerProductName.Text = PCEarProtectCheck.Product.CustomerProductName;
             }

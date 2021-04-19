@@ -116,6 +116,9 @@ namespace Book.Model
         /// 外观/软料附着度
         /// </summary>
         private string _appearance;
+
+        //2021年4月2日00:39:35
+        private string _pronoteHeaderID;
 		 
 		#endregion
 		
@@ -432,6 +435,12 @@ namespace Book.Model
             set { _appearance = value; }
         }
 
+        public string PronoteHeaderID
+        {
+            get { return _pronoteHeaderID; }
+            set { _pronoteHeaderID = value; }
+        }
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -513,6 +522,8 @@ namespace Book.Model
 		public readonly static string PRO_EmployeeId = "EmployeeId";
 
         public readonly static string PRO_Appearance = "Appearance";
+
+        public readonly static string PRO_PronoteHeaderID = "PronoteHeaderID";
 
 		#endregion
 	}

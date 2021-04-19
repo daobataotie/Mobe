@@ -345,6 +345,9 @@ namespace Book.UI.Query
                 #endregion
             }
 
+            if (!checkEdit1.Checked)  //不显示0库存商品
+                listProduct = listProduct.Where(p => p.XianchangZuzhuang != 0).ToList();
+
             this.bindingSourceProduct.DataSource = listProduct;
         }
 
@@ -389,9 +392,10 @@ namespace Book.UI.Query
                 excel.Cells[2, 6] = "总数";
                 excel.Cells[2, 7] = "手册号";
                 excel.Cells[2, 8] = "单位";
+                excel.Cells[2, 9] = "单个商品净重";
 
 
-                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 8 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "12566463";
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 8 + 1 + listProduct[0].MaterialDic.Keys.Count]).Interior.Color = "12566463";   //灰色
                 excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 25;
                 excel.get_Range(excel.Cells[2, 2], excel.Cells[2, 2]).ColumnWidth = 50;
 
@@ -410,7 +414,7 @@ namespace Book.UI.Query
 
                 int row = 3;
 
-                foreach (var item in haveThreeCategoryPro.GroupBy(P => P.ProductCategoryName3))
+                System.Action<IGrouping<string, Model.Product>> setExcelValue = (item) => 
                 {
                     SetExcelFormat(excel, ref col, ref row, item);
 
@@ -426,6 +430,7 @@ namespace Book.UI.Query
                         excel.Cells[row, 6] = pro.TotalQty;
                         excel.Cells[row, 7] = pro.HandbookId;
                         excel.Cells[row, 8] = pro.CnName;
+                        excel.Cells[row, 9] = (pro.NetWeight.Value / 1000).ToString("0.#####");
 
                         col = 10;
                         foreach (var dic in pro.MaterialDic)
@@ -435,63 +440,103 @@ namespace Book.UI.Query
 
                         row++;
                     }
-                    row++;
+                };
+
+                foreach (var item in haveThreeCategoryPro.GroupBy(P => P.ProductCategoryName3))
+                {
+                    //SetExcelFormat(excel, ref col, ref row, item);
+
+                    //foreach (var pro in item)
+                    //{
+                    //    excel.Cells[row, 1] = pro.Id;
+                    //    excel.Cells[row, 2] = pro.ProductName;
+                    //    //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
+                    //    excel.Cells[row, 3] = pro.StocksQuantity;
+                    //    //excel.Cells[row, 3] = pro.XianchangTotal;
+                    //    excel.Cells[row, 4] = pro.XianchangYanpian;
+                    //    excel.Cells[row, 5] = pro.XianchangZuzhuang;
+                    //    excel.Cells[row, 6] = pro.TotalQty;
+                    //    excel.Cells[row, 7] = pro.HandbookId;
+                    //    excel.Cells[row, 8] = pro.CnName;
+                    //    excel.Cells[row, 9] = (pro.NetWeight.Value / 1000).ToString("0.#####");
+
+                    //    col = 10;
+                    //    foreach (var dic in pro.MaterialDic)
+                    //    {
+                    //        excel.Cells[row, col++] = dic.Value;
+                    //    }
+
+                    //    row++;
+                    //}
+
+                    //每组数据之间不留空行了，方便筛选数据
+                    //row++;
+
+                    setExcelValue(item);
                 }
 
                 foreach (var item in haveTwoCategoryPro.GroupBy(P => P.ProductCategoryName2))
                 {
-                    SetExcelFormat(excel, ref col, ref row, item);
+                    //SetExcelFormat(excel, ref col, ref row, item);
 
-                    foreach (var pro in item)
-                    {
-                        excel.Cells[row, 1] = pro.Id;
-                        excel.Cells[row, 2] = pro.ProductName;
-                        //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
-                        excel.Cells[row, 3] = pro.StocksQuantity;
-                        //excel.Cells[row, 3] = pro.XianchangTotal;
-                        excel.Cells[row, 4] = pro.XianchangYanpian;
-                        excel.Cells[row, 5] = pro.XianchangZuzhuang;
-                        excel.Cells[row, 6] = pro.TotalQty;
-                        excel.Cells[row, 7] = pro.HandbookId;
-                        excel.Cells[row, 8] = pro.CnName;
+                    //foreach (var pro in item)
+                    //{
+                    //    excel.Cells[row, 1] = pro.Id;
+                    //    excel.Cells[row, 2] = pro.ProductName;
+                    //    //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
+                    //    excel.Cells[row, 3] = pro.StocksQuantity;
+                    //    //excel.Cells[row, 3] = pro.XianchangTotal;
+                    //    excel.Cells[row, 4] = pro.XianchangYanpian;
+                    //    excel.Cells[row, 5] = pro.XianchangZuzhuang;
+                    //    excel.Cells[row, 6] = pro.TotalQty;
+                    //    excel.Cells[row, 7] = pro.HandbookId;
+                    //    excel.Cells[row, 8] = pro.CnName;
+                    //    excel.Cells[row, 9] = (pro.NetWeight.Value / 1000).ToString("0.#####");
 
-                        col = 10;
-                        foreach (var dic in pro.MaterialDic)
-                        {
-                            excel.Cells[row, col++] = dic.Value;
-                        }
+                    //    col = 10;
+                    //    foreach (var dic in pro.MaterialDic)
+                    //    {
+                    //        excel.Cells[row, col++] = dic.Value;
+                    //    }
 
-                        row++;
-                    }
-                    row++;
+                    //    row++;
+                    //}
+
+                    //row++;
+
+                    setExcelValue(item);
                 }
 
                 foreach (var item in haveOneCategoryPro.GroupBy(P => P.ProductCategoryName))
                 {
-                    SetExcelFormat(excel, ref col, ref row, item);
+                    //SetExcelFormat(excel, ref col, ref row, item);
 
-                    foreach (var pro in item)
-                    {
-                        excel.Cells[row, 1] = pro.Id;
-                        excel.Cells[row, 2] = pro.ProductName;
-                        //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
-                        excel.Cells[row, 3] = pro.StocksQuantity;
-                        //excel.Cells[row, 3] = pro.XianchangTotal;
-                        excel.Cells[row, 4] = pro.XianchangYanpian;
-                        excel.Cells[row, 5] = pro.XianchangZuzhuang;
-                        excel.Cells[row, 6] = pro.TotalQty;
-                        excel.Cells[row, 7] = pro.HandbookId;
-                        excel.Cells[row, 8] = pro.CnName;
+                    //foreach (var pro in item)
+                    //{
+                    //    excel.Cells[row, 1] = pro.Id;
+                    //    excel.Cells[row, 2] = pro.ProductName;
+                    //    //excel.Cells[row, 2] = pro.StocksQuantity - pro.XianchangTotal;
+                    //    excel.Cells[row, 3] = pro.StocksQuantity;
+                    //    //excel.Cells[row, 3] = pro.XianchangTotal;
+                    //    excel.Cells[row, 4] = pro.XianchangYanpian;
+                    //    excel.Cells[row, 5] = pro.XianchangZuzhuang;
+                    //    excel.Cells[row, 6] = pro.TotalQty;
+                    //    excel.Cells[row, 7] = pro.HandbookId;
+                    //    excel.Cells[row, 8] = pro.CnName;
+                    //    excel.Cells[row, 9] = (pro.NetWeight.Value / 1000).ToString("0.#####");
 
-                        col = 10;
-                        foreach (var dic in pro.MaterialDic)
-                        {
-                            excel.Cells[row, col++] = dic.Value;
-                        }
+                    //    col = 10;
+                    //    foreach (var dic in pro.MaterialDic)
+                    //    {
+                    //        excel.Cells[row, col++] = dic.Value;
+                    //    }
 
-                        row++;
-                    }
-                    row++;
+                    //    row++;
+                    //}
+
+                    //row++;
+
+                    setExcelValue(item);
                 }
 
                 excel.Visible = true;//是否打开该Excel文件
@@ -526,18 +571,77 @@ namespace Book.UI.Query
 
         private void ConvertMaterial()
         {
-            IList<string> str = materialManager.SelectMaterialCategory();
-            Dictionary<string, string> dic = new Dictionary<string, string>();
+            #region 旧版
+            //IList<string> str = materialManager.SelectMaterialCategory();
+            //Dictionary<string, string> dic = new Dictionary<string, string>();
 
+
+            //foreach (var pro in listProduct)
+            //{
+            //    pro.MaterialDic = new Dictionary<string, string>();
+            //    foreach (var item in str)
+            //    {
+            //        pro.MaterialDic.Add(item, "0");
+            //    }
+
+
+            //    if (!string.IsNullOrEmpty(pro.MaterialIds))
+            //    {
+            //        string[] materialIds = pro.MaterialIds.Split(',');
+            //        string[] materialnums = pro.MaterialNum.Split(',');
+
+            //        for (int i = 0; i < materialIds.Length; i++)
+            //        {
+            //            Model.Material model = materialManager.Get(materialIds[i]);
+            //            if (model != null)
+            //            {
+            //                double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * pro.TotalQty;
+
+            //                if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName))
+            //                {
+            //                    if (!pro.MaterialDic.Keys.Contains(model.MaterialCategoryName.ToLower()))
+            //                        model.MaterialCategoryName = model.MaterialCategoryName.ToUpper();
+            //                    else
+            //                        model.MaterialCategoryName = model.MaterialCategoryName.ToLower();
+            //                }
+            //                pro.MaterialDic[model.MaterialCategoryName] = (Convert.ToDouble(pro.MaterialDic[model.MaterialCategoryName]) + (value / 1000)).ToString("0.####");
+            //            }
+            //        }
+            //    }
+            //} 
+            #endregion
+
+
+            //没有用CommonHelp.ConvertMaterial,是因为此处要乘以商品总量pro.TotalQty(包括线上的)
+            //新版，只查用到的原料种类，且只查一次数据库-原料，缓存下来
+            string needMaterialIds = "(";
+            foreach (var item in listProduct)
+            {
+                if (!string.IsNullOrEmpty(item.MaterialIds))
+                {
+                    string[] materialIds = item.MaterialIds.Split(',');
+                    for (int i = 0; i < materialIds.Length; i++)
+                    {
+                        needMaterialIds += "'" + materialIds[i] + "',";
+                    }
+                }
+            }
+            needMaterialIds = needMaterialIds.TrimEnd(',') + ")";
+            if (needMaterialIds.Length < 5)  //所有商品没有设置净重
+                return;
+
+            //根据上面获取的 原料主键Ids 查询所有原料
+            IList<Model.Material> listMaterial = materialManager.SelectAllByPrimaryIds(needMaterialIds);
+            //分組得到原料分類
+            List<string> materialCategory = listMaterial.Select(m => m.MaterialCategoryName).Distinct().OrderBy(o => o).ToList();
 
             foreach (var pro in listProduct)
             {
                 pro.MaterialDic = new Dictionary<string, string>();
-                foreach (var item in str)
+                foreach (var item in materialCategory)
                 {
                     pro.MaterialDic.Add(item, "0");
                 }
-
 
                 if (!string.IsNullOrEmpty(pro.MaterialIds))
                 {
@@ -546,7 +650,7 @@ namespace Book.UI.Query
 
                     for (int i = 0; i < materialIds.Length; i++)
                     {
-                        Model.Material model = materialManager.Get(materialIds[i]);
+                        Model.Material model = listMaterial.FirstOrDefault(m => m.MaterialId == materialIds[i]);
                         if (model != null)
                         {
                             double value = Convert.ToDouble(materialnums[i]) * Convert.ToDouble(model.JWeight) * pro.TotalQty;

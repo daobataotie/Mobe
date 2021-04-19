@@ -17,7 +17,7 @@ namespace Book.UI.produceManager.PronoteHeader
         {
             InitializeComponent();
             //IList<Model.PronoteHeader> list = pronoteHeaderManager.GetByDateMa(condition.StartDate, condition.EndDate, condition.Customer, condition.CusXOId, condition.Product, condition.PronoteHeaderIdStart, condition.PronoteHeaderIdEnd, condition.SourceTpye, null, false, condition.ProNameKey, condition.ProCusNameKey, condition.PronoteHeaderIdKey,true, false, false);
-            IList<Model.PronoteHeader> list = pronoteHeaderManager.GetByDateMa(condition.StartDate, condition.EndDate, condition.Customer, condition.CusXOId, condition.Product, condition.PronoteHeaderIdStart, condition.PronoteHeaderIdEnd, condition.SourceTpye, null, false, condition.ProNameKey, condition.ProCusNameKey, condition.PronoteHeaderIdKey, false, false, false,condition.HandbookId);   //已经有了condition.SourceTpye条件
+            IList<Model.PronoteHeader> list = pronoteHeaderManager.GetByDateMa(condition.StartDate, condition.EndDate, condition.Customer, condition.CusXOId, condition.Product, condition.PronoteHeaderIdStart, condition.PronoteHeaderIdEnd, condition.SourceTpye, null, false, condition.ProNameKey, condition.ProCusNameKey, condition.PronoteHeaderIdKey, false, false, false, condition.HandbookId);   //已经有了condition.SourceTpye条件
             if (list == null || list.Count <= 0)
             {
                 throw new global::Helper.InvalidValueException("無數據");
@@ -32,7 +32,7 @@ namespace Book.UI.produceManager.PronoteHeader
                 //    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
 
                 if (string.IsNullOrEmpty(detail.CustomerProductName))
-                    detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId, detail.HandbookProductId);
+                    detail.CustomerProductName = CommonHelp.GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId, detail.HandbookProductId);
             }
             this.DataSource = list;
             this.xrLabelDataName.Text = Properties.Resources.Pronotedetails;
@@ -67,7 +67,7 @@ namespace Book.UI.produceManager.PronoteHeader
                 //    detail.Plannum = detail.MRSDetails.MRSdetailsQuantity;
 
                 if (string.IsNullOrEmpty(detail.CustomerProductName))
-                    detail.CustomerProductName = new Help().GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId, detail.HandbookProductId);
+                    detail.CustomerProductName = CommonHelp.GetCustomerProductNameByPronoteHeaderId(detail, detail.ProductId, detail.HandbookProductId);
             }
             this.DataSource = list;
             this.xrLabelDataName.Text = Properties.Resources.Pronotedetails;

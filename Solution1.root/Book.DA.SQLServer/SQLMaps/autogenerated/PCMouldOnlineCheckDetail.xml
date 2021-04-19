@@ -23,6 +23,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <result property="Abnormal" column="Abnormal" />
       <result property="EmployeeId" column="EmployeeId" />
       <result property="Appearance" column="Appearance"/>
+      <result property="PronoteHeaderID" column="PronoteHeaderID"/>
       <result property="Employee" column="EmployeeId" lazyLoad="false" select="Employee.select_SimpleEmployee" />
       <result property="InvoiceXO" column="InvoiceXOId" lazyLoad="false" select="InvoiceXO.select_SimpleInvoicexo" />
       <result property="PCMouldOnlineCheck" column="PCMouldOnlineCheckId" lazyLoad="false" select="PCMouldOnlineCheck.select_by_primary_key" />
@@ -72,7 +73,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[Mark],
 				[Abnormal],
 				[EmployeeId],
-        [Appearance]
+        [Appearance],
+        [PronoteHeaderID]
 			FROM
 				[dbo].[PCMouldOnlineCheckDetail]
 			WHERE
@@ -142,7 +144,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[Mark],
 				[Abnormal],
 				[EmployeeId],
-        [Appearance]
+        [Appearance],
+        [PronoteHeaderID]
 			) 
 			VALUES 
 			(
@@ -162,7 +165,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				#Mark#,
 				#Abnormal#,
 				#EmployeeId#,
-        #Appearance#
+        #Appearance#,
+        #PronoteHeaderID#
 			)
              ]]>
     </insert>
@@ -185,7 +189,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				[Mark] = #Mark#,
 				[Abnormal] = #Abnormal#,
 				[EmployeeId] = #EmployeeId#,
-        [Appearance] = #Appearance#
+        [Appearance] = #Appearance#,
+        [PronoteHeaderID] = #PronoteHeaderID#
 			WHERE
 				[PCMouldOnlineCheckDetailId] = #PCMouldOnlineCheckDetailId#
                     ]]>

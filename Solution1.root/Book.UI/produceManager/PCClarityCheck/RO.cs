@@ -61,7 +61,7 @@ namespace Book.UI.produceManager.PCClarityCheck
             if (PCClarityCheck.Product != null)
             {
                 if (string.IsNullOrEmpty(PCClarityCheck.Product.CustomerProductName))
-                    this.lbl_CustomerProductName.Text = new Help().GetCustomerProductNameByPronoteHeaderId(PCClarityCheck.PronoteHeaderId, PCClarityCheck.ProductId);
+                    this.lbl_CustomerProductName.Text =  CommonHelp.GetCustomerProductNameByPronoteHeaderId(PCClarityCheck.PronoteHeaderId, PCClarityCheck.ProductId);
                 else
                     this.lbl_CustomerProductName.Text = PCClarityCheck.Product.CustomerProductName;
             }

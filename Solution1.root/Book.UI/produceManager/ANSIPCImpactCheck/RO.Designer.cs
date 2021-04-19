@@ -70,6 +70,8 @@ namespace Book.UI.produceManager
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.lblCompanyName = new DevExpress.XtraReports.UI.XRLabel();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.lbl_CustomerProductName = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblUnit = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
@@ -122,8 +124,6 @@ namespace Book.UI.produceManager
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lbl_CustomerProductName = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -497,6 +497,24 @@ namespace Book.UI.produceManager
             this.lblInvoiceXOQuantity});
             resources.ApplyResources(this.PageHeader, "PageHeader");
             this.PageHeader.Name = "PageHeader";
+            // 
+            // lbl_CustomerProductName
+            // 
+            this.lbl_CustomerProductName.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            resources.ApplyResources(this.lbl_CustomerProductName, "lbl_CustomerProductName");
+            this.lbl_CustomerProductName.Name = "lbl_CustomerProductName";
+            this.lbl_CustomerProductName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.lbl_CustomerProductName.StylePriority.UseBorders = false;
+            this.lbl_CustomerProductName.StylePriority.UseFont = false;
+            this.lbl_CustomerProductName.StylePriority.UseTextAlignment = false;
+            // 
+            // xrLabel14
+            // 
+            resources.ApplyResources(this.xrLabel14, "xrLabel14");
+            this.xrLabel14.Name = "xrLabel14";
+            this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
+            this.xrLabel14.StylePriority.UseFont = false;
+            this.xrLabel14.StylePriority.UseTextAlignment = false;
             // 
             // lblUnit
             // 
@@ -964,24 +982,6 @@ namespace Book.UI.produceManager
             resources.ApplyResources(this.xrPageInfo1, "xrPageInfo1");
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            // 
-            // xrLabel14
-            // 
-            resources.ApplyResources(this.xrLabel14, "xrLabel14");
-            this.xrLabel14.Name = "xrLabel14";
-            this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel14.StylePriority.UseFont = false;
-            this.xrLabel14.StylePriority.UseTextAlignment = false;
-            // 
-            // lbl_CustomerProductName
-            // 
-            this.lbl_CustomerProductName.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            resources.ApplyResources(this.lbl_CustomerProductName, "lbl_CustomerProductName");
-            this.lbl_CustomerProductName.Name = "lbl_CustomerProductName";
-            this.lbl_CustomerProductName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lbl_CustomerProductName.StylePriority.UseBorders = false;
-            this.lbl_CustomerProductName.StylePriority.UseFont = false;
-            this.lbl_CustomerProductName.StylePriority.UseTextAlignment = false;
             // 
             // RO
             // 

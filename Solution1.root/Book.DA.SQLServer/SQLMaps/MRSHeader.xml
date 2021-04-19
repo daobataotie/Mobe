@@ -28,5 +28,12 @@ THEN 0 ELSE 1 END
       select ProductId from MRSdetails where MRSHeaderId in (select MRSHeaderId from MRSHeader where MPSheaderId = (select MPSheaderId from MRSHeader where MRSHeaderId=#MRSHeaderId#) and SourceType=4) and (HandbookProductId=#HandbookProductId# or #HandbookProductId# is null)
       ]]>
     </select>
+
+    <select id="SelectAllProductIdByInvoiceXOId" resultClass="string" parameterClass="string">
+      <![CDATA[
+      select ProductId from MRSdetails where MRSHeaderId in (select MRSHeaderId from MRSHeader where MPSheaderId in 
+  (select MPSheaderId from MPSheader where InvoiceXOId=#value#)and SourceType=4)
+      ]]>
+    </select>
   </statements>
 </sqlMap>

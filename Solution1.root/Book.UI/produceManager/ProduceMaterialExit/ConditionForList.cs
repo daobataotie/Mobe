@@ -181,7 +181,7 @@ namespace Book.UI.produceManager.ProduceMaterialExit
             {
                 if (string.IsNullOrEmpty(item["CustomerProductName"].ToString()))
                 {
-                    item["CustomerProductName"] = new produceManager.Help().GetCustomerProductNameByPronoteHeaderId(item["PronoteHeaderID"].ToString(), item["ProductId"].ToString());
+                    item["CustomerProductName"] =  CommonHelp.GetCustomerProductNameByPronoteHeaderId(item["PronoteHeaderID"].ToString(), item["ProductId"].ToString());
                 }
             }
 

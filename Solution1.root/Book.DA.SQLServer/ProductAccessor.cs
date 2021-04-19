@@ -351,7 +351,7 @@ namespace Book.DA.SQLServer
 
         public IList<Model.Product> SelectIdAndStock(string startCategory_Id, string endCategory_Id)
         {
-            string sql = "select p.id,ProductId,ProductName,ProductVersion,isnull(StocksQuantity,0) as StocksQuantity,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum,(select CnName from ProductUnit where ProductUnitId=p.DepotUnitId) as CnName from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId ";
+            string sql = "select p.id,ProductId,ProductName,ProductVersion,isnull(StocksQuantity,0) as StocksQuantity,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum,(select CnName from ProductUnit where ProductUnitId=p.DepotUnitId) as CnName,isnull(p.NetWeight,0) as NetWeight from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId ";
 
             if (!string.IsNullOrEmpty(startCategory_Id))
             {
@@ -408,6 +408,14 @@ namespace Book.DA.SQLServer
         public double SelectStocksQuantityByStock(string productId)
         {
             return sqlmapper.QueryForObject<double>("Product.SelectStocksQuantityByStock", productId);
+        }
+
+        //查询所有商品的 Id，商品名称，类别名称
+        public IList<Model.Product> SelectAllIdAndName()
+        {
+            string sql = "select p.id,ProductId,ProductName,pc1.ProductCategoryName,pc2.ProductCategoryName as ProductCategoryName2,pc3.ProductCategoryName as ProductCategoryName3,MaterialIds,MaterialNum,isnull(p.NetWeight,0) as NetWeight from Product p left join ProductCategory pc1 on p.ProductCategoryId=pc1.ProductCategoryId left join ProductCategory pc2 on p.ProductCategoryId2=pc2.ProductCategoryId left join ProductCategory pc3 on p.ProductCategoryId3=pc3.ProductCategoryId where NetWeight<>0 and NetWeight is not null";
+
+            return this.DataReaderBind<Model.Product>(sql, null, CommandType.Text);
         }
     }
 }

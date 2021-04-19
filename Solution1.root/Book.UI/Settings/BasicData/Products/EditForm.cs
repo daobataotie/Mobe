@@ -3488,5 +3488,161 @@ namespace Book.UI.Settings.BasicData.Products
             }
 
         }
+
+        //净重一览表(Excel)
+        private void bar_NetWeightList_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var listProduct = productManager.SelectAllIdAndName();
+
+            if (listProduct == null || listProduct.Count == 0)
+            {
+                MessageBox.Show("无数据！", "提示", MessageBoxButtons.OK);
+                return;
+            }
+
+            try
+            {
+                ConvertMaterial(listProduct);
+
+                Type objClassType = null;
+                objClassType = Type.GetTypeFromProgID("Excel.Application");
+                if (objClassType == null)
+                {
+                    MessageBox.Show("本機沒有安裝Excel", "提示！", MessageBoxButtons.OK);
+                    return;
+                }
+
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Application.Workbooks.Add(true);
+
+                Microsoft.Office.Interop.Excel.Range r = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 3]);
+                r.MergeCells = true;//合并单元格
+
+                excel.Cells.ColumnWidth = 10;
+                excel.Cells[1, 1] = "商品净重一览表";
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).RowHeight = 25;
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]).Font.Size = 20;
+                //excel.Cells[1, productShipmentList.Count + 1] = DateTime.Now.ToString("yyyy.MM.dd");
+                excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 3]).HorizontalAlignment = -4108;
+
+                excel.Cells[2, 1] = "商品编号";
+                excel.Cells[2, 2] = "商品名称";
+                excel.Cells[2, 3] = "单个商品净重";
+                excel.Cells[2, 4] = "原料类别";
+
+
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 4]).Interior.Color = "12566463";   //灰色
+                excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).ColumnWidth = 25;
+                excel.get_Range(excel.Cells[2, 2], excel.Cells[2, 2]).ColumnWidth = 50;
+
+                ////原料
+                //int col = 4;
+                //foreach (var item in listProduct[0].MaterialDic)
+                //{
+                //    excel.Cells[2, col++] = item.Key;
+                //}
+
+
+                List<Model.Product> haveThreeCategoryPro = listProduct.Where(P => !string.IsNullOrEmpty(P.ProductCategoryName3)).ToList();
+                List<Model.Product> haveTwoCategoryPro = listProduct.Where(P => !string.IsNullOrEmpty(P.ProductCategoryName2) && string.IsNullOrEmpty(P.ProductCategoryName3)).ToList();
+                List<Model.Product> haveOneCategoryPro = listProduct.Where(P => string.IsNullOrEmpty(P.ProductCategoryName2) && string.IsNullOrEmpty(P.ProductCategoryName3)).ToList();
+
+                int row = 3;
+
+                System.Action<IGrouping<string, Model.Product>> setExcelValue = (item) =>
+                {
+                    excel.Cells[row, 1] = item.Key;
+                    excel.get_Range(excel.Cells[row, 1], excel.Cells[row, 3]).Interior.Color = "255";    //红色
+                    row++;
+
+                    //foreach (var pro in item)
+                    //{
+                    //    excel.Cells[row, 1] = pro.Id;
+                    //    excel.Cells[row, 2] = pro.ProductName;
+                    //    excel.Cells[row, 3] = (pro.NetWeight.Value / 1000).ToString("0.#####");
+
+                    //    col = 4;
+                    //    foreach (var dic in pro.MaterialDic)
+                    //    {
+                    //        excel.Cells[row, col++] = dic.Value;
+                    //    }
+
+                    //    row++;
+                    //}
+
+                    //上面Excel单元格逐个赋值，太慢了。改为先在C#中把数据构建好，给Range统一赋值
+                    object[,] data = new object[item.Count(), 4];
+
+                    //C# 索引从0 开始
+                    int dataRow = 0;
+                    foreach (var pro in item)
+                    {
+                        data[dataRow, 0] = pro.Id;
+                        data[dataRow, 1] = pro.ProductName;
+                        data[dataRow, 2] = pro.NetWeight.Value.ToString("0.####");
+                        data[dataRow, 3] = pro.MaterialIds;
+
+
+
+                        dataRow++;
+                    }
+
+                    row += item.Count();
+                    excel.get_Range(excel.Cells[row - item.Count(), 1], excel.Cells[row - 1, 4]).Value2 = data;
+                };
+
+                var group1 = haveThreeCategoryPro.GroupBy(P => P.ProductCategoryName3);
+                var group2 = haveTwoCategoryPro.GroupBy(P => P.ProductCategoryName3);
+                var group3 = haveOneCategoryPro.GroupBy(P => P.ProductCategoryName3);
+
+                foreach (var item in group1)
+                {
+                    setExcelValue(item);
+                }
+
+                foreach (var item in group2)
+                {
+                    setExcelValue(item);
+                }
+
+                foreach (var item in group3)
+                {
+                    setExcelValue(item);
+                }
+
+                excel.Visible = true;//是否打开该Excel文件
+                excel.WindowState = Microsoft.Office.Interop.Excel.XlWindowState.xlMaximized;
+
+            }
+            catch
+            {
+                MessageBox.Show("Excel未生成完畢，請勿操作，并重新點擊按鈕生成數據！", "提示！", MessageBoxButtons.OK);
+                return;
+            }
+        }
+
+        private void ConvertMaterial(IList<Model.Product> listProduct)
+        {
+            //没有用CommonHelp.ConvertMaterial,是因为此处不需要乘以商品重量换算原料重量，只显示出每个原料本身名称就行
+
+            IList<Model.Material> listMaterial = materialManager.Select();
+
+            foreach (var item in listProduct)
+            {
+                if (!string.IsNullOrEmpty(item.MaterialIds))
+                {
+                    string[] materialIds = item.MaterialIds.Split(',');
+                    string materialNames = string.Empty;
+                    for (int i = 0; i < materialIds.Length; i++)
+                    {
+                        materialNames += listMaterial.First(f => f.MaterialId == materialIds[i]).MaterialCategoryName + "+";
+                    }
+
+                    materialNames = materialNames.TrimEnd('+');
+                    item.MaterialIds = materialNames;
+                }
+            }
+        }
+
     }
 }

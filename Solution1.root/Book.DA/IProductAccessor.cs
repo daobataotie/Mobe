@@ -75,6 +75,8 @@ namespace Book.DA
         double SelectStocksQuantityByStock(string productId);
 
         IList<Model.Product> GetProductBaseInfo();
+
+        IList<Model.Product> SelectAllIdAndName();
     }
 }
 

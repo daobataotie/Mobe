@@ -715,6 +715,11 @@ namespace Book.BL
         {
             return accessor.GetProductBaseInfo();
         }
+
+        public IList<Model.Product> SelectAllIdAndName()
+        {
+            return accessor.SelectAllIdAndName();
+        }
     }
 }
 
