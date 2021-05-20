@@ -4450,6 +4450,9 @@
       <DependentUpon>ASRO2017.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\CSARO_Back.resx">
+      <DependentUpon>CSARO_Back.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\JISOutPutFile.resx">
       <DependentUpon>JISOutPutFile.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -4501,6 +4504,9 @@
     <EmbeddedResource Include="produceManager\PCExportReportANSI\ANSI2015RO.zh-CHT.resx">
       <DependentUpon>ANSI2015RO.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\CSARO.resx">
+      <DependentUpon>CSARO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\XuejingASTMForm.resx">
       <DependentUpon>XuejingASTMForm.cs</DependentUpon>
@@ -6318,14 +6324,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\CSAEditForm.resx">
       <DependentUpon>CSAEditForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\PCExportReportANSI\CSARO.resx">
-      <DependentUpon>CSARO.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="produceManager\PCExportReportANSI\CSARO.zh-CHT.resx">
-      <DependentUpon>CSARO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCExportReportANSI\DetailsForm.resx">
@@ -11697,6 +11695,12 @@
     <Compile Include="produceManager\PCExportReportANSI\ASRO2017.designer.cs">
       <DependentUpon>ASRO2017.cs</DependentUpon>
     </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\CSARO_Back.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\CSARO_Back.Designer.cs">
+      <DependentUpon>CSARO_Back.cs</DependentUpon>
+    </Compile>
     <Compile Include="produceManager\PCExportReportANSI\JISOutPutFile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -11738,6 +11742,12 @@
     </Compile>
     <Compile Include="produceManager\PCExportReportANSI\ANSI2015RO.Designer.cs">
       <DependentUpon>ANSI2015RO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\CSARO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\CSARO.Designer.cs">
+      <DependentUpon>CSARO.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCExportReportANSI\XuejingASTMForm.cs">
       <SubType>Form</SubType>
@@ -12531,12 +12541,6 @@
     </Compile>
     <Compile Include="produceManager\PCExportReportANSI\CSAEditForm.Designer.cs">
       <DependentUpon>CSAEditForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="produceManager\PCExportReportANSI\CSARO.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="produceManager\PCExportReportANSI\CSARO.Designer.cs">
-      <DependentUpon>CSARO.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCExportReportANSI\DetailsForm.cs">
       <SubType>Form</SubType>

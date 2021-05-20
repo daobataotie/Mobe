@@ -18,6 +18,8 @@ namespace Book.UI.Query
     // 修改原因：
     // 修 改 人:                          修改时间:
     //----------------------------------------------------------------*/
+
+    //库存查询
     public partial class Q14Form : BaseForm
     {
         protected BL.MiscDataManager miscDataManager = new Book.BL.MiscDataManager();

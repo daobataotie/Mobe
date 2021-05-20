@@ -50,7 +50,7 @@ namespace Book.DA.SQLServer
         }
         public void Delete(Model.ProduceMaterialExit produceMaterialExit)
         {
-            sqlmapper.Delete("ProduceMaterialExitDetail.selectByCondition", produceMaterialExit.ProduceMaterialExitId);
+            sqlmapper.Delete("ProduceMaterialExitDetail.delete_byheader", produceMaterialExit.ProduceMaterialExitId);
         }
 
         public double SelectSumQtyFromZuzhuang(string productId, DateTime dateStart, DateTime dateEnd, string workHouseId, string allInvoiceXOIds)
