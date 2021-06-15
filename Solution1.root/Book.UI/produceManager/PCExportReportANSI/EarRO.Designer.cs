@@ -33,6 +33,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.lblShouCe3 = new DevExpress.XtraReports.UI.XRLabel();
             this.lbl_VerifiedBy = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblShouCe5 = new DevExpress.XtraReports.UI.XRLabel();
@@ -104,7 +105,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblCompanyName = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblShouCe3 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -184,6 +184,17 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.xrLabel9});
             resources.ApplyResources(this.PageHeader, "PageHeader");
             this.PageHeader.Name = "PageHeader";
+            // 
+            // lblShouCe3
+            // 
+            this.lblShouCe3.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            resources.ApplyResources(this.lblShouCe3, "lblShouCe3");
+            this.lblShouCe3.Name = "lblShouCe3";
+            this.lblShouCe3.Padding = new DevExpress.XtraPrinting.PaddingInfo(20, 20, 20, 20, 254F);
+            this.lblShouCe3.StylePriority.UseBorders = false;
+            this.lblShouCe3.StylePriority.UseFont = false;
+            this.lblShouCe3.StylePriority.UsePadding = false;
+            this.lblShouCe3.StylePriority.UseTextAlignment = false;
             // 
             // lbl_VerifiedBy
             // 
@@ -650,8 +661,11 @@ namespace Book.UI.produceManager.PCExportReportANSI
             // 
             // xrTableCell14
             // 
+            this.xrTableCell14.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top)
+                        | DevExpress.XtraPrinting.BorderSide.Bottom)));
             resources.ApplyResources(this.xrTableCell14, "xrTableCell14");
             this.xrTableCell14.Name = "xrTableCell14";
+            this.xrTableCell14.StylePriority.UseBorders = false;
             this.xrTableCell14.Weight = 0.96876009242741157;
             // 
             // xrTableCell3
@@ -894,17 +908,6 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.lblCompanyName.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.lblCompanyName.StylePriority.UseFont = false;
             this.lblCompanyName.StylePriority.UseTextAlignment = false;
-            // 
-            // lblShouCe3
-            // 
-            this.lblShouCe3.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            resources.ApplyResources(this.lblShouCe3, "lblShouCe3");
-            this.lblShouCe3.Name = "lblShouCe3";
-            this.lblShouCe3.Padding = new DevExpress.XtraPrinting.PaddingInfo(20, 20, 20, 20, 254F);
-            this.lblShouCe3.StylePriority.UseBorders = false;
-            this.lblShouCe3.StylePriority.UseFont = false;
-            this.lblShouCe3.StylePriority.UsePadding = false;
-            this.lblShouCe3.StylePriority.UseTextAlignment = false;
             // 
             // EarRO
             // 

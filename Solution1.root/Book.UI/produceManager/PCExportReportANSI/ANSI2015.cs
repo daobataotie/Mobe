@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Linq;
 
 namespace Book.UI.produceManager.PCExportReportANSI
 {
@@ -35,6 +36,13 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.newChooseContorlAuditEmp.Choose = new Settings.BasicData.Employees.ChooseEmployee();
             this.bindingSourceUnit.DataSource = (new BL.ProductUnitManager()).Select();
             this.action = "view";
+
+            var jiShuBiaoZhun = new BL.SettingManager().SelectByName("ANSI2015JiShuBiaoZhun");
+            jiShuBiaoZhun = jiShuBiaoZhun.OrderByDescending(j => j.IdNO).ToList();
+            foreach (var item in jiShuBiaoZhun)
+            {
+                comboBoxEdit1.Properties.Items.Add(item.SettingCurrentValue);
+            }
         }
 
         int sign = 0;
@@ -103,6 +111,7 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._PCExportReportANSI.ExportReportId = this._PCExportReportANSIManager.GetId();
             this._PCExportReportANSI.ReportDate = DateTime.Now.Date;
             this._PCExportReportANSI.ExpType = "ANSI2015";
+            this._PCExportReportANSI.CSAJiShuBiaoZhun = comboBoxEdit1.Properties.Items.Count > 0 ? comboBoxEdit1.Properties.Items[0].ToString() : "";
 
             this._PCExportReportANSI.Employee = BL.V.ActiveOperator.Employee;
             this._PCExportReportANSI.EmployeeId = BL.V.ActiveOperator.EmployeeId;
@@ -131,6 +140,9 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this._PCExportReportANSI.Customer = (this.NccCustomer.EditValue as Model.Customer);
             this._PCExportReportANSI.ReportDate = this.DateReportDate.EditValue == null ? DateTime.Now : this.DateReportDate.DateTime;
             this._PCExportReportANSI.Clearlens = this.memoTrans.EditValue == null ? "" : this.memoTrans.EditValue.ToString();
+
+            this._PCExportReportANSI.CSAJiShuBiaoZhun = this.comboBoxEdit1.SelectedText;
+
             if (this._PCExportReportANSI.Customer != null)
             {
                 this._PCExportReportANSI.CustomerId = this._PCExportReportANSI.Customer.CustomerId;
@@ -305,6 +317,8 @@ namespace Book.UI.produceManager.PCExportReportANSI
             this.txt_AuditState.EditValue = this.GetAuditName(this._PCExportReportANSI.AuditState);
 
             this.lookUpEditUnit.EditValue = this._PCExportReportANSI.ProductUnitId;
+
+            this.comboBoxEdit1.Text = string.IsNullOrEmpty(this._PCExportReportANSI.CSAJiShuBiaoZhun) ? "ANSI Z87.1-2020" : this._PCExportReportANSI.CSAJiShuBiaoZhun;
         }
 
         //列印

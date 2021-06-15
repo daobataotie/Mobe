@@ -132,6 +132,12 @@ namespace Book.UI.produceManager.ProduceInDepot
             this.TCmChangshangbuliang.DataBindings.Add("Text", this.DataSource, "mChangshangbuliang");
             this.TCmZuzhuangcashang.DataBindings.Add("Text", this.DataSource, "mZuzhuangcashang");
             this.TCmCashang.DataBindings.Add("Text", this.DataSource, "mCashang");
+            this.TCmKaijisunhuai.DataBindings.Add("Text", this.DataSource, "mKaijisunhuai");
+            this.TCmMaobian.DataBindings.Add("Text", this.DataSource, "mMaobian");
+            this.TCmYiliaoqikong.DataBindings.Add("Text", this.DataSource, "mYiliaoqikong");
+            this.TCmPopi.DataBindings.Add("Text", this.DataSource, "mPopi");
+            this.TCmBianse.DataBindings.Add("Text", this.DataSource, "mBianse");
+            this.TCmMihedu.DataBindings.Add("Text", this.DataSource, "mMihedu");
 
 
             this.TCshuliang2.Summary.FormatString = "{0:0.##}";
@@ -324,6 +330,43 @@ namespace Book.UI.produceManager.ProduceInDepot
             this.TCmCashang2.Summary.IgnoreNullValues = true;
             this.TCmCashang2.Summary.Running = SummaryRunning.Report;
             this.TCmCashang2.DataBindings.Add("Text", this.DataSource, "mCashang", "{0:0.##}");
+
+            this.TCmKaijisunhuai2.Summary.FormatString = "{0:0.##}";
+            this.TCmKaijisunhuai2.Summary.Func = SummaryFunc.Sum;
+            this.TCmKaijisunhuai2.Summary.IgnoreNullValues = true;
+            this.TCmKaijisunhuai2.Summary.Running = SummaryRunning.Report;
+            this.TCmKaijisunhuai2.DataBindings.Add("Text", this.DataSource, "mKaijisunhuai", "{0:0.##}");
+
+            this.TCmMaobian2.Summary.FormatString = "{0:0.##}";
+            this.TCmMaobian2.Summary.Func = SummaryFunc.Sum;
+            this.TCmMaobian2.Summary.IgnoreNullValues = true;
+            this.TCmMaobian2.Summary.Running = SummaryRunning.Report;
+            this.TCmMaobian2.DataBindings.Add("Text", this.DataSource, "mMaobian", "{0:0.##}");
+
+            this.TCmYiliaoqikong2.Summary.FormatString = "{0:0.##}";
+            this.TCmYiliaoqikong2.Summary.Func = SummaryFunc.Sum;
+            this.TCmYiliaoqikong2.Summary.IgnoreNullValues = true;
+            this.TCmYiliaoqikong2.Summary.Running = SummaryRunning.Report;
+            this.TCmYiliaoqikong2.DataBindings.Add("Text", this.DataSource, "mYiliaoqikong", "{0:0.##}");
+
+            this.TCmPopi2.Summary.FormatString = "{0:0.##}";
+            this.TCmPopi2.Summary.Func = SummaryFunc.Sum;
+            this.TCmPopi2.Summary.IgnoreNullValues = true;
+            this.TCmPopi2.Summary.Running = SummaryRunning.Report;
+            this.TCmPopi2.DataBindings.Add("Text", this.DataSource, "mPopi", "{0:0.##}");
+
+            this.TCmBianse2.Summary.FormatString = "{0:0.##}";
+            this.TCmBianse2.Summary.Func = SummaryFunc.Sum;
+            this.TCmBianse2.Summary.IgnoreNullValues = true;
+            this.TCmBianse2.Summary.Running = SummaryRunning.Report;
+            this.TCmBianse2.DataBindings.Add("Text", this.DataSource, "mBianse", "{0:0.##}");
+
+            this.TCmMihedu2.Summary.FormatString = "{0:0.##}";
+            this.TCmMihedu2.Summary.Func = SummaryFunc.Sum;
+            this.TCmMihedu2.Summary.IgnoreNullValues = true;
+            this.TCmMihedu2.Summary.Running = SummaryRunning.Report;
+            this.TCmMihedu2.DataBindings.Add("Text", this.DataSource, "mMihedu", "{0:0.##}");
+
             #region ×¢ÊÍ°ó¶¨List
             //if (deitals == null || deitals.Count == 0)
             //    return;

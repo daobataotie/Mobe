@@ -38,7 +38,6 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.lblHML = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLBanBie = new DevExpress.XtraReports.UI.XRLabel();
             this.lblAttrHeat30m = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblAttrHeat60 = new DevExpress.XtraReports.UI.XRLabel();
             this.TCattrBiZhong = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable5 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow5 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -111,7 +110,6 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell17 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -149,7 +147,6 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.lblHML,
             this.xrLBanBie,
             this.lblAttrHeat30m,
-            this.lblAttrHeat60,
             this.TCattrBiZhong,
             this.xrTable5,
             this.xrTable4,
@@ -252,16 +249,6 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.lblAttrHeat30m.StylePriority.UseBorders = false;
             this.lblAttrHeat30m.StylePriority.UseFont = false;
             this.lblAttrHeat30m.StylePriority.UseTextAlignment = false;
-            // 
-            // lblAttrHeat60
-            // 
-            this.lblAttrHeat60.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Top | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            resources.ApplyResources(this.lblAttrHeat60, "lblAttrHeat60");
-            this.lblAttrHeat60.Name = "lblAttrHeat60";
-            this.lblAttrHeat60.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.lblAttrHeat60.StylePriority.UseBorders = false;
-            this.lblAttrHeat60.StylePriority.UseFont = false;
-            this.lblAttrHeat60.StylePriority.UseTextAlignment = false;
             // 
             // TCattrBiZhong
             // 
@@ -818,7 +805,6 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.xrTableCell11,
             this.xrTableCell14,
             this.xrTableCell10,
-            this.xrTableCell6,
             this.xrTableCell13,
             this.xrTableCell17,
             this.xrTableCell18,
@@ -932,19 +918,12 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
             this.xrTableCell10.Weight = 0.16849310134374629;
             // 
-            // xrTableCell6
-            // 
-            resources.ApplyResources(this.xrTableCell6, "xrTableCell6");
-            this.xrTableCell6.Name = "xrTableCell6";
-            this.xrTableCell6.StylePriority.UseTextAlignment = false;
-            this.xrTableCell6.Weight = 0.19956901370449076;
-            // 
             // xrTableCell13
             // 
             resources.ApplyResources(this.xrTableCell13, "xrTableCell13");
             this.xrTableCell13.Name = "xrTableCell13";
             this.xrTableCell13.StylePriority.UseTextAlignment = false;
-            this.xrTableCell13.Weight = 0.13196047550995327;
+            this.xrTableCell13.Weight = 0.23969578359616459;
             // 
             // xrTableCell17
             // 
@@ -958,14 +937,14 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             resources.ApplyResources(this.xrTableCell18, "xrTableCell18");
             this.xrTableCell18.Name = "xrTableCell18";
             this.xrTableCell18.StylePriority.UseTextAlignment = false;
-            this.xrTableCell18.Weight = 0.206999165080869;
+            this.xrTableCell18.Weight = 0.20699878539093614;
             // 
             // xrTableCell19
             // 
             resources.ApplyResources(this.xrTableCell19, "xrTableCell19");
             this.xrTableCell19.Name = "xrTableCell19";
             this.xrTableCell19.StylePriority.UseTextAlignment = false;
-            this.xrTableCell19.Weight = 0.12706000686167832;
+            this.xrTableCell19.Weight = 0.12706038655161123;
             // 
             // xrTableCell3
             // 
@@ -973,7 +952,7 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.StylePriority.UseFont = false;
             this.xrTableCell3.StylePriority.UseTextAlignment = false;
-            this.xrTableCell3.Weight = 0.17660479631972739;
+            this.xrTableCell3.Weight = 0.17660479631972742;
             // 
             // lblProduct
             // 
@@ -1093,7 +1072,7 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
             this.PageFooter,
             this.ReportHeader});
             resources.ApplyResources(this, "$this");
-            this.Margins = new System.Drawing.Printing.Margins(35, 30, 79, 79);
+            this.Margins = new System.Drawing.Printing.Margins(60, 60, 79, 79);
             this.PageHeight = 2794;
             this.PageWidth = 2159;
             this.Version = "10.2";
@@ -1192,8 +1171,6 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
         private DevExpress.XtraReports.UI.XRLabel lbl_productunit;
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
-        private DevExpress.XtraReports.UI.XRLabel lblAttrHeat60;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell13;
         private DevExpress.XtraReports.UI.XRLabel lblAttrHeat30m;
         private DevExpress.XtraReports.UI.XRLabel xrLBanBie;

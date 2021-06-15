@@ -472,5 +472,28 @@ namespace Book.UI.produceManager.PCExportReportANSI
         {
             //this._PCExportReportANSI.CeShiSuLi = this.comboBox1.SelectedItem.ToString();
         }
+
+        //打印稽核用
+        private void bar_PrintJihe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            bool canSave = (DialogResult.OK == MessageBox.Show("是否將打印文件上傳至服務器(pdf格式)", "操作提示", MessageBoxButtons.OKCancel));
+            CSARO_Jihe r = new CSARO_Jihe(this._PCExportReportANSI, tag);
+            r.ShowPreviewDialog();
+
+            if (canSave)
+            {
+                if (this._PCExportReportANSI != null && !string.IsNullOrEmpty(this._PCExportReportANSI.ExportReportId))
+                {
+                    string sfdir = this._ServerSavePath + "\\" + this._PCExportReportANSI.ExportReportId;
+                    try
+                    {
+                        System.IO.Directory.CreateDirectory(sfdir);
+                        r.ExportToPdf(sfdir + "\\" + this._PCExportReportANSI.ExportReportId + ".pdf");
+                        MessageBox.Show("文件已導出為pdf格式上傳至服務器");
+                    }
+                    catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+                }
+            }
+        }
     }
 }

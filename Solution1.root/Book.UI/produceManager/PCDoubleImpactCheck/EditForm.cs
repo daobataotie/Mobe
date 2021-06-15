@@ -346,8 +346,12 @@ namespace Book.UI.produceManager.PCDoubleImpactCheck
                     this.Employee.VisibleIndex = 35;
                     break;
                 case 2:     //AS_NZS
-                    this.gridColumn1.Caption = "加热(60℃±2)";
-                    this.gridColumn2.Caption = "加热(30m)";
+                    //this.gridColumn1.Caption = "加热(60℃±2)";
+                    //this.gridColumn2.Caption = "加热(30m)";
+                    //2021年6月8日23:58:27，将这两列合并为 加热60℃±2℃/30m
+                    this.gridColumn1.Visible = false;
+                    this.gridColumn2.Caption = "加热60℃±2℃/30m";
+
                     this.attrJiaoLianL.Visible = false;
                     this.attrJiaoLianR.Visible = false;
                     //this.attrHotL.Visible = false;

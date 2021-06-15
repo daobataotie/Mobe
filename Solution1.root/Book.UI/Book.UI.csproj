@@ -4536,6 +4536,9 @@
       <DependentUpon>ENEarProtectRO.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="produceManager\PCExportReportANSI\CSARO_Jihe.resx">
+      <DependentUpon>CSARO_Jihe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="produceManager\PCFirstOnlineCheck\ConditionForm.resx">
       <DependentUpon>ConditionForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -11784,6 +11787,12 @@
     </Compile>
     <Compile Include="produceManager\PCExportReportANSI\ENEarProtectRO.Designer.cs">
       <DependentUpon>ENEarProtectRO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\CSARO_Jihe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="produceManager\PCExportReportANSI\CSARO_Jihe.Designer.cs">
+      <DependentUpon>CSARO_Jihe.cs</DependentUpon>
     </Compile>
     <Compile Include="produceManager\PCFirstOnlineCheck\Condition.cs" />
     <Compile Include="produceManager\PCFirstOnlineCheck\ConditionForm.cs">

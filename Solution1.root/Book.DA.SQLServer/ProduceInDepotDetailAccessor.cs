@@ -331,7 +331,7 @@ namespace Book.DA.SQLServer
             //条件筛选
             if (attrJiLuFangShi)
             {
-                #region 展开
+                #region 查询
                 sbMain.Append("SELECT Substring(CONVERT(varchar,h.ProduceInDepotDate,120),0,11) AS ProduceInDepotDate,h.WorkHouseId,");
                 sbMain.Append("CASE d.ProceduresSum WHEN 0 THEN '0%' ELSE RTrim(CONVERT(varchar,round(1 - isnull(d.CheckOutSum,0)/isnull(d.ProceduresSum,1),4)*100))+'%' END AS RejectionRate_1,");
                 sbMain.Append("w.Workhousename,CASE p.ProductType WHEN 0 THEN '常態' WHEN 1 THEN '特殊' ELSE '' END AS ProductType,");
@@ -346,8 +346,9 @@ namespace Book.DA.SQLServer
                 sbMain.Append("isnull(mHeidianzazhi,0) AS mHeidianzazhi,isnull(mQianghuaqiancashang,0) as mQianghuaqiancashang,isnull(mQianghuahoucashang,0) AS mQianghuahoucashang,isnull(mHanyao,0) AS mHanyao,");
                 sbMain.Append("isnull(mKeLimianxu,0) AS mKeLimianxu,isnull(mLiuheng,0) AS mLiuheng,isnull(mPengYaodiyao,0) AS mPengYaodiyao,");
                 sbMain.Append("isnull(mQianghuafangwuxian,0) AS mQianghuafangwuxian,isnull(mYoudian,0) AS mYoudian,isnull(mQianghuaQiTa,0) AS mQianghuaQiTa,");
-                sbMain.Append("isnull(mChangshangbuliang,0) AS mChangshangbuliang,isnull(mZuzhuangcashang,0) AS mZuzhuangcashang,isnull(mCashang,0) AS mCashang ");
-                sbMain.Append("FROM ProduceInDepotDetail d ");
+                sbMain.Append("isnull(mChangshangbuliang,0) AS mChangshangbuliang,isnull(mZuzhuangcashang,0) AS mZuzhuangcashang,isnull(mCashang,0) AS mCashang,");
+                sbMain.Append("isnull(mKaijisunhuai,0) AS mKaijisunhuai,isnull(mMaobian,0) AS mMaobian,isnull(mYiliaoqikong,0) AS mYiliaoqikong ,isnull(mPopi,0) AS mPopi,isnull(mBianse,0) AS mBianse,isnull(mMihedu,0) AS mMihedu  ");
+                sbMain.Append(" FROM ProduceInDepotDetail d ");
                 sbMain.Append(" LEFT JOIN Product p ON p.ProductId = d.ProductId");
                 sbMain.Append(" LEFT JOIN ProduceInDepot h ON h.ProduceInDepotId = d.ProduceInDepotId");
                 sbMain.Append(" LEFT JOIN WorkHouse w ON w.WorkHouseId = h.WorkHouseId");

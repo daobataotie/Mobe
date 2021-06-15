@@ -166,6 +166,24 @@ namespace Book.UI.produceManager.ProduceInDepot
             this.TCmCashang2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmKaijisunhuai = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmKaijisunhuai2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell41 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell42 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell43 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell44 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmMaobian = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmYiliaoqikong = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmPopi = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmBianse = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmMaobian2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmPopi2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmYiliaoqikong2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmBianse2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell54 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmMihedu = new DevExpress.XtraReports.UI.XRTableCell();
+            this.TCmMihedu2 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
@@ -232,7 +250,13 @@ namespace Book.UI.produceManager.ProduceInDepot
             this.TCmQianghuaQiTa,
             this.TCmChangshangbuliang,
             this.TCmZuzhuangcashang,
-            this.TCmCashang});
+            this.TCmCashang,
+            this.TCmKaijisunhuai,
+            this.TCmMaobian,
+            this.TCmYiliaoqikong,
+            this.TCmPopi,
+            this.TCmBianse,
+            this.TCmMihedu});
             resources.ApplyResources(this.xrTableRow2, "xrTableRow2");
             this.xrTableRow2.Name = "xrTableRow2";
             this.xrTableRow2.Weight = 1;
@@ -299,175 +323,175 @@ namespace Book.UI.produceManager.ProduceInDepot
             // 
             resources.ApplyResources(this.TCmYuanliaowenti, "TCmYuanliaowenti");
             this.TCmYuanliaowenti.Name = "TCmYuanliaowenti";
-            this.TCmYuanliaowenti.Weight = 0.0804954847859753;
+            this.TCmYuanliaowenti.Weight = 0.0631580941778473;
             // 
             // TCmChouliaowenti
             // 
             resources.ApplyResources(this.TCmChouliaowenti, "TCmChouliaowenti");
             this.TCmChouliaowenti.Name = "TCmChouliaowenti";
-            this.TCmChouliaowenti.Weight = 0.075564934020622088;
+            this.TCmChouliaowenti.Weight = 0.063157899403599407;
             // 
             // TCmPaoguanwenti
             // 
             resources.ApplyResources(this.TCmPaoguanwenti, "TCmPaoguanwenti");
             this.TCmPaoguanwenti.Name = "TCmPaoguanwenti";
-            this.TCmPaoguanwenti.Weight = 0.062942893455746524;
+            this.TCmPaoguanwenti.Weight = 0.063157897838392263;
             // 
             // TCmJingdiangudingdian
             // 
             resources.ApplyResources(this.TCmJingdiangudingdian, "TCmJingdiangudingdian");
             this.TCmJingdiangudingdian.Name = "TCmJingdiangudingdian";
-            this.TCmJingdiangudingdian.Weight = 0.086332501381588572;
+            this.TCmJingdiangudingdian.Weight = 0.0868421128452509;
             // 
             // TCmChapiancashang
             // 
             resources.ApplyResources(this.TCmChapiancashang, "TCmChapiancashang");
             this.TCmChapiancashang.Name = "TCmChapiancashang";
-            this.TCmChapiancashang.Weight = 0.066028074287905109;
+            this.TCmChapiancashang.Weight = 0.06315789588084697;
             // 
             // TCmWanMocashang
             // 
             resources.ApplyResources(this.TCmWanMocashang, "TCmWanMocashang");
             this.TCmWanMocashang.Name = "TCmWanMocashang";
-            this.TCmWanMocashang.Weight = 0.063652500739113785;
+            this.TCmWanMocashang.Weight = 0.063157995477593862;
             // 
             // TCmGuaiShouZhuangShang
             // 
             resources.ApplyResources(this.TCmGuaiShouZhuangShang, "TCmGuaiShouZhuangShang");
             this.TCmGuaiShouZhuangShang.Name = "TCmGuaiShouZhuangShang";
-            this.TCmGuaiShouZhuangShang.Weight = 0.0701615117363492;
+            this.TCmGuaiShouZhuangShang.Weight = 0.0631576066425539;
             // 
             // TCmHuabancashang
             // 
             resources.ApplyResources(this.TCmHuabancashang, "TCmHuabancashang");
             this.TCmHuabancashang.Name = "TCmHuabancashang";
-            this.TCmHuabancashang.Weight = 0.067955900202194622;
+            this.TCmHuabancashang.Weight = 0.063158090895437752;
             // 
             // TCmGuohuojizhua
             // 
             resources.ApplyResources(this.TCmGuohuojizhua, "TCmGuohuojizhua");
             this.TCmGuohuojizhua.Name = "TCmGuohuojizhua";
-            this.TCmGuohuojizhua.Weight = 0.054626726067009981;
+            this.TCmGuohuojizhua.Weight = 0.063158092260688428;
             // 
             // TCmBaiyanHeiYan
             // 
             resources.ApplyResources(this.TCmBaiyanHeiYan, "TCmBaiyanHeiYan");
             this.TCmBaiyanHeiYan.Name = "TCmBaiyanHeiYan";
-            this.TCmBaiyanHeiYan.Weight = 0.064361609926146368;
+            this.TCmBaiyanHeiYan.Weight = 0.063157703438179516;
             // 
             // TCmJieHeXianHuiwen
             // 
             resources.ApplyResources(this.TCmJieHeXianHuiwen, "TCmJieHeXianHuiwen");
             this.TCmJieHeXianHuiwen.Name = "TCmJieHeXianHuiwen";
-            this.TCmJieHeXianHuiwen.Weight = 0.11100277860787522;
+            this.TCmJieHeXianHuiwen.Weight = 0.13815789959594582;
             // 
             // TCmSuoShui
             // 
             resources.ApplyResources(this.TCmSuoShui, "TCmSuoShui");
             this.TCmSuoShui.Name = "TCmSuoShui";
-            this.TCmSuoShui.Weight = 0.062122872296235476;
+            this.TCmSuoShui.Weight = 0.06315790011766767;
             // 
             // TCmQiPao
             // 
             resources.ApplyResources(this.TCmQiPao, "TCmQiPao");
             this.TCmQiPao.Name = "TCmQiPao";
-            this.TCmQiPao.Weight = 0.057814110283716025;
+            this.TCmQiPao.Weight = 0.063157899175561014;
             // 
             // TCmShechuqita
             // 
             resources.ApplyResources(this.TCmShechuqita, "TCmShechuqita");
             this.TCmShechuqita.Name = "TCmShechuqita";
-            this.TCmShechuqita.Weight = 0.058263502905559927;
+            this.TCmShechuqita.Weight = 0.063158093095899037;
             // 
             // TCmCaMoSunHua
             // 
             resources.ApplyResources(this.TCmCaMoSunHua, "TCmCaMoSunHua");
             this.TCmCaMoSunHua.Name = "TCmCaMoSunHua";
-            this.TCmCaMoSunHua.Weight = 0.057594179318123009;
+            this.TCmCaMoSunHua.Weight = 0.063157706832998081;
             // 
             // TCmChaipiancashang
             // 
             resources.ApplyResources(this.TCmChaipiancashang, "TCmChaipiancashang");
             this.TCmChaipiancashang.Name = "TCmChaipiancashang";
-            this.TCmChaipiancashang.Weight = 0.059304634528935828;
+            this.TCmChaipiancashang.Weight = 0.063158125505594118;
             // 
             // TCmHeidianzazhi
             // 
             resources.ApplyResources(this.TCmHeidianzazhi, "TCmHeidianzazhi");
             this.TCmHeidianzazhi.Name = "TCmHeidianzazhi";
-            this.TCmHeidianzazhi.Weight = 0.064020505390907034;
+            this.TCmHeidianzazhi.Weight = 0.063157897881487873;
             // 
             // TCmQianghuaqiancashang
             // 
             resources.ApplyResources(this.TCmQianghuaqiancashang, "TCmQianghuaqiancashang");
             this.TCmQianghuaqiancashang.Name = "TCmQianghuaqiancashang";
-            this.TCmQianghuaqiancashang.Weight = 0.093700760803638913;
+            this.TCmQianghuaqiancashang.Weight = 0.083684216420380264;
             // 
             // TCmQianghuahoucashang
             // 
             resources.ApplyResources(this.TCmQianghuahoucashang, "TCmQianghuahoucashang");
             this.TCmQianghuahoucashang.Name = "TCmQianghuahoucashang";
-            this.TCmQianghuahoucashang.Weight = 0.088613412803749889;
+            this.TCmQianghuahoucashang.Weight = 0.083683827783088832;
             // 
             // TCmHanyao
             // 
             resources.ApplyResources(this.TCmHanyao, "TCmHanyao");
             this.TCmHanyao.Name = "TCmHanyao";
-            this.TCmHanyao.Weight = 0.059282433942120329;
+            this.TCmHanyao.Weight = 0.063158090319051369;
             // 
             // TCmKeLimianxu
             // 
             resources.ApplyResources(this.TCmKeLimianxu, "TCmKeLimianxu");
             this.TCmKeLimianxu.Name = "TCmKeLimianxu";
-            this.TCmKeLimianxu.Weight = 0.063979365756243259;
+            this.TCmKeLimianxu.Weight = 0.06315789674787381;
             // 
             // TCmLiuheng
             // 
             resources.ApplyResources(this.TCmLiuheng, "TCmLiuheng");
             this.TCmLiuheng.Name = "TCmLiuheng";
-            this.TCmLiuheng.Weight = 0.065462269422085481;
+            this.TCmLiuheng.Weight = 0.063157706253617954;
             // 
             // TCmPengYaodiyao
             // 
             resources.ApplyResources(this.TCmPengYaodiyao, "TCmPengYaodiyao");
             this.TCmPengYaodiyao.Name = "TCmPengYaodiyao";
-            this.TCmPengYaodiyao.Weight = 0.06496622911600132;
+            this.TCmPengYaodiyao.Weight = 0.063158092611957817;
             // 
             // TCmQianghuafangwuxian
             // 
             resources.ApplyResources(this.TCmQianghuafangwuxian, "TCmQianghuafangwuxian");
             this.TCmQianghuafangwuxian.Name = "TCmQianghuafangwuxian";
-            this.TCmQianghuafangwuxian.Weight = 0.083919794714343438;
+            this.TCmQianghuafangwuxian.Weight = 0.086842109997695316;
             // 
             // TCmYoudian
             // 
             resources.ApplyResources(this.TCmYoudian, "TCmYoudian");
             this.TCmYoudian.Name = "TCmYoudian";
-            this.TCmYoudian.Weight = 0.047851434996674193;
+            this.TCmYoudian.Weight = 0.06315789671198449;
             // 
             // TCmQianghuaQiTa
             // 
             resources.ApplyResources(this.TCmQianghuaQiTa, "TCmQianghuaQiTa");
             this.TCmQianghuaQiTa.Name = "TCmQianghuaQiTa";
-            this.TCmQianghuaQiTa.Weight = 0.066984032478235422;
+            this.TCmQianghuaQiTa.Weight = 0.063158091648546577;
             // 
             // TCmChangshangbuliang
             // 
             resources.ApplyResources(this.TCmChangshangbuliang, "TCmChangshangbuliang");
             this.TCmChangshangbuliang.Name = "TCmChangshangbuliang";
-            this.TCmChangshangbuliang.Weight = 0.076722932552537426;
+            this.TCmChangshangbuliang.Weight = 0.063157707585610456;
             // 
             // TCmZuzhuangcashang
             // 
             resources.ApplyResources(this.TCmZuzhuangcashang, "TCmZuzhuangcashang");
             this.TCmZuzhuangcashang.Name = "TCmZuzhuangcashang";
-            this.TCmZuzhuangcashang.Weight = 0.065922407598761917;
+            this.TCmZuzhuangcashang.Weight = 0.063158093070832588;
             // 
             // TCmCashang
             // 
             resources.ApplyResources(this.TCmCashang, "TCmCashang");
             this.TCmCashang.Name = "TCmCashang";
-            this.TCmCashang.Weight = 0.057880850099098796;
+            this.TCmCashang.Weight = 0.063157701103139563;
             // 
             // TopMargin
             // 
@@ -618,7 +642,13 @@ namespace Book.UI.produceManager.ProduceInDepot
             this.xrTableCell1,
             this.xrTableCell36,
             this.xrTableCell38,
-            this.xrTableCell37});
+            this.xrTableCell37,
+            this.xrTableCell16,
+            this.xrTableCell41,
+            this.xrTableCell42,
+            this.xrTableCell43,
+            this.xrTableCell44,
+            this.xrTableCell54});
             resources.ApplyResources(this.xrTableRow1, "xrTableRow1");
             this.xrTableRow1.Name = "xrTableRow1";
             this.xrTableRow1.Weight = 1;
@@ -682,175 +712,175 @@ namespace Book.UI.produceManager.ProduceInDepot
             // 
             resources.ApplyResources(this.xrTableCell17, "xrTableCell17");
             this.xrTableCell17.Name = "xrTableCell17";
-            this.xrTableCell17.Weight = 0.0804954847859753;
+            this.xrTableCell17.Weight = 0.063157901435236238;
             // 
             // xrTableCell2
             // 
             resources.ApplyResources(this.xrTableCell2, "xrTableCell2");
             this.xrTableCell2.Name = "xrTableCell2";
-            this.xrTableCell2.Weight = 0.075564934020622088;
+            this.xrTableCell2.Weight = 0.063157899403599407;
             // 
             // xrTableCell19
             // 
             resources.ApplyResources(this.xrTableCell19, "xrTableCell19");
             this.xrTableCell19.Name = "xrTableCell19";
-            this.xrTableCell19.Weight = 0.062942797084440977;
+            this.xrTableCell19.Weight = 0.063157897838392249;
             // 
             // xrTableCell20
             // 
             resources.ApplyResources(this.xrTableCell20, "xrTableCell20");
             this.xrTableCell20.Name = "xrTableCell20";
-            this.xrTableCell20.Weight = 0.086332501381588572;
+            this.xrTableCell20.Weight = 0.0868421128452509;
             // 
             // xrTableCell21
             // 
             resources.ApplyResources(this.xrTableCell21, "xrTableCell21");
             this.xrTableCell21.Name = "xrTableCell21";
-            this.xrTableCell21.Weight = 0.066027977916599562;
+            this.xrTableCell21.Weight = 0.06315789588084697;
             // 
             // xrTableCell18
             // 
             resources.ApplyResources(this.xrTableCell18, "xrTableCell18");
             this.xrTableCell18.Name = "xrTableCell18";
-            this.xrTableCell18.Weight = 0.063652597110419332;
+            this.xrTableCell18.Weight = 0.063157899106288343;
             // 
             // xrTableCell27
             // 
             resources.ApplyResources(this.xrTableCell27, "xrTableCell27");
             this.xrTableCell27.Name = "xrTableCell27";
-            this.xrTableCell27.Weight = 0.070161608107654733;
+            this.xrTableCell27.Weight = 0.063157895756470489;
             // 
             // xrTableCell24
             // 
             resources.ApplyResources(this.xrTableCell24, "xrTableCell24");
             this.xrTableCell24.Name = "xrTableCell24";
-            this.xrTableCell24.Weight = 0.067955900202194622;
+            this.xrTableCell24.Weight = 0.063157898152826686;
             // 
             // xrTableCell22
             // 
             resources.ApplyResources(this.xrTableCell22, "xrTableCell22");
             this.xrTableCell22.Name = "xrTableCell22";
-            this.xrTableCell22.Weight = 0.054626726067009981;
+            this.xrTableCell22.Weight = 0.063157899518077362;
             // 
             // xrTableCell25
             // 
             resources.ApplyResources(this.xrTableCell25, "xrTableCell25");
             this.xrTableCell25.Name = "xrTableCell25";
-            this.xrTableCell25.Weight = 0.064361609926146368;
+            this.xrTableCell25.Weight = 0.063157896180790582;
             // 
             // xrTableCell23
             // 
             resources.ApplyResources(this.xrTableCell23, "xrTableCell23");
             this.xrTableCell23.Name = "xrTableCell23";
-            this.xrTableCell23.Weight = 0.11100277860787522;
+            this.xrTableCell23.Weight = 0.13815790361314659;
             // 
             // xrTableCell26
             // 
             resources.ApplyResources(this.xrTableCell26, "xrTableCell26");
             this.xrTableCell26.Name = "xrTableCell26";
-            this.xrTableCell26.Weight = 0.062122872296235476;
+            this.xrTableCell26.Weight = 0.06315789610046689;
             // 
             // xrTableCell13
             // 
             resources.ApplyResources(this.xrTableCell13, "xrTableCell13");
             this.xrTableCell13.Name = "xrTableCell13";
-            this.xrTableCell13.Weight = 0.057814110283716025;
+            this.xrTableCell13.Weight = 0.063157899175561014;
             // 
             // xrTableCell14
             // 
             resources.ApplyResources(this.xrTableCell14, "xrTableCell14");
             this.xrTableCell14.Name = "xrTableCell14";
-            this.xrTableCell14.Weight = 0.058263502905559927;
+            this.xrTableCell14.Weight = 0.063157900353287971;
             // 
             // xrTableCell6
             // 
             resources.ApplyResources(this.xrTableCell6, "xrTableCell6");
             this.xrTableCell6.Name = "xrTableCell6";
-            this.xrTableCell6.Weight = 0.057594179318123009;
+            this.xrTableCell6.Weight = 0.063157899575609147;
             // 
             // xrTableCell15
             // 
             resources.ApplyResources(this.xrTableCell15, "xrTableCell15");
             this.xrTableCell15.Name = "xrTableCell15";
-            this.xrTableCell15.Weight = 0.059304634528935828;
+            this.xrTableCell15.Weight = 0.063157896623743479;
             // 
             // xrTableCell12
             // 
             resources.ApplyResources(this.xrTableCell12, "xrTableCell12");
             this.xrTableCell12.Name = "xrTableCell12";
-            this.xrTableCell12.Weight = 0.064020505390907034;
+            this.xrTableCell12.Weight = 0.063157897881487859;
             // 
             // xrTableCell33
             // 
             resources.ApplyResources(this.xrTableCell33, "xrTableCell33");
             this.xrTableCell33.Name = "xrTableCell33";
-            this.xrTableCell33.Weight = 0.093700760803638913;
+            this.xrTableCell33.Weight = 0.08368421642038025;
             // 
             // xrTableCell29
             // 
             resources.ApplyResources(this.xrTableCell29, "xrTableCell29");
             this.xrTableCell29.Name = "xrTableCell29";
-            this.xrTableCell29.Weight = 0.088613412803749889;
+            this.xrTableCell29.Weight = 0.083684213268310978;
             // 
             // xrTableCell32
             // 
             resources.ApplyResources(this.xrTableCell32, "xrTableCell32");
             this.xrTableCell32.Name = "xrTableCell32";
-            this.xrTableCell32.Weight = 0.059282433942120329;
+            this.xrTableCell32.Weight = 0.0631578975764403;
             // 
             // xrTableCell8
             // 
             resources.ApplyResources(this.xrTableCell8, "xrTableCell8");
             this.xrTableCell8.Name = "xrTableCell8";
-            this.xrTableCell8.Weight = 0.063979365756243259;
+            this.xrTableCell8.Weight = 0.0631578967478738;
             // 
             // xrTableCell31
             // 
             resources.ApplyResources(this.xrTableCell31, "xrTableCell31");
             this.xrTableCell31.Name = "xrTableCell31";
-            this.xrTableCell31.Weight = 0.065462269422085481;
+            this.xrTableCell31.Weight = 0.063157898996229034;
             // 
             // xrTableCell28
             // 
             resources.ApplyResources(this.xrTableCell28, "xrTableCell28");
             this.xrTableCell28.Name = "xrTableCell28";
-            this.xrTableCell28.Weight = 0.06496622911600132;
+            this.xrTableCell28.Weight = 0.063157899869346737;
             // 
             // xrTableCell30
             // 
             resources.ApplyResources(this.xrTableCell30, "xrTableCell30");
             this.xrTableCell30.Name = "xrTableCell30";
-            this.xrTableCell30.Weight = 0.083919794714343438;
+            this.xrTableCell30.Weight = 0.086842109997695316;
             // 
             // xrTableCell4
             // 
             resources.ApplyResources(this.xrTableCell4, "xrTableCell4");
             this.xrTableCell4.Name = "xrTableCell4";
-            this.xrTableCell4.Weight = 0.047851434996674193;
+            this.xrTableCell4.Weight = 0.06315789671198449;
             // 
             // xrTableCell1
             // 
             resources.ApplyResources(this.xrTableCell1, "xrTableCell1");
             this.xrTableCell1.Name = "xrTableCell1";
-            this.xrTableCell1.Weight = 0.066984032478235422;
+            this.xrTableCell1.Weight = 0.063157898905935511;
             // 
             // xrTableCell36
             // 
             resources.ApplyResources(this.xrTableCell36, "xrTableCell36");
             this.xrTableCell36.Name = "xrTableCell36";
-            this.xrTableCell36.Weight = 0.076722932552537426;
+            this.xrTableCell36.Weight = 0.063157900328221522;
             // 
             // xrTableCell38
             // 
             resources.ApplyResources(this.xrTableCell38, "xrTableCell38");
             this.xrTableCell38.Name = "xrTableCell38";
-            this.xrTableCell38.Weight = 0.065922407598761917;
+            this.xrTableCell38.Weight = 0.063157893833748716;
             // 
             // xrTableCell37
             // 
             resources.ApplyResources(this.xrTableCell37, "xrTableCell37");
             this.xrTableCell37.Name = "xrTableCell37";
-            this.xrTableCell37.Weight = 0.057880850099098796;
+            this.xrTableCell37.Weight = 0.063157898725956785;
             // 
             // lblReportDate
             // 
@@ -939,7 +969,13 @@ namespace Book.UI.produceManager.ProduceInDepot
             this.TCmQianghuaQiTa2,
             this.TCmChangshangbuliang2,
             this.TCmZuzhuangcashang2,
-            this.TCmCashang2});
+            this.TCmCashang2,
+            this.TCmKaijisunhuai2,
+            this.TCmMaobian2,
+            this.TCmYiliaoqikong2,
+            this.TCmPopi2,
+            this.TCmBianse2,
+            this.TCmMihedu2});
             resources.ApplyResources(this.xrTableRow3, "xrTableRow3");
             this.xrTableRow3.Name = "xrTableRow3";
             this.xrTableRow3.Weight = 1;
@@ -981,175 +1017,175 @@ namespace Book.UI.produceManager.ProduceInDepot
             // 
             resources.ApplyResources(this.TCmYuanliaowenti2, "TCmYuanliaowenti2");
             this.TCmYuanliaowenti2.Name = "TCmYuanliaowenti2";
-            this.TCmYuanliaowenti2.Weight = 0.0804954847859753;
+            this.TCmYuanliaowenti2.Weight = 0.063157997806541771;
             // 
             // TCmChouliaowenti2
             // 
             resources.ApplyResources(this.TCmChouliaowenti2, "TCmChouliaowenti2");
             this.TCmChouliaowenti2.Name = "TCmChouliaowenti2";
-            this.TCmChouliaowenti2.Weight = 0.075564934020622088;
+            this.TCmChouliaowenti2.Weight = 0.063157899403599407;
             // 
             // TCmPaoguanwenti2
             // 
             resources.ApplyResources(this.TCmPaoguanwenti2, "TCmPaoguanwenti2");
             this.TCmPaoguanwenti2.Name = "TCmPaoguanwenti2";
-            this.TCmPaoguanwenti2.Weight = 0.062942893455746524;
+            this.TCmPaoguanwenti2.Weight = 0.063157897838392263;
             // 
             // TCmJingdiangudingdian2
             // 
             resources.ApplyResources(this.TCmJingdiangudingdian2, "TCmJingdiangudingdian2");
             this.TCmJingdiangudingdian2.Name = "TCmJingdiangudingdian2";
-            this.TCmJingdiangudingdian2.Weight = 0.086332501381588572;
+            this.TCmJingdiangudingdian2.Weight = 0.08684211284525091;
             // 
             // TCmChapiancashang2
             // 
             resources.ApplyResources(this.TCmChapiancashang2, "TCmChapiancashang2");
             this.TCmChapiancashang2.Name = "TCmChapiancashang2";
-            this.TCmChapiancashang2.Weight = 0.066028074287905109;
+            this.TCmChapiancashang2.Weight = 0.063157895880846984;
             // 
             // TCmWanMocashang2
             // 
             resources.ApplyResources(this.TCmWanMocashang2, "TCmWanMocashang2");
             this.TCmWanMocashang2.Name = "TCmWanMocashang2";
-            this.TCmWanMocashang2.Weight = 0.063652500739113785;
+            this.TCmWanMocashang2.Weight = 0.0631580918488994;
             // 
             // TCmGuaiShouZhuangShang2
             // 
             resources.ApplyResources(this.TCmGuaiShouZhuangShang2, "TCmGuaiShouZhuangShang2");
             this.TCmGuaiShouZhuangShang2.Name = "TCmGuaiShouZhuangShang2";
-            this.TCmGuaiShouZhuangShang2.Weight = 0.0701615117363492;
+            this.TCmGuaiShouZhuangShang2.Weight = 0.063157703013859423;
             // 
             // TCmHuabancashang2
             // 
             resources.ApplyResources(this.TCmHuabancashang2, "TCmHuabancashang2");
             this.TCmHuabancashang2.Name = "TCmHuabancashang2";
-            this.TCmHuabancashang2.Weight = 0.067955900202194622;
+            this.TCmHuabancashang2.Weight = 0.063157898152826686;
             // 
             // TCmGuohuojizhua2
             // 
             resources.ApplyResources(this.TCmGuohuojizhua2, "TCmGuohuojizhua2");
             this.TCmGuohuojizhua2.Name = "TCmGuohuojizhua2";
-            this.TCmGuohuojizhua2.Weight = 0.054626726067009981;
+            this.TCmGuohuojizhua2.Weight = 0.06315828500329948;
             // 
             // TCmBaiyanHeiYan2
             // 
             resources.ApplyResources(this.TCmBaiyanHeiYan2, "TCmBaiyanHeiYan2");
             this.TCmBaiyanHeiYan2.Name = "TCmBaiyanHeiYan2";
-            this.TCmBaiyanHeiYan2.Weight = 0.064361609926146368;
+            this.TCmBaiyanHeiYan2.Weight = 0.06315751069556845;
             // 
             // TCmJieHeXianHuiwen2
             // 
             resources.ApplyResources(this.TCmJieHeXianHuiwen2, "TCmJieHeXianHuiwen2");
             this.TCmJieHeXianHuiwen2.Name = "TCmJieHeXianHuiwen2";
-            this.TCmJieHeXianHuiwen2.Weight = 0.11100277860787522;
+            this.TCmJieHeXianHuiwen2.Weight = 0.13815809233855686;
             // 
             // TCmSuoShui2
             // 
             resources.ApplyResources(this.TCmSuoShui2, "TCmSuoShui2");
             this.TCmSuoShui2.Name = "TCmSuoShui2";
-            this.TCmSuoShui2.Weight = 0.062122872296235476;
+            this.TCmSuoShui2.Weight = 0.06315790011766767;
             // 
             // TCmQiPao2
             // 
             resources.ApplyResources(this.TCmQiPao2, "TCmQiPao2");
             this.TCmQiPao2.Name = "TCmQiPao2";
-            this.TCmQiPao2.Weight = 0.057814110283716025;
+            this.TCmQiPao2.Weight = 0.06315809191817208;
             // 
             // TCmShechuqita2
             // 
             resources.ApplyResources(this.TCmShechuqita2, "TCmShechuqita2");
             this.TCmShechuqita2.Name = "TCmShechuqita2";
-            this.TCmShechuqita2.Weight = 0.058263502905559927;
+            this.TCmShechuqita2.Weight = 0.063157900353287971;
             // 
             // TCmCaMoSunHua2
             // 
             resources.ApplyResources(this.TCmCaMoSunHua2, "TCmCaMoSunHua2");
             this.TCmCaMoSunHua2.Name = "TCmCaMoSunHua2";
-            this.TCmCaMoSunHua2.Weight = 0.057594179318123009;
+            this.TCmCaMoSunHua2.Weight = 0.063157706832998081;
             // 
             // TCmChaipiancashang2
             // 
             resources.ApplyResources(this.TCmChaipiancashang2, "TCmChaipiancashang2");
             this.TCmChaipiancashang2.Name = "TCmChaipiancashang2";
-            this.TCmChaipiancashang2.Weight = 0.059304634528935828;
+            this.TCmChaipiancashang2.Weight = 0.063157896623743479;
             // 
             // TCmHeidianzazhi2
             // 
             resources.ApplyResources(this.TCmHeidianzazhi2, "TCmHeidianzazhi2");
             this.TCmHeidianzazhi2.Name = "TCmHeidianzazhi2";
-            this.TCmHeidianzazhi2.Weight = 0.064020505390907034;
+            this.TCmHeidianzazhi2.Weight = 0.06315828336671;
             // 
             // TCmQianghuaqiancashang2
             // 
             resources.ApplyResources(this.TCmQianghuaqiancashang2, "TCmQianghuaqiancashang2");
             this.TCmQianghuaqiancashang2.Name = "TCmQianghuaqiancashang2";
-            this.TCmQianghuaqiancashang2.Weight = 0.093700760803638913;
+            this.TCmQianghuaqiancashang2.Weight = 0.08368402367776917;
             // 
             // TCmQianghuahoucashang2
             // 
             resources.ApplyResources(this.TCmQianghuahoucashang2, "TCmQianghuahoucashang2");
             this.TCmQianghuahoucashang2.Name = "TCmQianghuahoucashang2";
-            this.TCmQianghuahoucashang2.Weight = 0.088613412803749889;
+            this.TCmQianghuahoucashang2.Weight = 0.08368363504047778;
             // 
             // TCmHanyao2
             // 
             resources.ApplyResources(this.TCmHanyao2, "TCmHanyao2");
             this.TCmHanyao2.Name = "TCmHanyao2";
-            this.TCmHanyao2.Weight = 0.059282433942120329;
+            this.TCmHanyao2.Weight = 0.063158090319051369;
             // 
             // TCmKeLimianxu2
             // 
             resources.ApplyResources(this.TCmKeLimianxu2, "TCmKeLimianxu2");
             this.TCmKeLimianxu2.Name = "TCmKeLimianxu2";
-            this.TCmKeLimianxu2.Weight = 0.063979365756243259;
+            this.TCmKeLimianxu2.Weight = 0.063158089490484862;
             // 
             // TCmLiuheng2
             // 
             resources.ApplyResources(this.TCmLiuheng2, "TCmLiuheng2");
             this.TCmLiuheng2.Name = "TCmLiuheng2";
-            this.TCmLiuheng2.Weight = 0.065462269422085481;
+            this.TCmLiuheng2.Weight = 0.063157898996229034;
             // 
             // TCmPengYaodiyao2
             // 
             resources.ApplyResources(this.TCmPengYaodiyao2, "TCmPengYaodiyao2");
             this.TCmPengYaodiyao2.Name = "TCmPengYaodiyao2";
-            this.TCmPengYaodiyao2.Weight = 0.06496622911600132;
+            this.TCmPengYaodiyao2.Weight = 0.063157899869346751;
             // 
             // TCmQianghuafangwuxian2
             // 
             resources.ApplyResources(this.TCmQianghuafangwuxian2, "TCmQianghuafangwuxian2");
             this.TCmQianghuafangwuxian2.Name = "TCmQianghuafangwuxian2";
-            this.TCmQianghuafangwuxian2.Weight = 0.083919794714343438;
+            this.TCmQianghuafangwuxian2.Weight = 0.0868421099976953;
             // 
             // TCmYoudian2
             // 
             resources.ApplyResources(this.TCmYoudian2, "TCmYoudian2");
             this.TCmYoudian2.Name = "TCmYoudian2";
-            this.TCmYoudian2.Weight = 0.047851434996674193;
+            this.TCmYoudian2.Weight = 0.063157703969373424;
             // 
             // TCmQianghuaQiTa2
             // 
             resources.ApplyResources(this.TCmQianghuaQiTa2, "TCmQianghuaQiTa2");
             this.TCmQianghuaQiTa2.Name = "TCmQianghuaQiTa2";
-            this.TCmQianghuaQiTa2.Weight = 0.066984032478235422;
+            this.TCmQianghuaQiTa2.Weight = 0.063158091648546577;
             // 
             // TCmChangshangbuliang2
             // 
             resources.ApplyResources(this.TCmChangshangbuliang2, "TCmChangshangbuliang2");
             this.TCmChangshangbuliang2.Name = "TCmChangshangbuliang2";
-            this.TCmChangshangbuliang2.Weight = 0.076722932552537426;
+            this.TCmChangshangbuliang2.Weight = 0.063157900328221522;
             // 
             // TCmZuzhuangcashang2
             // 
             resources.ApplyResources(this.TCmZuzhuangcashang2, "TCmZuzhuangcashang2");
             this.TCmZuzhuangcashang2.Name = "TCmZuzhuangcashang2";
-            this.TCmZuzhuangcashang2.Weight = 0.065922407598761917;
+            this.TCmZuzhuangcashang2.Weight = 0.063157900328221508;
             // 
             // TCmCashang2
             // 
             resources.ApplyResources(this.TCmCashang2, "TCmCashang2");
             this.TCmCashang2.Name = "TCmCashang2";
-            this.TCmCashang2.Weight = 0.057880850099098796;
+            this.TCmCashang2.Weight = 0.063157881799331211;
             // 
             // xrPageInfo1
             // 
@@ -1164,6 +1200,114 @@ namespace Book.UI.produceManager.ProduceInDepot
             resources.ApplyResources(this.PageFooter, "PageFooter");
             this.PageFooter.Name = "PageFooter";
             // 
+            // xrTableCell16
+            // 
+            resources.ApplyResources(this.xrTableCell16, "xrTableCell16");
+            this.xrTableCell16.Name = "xrTableCell16";
+            this.xrTableCell16.Weight = 0.0631578892733443;
+            // 
+            // TCmKaijisunhuai
+            // 
+            resources.ApplyResources(this.TCmKaijisunhuai, "TCmKaijisunhuai");
+            this.TCmKaijisunhuai.Name = "TCmKaijisunhuai";
+            this.TCmKaijisunhuai.Weight = 0.063157701854721179;
+            // 
+            // TCmKaijisunhuai2
+            // 
+            resources.ApplyResources(this.TCmKaijisunhuai2, "TCmKaijisunhuai2");
+            this.TCmKaijisunhuai2.Name = "TCmKaijisunhuai2";
+            this.TCmKaijisunhuai2.Weight = 0.063157704866326131;
+            // 
+            // xrTableCell41
+            // 
+            resources.ApplyResources(this.xrTableCell41, "xrTableCell41");
+            this.xrTableCell41.Name = "xrTableCell41";
+            this.xrTableCell41.Weight = 0.063157893581846883;
+            // 
+            // xrTableCell42
+            // 
+            resources.ApplyResources(this.xrTableCell42, "xrTableCell42");
+            this.xrTableCell42.Name = "xrTableCell42";
+            this.xrTableCell42.Weight = 0.063157892724495263;
+            // 
+            // xrTableCell43
+            // 
+            resources.ApplyResources(this.xrTableCell43, "xrTableCell43");
+            this.xrTableCell43.Name = "xrTableCell43";
+            this.xrTableCell43.Weight = 0.063157886272613512;
+            // 
+            // xrTableCell44
+            // 
+            resources.ApplyResources(this.xrTableCell44, "xrTableCell44");
+            this.xrTableCell44.Name = "xrTableCell44";
+            this.xrTableCell44.Weight = 0.063157892081481523;
+            // 
+            // TCmMaobian
+            // 
+            resources.ApplyResources(this.TCmMaobian, "TCmMaobian");
+            this.TCmMaobian.Name = "TCmMaobian";
+            this.TCmMaobian.Weight = 0.063158087715713046;
+            // 
+            // TCmYiliaoqikong
+            // 
+            resources.ApplyResources(this.TCmYiliaoqikong, "TCmYiliaoqikong");
+            this.TCmYiliaoqikong.Name = "TCmYiliaoqikong";
+            this.TCmYiliaoqikong.Weight = 0.063158280646209042;
+            // 
+            // TCmPopi
+            // 
+            resources.ApplyResources(this.TCmPopi, "TCmPopi");
+            this.TCmPopi.Name = "TCmPopi";
+            this.TCmPopi.Weight = 0.063157895254955618;
+            // 
+            // TCmBianse
+            // 
+            resources.ApplyResources(this.TCmBianse, "TCmBianse");
+            this.TCmBianse.Name = "TCmBianse";
+            this.TCmBianse.Weight = 0.063157895301929473;
+            // 
+            // TCmMaobian2
+            // 
+            resources.ApplyResources(this.TCmMaobian2, "TCmMaobian2");
+            this.TCmMaobian2.Name = "TCmMaobian2";
+            this.TCmMaobian2.Weight = 0.063158087150708156;
+            // 
+            // TCmPopi2
+            // 
+            resources.ApplyResources(this.TCmPopi2, "TCmPopi2");
+            this.TCmPopi2.Name = "TCmPopi2";
+            this.TCmPopi2.Weight = 0.0631575089229065;
+            // 
+            // TCmYiliaoqikong2
+            // 
+            resources.ApplyResources(this.TCmYiliaoqikong2, "TCmYiliaoqikong2");
+            this.TCmYiliaoqikong2.Name = "TCmYiliaoqikong2";
+            this.TCmYiliaoqikong2.Weight = 0.063158279893308716;
+            // 
+            // TCmBianse2
+            // 
+            resources.ApplyResources(this.TCmBianse2, "TCmBianse2");
+            this.TCmBianse2.Name = "TCmBianse2";
+            this.TCmBianse2.Weight = 0.0631578707856804;
+            // 
+            // xrTableCell54
+            // 
+            resources.ApplyResources(this.xrTableCell54, "xrTableCell54");
+            this.xrTableCell54.Name = "xrTableCell54";
+            this.xrTableCell54.Weight = 0.063157952313540877;
+            // 
+            // TCmMihedu
+            // 
+            resources.ApplyResources(this.TCmMihedu, "TCmMihedu");
+            this.TCmMihedu.Name = "TCmMihedu";
+            this.TCmMihedu.Weight = 0.063157895301929473;
+            // 
+            // TCmMihedu2
+            // 
+            resources.ApplyResources(this.TCmMihedu2, "TCmMihedu2");
+            this.TCmMihedu2.Name = "TCmMihedu2";
+            this.TCmMihedu2.Weight = 0.0631578707856804;
+            // 
             // ROProuceInDepotDefectRate
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1177,7 +1321,7 @@ namespace Book.UI.produceManager.ProduceInDepot
             resources.ApplyResources(this, "$this");
             this.Margins = new System.Drawing.Printing.Margins(0, 0, 79, 84);
             this.PageHeight = 2790;
-            this.PageWidth = 4000;
+            this.PageWidth = 4500;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.Version = "10.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
@@ -1326,5 +1470,23 @@ namespace Book.UI.produceManager.ProduceInDepot
         private DevExpress.XtraReports.UI.XRTableCell TCmChangshangbuliang2;
         private DevExpress.XtraReports.UI.XRTableCell TCmZuzhuangcashang2;
         private DevExpress.XtraReports.UI.XRTableCell TCmCashang2;
+        private DevExpress.XtraReports.UI.XRTableCell TCmKaijisunhuai;
+        private DevExpress.XtraReports.UI.XRTableCell TCmMaobian;
+        private DevExpress.XtraReports.UI.XRTableCell TCmYiliaoqikong;
+        private DevExpress.XtraReports.UI.XRTableCell TCmPopi;
+        private DevExpress.XtraReports.UI.XRTableCell TCmBianse;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell16;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell41;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell42;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell43;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell44;
+        private DevExpress.XtraReports.UI.XRTableCell TCmKaijisunhuai2;
+        private DevExpress.XtraReports.UI.XRTableCell TCmMaobian2;
+        private DevExpress.XtraReports.UI.XRTableCell TCmYiliaoqikong2;
+        private DevExpress.XtraReports.UI.XRTableCell TCmPopi2;
+        private DevExpress.XtraReports.UI.XRTableCell TCmBianse2;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell54;
+        private DevExpress.XtraReports.UI.XRTableCell TCmMihedu;
+        private DevExpress.XtraReports.UI.XRTableCell TCmMihedu2;
     }
 }
