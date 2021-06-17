@@ -111,6 +111,7 @@
             this.layoutControlItem47 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bindingSourceUnit = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceUnitGroup = new System.Windows.Forms.BindingSource(this.components);
+            this.barExport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -195,12 +196,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUnitGroup)).BeginInit();
             this.SuspendLayout();
             // 
+            // barManager1
+            // 
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barExport});
+            this.barManager1.MaxItemId = 16;
+            // 
             // imageCollection1
             // 
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
             // 
             // bar1
             // 
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barExport)});
             this.bar1.OptionsBar.UseWholeRow = true;
             // 
             // splitContainerControl1
@@ -1016,6 +1025,13 @@
             this.layoutControlItem47.TextSize = new System.Drawing.Size(76, 14);
             this.layoutControlItem47.TextToControlDistance = 5;
             // 
+            // barExport
+            // 
+            resources.ApplyResources(this.barExport, "barExport");
+            this.barExport.Id = 15;
+            this.barExport.Name = "barExport";
+            this.barExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barExport_ItemClick);
+            // 
             // CustomerProductForm
             // 
             resources.ApplyResources(this, "$this");
@@ -1193,5 +1209,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem52;
         private DevExpress.XtraEditors.TextEdit txt_Product_idNO;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraBars.BarButtonItem barExport;
     }
 }

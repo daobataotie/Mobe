@@ -1092,6 +1092,12 @@ namespace Book.UI.Settings.BasicData.Customs
             }
         }
 
+        private void barExport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CustomerProductExportCondition f = new CustomerProductExportCondition();
+            f.ShowDialog(this);
+        }
+
         // bool isck = false;
         //private void gridView1_ShowingEditor_1(object sender, CancelEventArgs e)
         //{

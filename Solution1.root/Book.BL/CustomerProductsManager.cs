@@ -8,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace Book.BL
 {
@@ -573,6 +574,11 @@ namespace Book.BL
         public string SelectPrimaryIdByProceName(string customerProductProceName)
         {
             return accessor.SelectPrimaryIdByProceName(customerProductProceName);
+        }
+
+        public DataTable SelectByCustomer(string startCustomerId, string endCustomerId)
+        {
+            return accessor.SelectByCustomer(startCustomerId, endCustomerId);
         }
     }
 }

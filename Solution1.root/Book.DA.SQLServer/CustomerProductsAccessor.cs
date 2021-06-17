@@ -86,5 +86,25 @@ namespace Book.DA.SQLServer
         {
             return sqlmapper.QueryForObject<string>("CustomerProducts.SelectPrimaryIdByProceName", customerProductProceName);
         }
+
+        public DataTable SelectByCustomer(string startCustomerId, string endCustomerId)
+        {
+            string sql = "select c.CustomerFullName,p.Id,p.ProductName,cp.CustomerProductId,p.ProductVersion from CustomerProducts cp left join Customer c on cp.CustomerId=c.CustomerId left join Product p on cp.CustomerProductProceName=p.ProductId ";
+
+            if (!string.IsNullOrEmpty(startCustomerId) || !string.IsNullOrEmpty(endCustomerId))
+            {
+                if (!string.IsNullOrEmpty(startCustomerId) && !string.IsNullOrEmpty(endCustomerId))
+                    sql += " where c.Id between '" + startCustomerId + "' and '" + endCustomerId + "' ";
+                else
+                    sql += " where c.Id='" + (string.IsNullOrEmpty(startCustomerId) ? endCustomerId : startCustomerId) + "'";
+            }
+
+            sql += " order by c.Id,p.Id";
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(sql, sqlmapper.DataSource.ConnectionString);
+            sda.Fill(dt);
+            return dt;
+        }
     }
 }

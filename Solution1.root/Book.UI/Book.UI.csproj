@@ -7849,6 +7849,9 @@
     <EmbeddedResource Include="Settings\BasicData\Customs\CustomerProduct.resx">
       <DependentUpon>CustomerProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\BasicData\Customs\CustomerProductExportCondition.resx">
+      <DependentUpon>CustomerProductExportCondition.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings\BasicData\Customs\CustomerProductForm.resx">
       <DependentUpon>CustomerProductForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -12988,6 +12991,12 @@
     </Compile>
     <Compile Include="Settings\BasicData\Customs\CustomerProduct.Designer.cs">
       <DependentUpon>CustomerProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\BasicData\Customs\CustomerProductExportCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\BasicData\Customs\CustomerProductExportCondition.Designer.cs">
+      <DependentUpon>CustomerProductExportCondition.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\BasicData\Customs\CustomerProductPrice.cs">
       <SubType>Form</SubType>

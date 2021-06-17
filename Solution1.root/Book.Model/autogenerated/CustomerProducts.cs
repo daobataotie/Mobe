@@ -292,7 +292,7 @@ namespace Book.Model
         }
 
         /// <summary>
-        /// 商品编号
+        /// 商品编号(对应己方基础商品)
         /// </summary>
         public string ProductId
         {
@@ -682,7 +682,7 @@ namespace Book.Model
         }
 
         /// <summary>
-        /// 
+        /// 生成新的客户商品的ProductId
         /// </summary>
         public string CustomerProductProceName
         {

@@ -246,7 +246,7 @@ namespace Book.UI.Settings.BasicData.Customs
                 //excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 1]).BorderAround(1, XlBorderWeight.xlMedium, XlColorIndex.xlColorIndexAutomatic, "#000000");
                 sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[3, productShipmentList.Count + moreCol]).Interior.ColorIndex = 15;   //浅灰色
                 sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[rowCount + 3, productShipmentList.Count + moreCol]).HorizontalAlignment = -4108;   //居中对齐
-                sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[rowCount + 3, productShipmentList.Count + moreCol]).WrapText = true;
+                sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[rowCount + 3, productShipmentList.Count + moreCol]).WrapText = true;   //自动换行
                 sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[rowCount + 3, productShipmentList.Count + moreCol]).EntireRow.AutoFit();
                 sheet.get_Range(sheet.Cells[4, 1], sheet.Cells[rowCount + 3, productShipmentList.Count + moreCol]).RowHeight = 20;
                 sheet.get_Range(sheet.Cells[2, 1], sheet.Cells[rowCount + 3, productShipmentList.Count + moreCol + 1]).Font.Size = 12;
