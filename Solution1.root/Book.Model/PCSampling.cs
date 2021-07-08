@@ -9,7 +9,7 @@ using System;
 namespace Book.Model
 {
 	/// <summary>
-	/// 品管抽检日报表
+    /// 品管抽检日报表 → 组装检验日报表
 	/// </summary>
 	[Serializable]
 	public partial class PCSampling

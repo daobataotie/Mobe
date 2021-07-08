@@ -511,7 +511,7 @@ namespace Book.Model
 			
 		}
 		/// <summary>
-		/// 产品
+		/// 组装前商品(其实就是该加工商品的母件)
 		/// </summary>
 		public virtual Product BeforePackageProduct
 		{

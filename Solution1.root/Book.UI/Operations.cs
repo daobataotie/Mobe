@@ -734,9 +734,9 @@ namespace Book.UI
             //物料检验单
             operations.Add("produceManager.PCMaterialCheck.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCMaterialCheck.EditForm", form); });
 
-            //品管抽检日报表
+            //组装检验日报表
             operations.Add("produceManager.PCSampling.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCSampling.EditForm", form); });
-            //品管抽检日报表(耳护类)
+            //组装检验日报表(耳护类)
             operations.Add("produceManager.PCSamplingEar.EditForm", (D1)delegate(System.Windows.Forms.Form form) { M1("produceManager.PCSamplingEar.EditForm", form); });
 
             //长期未出仓商品

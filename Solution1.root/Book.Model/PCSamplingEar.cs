@@ -9,7 +9,7 @@ using System;
 namespace Book.Model
 {
     /// <summary>
-    /// 品管抽检日报表(耳护类）
+    /// 品管抽检日报表(耳护类）→ 组装检验日报表(耳护类）
     /// </summary>
     [Serializable]
     public partial class PCSamplingEar
