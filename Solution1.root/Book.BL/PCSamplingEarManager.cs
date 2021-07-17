@@ -57,13 +57,14 @@ namespace Book.BL
             {
                 BL.V.BeginTransaction();
                 this.Validate(PCSamplingEar);
-                this.TiGuiExists(PCSamplingEar);
-
                 PCSamplingEar.InsertTime = DateTime.Now;
                 PCSamplingEar.UpdateTime = DateTime.Now;
+                this.TiGuiExists(PCSamplingEar);
+
                 accessor.Insert(PCSamplingEar);
                 foreach (var item in PCSamplingEar.Details)
                 {
+                    item.PCSamplingEarId = PCSamplingEar.PCSamplingEarId;
                     accessorDetail.Insert(item);
                 }
                 string invoiceKind = this.GetInvoiceKind().ToLower();

@@ -49,12 +49,12 @@ namespace Book.BL
             {
                 BL.V.BeginTransaction();
                 this.Validate(pCInputCheck);
-                this.TiGuiExists(pCInputCheck);
-                if (this.ExistsLotNumberInsert(pCInputCheck.LotNumber, pCInputCheck.ProductId))
-                    throw new Helper.MessageValueException("商品：" + pCInputCheck.Product + " 已有相同批號");
 
                 pCInputCheck.InsertTime = DateTime.Now;
                 pCInputCheck.UpdateTime = DateTime.Now;
+                this.TiGuiExists(pCInputCheck);
+                if (this.ExistsLotNumberInsert(pCInputCheck.LotNumber, pCInputCheck.ProductId))
+                    throw new Helper.MessageValueException("商品：" + pCInputCheck.Product + " 已有相同批號");
 
                 string invoiceKind = this.GetInvoiceKind().ToLower();
                 string sequencekey_y = string.Format("{0}-y-{1}", invoiceKind, pCInputCheck.InsertTime.Value.Year);

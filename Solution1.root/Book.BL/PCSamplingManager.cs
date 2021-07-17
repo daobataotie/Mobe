@@ -56,13 +56,14 @@ namespace Book.BL
             {
                 BL.V.BeginTransaction();
                 this.Validate(pCSampling);
-                this.TiGuiExists(pCSampling);
-
                 pCSampling.InsertTime = DateTime.Now;
                 pCSampling.UpdateTime = DateTime.Now;
+                this.TiGuiExists(pCSampling);
+
                 accessor.Insert(pCSampling);
                 foreach (var item in pCSampling.Details)
                 {
+                    item.PCSamplingId = pCSampling.PCSamplingId;
                     accessorDetail.Insert(item);
                 }
                 string invoiceKind = this.GetInvoiceKind().ToLower();

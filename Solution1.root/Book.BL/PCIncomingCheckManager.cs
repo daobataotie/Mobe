@@ -56,11 +56,11 @@ namespace Book.BL
             try
             {
                 BL.V.BeginTransaction();
+                pCIncomingCheck.InsertTime = DateTime.Now;
+                pCIncomingCheck.UpdateTime = DateTime.Now;
                 this.Validate(pCIncomingCheck);
                 this.TiGuiExists(pCIncomingCheck);
 
-                pCIncomingCheck.InsertTime = DateTime.Now;
-                pCIncomingCheck.UpdateTime = DateTime.Now;
                 accessor.Insert(pCIncomingCheck);
 
                 //设置KEY值
